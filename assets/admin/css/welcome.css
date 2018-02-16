@@ -1,0 +1,27 @@
+.svg .wp-badge.welcome__logo {
+    background: url('../../img/icon-128x128.png') center 0px no-repeat #fafafa;
+    background-size: contain;
+    color: #fff;
+    height: 20px;
+    width: 120px;
+}
+
+/* Responsive Youtube Video*/
+.embed-container {
+    height: 0;
+    max-width: 100%;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+    top: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+

@@ -1,0 +1,1224 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=1; plural=0\n"
+"Project-Id-Version: WP Coupons and Deals\n"
+"POT-Creation-Date: 2017-08-23 14:42-0400\n"
+"PO-Revision-Date: 2017-08-24 11:59+0000\n"
+"Last-Translator: imtiazrayhan <irayhan.asif@gmail.com>\n"
+"Language-Team: Vietnamese\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco - https://localise.biz/\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wp-coupons-deals.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: vi"
+
+#: includes/classes/admin/wpcd-admin-columns.php:106
+msgid "Title"
+msgstr "Đề mục"
+
+#: includes/classes/admin/wpcd-admin-columns.php:118
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:46
+#: includes/classes/admin/wpcd-meta-boxes.php:46
+msgid "Coupon Type"
+msgstr "Loại coupon"
+
+#: includes/classes/admin/wpcd-admin-columns.php:122
+msgid "Category"
+msgstr "Hạng mục"
+
+#: includes/classes/admin/wpcd-admin-columns.php:123
+msgid "ID"
+msgstr "ID"
+
+#: includes/classes/admin/wpcd-admin-columns.php:124
+msgid "Shortcodes"
+msgstr "Shortcodes"
+
+#: includes/classes/admin/wpcd-admin-columns.php:125
+msgid "Expires"
+msgstr "Hạn dùng"
+
+#: includes/classes/admin/wpcd-admin-columns.php:200
+msgid "No Category"
+msgstr "Không thuộc hạng mục nào"
+
+#: includes/classes/admin/wpcd-admin-columns.php:239
+msgid "Expired"
+msgstr "Đã hết hạn"
+
+#: includes/classes/admin/wpcd-admin-columns.php:242
+#: includes/classes/admin/wpcd-settings-page.php:239
+msgid "Doesn't Expire"
+msgstr "Chưa hết hạn"
+
+#: includes/classes/admin/wpcd-admin-columns.php:340
+msgid "Name"
+msgstr "Tên"
+
+#: includes/classes/admin/wpcd-admin-columns.php:341
+msgid "Slug"
+msgstr "Slug"
+
+#: includes/classes/admin/wpcd-admin-columns.php:342
+msgid "Posts"
+msgstr "Bài viết"
+
+#: includes/classes/admin/wpcd-admin-columns.php:343
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: includes/classes/admin/wpcd-admin-notices.php:45
+msgid "Hey, I noticed you have already created "
+msgstr "Xin chào, bạn vừa tạo trước đó rồi "
+
+#: includes/classes/admin/wpcd-admin-notices.php:105
+msgid "Full Coupon:"
+msgstr "Coupon đầy đủ:"
+
+#: includes/classes/admin/wpcd-admin-notices.php:106
+msgid "Only Coupon Code:"
+msgstr "Chỉ mã coupon:"
+
+#: includes/classes/admin/wpcd-admin-notices.php:110
+#: includes/classes/admin/wpcd-admin-notices.php:113
+msgid "Coupon updated."
+msgstr "Coupon đã được cập nhật."
+
+#: includes/classes/admin/wpcd-admin-notices.php:114
+#, php-format
+msgid "Coupon restored to revision from %s"
+msgstr "Coupon được khôi phục để sửa đổi từ %s"
+
+#: includes/classes/admin/wpcd-admin-notices.php:116
+#, php-format
+msgid ""
+"Coupon published. <br><br> Here are the shortcodes for this coupon: %s and "
+"%s "
+msgstr ""
+"Đã phát hành coupon. <br><br> Đây là các shortcode cho coupon này: %s và %s "
+
+#: includes/classes/admin/wpcd-admin-notices.php:119
+msgid "Coupon saved."
+msgstr "Đã lưu coupon."
+
+#: includes/classes/admin/wpcd-admin-notices.php:120
+msgid "Coupon submitted."
+msgstr "Đã nhập coupon."
+
+#: includes/classes/admin/wpcd-admin-notices.php:122
+#, php-format
+msgid "Coupon scheduled for: <strong>%1$s</strong>."
+msgstr "Coupon được dự định cho: <strong>%1$s</strong>."
+
+#: includes/classes/admin/wpcd-admin-notices.php:123
+msgid "M j, Y @ G:i"
+msgstr "M j, Y @ G:i"
+
+#: includes/classes/admin/wpcd-admin-notices.php:125
+msgid "Coupon draft updated."
+msgstr "Đã cập nhật bản nháp coupon."
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:48
+#: includes/classes/admin/wpcd-meta-boxes.php:48
+msgid ""
+"Coupon Type. Coupon will display a coupon code which will be copied when "
+"user clicks on it. Deal will display a link to get the deal instead of "
+"coupon code."
+msgstr ""
+"Loại coupon. Coupon sẽ hiển thị một mã coupon và được sao chép khi người "
+"dùng ấn chuột vào mã. Deal sẽ hiển thị đường dẫn để nhận deal thay thế cho "
+"mã coupon."
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:56
+#: includes/classes/admin/wpcd-meta-boxes.php:56
+msgid "Coupon Code"
+msgstr "Mã coupon"
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:58
+#: includes/classes/admin/wpcd-meta-boxes.php:58
+msgid "Put your coupon code here. This will be copied when user clicks on it."
+msgstr ""
+"Nhập mã coupon của bạn tại đây. Mã này sẽ được sao chép khi ấn chuột vào nó."
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:62
+#: includes/classes/admin/wpcd-meta-boxes.php:62
+msgid "Deal Button Text"
+msgstr "Đề mục cho nút deal"
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:64
+#: includes/classes/admin/wpcd-meta-boxes.php:64
+msgid "Deal button text. Put something like Get this Deal."
+msgstr ""
+"Đề mục cho nút deal. Ghi vào câu chữ nào đó, ví dụ như Hãy nhận deal này."
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:68
+#: includes/classes/admin/wpcd-meta-boxes.php:68
+msgid "Link"
+msgstr "Đường dẫn"
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:70
+#: includes/classes/admin/wpcd-meta-boxes.php:70
+msgid ""
+"Link to be opened when clicked on coupon code. You can use your affiliate "
+"links."
+msgstr ""
+"Đường dẫn sẽ được mở khi ấn vào mã coupon. Bạn có thể sử dụng đường dẫn của "
+"mình đường dẫn."
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:74
+#: includes/classes/admin/wpcd-meta-boxes.php:74
+msgid "Discount Amount/Text"
+msgstr "Lượng giảm giá/Câu chữ"
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:76
+#: includes/classes/admin/wpcd-meta-boxes.php:76
+msgid "Discount amount or text to be shown. Example: 60% Off."
+msgstr "Lượng giảm giá hoặc câu chữ được hiện. Ví dụ: Giảm giá 60%."
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:80
+#: includes/classes/admin/wpcd-meta-boxes.php:80
+msgid "Description"
+msgstr "Mô tả"
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:82
+#: includes/classes/admin/wpcd-meta-boxes.php:82
+msgid ""
+"A little description so users know what the coupon code or deal is about."
+msgstr ""
+"Một đoạn mô tả ngắn để người dùng biết được mã coupon hay deal này là về cái "
+"gì."
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:86
+#: includes/classes/admin/wpcd-meta-boxes.php:86
+msgid "Coupon/Deal Expiration"
+msgstr "Hạn dùng Coupon/Deal"
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:88
+#: includes/classes/admin/wpcd-meta-boxes.php:88
+msgid "Choose whether you want to show coupon/deal expiration."
+msgstr ""
+"Lựa chọn xem bạn có muốn để hiển thị hạn dùng của coupon/deal hay không."
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:96
+#: includes/classes/admin/wpcd-meta-boxes.php:96
+msgid "Expiration Date"
+msgstr "Ngày hết hạn"
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:98
+#: includes/classes/admin/wpcd-meta-boxes.php:98
+msgid ""
+"Choose a date this coupon will expire. If you leave this blank, shortcode "
+"will show the message Doesn't expire."
+msgstr ""
+"Chọn ngày hết hạn của coupon. Nếu bạn để trống, mã sẽ hiển thị thông báo "
+"Không có hạn sử dụng."
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:102
+#: includes/classes/admin/wpcd-meta-boxes.php:102
+msgid "Expiration Time"
+msgstr "Thời gian hết hạn"
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:104
+#: includes/classes/admin/wpcd-meta-boxes.php:104
+msgid "Choose expiration time of the coupon."
+msgstr "Chọn thời gian hết hạn của coupon."
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:108
+msgid "Hide Coupon"
+msgstr "Ẩn Coupon"
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:110
+#: includes/classes/admin/wpcd-meta-boxes.php:110
+msgid "Choose whether you want to hide the coupun"
+msgstr "Chọn xem bạn có muốn ẩn coupon hay không"
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:118
+msgid "Template"
+msgstr "Mẫu"
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:120
+#: includes/classes/admin/wpcd-meta-boxes.php:120
+msgid "Choose coupon shortcode template."
+msgstr "Chọn mẫu cho mã coupon."
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:140
+#: includes/classes/admin/wpcd-meta-boxes.php:141
+msgid "Coupon Details"
+msgstr "Chi tiết coupon"
+
+#: includes/classes/admin/wpcd-meta-boxes.php:108
+msgid "Hide Coupon (Pro)"
+msgstr "Ẩn coupon (Pro)"
+
+#: includes/classes/admin/wpcd-meta-boxes.php:118
+msgid "Template (Pro)"
+msgstr "Mẫu (Pro)"
+
+#: includes/classes/admin/wpcd-meta-boxes.php:294
+msgid "Hide coupon, change templates and get many more features"
+msgstr "Ẩn coupon, thay đổi mẫu và nhiều tính năng hơn"
+
+#: includes/classes/admin/wpcd-meta-boxes.php:297
+#: includes/functions/admin/wpcd-help-info.php:28
+msgid "Upgrade to Pro!"
+msgstr "Nâng cấp lên Pro!"
+
+#: includes/classes/admin/wpcd-meta-boxes.php:301
+msgid "Start 7 day Free Trial!"
+msgstr "Dùng thử 7 ngày miễn phí!"
+
+#: includes/classes/admin/wpcd-meta-boxes.php:302
+msgid "(NO Credit Card Required)"
+msgstr "(KHÔNG yêu cầu thẻ tín dụng)"
+
+#: includes/classes/admin/wpcd-meta-boxes.php:304
+msgid "More information about the Pro verison."
+msgstr "Thông tin chi tiết về phiên bản Pro."
+
+#: includes/classes/admin/wpcd-settings-page.php:103
+#: includes/classes/admin/wpcd-settings-page.php:559
+msgid "WP Coupons and Deals Settings"
+msgstr "Cài đặt WP Coupons and Deals"
+
+#: includes/classes/admin/wpcd-settings-page.php:103
+#: includes/classes/admin/wpcd-settings-page.php:141
+#: includes/classes/admin/wpcd-toolbar-links.php:78
+msgid "Settings"
+msgstr "Cài đặt"
+
+#: includes/classes/admin/wpcd-settings-page.php:164
+msgid "Coupon Settings"
+msgstr "Cài đặt Coupon"
+
+#: includes/classes/admin/wpcd-settings-page.php:165
+msgid ""
+"These are some general coupon settings. You can use the default settings or "
+"set your own ones."
+msgstr ""
+"Đây là các cài đặt chung cho coupon. Bạn có thể sử dụng cài đặt mặc định "
+"hoặc thiết lập cài đặt của riêng bạn."
+
+#: includes/classes/admin/wpcd-settings-page.php:169
+msgid "Hide Coupon Settings"
+msgstr "Ẩn cài đặt coupon"
+
+#: includes/classes/admin/wpcd-settings-page.php:170
+msgid "Settings when coupon is hidden."
+msgstr "Cài đặt khi coupon bị ẩn."
+
+#: includes/classes/admin/wpcd-settings-page.php:174
+msgid "Pop-up Settings"
+msgstr "Cài đặt pop-up"
+
+#: includes/classes/admin/wpcd-settings-page.php:175
+msgid "Settings for pop up which opens when user clicks to show code."
+msgstr "Cài đặt cho pop-up hiện lên khi người dùng ấn để hiện thị mã."
+
+#: includes/classes/admin/wpcd-settings-page.php:179
+msgid "Knowledge Base"
+msgstr "Kiến thức cơ bản"
+
+#: includes/classes/admin/wpcd-settings-page.php:180
+msgid ""
+"These are some general settings. You can use the default settings or set "
+"your own ones."
+msgstr ""
+"Đây là những cài đặt chung. Bạn có thể sử dụng cài đặt mặc định hoặc thiết "
+"lập cài đặt của riêng bạn."
+
+#: includes/classes/admin/wpcd-settings-page.php:195
+msgid "Words Count to Add More/Less Link"
+msgstr "Đếm từ để bổ sung đường dẫn nhiều hơn/ít hơn"
+
+#: includes/classes/admin/wpcd-settings-page.php:196
+msgid ""
+"If coupon description is more than this count, More/Less link will be added. "
+"Default is 30 words."
+msgstr ""
+"Nếu mô tả coupon nhiều hơn số này, đường dẫn sẽ được bổ sung nhiều hơn/ít "
+"hơn. Mặc định là 30 từ."
+
+#: includes/classes/admin/wpcd-settings-page.php:203
+msgid "Coupon Button Hover Text"
+msgstr "Đề mục khi rê chuột qua nút coupon"
+
+#: includes/classes/admin/wpcd-settings-page.php:204
+msgid ""
+"Text to show when user hovers on the coupon button. Default is Click To Copy "
+"Coupon"
+msgstr ""
+"Đoạn chữ sẽ hiển thị khi người dùng rê chuột qua nút coupon. Mặc định là Ấn "
+"chuột để sao chép Coupon"
+
+#: includes/classes/admin/wpcd-settings-page.php:207
+#: includes/classes/wpcd-short-code.php:358
+#: includes/classes/wpcd-short-code.php:596
+#: includes/functions/shortcode/code/wpcd-shortcode-code.php:83
+#: includes/functions/shortcode/code/wpcd-shortcode-code.php:96
+#: includes/templates/shortcode/shortcode-default.php:121
+#: includes/templates/shortcode/shortcode-default.php:134
+#: includes/templates/shortcode/shortcode-one__premium_only.php:117
+#: includes/templates/shortcode/shortcode-one__premium_only.php:130
+#: includes/templates/shortcode/shortcode-three__premium_only.php:190
+#: includes/templates/shortcode/shortcode-three__premium_only.php:203
+#: includes/templates/shortcode/shortcode-two__premium_only.php:131
+#: includes/templates/shortcode/shortcode-two__premium_only.php:144
+#: includes/templates/widget/widget-default.php:100
+#: includes/templates/widget/widget-default.php:113
+#: includes/templates/widget/widget-one.php:124
+#: includes/templates/widget/widget-one.php:140
+#: includes/templates/widget/widget-three.php:194
+#: includes/templates/widget/widget-three.php:207
+#: includes/templates/widget/widget-two.php:142
+#: includes/templates/widget/widget-two.php:158
+msgid "Click To Copy Coupon"
+msgstr "Ấn để sao chép coupon này"
+
+#: includes/classes/admin/wpcd-settings-page.php:211
+msgid "Deal Button Hover Text"
+msgstr "Đề mục khi rê chuột qua nút deal"
+
+#: includes/classes/admin/wpcd-settings-page.php:212
+msgid ""
+"Text to show when user hovers on the deal button. Default is Click Here To "
+"Get This Deal"
+msgstr ""
+"Đoạn chữ sẽ hiển thị khi người dùng rê chuột qua nút deal. Mặc định là Ấn "
+"vào đây để Nhận deal này"
+
+#: includes/classes/admin/wpcd-settings-page.php:215
+#: includes/classes/wpcd-short-code.php:371
+#: includes/classes/wpcd-short-code.php:609
+#: includes/functions/shortcode/code/wpcd-shortcode-code.php:110
+#: includes/templates/shortcode/shortcode-default.php:148
+#: includes/templates/shortcode/shortcode-one__premium_only.php:143
+#: includes/templates/shortcode/shortcode-three__premium_only.php:216
+#: includes/templates/shortcode/shortcode-two__premium_only.php:157
+#: includes/templates/widget/widget-default.php:127
+#: includes/templates/widget/widget-one.php:156
+#: includes/templates/widget/widget-three.php:221
+#: includes/templates/widget/widget-two.php:174
+msgid "Click Here To Get This Deal"
+msgstr "Ấn vào đây để nhận deal này"
+
+#: includes/classes/admin/wpcd-settings-page.php:219
+msgid "Expire Text"
+msgstr "Đề mục hạn sử dụng"
+
+#: includes/classes/admin/wpcd-settings-page.php:220
+msgid "Text to show before expire date. Default is 'Expires on:' "
+msgstr "Đoạn chữ sẽ hiển thị trước ngày hết hạn. Mặc định là 'Hết hạn vào:' "
+
+#: includes/classes/admin/wpcd-settings-page.php:223
+msgid "Expires on:"
+msgstr "Hết hạn vào:"
+
+#: includes/classes/admin/wpcd-settings-page.php:227
+msgid "Expired Text"
+msgstr "Đề mục đã hết hạn sử dụng"
+
+#: includes/classes/admin/wpcd-settings-page.php:228
+msgid "Text to show before expired date. Default is 'Expired on:' "
+msgstr ""
+"Đoạn chữ hiển thị trước ngày đã hết hạn. Mặc định là 'Đã hết hạn vào:' "
+
+#: includes/classes/admin/wpcd-settings-page.php:231
+msgid "Expired on:"
+msgstr "Đã hết hạn vào:"
+
+#: includes/classes/admin/wpcd-settings-page.php:235
+msgid "No Expiration Text"
+msgstr "Đề mục Không có hạn sử dụng"
+
+#: includes/classes/admin/wpcd-settings-page.php:236
+msgid ""
+"Text to show if coupon or deal never expires. Default is 'Doesn't expire'."
+msgstr ""
+"Đoạn chữ sẽ hiển thị nếu coupon hoặc deal không bao giờ hết hạn. Mặc định là "
+"'Không có hạn sử dụng'."
+
+#: includes/classes/admin/wpcd-settings-page.php:243
+msgid "Expiration Date Format"
+msgstr "Định dạng ngày hết hạn"
+
+#: includes/classes/admin/wpcd-settings-page.php:244
+msgid "Choose the date format for expiration date."
+msgstr "Lựa chọn định dạng ngày cho ngày hết hạn sử dung."
+
+#: includes/classes/admin/wpcd-settings-page.php:257
+msgid "Hidden Coupon Text"
+msgstr "Đề mục Ẩn coupon"
+
+#: includes/classes/admin/wpcd-settings-page.php:258
+msgid "Text to show when coupon is hidden. Default is 'Show Code' "
+msgstr "Đoạn chữ sẽ hiển thị khi coupon bị ẩn. Mặc định là 'Hiển thị mã' "
+
+#: includes/classes/admin/wpcd-settings-page.php:261
+#: includes/classes/wpcd-short-code.php:320
+#: includes/classes/wpcd-short-code.php:558
+#: includes/functions/admin/wpcd-preview-metabox.php:69
+#: includes/functions/admin/wpcd-preview-metabox.php:228
+#: includes/functions/admin/wpcd-preview-metabox.php:418
+#: includes/functions/admin/wpcd-preview-metabox.php:565
+#: includes/functions/shortcode/code/wpcd-shortcode-code.php:45
+#: includes/templates/shortcode/shortcode-default.php:83
+#: includes/templates/shortcode/shortcode-one__premium_only.php:79
+#: includes/templates/shortcode/shortcode-three__premium_only.php:152
+#: includes/templates/shortcode/shortcode-two__premium_only.php:93
+#: includes/templates/widget/widget-default.php:62
+#: includes/templates/widget/widget-one.php:85
+#: includes/templates/widget/widget-three.php:156
+#: includes/templates/widget/widget-two.php:102
+msgid "Show Code"
+msgstr "Hiển thị mã"
+
+#: includes/classes/admin/wpcd-settings-page.php:265
+msgid "Hidden Coupon Hover Text"
+msgstr "Đề mục khi rê chuột vào nút Ẩn coupon"
+
+#: includes/classes/admin/wpcd-settings-page.php:266
+msgid ""
+"Text to show when user hovers on the hidden coupon. Default is 'Click Here "
+"to Show Code'"
+msgstr ""
+"Đoạn chữ sẽ hiển thị khi người dùng rê chuột vào coupon bị ẩn. Mặc định là "
+"'Ấn vào đây để hiển thị mã'"
+
+#: includes/classes/admin/wpcd-settings-page.php:269
+#: includes/functions/admin/wpcd-preview-metabox.php:62
+#: includes/functions/admin/wpcd-preview-metabox.php:221
+#: includes/functions/admin/wpcd-preview-metabox.php:411
+#: includes/functions/admin/wpcd-preview-metabox.php:558
+#: includes/functions/shortcode/code/wpcd-shortcode-code.php:38
+#: includes/templates/shortcode/shortcode-default.php:76
+#: includes/templates/shortcode/shortcode-one__premium_only.php:72
+#: includes/templates/shortcode/shortcode-three__premium_only.php:143
+#: includes/templates/shortcode/shortcode-two__premium_only.php:86
+#: includes/templates/widget/widget-default.php:55
+#: includes/templates/widget/widget-one.php:78
+#: includes/templates/widget/widget-three.php:149
+#: includes/templates/widget/widget-two.php:95
+msgid "Click Here to Show Code"
+msgstr "Ấn vào đây để hiển thị mã"
+
+#: includes/classes/admin/wpcd-settings-page.php:273
+msgid "Hidden Coupon Button Color"
+msgstr "Màu cho nút Ẩn coupon"
+
+#: includes/classes/admin/wpcd-settings-page.php:274
+msgid "The color of the button when coupon is hidden."
+msgstr "Màu của nút khi coupon bị ẩn."
+
+#: includes/classes/admin/wpcd-settings-page.php:282
+msgid "Copy Button Text"
+msgstr "Đề mục Nút sao chép"
+
+#: includes/classes/admin/wpcd-settings-page.php:283
+msgid "Text to show in Copy button when pop up is shown. Default is 'Copy'."
+msgstr ""
+"Đoạn chữ sẽ hiển khị trên nút Sao chép khi cửa sổ pop up hiện ra. Mặc định "
+"là 'Sao chép'."
+
+#: includes/classes/admin/wpcd-settings-page.php:286
+#: includes/classes/wpcd-assets.php:62 includes/classes/wpcd-short-code.php:335
+#: includes/classes/wpcd-short-code.php:573
+#: includes/functions/shortcode/code/wpcd-shortcode-code.php:61
+#: includes/templates/shortcode/shortcode-default.php:99
+#: includes/templates/shortcode/shortcode-one__premium_only.php:95
+#: includes/templates/shortcode/shortcode-three__premium_only.php:168
+#: includes/templates/shortcode/shortcode-two__premium_only.php:109
+#: includes/templates/widget/widget-default.php:78
+#: includes/templates/widget/widget-one.php:101
+#: includes/templates/widget/widget-three.php:172
+#: includes/templates/widget/widget-two.php:119
+msgid "Copy"
+msgstr "Sao chép"
+
+#: includes/classes/admin/wpcd-settings-page.php:290
+msgid "After Copy Text"
+msgstr "Đề mục sau khi Sao chép"
+
+#: includes/classes/admin/wpcd-settings-page.php:291
+msgid "Text to show after coupon is copied. Default is 'Copied'."
+msgstr ""
+"Đoạn chữ sẽ hiển thị sau khi coupon được sao chép. Mặc định là 'Đã sao chép'."
+
+#: includes/classes/admin/wpcd-settings-page.php:294
+#: includes/classes/wpcd-assets.php:68
+msgid "Copied"
+msgstr "Đã sao chép"
+
+#: includes/classes/admin/wpcd-settings-page.php:298
+msgid "Text to Show Below Coupon Code"
+msgstr "Đề mục hiển thị bên dưới mã coupon"
+
+#: includes/classes/admin/wpcd-settings-page.php:299
+msgid ""
+"Select what to show below the coupon code in Pop-up. Default is Description."
+msgstr ""
+"Lựa chọn các mục sẽ hiển thị bên dưới mã coupon trong cửa sổ pop-up. Mặc "
+"định là Mô tả."
+
+#: includes/classes/admin/wpcd-settings-page.php:309
+msgid "Custom Text"
+msgstr "Tuỳ biến nội dung"
+
+#: includes/classes/admin/wpcd-settings-page.php:310
+msgid "Custom text to show below the coupon code."
+msgstr "Nội dung tuỳ biến sẽ hiện thị bên dưới mã coupon."
+
+#: includes/classes/admin/wpcd-settings-page.php:317
+msgid "Copy Button Background Color"
+msgstr "Màu nền nút Sao chép"
+
+#: includes/classes/admin/wpcd-settings-page.php:318
+msgid "Background color for the copy button."
+msgstr "Màu nền cho nút Sao chép."
+
+#: includes/classes/admin/wpcd-settings-page.php:324
+msgid "Coupon Code Background Color"
+msgstr "Màu nền mã coupon"
+
+#: includes/classes/admin/wpcd-settings-page.php:325
+msgid ""
+"Background color of the coupon code in the Pop up. Pop up is shown when "
+"users click to show code."
+msgstr ""
+"Màu nền của mã coupon trong cửa sổ pop up. Pop up được hiển thị khi người "
+"dùng ấn để hiển thị mã."
+
+#: includes/classes/admin/wpcd-settings-page.php:568
+msgid "Save Settings"
+msgstr "Lưu cài đặt"
+
+#: includes/classes/admin/wpcd-shortcode-inserter.php:86
+msgid "Select the Coupon you want to insert"
+msgstr "Lựa chọn coupon bạn muốn chèn thêm"
+
+#: includes/classes/admin/wpcd-shortcode-inserter.php:89
+msgid "Search the Coupon"
+msgstr "Tìm kiếm coupon"
+
+#: includes/classes/admin/wpcd-shortcode-inserter.php:112
+msgid "Select the Coupon Shortcode Type"
+msgstr "Lựa chọn loại mã coupon"
+
+#: includes/classes/admin/wpcd-shortcode-inserter.php:115
+msgid "Full Coupon with Details"
+msgstr "Coupon đầy đủ cùng chi tiết"
+
+#: includes/classes/admin/wpcd-shortcode-inserter.php:116
+#: includes/classes/admin/wpcd-shortcode-metabox.php:76
+msgid "Only Coupon Code"
+msgstr "Chỉ mã coupon"
+
+#: includes/classes/admin/wpcd-shortcode-inserter.php:128
+msgid "No Coupons are Published"
+msgstr "Không có coupon nào được phát hành"
+
+#: includes/classes/admin/wpcd-shortcode-metabox.php:43
+msgid "Coupon Shortcodes"
+msgstr "Coupon Shortcodes"
+
+#: includes/classes/admin/wpcd-shortcode-metabox.php:72
+msgid ""
+"These are the shortcodes for this coupon. Copy the shortcode and paste in "
+"your post or page content. \n"
+"\t\t\t\t\tThe full coupon shortcode shows the full coupon with all details.\n"
+"\t\t\t\t\tOnly coupon code shortcode will show the coupon code only"
+msgstr ""
+"Đây là mã cho coupon này. Sao chép mã và dán vào nội dung bài viết của bạn.\n"
+"\t\t\t\t\tMã coupon đầy đủ hiển thị đầy đủ coupon với tất cả thông tin chi "
+"tiết.\n"
+"\t\t\t\t\tChỉ mã coupon sẽ hiển thị duy nhất mã coupon\n"
+
+#: includes/classes/admin/wpcd-shortcode-metabox.php:75
+msgid "Full Coupon"
+msgstr "Coupon đầy đủ"
+
+#: includes/classes/admin/wpcd-toolbar-links.php:43
+#: includes/classes/admin/wpcd-toolbar-links.php:54
+msgid "Coupons"
+msgstr "Coupons"
+
+#: includes/classes/admin/wpcd-toolbar-links.php:62
+msgid "Add New Coupon"
+msgstr "Thêm coupon mới"
+
+#: includes/classes/admin/wpcd-toolbar-links.php:70
+msgid "Coupon Categories"
+msgstr "Hạng mục coupon"
+
+#. Plugin Name of the plugin/theme
+#: includes/classes/admin/wpcd-welcome-page.php:89
+#: includes/classes/admin/wpcd-welcome-page.php:90
+msgid "WP Coupons and Deals"
+msgstr "WP Coupons and Deals"
+
+#: includes/classes/wpcd-assets.php:72
+#: includes/functions/admin/wpcd-preview-metabox.php:378
+#: includes/functions/admin/wpcd-preview-metabox.php:380
+msgid "minutes"
+msgstr "phút"
+
+#: includes/classes/wpcd-assets.php:73
+#: includes/functions/admin/wpcd-preview-metabox.php:378
+#: includes/functions/admin/wpcd-preview-metabox.php:380
+msgid "seconds"
+msgstr "giây"
+
+#: includes/classes/wpcd-assets.php:74
+#: includes/functions/admin/wpcd-preview-metabox.php:380
+msgid "hours"
+msgstr "giờ"
+
+#: includes/classes/wpcd-assets.php:75
+#: includes/functions/admin/wpcd-preview-metabox.php:383
+msgid "day"
+msgstr "ngày"
+
+#: includes/classes/wpcd-assets.php:76
+#: includes/functions/admin/wpcd-preview-metabox.php:386
+msgid "week"
+msgstr "tuần"
+
+#: includes/classes/wpcd-assets.php:77
+#: includes/functions/admin/wpcd-preview-metabox.php:391
+msgid "This offer has expired!"
+msgstr "Khuyến mại này đã hết hạn!"
+
+#: includes/classes/wpcd-coupon-widget.php:23
+msgid "Add Coupons and Deals to your widget areas."
+msgstr "Thêm coupon và deal tới khu vực widget của bạn."
+
+#: includes/classes/wpcd-custom-post-type.php:50
+msgid "Enter Coupon title here"
+msgstr "Nhập tiêu đề coupon vào đây"
+
+#: includes/classes/wpcd-custom-post-type.php:77
+#: includes/classes/wpcd-custom-post-type.php:78
+#: includes/classes/wpcd-custom-post-type.php:79
+#: includes/classes/wpcd-custom-post-type.php:80
+#: includes/classes/wpcd-custom-taxonomy.php:33
+#: includes/classes/wpcd-custom-taxonomy.php:34
+#: includes/classes/wpcd-custom-taxonomy.php:43
+#, php-format
+msgid "%s"
+msgstr "%s"
+
+#: includes/classes/wpcd-custom-post-type.php:81
+#: includes/classes/wpcd-custom-post-type.php:82
+#: includes/classes/wpcd-custom-taxonomy.php:41
+#, php-format
+msgid "Add New %s"
+msgstr "Thêm mới %s"
+
+#: includes/classes/wpcd-custom-post-type.php:83
+#: includes/classes/wpcd-custom-taxonomy.php:39
+#, php-format
+msgid "Edit %s"
+msgstr "Chỉnh sửa %s"
+
+#: includes/classes/wpcd-custom-post-type.php:84
+#, php-format
+msgid "New %s"
+msgstr "Mới %s"
+
+#: includes/classes/wpcd-custom-post-type.php:85
+#, php-format
+msgid "View %s"
+msgstr "Xem %s"
+
+#: includes/classes/wpcd-custom-post-type.php:86
+#: includes/classes/wpcd-custom-taxonomy.php:35
+#, php-format
+msgid "Search %s"
+msgstr "Tìm kiếm %s"
+
+#: includes/classes/wpcd-custom-post-type.php:87
+#, php-format
+msgid "No %s found"
+msgstr "Không tìm thấy %s nào"
+
+#: includes/classes/wpcd-custom-post-type.php:88
+#, php-format
+msgid "No %s found in Trash"
+msgstr "Không tìm thấy %s nào trong Thùng rác"
+
+#: includes/classes/wpcd-custom-post-type.php:116
+#, php-format
+msgid "%s Custom Post Type"
+msgstr "Tuỳ chỉnh kiểu bài đăng %s"
+
+#: includes/classes/wpcd-custom-taxonomy.php:36
+#, php-format
+msgid "All %s"
+msgstr "Tất cả %s"
+
+#: includes/classes/wpcd-custom-taxonomy.php:37
+#, php-format
+msgid "Parent %s"
+msgstr "%s gốc"
+
+#: includes/classes/wpcd-custom-taxonomy.php:38
+#, php-format
+msgid "Parent %s:"
+msgstr "%s gốc:"
+
+#: includes/classes/wpcd-custom-taxonomy.php:40
+#, php-format
+msgid "Update %s"
+msgstr "Update %s"
+
+#: includes/classes/wpcd-custom-taxonomy.php:42
+#, php-format
+msgid "New %s Name"
+msgstr "Tên %s mới"
+
+#: includes/classes/wpcd-custom-taxonomy.php:44
+#, php-format
+msgid "Popular %s"
+msgstr "%s phổ biến"
+
+#: includes/classes/wpcd-custom-taxonomy.php:45
+#, php-format
+msgid "Separate %s with commas"
+msgstr "Phân tách %s với dấu phẩy"
+
+#: includes/classes/wpcd-custom-taxonomy.php:46
+#, php-format
+msgid "Add or remove %s"
+msgstr "Thêm hoặc xoá %s"
+
+#: includes/classes/wpcd-custom-taxonomy.php:47
+#, php-format
+msgid "Choose from the most used %s"
+msgstr "Lựa chọn từ các %s được dùng nhiều nhất"
+
+#: includes/classes/wpcd-preview-metabox.php:42
+msgid "Coupon Preview"
+msgstr "Xem trước coupon"
+
+#: includes/classes/wpcd-short-code.php:314
+#: includes/classes/wpcd-short-code.php:552
+msgid "Click here to show code"
+msgstr "Ấn vào đây để hiện thị mã"
+
+#: includes/classes/wpcd-short-code.php:338
+#: includes/classes/wpcd-short-code.php:576
+msgid "Click on Copy to Copy the Coupon Code."
+msgstr "Ấn vào Sao chép để sao chép mã coupon."
+
+#: includes/classes/wpcd-short-code.php:385
+#: includes/classes/wpcd-short-code.php:623
+#: includes/templates/shortcode/shortcode-default.php:161
+#: includes/templates/shortcode/shortcode-one__premium_only.php:60
+#: includes/templates/shortcode/shortcode-three__premium_only.php:44
+#: includes/templates/shortcode/shortcode-two__premium_only.php:170
+#: includes/templates/widget/widget-default.php:142
+#: includes/templates/widget/widget-one.php:63
+#: includes/templates/widget/widget-three.php:52
+#: includes/templates/widget/widget-two.php:83
+msgid "More"
+msgstr "Nhiều hơn"
+
+#: includes/classes/wpcd-short-code.php:386
+#: includes/classes/wpcd-short-code.php:624
+#: includes/templates/shortcode/shortcode-default.php:162
+#: includes/templates/shortcode/shortcode-one__premium_only.php:61
+#: includes/templates/shortcode/shortcode-three__premium_only.php:45
+#: includes/templates/shortcode/shortcode-two__premium_only.php:171
+#: includes/templates/widget/widget-default.php:143
+#: includes/templates/widget/widget-one.php:64
+#: includes/templates/widget/widget-three.php:53
+#: includes/templates/widget/widget-two.php:84
+msgid "Less"
+msgstr "Ít hơn"
+
+#: includes/classes/wpcd-short-code.php:400
+#: includes/classes/wpcd-short-code.php:638
+#: includes/functions/admin/wpcd-preview-metabox.php:105
+#: includes/functions/admin/wpcd-preview-metabox.php:120
+#: includes/functions/admin/wpcd-preview-metabox.php:157
+#: includes/functions/admin/wpcd-preview-metabox.php:252
+#: includes/functions/admin/wpcd-preview-metabox.php:268
+#: includes/functions/admin/wpcd-preview-metabox.php:305
+#: includes/functions/admin/wpcd-preview-metabox.php:370
+#: includes/functions/admin/wpcd-preview-metabox.php:462
+#: includes/functions/admin/wpcd-preview-metabox.php:478
+#: includes/functions/admin/wpcd-preview-metabox.php:519
+#: includes/templates/shortcode/shortcode-default.php:176
+#: includes/templates/shortcode/shortcode-default.php:213
+#: includes/templates/shortcode/shortcode-one__premium_only.php:159
+#: includes/templates/shortcode/shortcode-one__premium_only.php:196
+#: includes/templates/shortcode/shortcode-three__premium_only.php:60
+#: includes/templates/shortcode/shortcode-three__premium_only.php:102
+#: includes/templates/shortcode/shortcode-two__premium_only.php:74
+#: includes/templates/widget/widget-default.php:157
+#: includes/templates/widget/widget-default.php:194
+#: includes/templates/widget/widget-one.php:181
+#: includes/templates/widget/widget-one.php:222
+#: includes/templates/widget/widget-three.php:72
+#: includes/templates/widget/widget-three.php:109
+#: includes/templates/widget/widget-two.php:69
+msgid "Expires on: "
+msgstr "Hết hạn vào: "
+
+#: includes/classes/wpcd-short-code.php:408
+#: includes/classes/wpcd-short-code.php:646
+#: includes/functions/admin/wpcd-preview-metabox.php:130
+#: includes/functions/admin/wpcd-preview-metabox.php:168
+#: includes/functions/admin/wpcd-preview-metabox.php:278
+#: includes/functions/admin/wpcd-preview-metabox.php:315
+#: includes/functions/admin/wpcd-preview-metabox.php:489
+#: includes/functions/admin/wpcd-preview-metabox.php:531
+#: includes/templates/shortcode/shortcode-default.php:186
+#: includes/templates/shortcode/shortcode-default.php:223
+#: includes/templates/shortcode/shortcode-one__premium_only.php:169
+#: includes/templates/shortcode/shortcode-one__premium_only.php:206
+#: includes/templates/shortcode/shortcode-three__premium_only.php:72
+#: includes/templates/shortcode/shortcode-three__premium_only.php:114
+#: includes/templates/widget/widget-default.php:167
+#: includes/templates/widget/widget-default.php:204
+#: includes/templates/widget/widget-one.php:191
+#: includes/templates/widget/widget-one.php:232
+#: includes/templates/widget/widget-three.php:82
+#: includes/templates/widget/widget-three.php:119
+msgid "Expired on: "
+msgstr "Đã hết hạn vào: "
+
+#: includes/classes/wpcd-short-code.php:419
+#: includes/classes/wpcd-short-code.php:657
+#: includes/functions/admin/wpcd-preview-metabox.php:140
+#: includes/functions/admin/wpcd-preview-metabox.php:182
+#: includes/functions/admin/wpcd-preview-metabox.php:288
+#: includes/functions/admin/wpcd-preview-metabox.php:328
+#: includes/functions/admin/wpcd-preview-metabox.php:500
+#: includes/functions/admin/wpcd-preview-metabox.php:545
+#: includes/templates/shortcode/shortcode-default.php:196
+#: includes/templates/shortcode/shortcode-default.php:236
+#: includes/templates/shortcode/shortcode-one__premium_only.php:179
+#: includes/templates/shortcode/shortcode-one__premium_only.php:219
+#: includes/templates/shortcode/shortcode-three__premium_only.php:83
+#: includes/templates/shortcode/shortcode-three__premium_only.php:128
+#: includes/templates/widget/widget-default.php:177
+#: includes/templates/widget/widget-default.php:217
+#: includes/templates/widget/widget-one.php:203
+#: includes/templates/widget/widget-one.php:246
+#: includes/templates/widget/widget-three.php:92
+#: includes/templates/widget/widget-three.php:132
+msgid "Doesn't expire"
+msgstr "Không có hạn sử dụng"
+
+#: includes/classes/wpcd-short-code.php:439
+msgid "« Prev"
+msgstr "« Trước"
+
+#: includes/classes/wpcd-short-code.php:440
+msgid "Next »"
+msgstr "Sau »"
+
+#: includes/classes/wpcd-short-code.php:446
+#: includes/classes/wpcd-short-code.php:673
+msgid "Sorry, no coupons/deals found."
+msgstr "Rất tiếc, không tìm thấy coupon/deal nào."
+
+#: includes/functions/admin/wpcd-add-coupon-button.php:16
+msgid "Insert Coupon Shortcode"
+msgstr "Chèn thêm mã coupon"
+
+#: includes/functions/admin/wpcd-add-coupon-button.php:16
+msgid "Add Coupon"
+msgstr "Thêm coupon"
+
+#: includes/functions/admin/wpcd-help-info.php:16
+msgid ""
+"From the list, select the coupon you want to insert then click on Insert "
+"Coupon Shortcode button. \tIf you have not created any coupons,"
+msgstr ""
+"Từ danh sách, lựa chọn coupon bạn muốn thêm vào rồi ấn Thêm nút mã coupon. "
+"\tNếu bạn chưa tạo coupon nào,"
+
+#: includes/functions/admin/wpcd-help-info.php:18
+#: includes/functions/admin/wpcd-widget-help-info.php:18
+msgid "create one"
+msgstr "tạo"
+
+#: includes/functions/admin/wpcd-help-info.php:20
+msgid "or"
+msgstr "hoặc"
+
+#: includes/functions/admin/wpcd-help-info.php:22
+#: includes/functions/admin/wpcd-widget-help-info.php:22
+msgid "manage your coupons"
+msgstr "quản lý coupon của bạn"
+
+#: includes/functions/admin/wpcd-help-info.php:30
+msgid " to search coupon and insert shortcode, and many more features!"
+msgstr " để tìm kiếm coupon và chèn thêm mã, và rất nhiều tính năng khác!"
+
+#: includes/functions/admin/wpcd-preview-metabox.php:48
+#: includes/functions/admin/wpcd-preview-metabox.php:218
+#: includes/functions/admin/wpcd-preview-metabox.php:355
+msgid "Discount Text"
+msgstr "Đề mục Giảm giá"
+
+#: includes/functions/admin/wpcd-preview-metabox.php:51
+#: includes/templates/shortcode/shortcode-default.php:56
+msgid "Coupon"
+msgstr "Coupon"
+
+#: includes/functions/admin/wpcd-preview-metabox.php:57
+#: includes/functions/admin/wpcd-preview-metabox.php:210
+#: includes/functions/admin/wpcd-preview-metabox.php:361
+#: includes/functions/admin/wpcd-preview-metabox.php:448
+msgid "Sample Coupon Code"
+msgstr "Mẫu Mã coupon"
+
+#: includes/functions/admin/wpcd-preview-metabox.php:63
+#: includes/functions/admin/wpcd-preview-metabox.php:77
+#: includes/functions/admin/wpcd-preview-metabox.php:78
+#: includes/functions/admin/wpcd-preview-metabox.php:222
+#: includes/functions/admin/wpcd-preview-metabox.php:236
+#: includes/functions/admin/wpcd-preview-metabox.php:237
+#: includes/functions/admin/wpcd-preview-metabox.php:412
+#: includes/functions/admin/wpcd-preview-metabox.php:426
+#: includes/functions/admin/wpcd-preview-metabox.php:427
+#: includes/functions/admin/wpcd-preview-metabox.php:559
+#: includes/functions/admin/wpcd-preview-metabox.php:573
+#: includes/functions/admin/wpcd-preview-metabox.php:574
+msgid "COUPONCODE"
+msgstr "MÃCOUPON"
+
+#: includes/functions/admin/wpcd-preview-metabox.php:77
+#: includes/functions/admin/wpcd-preview-metabox.php:236
+#: includes/functions/admin/wpcd-preview-metabox.php:426
+#: includes/functions/admin/wpcd-preview-metabox.php:573
+msgid "Click Here To Copy Coupon"
+msgstr "Ấn vào đây để sao chép coupon"
+
+#: includes/functions/admin/wpcd-preview-metabox.php:82
+#: includes/functions/admin/wpcd-preview-metabox.php:241
+#: includes/functions/admin/wpcd-preview-metabox.php:431
+#: includes/functions/admin/wpcd-preview-metabox.php:578
+msgid "Click Here To Get this deal"
+msgstr "Ấn vào đây để nhận deal này"
+
+#: includes/functions/admin/wpcd-preview-metabox.php:82
+#: includes/functions/admin/wpcd-preview-metabox.php:83
+#: includes/functions/admin/wpcd-preview-metabox.php:241
+#: includes/functions/admin/wpcd-preview-metabox.php:242
+#: includes/functions/admin/wpcd-preview-metabox.php:431
+#: includes/functions/admin/wpcd-preview-metabox.php:432
+#: includes/functions/admin/wpcd-preview-metabox.php:578
+#: includes/functions/admin/wpcd-preview-metabox.php:579
+msgid "Claim This Deal"
+msgstr "Nhận deal này"
+
+#: includes/functions/admin/wpcd-preview-metabox.php:94
+#: includes/functions/admin/wpcd-preview-metabox.php:213
+msgid ""
+"This is the description of the coupon code. Additional details of what the "
+"coupon or deal is."
+msgstr ""
+"Đây là mô tả về mã coupon. Thông tin chi tiết mô tả về coupon hoặc deal."
+
+#: includes/functions/admin/wpcd-preview-metabox.php:441
+#: includes/functions/admin/wpcd-preview-metabox.php:450
+msgid ""
+"This is the description of the coupon code. You can add additional details "
+"about the coupon here, what the coupon or deal is."
+msgstr ""
+"Đây là mô tả về mã coupon. Bạn có thể bổ sung thông tin chi tiết về coupon "
+"hay deal tại đây."
+
+#: includes/functions/admin/wpcd-preview-metabox.php:588
+msgid "Note:"
+msgstr "Ghi chú:"
+
+#: includes/functions/admin/wpcd-preview-metabox.php:588
+msgid ""
+"This is just to show how the coupon will look. Click to copy functionality, "
+"showing hidden coupon will not work here, but it will work on posts, pages "
+"where you put the shortcode."
+msgstr ""
+"Việc làm này chỉ để xem coupon sẽ hiển thị như thế nào. Ấn để sao chép các "
+"chức năng, coupon ẩn được hiển thị sẽ không hoạt động tại đây, nhưng nó sẽ "
+"hoạt động trên các bài đăng và các trang mà bạn đặt mã."
+
+#: includes/functions/admin/wpcd-settings-page-extra.php:16
+msgid "Help Us Spread the Word!"
+msgstr "Giúp chúng tôi lan toả!"
+
+#: includes/functions/admin/wpcd-settings-page-extra.php:17
+msgid ""
+"Hey, if you like using this plugin, could you please do me a BIG favor and "
+"give it a 5-star rating on WordPress? Just to help us spread the word. <br>~ "
+"Imtiaz Rayhan"
+msgstr ""
+"Xin chào, nếu thấy thích plugin này, bạn có thể vui lòng giúp tôi đánh giá "
+"nó 5 sao trên WordPress? Hãy giúp chúng tôi lan toả. <br>~ Imtiaz Rayhan"
+
+#: includes/functions/admin/wpcd-settings-page-extra.php:27
+msgid "Keep in touch!"
+msgstr "Giữ liên lạc!"
+
+#: includes/functions/admin/wpcd-settings-page-extra.php:28
+#: includes/functions/admin/wpcd-welcome-page-content.php:73
+msgid ""
+"Sign up to get plugin updates news, WordPress tips and more! We hate spam  "
+"just as much as you do. We promise we wil NEVER EVER spam."
+msgstr ""
+"Đăng kí để được nhận thông tin cập nhật mới về plugin, các mẹo WordPress và "
+"nhiều hơn thế nữa! Chúng tôi cũng ghét tin rác  như bạn thôi. Chúng thôi cam "
+"đoan sẽ KHÔNG BAO GIỜ gửi tin rác."
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:19
+#, php-format
+msgid "WP Coupons and Deals %s"
+msgstr "WP Coupons and Deals %s"
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:22
+msgid ""
+"Thank you for using WP Coupons and Deals plugin. \n"
+"\t\tWP Coupons and Deals is ready to create beautiful coupons and deals "
+"shortcode for you. "
+msgstr ""
+"Cảm ơn bạn đã sử dụng plugin WP Coupons and Deals. \n"
+"\t\tWP Coupons and Deals luôn sẵn sàng giúp bạn tạo ra những mã coupon và "
+"deal  tuyệt đẹp. "
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:30
+msgid "Let's Get Started"
+msgstr "Hãy bắt đầu nào"
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:32
+#: includes/functions/admin/wpcd-welcome-page-content.php:41
+msgid "Step 1:"
+msgstr "Bước 1:"
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:32
+msgid "First things first,"
+msgstr "Đầu tiên,"
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:32
+msgid "Add a new Coupon."
+msgstr "Thêm một coupon mới."
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:33
+#: includes/functions/admin/wpcd-welcome-page-content.php:42
+msgid "Step 2:"
+msgstr "Bước 2:"
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:33
+msgid "Copy and paste the shortcode in your post."
+msgstr "Sao chép và dán đoạn mã vào bài viết của bạn."
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:34
+#: includes/functions/admin/wpcd-welcome-page-content.php:43
+msgid "Step 3:"
+msgstr "Bước 3:"
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:34
+msgid "Publish your post and you are done!!"
+msgstr "Đăng bài viết của bạn, thế là xong!!"
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:39
+msgid "Adding coupons in widget areas"
+msgstr "Thêm coupon vào khu vực widget"
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:41
+msgid "Drag the 'Coupons and Deals Widget' to widget area."
+msgstr "Kéo widget 'Coupons and Deals Widget' vào khu vực widget."
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:42
+msgid "Select the coupon you want to show."
+msgstr "Lựa chọn coupon bạn muốn cho hiển thị."
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:43
+msgid "Hit the save button. You're done."
+msgstr "Nhấn nút lưu. Như vậy là xong."
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:49
+msgid "Here's a liitle video to help you get started."
+msgstr "Đây là một đoạn video ngắn để giúp bạn bắt đầu."
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:57
+msgid "Watch the video on HD and fullscreen for a clear experience."
+msgstr "Hãy xem video ở chế độ HD và toàn màn hình để có trải nghiệm tốt nhất."
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:64
+msgid "Contact"
+msgstr "Liện hệ"
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:65
+msgid ""
+"If you have any questions or suggestions about the plugin, feel free to <a "
+"href=\"http://imtiazrayhan.com/contact/\" target=\"_blank\">get in touch</a>."
+msgstr ""
+"Nếu bạn có bất cứ câu hỏi hay gợi ý nào về plugin này, đừng ngại ngần <a "
+"href=\"http://imtiazrayhan.com/contact/\" target=\"_blank\">liên hệ với "
+"tôi</a>."
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:66
+msgid "I would love to hear from you. You can also conncect with me on"
+msgstr ""
+"Tôi rất mong nhận được đóng góp từ các bạn. Bạn cũng có thể kết nối với tôi "
+"qua"
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:72
+msgid "More stuff!"
+msgstr "Nhiều thứ hơn!"
+
+#: includes/functions/admin/wpcd-widget-help-info.php:16
+msgid ""
+"From the list, select the coupon you want to show on the widget and click on "
+"the Save button. \tIf you have not created any coupons,"
+msgstr ""
+"Từ danh sách, hãy chọn coupon bạn muốn cho hiển thị trên widget và ấn vào "
+"nút Lưu. \tNếu bạn chưa tạo coupon nào,"
+
+#: includes/templates/shortcode/shortcode-default.php:60
+msgid "Deal"
+msgstr "Deal"
+
+#: includes/templates/shortcode/shortcode-default.php:102
+#: includes/templates/shortcode/shortcode-one__premium_only.php:98
+#: includes/templates/shortcode/shortcode-three__premium_only.php:171
+#: includes/templates/shortcode/shortcode-two__premium_only.php:112
+#: includes/templates/widget/widget-default.php:81
+#: includes/templates/widget/widget-one.php:104
+#: includes/templates/widget/widget-three.php:175
+#: includes/templates/widget/widget-two.php:122
+msgid "Click on 'Copy' to Copy the Coupon Code."
+msgstr "Ấn vào 'Sao chép' để sao chép mã coupon."
+
+#. Plugin URI of the plugin/theme
+msgid "http://wpcouponsdeals.com/"
+msgstr "http://wpcouponsdeals.com/"
+
+#. Description of the plugin/theme
+msgid ""
+"Very lightweight and easy to use WordPress Coupons and deals plugin. "
+"Generate more affiliate sales with coupon codes and deals."
+msgstr ""
+"Plugin WordPress Coupons and deals rất nhẹ nhàng và dễ dàng sử dụng. Tạo "
+"được nhiều đơn hàng hơn với mã coupon và deal."
+
+#. Author of the plugin/theme
+msgid "Imtiaz Rayhan"
+msgstr "Imtiaz Rayhan"
+
+#. Author URI of the plugin/theme
+msgid "http://imtiazrayhan.com/"
+msgstr "http://imtiazrayhan.com/"

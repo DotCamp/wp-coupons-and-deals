@@ -1,0 +1,1230 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Project-Id-Version: WP Coupons and Deals\n"
+"POT-Creation-Date: 2017-08-23 14:42-0400\n"
+"PO-Revision-Date: 2017-08-29 12:19+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.3\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wp-coupons-deals.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Last-Translator: Christian Bramer » webwidoo.com <cb.wordpress@mailbox.org>\n"
+"Language: de_DE\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: includes/classes/admin/wpcd-admin-columns.php:106
+msgid "Title"
+msgstr "Titel"
+
+#: includes/classes/admin/wpcd-admin-columns.php:118
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:46
+#: includes/classes/admin/wpcd-meta-boxes.php:46
+msgid "Coupon Type"
+msgstr "Coupon Typ"
+
+#: includes/classes/admin/wpcd-admin-columns.php:122
+msgid "Category"
+msgstr "Kategorie"
+
+#: includes/classes/admin/wpcd-admin-columns.php:123
+msgid "ID"
+msgstr "ID"
+
+#: includes/classes/admin/wpcd-admin-columns.php:124
+msgid "Shortcodes"
+msgstr "Shortcodes"
+
+#: includes/classes/admin/wpcd-admin-columns.php:125
+msgid "Expires"
+msgstr "Läuft ab"
+
+#: includes/classes/admin/wpcd-admin-columns.php:200
+msgid "No Category"
+msgstr "Keine Kategorie"
+
+#: includes/classes/admin/wpcd-admin-columns.php:239
+msgid "Expired"
+msgstr "Abgelaufen"
+
+#: includes/classes/admin/wpcd-admin-columns.php:242
+#: includes/classes/admin/wpcd-settings-page.php:239
+msgid "Doesn't Expire"
+msgstr "Läuft nicht ab"
+
+#: includes/classes/admin/wpcd-admin-columns.php:340
+msgid "Name"
+msgstr "Name"
+
+#: includes/classes/admin/wpcd-admin-columns.php:341
+msgid "Slug"
+msgstr "Slug"
+
+#: includes/classes/admin/wpcd-admin-columns.php:342
+msgid "Posts"
+msgstr "Beiträge"
+
+#: includes/classes/admin/wpcd-admin-columns.php:343
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: includes/classes/admin/wpcd-admin-notices.php:45
+msgid "Hey, I noticed you have already created "
+msgstr "Hey, ich habe festgestellt, dass du schon alles geschaffen hast "
+
+#: includes/classes/admin/wpcd-admin-notices.php:105
+msgid "Full Coupon:"
+msgstr "Voller Coupon:"
+
+#: includes/classes/admin/wpcd-admin-notices.php:106
+msgid "Only Coupon Code:"
+msgstr "Nur Gutschein-Code:"
+
+#: includes/classes/admin/wpcd-admin-notices.php:110
+#: includes/classes/admin/wpcd-admin-notices.php:113
+msgid "Coupon updated."
+msgstr "Coupon aktualisiert."
+
+#: includes/classes/admin/wpcd-admin-notices.php:114
+#, php-format
+msgid "Coupon restored to revision from %s"
+msgstr "Coupon wiederhergestellt zu Revision von %s"
+
+#: includes/classes/admin/wpcd-admin-notices.php:116
+#, php-format
+msgid ""
+"Coupon published. <br><br> Here are the shortcodes for this coupon: %s and "
+"%s "
+msgstr ""
+"Coupon veröffentlicht. <br><br> Hier sind die Shortcodes für diesen Coupon:"
+"% s und% s "
+
+#: includes/classes/admin/wpcd-admin-notices.php:119
+msgid "Coupon saved."
+msgstr "Coupon gespeichert."
+
+#: includes/classes/admin/wpcd-admin-notices.php:120
+msgid "Coupon submitted."
+msgstr "Coupon eingereicht."
+
+#: includes/classes/admin/wpcd-admin-notices.php:122
+#, php-format
+msgid "Coupon scheduled for: <strong>%1$s</strong>."
+msgstr "Coupon geplant für: <strong>%1$s</ strong>."
+
+#: includes/classes/admin/wpcd-admin-notices.php:123
+msgid "M j, Y @ G:i"
+msgstr "M j, Y @ G:i"
+
+#: includes/classes/admin/wpcd-admin-notices.php:125
+msgid "Coupon draft updated."
+msgstr "Couponentwurf aktualisiert."
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:48
+#: includes/classes/admin/wpcd-meta-boxes.php:48
+msgid ""
+"Coupon Type. Coupon will display a coupon code which will be copied when "
+"user clicks on it. Deal will display a link to get the deal instead of "
+"coupon code."
+msgstr ""
+"Coupon-Typ. Coupon zeigt einen Gutscheincode an, der kopiert wird, wenn der "
+"Benutzer darauf klickt. Deal wird einen Link anzeigen, um den Deal statt "
+"Gutscheincode zu erhalten."
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:56
+#: includes/classes/admin/wpcd-meta-boxes.php:56
+msgid "Coupon Code"
+msgstr "Gutschein-Code"
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:58
+#: includes/classes/admin/wpcd-meta-boxes.php:58
+msgid "Put your coupon code here. This will be copied when user clicks on it."
+msgstr ""
+"Setzen Sie hier Ihren Gutscheincode ein. Dieser wird kopiert, wenn der "
+"Benutzer darauf klickt."
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:62
+#: includes/classes/admin/wpcd-meta-boxes.php:62
+msgid "Deal Button Text"
+msgstr "Deal Button Text"
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:64
+#: includes/classes/admin/wpcd-meta-boxes.php:64
+msgid "Deal button text. Put something like Get this Deal."
+msgstr ""
+"Deal-Button Text. Schreiben Sie etwas wie \"Zum Deal\" oder \"Zum Angebot\"."
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:68
+#: includes/classes/admin/wpcd-meta-boxes.php:68
+msgid "Link"
+msgstr "Link"
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:70
+#: includes/classes/admin/wpcd-meta-boxes.php:70
+msgid ""
+"Link to be opened when clicked on coupon code. You can use your affiliate "
+"links."
+msgstr ""
+"Link der geöffnet werden soll, wenn auf den Gutschein-Code geklickt wird. "
+"Sie können hier auch Ihre Affiliate-Links verwenden."
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:74
+#: includes/classes/admin/wpcd-meta-boxes.php:74
+msgid "Discount Amount/Text"
+msgstr "Rabatt Betrag- bzw. Prozent-Text"
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:76
+#: includes/classes/admin/wpcd-meta-boxes.php:76
+msgid "Discount amount or text to be shown. Example: 60% Off."
+msgstr "Rabatt Betrag oder Text der angezeigt wird. Beispiel: 60% Rabatt."
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:80
+#: includes/classes/admin/wpcd-meta-boxes.php:80
+msgid "Description"
+msgstr "Beschreibung"
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:82
+#: includes/classes/admin/wpcd-meta-boxes.php:82
+msgid ""
+"A little description so users know what the coupon code or deal is about."
+msgstr ""
+"Eine kleine Beschreibung, so dass Benutzer wissen, um was es bei dem "
+"Gutschein-Code oder Deal geht."
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:86
+#: includes/classes/admin/wpcd-meta-boxes.php:86
+msgid "Coupon/Deal Expiration"
+msgstr "Coupon/Deal Ablauf"
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:88
+#: includes/classes/admin/wpcd-meta-boxes.php:88
+msgid "Choose whether you want to show coupon/deal expiration."
+msgstr "Wählen Sie aus, ob Sie Coupon- bzw. Deal-Ablauf anzeigen möchten."
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:96
+#: includes/classes/admin/wpcd-meta-boxes.php:96
+msgid "Expiration Date"
+msgstr "Ablaufdatum"
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:98
+#: includes/classes/admin/wpcd-meta-boxes.php:98
+msgid ""
+"Choose a date this coupon will expire. If you leave this blank, shortcode "
+"will show the message Doesn't expire."
+msgstr ""
+"Wählen Sie ein Datum, an dem dieser Gutschein abläuft. Wenn du dieses Feld "
+"leer lässt, wird die Nachricht \"Läuft nicht ab\" angezeigt."
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:102
+#: includes/classes/admin/wpcd-meta-boxes.php:102
+msgid "Expiration Time"
+msgstr "Ablaufzeit"
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:104
+#: includes/classes/admin/wpcd-meta-boxes.php:104
+msgid "Choose expiration time of the coupon."
+msgstr "Wählen Sie die Ablaufzeit des Coupons aus."
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:108
+msgid "Hide Coupon"
+msgstr "Coupon ausblenden"
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:110
+#: includes/classes/admin/wpcd-meta-boxes.php:110
+msgid "Choose whether you want to hide the coupun"
+msgstr "Wählen Sie aus, ob Sie den Gutschein ausblenden möchten"
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:118
+msgid "Template"
+msgstr "Template"
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:120
+#: includes/classes/admin/wpcd-meta-boxes.php:120
+msgid "Choose coupon shortcode template."
+msgstr "Wählen Sie Coupon-Shortcode-Vorlage."
+
+#: includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:140
+#: includes/classes/admin/wpcd-meta-boxes.php:141
+msgid "Coupon Details"
+msgstr "Coupon-Details"
+
+#: includes/classes/admin/wpcd-meta-boxes.php:108
+msgid "Hide Coupon (Pro)"
+msgstr "Coupon ausblenden (Pro)"
+
+#: includes/classes/admin/wpcd-meta-boxes.php:118
+msgid "Template (Pro)"
+msgstr "Template (Pro)"
+
+#: includes/classes/admin/wpcd-meta-boxes.php:294
+msgid "Hide coupon, change templates and get many more features"
+msgstr ""
+"Verbergen Sie den Coupon, ändern Sie das Template und erhalten Sie viele "
+"weitere Features"
+
+#: includes/classes/admin/wpcd-meta-boxes.php:297
+#: includes/functions/admin/wpcd-help-info.php:28
+msgid "Upgrade to Pro!"
+msgstr "Upgrade auf Pro!"
+
+#: includes/classes/admin/wpcd-meta-boxes.php:301
+msgid "Start 7 day Free Trial!"
+msgstr "Starten Sie die kostenlose 7-Tage Testversion!"
+
+#: includes/classes/admin/wpcd-meta-boxes.php:302
+msgid "(NO Credit Card Required)"
+msgstr "(KEINE Kreditkarte benötigt)"
+
+#: includes/classes/admin/wpcd-meta-boxes.php:304
+msgid "More information about the Pro verison."
+msgstr "Weitere Informationen zur Pro-Version."
+
+#: includes/classes/admin/wpcd-settings-page.php:103
+#: includes/classes/admin/wpcd-settings-page.php:559
+msgid "WP Coupons and Deals Settings"
+msgstr "WP Coupon und Deal Einstellungen"
+
+#: includes/classes/admin/wpcd-settings-page.php:103
+#: includes/classes/admin/wpcd-settings-page.php:141
+#: includes/classes/admin/wpcd-toolbar-links.php:78
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: includes/classes/admin/wpcd-settings-page.php:164
+msgid "Coupon Settings"
+msgstr "Coupon-Einstellungen"
+
+#: includes/classes/admin/wpcd-settings-page.php:165
+msgid ""
+"These are some general coupon settings. You can use the default settings or "
+"set your own ones."
+msgstr ""
+"Dies sind einige allgemeine Coupon-Einstellungen. Sie können die "
+"Standardeinstellungen verwenden oder eigene einstellen."
+
+#: includes/classes/admin/wpcd-settings-page.php:169
+msgid "Hide Coupon Settings"
+msgstr "Einstellungen für Code ausblenden"
+
+#: includes/classes/admin/wpcd-settings-page.php:170
+msgid "Settings when coupon is hidden."
+msgstr "Einstellungen, wenn der Coupon ausgeblendet ist."
+
+#: includes/classes/admin/wpcd-settings-page.php:174
+msgid "Pop-up Settings"
+msgstr "Popup-Einstellungen"
+
+#: includes/classes/admin/wpcd-settings-page.php:175
+msgid "Settings for pop up which opens when user clicks to show code."
+msgstr ""
+"Einstellungen für das Popup, dass öffnet, wenn der Benutzer klickt um den "
+"Code anzuzeigen."
+
+#: includes/classes/admin/wpcd-settings-page.php:179
+msgid "Knowledge Base"
+msgstr "Wissensdatenbank"
+
+#: includes/classes/admin/wpcd-settings-page.php:180
+msgid ""
+"These are some general settings. You can use the default settings or set "
+"your own ones."
+msgstr ""
+"Dies sind einige allgemeine Einstellungen. Sie können die "
+"Standardeinstellungen verwenden oder eigene einstellen."
+
+#: includes/classes/admin/wpcd-settings-page.php:195
+msgid "Words Count to Add More/Less Link"
+msgstr "Wort Anzahl, um \"MEHR\" und \"WENIGER\" Link anzuzeigen"
+
+#: includes/classes/admin/wpcd-settings-page.php:196
+msgid ""
+"If coupon description is more than this count, More/Less link will be added. "
+"Default is 30 words."
+msgstr ""
+"Wenn die Coupon-Beschreibung länger ist als diese Anzahl, wird der MEHR / "
+"WENIGER Link hinzugefügt. Standard sind 30 Wörter."
+
+#: includes/classes/admin/wpcd-settings-page.php:203
+msgid "Coupon Button Hover Text"
+msgstr "Coupon Button Hover Text"
+
+#: includes/classes/admin/wpcd-settings-page.php:204
+msgid ""
+"Text to show when user hovers on the coupon button. Default is Click To Copy "
+"Coupon"
+msgstr ""
+"Text, der angezeigt wird, wenn der Benutzer mit der Maus über den Coupon-"
+"Button fährt."
+
+#: includes/classes/admin/wpcd-settings-page.php:207
+#: includes/classes/wpcd-short-code.php:358
+#: includes/classes/wpcd-short-code.php:596
+#: includes/functions/shortcode/code/wpcd-shortcode-code.php:83
+#: includes/functions/shortcode/code/wpcd-shortcode-code.php:96
+#: includes/templates/shortcode/shortcode-default.php:121
+#: includes/templates/shortcode/shortcode-default.php:134
+#: includes/templates/shortcode/shortcode-one__premium_only.php:117
+#: includes/templates/shortcode/shortcode-one__premium_only.php:130
+#: includes/templates/shortcode/shortcode-three__premium_only.php:190
+#: includes/templates/shortcode/shortcode-three__premium_only.php:203
+#: includes/templates/shortcode/shortcode-two__premium_only.php:131
+#: includes/templates/shortcode/shortcode-two__premium_only.php:144
+#: includes/templates/widget/widget-default.php:100
+#: includes/templates/widget/widget-default.php:113
+#: includes/templates/widget/widget-one.php:124
+#: includes/templates/widget/widget-one.php:140
+#: includes/templates/widget/widget-three.php:194
+#: includes/templates/widget/widget-three.php:207
+#: includes/templates/widget/widget-two.php:142
+#: includes/templates/widget/widget-two.php:158
+msgid "Click To Copy Coupon"
+msgstr "Klicken um den Code zu kopieren"
+
+#: includes/classes/admin/wpcd-settings-page.php:211
+msgid "Deal Button Hover Text"
+msgstr "Deal Button Hover Text"
+
+#: includes/classes/admin/wpcd-settings-page.php:212
+msgid ""
+"Text to show when user hovers on the deal button. Default is Click Here To "
+"Get This Deal"
+msgstr ""
+"Text, der angezeigt wird, wenn der Benutzer mit der Maus über den Deal-"
+"Button fährt."
+
+#: includes/classes/admin/wpcd-settings-page.php:215
+#: includes/classes/wpcd-short-code.php:371
+#: includes/classes/wpcd-short-code.php:609
+#: includes/functions/shortcode/code/wpcd-shortcode-code.php:110
+#: includes/templates/shortcode/shortcode-default.php:148
+#: includes/templates/shortcode/shortcode-one__premium_only.php:143
+#: includes/templates/shortcode/shortcode-three__premium_only.php:216
+#: includes/templates/shortcode/shortcode-two__premium_only.php:157
+#: includes/templates/widget/widget-default.php:127
+#: includes/templates/widget/widget-one.php:156
+#: includes/templates/widget/widget-three.php:221
+#: includes/templates/widget/widget-two.php:174
+msgid "Click Here To Get This Deal"
+msgstr "Klicken Sie hier, um diesen Deal zu erhalten"
+
+#: includes/classes/admin/wpcd-settings-page.php:219
+msgid "Expire Text"
+msgstr "Ablauf Text"
+
+#: includes/classes/admin/wpcd-settings-page.php:220
+msgid "Text to show before expire date. Default is 'Expires on:' "
+msgstr "Text, der vor Ablauf des Datums angezeigt wird."
+
+#: includes/classes/admin/wpcd-settings-page.php:223
+msgid "Expires on:"
+msgstr "Läuft ab am:"
+
+#: includes/classes/admin/wpcd-settings-page.php:227
+msgid "Expired Text"
+msgstr "Text wenn \"Abgelaufen\""
+
+#: includes/classes/admin/wpcd-settings-page.php:228
+msgid "Text to show before expired date. Default is 'Expired on:' "
+msgstr "Text, der vor dem abgelaufenen Datum angezeigt wird. "
+
+#: includes/classes/admin/wpcd-settings-page.php:231
+msgid "Expired on:"
+msgstr "Abgelaufen am:"
+
+#: includes/classes/admin/wpcd-settings-page.php:235
+msgid "No Expiration Text"
+msgstr "Kein Ablauftext"
+
+#: includes/classes/admin/wpcd-settings-page.php:236
+msgid ""
+"Text to show if coupon or deal never expires. Default is 'Doesn't expire'."
+msgstr "Text, der angezeigt wird wenn ein Coupon oder Deal nicht abläuft."
+
+#: includes/classes/admin/wpcd-settings-page.php:243
+msgid "Expiration Date Format"
+msgstr "Ablaufdatum Format"
+
+#: includes/classes/admin/wpcd-settings-page.php:244
+msgid "Choose the date format for expiration date."
+msgstr "Wählen Sie das Datumsformat für das Ablaufdatum."
+
+#: includes/classes/admin/wpcd-settings-page.php:257
+msgid "Hidden Coupon Text"
+msgstr "Versteckter Coupontext"
+
+#: includes/classes/admin/wpcd-settings-page.php:258
+msgid "Text to show when coupon is hidden. Default is 'Show Code' "
+msgstr "Text zeigen, wenn Coupon versteckt ist. "
+
+#: includes/classes/admin/wpcd-settings-page.php:261
+#: includes/classes/wpcd-short-code.php:320
+#: includes/classes/wpcd-short-code.php:558
+#: includes/functions/admin/wpcd-preview-metabox.php:69
+#: includes/functions/admin/wpcd-preview-metabox.php:228
+#: includes/functions/admin/wpcd-preview-metabox.php:418
+#: includes/functions/admin/wpcd-preview-metabox.php:565
+#: includes/functions/shortcode/code/wpcd-shortcode-code.php:45
+#: includes/templates/shortcode/shortcode-default.php:83
+#: includes/templates/shortcode/shortcode-one__premium_only.php:79
+#: includes/templates/shortcode/shortcode-three__premium_only.php:152
+#: includes/templates/shortcode/shortcode-two__premium_only.php:93
+#: includes/templates/widget/widget-default.php:62
+#: includes/templates/widget/widget-one.php:85
+#: includes/templates/widget/widget-three.php:156
+#: includes/templates/widget/widget-two.php:102
+msgid "Show Code"
+msgstr "Code anzeigen"
+
+#: includes/classes/admin/wpcd-settings-page.php:265
+msgid "Hidden Coupon Hover Text"
+msgstr "Versteckter Coupon Hover Text"
+
+#: includes/classes/admin/wpcd-settings-page.php:266
+msgid ""
+"Text to show when user hovers on the hidden coupon. Default is 'Click Here "
+"to Show Code'"
+msgstr ""
+"Text, der angezeigt wird, wenn der Benutzer mit der Maus über den "
+"versteckten Coupon fährt."
+
+#: includes/classes/admin/wpcd-settings-page.php:269
+#: includes/functions/admin/wpcd-preview-metabox.php:62
+#: includes/functions/admin/wpcd-preview-metabox.php:221
+#: includes/functions/admin/wpcd-preview-metabox.php:411
+#: includes/functions/admin/wpcd-preview-metabox.php:558
+#: includes/functions/shortcode/code/wpcd-shortcode-code.php:38
+#: includes/templates/shortcode/shortcode-default.php:76
+#: includes/templates/shortcode/shortcode-one__premium_only.php:72
+#: includes/templates/shortcode/shortcode-three__premium_only.php:143
+#: includes/templates/shortcode/shortcode-two__premium_only.php:86
+#: includes/templates/widget/widget-default.php:55
+#: includes/templates/widget/widget-one.php:78
+#: includes/templates/widget/widget-three.php:149
+#: includes/templates/widget/widget-two.php:95
+msgid "Click Here to Show Code"
+msgstr "Klicken Sie hier, um Code anzuzeigen"
+
+#: includes/classes/admin/wpcd-settings-page.php:273
+msgid "Hidden Coupon Button Color"
+msgstr "Farbe für \"Versteckter-Coupon-Button\""
+
+#: includes/classes/admin/wpcd-settings-page.php:274
+msgid "The color of the button when coupon is hidden."
+msgstr "Die Farbe des Buttons, wenn der Coupon versteckt ist."
+
+#: includes/classes/admin/wpcd-settings-page.php:282
+msgid "Copy Button Text"
+msgstr "Kopie Button Text"
+
+#: includes/classes/admin/wpcd-settings-page.php:283
+msgid "Text to show in Copy button when pop up is shown. Default is 'Copy'."
+msgstr ""
+"Text, der in der Schaltfläche \"Kopieren\" angezeigt wird, wenn das Popup "
+"angezeigt wird."
+
+#: includes/classes/admin/wpcd-settings-page.php:286
+#: includes/classes/wpcd-assets.php:62 includes/classes/wpcd-short-code.php:335
+#: includes/classes/wpcd-short-code.php:573
+#: includes/functions/shortcode/code/wpcd-shortcode-code.php:61
+#: includes/templates/shortcode/shortcode-default.php:99
+#: includes/templates/shortcode/shortcode-one__premium_only.php:95
+#: includes/templates/shortcode/shortcode-three__premium_only.php:168
+#: includes/templates/shortcode/shortcode-two__premium_only.php:109
+#: includes/templates/widget/widget-default.php:78
+#: includes/templates/widget/widget-one.php:101
+#: includes/templates/widget/widget-three.php:172
+#: includes/templates/widget/widget-two.php:119
+msgid "Copy"
+msgstr "Kopieren"
+
+#: includes/classes/admin/wpcd-settings-page.php:290
+msgid "After Copy Text"
+msgstr "Nach dem Kopieren-Text"
+
+#: includes/classes/admin/wpcd-settings-page.php:291
+msgid "Text to show after coupon is copied. Default is 'Copied'."
+msgstr "Text nach dem der Code kopiert wurde."
+
+#: includes/classes/admin/wpcd-settings-page.php:294
+#: includes/classes/wpcd-assets.php:68
+msgid "Copied"
+msgstr "Kopiert"
+
+#: includes/classes/admin/wpcd-settings-page.php:298
+msgid "Text to Show Below Coupon Code"
+msgstr "Text der unterhalb des Coupon-Codes angezeigt wird"
+
+#: includes/classes/admin/wpcd-settings-page.php:299
+msgid ""
+"Select what to show below the coupon code in Pop-up. Default is Description."
+msgstr ""
+"Wählen Sie aus, was unter dem Coupon-Code im Popup angezeigt werden soll. "
+"Standard ist die Beschreibung."
+
+#: includes/classes/admin/wpcd-settings-page.php:309
+msgid "Custom Text"
+msgstr "Eigener Text"
+
+#: includes/classes/admin/wpcd-settings-page.php:310
+msgid "Custom text to show below the coupon code."
+msgstr "Eigener Text der unter dem Coupon-Code im Popup angezeigt werden soll."
+
+#: includes/classes/admin/wpcd-settings-page.php:317
+msgid "Copy Button Background Color"
+msgstr "Kopier-Button Hintergrundfarbe"
+
+#: includes/classes/admin/wpcd-settings-page.php:318
+msgid "Background color for the copy button."
+msgstr "Hintergrundfarbe für den Kopier-Button."
+
+#: includes/classes/admin/wpcd-settings-page.php:324
+msgid "Coupon Code Background Color"
+msgstr "Coupon-Code Hintergrundfarbe"
+
+#: includes/classes/admin/wpcd-settings-page.php:325
+msgid ""
+"Background color of the coupon code in the Pop up. Pop up is shown when "
+"users click to show code."
+msgstr ""
+"Hintergrundfarbe des Coupon-Codes im Popup. Popup wird angezeigt, wenn der "
+"Benutzer auf den Code klickt."
+
+#: includes/classes/admin/wpcd-settings-page.php:568
+msgid "Save Settings"
+msgstr "Einstellung speichern"
+
+#: includes/classes/admin/wpcd-shortcode-inserter.php:86
+msgid "Select the Coupon you want to insert"
+msgstr "Wählen Sie den Coupon aus, den Sie einfügen möchten"
+
+#: includes/classes/admin/wpcd-shortcode-inserter.php:89
+msgid "Search the Coupon"
+msgstr "Suche den Coupon"
+
+#: includes/classes/admin/wpcd-shortcode-inserter.php:112
+msgid "Select the Coupon Shortcode Type"
+msgstr "Wählen Sie den Coupon Shortcode Typ aus"
+
+#: includes/classes/admin/wpcd-shortcode-inserter.php:115
+msgid "Full Coupon with Details"
+msgstr "Voller Coupon mit Details"
+
+#: includes/classes/admin/wpcd-shortcode-inserter.php:116
+#: includes/classes/admin/wpcd-shortcode-metabox.php:76
+msgid "Only Coupon Code"
+msgstr "Nur Coupon-Code:"
+
+#: includes/classes/admin/wpcd-shortcode-inserter.php:128
+msgid "No Coupons are Published"
+msgstr "Es sind keine Coupons veröffentlicht"
+
+#: includes/classes/admin/wpcd-shortcode-metabox.php:43
+msgid "Coupon Shortcodes"
+msgstr "Coupon Shortcodes"
+
+#: includes/classes/admin/wpcd-shortcode-metabox.php:72
+msgid ""
+"These are the shortcodes for this coupon. Copy the shortcode and paste in "
+"your post or page content. \n"
+"\t\t\t\t\tThe full coupon shortcode shows the full coupon with all details.\n"
+"\t\t\t\t\tOnly coupon code shortcode will show the coupon code only"
+msgstr ""
+"Dies sind die Shortcodes für diesen Coupon. Kopieren Sie den Shortcode und "
+"fügen Sie ihn in Ihren Post- oder Ihre Seite ein.\n"
+"\t\t\t\t\t Der vollständige Coupon-Shortcode zeigt den vollständigen Coupon "
+"mit allen Details an.\n"
+"\t\t\t\t\t Nur Coupon-Code Shortcode zeigt nur den Gutscheincode an."
+
+#: includes/classes/admin/wpcd-shortcode-metabox.php:75
+msgid "Full Coupon"
+msgstr "Voller Coupon"
+
+#: includes/classes/admin/wpcd-toolbar-links.php:43
+#: includes/classes/admin/wpcd-toolbar-links.php:54
+msgid "Coupons"
+msgstr "Coupons"
+
+#: includes/classes/admin/wpcd-toolbar-links.php:62
+msgid "Add New Coupon"
+msgstr "Neuen Coupon hinzufügen"
+
+#: includes/classes/admin/wpcd-toolbar-links.php:70
+msgid "Coupon Categories"
+msgstr "Coupon Kategorien"
+
+#. Plugin Name of the plugin/theme
+#: includes/classes/admin/wpcd-welcome-page.php:89
+#: includes/classes/admin/wpcd-welcome-page.php:90
+msgid "WP Coupons and Deals"
+msgstr "WP Coupons und Deals"
+
+#: includes/classes/wpcd-assets.php:72
+#: includes/functions/admin/wpcd-preview-metabox.php:378
+#: includes/functions/admin/wpcd-preview-metabox.php:380
+msgid "minutes"
+msgstr "Minuten"
+
+#: includes/classes/wpcd-assets.php:73
+#: includes/functions/admin/wpcd-preview-metabox.php:378
+#: includes/functions/admin/wpcd-preview-metabox.php:380
+msgid "seconds"
+msgstr "Sekunden"
+
+#: includes/classes/wpcd-assets.php:74
+#: includes/functions/admin/wpcd-preview-metabox.php:380
+msgid "hours"
+msgstr "Stunden"
+
+#: includes/classes/wpcd-assets.php:75
+#: includes/functions/admin/wpcd-preview-metabox.php:383
+msgid "day"
+msgstr "Tage"
+
+#: includes/classes/wpcd-assets.php:76
+#: includes/functions/admin/wpcd-preview-metabox.php:386
+msgid "week"
+msgstr "Wochen"
+
+#: includes/classes/wpcd-assets.php:77
+#: includes/functions/admin/wpcd-preview-metabox.php:391
+msgid "This offer has expired!"
+msgstr "Dieses Angebot ist abgelaufen!"
+
+#: includes/classes/wpcd-coupon-widget.php:23
+msgid "Add Coupons and Deals to your widget areas."
+msgstr "Fügen Sie Coupons und Deals zu Ihrem Widget-Bereichen hinzu."
+
+#: includes/classes/wpcd-custom-post-type.php:50
+msgid "Enter Coupon title here"
+msgstr "Geben Sie hier den Coupon-Titel ein"
+
+#: includes/classes/wpcd-custom-post-type.php:77
+#: includes/classes/wpcd-custom-post-type.php:78
+#: includes/classes/wpcd-custom-post-type.php:79
+#: includes/classes/wpcd-custom-post-type.php:80
+#: includes/classes/wpcd-custom-taxonomy.php:33
+#: includes/classes/wpcd-custom-taxonomy.php:34
+#: includes/classes/wpcd-custom-taxonomy.php:43
+#, php-format
+msgid "%s"
+msgstr "%s"
+
+#: includes/classes/wpcd-custom-post-type.php:81
+#: includes/classes/wpcd-custom-post-type.php:82
+#: includes/classes/wpcd-custom-taxonomy.php:41
+#, php-format
+msgid "Add New %s"
+msgstr "Erstelle %s"
+
+#: includes/classes/wpcd-custom-post-type.php:83
+#: includes/classes/wpcd-custom-taxonomy.php:39
+#, php-format
+msgid "Edit %s"
+msgstr "Bearbeiten %s"
+
+#: includes/classes/wpcd-custom-post-type.php:84
+#, php-format
+msgid "New %s"
+msgstr "Neu  %s"
+
+#: includes/classes/wpcd-custom-post-type.php:85
+#, php-format
+msgid "View %s"
+msgstr "Zeige %s"
+
+#: includes/classes/wpcd-custom-post-type.php:86
+#: includes/classes/wpcd-custom-taxonomy.php:35
+#, php-format
+msgid "Search %s"
+msgstr "Suche %s"
+
+#: includes/classes/wpcd-custom-post-type.php:87
+#, php-format
+msgid "No %s found"
+msgstr "Nicht %s gefunden"
+
+#: includes/classes/wpcd-custom-post-type.php:88
+#, php-format
+msgid "No %s found in Trash"
+msgstr "Keine %s im Papierkorb gefunden"
+
+#: includes/classes/wpcd-custom-post-type.php:116
+#, php-format
+msgid "%s Custom Post Type"
+msgstr "%s Angepasster Beitragstyp"
+
+#: includes/classes/wpcd-custom-taxonomy.php:36
+#, php-format
+msgid "All %s"
+msgstr "Alle %s"
+
+#: includes/classes/wpcd-custom-taxonomy.php:37
+#, php-format
+msgid "Parent %s"
+msgstr "Übergeordnet %s"
+
+#: includes/classes/wpcd-custom-taxonomy.php:38
+#, php-format
+msgid "Parent %s:"
+msgstr "Übergeordnet %s:"
+
+#: includes/classes/wpcd-custom-taxonomy.php:40
+#, php-format
+msgid "Update %s"
+msgstr "Aktualisieren %s"
+
+#: includes/classes/wpcd-custom-taxonomy.php:42
+#, php-format
+msgid "New %s Name"
+msgstr "Neuer %s Name"
+
+#: includes/classes/wpcd-custom-taxonomy.php:44
+#, php-format
+msgid "Popular %s"
+msgstr "Beliebte %s"
+
+#: includes/classes/wpcd-custom-taxonomy.php:45
+#, php-format
+msgid "Separate %s with commas"
+msgstr "Trenne %s mit Kommas"
+
+#: includes/classes/wpcd-custom-taxonomy.php:46
+#, php-format
+msgid "Add or remove %s"
+msgstr "Hinzufügen oder entfernen %s"
+
+#: includes/classes/wpcd-custom-taxonomy.php:47
+#, php-format
+msgid "Choose from the most used %s"
+msgstr "Wählen Sie von dem am häufigsten verwendeten %s aus"
+
+#: includes/classes/wpcd-preview-metabox.php:42
+msgid "Coupon Preview"
+msgstr "Coupon Vorschau"
+
+#: includes/classes/wpcd-short-code.php:314
+#: includes/classes/wpcd-short-code.php:552
+msgid "Click here to show code"
+msgstr "Klicken Sie hier, um Code anzuzeigen"
+
+#: includes/classes/wpcd-short-code.php:338
+#: includes/classes/wpcd-short-code.php:576
+msgid "Click on Copy to Copy the Coupon Code."
+msgstr "Klicken Sie auf Kopieren, um den Couponcode zu kopieren."
+
+#: includes/classes/wpcd-short-code.php:385
+#: includes/classes/wpcd-short-code.php:623
+#: includes/templates/shortcode/shortcode-default.php:161
+#: includes/templates/shortcode/shortcode-one__premium_only.php:60
+#: includes/templates/shortcode/shortcode-three__premium_only.php:44
+#: includes/templates/shortcode/shortcode-two__premium_only.php:170
+#: includes/templates/widget/widget-default.php:142
+#: includes/templates/widget/widget-one.php:63
+#: includes/templates/widget/widget-three.php:52
+#: includes/templates/widget/widget-two.php:83
+msgid "More"
+msgstr "Alle Details zeigen!"
+
+#: includes/classes/wpcd-short-code.php:386
+#: includes/classes/wpcd-short-code.php:624
+#: includes/templates/shortcode/shortcode-default.php:162
+#: includes/templates/shortcode/shortcode-one__premium_only.php:61
+#: includes/templates/shortcode/shortcode-three__premium_only.php:45
+#: includes/templates/shortcode/shortcode-two__premium_only.php:171
+#: includes/templates/widget/widget-default.php:143
+#: includes/templates/widget/widget-one.php:64
+#: includes/templates/widget/widget-three.php:53
+#: includes/templates/widget/widget-two.php:84
+msgid "Less"
+msgstr "Weniger anzeigen!"
+
+#: includes/classes/wpcd-short-code.php:400
+#: includes/classes/wpcd-short-code.php:638
+#: includes/functions/admin/wpcd-preview-metabox.php:105
+#: includes/functions/admin/wpcd-preview-metabox.php:120
+#: includes/functions/admin/wpcd-preview-metabox.php:157
+#: includes/functions/admin/wpcd-preview-metabox.php:252
+#: includes/functions/admin/wpcd-preview-metabox.php:268
+#: includes/functions/admin/wpcd-preview-metabox.php:305
+#: includes/functions/admin/wpcd-preview-metabox.php:370
+#: includes/functions/admin/wpcd-preview-metabox.php:462
+#: includes/functions/admin/wpcd-preview-metabox.php:478
+#: includes/functions/admin/wpcd-preview-metabox.php:519
+#: includes/templates/shortcode/shortcode-default.php:176
+#: includes/templates/shortcode/shortcode-default.php:213
+#: includes/templates/shortcode/shortcode-one__premium_only.php:159
+#: includes/templates/shortcode/shortcode-one__premium_only.php:196
+#: includes/templates/shortcode/shortcode-three__premium_only.php:60
+#: includes/templates/shortcode/shortcode-three__premium_only.php:102
+#: includes/templates/shortcode/shortcode-two__premium_only.php:74
+#: includes/templates/widget/widget-default.php:157
+#: includes/templates/widget/widget-default.php:194
+#: includes/templates/widget/widget-one.php:181
+#: includes/templates/widget/widget-one.php:222
+#: includes/templates/widget/widget-three.php:72
+#: includes/templates/widget/widget-three.php:109
+#: includes/templates/widget/widget-two.php:69
+msgid "Expires on: "
+msgstr "Läuft ab:"
+
+#: includes/classes/wpcd-short-code.php:408
+#: includes/classes/wpcd-short-code.php:646
+#: includes/functions/admin/wpcd-preview-metabox.php:130
+#: includes/functions/admin/wpcd-preview-metabox.php:168
+#: includes/functions/admin/wpcd-preview-metabox.php:278
+#: includes/functions/admin/wpcd-preview-metabox.php:315
+#: includes/functions/admin/wpcd-preview-metabox.php:489
+#: includes/functions/admin/wpcd-preview-metabox.php:531
+#: includes/templates/shortcode/shortcode-default.php:186
+#: includes/templates/shortcode/shortcode-default.php:223
+#: includes/templates/shortcode/shortcode-one__premium_only.php:169
+#: includes/templates/shortcode/shortcode-one__premium_only.php:206
+#: includes/templates/shortcode/shortcode-three__premium_only.php:72
+#: includes/templates/shortcode/shortcode-three__premium_only.php:114
+#: includes/templates/widget/widget-default.php:167
+#: includes/templates/widget/widget-default.php:204
+#: includes/templates/widget/widget-one.php:191
+#: includes/templates/widget/widget-one.php:232
+#: includes/templates/widget/widget-three.php:82
+#: includes/templates/widget/widget-three.php:119
+msgid "Expired on: "
+msgstr "Abgelaufen am: "
+
+#: includes/classes/wpcd-short-code.php:419
+#: includes/classes/wpcd-short-code.php:657
+#: includes/functions/admin/wpcd-preview-metabox.php:140
+#: includes/functions/admin/wpcd-preview-metabox.php:182
+#: includes/functions/admin/wpcd-preview-metabox.php:288
+#: includes/functions/admin/wpcd-preview-metabox.php:328
+#: includes/functions/admin/wpcd-preview-metabox.php:500
+#: includes/functions/admin/wpcd-preview-metabox.php:545
+#: includes/templates/shortcode/shortcode-default.php:196
+#: includes/templates/shortcode/shortcode-default.php:236
+#: includes/templates/shortcode/shortcode-one__premium_only.php:179
+#: includes/templates/shortcode/shortcode-one__premium_only.php:219
+#: includes/templates/shortcode/shortcode-three__premium_only.php:83
+#: includes/templates/shortcode/shortcode-three__premium_only.php:128
+#: includes/templates/widget/widget-default.php:177
+#: includes/templates/widget/widget-default.php:217
+#: includes/templates/widget/widget-one.php:203
+#: includes/templates/widget/widget-one.php:246
+#: includes/templates/widget/widget-three.php:92
+#: includes/templates/widget/widget-three.php:132
+msgid "Doesn't expire"
+msgstr "Bis auf Widerruf"
+
+#: includes/classes/wpcd-short-code.php:439
+msgid "« Prev"
+msgstr "« Zurück"
+
+#: includes/classes/wpcd-short-code.php:440
+msgid "Next »"
+msgstr "Weiter »"
+
+#: includes/classes/wpcd-short-code.php:446
+#: includes/classes/wpcd-short-code.php:673
+msgid "Sorry, no coupons/deals found."
+msgstr "Sorry, keine Coupons oder Deals gefunden."
+
+#: includes/functions/admin/wpcd-add-coupon-button.php:16
+msgid "Insert Coupon Shortcode"
+msgstr "Coupon Shortcode einfügen"
+
+#: includes/functions/admin/wpcd-add-coupon-button.php:16
+msgid "Add Coupon"
+msgstr "Coupon hinzufügen"
+
+#: includes/functions/admin/wpcd-help-info.php:16
+msgid ""
+"From the list, select the coupon you want to insert then click on Insert "
+"Coupon Shortcode button. \tIf you have not created any coupons,"
+msgstr ""
+"Wählen Sie aus der Liste den Coupon aus, den Sie einfügen möchten, und "
+"klicken Sie dann auf den Coupon Shortcode-Button. \t Wenn Sie keine Coupons "
+"erstellt haben,"
+
+#: includes/functions/admin/wpcd-help-info.php:18
+#: includes/functions/admin/wpcd-widget-help-info.php:18
+msgid "create one"
+msgstr "erstellen Sie einen"
+
+#: includes/functions/admin/wpcd-help-info.php:20
+msgid "or"
+msgstr "oder"
+
+#: includes/functions/admin/wpcd-help-info.php:22
+#: includes/functions/admin/wpcd-widget-help-info.php:22
+msgid "manage your coupons"
+msgstr "verwalten Sie Ihre Coupons"
+
+#: includes/functions/admin/wpcd-help-info.php:30
+msgid " to search coupon and insert shortcode, and many more features!"
+msgstr ""
+" um Coupons zu suchen und Shortcode einzugeben, und viele weitere Features!"
+
+#: includes/functions/admin/wpcd-preview-metabox.php:48
+#: includes/functions/admin/wpcd-preview-metabox.php:218
+#: includes/functions/admin/wpcd-preview-metabox.php:355
+msgid "Discount Text"
+msgstr "Rabatt Betrag- bzw. Prozent-Text"
+
+#: includes/functions/admin/wpcd-preview-metabox.php:51
+#: includes/templates/shortcode/shortcode-default.php:56
+msgid "Coupon"
+msgstr "Gutschein"
+
+#: includes/functions/admin/wpcd-preview-metabox.php:57
+#: includes/functions/admin/wpcd-preview-metabox.php:210
+#: includes/functions/admin/wpcd-preview-metabox.php:361
+#: includes/functions/admin/wpcd-preview-metabox.php:448
+msgid "Sample Coupon Code"
+msgstr "Beispiel Coupon-Code"
+
+#: includes/functions/admin/wpcd-preview-metabox.php:63
+#: includes/functions/admin/wpcd-preview-metabox.php:77
+#: includes/functions/admin/wpcd-preview-metabox.php:78
+#: includes/functions/admin/wpcd-preview-metabox.php:222
+#: includes/functions/admin/wpcd-preview-metabox.php:236
+#: includes/functions/admin/wpcd-preview-metabox.php:237
+#: includes/functions/admin/wpcd-preview-metabox.php:412
+#: includes/functions/admin/wpcd-preview-metabox.php:426
+#: includes/functions/admin/wpcd-preview-metabox.php:427
+#: includes/functions/admin/wpcd-preview-metabox.php:559
+#: includes/functions/admin/wpcd-preview-metabox.php:573
+#: includes/functions/admin/wpcd-preview-metabox.php:574
+msgid "COUPONCODE"
+msgstr "GUTSCHEINCODE"
+
+#: includes/functions/admin/wpcd-preview-metabox.php:77
+#: includes/functions/admin/wpcd-preview-metabox.php:236
+#: includes/functions/admin/wpcd-preview-metabox.php:426
+#: includes/functions/admin/wpcd-preview-metabox.php:573
+msgid "Click Here To Copy Coupon"
+msgstr "Klicken Sie hier, um den Coupon zu kopieren"
+
+#: includes/functions/admin/wpcd-preview-metabox.php:82
+#: includes/functions/admin/wpcd-preview-metabox.php:241
+#: includes/functions/admin/wpcd-preview-metabox.php:431
+#: includes/functions/admin/wpcd-preview-metabox.php:578
+msgid "Click Here To Get this deal"
+msgstr "Klicken Sie hier, um diesen Deal zu erhalten"
+
+#: includes/functions/admin/wpcd-preview-metabox.php:82
+#: includes/functions/admin/wpcd-preview-metabox.php:83
+#: includes/functions/admin/wpcd-preview-metabox.php:241
+#: includes/functions/admin/wpcd-preview-metabox.php:242
+#: includes/functions/admin/wpcd-preview-metabox.php:431
+#: includes/functions/admin/wpcd-preview-metabox.php:432
+#: includes/functions/admin/wpcd-preview-metabox.php:578
+#: includes/functions/admin/wpcd-preview-metabox.php:579
+msgid "Claim This Deal"
+msgstr "Diesen Deal nutzen"
+
+#: includes/functions/admin/wpcd-preview-metabox.php:94
+#: includes/functions/admin/wpcd-preview-metabox.php:213
+msgid ""
+"This is the description of the coupon code. Additional details of what the "
+"coupon or deal is."
+msgstr ""
+"Dies ist die Beschreibung des Coupon-Codes. Hier ist auch Platz für "
+"zusätzliche Details und Erklärungen zum Coupon."
+
+#: includes/functions/admin/wpcd-preview-metabox.php:441
+#: includes/functions/admin/wpcd-preview-metabox.php:450
+msgid ""
+"This is the description of the coupon code. You can add additional details "
+"about the coupon here, what the coupon or deal is."
+msgstr ""
+"Dies ist die Beschreibung des Coupon-Codes. Sie können hier weitere Details "
+"über den Coupon hinzufügen, was der Coupon oder der Deal ist."
+
+#: includes/functions/admin/wpcd-preview-metabox.php:588
+msgid "Note:"
+msgstr "Hinweis:"
+
+#: includes/functions/admin/wpcd-preview-metabox.php:588
+msgid ""
+"This is just to show how the coupon will look. Click to copy functionality, "
+"showing hidden coupon will not work here, but it will work on posts, pages "
+"where you put the shortcode."
+msgstr ""
+"Dies ist nur eine Ansicht, wie der Coupon in etwa aussehen wird. Die "
+"Funktionalität den Code zu kopieren und zu verbergen wird hier im Admin-"
+"Bereich nicht funktionieren, aber es wird auf Beiträgen und Seiten arbeiten, "
+"wo Sie den Shortcode einfügen."
+
+#: includes/functions/admin/wpcd-settings-page-extra.php:16
+msgid "Help Us Spread the Word!"
+msgstr "Helfen Sie uns, die Information zu verbreiten!"
+
+#: includes/functions/admin/wpcd-settings-page-extra.php:17
+msgid ""
+"Hey, if you like using this plugin, could you please do me a BIG favor and "
+"give it a 5-star rating on WordPress? Just to help us spread the word. <br>~ "
+"Imtiaz Rayhan"
+msgstr ""
+"Hey, wenn Sie dieses Plugin benutzt haben, Könnten Sie mir bitte einen "
+"großen Gefallen tun und ihm eine 5-Sterne-Bewertung auf WordPress geben? Nur "
+"um uns zu helfen es zu verbreiten. <br> ~ Vielen Dank, Imtiaz Rayhan"
+
+#: includes/functions/admin/wpcd-settings-page-extra.php:27
+msgid "Keep in touch!"
+msgstr "Lassen Sie uns in Kontakt bleiben!"
+
+#: includes/functions/admin/wpcd-settings-page-extra.php:28
+#: includes/functions/admin/wpcd-welcome-page-content.php:73
+msgid ""
+"Sign up to get plugin updates news, WordPress tips and more! We hate spam  "
+"just as much as you do. We promise we wil NEVER EVER spam."
+msgstr ""
+"Melden Sie sich an, um Plugin-Update-News, WordPress-Tipps und vieles mehr "
+"zu bekommen! Wir hassen Spam genauso wie Sie. Wir versprechen, dass wir "
+"NIEMALS spammen."
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:19
+#, php-format
+msgid "WP Coupons and Deals %s"
+msgstr "WP Coupon und Deals %s"
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:22
+msgid ""
+"Thank you for using WP Coupons and Deals plugin. \n"
+"\t\tWP Coupons and Deals is ready to create beautiful coupons and deals "
+"shortcode for you. "
+msgstr ""
+"Vielen Dank für die Verwendung von \"WP Coupons und Deals\". \n"
+"\t\t \"WP Coupons und Deals\" ist bereit, schöne Coupons- und Deals-"
+"Shortcodes für Sie zu erstellen."
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:30
+msgid "Let's Get Started"
+msgstr "Lass uns loslegen"
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:32
+#: includes/functions/admin/wpcd-welcome-page-content.php:41
+msgid "Step 1:"
+msgstr "Step 1:"
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:32
+msgid "First things first,"
+msgstr "Die wichtigsten Dinge zuerst,"
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:32
+msgid "Add a new Coupon."
+msgstr "Neuen Coupon hinzufügen."
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:33
+#: includes/functions/admin/wpcd-welcome-page-content.php:42
+msgid "Step 2:"
+msgstr "Step 2:"
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:33
+msgid "Copy and paste the shortcode in your post."
+msgstr "Kopiere und füge den Shortcode in deinen Beitrag ein."
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:34
+#: includes/functions/admin/wpcd-welcome-page-content.php:43
+msgid "Step 3:"
+msgstr "Step 3:"
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:34
+msgid "Publish your post and you are done!!"
+msgstr "Veröffentlichen Sie Ihre Post und Sie sind fertig!"
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:39
+msgid "Adding coupons in widget areas"
+msgstr "Hinzufügen von Coupons in Widget-Bereichen"
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:41
+msgid "Drag the 'Coupons and Deals Widget' to widget area."
+msgstr "Ziehe das \"Coupons and Deals Widget\" zum Widget-Bereich."
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:42
+msgid "Select the coupon you want to show."
+msgstr "Wählen Sie den Coupon aus, den Sie anzeigen möchten."
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:43
+msgid "Hit the save button. You're done."
+msgstr "Klicken Sie auf den Button \"Speichern\". Sie sind fertig!"
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:49
+msgid "Here's a liitle video to help you get started."
+msgstr "Hier ist ein kleines Video, um Ihnen zu helfen, loszulegen."
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:57
+msgid "Watch the video on HD and fullscreen for a clear experience."
+msgstr "Sehen Sie sich das Video in HD und Vollbildschirm an."
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:64
+msgid "Contact"
+msgstr "Kontakt"
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:65
+msgid ""
+"If you have any questions or suggestions about the plugin, feel free to <a "
+"href=\"http://imtiazrayhan.com/contact/\" target=\"_blank\">get in touch</a>."
+msgstr ""
+"Wenn Sie Fragen oder Anregungen zum Plugin haben, können Sie sich gerne an "
+"<a href=\"http://imtiazrayhan.com/contact/\" target=\"_blank\">uns wenden</"
+"a> ."
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:66
+msgid "I would love to hear from you. You can also conncect with me on"
+msgstr "Ich würde mich sehr freuen von Ihnen zu hören."
+
+#: includes/functions/admin/wpcd-welcome-page-content.php:72
+msgid "More stuff!"
+msgstr "Mehr Material!"
+
+#: includes/functions/admin/wpcd-widget-help-info.php:16
+msgid ""
+"From the list, select the coupon you want to show on the widget and click on "
+"the Save button. \tIf you have not created any coupons,"
+msgstr ""
+"Wählen Sie aus der Liste den Coupon aus, den Sie auf dem Widget anzeigen "
+"möchten, und klicken Sie auf die Button \"Speichern\". Wenn Sie keine "
+"Gutscheine erstellt haben,"
+
+#: includes/templates/shortcode/shortcode-default.php:60
+msgid "Deal"
+msgstr "Deal"
+
+#: includes/templates/shortcode/shortcode-default.php:102
+#: includes/templates/shortcode/shortcode-one__premium_only.php:98
+#: includes/templates/shortcode/shortcode-three__premium_only.php:171
+#: includes/templates/shortcode/shortcode-two__premium_only.php:112
+#: includes/templates/widget/widget-default.php:81
+#: includes/templates/widget/widget-one.php:104
+#: includes/templates/widget/widget-three.php:175
+#: includes/templates/widget/widget-two.php:122
+msgid "Click on 'Copy' to Copy the Coupon Code."
+msgstr "Klicken Sie auf Kopieren, um den Coupon-Code zu kopieren."
+
+#. Plugin URI of the plugin/theme
+msgid "http://wpcouponsdeals.com/"
+msgstr "http://wpcouponsdeals.com/"
+
+#. Description of the plugin/theme
+msgid ""
+"Very lightweight and easy to use WordPress Coupons and deals plugin. "
+"Generate more affiliate sales with coupon codes and deals."
+msgstr ""
+"Sehr leicht und einfach zu bedienendes WordPress \"Coupon und Deals\" "
+"Plugin. Generieren Sie mehr Affiliate-Verkäufe mit Gutscheincodes und "
+"Angebote."
+
+#. Author of the plugin/theme
+msgid "Imtiaz Rayhan"
+msgstr "Imtiaz Rayhan"
+
+#. Author URI of the plugin/theme
+msgid "http://imtiazrayhan.com/"
+msgstr "http://imtiazrayhan.com/"
