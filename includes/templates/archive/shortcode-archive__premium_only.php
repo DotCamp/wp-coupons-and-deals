@@ -95,7 +95,7 @@ if ( $parent == 'header' ):
 	global $current_url;
 	$terms = get_terms( 'wpcd_coupon_category' );
 	if ( ! empty( $terms ) && ! is_wp_error( $terms ) && !$disable_menu):
-           
+
 	?>
         <ul id="wpcd_cat_ul">
             <li><a href="<?php echo $current_url; ?>">All Coupons</a></li>
@@ -239,6 +239,7 @@ if ( $parent == 'header' ):
 							<?php } ?>
 						<?php } ?>
                     </div> <!-- wpcd_coupon_li_inner-->
+                </div>
 					<?php if ( $parent == 'footer' ): ?>
     </ul>
     <div id="wpcd_coupon_pagination_wr" class="wpcd_coupon_pagination wpcd_clearfix">
