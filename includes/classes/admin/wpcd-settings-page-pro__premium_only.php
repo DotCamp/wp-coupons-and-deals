@@ -127,6 +127,11 @@ class WPCD_Settings_Page_Pro {
 				'title'       => __( 'Coupon Settings', 'wpcd-coupon' ),
 				'description' => __( 'These are some general coupon settings. You can use the default settings or set your own ones.', 'wpcd-coupon' )
 			),
+                        array(
+				'id'          => 'archive-coupon',
+				'title'       => __( 'Archive coupon Settings', 'wpcd-coupon' ),
+				'description' => __( 'These are some archive coupon settings. You can use the default settings or set your own ones.', 'wpcd-coupon' )
+			),
 			array(
 				'id'          => 'hide-coupon',
 				'title'       => __( 'Hide Coupon Settings', 'wpcd-coupon' ),
@@ -256,6 +261,15 @@ class WPCD_Settings_Page_Pro {
 					'default'     => 'h1',
 				),
 			),
+                        array(
+                                array(
+                                        'id'          => 'disable-menu-archive-code',
+                                        'label'       => __( 'Diable menu' , 'wpcd-coupon' ),
+                                        'description' => __( 'Disable the menu of categories in archive code', 'wpcd-coupon' ),
+                                        'type'        => 'checkbox',
+                                        'default'     => '',
+                                )
+                        ),
 			array(
 				array(
 					'id'          => 'hidden-coupon-text',

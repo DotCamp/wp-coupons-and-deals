@@ -43,6 +43,7 @@ $wpcd_coupon_image_src    = wp_get_attachment_image_src( $wpcd_coupon_image_id, 
 $wpcd_show_print          = get_post_meta( $coupon_id, 'coupon_details_coupon-image-print', true );
 $wpcd_image_width         = get_post_meta( $coupon_id, 'coupon_details_coupon-image-width', true );
 $wpcd_image_height        = get_post_meta( $coupon_id, 'coupon_details_coupon-image-height', true );
+$disable_menu             = get_option('wpcd_disable-menu-archive-code');
 if ( is_array( $wpcd_coupon_image_src ) ) {
 	$wpcd_coupon_image_src = $wpcd_coupon_image_src[0];
 } else {
@@ -77,8 +78,7 @@ if ( $parent == 'header' ):
 	<?php
 	global $current_url;
 	$terms = get_terms( 'wpcd_coupon_category' );
-	if ( ! empty( $terms ) && ! is_wp_error( $terms ) ):
-
+	if ( ! empty( $terms ) && ! is_wp_error( $terms ) && !$disable_menu):
 		?>
         <ul id="wpcd_cat_ul">
             <li><a href="<?php echo $current_url; ?>">All Coupons</a></li>
