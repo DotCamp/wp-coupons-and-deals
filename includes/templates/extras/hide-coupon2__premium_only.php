@@ -149,19 +149,6 @@ $wpcd_show_coupon_popup = ! empty( $_GET['wpcd_coupon'] ) && $_GET['wpcd_coupon'
             <div class="wpcd_coupon_popup_top_head">
                 <h3 class="wpcd_coupon_popup_title">
 					<?php echo get_the_title( $new_coupon_id ) ?>
-					<?php if ( $wpcd_enable_goto_button === 'on' ) { ?>
-                        <a target="_blank" class="wpcd_popup-go-link" href="<?php echo $link; ?>">
-							<?php
-
-							if ( ! empty( $wpcd_custom_goto ) ) {
-								echo $wpcd_custom_goto;
-							} else {
-								echo __( 'Go to Offer', 'wpcd-coupon' );
-							}
-
-							?>
-                        </a>
-					<?php } ?>
                 </h3>
                 <span class="wpcd_coupon_popup_close">&times;</span>
             </div>
@@ -208,6 +195,19 @@ $wpcd_show_coupon_popup = ! empty( $_GET['wpcd_coupon'] ) && $_GET['wpcd_coupon'
 
                     });
                 </script>
+	            <?php if ( $wpcd_enable_goto_button === 'on' ) { ?>
+                    <a target="_blank" class="wpcd_popup-go-link" href="<?php echo $link; ?>">
+			            <?php
+
+			            if ( ! empty( $wpcd_custom_goto ) ) {
+				            echo $wpcd_custom_goto;
+			            } else {
+				            echo __( 'Go to Offer', 'wpcd-coupon' );
+			            }
+
+			            ?>
+                    </a>
+	            <?php } ?>
             </div>
         </div>
     </section>

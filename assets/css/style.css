@@ -1806,7 +1806,7 @@ p.wpcd-coupon-loop-expired {
     position: relative;
 }
 
-h3.wpcd_coupon_popup_title {
+.wpcd_coupon_popup_title {
     font-size: 29px;
     font-weight: normal;
     margin: 10px 0 0 0;
@@ -1817,7 +1817,9 @@ h3.wpcd_coupon_popup_title {
 .wpcd_popup-go-link {
     display: inline-block;
     width: auto;
-    margin-top: 10px;
+    margin-top: 30px;
+    left: 40%;
+    position: relative;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
