@@ -1,5 +1,5 @@
 <?php 
-$wpcd_coupon_templates = array('Template One', 'Template Two', 'Template Three', 'Template Four', 'Template Five', 'Template Six');
+$wpcd_coupon_templates = array('Default', 'Template One', 'Template Two', 'Template Three', 'Template Four', 'Template Five', 'Template Six');
 ?>
 <form id="wpcd_import_form" class="wpcd_clearfix" enctype='multipart/form-data' method='post'>
 	<p style="font-size: 16px"><?php echo __( 'Here you can import coupons from a CSV file. Select the CSV file you want to import, then click on Next.', 'wpcd-coupon' ); ?></p>
@@ -21,6 +21,16 @@ $wpcd_coupon_templates = array('Template One', 'Template Two', 'Template Three',
 	        	<?php endforeach; ?>
 	        </select>
 		</div>
+                <div id="wpcd_import_color_parent" style="display:none;">
+                    <label>
+                        Color Theme: 
+                    </label>
+                    <div id="wpcd_import_color" class="wpcd_colorSelectors">
+                        <div data-color="#18e06e" style="background-color:#18e06e;"></div>
+                        <input id="wpcd_import_color" name="theme_color" type="hidden" value="#18e06e"/>
+                    </div>
+                </div>
+
 		<div>
 	    	<input type="file" name='wpcd_import_file' required/>
 		</div>

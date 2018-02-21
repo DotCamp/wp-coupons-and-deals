@@ -416,14 +416,36 @@ jQuery(document).ready(function ($) {
                 },
                 onChange: function (hsb, hex, rgb) {
                     $this = $('#' + this.data('targetid'));
-
+                    
                     $this.children('div').css('backgroundColor', '#' + hex);
                     $this.children('input').val('#' + hex);
                     $this.children('input').trigger('change');
                 }
             });
         }
-
+    
+    /**
+     *  color Picker for import Page
+     */
+    var select_temp_import = $('select[name="wpcd_default_template"]');
+    if(select_temp_import.length){
+        function is_temp_has_color(){
+            var selected_theme = $('select[name="wpcd_default_template"]').val();
+            
+            // Template Five and Six has color picker
+            if(selected_theme == 'Template Five' || 
+                    selected_theme == 'Template Six'){
+                $('#wpcd_import_color_parent').show();
+            }else{
+                $('#wpcd_import_color_parent').hide();
+            }
+        }
+        is_temp_has_color();
+        
+        select_temp_import.change(function(){
+           is_temp_has_color();
+        });
+    }
     /**
      * for widget category filter
      */
@@ -540,7 +562,7 @@ jQuery(document).ready(function ($) {
         //resize the window
         thickbox_resize();
     });
-
+    
 });
 
 

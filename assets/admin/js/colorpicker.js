@@ -2,7 +2,7 @@
  *
  * Color picker
  * Author: Stefan Petre www.eyecon.ro
- *
+ * Website: http://www.eyecon.ro/colorpicker/
  * Dual licensed under the MIT and GPL licenses
  *
  */
