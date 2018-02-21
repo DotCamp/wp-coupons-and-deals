@@ -147,9 +147,9 @@ $wpcd_show_coupon_popup = ! empty( $_GET['wpcd_coupon'] ) && $_GET['wpcd_coupon'
         <div class="wpcd_coupon_popup_layer"></div>
         <div class="wpcd_coupon_popup_inner">
             <div class="wpcd_coupon_popup_top_head">
-                <h3 class="wpcd_coupon_popup_title">
+                <p class="wpcd_coupon_popup_title">
 					<?php echo get_the_title( $new_coupon_id ) ?>
-                </h3>
+                </p>
                 <span class="wpcd_coupon_popup_close">&times;</span>
             </div>
             <div class="wpcd_coupon_popup_copy_main">
