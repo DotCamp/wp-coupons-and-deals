@@ -45,6 +45,7 @@ if ( $wpcd_text_to_show == 'description' ) {
 		$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wpcd-coupon' );
 	}
 }
+$template = new WPCD_Template_Loader();
 ?>
 <!-- I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one in hide-coupon file -->
 <div class="wpcd-coupon-four">
@@ -71,11 +72,6 @@ if ( $wpcd_text_to_show == 'description' ) {
 					?>
                     <div class="wpcd-four-discount-text"><?php echo $discount_text; ?></div> <?php
 					if ( $hide_coupon == 'Yes' ) {
-
-						$template = new WPCD_Template_Loader();
-						?>
-
-						<?php
 						$template->get_template_part( 'hide-coupon__premium_only' );
 
 					} else { ?>
@@ -547,4 +543,7 @@ if ( $wpcd_text_to_show == 'description' ) {
 
     </div>
     <!-- End Third Coupon -->
+    <?php 
+        $template->get_template_part('social-share');
+    ?>
 </div>

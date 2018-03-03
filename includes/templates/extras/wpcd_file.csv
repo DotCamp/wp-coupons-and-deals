@@ -1,4 +1,4 @@
 Website   ,Title   ,Coupon Code,Coupon Link                                                        ,Copon Text,Coupon Description,Expiry Date,Hide,Coupon Template
 Category 1,Title 1 ,100YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,15% Off   ,Get Flat 15% Off  ,10/30/2017,Yes,
-Category 2,Title 2 ,101YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,16% Off   ,Get Flat 16% Off  ,10/31/2017,No,Template Fivve
-Category 1,Title 3 ,102YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,17% Off   ,Get Flat 17% Off  ,11/1/2017,No,Template Five
+Category 2,Title 2 ,101YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,16% Off   ,Get Flat 16% Off  ,10/31/2017,No,
+Category 1,Title 3 ,102YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,17% Off   ,Get Flat 17% Off  ,11/1/2017,No,

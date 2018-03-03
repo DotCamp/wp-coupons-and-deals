@@ -44,6 +44,7 @@ $wpcd_show_print          = get_post_meta( $coupon_id, 'coupon_details_coupon-im
 $wpcd_image_width         = get_post_meta( $coupon_id, 'coupon_details_coupon-image-width', true );
 $wpcd_image_height        = get_post_meta( $coupon_id, 'coupon_details_coupon-image-height', true );
 $disable_menu             = get_option('wpcd_disable-menu-archive-code');
+$template = new WPCD_Template_Loader();
 if ( is_array( $wpcd_coupon_image_src ) ) {
 	$wpcd_coupon_image_src = $wpcd_coupon_image_src[0];
 } else {
@@ -226,7 +227,6 @@ if ( $parent == 'header' ):
 			<?php if ( $coupon_type == 'Coupon' ): ?>
 				<?php if ( $hide_coupon === 'Yes' ): ?>
 					<?php
-					$template = new WPCD_Template_Loader();
 					$template->get_template_part( 'hide-coupon2__premium_only' );
 					?>
 				<?php else: ?>
@@ -270,6 +270,9 @@ if ( $parent == 'header' ):
         <script type="text/javascript">
             var clip = new Clipboard('.<?php echo $button_class; ?>');
         </script>
+        <?php 
+            $template->get_template_part('social-share');
+        ?>
     </div>
 <?php elseif ( $wpcd_coupon_template === 'Template Six' ): ?>
     <!-- Template Six -->
@@ -367,8 +370,7 @@ if ( $parent == 'header' ):
 					<?php if ( $coupon_type === 'Coupon' ): ?>
 						<?php if ( $hide_coupon === 'Yes' ): ?>
 							<?php
-							$template = new WPCD_Template_Loader();
-							$template->get_template_part( 'hide-coupon2__premium_only' );
+							    $template->get_template_part( 'hide-coupon2__premium_only' );
 							?>
 						<?php else: ?>
                             <div class="wpcd-coupon-code wpcd-btn-wrap">
@@ -411,6 +413,9 @@ if ( $parent == 'header' ):
         <script type="text/javascript">
             var clip = new Clipboard('.<?php echo $button_class; ?>');
         </script>
+        <?php 
+            $template->get_template_part('social-share');
+        ?>
     </div>
 <?php else: ?>
     <div class="wpcd-coupon wpcd-coupon-default wpcd-coupon-id-<?php echo $coupon_id; ?>">
@@ -434,8 +439,6 @@ if ( $parent == 'header' ):
 					<?php if ( $coupon_type == 'Coupon' ) {
 					if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->is_trial() ) {
 					if ( $hide_coupon == 'Yes' ) {
-
-						$template = new WPCD_Template_Loader();
 
 						$template->get_template_part( 'hide-coupon__premium_only' );
 
@@ -476,7 +479,7 @@ if ( $parent == 'header' ):
 
                             var clip = new Clipboard('.wpcd-btn-<?php echo $coupon_id; ?>');
                         </script>
-
+                        
 					<?php } elseif ( $coupon_type == 'Deal' ) { ?>
                         <div class="wpcd-coupon-code">
                             <a rel="nofollow"
@@ -591,6 +594,9 @@ if ( $parent == 'header' ):
                 </div>
             </div>
         </div>
+        <?php 
+                $template->get_template_part('social-share');
+        ?>
     </div>
 <?php endif; ?>
 

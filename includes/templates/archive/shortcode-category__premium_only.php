@@ -31,7 +31,7 @@ $hide_coupon              = get_post_meta( $coupon_id, 'coupon_details_hide-coup
 $wpcd_coupon_image_id     = get_post_meta( $coupon_id, 'coupon_details_coupon-image-input', true );
 $wpcd_coupon_image_src    = wp_get_attachment_image_src( $wpcd_coupon_image_id, 'full' );
 $wpcd_show_print          = get_post_meta( $coupon_id, 'coupon_details_coupon-image-print', true );
-
+$template = new WPCD_Template_Loader();
 
 if ( is_array( $wpcd_coupon_image_src ) ) {
 	$wpcd_coupon_image_src = $wpcd_coupon_image_src[0];
@@ -103,8 +103,6 @@ if ( $parent == 'header' ): ?>
 						}
 						if ( $coupon_type == 'Coupon' ) {
 						if ( $hide_coupon == 'Yes' ) {
-
-							$template = new WPCD_Template_Loader();
 
 							$template->get_template_part( 'hide-coupon__premium_only' );
 
@@ -207,6 +205,9 @@ if ( $parent == 'header' ): ?>
 							<?php } ?>
 						<?php } ?>
                     </div>
+                    <?php 
+                        $template->get_template_part('social-share');
+                    ?>
                 </div>
         </li>
 		<?php if ( $parent == 'footer' ): ?>

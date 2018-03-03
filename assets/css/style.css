@@ -680,6 +680,7 @@ p.wpcd-coupon-four-expired {
     clear: both;
     overflow: hidden;
     padding: 20px;
+    padding-bottom: 0;
     box-sizing: border-box;
 }
 
@@ -2422,4 +2423,96 @@ p.wpcd-coupon-loop-expired {
 
 .hidden, .hide {
     display: none !important;
+}
+
+/*/////////////////////////////////////////////////////////////
+    // Social Sharing Icons \
+///////////////////////////////////////////////////////////// */
+.cs-social-share {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: block;
+    text-align:center;
+}
+
+/*/////////////////////////////////////////////////////////////
+    // Social Sharing Icons On Product Page \
+///////////////////////////////////////////////////////////// */
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+.cs-share-this-product {
+    display: inline-block;
+    width: 15%;
+    height: 30px;
+    padding: 1px 0px;
+    min-width: 68px;
+    margin: 2% .8%;
+    overflow: hidden;
+    -webkit-filter: brightness(90%);
+    -moz-filter: brightness(90%);
+    -ms-filter: brightness(90%);
+    -o-filter: brightness(90%);
+    filter: brightness(90%);
+    transition: all .45s ease-in-out;
+}
+.cs-share-this-product:hover {
+    /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);*/
+    border-radius: 3px;
+    -webkit-filter: brightness(120%);
+    -moz-filter: brightness(120%);
+    -ms-filter: brightness(120%);
+    -o-filter: brightness(120%);
+    filter: brightness(120%);
+}
+.cs-share-this-product:hover img {
+    left: 32%;
+    transform: scale(1);
+}
+.cs-share-this-product:hover span.share-text {
+    opacity: 0;
+    left: 20px;
+    transform: rotateX(90deg) scale(0.3);
+}
+.cs-share-this-product a {
+    text-decoration: none;
+}
+.cs-share-this-product img {
+    width: 28px;
+    transition: all .5s ease;
+    position: relative;
+    left: 0;
+    transform: scale(0.8);
+    margin-bottom: 0;
+}
+.cs-share-this-product .social-share-icon-block span.share-text {
+    font-size: 12px;
+    color: #fff;
+    position: relative;
+    left: -3px;
+    top: -8px;
+    transition: all .45s ease-in-out;
+}
+.cs-share-this-product.facebook {
+    background: #527EBF;
+}
+.cs-share-this-product.twitter {
+    background: #25C0E2;
+}
+.cs-share-this-product.google-plus {
+    background: #DB4A37;
+}
+.cs-share-this-product.pinterest {
+    background: #CD2129;
+}
+.cs-share-this-product.linkedin {
+    background: #147BB7;
+}
+.cs-share-this-product.email {
+    background: #0F75BC;
 }

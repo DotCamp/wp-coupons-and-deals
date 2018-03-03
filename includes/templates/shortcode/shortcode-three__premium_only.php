@@ -37,6 +37,7 @@ if ( $wpcd_text_to_show == 'description' ) {
 		$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wpcd-coupon' );
 	}
 }
+$template = new WPCD_Template_Loader();
 ?>
 <div class="wpcd-coupon-three wpcd-coupon-id-<?php echo $coupon_id; ?>">
     <div class="wpcd-coupon-three-content">
@@ -150,8 +151,6 @@ if ( $wpcd_text_to_show == 'description' ) {
 
 					if ( $hide_coupon == 'Yes' ) {
 
-						$template = new WPCD_Template_Loader();
-
 						$template->get_template_part( 'hide-coupon__premium_only' );
 
 					} else { ?>
@@ -207,4 +206,7 @@ if ( $wpcd_text_to_show == 'description' ) {
     <script type="text/javascript">
         var clip = new Clipboard('<?php echo $button_class; ?>');
     </script>
+    <?php 
+        $template->get_template_part('social-share');
+    ?>
 </div>
