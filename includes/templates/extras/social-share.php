@@ -2,7 +2,7 @@
 <div class="cs-social-share clearfix">
   
   <div class="cs-share-this-product facebook">
-    <a title="Share on Facebook" target="_blank" href="">
+      <a class="fb-share" title="Share on Facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo the_permalink(); ?>">
       <div class="social-share-icon-block">
         <img src="https://theofficeplace.com/wp-content/uploads/share-icons/share-facebook.png">
         <span class="share-text">Share</span>
