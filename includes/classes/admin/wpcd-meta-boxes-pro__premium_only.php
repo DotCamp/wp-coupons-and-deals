@@ -516,7 +516,11 @@ class WPCD_Meta_Boxes_Pro {
 						$_POST[ $wpcd_field['id'] ] = sanitize_email( $_POST[ $wpcd_field['id'] ] );
 						break;
 					case 'text':
-						$_POST[ $wpcd_field['id'] ] = sanitize_text_field( $_POST[ $wpcd_field['id'] ] );
+                                                if($wpcd_field['id'] == 'link')
+                                                    $_POST[ $wpcd_field['id'] ] = esc_url( $_POST[ $wpcd_field['id'] ] );
+                                                else
+                                                    $_POST[ $wpcd_field['id'] ] = sanitize_text_field( $_POST[ $wpcd_field['id'] ] );
+                                                
 						break;
 				}
 				update_post_meta( $post_id, 'coupon_details_' . $wpcd_field['id'], $_POST[ $wpcd_field['id'] ] );
