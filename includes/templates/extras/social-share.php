@@ -11,7 +11,7 @@
   </div>
   
   <div class="cs-share-this-product twitter ">
-      <a title="Share on Twitter" target="_blank" href="http://twitter.com/share?text=<?php echo the_title(); ?>&url=<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>&hashtags=hashtag1,hashtag2,hashtag3">
+      <a title="Share on Twitter" target="_blank" href="http://twitter.com/share?text=<?php echo the_title(); ?> Coupon&url=<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>&hashtags=hashtag1,hashtag2,hashtag3">
       <div class="social-share-icon-block">
         <img src="https://theofficeplace.com/wp-content/uploads/share-icons/share-twitter.png">
         <span class="share-text">Tweet</span>
