@@ -1,2 +1,6 @@
 .idea/
 .vscode/
+/includes/sdk/freemius/nbproject/private/
+/includes/sdk/freemius/nbproject/project.properties
+/includes/sdk/freemius/nbproject/project.xml
+/.gitignore

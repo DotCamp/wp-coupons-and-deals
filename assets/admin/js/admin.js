@@ -21,6 +21,7 @@ jQuery(document).ready(function ($) {
     var show_expiration = $('#show-expiration');
     var expiration = $('#expiredate');
     var time_expiration = $('#expiretime');
+    var never_expire = $('#neverexpire');
     var coupon_template = $('#coupon-template');
     var hide_coupon = $('#hide-coupon');
     var coupon_hidden = $('.wpcd-coupon-hidden');
@@ -149,8 +150,10 @@ jQuery(document).ready(function ($) {
             time_expiration.show();
             expiration.show();
             show_expiration.hide();
+            never_expire.show();
         } else {
             time_expiration.hide();
+            never_expire.hide();
         }
 
         if (currentTemplate === templates.FOUR) {
@@ -232,9 +235,11 @@ jQuery(document).ready(function ($) {
             time_expiration.show("slow");
             expiration.show("slow");
             show_expiration.hide();
+            never_expire.show();
         } else {
             time_expiration.hide();
             show_expiration.show();
+            never_expire.hide();
         }
 
         if (currentTemplate === templates.FOUR) {

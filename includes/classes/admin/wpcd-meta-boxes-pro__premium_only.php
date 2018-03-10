@@ -160,6 +160,12 @@ class WPCD_Meta_Boxes_Pro {
 				'type'  => 'expiretime',
 				'help'  => __( 'Choose expiration time of the coupon.', 'wpcd-coupon' )
 			),
+                        array(
+                                'id'    => 'never-expire-check',
+                                'label' => __('Never expire', 'wpcd-coupon'),
+                                'type'  => 'neverexpire',
+                                'help'  => __('check this will override all expiration options and make the coupon never expired')
+                        ),
 			array(
 				'id'      => 'hide-coupon',
 				'label'   => __( 'Hide Coupon', 'wpcd-coupon' ),
@@ -386,6 +392,15 @@ class WPCD_Meta_Boxes_Pro {
 					);
 					break;
 
+                                case 'neverexpire':
+                                    $input = sprintf(
+                                            '<input type="checkbox" name="%s" id="%s" '. checked($db_value, 'on').'/><br><i style="font-size: 12px">%s</i>',
+                                            $wpcd_field['id'],
+                                            $wpcd_field['id'],
+                                            $wpcd_field['help']
+                                    );
+                                    break;
+                                
 				case 'expiredate':
 					$input = sprintf(
 						'<input type="text" data-expiredate-format="%s" name="%s" id="%s" placeholder="%s" value="%s"/><br><i style="font-size: 12px">%s</i>',
@@ -508,9 +523,9 @@ class WPCD_Meta_Boxes_Pro {
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 			return $post_id;
 		}
-
-		foreach ( $this->wpcd_fields as $wpcd_field ) {
-			if ( isset( $_POST[ $wpcd_field['id'] ] ) ) {
+                
+		foreach ( $this->wpcd_fields as $wpcd_field ) {    
+                        if ( isset( $_POST[ $wpcd_field['id'] ] ) ) {
 				switch ( $wpcd_field['type'] ) {
 					case 'email':
 						$_POST[ $wpcd_field['id'] ] = sanitize_email( $_POST[ $wpcd_field['id'] ] );
@@ -520,11 +535,15 @@ class WPCD_Meta_Boxes_Pro {
                                                     $_POST[ $wpcd_field['id'] ] = esc_url( $_POST[ $wpcd_field['id'] ] );
                                                 else
                                                     $_POST[ $wpcd_field['id'] ] = sanitize_text_field( $_POST[ $wpcd_field['id'] ] );
-                                                
+                                                break;
+                                        case 'checkbox':
+                                                // isset meaning this checkbox is checked
+                                                $_POST[ $wpcd_field['id'] ] = 1;
 						break;
 				}
 				update_post_meta( $post_id, 'coupon_details_' . $wpcd_field['id'], $_POST[ $wpcd_field['id'] ] );
-			} else if ( $wpcd_field['type'] === 'checkbox' ) {
+			} else if ( $wpcd_field['type'] === 'checkbox' ||  
+                                    $wpcd_field['type'] === 'neverexpire') {
 				update_post_meta( $post_id, 'coupon_details_' . $wpcd_field['id'], '0' );
 			}
 		}
