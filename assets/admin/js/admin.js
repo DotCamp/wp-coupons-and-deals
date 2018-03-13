@@ -21,7 +21,8 @@ jQuery(document).ready(function ($) {
     var show_expiration = $('#show-expiration');
     var expiration = $('#expiredate');
     var time_expiration = $('#expiretime');
-    var never_expire = $('#neverexpire');
+    var never_expire = $('#neverexpire-checkbox'); // the wrraper of the checkbox
+    var never_expire_check = $('#never-expire-check');//the checkbox itself
     var coupon_template = $('#coupon-template');
     var hide_coupon = $('#hide-coupon');
     var coupon_hidden = $('.wpcd-coupon-hidden');
@@ -54,7 +55,10 @@ jQuery(document).ready(function ($) {
 
 
     hide_coupon.on('change', onHideCouponFieldChange);
-
+    
+    //on neverexpire checkbox change
+    $(never_expire_check).on('change', onNeverExpireCheckboxChange);
+    
     //on featured image set
     wp.media.featuredImage.frame().on('select', function () {
         var frame = wp.media.featuredImage.frame();
@@ -196,8 +200,12 @@ jQuery(document).ready(function ($) {
             coupon_hidden.hide();
             coupon_not_hidden.show();
         }
+        
+        if(never_expire_check.prop('checked')){
+            $('b.expires-on').toggle();
+            $('b.never-expire').toggle();
+        }
     }
-
     function onExpirationSelectFieldChange() {
         updateExpirationSelectField($(this).val());
     }
@@ -271,6 +279,13 @@ jQuery(document).ready(function ($) {
             coupon_hidden.hide();
             coupon_not_hidden.show();
         }
+    }
+    
+    function onNeverExpireCheckboxChange(){
+        var checked = $(this).prop('checked');
+        $('b.expires-on').toggle();
+        $('b.never-expire').toggle();
+        
     }
 
     function updateTemplateFiveTheme(color) {

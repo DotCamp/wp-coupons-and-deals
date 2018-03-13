@@ -163,7 +163,7 @@ class WPCD_Meta_Boxes_Pro {
                         array(
                                 'id'    => 'never-expire-check',
                                 'label' => __('Never expire', 'wpcd-coupon'),
-                                'type'  => 'neverexpire',
+                                'type'  => 'neverexpire-checkbox',
                                 'help'  => __('check this will override all expiration options and make the coupon never expired')
                         ),
 			array(
@@ -392,7 +392,7 @@ class WPCD_Meta_Boxes_Pro {
 					);
 					break;
 
-                                case 'neverexpire':
+                                case 'neverexpire-checkbox':
                                     $input = sprintf(
                                             '<input type="checkbox" name="%s" id="%s" '. checked($db_value, 'on').'/><br><i style="font-size: 12px">%s</i>',
                                             $wpcd_field['id'],
@@ -536,14 +536,10 @@ class WPCD_Meta_Boxes_Pro {
                                                 else
                                                     $_POST[ $wpcd_field['id'] ] = sanitize_text_field( $_POST[ $wpcd_field['id'] ] );
                                                 break;
-                                        case 'checkbox':
-                                                // isset meaning this checkbox is checked
-                                                $_POST[ $wpcd_field['id'] ] = 1;
-						break;
 				}
 				update_post_meta( $post_id, 'coupon_details_' . $wpcd_field['id'], $_POST[ $wpcd_field['id'] ] );
 			} else if ( $wpcd_field['type'] === 'checkbox' ||  
-                                    $wpcd_field['type'] === 'neverexpire') {
+                                    strpos($wpcd_field['type'],'checkbox')) {
 				update_post_meta( $post_id, 'coupon_details_' . $wpcd_field['id'], '0' );
 			}
 		}

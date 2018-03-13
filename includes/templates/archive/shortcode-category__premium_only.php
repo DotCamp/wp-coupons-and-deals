@@ -18,6 +18,7 @@ $coupon_hover_text        = get_option( 'wpcd_coupon-hover-text' );
 $deal_hover_text          = get_option( 'wpcd_deal-hover-text' );
 $button_class             = '.wpcd-btn-' . $coupon_id;
 $no_expiry                = get_option( 'wpcd_no-expiry-message' );
+$never_expire             = get_post_meta( $coupon_id, 'coupon_details_never-expire-check', true );
 $expire_text              = get_option( 'wpcd_expire-text' );
 $expired_text             = get_option( 'wpcd_expired-text' );
 $hide_coupon_text         = get_option( 'wpcd_hidden-coupon-text' );
@@ -49,7 +50,7 @@ if ( $wpcd_text_to_show == 'description' ) {
 		$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wpcd-coupon' );
 	}
 }
-
+$wpcd_coupon_template     = get_post_meta( $coupon_id, 'coupon_details_coupon-template', true );
 
 /*
  * use category image as featured image
@@ -169,9 +170,11 @@ if ( $parent == 'header' ): ?>
                                 </div>
                             </div>
 						<?php } ?>
-						<?php if ( $show_expiration == 'Show' ) { ?>
-
-							<?php if ( ! empty( $expire_date ) ) { ?>
+						<?php if ( $show_expiration == 'Show' ) { 
+                                                            $never_expire = ($wpcd_coupon_template == 'Template Two' ||
+                                                                             $wpcd_coupon_template == 'Template Six') 
+                                                                            ? $never_expire: '';
+                                                    if ( ! empty( $expire_date ) && $never_expire != 'on' ) { ?>
                                 <div class="wpcd_coupon_li_bottom wpcd_clearfix">
 
 									<?php if ( strtotime( $expire_date ) >= strtotime( $today ) ) { ?>

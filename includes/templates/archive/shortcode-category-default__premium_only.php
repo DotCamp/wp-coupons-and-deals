@@ -28,6 +28,7 @@ $today                    = date( 'd-m-Y' );
 $expire_date              = get_post_meta( $coupon_id, 'coupon_details_expire-date', true );
 $expire_date_format       = date( "m/d/Y", strtotime( $expire_date ) );
 $expire_time              = get_post_meta( $coupon_id, 'coupon_details_expire-time', true );
+$never_expire             = get_post_meta( $coupon_id, 'coupon_details_never-expire-check', true );
 $hide_coupon              = get_post_meta( $coupon_id, 'coupon_details_hide-coupon', true );
 $wpcd_coupon_image_id     = get_post_meta( $coupon_id, 'coupon_details_coupon-image-input', true );
 $wpcd_coupon_image_src    = wp_get_attachment_image_src( $wpcd_coupon_image_id, 'full' );
@@ -283,53 +284,63 @@ if ( $parent == 'header' ): ?>
                         </div>
                     </div>
                     <div class="exp" style="border-color: <?php echo $wpcd_template_six_theme; ?>">
-                        <p><b>
-								<?php
-								if ( ! empty( $expire_text ) ) {
-									echo $expire_text;
-								} else {
-									echo __( 'Expires on: ', 'wpcd-coupon' );
-								}
-								?>
-                            </b> <span class="wpcd-coupon-six-countdown clock_six_<?php echo $coupon_id; ?>"></span>
-							<?php if ( $expire_date ) : ?>
-                                <script type="text/javascript">
-                                    if (jQuery('.clock_six_<?php echo $coupon_id; ?>').length === 1) {
-                                        var clockClass = '.clock_six_<?php echo $coupon_id; ?>';
-                                        var $clock2 = jQuery('.clock_six_<?php echo $coupon_id; ?>').countdown('<?php echo $expire_date_format . ' ' . $expire_time; ?>', function (event) {
-                                            var format = '%M <?php echo __( 'minutes', 'wpcd-coupon' ); ?> %S <?php echo __( 'seconds', 'wpcd-coupon' ); ?>';
-                                            if (event.offset.hours > 0) {
-                                                format = "%H <?php echo __( 'hours', 'wpcd-coupon' ); ?> %M <?php echo __( 'minutes', 'wpcd-coupon' ); ?> %S <?php echo __( 'seconds', 'wpcd-coupon' ); ?>";
-                                            }
-                                            if (event.offset.totalDays > 0) {
-                                                format = "%-d <?php echo __( 'day', 'wpcd-coupon' ); ?>%!d " + format;
-                                            }
-                                            if (event.offset.weeks > 0) {
-                                                format = "%-w <?php echo __( 'week', 'wpcd-coupon' ); ?>%!w " + format;
-                                            }
-                                            jQuery(clockClass).html(event.strftime(format));
-
-                                            if (event.offset.weeks == 0 && event.offset.totalDays == 0 && event.offset.hours == 0 && event.offset.minutes == 0 && event.offset.seconds == 0) {
-                                                jQuery(clockClass).addClass('wpcd-countdown-expired').html('<?php echo __( 'This offer has expired!', 'wpcd-coupon' ); ?>');
-                                            } else {
-                                                jQuery(clockClass).html(event.strftime(format));
-                                                jQuery('.clock_six_<?php echo $coupon_id; ?>').removeClass('wpcd-countdown-expired');
-                                            }
-                                        });
+                        <p>
+                                <?php if( ! empty( trim( $expire_date ) ) && $never_expire != 'on' ) : ?>
+                                <b>
+                                    <?php
+                                    if ( ! empty( $expire_text ) ) {
+                                            echo $expire_text;
+                                    } else {
+                                            echo __( 'Expires on: ', 'wpcd-coupon' );
                                     }
+                                    ?>
+                                </b> <span class="wpcd-coupon-six-countdown clock_six_<?php echo $coupon_id; ?>"></span>
+                                                        <?php if ( $expire_date ) : ?>
+                                    <script type="text/javascript">
+                                        if (jQuery('.clock_six_<?php echo $coupon_id; ?>').length === 1) {
+                                            var clockClass = '.clock_six_<?php echo $coupon_id; ?>';
+                                            var $clock2 = jQuery('.clock_six_<?php echo $coupon_id; ?>').countdown('<?php echo $expire_date_format . ' ' . $expire_time; ?>', function (event) {
+                                                var format = '%M <?php echo __( 'minutes', 'wpcd-coupon' ); ?> %S <?php echo __( 'seconds', 'wpcd-coupon' ); ?>';
+                                                if (event.offset.hours > 0) {
+                                                    format = "%H <?php echo __( 'hours', 'wpcd-coupon' ); ?> %M <?php echo __( 'minutes', 'wpcd-coupon' ); ?> %S <?php echo __( 'seconds', 'wpcd-coupon' ); ?>";
+                                                }
+                                                if (event.offset.totalDays > 0) {
+                                                    format = "%-d <?php echo __( 'day', 'wpcd-coupon' ); ?>%!d " + format;
+                                                }
+                                                if (event.offset.weeks > 0) {
+                                                    format = "%-w <?php echo __( 'week', 'wpcd-coupon' ); ?>%!w " + format;
+                                                }
+                                                jQuery(clockClass).html(event.strftime(format));
 
-                                    jQuery("#expire-time").change(function () {
-                                        jQuery('.clock_six_<?php echo $coupon_id; ?>').show();
-                                        var coup_date = jQuery("#expire-date").val();
-                                        if (coup_date.indexOf("-") >= 0) {
-                                            var dateAr = coup_date.split('-');
-                                            coup_date = dateAr[1] + '/' + dateAr[0] + '/' + dateAr[2];
+                                                if (event.offset.weeks == 0 && event.offset.totalDays == 0 && event.offset.hours == 0 && event.offset.minutes == 0 && event.offset.seconds == 0) {
+                                                    jQuery(clockClass).addClass('wpcd-countdown-expired').html('<?php echo __( 'This offer has expired!', 'wpcd-coupon' ); ?>');
+                                                } else {
+                                                    jQuery(clockClass).html(event.strftime(format));
+                                                    jQuery('.clock_six_<?php echo $coupon_id; ?>').removeClass('wpcd-countdown-expired');
+                                                }
+                                            });
                                         }
-                                        selectedDate = coup_date + ' ' + jQuery("#expire-time").val();
-                                        $clock2.countdown(selectedDate.toString());
-                                    });
-                                </script>
-							<?php endif; ?>
+
+                                        jQuery("#expire-time").change(function () {
+                                            jQuery('.clock_six_<?php echo $coupon_id; ?>').show();
+                                            var coup_date = jQuery("#expire-date").val();
+                                            if (coup_date.indexOf("-") >= 0) {
+                                                var dateAr = coup_date.split('-');
+                                                coup_date = dateAr[1] + '/' + dateAr[0] + '/' + dateAr[2];
+                                            }
+                                            selectedDate = coup_date + ' ' + jQuery("#expire-time").val();
+                                            $clock2.countdown(selectedDate.toString());
+                                        });
+                                    </script>
+                                                        <?php endif; ?>
+                                <?php else : ?>
+
+                                    <?php if ( ! empty( $no_expiry ) ) : ?>
+                                        <b><?php echo $no_expiry; ?></b>
+                                    <?php else : ?>
+                                        <b><?php echo __( "Doesn't expire", 'wpcd-coupon' ); ?></b>
+                                    <?php endif; ?>
+                                <?php endif; ?> 
                         </p>
                     </div>
                 </div>
@@ -497,7 +508,9 @@ if ( $parent == 'header' ): ?>
 						<?php
 						if ( $coupon_type == 'Coupon' ) {
 							if ( $show_expiration == 'Show' ) {
-								if ( ! empty( $expire_date ) ) {
+                                                            $never_expire = ($wpcd_coupon_template == 'Template Two') 
+                                                                          ? $never_expire: '';
+								if ( ! empty( $expire_date )  && $never_expire != 'on') {
 									if ( strtotime( $expire_date ) >= strtotime( $today ) ) { ?>
                                         <div class="wpcd-coupon-expire">
 											<?php
@@ -534,7 +547,9 @@ if ( $parent == 'header' ): ?>
 
 						} elseif ( $coupon_type == 'Deal' ) {
 							if ( $show_expiration == 'Show' ) {
-								if ( ! empty( $expire_date ) ) {
+                                                                  $never_expire = ($wpcd_coupon_template == 'Template Two') 
+                                                                  ? $never_expire: '';
+							if ( ! empty( $expire_date )  && $never_expire != 'on') {
 									if ( strtotime( $expire_date ) >= strtotime( $today ) ) { ?>
                                         <div class="wpcd-coupon-expire">
 											<?php

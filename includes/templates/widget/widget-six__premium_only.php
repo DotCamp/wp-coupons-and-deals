@@ -30,6 +30,7 @@ $time_now                 = time();
 $expire_date              = get_post_meta( $coupon_id, 'coupon_details_expire-date', true );
 $expire_time              = get_post_meta( $coupon_id, 'coupon_details_expire-time', true );
 $expire_date_format       = date( 'm/d/Y', strtotime( $expire_date ) );
+$never_expire             = get_post_meta( $coupon_id, 'coupon_details_never-expire-check', true );
 $hide_coupon              = get_post_meta( $coupon_id, 'coupon_details_hide-coupon', true );
 $wpcd_template_six_theme  = get_post_meta( $coupon_id, 'coupon_details_template-six-theme', true );
 $wpcd_dummy_coupon_img   = WPCD_Plugin::instance()->plugin_assets . 'img/coupon-200x200.png';
@@ -79,7 +80,7 @@ if ( $wpcd_text_to_show == 'description' ) {
             </div>
             <div class="exp" style="border-color: <?php echo $wpcd_template_six_theme; ?>">
                 <p>
-					<?php if( ! empty( trim( $expire_date ) ) ) : ?>
+					<?php if( ! empty( trim( $expire_date ) ) && $never_expire != 'on' ) : ?>
 						<b>
 							<?php
 							if ( ! empty( $expire_text ) ) {
@@ -88,6 +89,7 @@ if ( $wpcd_text_to_show == 'description' ) {
 								echo __( 'Expires on: ', 'wpcd-coupon' );
 							}
 							?>
+                                                    <span class="wpcd-coupon-six-countdown clock_six_<?php echo $coupon_id; ?>"></span>
 						</b> 
 					<?php else : ?>
 						<?php if ( ! empty( $no_expiry ) ) : ?>
@@ -96,7 +98,6 @@ if ( $wpcd_text_to_show == 'description' ) {
 							<b><?php echo __( "Doesn't expire", 'wpcd-coupon' ); ?></b>
 						<?php endif; ?>
 					<?php endif; ?>
-					<span class="wpcd-coupon-six-countdown clock_six_<?php echo $coupon_id; ?>"></span>
 					<?php if ( $expire_date ) : ?>
                         <script type="text/javascript">
                             if (jQuery('.clock_six_<?php echo $coupon_id; ?>').length === 1) {
@@ -146,7 +147,7 @@ if ( $wpcd_text_to_show == 'description' ) {
             <div>
 				<?php if ( $coupon_type === 'Coupon' ): ?>
 					<?php if ( $hide_coupon === 'Yes' ): ?>
-						<?php
+						<?php 
 						$template = new WPCD_Template_Loader();
 						$template->get_template_part( 'hide-coupon2__premium_only' );
 						?>

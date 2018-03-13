@@ -29,6 +29,7 @@ $today                    = date( 'd-m-Y' );
 $expire_date              = get_post_meta( $coupon_id, 'coupon_details_expire-date', true );
 $expire_time              = get_post_meta( $coupon_id, 'coupon_details_expire-time', true );
 $expire_date_format       = date( "m/d/Y", strtotime( $expire_date ) );
+$never_expire             = get_post_meta( $coupon_id, 'coupon_details_never-expire-check', true );
 $hide_coupon              = get_post_meta( $coupon_id, 'coupon_details_hide-coupon', true );
 
 $wpcd_text_to_show = get_option( 'wpcd_text-to-show' );
@@ -66,7 +67,7 @@ if ( $wpcd_text_to_show == 'description' ) {
             </div>
 
             <div class="wpcd-col-1-1">
-                <?php if( ! empty( $expire_date ) ): ?>
+                <?php if( ! empty( $expire_date ) && $never_expire != 'on' ): ?>
                     <span class="wpcd-coupon-two-countdown-text">
                         <?php
                         if ( ! empty( $expire_text ) ) {
