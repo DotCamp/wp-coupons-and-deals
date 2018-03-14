@@ -11,7 +11,7 @@
   </div>
   
   <div class="cs-share-this-product twitter ">
-      <a title="Share on Twitter" target="_blank" href="http://twitter.com/share?text=<?php echo the_title(); ?> Coupon&url=<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>&hashtags=hashtag1,hashtag2,hashtag3">
+      <a class="tw-share" title="Share on Twitter" target="_blank" href="http://twitter.com/share?text=<?php echo the_title(); ?> Coupon&url=<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>">
       <div class="social-share-icon-block">
         <img src="https://theofficeplace.com/wp-content/uploads/share-icons/share-twitter.png">
         <span class="share-text">Tweet</span>
@@ -20,7 +20,7 @@
   </div>
   
   <div class="cs-share-this-product google-plus ">
-      <a title="Share on Google+" target="_blank" href="https://plus.google.com/share?url=<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>">
+      <a class="go-share" title="Share on Google+" target="_blank" href="https://plus.google.com/share?url=<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>">
       <div class="social-share-icon-block">
         <img src="https://theofficeplace.com/wp-content/uploads/share-icons/share-google-plus.png">
         <span class="share-text">Share</span>
