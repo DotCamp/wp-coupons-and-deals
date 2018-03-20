@@ -35,6 +35,7 @@ $hide_coupon_text         = get_option( 'wpcd_hidden-coupon-text' );
 $hidden_coupon_hover_text = get_option( 'wpcd_hidden-coupon-hover-text' );
 $copy_button_text         = get_option( 'wpcd_copy-button-text' );
 $coupon_title_tag         = get_option( 'wpcd_coupon-title-tag', 'h3' );
+$coupon_share = get_option( 'wpcd_coupon-social-share' );
 $show_expiration          = get_post_meta( $coupon_id, 'coupon_details_show-expiration', true );
 $today                    = date( 'd-m-Y' );
 $expire_date              = get_post_meta( $coupon_id, 'coupon_details_expire-date', true );
@@ -242,8 +243,10 @@ if ( $parent == 'header' ):
 							<?php } ?>
 						<?php } ?>
                     </div> <!-- wpcd_coupon_li_inner-->
-                    <?php 
-                        $template->get_template_part('social-share');
+                    <?php
+                    if ( $coupon_share === 'on' ) {
+	                    $template->get_template_part('social-share');
+                    }
                     ?>
                 </div>
             </li>

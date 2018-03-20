@@ -170,7 +170,6 @@ if ( $wpcd_text_to_show == 'description' ) {
                     </div>
 				<?php } ?>
             </div>
-
         </div>
     </div>
 </div>

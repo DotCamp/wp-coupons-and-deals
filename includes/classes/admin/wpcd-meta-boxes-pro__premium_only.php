@@ -164,7 +164,7 @@ class WPCD_Meta_Boxes_Pro {
                                 'id'    => 'never-expire-check',
                                 'label' => __('Never expire', 'wpcd-coupon'),
                                 'type'  => 'neverexpire-checkbox',
-                                'help'  => __('check this will override all expiration options and make the coupon never expired')
+                                'help'  => __( 'Check this if the coupon never expires.', 'wpcd-coupon' )
                         ),
 			array(
 				'id'      => 'hide-coupon',

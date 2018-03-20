@@ -90,7 +90,11 @@ a.wpcd-btn .wpcd_deal_icon {
     width: 100%;
     font-size: 21px;
     cursor: pointer;
-    margin: 5px 0px 10px 0px;
+    margin: 5px 0px 10px 0px !important;
+}
+
+.wpcd-coupon-title a {
+    text-decoration: none !important;
 }
 
 .wpcd-coupon-code {
@@ -2431,7 +2435,7 @@ p.wpcd-coupon-loop-expired {
 /*/////////////////////////////////////////////////////////////
     // Social Sharing Icons \
 ///////////////////////////////////////////////////////////// */
-.cs-social-share {
+.wpcd-social-share {
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
@@ -2440,7 +2444,7 @@ p.wpcd-coupon-loop-expired {
 }
 
 /*/////////////////////////////////////////////////////////////
-    // Social Sharing Icons On Product Page \
+    // Social Sharing Icons
 ///////////////////////////////////////////////////////////// */
 .clearfix:after {
     visibility: hidden;
@@ -2449,7 +2453,7 @@ p.wpcd-coupon-loop-expired {
     clear: both;
     height: 0;
 }
-.cs-share-this-product {
+.wpcd-share-this-product {
     display: inline-block;
     width: 15%;
     height: 30px;
@@ -2464,7 +2468,7 @@ p.wpcd-coupon-loop-expired {
     filter: brightness(90%);
     transition: all .45s ease-in-out;
 }
-.cs-share-this-product:hover {
+.wpcd-share-this-product:hover {
     /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);*/
     border-radius: 3px;
     -webkit-filter: brightness(120%);
@@ -2473,19 +2477,19 @@ p.wpcd-coupon-loop-expired {
     -o-filter: brightness(120%);
     filter: brightness(120%);
 }
-.cs-share-this-product:hover img {
+.wpcd-share-this-product:hover img {
     left: 32%;
     transform: scale(1);
 }
-.cs-share-this-product:hover span.share-text {
+.wpcd-share-this-product:hover span.share-text {
     opacity: 0;
     left: 20px;
     transform: rotateX(90deg) scale(0.3);
 }
-.cs-share-this-product a {
+.wpcd-share-this-product a {
     text-decoration: none;
 }
-.cs-share-this-product img {
+.wpcd-share-this-product img {
     width: 28px;
     transition: all .5s ease;
     position: relative;
@@ -2493,7 +2497,7 @@ p.wpcd-coupon-loop-expired {
     transform: scale(0.8);
     margin-bottom: 0;
 }
-.cs-share-this-product .social-share-icon-block span.share-text {
+.wpcd-share-this-product .social-share-icon-block span.share-text {
     font-size: 12px;
     color: #fff;
     position: relative;
@@ -2501,21 +2505,21 @@ p.wpcd-coupon-loop-expired {
     top: -8px;
     transition: all .45s ease-in-out;
 }
-.cs-share-this-product.facebook {
+.wpcd-share-this-product.facebook {
     background: #527EBF;
 }
-.cs-share-this-product.twitter {
+.wpcd-share-this-product.twitter {
     background: #25C0E2;
 }
-.cs-share-this-product.google-plus {
+.wpcd-share-this-product.google-plus {
     background: #DB4A37;
 }
-.cs-share-this-product.pinterest {
+.wpcd-share-this-product.pinterest {
     background: #CD2129;
 }
-.cs-share-this-product.linkedin {
+.wpcd-share-this-product.linkedin {
     background: #147BB7;
 }
-.cs-share-this-product.email {
+.wpcd-share-this-product.email {
     background: #0F75BC;
 }

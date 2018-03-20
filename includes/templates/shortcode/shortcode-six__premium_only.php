@@ -27,6 +27,7 @@ $hide_coupon_text         = get_option( 'wpcd_hidden-coupon-text' );
 $hidden_coupon_hover_text = get_option( 'wpcd_hidden-coupon-hover-text' );
 $copy_button_text         = get_option( 'wpcd_copy-button-text' );
 $coupon_title_tag         = get_option( 'wpcd_coupon-title-tag', 'h1' );
+$coupon_share = get_option( 'wpcd_coupon-social-share' );
 $show_expiration          = get_post_meta( $coupon_id, 'coupon_details_show-expiration', true );
 $today                    = date( 'd-m-Y' );
 $time_now                 = time();
@@ -198,6 +199,8 @@ $template = new WPCD_Template_Loader();
         var clip = new Clipboard('.<?php echo $button_class; ?>');
     </script>
     <?php
-        $template->get_template_part('social-share');
+    if ( $coupon_share === 'on' ) {
+	    $template->get_template_part('social-share');
+    }
     ?>
 </div>

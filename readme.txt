@@ -4,7 +4,7 @@ Contributors: imtiazrayhan
 Tags: coupon, coupons, deal, deals, shortcode, coupon widget
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 2.4.1
+Stable tag: 2.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -134,6 +134,28 @@ You can [__submit a feature request__](https://wpcouponsdeals.com/submit-new-fea
 11. Adding the widget.
 
 == Changelog ==
+
+= 2.5.0 =
+
+Release Date: March 19th, 2018
+
+* Added - Option to choose heading tag for the coupon title i.e. h1, h2, h3, h4, h5, h6.
+* Added - Social Share buttons on all templates.
+* Added - Option to Enable/Disable social share buttons.
+* Fixed - Big Affiliate Links bug.
+* Fixed - Bug in Coupon selection in Widgets.
+* Changed - Title links, made nofollow and open in a new tab.
+* Pro - Added - Social Share buttons on Archive templates.
+* Pro - Added - Social Share buttons on Category templates.
+* Pro - Added - New Settings Section - 'Extras'.
+* Pro - Added - Option to turn off category navigation in archive shortcode.
+* Pro - Added - Option to choose color scheme when importing coupons.
+* Pro - Added - No Expiration option in Template Two.
+* Pro - Added - No Expiration option in Template Six.
+* Pro - Added - Title Links in Widgets.
+* Pro - Fixed - Conflict with Table of Content plugins.
+* Pro - Fixed - Template Six hide button not taking bigger text.
+* Pro - Changed - Pop up design. Rearranged the 'Go to Offer' button.
 
 = 2.4.1 =
 

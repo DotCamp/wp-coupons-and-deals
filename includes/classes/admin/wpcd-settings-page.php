@@ -238,6 +238,13 @@ class WPCD_Settings_Page {
 					),
 					'default'     => 'h1',
 				),
+				array(
+					'id' => 'coupon-social-share',
+					'label' => __( 'Social Share Buttons', 'wpcd-coupon' ),
+					'description' => __( 'Enable Social Share buttons in Coupons', 'wpcd-coupon' ),
+					'type' => 'checkbox',
+					'default' => ''
+				)
 			),
 		);
 
