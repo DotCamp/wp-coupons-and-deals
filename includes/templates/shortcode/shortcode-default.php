@@ -226,6 +226,9 @@ $template = new WPCD_Template_Loader();
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        var clip = new Clipboard('<?php echo $button_class; ?>');
+    </script>
     <?php
         if ( $coupon_share === 'on' ) {
 	        $template->get_template_part('social-share');

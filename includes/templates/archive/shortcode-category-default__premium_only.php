@@ -401,6 +401,11 @@ if ( $parent == 'header' ): ?>
             <script type="text/javascript">
                 var clip = new Clipboard('.<?php echo $button_class; ?>');
             </script>
+	        <?php
+	        if ( $coupon_share === 'on' ) {
+		        $template->get_template_part('social-share');
+	        }
+	        ?>
         </div>
 	<?php else: ?>
         <div class="wpcd-coupon wpcd-coupon-default  wpcd-coupon-id-<?php echo $coupon_id; ?>">

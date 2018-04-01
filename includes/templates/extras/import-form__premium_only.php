@@ -15,8 +15,7 @@ $wpcd_coupon_templates = array(
 
     <p style="font-size: 16px; font-weight: bold;"><?php echo __( 'Few things to know before importing coupons:' ); ?></p>
     <ul>
-        <li style="font-size: 15px;">1. Default template will be assigned to imported coupons.</li>
-        <li style="font-size: 15px;">2. Coupons will be imported as coupons type.</li>
+        <li style="font-size: 15px;">Coupons will be imported as coupons type.</li>
     </ul>
     <div class="wpcd_import_field">
         <div>
