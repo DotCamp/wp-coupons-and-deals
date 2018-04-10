@@ -62,7 +62,7 @@ if ( $wpcd_text_to_show == 'description' ) {
 }
 
 
-if ( $parent == 'header' ): ?>
+if ( $parent == 'header' || $parent == 'headerANDfooter' ): ?>
 <section class="wpcd_archive_section wpcd_clearfix">
 	<?php endif; ?>
 
@@ -609,7 +609,7 @@ if ( $parent == 'header' ): ?>
 	<?php endif; ?>
 
 
-	<?php if ( $parent == 'footer' ): ?>
+	<?php if ( $parent == 'footer' || $parent == 'headerANDfooter' ): ?>
     <div id="wpcd_coupon_pagination_wr" class="wpcd_coupon_pagination wpcd_clearfix">
 		<?php
 		global $max_num_page;

@@ -75,7 +75,7 @@ if ( $wpcd_text_to_show == 'description' ) {
  * header and in the bottom footer
  */
 global $parent;
-if ( $parent == 'header' ):
+if ( $parent == 'header' || $parent == 'headerANDfooter' ):
 	?>
     <section class="wpcd_archive_section wpcd_clearfix">
 	<?php
@@ -616,8 +616,8 @@ if ( $parent == 'header' ):
         ?>
     </div>
 <?php endif; ?>
-
-<?php if ( $parent == 'footer' ): ?>
+<?php 
+if ( $parent == 'footer' || $parent == 'headerANDfooter' ): ?>
     <div id="wpcd_coupon_pagination_wr" class="wpcd_coupon_pagination wpcd_clearfix">
 		<?php
 		$big = 999999999; // need an unlikely integer

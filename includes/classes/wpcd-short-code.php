@@ -398,9 +398,13 @@ class WPCD_Short_Code {
 				$parent = "";
 
 				// check to print header or footer.
-				if ( $i == 1 ) {
+				if ( $i == 1 && $num_posts !==1 ) {
 					$parent = 'header';
-				} elseif ( $i == $num_posts ) {
+                                } elseif ($num_posts ==1){
+                                    // means there's only one coupon 
+                                    // So, it should print the header and footer in this time
+                                    $parent = 'headerANDfooter';
+                                } elseif ( $i == $num_posts ) {
 					$parent = 'footer';
 				}
 

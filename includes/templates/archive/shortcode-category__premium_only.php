@@ -78,7 +78,7 @@ if ( ! has_post_thumbnail() ) {
 }
 
 
-if ( $parent == 'header' ): ?>
+if ( $parent == 'header' || $parent == 'headerANDfooter' ): ?>
 <section class="wpcd_archive_section wpcd_clearfix">
     <ul id="wpcd_coupon_ul" class="wpcd_clearfix">
 		<?php endif; ?>
@@ -216,7 +216,7 @@ if ( $parent == 'header' ): ?>
                     ?>
                 </div>
         </li>
-		<?php if ( $parent == 'footer' ): ?>
+		<?php if ( $parent == 'footer' || $parent == 'headerANDfooter' ): ?>
     </ul>
     <div id="wpcd_coupon_pagination_wr" class="wpcd_coupon_pagination wpcd_clearfix">
 		<?php
