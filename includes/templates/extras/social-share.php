@@ -94,9 +94,8 @@
     }
     .share-buttons-container{
         padding-left: 4px;
-        margin-top: 10px;
-        margin-bottom: -15px;
-        background: #FBFCFC;
+        margin-top: 15px;
+    /*    background: #FBFCFC;*/
     }
     .share-w{
         font-size: 12px;

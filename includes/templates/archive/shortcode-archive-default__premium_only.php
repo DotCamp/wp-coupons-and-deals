@@ -273,7 +273,9 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
             var clip = new Clipboard('.<?php echo $button_class; ?>');
         </script>
         <?php 
+        if ( $coupon_share === 'on' ){
             $template->get_template_part('social-share');
+        }
         ?>
     </div>
 <?php elseif ( $wpcd_coupon_template === 'Template Six' ): ?>
@@ -426,7 +428,9 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
             var clip = new Clipboard('.<?php echo $button_class; ?>');
         </script>
         <?php 
+        if ( $coupon_share === 'on' ){
             $template->get_template_part('social-share');
+        }
         ?>
     </div>
 <?php else: ?>
