@@ -4,3 +4,4 @@
 /includes/sdk/freemius/nbproject/project.properties
 /includes/sdk/freemius/nbproject/project.xml
 /.gitignore
+.DS_Store
