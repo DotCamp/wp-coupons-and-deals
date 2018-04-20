@@ -13,6 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
 
 <style>
 
@@ -65,10 +66,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 #wpcd-welcome h1 {
-    color: #222;
-    font-size: 24px;
+    color: #329d40;
+    font-size: 30px;
     text-align: center;
-    margin: 0 0 16px 0;
+    margin: 15px 0 40px 0;
+    font-family: Open Sans;
 }
 
 #wpcd-welcome h6 {
@@ -219,7 +221,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 .upgrade-cta h2 {
-    color: #fff;
+    color: #329d40;
     font-size: 20px;
     margin: 0 0 30px 0;
 }
