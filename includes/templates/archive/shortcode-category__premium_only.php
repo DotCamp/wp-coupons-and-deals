@@ -213,6 +213,7 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ): ?>
                     if ( $coupon_share === 'on' ) {
 	                    $template->get_template_part('social-share');
                     }
+                    $template->get_template_part('vote-system');
                     ?>
                 </div>
         </li>

@@ -248,6 +248,7 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ): ?>
             if ( $coupon_share === 'on' ) {
 	            $template->get_template_part('social-share');
             }
+            $template->get_template_part('vote-system');
             ?>
         </div>
 	<?php elseif ( $wpcd_coupon_template === 'Template Six' ): ?>
@@ -405,6 +406,7 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ): ?>
 	        if ( $coupon_share === 'on' ) {
 		        $template->get_template_part('social-share');
 	        }
+                $template->get_template_part('vote-system');
 	        ?>
         </div>
 	<?php else: ?>
@@ -604,6 +606,7 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ): ?>
             if ( $coupon_share === 'on' ) {
 	            $template->get_template_part('social-share');
             }
+            $template->get_template_part('vote-system');
             ?>
         </div>
 	<?php endif; ?>
