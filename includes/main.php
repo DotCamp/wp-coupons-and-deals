@@ -278,6 +278,13 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 			 */
 			self::shortcode_class();
 
+                        /**
+                         * Adding the ajax class to initialize.
+                         * 
+                         * @since 2.5.0.1
+                         */
+                        self::ajax_class();
+                        
 			/**
 			 * Welcome page.
 			 *
@@ -458,7 +465,7 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 				new WPCD_Meta_Boxes();
 
 			}
-
+                        
 
 			/**
 			 * Shows the shortcodes after coupon is published.
@@ -537,6 +544,28 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 			 */
 			WPCD_Short_Code::init();
 		}
+                
+                /**
+		 * This function loads the ajax class
+		 *
+		 * @since 2.5.0.1
+		 */
+                public static function ajax_class(){
+                        /**
+			 * Including the necessary actions.
+			 *
+			 * @since 2.5.0.1
+			 */
+			include WPCD_Plugin::instance()->plugin_includes . '/classes/' . 'wpcd-ajax.php';
+                        
+                        
+                        /**
+                         * Load the ajax events
+                         * 
+                         * @since 2.5.0.1
+                         */
+                        WPCD_AJAX::LoadEvents();
+                }
 
 	}
 

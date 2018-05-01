@@ -173,4 +173,9 @@ wp_enqueue_script( 'wpcd-clipboardjs' );
     <script type="text/javascript">
         var clip = new Clipboard('.<?php echo $button_class; ?>');
     </script>
+    <div class="clearfix"></div>
+    <?php
+            $template = new WPCD_Template_Loader();
+        $template->get_template_part('vote-system');
+    ?>
 </div>

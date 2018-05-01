@@ -109,8 +109,12 @@ class WPCD_Assets {
 
 		wp_enqueue_script( 'wpcd-main-js' );
 		wp_enqueue_script( 'wpcd-clipboardjs' );
-
-		$word_count = get_option( 'wpcd_words-count' );
+                
+                //To make sure that "ajax_url" is defined in main.js
+                wp_localize_script( 'wpcd-main-js', 'wpcd_object',
+                 array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+		
+                $word_count = get_option( 'wpcd_words-count' );
 		if ( empty( $word_count ) ) {
 			$word_count = 30;
 		}

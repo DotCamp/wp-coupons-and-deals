@@ -236,4 +236,9 @@ if ( $wpcd_text_to_show == 'description' ) {
             </div>
         </div>
     </div>
+        <div class="clearfix"></div>
+    <?php
+            $template = new WPCD_Template_Loader();
+        $template->get_template_part('vote-system');
+    ?>
 </div>

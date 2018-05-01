@@ -2632,6 +2632,13 @@ a.btn-social,
 }
 
 /* vote system */
+.wpcd-widget .vote-wrapper,.wpcd-widget-default .vote-wrapper, 
+.wpcd-template-five-mobile .vote-wrapper,.wpcd-coupon-six-mobile .vote-wrapper{
+display: inherit;
+    margin: 0 auto;
+    padding: 10px 0;
+    text-align: center;
+}
 .vote-wrapper{
     box-sizing: border-box !important;
     text-align: right;

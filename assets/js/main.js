@@ -35,14 +35,70 @@ jQuery(document).ready(function ($) {
     });
 });
 
-// For social share
 jQuery(document).ready(function($){
     
-    //Facebook
+    // For social share
     $('.fb-share,.tw-share,.go-share').click(function(e) {
         e.preventDefault();
         window.open($(this).attr('href'), 'fbShareWindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 275) + ', left=' + ($(window).width() / 2 - 225) + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
         return false;
+    });
+    
+    /*
+     * Vote System
+     */
+    $('a[class^=vote]').click(function(e){
+        e.preventDefault();
+        var $this = $(this), 
+            coupon_id = $this.data('id'),
+            meta = "up",
+            el_sibling_percentage = $this.siblings(".vote-percent"),
+            el_percentage = $('.vote-percent[data-id='+coupon_id+']');
+        
+        if($this.hasClass("vote-down")){
+            meta = "down";
+        }
+        var data = {
+			'action': 'wpcd_vote',
+			'meta' : meta, 
+			'coupon_id' : coupon_id,
+		};
+
+        jQuery.post(wpcd_object.ajaxurl, data, function(response) {
+                if(response === "Failed"){
+                    displayMsg("Failed",el_percentage,2000);
+                }else if (response === "voted"){
+                    displayMsg("You have Voted Already",el_sibling_percentage,2000);
+                }else{
+                    displayMsg("Done",el_percentage,2000);
+                    setTimeout(function(){
+                        displayMsg(response,el_percentage,0);
+                    },2000);
+                    
+                }
+        });
+        
+        /*
+         * This function dispaly msg in a specific element for a little time
+         * 
+         * @param string 'Msg' is the message that will be displayed in the element
+         * @param object 'el' is the element
+         * @param int 'Time' is the time in milliSecond or 0 if this will be the text for ever
+         */
+        function displayMsg(Msg,el,Time = 0){
+            
+            if(typeof(el) === "object"){
+                if(Time === 0){
+                    el.html(Msg);
+                }else{
+                    var old_text = el.html();
+                    el.html(Msg);
+                    setTimeout(function(){
+                        el.html(old_text);
+                    },Time);
+                }
+            }
+        }
     });
 });
 

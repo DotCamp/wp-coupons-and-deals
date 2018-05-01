@@ -1,6 +1,15 @@
+<?php
+    global $coupon_id;
+    $up_votes = array_filter(explode(",",get_post_meta($coupon_id,"_up",true)));
+    $down_votes = array_filter(explode(",",get_post_meta($coupon_id,"_down",true)));
+    $all_votes = array_merge($up_votes,$down_votes);
+    if(!empty($all_votes))
+        $percentage = count($up_votes) / count($all_votes) * 100;
+    else
+        $percentage = 100;
+?>
 <div class="vote-wrapper">
-    
-    <a href="#"><span class="wpcd-tooltip">It works.</span><i class="fas fa-thumbs-up"></i></a>
-    <span class="vote-percent">100% Success</span>
-    <a href="#"><span class="wpcd-tooltip">It Doesn't.</span><i class="fas fa-thumbs-down"></i></a>
+    <a class="vote-up" href="#" data-id = "<?php echo $coupon_id; ?>"><span class="wpcd-tooltip">It works.</span><i class="fas fa-thumbs-up"></i></a>
+    <span class="vote-percent" data-id="<?php echo $coupon_id ?>"><?php echo $percentage; ?>% Success</span>
+    <a class="vote-down" href="#" data-id = "<?php echo $coupon_id; ?>"><span class="wpcd-tooltip">It Doesn't.</span><i class="fas fa-thumbs-down"></i></a>
 </div>
