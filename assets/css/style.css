@@ -2627,26 +2627,26 @@ a.btn-social,
 
 /* vote system */
 
-.wpcd-widget .vote-wrapper,
-.wpcd-widget-default .vote-wrapper,
-.wpcd-template-five-mobile .vote-wrapper,
-.wpcd-coupon-six-mobile .vote-wrapper {
+.wpcd-widget .wpcd-vote-wrapper,
+.wpcd-widget-default .wpcd-vote-wrapper,
+.wpcd-template-five-mobile .wpcd-vote-wrapper,
+.wpcd-coupon-six-mobile .wpcd-vote-wrapper {
     display: inherit;
     margin: 0 auto;
     padding: 10px 0;
     text-align: center;
 }
 
-.vote-wrapper {
+.wpcd-vote-wrapper {
     box-sizing: border-box !important;
     text-align: right;
     width: 50%;
     vertical-align: sub;
     display: inline-block;
-    padding-right: 20px;
+    padding-right: 10px;
 }
 
-.vote-wrapper a {
+.wpcd-vote-wrapper a {
     position: relative;
     font-size: 16px;
 }
@@ -2662,11 +2662,11 @@ a.btn-social,
     }
 }
 
-.vote-wrapper a:hover .wpcd-tooltip {
+.wpcd-vote-wrapper a:hover .wpcd-tooltip {
     animation: tooltips-vertical 300ms ease-out forwards;
 }
 
-.vote-wrapper a>.wpcd-tooltip {
+.wpcd-vote-wrapper a>.wpcd-tooltip {
     position: absolute;
     background: #191919;
     text-align: center;
@@ -2681,7 +2681,7 @@ a.btn-social,
     pointer-events: none;
 }
 
-.vote-wrapper a>.wpcd-tooltip:after {
+.wpcd-vote-wrapper a>.wpcd-tooltip:after {
     content: '';
     position: absolute;
     right: 4px;
@@ -2693,7 +2693,7 @@ a.btn-social,
     border-top: 5px solid #191919
 }
 
-div.vote-wrapper i.fas.fa-thumbs-down {
+div.wpcd-vote-wrapper i.fas.fa-thumbs-down {
     vertical-align: middle;
     transform: scaleX(-1);
     -moz-transform: scaleX(-1);
@@ -2702,11 +2702,11 @@ div.vote-wrapper i.fas.fa-thumbs-down {
     color: #C73017;
 }
 
-div.vote-wrapper i {
+div.wpcd-vote-wrapper i {
     font-size: 20px;
 }
 
-.vote-wrapper span.vote-percent {
+.wpcd-vote-wrapper span.wpcd-vote-percent {
     font-size: 10px;
     color: #999;
     display: inline-block;
