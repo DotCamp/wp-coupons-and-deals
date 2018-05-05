@@ -243,6 +243,7 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
 							<?php } ?>
 						<?php } ?>
                     </div> <!-- wpcd_coupon_li_inner-->
+                    <div class="clearfix"></div>
                     <?php
                     if ( $coupon_share === 'on' ) {
 	                    $template->get_template_part('social-share');

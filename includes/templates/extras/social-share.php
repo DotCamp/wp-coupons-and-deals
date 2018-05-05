@@ -1,4 +1,4 @@
-<div class="clearfix"></div>
+
     <div class="share-buttons-container">
         <div class="col-md-12 row">
             <span class='share-w'>share </span> 

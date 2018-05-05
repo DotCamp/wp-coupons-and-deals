@@ -2634,10 +2634,11 @@ a.btn-social,
 /* vote system */
 .wpcd-widget .vote-wrapper,.wpcd-widget-default .vote-wrapper, 
 .wpcd-template-five-mobile .vote-wrapper,.wpcd-coupon-six-mobile .vote-wrapper{
-display: inherit;
+    display: inherit;
     margin: 0 auto;
     padding: 10px 0;
     text-align: center;
+    float:none;
 }
 .vote-wrapper{
     box-sizing: border-box !important;
@@ -2646,6 +2647,9 @@ display: inherit;
     vertical-align: sub;
     display: inline-block;
     padding-right: 5px;
+    float:right;
+    padding-top: 22px;
+    padding-bottom: 10px;
 }
 .vote-wrapper a{
     position:relative;

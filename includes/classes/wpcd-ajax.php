@@ -75,14 +75,11 @@ class WPCD_AJAX {
             
             //calculate the percentage
             $up_votes = ($meta == '_up') ? $IPs : $other_IPs;
-            if(!empty($up_votes)){
-                // Return the percent of success
-                $percent = count($up_votes) / count($all_voted_IPs) * 100;
-                echo "{$percent}% Success";
-            }else{
-                //There's no success vote !!
-                echo "0% Success";
-            }
+            
+            // Return the percent of success
+            $percent = count($up_votes) / count($all_voted_IPs) * 100;
+            echo "{$percent}% Success";
+            
         }else{
             echo "Failed";
         }

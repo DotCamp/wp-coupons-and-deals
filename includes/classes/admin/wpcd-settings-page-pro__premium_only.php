@@ -266,6 +266,13 @@ class WPCD_Settings_Page_Pro {
 					'description' => __( 'Enable Social Share buttons in Coupons', 'wpcd-coupon' ),
 					'type' => 'checkbox',
 					'default' => ''
+				),
+                                array(
+					'id' => 'coupon-vote-system',
+					'label' => __( 'Vote Buttons', 'wpcd-coupon' ),
+					'description' => __( 'Enable vote buttons in Coupons', 'wpcd-coupon' ),
+					'type' => 'checkbox',
+					'default' => ''
 				)
 			),
 			array(

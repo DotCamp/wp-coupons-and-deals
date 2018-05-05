@@ -544,6 +544,7 @@ $template = new WPCD_Template_Loader();
 
     </div>
     <!-- End Third Coupon -->
+    <div class="clearfix"></div>
     <?php
     if ( $coupon_share === 'on' ) {
 	    $template->get_template_part('social-share');

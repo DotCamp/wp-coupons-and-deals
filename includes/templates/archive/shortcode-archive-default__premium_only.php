@@ -272,6 +272,7 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
         <script type="text/javascript">
             var clip = new Clipboard('.<?php echo $button_class; ?>');
         </script>
+        <div class="clearfix"></div>
         <?php 
         if ( $coupon_share === 'on' ){
             $template->get_template_part('social-share');
@@ -428,6 +429,7 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
         <script type="text/javascript">
             var clip = new Clipboard('.<?php echo $button_class; ?>');
         </script>
+        <div class="clearfix"></div>
         <?php 
         if ( $coupon_share === 'on' ){
             $template->get_template_part('social-share');
@@ -615,6 +617,7 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
                 </div>
             </div>
         </div>
+        <div class="clearfix"></div>
         <?php
         if ( $coupon_share === 'on' ) {
 	        $template->get_template_part('social-share');
