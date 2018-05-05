@@ -47,15 +47,15 @@ jQuery(document).ready(function($){
     /*
      * Vote System
      */
-    $('a[class^=vote]').click(function(e){
+    $('a[class^=wpcd-vote]').click(function(e){
         e.preventDefault();
         var $this = $(this), 
             coupon_id = $this.data('id'),
             meta = "up",
-            el_sibling_percentage = $this.siblings(".vote-percent"),
-            el_percentage = $('.vote-percent[data-id='+coupon_id+']');
+            el_sibling_percentage = $this.siblings(".wpcd-vote-percent"),
+            el_percentage = $('.wpcd-vote-percent[data-id='+coupon_id+']');
         
-        if($this.hasClass("vote-down")){
+        if($this.hasClass("wpcd-vote-down")){
             meta = "down";
         }
         var data = {
@@ -70,7 +70,7 @@ jQuery(document).ready(function($){
                 }else if (response === "voted"){
                     displayMsg("You have Voted Already",el_sibling_percentage,2000);
                 }else{
-                    displayMsg("Done",el_percentage,2000);
+                    displayMsg("You've voted successfully!",el_percentage,2000);
                     setTimeout(function(){
                         displayMsg(response,el_percentage,0);
                     },2000);
