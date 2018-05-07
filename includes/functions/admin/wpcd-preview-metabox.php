@@ -176,7 +176,7 @@ if ( $wpcd_text_to_show == 'description' ) {
 				<?php
 				if ( $show_expiration !== 'Hide' ) { ?>
                     <div class="with-expiration1 <?php echo empty( $expire_date ) ? 'hidden' : ''; ?>">
-                        <div class="wpcd-coupon-expire expire-text-block1 <?php echo strtotime( $expire_date ) >= strtotime( $today ) ? 'hidden' : ''; ?>">
+                        <div class="wpcd-coupon-expire expire-text-block1 <?php echo strtotime( $expire_date ) < strtotime( $today ) ? 'hidden' : ''; ?>">
 							<?php
 							if ( ! empty( $expire_text ) ) {
 								echo $expire_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>';;
@@ -185,7 +185,7 @@ if ( $wpcd_text_to_show == 'description' ) {
 							}
 							?>
                         </div>
-                        <div class="wpcd-coupon-expired expired-text-block1 <?php echo strtotime( $expire_date ) < strtotime( $today ) ? 'hidden' : ''; ?>">
+                        <div class="wpcd-coupon-expired expired-text-block1 <?php echo strtotime( $expire_date ) >= strtotime( $today ) ? 'hidden' : ''; ?>">
 							<?php
 							if ( ! empty( $expired_text ) ) {
 								echo $expired_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>';;
