@@ -128,6 +128,11 @@ class WPCD_Settings_Page_Pro {
 				'description' => __( 'These are some general coupon settings. You can use the default settings or set your own ones.', 'wpcd-coupon' )
 			),
 			array(
+				'id' => 'voting',
+				'title' => __( 'Voting Settings', 'wpcd-coupon' ),
+				'description' => __( 'Configure Voting Settings for Your Coupons.', 'wpcd-coupon' )
+			),
+			array(
 				'id'          => 'hide-coupon',
 				'title'       => __( 'Hide Coupon Settings', 'wpcd-coupon' ),
 				'description' => __( 'Settings when coupon is hidden.', 'wpcd-coupon' )
@@ -266,11 +271,13 @@ class WPCD_Settings_Page_Pro {
 					'description' => __( 'Enable Social Share buttons in Coupons', 'wpcd-coupon' ),
 					'type' => 'checkbox',
 					'default' => ''
-				),
-                                array(
+				)
+			),
+			array(
+				array(
 					'id' => 'coupon-vote-system',
 					'label' => __( 'Vote Buttons', 'wpcd-coupon' ),
-					'description' => __( 'Enable vote buttons in Coupons', 'wpcd-coupon' ),
+					'description' => __( 'Enable Voting buttons in Coupons', 'wpcd-coupon' ),
 					'type' => 'checkbox',
 					'default' => ''
 				)

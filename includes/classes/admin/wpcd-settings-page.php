@@ -128,6 +128,11 @@ class WPCD_Settings_Page {
 				'description' => __( 'These are some general coupon settings. You can use the default settings or set your own ones.', 'wpcd-coupon' )
 			),
 			array(
+				'id' => 'voting',
+				'title' => __( 'Voting Settings', 'wpcd-coupon' ),
+				'description' => __( 'Configure Voting Settings for Your Coupons.', 'wpcd-coupon' )
+			),
+			array(
 				'id'          => 'link',
 				'title'       => __( 'Knowledge Base', 'wpcd-coupon' ),
 				'description' => __( 'These are some general settings. You can use the default settings or set your own ones.', 'wpcd-coupon' ),
@@ -246,6 +251,15 @@ class WPCD_Settings_Page {
 					'default' => ''
 				)
 			),
+			array(
+				array(
+					'id' => 'coupon-vote-system',
+					'label' => __( 'Vote Buttons', 'wpcd-coupon' ),
+					'description' => __( 'Enable Voting buttons in Coupons', 'wpcd-coupon' ),
+					'type' => 'checkbox',
+					'default' => ''
+				)
+			)
 		);
 
 		$settings = apply_filters( 'wpcd_coupon_settings_fields', $settings );
