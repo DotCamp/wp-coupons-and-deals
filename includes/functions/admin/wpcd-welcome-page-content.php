@@ -397,6 +397,18 @@ a.wpcd-btn-green {
                     <h5><?php esc_html_e( 'Hide Expired Coupon', 'wpcd-coupon' ); ?></h5>
                     <p><?php esc_html_e( 'Don\'t want to update expired coupons? No problem, just hide \'em.', 'wpcd-coupon' ); ?></p>
                 </div>
+                
+                <div class="feature-block first">
+                    <img src="<?php echo WPCD_Plugin::instance()->plugin_assets; ?>img/social.png">
+                    <h5><?php esc_html_e( 'Social Share', 'wpcd-coupon' ); ?></h5>
+                    <p><?php esc_html_e( 'Add social share buttons in your coupons, let users spread the love.', 'wpcd-coupon' ); ?></p>
+                </div>
+
+                <div class="feature-block last">
+                    <img src="<?php echo WPCD_Plugin::instance()->plugin_assets; ?>img/settings.png">
+                    <h5><?php esc_html_e( 'Voting System', 'wpcd-coupon' ); ?></h5>
+                    <p><?php esc_html_e( 'Let your users vote whether a coupon worked for them or not.', 'wpcd-coupon' ); ?></p>
+                </div>
 
                 <div class="feature-block first">
                     <img src="<?php echo WPCD_Plugin::instance()->plugin_assets; ?>img/widget.png">
@@ -408,18 +420,6 @@ a.wpcd-btn-green {
                     <img src="<?php echo WPCD_Plugin::instance()->plugin_assets; ?>img/inserter.png">
                     <h5><?php esc_html_e( 'Shortcode Inserter', 'wpcd-coupon' ); ?></h5>
                     <p><?php esc_html_e( 'Instead of copy-paste, insert coupons straight from your editor.', 'wpcd-coupon' ); ?></p>
-                </div>
-
-                <div class="feature-block first">
-                    <img src="<?php echo WPCD_Plugin::instance()->plugin_assets; ?>img/social.png">
-                    <h5><?php esc_html_e( 'Social Share', 'wpcd-coupon' ); ?></h5>
-                    <p><?php esc_html_e( 'Add social share buttons in your coupons, let users spread the love.', 'wpcd-coupon' ); ?></p>
-                </div>
-
-                <div class="feature-block last">
-                    <img src="<?php echo WPCD_Plugin::instance()->plugin_assets; ?>img/settings.png">
-                    <h5><?php esc_html_e( 'Customization Options', 'wpcd-coupon' ); ?></h5>
-                    <p><?php esc_html_e( 'Customize everything to your need, make the most out of your coupons.', 'wpcd-coupon' ); ?></p>
                 </div>
 
             </div>
