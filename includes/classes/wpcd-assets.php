@@ -110,17 +110,37 @@ class WPCD_Assets {
 		wp_enqueue_script( 'wpcd-main-js' );
 		wp_enqueue_script( 'wpcd-clipboardjs' );
                 
-                //To make sure that "ajax_url" is defined in main.js
-                wp_localize_script( 'wpcd-main-js', 'wpcd_object',
-                 array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+        //To make sure that "ajax_url" is defined in main.js
+        wp_localize_script( 'wpcd-main-js', 'wpcd_object', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 		
-                $word_count = get_option( 'wpcd_words-count' );
+        $word_count = get_option( 'wpcd_words-count' );
 		if ( empty( $word_count ) ) {
 			$word_count = 30;
 		}
 
 		$copy_button_text = get_option( 'wpcd_copy-button-text' );
 		$after_copy_text  = get_option( 'wpcd_after-copy-text' );
+		$vote_success = get_option( 'wpcd_coupon-vote-success' );
+		$vote_failed = get_option( 'wpcd_coupon-vote-fail' );
+		$vote_already = get_option( 'wpcd_coupon-vote-already' );
+
+		if ( ! empty( $vote_success ) ) {
+			$vote_success_message = $vote_success;
+		} else {
+			$vote_success_message = __( 'You have voted successfully!', 'wpcd-coupon' );
+		}
+
+		if ( ! empty( $vote_failed ) ) {
+			$vote_failed_message = $vote_failed;
+		} else {
+			$vote_failed_message = __( 'Voting failed!', 'wpcd-coupon' );
+		}
+
+		if ( ! empty( $vote_already ) ) {
+			$vote_already_message = $vote_already;
+		} else {
+			$vote_already_message = __( 'You have voted already!', 'wpcd-coupon' );
+		}
 
 		if ( ! empty( $copy_button_text ) ) {
 			$button_text = $copy_button_text;
@@ -143,7 +163,10 @@ class WPCD_Assets {
 			'expired_text' => __( 'This offer has expired!', 'wpcd-coupon' ),
 			'word_count'   => $word_count,
 			'button_text'  => $button_text,
-			'after_copy'   => $after_copy
+			'after_copy'   => $after_copy,
+			'vote_success' => $vote_success_message,
+			'vote_fail' => $vote_failed_message,
+			'vote_already' => $vote_already_message
 		) );
 
 		if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->is_trial() ) {

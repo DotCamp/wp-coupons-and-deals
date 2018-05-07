@@ -268,7 +268,7 @@ class WPCD_Settings_Page_Pro {
 				array(
 					'id' => 'coupon-social-share',
 					'label' => __( 'Social Share Buttons', 'wpcd-coupon' ),
-					'description' => __( 'Enable Social Share buttons in Coupons', 'wpcd-coupon' ),
+					'description' => __( 'Enable Social Share Buttons in Coupons', 'wpcd-coupon' ),
 					'type' => 'checkbox',
 					'default' => ''
 				)
@@ -277,9 +277,33 @@ class WPCD_Settings_Page_Pro {
 				array(
 					'id' => 'coupon-vote-system',
 					'label' => __( 'Vote Buttons', 'wpcd-coupon' ),
-					'description' => __( 'Enable Voting buttons in Coupons', 'wpcd-coupon' ),
+					'description' => __( 'Enable Voting Buttons in Coupons', 'wpcd-coupon' ),
 					'type' => 'checkbox',
 					'default' => ''
+				),
+				array(
+					'id' => 'coupon-vote-success',
+					'label' => __( 'Voting Success Message', 'wpcd-coupon' ),
+					'description' => __( 'Message to Show After User has Voted Successfully', 'wpcd-coupon' ),
+					'type' => 'text',
+					'default' => '',
+					'placeholder' => __( 'You have voted successfully!', 'wpcd-coupon' )
+				),
+				array(
+					'id' => 'coupon-vote-fail',
+					'label' => __( 'Voting Failed Message', 'wpcd-coupon' ),
+					'description' => __( 'Message to Show If Voting Fails', 'wpcd-coupon' ),
+					'type' => 'text',
+					'default' => '',
+					'placeholder' => __( 'Voting Failed!', 'wpcd-coupon' )
+				),
+				array(
+					'id' => 'coupon-vote-already',
+					'label' => __( 'Already Voted Message', 'wpcd-coupon' ),
+					'description' => __( 'Message to Show If User has Voted Already', 'wpcd-coupon' ),
+					'type' => 'text',
+					'default' => '',
+					'placeholder' => __( 'You have voted already!', 'wpcd-coupon' )
 				)
 			),
 			array(

@@ -66,11 +66,11 @@ jQuery(document).ready(function($){
 
         jQuery.post(wpcd_object.ajaxurl, data, function(response) {
                 if(response === "Failed"){
-                    displayMsg("Failed",el_percentage,2000);
+                    displayMsg(wpcd_main_js.vote_failed,el_percentage,2000);
                 }else if (response === "voted"){
-                    displayMsg("You have Voted Already",el_sibling_percentage,2000);
+                    displayMsg(wpcd_main_js.vote_already,el_sibling_percentage,2000);
                 }else{
-                    displayMsg("You've voted successfully!",el_percentage,2000);
+                    displayMsg(wpcd_main_js.vote_success,el_percentage,2000);
                     setTimeout(function(){
                         displayMsg(response,el_percentage,0);
                     },2000);
