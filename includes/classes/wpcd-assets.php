@@ -44,13 +44,17 @@ class WPCD_Assets {
 
 		$coupon_type_color = get_option( 'wpcd_coupon-type-bg-color' );
 
-		wp_add_inline_style( 'wpcd-style', "
+		$inline_style = "
                     
-            .coupon-type {
-                background-color: {$coupon_type_color};
-            }
-                     
-        " );
+			.coupon-type {
+				background-color: {$coupon_type_color};
+			}
+				 
+		";
+
+		$inline_style = preg_replace( '/\s+/', '', $inline_style );
+
+		wp_add_inline_style( 'wpcd-style', $inline_style  );
 
 		if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->is_trial() ) {
 
@@ -59,39 +63,43 @@ class WPCD_Assets {
 			$coupon_popup_bg_color    = get_option( 'wpcd_coupon-popup-bg-color' );
 			$pagination_color         = get_option( 'wpcd_pagination-color' );
 
+			$wpcd_inline_style = "
+                    
+				.wpcd-coupon-button-type .coupon-code-wpcd .get-code-wpcd{
+					background-color:{$hide_coupon_button_color};
+				}
+			
+				.wpcd-coupon-button-type .coupon-code-wpcd .get-code-wpcd:after{
+					border-left-color:{$hide_coupon_button_color};
+				}
+			
+				span.wpcd_coupon_top_copy_span{
+					background-color: {$copy_button_bg_color} !important;
+				}
+			
+				.wpcd_coupon_popup_copy_code_wr {
+					background-color: {$coupon_popup_bg_color};
+					border-color: {$copy_button_bg_color};
+				}
+			
+				.wpcd_popup-go-link {
+					background-color: {$copy_button_bg_color};
+				}
+			
+				.wpcd_popup-go-link:hover {
+					background-color: {$copy_button_bg_color};
+				}
+			
+				#wpcd_coupon_pagination_wr a, #wpcd_coupon_pagination_wr span {
+					background-color: {$pagination_color};
+				}
+			 
+			";
+
+			$wpcd_inline_style = preg_replace( '/\s+/', '', $wpcd_inline_style );
+
 			//add changes to stylesheet
-			wp_add_inline_style( 'wpcd-style', "
-                    
-                    .wpcd-coupon-button-type .coupon-code-wpcd .get-code-wpcd{
-                        background-color:{$hide_coupon_button_color};
-                    }
-                    
-                    .wpcd-coupon-button-type .coupon-code-wpcd .get-code-wpcd:after{
-                        border-left-color:{$hide_coupon_button_color};
-                    }
-                    
-                    .wpcd_coupon_popup_copy_code_wr span.wpcd_coupon_top_copy_span{
-                        background-color: {$copy_button_bg_color};
-                    }
-                    
-                    .wpcd_coupon_popup_copy_code_wr {
-                        background-color: {$coupon_popup_bg_color};
-                        border: 2px dashed {$copy_button_bg_color};
-                    }
-                    
-                    .wpcd_popup-go-link {
-                        background-color: {$copy_button_bg_color};
-                    }
-                    
-                    .wpcd_popup-go-link:hover {
-                        background-color: {$copy_button_bg_color};
-                    }
-                    
-                    #wpcd_coupon_pagination_wr a, #wpcd_coupon_pagination_wr span {
-                        background-color: {$pagination_color};
-                    }
-                     
-            " );
+			wp_add_inline_style( 'wpcd-style', $wpcd_inline_style );
 
 		}
 

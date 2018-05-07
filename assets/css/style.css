@@ -1895,6 +1895,7 @@ p.wpcd-coupon-loop-expired {
     padding: 10px;
     position: relative;
     text-align: left;
+    margin-top: 20px;
 }
 
 .wpcd_coupon_popup_copy_code_span {
@@ -2635,7 +2636,7 @@ a.btn-social,
     margin: 0 auto;
     padding: 10px 0;
     text-align: center;
-    float:none;
+    float: none;
 }
 
 .wpcd-vote-wrapper {
@@ -2645,7 +2646,7 @@ a.btn-social,
     vertical-align: sub;
     display: inline-block;
     padding-right: 10px;
-    float:right;
+    float: right;
     padding-top: 22px;
     padding-bottom: 10px;
 }
