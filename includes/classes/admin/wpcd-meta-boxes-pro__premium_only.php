@@ -40,13 +40,6 @@ class WPCD_Meta_Boxes_Pro {
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
 		add_action( 'save_post', array( $this, 'save_post' ) );
 
-		/**
-		 * Load stylesheets and scripts.
-		 *
-		 * @since 2.3
-		 */
-		add_action( 'admin_enqueue_scripts', array( $this, 'load_stylesheet_script' ) );
-
 		$this->wpcd_fields = array(
 			array(
 				'id'      => 'coupon-type',
@@ -545,16 +538,4 @@ class WPCD_Meta_Boxes_Pro {
 		}
 	}
 
-	/**
-	 * Loads the stylesheets on the settings page.
-	 *
-	 * @param $hook
-	 *
-	 * @since 2.3
-	 */
-	public function load_stylesheet_script() {
-		// color Picker
-		wp_enqueue_style( 'wpcd-color-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/colorpicker.css', false );
-		wp_enqueue_script( 'wpcd-color-script', WPCD_Plugin::instance()->plugin_assets . 'admin/js/colorpicker.js', array( 'jquery' ), WPCD_Plugin::PLUGIN_VERSION, true );
-	}
 }
