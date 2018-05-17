@@ -122,9 +122,6 @@ class WPCD_Admin_Columns extends WP_List_Table {
 		 * @since 1.0
 		 */
 		$wpcd_columns['coupon_type'] = __( 'Coupon Type', 'wpcd-coupon' );
-		//$wpcd_columns['coupon_details_coupon-code'] = __( 'Coupon Code', 'wpcd-coupon' );
-		//$wpcd_columns['coupon_details_description'] = __( 'Description', 'wpcd-coupon' );
-		//$wpcd_columns['coupon_details_link'] = __( 'Link', 'wpcd-coupon' );
 		$wpcd_columns['coupon_category']  = __( 'Category', 'wpcd-coupon' );
 		$wpcd_columns['id']               = __( 'ID', 'wpcd-coupon' );
 		$wpcd_columns['coupon_shortcode'] = __( 'Shortcodes', 'wpcd-coupon' );
