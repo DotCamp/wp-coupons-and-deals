@@ -82,6 +82,17 @@ class WPCD_Toolbar_Links {
 		);
 		$wp_admin_bar->add_node( $args );
 
+		$args = array(
+			'id'  	=> 'wpcd_toolbar_upgrade',
+			'title' => __( 'Upgrade to Pro', 'wpcd-coupon' ),
+			'href'  => wcad_fs()->get_upgrade_url(),
+			'parent' => 'wpcd_toolbar' 
+		);
+
+		if ( wcad_fs()->is_not_paying() ) {
+			$wp_admin_bar->add_node( $args );
+		}
+
 	}
 
 }
