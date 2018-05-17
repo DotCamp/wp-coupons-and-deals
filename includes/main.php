@@ -545,27 +545,21 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 			WPCD_Short_Code::init();
 		}
                 
-                /**
+        /**
 		 * This function loads the ajax class
 		 *
 		 * @since 2.5.0.1
 		 */
-                public static function ajax_class(){
-                        /**
-			 * Including the necessary actions.
-			 *
-			 * @since 2.5.0.1
-			 */
-			include WPCD_Plugin::instance()->plugin_includes . '/classes/' . 'wpcd-ajax.php';
-                        
-                        
-                        /**
-                         * Load the ajax events
-                         * 
-                         * @since 2.5.0.1
-                         */
-                        WPCD_AJAX::LoadEvents();
-                }
+        public static function ajax_class() {
+			
+			/**
+            * Load the ajax events
+            * 
+            * @since 2.5.0.1
+            */
+            WPCD_AJAX::LoadEvents();
+		
+		}
 
 	}
 
