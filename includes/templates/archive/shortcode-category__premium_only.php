@@ -210,12 +210,14 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ): ?>
 						<?php } ?>
                     </div>
                     <div class="clearfix"></div>
-                    <?php
-                    if ( $coupon_share === 'on' ) {
-	                    $template->get_template_part('social-share');
-                    }
-                    $template->get_template_part('vote-system');
-                    ?>
+                    <div class="wpcd-li-footer">
+                        <?php
+                        if ( $coupon_share === 'on' ) {
+                                $template->get_template_part('social-share');
+                        }
+                        $template->get_template_part('vote-system');
+                        ?>
+                    </div>
                 </div>
         </li>
 		<?php if ( $parent == 'footer' || $parent == 'headerANDfooter' ): ?>

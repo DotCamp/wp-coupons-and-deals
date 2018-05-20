@@ -1496,6 +1496,8 @@ p.wpcd-coupon-four-expired {
     list-style: outside none none;
     margin: 0 -1%;
     padding: 0;
+    display:flex;
+    flex-wrap: wrap;
 }
 
 #wpcd_coupon_ul li.wpcd_coupon_li {
@@ -1568,6 +1570,7 @@ p.wpcd-coupon-four-expired {
 
 .wpcd_coupon_li_inner {
     padding: 15px;
+    height: calc( 100% - 188px);
 }
 
 .wpcd_coupon_li_title {
@@ -1590,6 +1593,7 @@ p.wpcd-coupon-four-expired {
 .wpcd_coupon_li_description {
     line-height: 1.5;
     min-height: 90px;
+    height: calc(100% - 60px );
 }
 
 .wpcd_coupon_li_bottom.wpcd_clearfix {
@@ -1784,9 +1788,12 @@ p.wpcd-coupon-loop-expired {
 }
 
 .wpcd_coupon_li_content {
+    height: calc( 100% - 280px);
     border: 1px solid #d1d1d1;
     box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1);
     border-radius: 3px;
+        display: flex;
+    flex-direction: column;
 }
 
 .wpcd_coupon_popup_layer {
