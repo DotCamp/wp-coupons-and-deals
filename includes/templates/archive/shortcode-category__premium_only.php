@@ -104,11 +104,11 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ): ?>
 							<?php
 						}
 						if ( $coupon_type == 'Coupon' ) {
-						if ( $hide_coupon == 'Yes' ) {
+						if ( $hide_coupon == 'Yes' ) { ?>
 
-							$template->get_template_part( 'hide-coupon__premium_only' );
+							<div class="wpcd-coupon-code wpcd_btn_wr"><?php $template->get_template_part( 'hide-coupon__premium_only' ); ?></div>
 
-						} else { ?>
+						<?php } else { ?>
                             <div class="wpcd-coupon-code wpcd_btn_wr">
 								<?php if ( ! empty( $coupon_hover_text ) ) { ?>
                                     <a rel="nofollow"
