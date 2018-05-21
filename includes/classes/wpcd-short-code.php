@@ -514,10 +514,12 @@ class WPCD_Short_Code {
 				global $coupon_id;
 				$parent = "";
 
-				//check to print header first time and footer last time
-				if ( $i == 1 ) {
+				// check to print header or footer.
+				if ( $i == 1 && $num_posts !==1 ) {
 					$parent = 'header';
-				} elseif ( $i == $num_posts ) {
+                } elseif ( $num_posts == 1 ){
+                    $parent = 'headerANDfooter';
+                } elseif ( $i == $num_posts ) {
 					$parent = 'footer';
 				}
 
