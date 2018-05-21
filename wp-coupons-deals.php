@@ -22,11 +22,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Loading translation.
  */
-function wpcd_load_languages() {
-	load_plugin_textdomain( 'wpcd-coupon', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+if ( ! function_exists( wpcd_load_languages ) ) {
+	function wpcd_load_languages() {
+		load_plugin_textdomain( 'wpcd-coupon', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+	}
+} else {
+	deactivate_plugins( plugin_basename( __FILE__ ) );
+	wp_die( 'Please deactivate the free version of the plugin before activating the pro version.' );
 }
 
+
 add_action( 'plugins_loaded', 'wpcd_load_languages' );
+
 // Loading SDK.
 if ( ! function_exists( 'wcad_fs' ) ) {
 	/**
