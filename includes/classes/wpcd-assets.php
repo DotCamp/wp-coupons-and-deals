@@ -52,7 +52,7 @@ class WPCD_Assets {
 				 
 		";
 
-		$inline_style = preg_replace( '/\s+/', '', $inline_style );
+		$inline_style = preg_replace('/\s+/', ' ', $inline_style );
 
 		wp_add_inline_style( 'wpcd-style', $inline_style  );
 
@@ -96,7 +96,7 @@ class WPCD_Assets {
 			 
 			";
 
-			$wpcd_inline_style = preg_replace( '/\s+/', '', $wpcd_inline_style );
+			$wpcd_inline_style = preg_replace('/\s+/', ' ', $wpcd_inline_style );
 
 			//add changes to stylesheet
 			wp_add_inline_style( 'wpcd-style', $wpcd_inline_style );
