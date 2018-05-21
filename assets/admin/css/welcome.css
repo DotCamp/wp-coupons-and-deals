@@ -255,7 +255,8 @@
 
 .wpcd-testimonials {
     background-color: #fff;
-    border-top: 0;
+    border-right: 2px solid #e1e1e1;
+    border-left: 2px solid #e1e1e1;
     padding: 20px 0;
 }
 
@@ -275,7 +276,7 @@
 
 .wpcd-footer {
     background-color: #f1f1f1;
-    border-top: 0;
+    border: 2px solid #e1e1e1;
     border-radius: 0 0 2px 2px;
 }
 
