@@ -1,6 +1,6 @@
 
 === WP Coupons and Deals ===
-Contributors: imtiazrayhan
+Contributors: imtiazrayhan, mohmedelwany
 Tags: coupon, coupons, deal, deals, shortcode, coupon widget
 Requires at least: 4.6
 Tested up to: 4.9
