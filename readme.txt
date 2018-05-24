@@ -4,7 +4,7 @@ Contributors: imtiazrayhan
 Tags: coupon, coupons, deal, deals, shortcode, coupon widget
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 2.5.0.1
+Stable tag: 2.6.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,6 +22,7 @@ Best WordPress Coupon Plugin. Generate more affiliate sales with coupon codes an
 * Live Preview of the coupon as you create it.
 * Insert shortcode directly from the post editor.
 * Click to copy functionality.
+* Voting System for individual coupons.
 * Widget to show coupons and deals on widget areas.
 * Easy to use settings.
 * Coupon categories to categorize your coupons.
@@ -94,6 +95,8 @@ Shortcode will be inserted on your post with corresponding ID. Now save your pos
 
 You're done!
 
+**Note: We use [__Freemius__](https://freemius.com) to collect some basic data about your usage to improve the plugin. We only collect if you allow us to. You can opt out any time to stop sharing your data with us.**
+
 == Installation ==
 
 This is one way you can install and use the plugin:
@@ -134,6 +137,25 @@ You can [__submit a feature request__](https://wpcouponsdeals.com/submit-new-fea
 11. Adding the widget.
 
 == Changelog ==
+
+= 2.6.0 =
+
+Release Date: May 24, 2018
+
+* Add - Voting System - voting buttons for individual coupons.
+* Add - Voting Settings Tab.
+* Add - Option to Add Custom Voting Success Message.
+* Add - Option to Add Custom Voting Failed Message.
+* Add - Option to Add Custom Already Voted Message.
+* Add - New Welcome Page for New Users.
+* Add - New Social Share Buttons.
+* Fix - Pagination bug in Category Shortcode.
+* Fix - Pagination Color not showing correctly.
+* Fix - Shortcode Inserter Bug.
+* Fix - Colorpicker bug. Loading the colorpicker only where necessary.
+* Update - Fremius SDK to 2.0.1.
+* Pro - Update - Design improvements for Category and Archive Shortcode.  
+* Pro - Update - Some other minor code improvements.
 
 = 2.5.0.1 =
 
