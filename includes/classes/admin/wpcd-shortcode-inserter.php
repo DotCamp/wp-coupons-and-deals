@@ -204,7 +204,6 @@ class WPCD_Shortcode_Inserter {
                         </label>
 						<?php
 						$terms_name = array();
-						if ( ! empty( $terms ) ):
 							?>
 
                             <input autocomplete="off" id="coupon_select" list="coupon_list"
@@ -259,7 +258,6 @@ class WPCD_Shortcode_Inserter {
 								}
 								?>
                             </datalist>
-						<?php endif; ?>
 
                     </div>
 
