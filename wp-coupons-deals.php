@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Loading translation.
  */
-if ( ! function_exists( wpcd_load_languages ) ) {
+if ( ! function_exists( 'wpcd_load_languages' ) ) {
 	function wpcd_load_languages() {
 		load_plugin_textdomain( 'wpcd-coupon', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
