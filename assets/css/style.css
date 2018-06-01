@@ -2522,8 +2522,8 @@ p.wpcd-coupon-loop-expired {
 
 /* social button */
 
-a.btn-social,
-.btn-social {
+a.wpcd-btn-social,
+.wpcd-btn-social {
     border-radius: 50%;
     color: #ffffff !important;
     display: inline-block;
@@ -2537,8 +2537,8 @@ a.btn-social,
     width: 54px;
 }
 
-.btn-social .fa,
-.btn-social i {
+.wpcd-btn-social .fa,
+.wpcd-btn-social i {
     backface-visibility: hidden;
     moz-backface-visibility: hidden;
     ms-transform: scale(1);
@@ -2550,24 +2550,24 @@ a.btn-social,
     webkit-transition: all .25s;
 }
 
-.btn-social:hover,
-.btn-social:focus {
+.wpcd-btn-social:hover,
+.wpcd-btn-social:focus {
     color: #fff;
     outline: none;
     text-decoration: none;
 }
 
-.btn-social:hover .fa,
-.btn-social:focus .fa,
-.btn-social:hover i,
-.btn-social:focus i {
+.wpcd-btn-social:hover .fa,
+.wpcd-btn-social:focus .fa,
+.wpcd-btn-social:hover i,
+.wpcd-btn-social:focus i {
     ms-transform: scale(1.3);
     o-transform: scale(1.3);
     transform: scale(1.3);
     webkit-transform: scale(1.3);
 }
 
-.btn-social.btn-xs {
+.wpcd-btn-social.wpcd-btn-xs {
     font-size: 11px;
     height: 32px;
     line-height: 32px;
@@ -2576,7 +2576,7 @@ a.btn-social,
     vertical-align: middle;
 }
 
-.btn-social.btn-sm {
+.wpcd-btn-social.btn-sm {
     font-size: 13px;
     height: 36px;
     line-height: 36px;
@@ -2584,7 +2584,7 @@ a.btn-social,
     width: 36px;
 }
 
-.btn-social.btn-lg {
+.wpcd-btn-social.btn-lg {
     font-size: 22px;
     height: 72px;
     line-height: 40px;
@@ -2592,31 +2592,31 @@ a.btn-social,
     width: 72px;
 }
 
-.btn-facebook {
+.wpcd-btn-facebook {
     background-color: #3b5998;
 }
 
-.btn-facebook:hover {
+.wpcd-btn-facebook:hover {
     background-color: #4c70ba;
 }
 
-.btn-google-plus {
+.wpcd-btn-google-plus {
     background-color: #dd4b39;
 }
 
-.btn-google-plus:hover {
+.wpcd-btn-google-plus:hover {
     background-color: #e47365;
 }
 
-.btn-twitter {
+.wpcd-btn-twitter {
     background-color: #55acee;
 }
 
-.btn-twitter:hover {
+.wpcd-btn-twitter:hover {
     background-color: #83c3f3;
 }
 
-.share-buttons-container {
+.wpcd-share-buttons-container {
     padding-left: 4px;
     margin-top: 15px;
     width: 50%;
@@ -2631,6 +2631,27 @@ a.btn-social,
     font-weight: 400;
     font-style: normal;
     color: #444;
+}
+
+.wpcd-share-buttons-container a {
+    position: relative;
+}
+
+.wpcd-share-buttons-container i>img.wpcd-svg {
+    position: absolute;
+    height: 13px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.wpcd-share-buttons-container a:hover img.wpcd-svg {
+    height: 15px;
+    backface-visibility: hidden;
+    moz-backface-visibility: hidden;
+    transition: all .25s;
+    webkit-backface-visibility: hidden;
+    webkit-transition: all .25s;
 }
 
 
@@ -2715,8 +2736,13 @@ div.wpcd-vote-wrapper i.fas.fa-thumbs-down {
     color: #C73017;
 }
 
-div.wpcd-vote-wrapper i {
-    font-size: 20px;
+div.wpcd-vote-wrapper i>img {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .wpcd-vote-wrapper span.wpcd-vote-percent {

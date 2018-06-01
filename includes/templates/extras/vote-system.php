@@ -13,11 +13,13 @@ if($coupon_vote == "on"){
         $percentage = 100;
     ?>
     <div class="wpcd-vote-wrapper">
-        <a class="wpcd-vote-up" href="#" data-id = "<?php echo $coupon_id; ?>"><span class="wpcd-tooltip"><?php echo __( 'It works', 'wpcd-coupon' ); ?>.</span><i class="fas fa-thumbs-up"></i></a>
-    <span class="wpcd-vote-percent" data-id="<?php echo $coupon_id ?>"><?php echo $percentage; ?>% <?php echo __( 'Success', 'wpcd-coupon'); ?></span>
+        <a class="wpcd-vote-up" href="#" data-id = "<?php echo $coupon_id; ?>"><span class="wpcd-tooltip">It works.</span><i class="wpcd-thumbs-up"><img class="wpcd-svg" src="<?php echo WPCD_Plugin::instance()->plugin_assets.'svg/thumbs-up.svg'; ?>"/></i></a>
+    <span class="wpcd-vote-percent" data-id="<?php echo $coupon_id ?>"><?php echo $percentage; ?>% Success</span>
     <a class="wpcd-vote-down" href="#" data-id = "<?php echo $coupon_id; ?>">
         <span class="wpcd-tooltip"><?php echo __( 'It doesn\'t!', 'wpcd-coupon'); ?></span>
-        <i class="fas fa-thumbs-down"></i>
+        <i class="wpcd-thumbs-down">
+            <img class="wpcd-svg" src="<?php echo WPCD_Plugin::instance()->plugin_assets.'svg/thumbs-down.svg'; ?>"/>
+        </i>
     </a>
     </div>
 <?php

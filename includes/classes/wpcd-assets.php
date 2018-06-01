@@ -40,7 +40,6 @@ class WPCD_Assets {
 	public static function wpcd_stylesheets() {
 
 		wp_enqueue_style( 'wpcd-style', WPCD_Plugin::instance()->plugin_assets . 'css/style.css', false, WPCD_Plugin::PLUGIN_VERSION );
-		wp_enqueue_style( 'wpcd-fontawesome-style', WPCD_Plugin::instance()->plugin_assets . 'css/fontawesome-all.min.css' );
 
 		$coupon_type_color = get_option( 'wpcd_coupon-type-bg-color' );
 
