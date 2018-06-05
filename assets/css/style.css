@@ -2749,8 +2749,12 @@ div.wpcd-vote-wrapper div.fas.fa-thumbs-down {
 }
 
 .widget-area .wpcd-vote-wrapper>a.wpcd-vote-down {
-    bottom: 0;
     left: 10px;
+}
+
+.widget-area div.wpcd-vote-wrapper div.wpcd-thumbs-down,
+.widget-area div.wpcd-vote-wrapper div.wpcd-thumbs-up {
+    width: auto;
 }
 
 div.wpcd-vote-wrapper div.wpcd-thumbs-down,
