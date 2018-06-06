@@ -214,7 +214,6 @@ class WPCD_Assets {
 			if ( is_object( $screen ) && $custom_post_type == $screen->post_type ) {
 
 				wp_enqueue_style( 'wpcd-admin-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/admin.css', false, WPCD_Plugin::PLUGIN_VERSION );
-				wp_enqueue_style( 'wpcd-admin-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/select2.min.css', false, WPCD_Plugin::PLUGIN_VERSION );
 				wp_enqueue_style( 'wpcd-color-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/colorpicker.css', false );
 			}
 		}
