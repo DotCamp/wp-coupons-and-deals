@@ -2733,17 +2733,15 @@ a.wpcd-btn-social,
 }
 
 .wpcd-vote-wrapper>a.wpcd-vote-down {
-    /*  vertical-align: middle;  
-        transform: scaleX(-1);  
-       -moz-transform: scaleX(-1);   
-        -webkit-transform: scaleX(-1);  
-        -ms-transform: scaleX(-1);*/
-    bottom: -5px;
+    bottom: -2px;
 }
 
-.wpcd-widget div.wpcd-vote-wrapper div.wpcd-thumbs-down,
-.wpcd-widget div.wpcd-vote-wrapper div.wpcd-thumbs-up {
-    width: auto;
+.wpcd-vote-wrapper>a.wpcd-vote-down>.wpcd-thumbs-down {
+    vertical-align: middle;
+    transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
 }
 
 div.wpcd-vote-wrapper div.wpcd-thumbs-down,
