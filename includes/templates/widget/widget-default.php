@@ -41,7 +41,7 @@ if ( $wpcd_text_to_show == 'description' ) {
 }
 
 ?>
-<div class="wpcd-coupon  wpcd-widget-default wpcd-coupon-id-<?php echo $coupon_id; ?>">
+<div class="wpcd-coupon wpcd-widget wpcd-widget-default wpcd-coupon-id-<?php echo $coupon_id; ?>">
     <div class="wpcd-coupon-content wpcd-col-1-1">
         <div class="wpcd-coupon-header">
             <div class="wpcd-col-1-1">

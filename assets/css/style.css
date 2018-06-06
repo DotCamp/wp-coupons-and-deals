@@ -2671,7 +2671,6 @@ a.wpcd-btn-social,
 .wpcd-vote-wrapper {
     box-sizing: border-box !important;
     text-align: right;
-    width: 50%;
     vertical-align: sub;
     display: inline-block;
     padding-right: 10px;
@@ -2681,7 +2680,9 @@ a.wpcd-btn-social,
 }
 
 .wpcd-vote-wrapper a {
+    display: inline-block;
     position: relative;
+    width: 20px;
     font-size: 16px;
 }
 
@@ -2715,11 +2716,7 @@ a.wpcd-btn-social,
     pointer-events: none;
 }
 
-.widget-area .wpcd-vote-wrapper a>.wpcd-tooltip {
-    padding: 5px;
-}
-
-.widget-area .wpcd-vote-wrapper a>.wpcd-tooltip:after {
+.wpcd-widget .wpcd-vote-wrapper a>.wpcd-tooltip:after {
     bottom: -5px;
 }
 
@@ -2735,25 +2732,17 @@ a.wpcd-btn-social,
     border-top: 5px solid #191919
 }
 
-div.wpcd-vote-wrapper div.fas.fa-thumbs-down {
-    vertical-align: middle;
-    transform: scaleX(-1);
-    -moz-transform: scaleX(-1);
-    -webkit-transform: scaleX(-1);
-    -ms-transform: scaleX(-1);
-    color: #C73017;
-}
-
 .wpcd-vote-wrapper>a.wpcd-vote-down {
+    /*  vertical-align: middle;  
+        transform: scaleX(-1);  
+       -moz-transform: scaleX(-1);   
+        -webkit-transform: scaleX(-1);  
+        -ms-transform: scaleX(-1);*/
     bottom: -5px;
 }
 
-.widget-area .wpcd-vote-wrapper>a.wpcd-vote-down {
-    left: 10px;
-}
-
-.widget-area div.wpcd-vote-wrapper div.wpcd-thumbs-down,
-.widget-area div.wpcd-vote-wrapper div.wpcd-thumbs-up {
+.wpcd-widget div.wpcd-vote-wrapper div.wpcd-thumbs-down,
+.wpcd-widget div.wpcd-vote-wrapper div.wpcd-thumbs-up {
     width: auto;
 }
 

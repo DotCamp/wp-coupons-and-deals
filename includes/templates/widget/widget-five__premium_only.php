@@ -56,7 +56,7 @@ wp_enqueue_script( 'wpcd-clipboardjs' );
 
 ?>
 
-<div class="wpcd-template-five" style="border-color: <?php echo $wpcd_template_five_theme; ?>">
+<div class="wpcd-template-five wpcd-widget" style="border-color: <?php echo $wpcd_template_five_theme; ?>">
     <div class="wpcd-template-five-holder">
         <div class="wpcd-template-five-percent-off">
             <p class="wpcd-coupon-five-discount-text">

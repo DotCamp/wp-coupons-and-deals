@@ -47,7 +47,7 @@ if ( $wpcd_text_to_show == 'description' ) {
 }
 ?>
 
-<div class="wpcd-coupon-six" style="border-color: <?php echo $wpcd_template_six_theme; ?>">
+<div class="wpcd-coupon-six wpcd-widget" style="border-color: <?php echo $wpcd_template_six_theme; ?>">
     <div class="wpcd-coupon-six-holder">
         <div class="wpcd-coupon-six-percent-off">
             <div class="wpcd-for-ribbon">
