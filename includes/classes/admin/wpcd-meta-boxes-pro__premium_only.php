@@ -366,13 +366,33 @@ class WPCD_Meta_Boxes_Pro {
 					break;
 
 				case 'textarea':
-					$input = sprintf(
-						'<textarea class="large-text" id="%s" name="%s" rows="5">%s</textarea><br><i style="font-size: 12px">%s</i>',
-						$wpcd_field['id'],
-						$wpcd_field['id'],
-						$db_value,
-						$wpcd_field['help']
-					);
+					if($wpcd_field['id'] == 'description'):
+						ob_start();
+						/**
+						* Add Editor to description field
+						* 
+						* @since 2.5.0.2
+						*/
+						$settings = array(
+					   		'wpautop' => false, 
+					   		'media_buttons' => false,
+							'tinymce' => true,
+							'textarea_rows' => 5,
+							'teeny' => true,
+							'quicktags' => false
+						);
+						wp_editor( $db_value, 'description' ,$settings);
+						echo '<br><i style="font-size: 12px">' . $wpcd_field["help"] . '</i>';
+						$input = ob_get_clean();
+					else:
+						$input = sprintf(
+							'<textarea class="large-text" id="%s" name="%s" rows="5">%s</textarea><br><i style="font-size: 12px">%s</i>',
+							$wpcd_field['id'],
+							$wpcd_field['id'],
+							$db_value,
+							$wpcd_field['help']
+						);
+					endif;
 					break;
 
 				case 'expirationcheck':
