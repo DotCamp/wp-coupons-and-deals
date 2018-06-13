@@ -366,7 +366,7 @@ class WPCD_Meta_Boxes_Pro {
 					break;
 
 				case 'textarea':
-					if($wpcd_field['id'] == 'description'):
+					if ( $wpcd_field['id'] == 'description' ):
 						ob_start();
 						/**
 						* Add Editor to description field
