@@ -405,14 +405,14 @@ class WPCD_Meta_Boxes_Pro {
 					);
 					break;
 
-                                case 'neverexpire-checkbox':
-                                    $input = sprintf(
-                                            '<input type="checkbox" name="%s" id="%s" '. checked($db_value, 'on').'/><br><i style="font-size: 12px">%s</i>',
-                                            $wpcd_field['id'],
-                                            $wpcd_field['id'],
-                                            $wpcd_field['help']
-                                    );
-                                    break;
+                case 'neverexpire-checkbox':
+                    $input = sprintf(
+                        '<input type="checkbox" name="%s" id="%s" '. checked( $db_value, 'on', false ).'/><br><i style="font-size: 12px">%s</i>',
+                        $wpcd_field['id'],
+                        $wpcd_field['id'],
+                        $wpcd_field['help']
+                    );
+                    break;
                                 
 				case 'expiredate':
 					$input = sprintf(
