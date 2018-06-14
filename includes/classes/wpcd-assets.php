@@ -43,12 +43,14 @@ class WPCD_Assets {
 
 		$coupon_type_color = get_option( 'wpcd_coupon-type-bg-color' );
 
-		$inline_style = "
-                    
+		$inline_style = "       
 			.coupon-type {
 				background-color: {$coupon_type_color};
 			}
-				 
+				
+			.deal-type {
+				background-color: {$coupon_type_color};
+			}
 		";
 
 		$inline_style = preg_replace('/\s+/', ' ', $inline_style );
