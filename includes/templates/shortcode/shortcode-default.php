@@ -38,6 +38,8 @@ $show_expiration          = get_post_meta( $coupon_id, 'coupon_details_show-expi
 $today                    = date( 'd-m-Y' );
 $expire_date              = get_post_meta( $coupon_id, 'coupon_details_expire-date', true );
 $hide_coupon              = get_post_meta( $coupon_id, 'coupon_details_hide-coupon', true );
+$dt_coupon_type_name 	  = get_option( 'wpcd_dt-coupon-type-text' );
+$dt_deal_type_name 	  = get_option( 'wpcd_dt-deal-type-text' );
 
 $wpcd_text_to_show = get_option( 'wpcd_text-to-show' );
 $wpcd_custom_text  = get_option( 'wpcd_custom-text' );
@@ -60,11 +62,23 @@ $template = new WPCD_Template_Loader();
         </div>
 		<?php if ( $coupon_type == 'Coupon' ) { ?>
             <div class="coupon-type">
-				<?php echo __( 'Coupon', 'wpcd-coupon' ) ?>
+				<?php
+					if ( !empty( $dt_coupon_type_name ) ) {
+						echo $dt_coupon_type_name;
+					} else {
+						echo __( 'Coupon', 'wpcd-coupon' );
+					}
+				?>
             </div>
 		<?php } elseif ( $coupon_type == 'Deal' ) { ?>
             <div class="deal-type">
-				<?php echo __( 'Deal', 'wpcd-coupon' ); ?>
+				<?php
+					if ( !empty( $dt_deal_type_name ) ) {
+						echo $dt_deal_type_name;
+					} else {
+						echo __( 'Deal', 'wpcd-coupon' );
+					}
+				?>
             </div>
 		<?php } ?>
     </div>

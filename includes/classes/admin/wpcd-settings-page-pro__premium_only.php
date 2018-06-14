@@ -404,6 +404,20 @@ class WPCD_Settings_Page_Pro {
 					'description' => __( 'Disable the categories navigation in archive shortcode.', 'wpcd-coupon' ),
 					'type'        => 'checkbox',
 					'default'     => '',
+				),
+				array(
+					'id' 		  => 'dt-coupon-type-text',
+					'label'       => __( 'Coupon Type Name', 'wpcd-coupon' ),
+					'description' => __( 'Text to Show for Coupon Type Name in Default Template. Default is - Coupon.', 'wpcd-coupon' ),
+					'type'		  => 'text',
+					'default'	  => __( 'Coupon', 'wpcd-coupon' )
+				),
+				array(
+					'id' 		  => 'dt-deal-type-text',
+					'label'       => __( 'Deal Type Name', 'wpcd-coupon' ),
+					'description' => __( 'Text to Show for Deal Type Name in Default Template. Default is - Deal.', 'wpcd-coupon' ),
+					'type'		  => 'text',
+					'default'	  => __( 'Coupon', 'wpcd-coupon' )
 				)
 			),
 		);

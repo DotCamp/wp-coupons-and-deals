@@ -61,6 +61,9 @@ $wpcd_dummy_coupon_img   = WPCD_Plugin::instance()->plugin_assets . 'img/coupon-
 $wpcd_text_to_show = get_option( 'wpcd_text-to-show' );
 $wpcd_custom_text  = get_option( 'wpcd_custom-text' );
 
+$dt_coupon_type_name 	  = get_option( 'wpcd_dt-coupon-type-text' );
+$dt_deal_type_name 	  = get_option( 'wpcd_dt-deal-type-text' );
+
 if ( $wpcd_text_to_show == 'description' ) {
 	$wpcd_custom_text = $description;
 } else {
@@ -445,13 +448,25 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
             </div>
 			<?php if ( $coupon_type == 'Coupon' ) { ?>
                 <div class="coupon-type">
-					<?php echo __( 'Coupon', 'wpcd-coupon' ) ?>
+				    <?php
+					    if ( !empty( $dt_coupon_type_name ) ) {
+						    echo $dt_coupon_type_name;
+					    } else {
+						    echo __( 'Coupon', 'wpcd-coupon' );
+					    }
+				    ?>
                 </div>
-			<?php } elseif ( $coupon_type == 'Deal' ) { ?>
+		    <?php } elseif ( $coupon_type == 'Deal' ) { ?>
                 <div class="deal-type">
-					<?php echo __( 'Deal', 'wpcd-coupon' ); ?>
+				    <?php
+					    if ( !empty( $dt_deal_type_name ) ) {
+						    echo $dt_deal_type_name;
+					    } else {
+						    echo __( 'Deal', 'wpcd-coupon' );
+					    }
+				    ?>
                 </div>
-			<?php } ?>
+		    <?php } ?>
         </div>
         <div class="wpcd-coupon-content wpcd-col-7-8">
             <div class="wpcd-coupon-header">

@@ -133,6 +133,11 @@ class WPCD_Settings_Page {
 				'description' => __( 'Configure Voting Settings for Your Coupons.', 'wpcd-coupon' )
 			),
 			array(
+				'id'          => 'settings-extra',
+				'title'       => __( 'Extras', 'wpcd-coupon' ),
+				'description' => __( 'These are some extra settings. You can use the default settings or set your own ones.', 'wpcd-coupon' )
+			),
+			array(
 				'id'          => 'link',
 				'title'       => __( 'Knowledge Base', 'wpcd-coupon' ),
 				'description' => __( 'These are some general settings. You can use the default settings or set your own ones.', 'wpcd-coupon' ),
@@ -283,7 +288,24 @@ class WPCD_Settings_Page {
 					'default' => '',
 					'placeholder' => __( 'You have voted already!', 'wpcd-coupon' )
 				)
-			)
+			),
+			array(
+				array(
+					'id' 		  => 'dt-coupon-type-text',
+					'label'       => __( 'Coupon Type Name', 'wpcd-coupon' ),
+					'description' => __( 'Text to Show for Coupon Type Name in Default Template. Default is - Coupon.', 'wpcd-coupon' ),
+					'type'		  => 'text',
+					'default'	  => __( 'Coupon', 'wpcd-coupon' )
+				),
+				array(
+					'id' 		  => 'dt-deal-type-text',
+					'label'       => __( 'Deal Type Name', 'wpcd-coupon' ),
+					'description' => __( 'Text to Show for Deal Type Name in Default Template. Default is - Deal.', 'wpcd-coupon' ),
+					'type'		  => 'text',
+					'default'	  => __( 'Deal', 'wpcd-coupon' )
+				)
+			),
+
 		);
 
 		$settings = apply_filters( 'wpcd_coupon_settings_fields', $settings );
