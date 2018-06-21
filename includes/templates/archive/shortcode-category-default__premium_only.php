@@ -23,6 +23,7 @@ $expired_text             = get_option( 'wpcd_expired-text' );
 $hide_coupon_text         = get_option( 'wpcd_hidden-coupon-text' );
 $hidden_coupon_hover_text = get_option( 'wpcd_hidden-coupon-hover-text' );
 $copy_button_text         = get_option( 'wpcd_copy-button-text' );
+$coupon_title_tag         = get_option( 'wpcd_coupon-title-tag', 'h1' );
 $coupon_share = get_option( 'wpcd_coupon-social-share' );
 $show_expiration          = get_post_meta( $coupon_id, 'coupon_details_show-expiration', true );
 $today                    = date( 'd-m-Y' );
@@ -143,11 +144,9 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ): ?>
                 </div>
 
                 <div class="wpcd-template-five-texts">
-                    <h2 class="wpcd-coupon-five-title"><?php if ( ! empty( $title ) ) {
-							echo $title;
-						} else {
-							echo __( 'Sample Coupon Code', 'wpcd-coupon' );
-						} ?></h2>
+                    <<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
+                        <a href="<?php echo $link; ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
+                    </<?php echo esc_html( $coupon_title_tag ); ?>>
                     <div class="wpcd-coupon-description">
                         <span class="wpcd-full-description"><?php echo $description; ?></span>
                         <span class="wpcd-short-description"></span>
@@ -275,12 +274,9 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ): ?>
                 </div>
                 <div class="wpcd-coupon-six-texts">
                     <div class="texts">
-                        <h2 class="wpcd-coupon-six-title"><?php if ( ! empty( $title ) ) {
-								echo $title;
-							} else {
-								echo __( 'Sample Coupon Code', 'wpcd-coupon' );
-							} ?>
-                        </h2>
+                        <<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
+                            <a href="<?php echo $link; ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
+                        </<?php echo esc_html( $coupon_title_tag ); ?>>
                         <div class="wpcd-coupon-description">
                             <span class="wpcd-full-description"><?php echo $description; ?></span>
                             <span class="wpcd-short-description"></span>
@@ -300,7 +296,7 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ): ?>
                                     }
                                     ?>
                                 </b> <span class="wpcd-coupon-six-countdown clock_six_<?php echo $coupon_id; ?>"></span>
-                                                        <?php if ( $expire_date ) : ?>
+                                    <?php if ( $expire_date ) : ?>
                                     <script type="text/javascript">
                                         if (jQuery('.clock_six_<?php echo $coupon_id; ?>').length === 1) {
                                             var clockClass = '.clock_six_<?php echo $coupon_id; ?>';
@@ -502,9 +498,9 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ): ?>
 						<?php } ?>
                     </div>
                     <div class="wpcd-col-3-4">
-                        <div class="wpcd-coupon-title">
-							<?php echo $title; ?>
-                        </div>
+                        <<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
+                            <a href="<?php echo $link; ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
+                        </<?php echo esc_html( $coupon_title_tag ); ?>>
                     </div>
                 </div>
                 <div class="wpcd-extra-content">
