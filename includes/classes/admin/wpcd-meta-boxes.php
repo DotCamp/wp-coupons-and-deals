@@ -370,7 +370,6 @@ class WPCD_Meta_Boxes {
 					   		'media_buttons' => false,
 							'tinymce' => true,
 							'textarea_rows' => 5,
-							'teeny' => true,
 							'quicktags' => false
 						);
 						wp_editor( $db_value, 'description' ,$settings);

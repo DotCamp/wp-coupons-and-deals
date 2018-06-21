@@ -63,7 +63,7 @@ $template = new WPCD_Template_Loader();
 						<?php if ( ! empty( $discount_text ) ) {
 							echo $discount_text;
 						} else {
-							echo __( '70% OFF', 'wpcd-coupon' );
+							echo __( 'Discount', 'wpcd-coupon' );
 						} ?>
                     </p>
                     <div class="wpcd-ribbon-after"

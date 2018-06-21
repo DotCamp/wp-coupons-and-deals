@@ -29,7 +29,9 @@ class WPCD_Assets {
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'wpcd_scripts' ) );
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'wpcd_admin_scripts' ) );
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'wpcd_admin_stylesheets' ) );
-
+                
+                //To add custom javascript code to tinymce editor at initiation 
+                add_filter( 'tiny_mce_before_init', array(__CLASS__, 'wpcd_tiny_mce'));
 	}
 
 	/**
@@ -43,17 +45,15 @@ class WPCD_Assets {
 
 		$coupon_type_color = get_option( 'wpcd_coupon-type-bg-color' );
 
-		$inline_style = "       
+		$inline_style = "
+                    
 			.coupon-type {
 				background-color: {$coupon_type_color};
 			}
-				
-			.deal-type {
-				background-color: {$coupon_type_color};
-			}
+				 
 		";
 
-		$inline_style = preg_replace('/\s+/', ' ', $inline_style );
+		$inline_style = preg_replace( '/\s+/', '', $inline_style );
 
 		wp_add_inline_style( 'wpcd-style', $inline_style  );
 
@@ -97,7 +97,7 @@ class WPCD_Assets {
 			 
 			";
 
-			$wpcd_inline_style = preg_replace('/\s+/', ' ', $wpcd_inline_style );
+			$wpcd_inline_style = preg_replace( '/\s+/', '', $wpcd_inline_style );
 
 			//add changes to stylesheet
 			wp_add_inline_style( 'wpcd-style', $wpcd_inline_style );
@@ -216,7 +216,8 @@ class WPCD_Assets {
 			if ( is_object( $screen ) && $custom_post_type == $screen->post_type ) {
 
 				wp_enqueue_style( 'wpcd-admin-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/admin.css', false, WPCD_Plugin::PLUGIN_VERSION );
-				wp_enqueue_style( 'wpcd-color-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/colorpicker.css', false );
+				wp_enqueue_style( 'wpcd-admin-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/select2.min.css', false, WPCD_Plugin::PLUGIN_VERSION );
+
 			}
 		}
 
@@ -251,7 +252,6 @@ class WPCD_Assets {
 				wp_enqueue_script( 'jquery-ui-datepicker' );
 				wp_enqueue_script( 'wpcd-jquery-ui-timepicker', WPCD_Plugin::instance()->plugin_assets . 'admin/js/jquery-ui-timepicker.js', array( 'jquery' ), WPCD_Plugin::PLUGIN_VERSION, false );
 				wp_enqueue_script( 'wpcd-countdown-js', WPCD_Plugin::instance()->plugin_assets . 'js/jquery.countdown.min.js', false, WPCD_Plugin::PLUGIN_VERSION, false );
-				wp_enqueue_script( 'wpcd-color-script', WPCD_Plugin::instance()->plugin_assets . 'admin/js/colorpicker.js', array( 'jquery' ), WPCD_Plugin::PLUGIN_VERSION, true );
 
 			}
 
@@ -265,5 +265,37 @@ class WPCD_Assets {
 
 
 	}
+        
+    /**
+     * to add custom javascript code tinymce Editor at initiation
+     *
+     * @since 2.5.0.2
+     * @param array $initArray
+     * @return array
+     */
+    public static function wpcd_tiny_mce( $initArray ) {
+            
+        /*
+         * change description dynamically in live preview
+         * 
+         * NOTE: don't change the spaces in this code !!!!
+         * @since 2.5.0.2
+         */
+            
+            $initArray['setup'] = <<<JS
+[function(ed) {
+        ed.on('KeyUp', function (e) {
+            var description = tinyMCE.activeEditor.getContent();
+            $('.wpcd-coupon-description').html(description);
+        });
+        ed.on('Change', function (e) {
+            var description = tinyMCE.activeEditor.getContent();
+            $('.wpcd-coupon-description').html(description);
+        });            
+    
 
+}][0]
+JS;
+        return $initArray;
+    }
 }

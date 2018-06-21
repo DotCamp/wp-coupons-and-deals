@@ -725,10 +725,16 @@ jQuery(document).ready(function ($) {
             $('.wpcd-coupon-six-title').text(title);
         });
 
-        //change description dynamically
+        //change description dynamically (this works only with text editor)
         $('#description').keyup(function () {
             var description = $(this).val();
-            $('.wpcd-coupon-description').text(description);
+            $('.wpcd-coupon-description').html(description);
+        });
+
+        //if the user used one of the button instead of writing the code
+        $('#description').change(function () {
+            var description = $(this).val();
+            $('.wpcd-coupon-description').html(description);
         });
 
         $('#discount-text').keyup(function () {
