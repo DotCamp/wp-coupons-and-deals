@@ -34,7 +34,7 @@ $expired_text             = get_option( 'wpcd_expired-text' );
 $hide_coupon_text         = get_option( 'wpcd_hidden-coupon-text' );
 $hidden_coupon_hover_text = get_option( 'wpcd_hidden-coupon-hover-text' );
 $copy_button_text         = get_option( 'wpcd_copy-button-text' );
-$coupon_title_tag         = get_option( 'wpcd_coupon-title-tag', 'h3' );
+$coupon_title_tag         = get_option( 'wpcd_coupon-title-tag', 'h1' );
 $coupon_share = get_option( 'wpcd_coupon-social-share' );
 $show_expiration          = get_post_meta( $coupon_id, 'coupon_details_show-expiration', true );
 $today                    = date( 'd-m-Y' );
@@ -125,7 +125,7 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
 					<?php } ?>
                 </div>
                 <div class="wpcd_coupon_li_content">
-                    <a href="<?php echo $link; ?>" target="_blank">
+                    <a href="<?php echo $link; ?>" target="_blank" rel="nofollow">
                         <<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd_coupon_li_title">
 							<?php echo $title; ?>
 						</<?php echo esc_html( $coupon_title_tag ); ?>>
@@ -136,9 +136,11 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
 							<?php
 						}
 						if ( $coupon_type == 'Coupon' ) {
-						if ( $hide_coupon == 'Yes' ) { ?>
+						    if ( $hide_coupon == 'Yes' ) { ?>
 
-							<div class="wpcd-coupon-code wpcd_btn_wr"><?php $template->get_template_part( 'hide-coupon__premium_only' ); ?></div>
+							<div class="wpcd-coupon-code wpcd_btn_wr">
+                                <?php $template->get_template_part( 'hide-coupon__premium_only' ); ?>
+                            </div>
 
 						<?php } else { ?>
                             <div class="wpcd-coupon-code wpcd_btn_wr">
@@ -206,10 +208,8 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
                             </div>
 						<?php } ?>
 						<?php if ( $show_expiration == 'Show' ) {
-                                                            $never_expire = ($wpcd_coupon_template == 'Template Two' ||
-                                                                             $wpcd_coupon_template == 'Template Six') 
-                                                                            ? $never_expire: '';
-                                                    if ( ! empty( $expire_date ) && $never_expire != 'on' ) { ?>
+                                $never_expire = ($wpcd_coupon_template == 'Template Two' || $wpcd_coupon_template == 'Template Six') ? $never_expire: '';
+                                if ( ! empty( $expire_date ) && $never_expire != 'on' ) { ?>
                                 <div class="wpcd_coupon_li_bottom wpcd_clearfix">
 
 									<?php if ( strtotime( $expire_date ) >= strtotime( $today ) ) { ?>
