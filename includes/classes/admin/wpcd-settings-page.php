@@ -295,14 +295,16 @@ class WPCD_Settings_Page {
 					'label'       => __( 'Coupon Type Name', 'wpcd-coupon' ),
 					'description' => __( 'Text to Show for Coupon Type Name in Default Template. Default is - Coupon.', 'wpcd-coupon' ),
 					'type'		  => 'text',
-					'default'	  => __( 'Coupon', 'wpcd-coupon' )
+					'default'	  => __( 'Coupon', 'wpcd-coupon' ),
+					'placeholder' => __( 'Coupon', 'wpcd-coupon' )
 				),
 				array(
 					'id' 		  => 'dt-deal-type-text',
 					'label'       => __( 'Deal Type Name', 'wpcd-coupon' ),
 					'description' => __( 'Text to Show for Deal Type Name in Default Template. Default is - Deal.', 'wpcd-coupon' ),
 					'type'		  => 'text',
-					'default'	  => __( 'Deal', 'wpcd-coupon' )
+					'default'	  => __( 'Deal', 'wpcd-coupon' ),
+					'placeholder' => __( 'Deal', 'wpcd-coupon' )
 				)
 			),
 

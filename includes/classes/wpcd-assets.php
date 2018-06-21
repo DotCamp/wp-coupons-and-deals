@@ -30,8 +30,9 @@ class WPCD_Assets {
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'wpcd_admin_scripts' ) );
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'wpcd_admin_stylesheets' ) );
                 
-                //To add custom javascript code to tinymce editor at initiation 
-                add_filter( 'tiny_mce_before_init', array(__CLASS__, 'wpcd_tiny_mce'));
+        //To add custom javascript code to tinymce editor at initiation 
+		add_filter( 'tiny_mce_before_init', array( __CLASS__, 'wpcd_tiny_mce' ) );
+		
 	}
 
 	/**
@@ -269,7 +270,7 @@ class WPCD_Assets {
     /**
      * to add custom javascript code tinymce Editor at initiation
      *
-     * @since 2.5.0.2
+     * @since 2.6.2
      * @param array $initArray
      * @return array
      */
@@ -278,11 +279,11 @@ class WPCD_Assets {
         /*
          * change description dynamically in live preview
          * 
-         * NOTE: don't change the spaces in this code !!!!
-         * @since 2.5.0.2
+         * VERY IMPORTANT: don't change the spaces in this code !!!!
+         * @since 2.6.2
          */
             
-            $initArray['setup'] = <<<JS
+        $initArray['setup'] = <<<JS
 [function(ed) {
         ed.on('KeyUp', function (e) {
             var description = tinyMCE.activeEditor.getContent();
@@ -293,7 +294,6 @@ class WPCD_Assets {
             $('.wpcd-coupon-description').html(description);
         });            
     
-
 }][0]
 JS;
         return $initArray;
