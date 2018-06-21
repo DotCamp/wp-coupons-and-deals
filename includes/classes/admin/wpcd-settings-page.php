@@ -291,6 +291,13 @@ class WPCD_Settings_Page {
 			),
 			array(
 				array(
+					'id'          => 'disable-coupon-title-link',
+					'label'       => __( 'Disable Link in Coupon Title', 'wpcd-coupon' ),
+					'description' => __( 'Disable the coupon title link. By default it\'s linked to the link/affiliate link you put when you create a coupon.', 'wpcd-coupon' ),
+					'type'        => 'checkbox',
+					'default'     => '',
+				),
+				array(
 					'id' 		  => 'dt-coupon-type-text',
 					'label'       => __( 'Coupon Type Name', 'wpcd-coupon' ),
 					'description' => __( 'Text to Show for Coupon Type Name in Default Template. Default is - Coupon.', 'wpcd-coupon' ),

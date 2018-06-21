@@ -35,7 +35,7 @@ $hide_coupon_text         = get_option( 'wpcd_hidden-coupon-text' );
 $hidden_coupon_hover_text = get_option( 'wpcd_hidden-coupon-hover-text' );
 $copy_button_text         = get_option( 'wpcd_copy-button-text' );
 $coupon_title_tag         = get_option( 'wpcd_coupon-title-tag', 'h1' );
-$coupon_share = get_option( 'wpcd_coupon-social-share' );
+$coupon_share             = get_option( 'wpcd_coupon-social-share' );
 $show_expiration          = get_post_meta( $coupon_id, 'coupon_details_show-expiration', true );
 $today                    = date( 'd-m-Y' );
 $expire_date              = get_post_meta( $coupon_id, 'coupon_details_expire-date', true );
@@ -43,7 +43,8 @@ $hide_coupon              = get_post_meta( $coupon_id, 'coupon_details_hide-coup
 $wpcd_coupon_image_id     = get_post_meta( $coupon_id, 'coupon_details_coupon-image-input', true );
 $wpcd_coupon_image_src    = wp_get_attachment_image_src( $wpcd_coupon_image_id, 'full' );
 $wpcd_show_print          = get_post_meta( $coupon_id, 'coupon_details_coupon-image-print', true );
-$disable_menu             = get_option('wpcd_disable-menu-archive-code');
+$disable_menu             = get_option( 'wpcd_disable-menu-archive-code' );
+
 $template = new WPCD_Template_Loader();
 if ( is_array( $wpcd_coupon_image_src ) ) {
 	$wpcd_coupon_image_src = $wpcd_coupon_image_src[0];
@@ -98,11 +99,15 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
 	<?php
 	global $current_url;
 	$terms = get_terms( 'wpcd_coupon_category' );
-	if ( ! empty( $terms ) && ! is_wp_error( $terms ) && !$disable_menu):
+	if ( ! empty( $terms ) && ! is_wp_error( $terms ) && !$disable_menu ):
 
 	?>
         <ul id="wpcd_cat_ul">
-            <li><a href="<?php echo $current_url; ?>">All Coupons</a></li>
+            <li>
+                <a href="<?php echo $current_url; ?>">
+                    <?php echo __( 'All Coupons', 'wpcd-coupon' ); ?>
+                </a>
+            </li>
 			<?php foreach ( $terms as $term ): ?>
                 <li>
                     <a href="<?php echo $current_url . '?wpcd_category=' . $term->slug; ?>"><?php echo $term->name; ?></a>

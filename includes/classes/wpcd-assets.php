@@ -51,6 +51,10 @@ class WPCD_Assets {
 			.coupon-type {
 				background-color: {$coupon_type_color};
 			}
+			
+			.deal-type {
+				background-color: {$coupon_type_color};
+			}
 				 
 		";
 

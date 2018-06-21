@@ -399,6 +399,13 @@ class WPCD_Settings_Page_Pro {
 			),
 			array(
 				array(
+					'id'          => 'disable-coupon-title-link',
+					'label'       => __( 'Disable Link in Coupon Title', 'wpcd-coupon' ),
+					'description' => __( 'Disable the coupon title link. By default it\'s linked to the link/affiliate link you put when you create a coupon.', 'wpcd-coupon' ),
+					'type'        => 'checkbox',
+					'default'     => '',
+				),
+				array(
 					'id'          => 'disable-menu-archive-code',
 					'label'       => __( 'Disable Navigation', 'wpcd-coupon' ),
 					'description' => __( 'Disable the categories navigation in archive shortcode.', 'wpcd-coupon' ),

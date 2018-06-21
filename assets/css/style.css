@@ -93,7 +93,6 @@ a.wpcd-btn .wpcd_deal_icon {
 .wpcd-coupon-title {
     width: 100%;
     font-size: 21px;
-    cursor: pointer;
     margin: 5px 0px 10px 0px !important;
 }
 
@@ -200,10 +199,6 @@ a.wpcd-btn .wpcd_deal_icon {
     margin-bottom: 20px;
     box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1);
     border-radius: 3px;
-}
-
-.wpcd-coupon-one-title {
-    cursor: pointer
 }
 
 .wpcd-coupon-one figure {
@@ -370,7 +365,6 @@ a.wpcd-btn .wpcd_deal_icon {
 
 .wpcd-coupon-two-header {
     width: 100%;
-    cursor: pointer;
 }
 
 .wpcd-coupon-two-btn {
@@ -422,10 +416,6 @@ a.wpcd-btn .wpcd_deal_icon {
     margin-bottom: 20px;
     box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1);
     border-radius: 3px;
-}
-
-.wpcd-coupon-three-title {
-    cursor: pointer;
 }
 
 .wpcd-coupon-three figure {
@@ -552,10 +542,6 @@ p.wpcd-coupon-three-expired {
     margin-bottom: 20px;
     box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1);
     border-radius: 3px;
-}
-
-.wpcd-coupon-four-title {
-    cursor: pointer;
 }
 
 .wpcd-coupon-four figure {
@@ -920,7 +906,7 @@ p.wpcd-coupon-four-expired {
 }
 
 .wpcd-template-five-mobile .wpcd-template-five-texts {
-    width: 100%;
+    width: 98%;
 }
 
 @media (max-width: 600px) {
