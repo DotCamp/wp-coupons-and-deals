@@ -494,7 +494,7 @@ class WPCD_Meta_Boxes {
 			     __( 'Upgrade to Pro!', 'wpcd-coupon' ) .
 			     '</a>';
 			echo ' or ';
-			echo '<a href="' . wcad_fs()->get_account_url() . '">' .
+			echo '<a href="' . wcad_fs()->get_trial_url() . '">' .
 			     __( 'Start 14 day Free Trial!', 'wpcd-coupon' ) .
 			     '</a>' . __( ' (NO Credit Card Required)', 'wpcd-coupon' );
 			echo '. ';
