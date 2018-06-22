@@ -2,7 +2,7 @@
 /**
  * Plugin Name: WP Coupons and Deals
  * Plugin URI: https://wpcouponsdeals.com/
- * Version: 2.6.1
+ * Version: 2.6.2
  * Description: Best WordPress Coupon Plugin. Generate more affiliate sales with coupon codes and deals.
  * Author: Imtiaz Rayhan
  * Author URI: http://imtiazrayhan.com/
@@ -57,7 +57,6 @@ if ( ! function_exists( 'wcad_fs' ) ) {
 					'days'               => 14,
 					'is_require_payment' => false,
 				),
-				'has_affiliation'     => 'selected',
 				'menu'                => array(
 					'slug'           => 'edit.php?post_type=wpcd_coupons',
 					'first-path'     => 'index.php?page=wpcd_welcome_menu_page',

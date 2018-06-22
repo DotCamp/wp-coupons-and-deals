@@ -30,7 +30,7 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 		 *
 		 * @since 1.0
 		 */
-		const PLUGIN_VERSION = '2.6.0';
+		const PLUGIN_VERSION = '2.6.2';
 		const CUSTOM_POST_TYPE = 'wpcd_coupons';
 		const CUSTOM_TAXONOMY = 'wpcd_coupon_category';
 		const TEXT_DOMAIN = 'wpcd-coupon';
@@ -223,8 +223,12 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 			add_filter( 'wp_enqueue_scripts', array( __CLASS__, 'load_jquery' ), 1 );
 			add_action( 'wp_enqueue_scripts', array( __CLASS__, 'load_jquery' ) );
 			add_filter( 'wp_head', array( __CLASS__, 'load_jquery' ) );
-		}
 
+			if ( wcad_fs()->is_not_paying() ) {
+				add_action( 'admin_menu', array( __CLASS__, 'free_pro_trial'), 99 );
+			}
+
+		}
 		/**
 		 * this function checks if jQuery exits to added it
 		 *
@@ -278,12 +282,12 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 			 */
 			self::shortcode_class();
 
-                        /**
-                         * Adding the ajax class to initialize.
-                         * 
-                         * @since 2.5.0.1
-                         */
-                        self::ajax_class();
+             /**
+             * Adding the ajax class to initialize.
+             * 
+             * @since 2.5.0.1
+             */
+            self::ajax_class();
                         
 			/**
 			 * Welcome page.
@@ -560,6 +564,23 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
             WPCD_AJAX::LoadEvents();
 		
 		}
+
+		/**
+		 * Free Pro Trial Page for Free Users.
+		 * @since 2.6.2
+		 */
+		public static function free_pro_trial() {
+			
+			global $menu, $submenu;
+			
+			$parent_menu = 'edit.php?post_type=wpcd_coupons';
+			$menu_name = 'Free Pro Trial';
+			$capability = 'manage_options';
+			$url = wcad_fs()->get_trial_url();
+			
+			$submenu[$parent_menu][] = array( $menu_name, $capability, $url );
+		
+		}		
 
 	}
 

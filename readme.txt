@@ -1,10 +1,10 @@
 
 === WP Coupons and Deals ===
 Contributors: imtiazrayhan, mohmedelwany
-Tags: coupon, coupons, deal, deals, shortcode, coupon widget
+Tags: coupon, coupons, deal, deals, affiliate, affiliate marketing
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 2.6.1
+Stable tag: 2.6.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,6 +23,7 @@ Best WordPress Coupon Plugin. Generate more affiliate sales with coupon codes an
 * Insert shortcode directly from the post editor.
 * Click to copy functionality.
 * Voting System for individual coupons.
+* Social Share Buttons for individual coupons.
 * Widget to show coupons and deals on widget areas.
 * Easy to use settings.
 * Coupon categories to categorize your coupons.
@@ -116,6 +117,9 @@ Absolutely not. You can create and manage coupons without any coding knowledge. 
 
 = Coupon is not showing properly. What should I do? =
 You can try clearing your cache.
+
+= Click to Copy is not Working. What should I do?
+Most of the times, it can be an issue if you use plugins or other tools to combine and minify JavaScript files. If you face this issue of click to copy not working, please turn off combining and minifying for the time being and check if that's what causing the issues.
 
 = Why there is no expiration message showing? =
 Most probably you didn't choose to show it when you created the coupon. If you chose to show expiration and left the date field blank, 'Doesn't Expire' message is shown instead.
