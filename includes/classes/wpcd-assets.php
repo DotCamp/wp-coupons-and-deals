@@ -44,6 +44,7 @@ class WPCD_Assets {
 		wp_enqueue_style( 'wpcd-style', WPCD_Plugin::instance()->plugin_assets . 'css/style.css', false, WPCD_Plugin::PLUGIN_VERSION );
 
 		$coupon_type_color = get_option( 'wpcd_coupon-type-bg-color' );
+		$coupon_border_color = get_option( 'wpcd_dt-border-color' );
 
 		$inline_style = "
                     
@@ -54,7 +55,11 @@ class WPCD_Assets {
 			.deal-type {
 				background-color: {$coupon_type_color};
 			}
-				 
+
+			.wpcd-coupon {
+				border-color: {$coupon_border_color};
+			}
+
 		";
 
 		$inline_style = preg_replace( '/\s+/', '', $inline_style );
