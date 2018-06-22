@@ -236,6 +236,29 @@ class WPCD_Assets {
 
 		}
 
+		$coupon_type_color = get_option( 'wpcd_coupon-type-bg-color' );
+		$coupon_border_color = get_option( 'wpcd_dt-border-color' );
+
+		$inline_style = "
+                    
+			.coupon-type {
+				background-color: {$coupon_type_color};
+			}
+
+			.deal-type {
+				background-color: {$coupon_type_color};
+			}
+
+			.wpcd-coupon {
+				border-color: {$coupon_border_color};
+			}
+
+		";
+
+		$inline_style = preg_replace( '/\s+/', '', $inline_style );
+
+		wp_add_inline_style( 'wpcd-admin-style', $inline_style  );
+
 	}
 
 	/**

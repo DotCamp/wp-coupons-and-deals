@@ -67,8 +67,8 @@ class WPCD_Help_Metabox {
 	public function generate_fields( $post ) {
 		$output = '';
 		$output .= '<p style="font-size: 14px;">' . __( 'If you have any questions or confusions, please check our ', 'wpcd-coupon' ) . '<a target="_blank" href="https://wpcouponsdeals.com/knowledgebase/">' . __( 'Knowledgebase', 'wpcd-coupon' ) . '</a>' . __( ' or', 'wpcd-coupon' ) . '<a target="_blank" href="https://wpcouponsdeals.com/contact-us/">' . __( ' contact us', 'wpcd-coupon' ) . '</a>.</p>';
-		$output .= '<p style="font-size: 14px;">' . __( 'I also need your help to make this plugin even more better. If you have any specific feature in mind, please ', 'wpcd-coupon' ) . '<a target="_blank" href="https://wpcouponsdeals.com/submit-new-feature-request/">' . __( 'submit a feature request', 'wpcd-coupon' ) . '</a>.</p>';
-		$output .= '<p style="font-size: 14px;">' . __( 'I would love to work on your ideas.', 'wpcd-coupon' ) . '</p>';
+		$output .= '<p style="font-size: 14px;">' . __( 'We also need your help to make this plugin even more better. If you have any specific feature in mind, please ', 'wpcd-coupon' ) . '<a target="_blank" href="https://wpcouponsdeals.com/submit-new-feature-request/">' . __( 'submit a feature request', 'wpcd-coupon' ) . '</a>.</p>';
+		$output .= '<p style="font-size: 14px;">' . __( 'We would love to work on your ideas.', 'wpcd-coupon' ) . '</p>';
 		$output .= '<i>~ Imtiaz Rayhan</i><br>';
 		$output .= '<i>~ Developer, WP Coupons and Deals</i>';
 
