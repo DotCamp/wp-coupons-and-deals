@@ -16,34 +16,35 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 global $coupon_id, $max_num_page;
-$title                    = get_the_title();
-$link                     = get_post_meta( $coupon_id, 'coupon_details_link', true );
-$coupon_code              = get_post_meta( $coupon_id, 'coupon_details_coupon-code-text', true );
-$featured_img_url         = get_the_post_thumbnail_url( get_the_ID(), 'large' );
-$discount_text            = get_post_meta( $coupon_id, 'coupon_details_discount-text', true );
-$coupon_type              = get_post_meta( $coupon_id, 'coupon_details_coupon-type', true );
-$description              = get_post_meta( $coupon_id, 'coupon_details_description', true );
-$deal_text                = get_post_meta( $coupon_id, 'coupon_details_deal-button-text', true );
-$coupon_hover_text        = get_option( 'wpcd_coupon-hover-text' );
-$deal_hover_text          = get_option( 'wpcd_deal-hover-text' );
-$button_class             = '.wpcd-btn-' . $coupon_id;
-$no_expiry                = get_option( 'wpcd_no-expiry-message' );
-$never_expire             = get_post_meta( $coupon_id, 'coupon_details_never-expire-check', true );
-$expire_text              = get_option( 'wpcd_expire-text' );
-$expired_text             = get_option( 'wpcd_expired-text' );
-$hide_coupon_text         = get_option( 'wpcd_hidden-coupon-text' );
-$hidden_coupon_hover_text = get_option( 'wpcd_hidden-coupon-hover-text' );
-$copy_button_text         = get_option( 'wpcd_copy-button-text' );
-$coupon_title_tag         = get_option( 'wpcd_coupon-title-tag', 'h1' );
-$coupon_share             = get_option( 'wpcd_coupon-social-share' );
-$show_expiration          = get_post_meta( $coupon_id, 'coupon_details_show-expiration', true );
-$today                    = date( 'd-m-Y' );
-$expire_date              = get_post_meta( $coupon_id, 'coupon_details_expire-date', true );
-$hide_coupon              = get_post_meta( $coupon_id, 'coupon_details_hide-coupon', true );
-$wpcd_coupon_image_id     = get_post_meta( $coupon_id, 'coupon_details_coupon-image-input', true );
-$wpcd_coupon_image_src    = wp_get_attachment_image_src( $wpcd_coupon_image_id, 'full' );
-$wpcd_show_print          = get_post_meta( $coupon_id, 'coupon_details_coupon-image-print', true );
-$disable_menu             = get_option( 'wpcd_disable-menu-archive-code' );
+$title                     = get_the_title();
+$link                      = get_post_meta( $coupon_id, 'coupon_details_link', true );
+$coupon_code               = get_post_meta( $coupon_id, 'coupon_details_coupon-code-text', true );
+$featured_img_url          = get_the_post_thumbnail_url( get_the_ID(), 'large' );
+$discount_text             = get_post_meta( $coupon_id, 'coupon_details_discount-text', true );
+$coupon_type               = get_post_meta( $coupon_id, 'coupon_details_coupon-type', true );
+$description               = get_post_meta( $coupon_id, 'coupon_details_description', true );
+$deal_text                 = get_post_meta( $coupon_id, 'coupon_details_deal-button-text', true );
+$coupon_hover_text         = get_option( 'wpcd_coupon-hover-text' );
+$deal_hover_text           = get_option( 'wpcd_deal-hover-text' );
+$button_class              = '.wpcd-btn-' . $coupon_id;
+$no_expiry                 = get_option( 'wpcd_no-expiry-message' );
+$never_expire              = get_post_meta( $coupon_id, 'coupon_details_never-expire-check', true );
+$expire_text               = get_option( 'wpcd_expire-text' );
+$expired_text              = get_option( 'wpcd_expired-text' );
+$hide_coupon_text          = get_option( 'wpcd_hidden-coupon-text' );
+$hidden_coupon_hover_text  = get_option( 'wpcd_hidden-coupon-hover-text' );
+$copy_button_text          = get_option( 'wpcd_copy-button-text' );
+$coupon_title_tag          = get_option( 'wpcd_coupon-title-tag', 'h1' );
+$disable_coupon_title_link = get_option( 'wpcd_disable-coupon-title-link' );
+$coupon_share              = get_option( 'wpcd_coupon-social-share' );
+$show_expiration           = get_post_meta( $coupon_id, 'coupon_details_show-expiration', true );
+$today                     = date( 'd-m-Y' );
+$expire_date               = get_post_meta( $coupon_id, 'coupon_details_expire-date', true );
+$hide_coupon               = get_post_meta( $coupon_id, 'coupon_details_hide-coupon', true );
+$wpcd_coupon_image_id      = get_post_meta( $coupon_id, 'coupon_details_coupon-image-input', true );
+$wpcd_coupon_image_src     = wp_get_attachment_image_src( $wpcd_coupon_image_id, 'full' );
+$wpcd_show_print           = get_post_meta( $coupon_id, 'coupon_details_coupon-image-print', true );
+$disable_menu              = get_option( 'wpcd_disable-menu-archive-code' );
 
 $template = new WPCD_Template_Loader();
 if ( is_array( $wpcd_coupon_image_src ) ) {
@@ -130,11 +131,17 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
 					<?php } ?>
                 </div>
                 <div class="wpcd_coupon_li_content">
-                    <a href="<?php echo $link; ?>" target="_blank" rel="nofollow">
-                        <<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd_coupon_li_title">
-							<?php echo $title; ?>
-						</<?php echo esc_html( $coupon_title_tag ); ?>>
-                    </a>
+                    <?php
+					    if ( 'on' === $disable_coupon_title_link ) { ?>
+						    <<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
+							    <?php echo $title; ?>
+                		    </<?php echo esc_html( $coupon_title_tag ); ?>>
+			 		    <?php } else { ?>
+						    <<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
+							    <a href="<?php echo $link; ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
+                		    </<?php echo esc_html( $coupon_title_tag ); ?>>
+					    <?php } 
+				    ?>
                     <div class="wpcd_coupon_li_top_btn_wr wpcd_clearfix <?php echo( $coupon_type === 'Image' ? 'hidden' : '' ); ?>">
 						<?php if ( $discount_text ) { ?>
                             <div class="wpcd_coupon_li_top_discount_left"><?php echo $discount_text; ?></div>

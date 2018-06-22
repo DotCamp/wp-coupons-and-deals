@@ -24,6 +24,7 @@ $hide_coupon_text         = get_option( 'wpcd_hidden-coupon-text' );
 $hidden_coupon_hover_text = get_option( 'wpcd_hidden-coupon-hover-text' );
 $copy_button_text         = get_option( 'wpcd_copy-button-text' );
 $coupon_title_tag         = get_option( 'wpcd_coupon-title-tag', 'h1' );
+$disable_coupon_title_link = get_option( 'wpcd_disable-coupon-title-link' );
 $coupon_share = get_option( 'wpcd_coupon-social-share' );
 $show_expiration          = get_post_meta( $coupon_id, 'coupon_details_show-expiration', true );
 $today                    = date( 'd-m-Y' );
@@ -144,9 +145,17 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ): ?>
                 </div>
 
                 <div class="wpcd-template-five-texts">
-                    <<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
-                        <a href="<?php echo $link; ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
-                    </<?php echo esc_html( $coupon_title_tag ); ?>>
+                <?php
+					if ( 'on' === $disable_coupon_title_link ) { ?>
+						<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
+							<?php echo $title; ?>
+                		</<?php echo esc_html( $coupon_title_tag ); ?>>
+			 		<?php } else { ?>
+						<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
+							<a href="<?php echo $link; ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
+                		</<?php echo esc_html( $coupon_title_tag ); ?>>
+					<?php } 
+				?>
                     <div class="wpcd-coupon-description">
                         <span class="wpcd-full-description"><?php echo $description; ?></span>
                         <span class="wpcd-short-description"></span>
@@ -274,9 +283,17 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ): ?>
                 </div>
                 <div class="wpcd-coupon-six-texts">
                     <div class="texts">
-                        <<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
-                            <a href="<?php echo $link; ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
-                        </<?php echo esc_html( $coupon_title_tag ); ?>>
+                    <?php
+					if ( 'on' === $disable_coupon_title_link ) { ?>
+						<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
+							<?php echo $title; ?>
+                		</<?php echo esc_html( $coupon_title_tag ); ?>>
+			 		<?php } else { ?>
+						<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
+							<a href="<?php echo $link; ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
+                		</<?php echo esc_html( $coupon_title_tag ); ?>>
+					<?php } 
+				    ?>
                         <div class="wpcd-coupon-description">
                             <span class="wpcd-full-description"><?php echo $description; ?></span>
                             <span class="wpcd-short-description"></span>
@@ -498,9 +515,17 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ): ?>
 						<?php } ?>
                     </div>
                     <div class="wpcd-col-3-4">
-                        <<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
-                            <a href="<?php echo $link; ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
-                        </<?php echo esc_html( $coupon_title_tag ); ?>>
+                    <?php
+					if ( 'on' === $disable_coupon_title_link ) { ?>
+						<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
+							<?php echo $title; ?>
+                		</<?php echo esc_html( $coupon_title_tag ); ?>>
+			 		<?php } else { ?>
+						<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
+							<a href="<?php echo $link; ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
+                		</<?php echo esc_html( $coupon_title_tag ); ?>>
+					<?php } 
+				    ?>
                     </div>
                 </div>
                 <div class="wpcd-extra-content">

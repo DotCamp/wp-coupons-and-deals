@@ -90,6 +90,10 @@ a.wpcd-btn .wpcd_deal_icon {
     float: left;
 }
 
+.wpcd_coupon_li_content>.wpcd-coupon-title {
+    padding: 15px 15px 0;
+}
+
 .wpcd-coupon-title {
     width: 100%;
     font-size: 21px;
