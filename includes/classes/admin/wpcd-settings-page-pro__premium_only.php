@@ -128,6 +128,11 @@ class WPCD_Settings_Page_Pro {
 				'description' => __( 'These are some general coupon settings. You can use the default settings or set your own ones.', 'wpcd-coupon' )
 			),
 			array(
+				'id'          => 'design',
+				'title'       => __( 'Design Settings', 'wpcd-coupon' ),
+				'description' => __( 'Design Settings for coupon templates and other elements.', 'wpcd-coupon' )
+			),
+			array(
 				'id' => 'voting',
 				'title' => __( 'Voting Settings', 'wpcd-coupon' ),
 				'description' => __( 'Configure Voting Settings for Your Coupons.', 'wpcd-coupon' )
@@ -146,19 +151,7 @@ class WPCD_Settings_Page_Pro {
 				'id'          => 'settings-extra',
 				'title'       => __( 'Extras', 'wpcd-coupon' ),
 				'description' => __( 'These are some extra settings. You can use the default settings or set your own ones.', 'wpcd-coupon' )
-			),
-			array(
-				'id'          => 'link',
-				'title'       => __( 'Knowledge Base', 'wpcd-coupon' ),
-				'description' => __( 'These are some general settings. You can use the default settings or set your own ones.', 'wpcd-coupon' ),
-				'href'        => 'https://wpcouponsdeals.com/knowledgebase/'
-			),
-			array(
-				'id'          => 'link',
-				'title'       => __( 'Request a Feature', 'wpcd-coupon' ),
-				'description' => __( 'Submit a feature request', 'wpcd-coupon' ),
-				'href'        => 'https://wpcouponsdeals.com/submit-new-feature-request/'
-			),
+			)
 		);
 
 		/**
@@ -237,20 +230,6 @@ class WPCD_Settings_Page_Pro {
 					'default'     => ''
 				),
 				array(
-					'id'          => 'coupon-type-bg-color',
-					'label'       => __( 'Coupon Type Color', 'wpcd-coupon' ),
-					'description' => __( 'Coupon Type Background Color in Default Template', 'wpcd-coupon' ),
-					'type'        => 'colorpicker',
-					'default'     => '#56b151'
-				),
-				array(
-					'id'          => 'pagination-color',
-					'label'       => __( 'Pagination Color', 'wpcd-coupon' ),
-					'description' => __( 'Color for Pagination Numbers', 'wpcd-coupon' ),
-					'type'        => 'colorpicker',
-					'default'     => '#56b151'
-				),
-				array(
 					'id'          => 'coupon-title-tag',
 					'label'       => __( 'Coupon Title Tag', 'wpcd-coupon' ),
 					'description' => __( 'Choose the heading tag to be used for Coupon Title', 'wpcd-coupon' ),
@@ -272,6 +251,50 @@ class WPCD_Settings_Page_Pro {
 					'type' => 'checkbox',
 					'default' => ''
 				)
+			),
+			array(
+				array(
+					'id'          => 'coupon-type-bg-color',
+					'label'       => __( 'Coupon Type Color', 'wpcd-coupon' ),
+					'description' => __( 'Coupon Type Background Color in Default Template.', 'wpcd-coupon' ),
+					'type'        => 'colorpicker',
+					'default'     => '#56b151'
+				),
+				array(
+					'id'          => 'dt-border-color',
+					'label'       => __( 'Border Color', 'wpcd-coupon' ),
+					'description' => __( 'Border Color in Default Template.', 'wpcd-coupon' ),
+					'type'        => 'colorpicker',
+					'default'     => '#000000'
+				),
+				array(
+					'id'          => 'pagination-color',
+					'label'       => __( 'Pagination Color', 'wpcd-coupon' ),
+					'description' => __( 'Color for Pagination Numbers.', 'wpcd-coupon' ),
+					'type'        => 'colorpicker',
+					'default'     => '#56b151'
+				),
+				array(
+					'id'          => 'hidden-coupon-button-color',
+					'label'       => __( 'Hidden Coupon Button Color', 'wpcd-coupon' ),
+					'description' => __( 'The color of the button when coupon is hidden.', 'wpcd-coupon' ),
+					'type'        => 'colorpicker',
+					'default'     => '#347BAF',
+				),
+				array(
+					'id'          => 'copy-button-bg-color',
+					'label'       => __( 'Copy Button Color', 'wpcd-coupon' ),
+					'description' => __( 'Background color for the copy button in Pop Up.', 'wpcd-coupon' ),
+					'type'        => 'colorpicker',
+					'default'     => '#56b151'
+				),
+				array(
+					'id'          => 'coupon-popup-bg-color',
+					'label'       => __( 'Coupon Code Color', 'wpcd-coupon' ),
+					'description' => __( 'Background color of the coupon code in the Pop up. Pop up is shown when users click to show code.', 'wpcd-coupon' ),
+					'type'        => 'colorpicker',
+					'default'     => '#BEFFB9'
+				),
 			),
 			array(
 				array(
@@ -322,13 +345,6 @@ class WPCD_Settings_Page_Pro {
 					'type'        => 'text',
 					'default'     => '',
 					'placeholder' => __( 'Click Here to Show Code', 'wpcd-coupon' ),
-				),
-				array(
-					'id'          => 'hidden-coupon-button-color',
-					'label'       => __( 'Hidden Coupon Button Color', 'wpcd-coupon' ),
-					'description' => __( 'The color of the button when coupon is hidden.', 'wpcd-coupon' ),
-					'type'        => 'colorpicker',
-					'default'     => '#347BAF',
 				),
 			),
 			array(
@@ -381,20 +397,6 @@ class WPCD_Settings_Page_Pro {
 					'description' => __( 'Custom text to show instead of \'Go to Offer\'.', 'wpcd-coupon' ),
 					'placeholder' => __( 'Go To Offer', 'wpcd-coupon' ),
 					'default'     => ''
-				),
-				array(
-					'id'          => 'copy-button-bg-color',
-					'label'       => __( 'Copy Button Background Color', 'wpcd-coupon' ),
-					'description' => __( 'Background color for the copy button.', 'wpcd-coupon' ),
-					'type'        => 'colorpicker',
-					'default'     => '#56b151'
-				),
-				array(
-					'id'          => 'coupon-popup-bg-color',
-					'label'       => __( 'Coupon Code Background Color', 'wpcd-coupon' ),
-					'description' => __( 'Background color of the coupon code in the Pop up. Pop up is shown when users click to show code.', 'wpcd-coupon' ),
-					'type'        => 'colorpicker',
-					'default'     => '#BEFFB9'
 				),
 			),
 			array(

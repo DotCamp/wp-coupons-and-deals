@@ -128,6 +128,11 @@ class WPCD_Settings_Page {
 				'description' => __( 'These are some general coupon settings. You can use the default settings or set your own ones.', 'wpcd-coupon' )
 			),
 			array(
+				'id'          => 'design',
+				'title'       => __( 'Design Settings', 'wpcd-coupon' ),
+				'description' => __( 'Design Settings for coupon templates and other elements.', 'wpcd-coupon' )
+			),
+			array(
 				'id' => 'voting',
 				'title' => __( 'Voting Settings', 'wpcd-coupon' ),
 				'description' => __( 'Configure Voting Settings for Your Coupons.', 'wpcd-coupon' )
@@ -227,13 +232,6 @@ class WPCD_Settings_Page {
 					'default'     => ''
 				),
 				array(
-					'id'          => 'coupon-type-bg-color',
-					'label'       => __( 'Coupon Type Color', 'wpcd-coupon' ),
-					'description' => __( 'Coupon Type Background Color in Default Template', 'wpcd-coupon' ),
-					'type'        => 'colorpicker',
-					'default'     => '#56b151'
-				),
-				array(
 					'id'          => 'coupon-title-tag',
 					'label'       => __( 'Coupon Title Tag', 'wpcd-coupon' ),
 					'description' => __( 'Choose the heading tag to be used for Coupon Title', 'wpcd-coupon' ),
@@ -255,6 +253,22 @@ class WPCD_Settings_Page {
 					'type' => 'checkbox',
 					'default' => ''
 				)
+			),
+			array(
+				array(
+					'id'          => 'coupon-type-bg-color',
+					'label'       => __( 'Coupon Type Color', 'wpcd-coupon' ),
+					'description' => __( 'Coupon Type Background Color in Default Template.', 'wpcd-coupon' ),
+					'type'        => 'colorpicker',
+					'default'     => '#56b151'
+				),
+				array(
+					'id'          => 'dt-border-color',
+					'label'       => __( 'Border Color', 'wpcd-coupon' ),
+					'description' => __( 'Border Color in Default Template.', 'wpcd-coupon' ),
+					'type'        => 'colorpicker',
+					'default'     => '#000000'
+				),
 			),
 			array(
 				array(
