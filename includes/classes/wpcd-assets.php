@@ -31,8 +31,7 @@ class WPCD_Assets {
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'wpcd_admin_stylesheets' ) );
                 
         //To add custom javascript code to tinymce editor at initiation 
-		add_filter( 'tiny_mce_before_init', array( __CLASS__, 'wpcd_tiny_mce' ) );
-		
+        add_filter( 'tiny_mce_before_init', array(__CLASS__, 'wpcd_tiny_mce'));
 	}
 
 	/**
@@ -51,7 +50,7 @@ class WPCD_Assets {
 			.coupon-type {
 				background-color: {$coupon_type_color};
 			}
-			
+
 			.deal-type {
 				background-color: {$coupon_type_color};
 			}
@@ -286,7 +285,8 @@ class WPCD_Assets {
          * VERY IMPORTANT: don't change the spaces in this code !!!!
          * @since 2.6.2
          */
-            
+        $initArray['toolbar1'] = "bold,italic,underline,bullist,numlist,alignleft,aligncenter,alignright,link,unlink";
+        $initArray['toolbar2'] = '';
         $initArray['setup'] = <<<JS
 [function(ed) {
         ed.on('KeyUp', function (e) {

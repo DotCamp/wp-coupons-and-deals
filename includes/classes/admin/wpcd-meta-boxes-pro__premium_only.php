@@ -377,8 +377,10 @@ class WPCD_Meta_Boxes_Pro {
 					   		'wpautop' => false, 
 					   		'media_buttons' => false,
 							'tinymce' => true,
-							'textarea_rows' => 5,
-							'quicktags' => false
+							'editor_height' => 150,
+							'teeny' => false,
+							'quicktags' => false,
+							'textarea_name' => "description"
 						);
 						wp_editor( $db_value, 'description' ,$settings);
 						echo '<br><i style="font-size: 12px">' . $wpcd_field["help"] . '</i>';
