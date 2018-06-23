@@ -415,6 +415,13 @@ class WPCD_Settings_Page_Pro {
 					'default'     => '',
 				),
 				array(
+					'id'          => 'hide-archive-thumbnail',
+					'label'       => __( 'Hide Featured Image', 'wpcd-coupon' ),
+					'description' => __( 'Hide the featured image in Default Grid Style of Category and Archive Shortcode.', 'wpcd-coupon' ),
+					'type'        => 'checkbox',
+					'default'     => '',
+				),
+				array(
 					'id' 		  => 'dt-coupon-type-text',
 					'label'       => __( 'Coupon Type Name', 'wpcd-coupon' ),
 					'description' => __( 'Text to Show for Coupon Type Name in Default Template. Default is - Coupon.', 'wpcd-coupon' ),

@@ -46,6 +46,33 @@ class WPCD_Assets {
 		$coupon_type_color = get_option( 'wpcd_coupon-type-bg-color' );
 		$coupon_border_color = get_option( 'wpcd_dt-border-color' );
 
+		$hide_featured_image = get_option( 'wpcd_hide-archive-thumbnail' );
+
+		if ( $hide_featured_image === 'on' ) {
+			
+			$custom_style = "
+
+				#wpcd_coupon_ul li.wpcd_coupon_li {
+					min-height: initial;
+				}
+				
+				.wpcd_coupon_li_inner {
+					height: auto;
+				}
+
+				.wpcd_coupon_li_content {
+					height: auto;
+					padding: 10px;
+				}
+
+			";
+
+			$custom_style = preg_replace( '/\s+/', ' ', $custom_style );
+
+			wp_add_inline_style( 'wpcd-style', $custom_style  );
+
+		}
+
 		$inline_style = "
                     
 			.coupon-type {
