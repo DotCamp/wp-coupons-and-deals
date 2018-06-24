@@ -224,7 +224,7 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 			add_action( 'wp_enqueue_scripts', array( __CLASS__, 'load_jquery' ) );
 			add_filter( 'wp_head', array( __CLASS__, 'load_jquery' ) );
 
-			if ( wcad_fs()->is_not_paying() ) {
+			if ( wcad_fs()->is_not_paying() && !( wcad_fs()->is_trial() ) ) {
 				add_action( 'admin_menu', array( __CLASS__, 'free_pro_trial'), 99 );
 			}
 
