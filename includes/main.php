@@ -415,7 +415,7 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 
 				require_once WPCD_Plugin::instance()->plugin_includes . '/classes/admin/wpcd-settings-page-pro__premium_only.php';
 
-				if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->is_trial() ) {
+				if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) {
 					new WPCD_Settings_Page_Pro();
 				} else {
 					new WPCD_Settings_Page();
@@ -436,7 +436,7 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 
 				require_once WPCD_Plugin::instance()->plugin_includes . '/classes/admin/wpcd-import-page-pro__premium_only.php';
 
-				if ( wcad_fs()->is_plan__premium_only( 'pro' ) ) {
+				if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) {
 					new WPCD_Import_Page_Pro();
 				} else {
 					new WPCD_Import_Page();
@@ -458,7 +458,7 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 
 				require_once WPCD_Plugin::instance()->plugin_includes . '/classes/admin/wpcd-meta-boxes-pro__premium_only.php';
 
-				if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->is_trial() ) {
+				if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) {
 					new WPCD_Meta_Boxes_Pro();
 				} else {
 					new WPCD_Meta_Boxes();

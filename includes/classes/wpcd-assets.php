@@ -93,7 +93,7 @@ class WPCD_Assets {
 
 		wp_add_inline_style( 'wpcd-style', $inline_style  );
 
-		if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->is_trial() ) {
+		if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) {
 
 			$hide_coupon_button_color = get_option( 'wpcd_hidden-coupon-button-color' );
 			$copy_button_bg_color     = get_option( 'wpcd_copy-button-bg-color' );
@@ -214,7 +214,7 @@ class WPCD_Assets {
 			'vote_already' => $vote_already_message
 		) );
 
-		if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->is_trial() ) {
+		if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) {
 			wp_enqueue_script( 'wpcd-countdown-js', WPCD_Plugin::instance()->plugin_assets . 'js/jquery.countdown.min.js', false, WPCD_Plugin::PLUGIN_VERSION, false );
 		}
 

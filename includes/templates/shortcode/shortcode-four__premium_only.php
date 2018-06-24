@@ -79,7 +79,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
         <div class="wpcd-coupon-four-coupon">
 			<?php 
 			if ( $coupon_type == 'Coupon' ) {
-				if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->is_trial() ) {
+				if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) {
 					?>
                     <div class="wpcd-four-discount-text"><?php echo $discount_text; ?></div> <?php
 					if ( $hide_coupon == 'Yes' ) {
@@ -228,7 +228,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
         <div class="wpcd-coupon-four-coupon">
 			<?php 
 			if ( $coupon_type == 'Coupon' ) {
-				if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->is_trial() ) {
+				if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) {
 				?>
                 <div class="wpcd-four-discount-text"><?php echo $second_discount_text; ?></div> <?php
 				$num_coupon = 2;
@@ -380,7 +380,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
         <div class="wpcd-coupon-four-coupon">
 			<?php 
 			if ( $coupon_type == 'Coupon' ) {
-				if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->is_trial() ) {
+				if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) {
 				?>
                 	<div class="wpcd-four-discount-text"><?php echo $third_discount_text; ?></div> <?php
 					$num_coupon = 3;

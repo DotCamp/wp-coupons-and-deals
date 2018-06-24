@@ -83,7 +83,7 @@ class WPCD_Shortcode_Inserter {
             <div class="wpcd_shortcode_insert">
                 <div class="wpcd_shortcode_insert-row">
 
-					<?php if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->is_trial() ) { //premium version ?>
+					<?php if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) { //premium version ?>
                         <div class="shortcode_inserter_select wpcd_types_select">
                             <label for="coupons_shortcode_type">
 								<?php echo __( 'Select Shortcode Type', 'wpcd-coupon' ); ?>

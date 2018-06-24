@@ -205,7 +205,7 @@ class WPCD_Coupon_Widget extends WP_Widget {
 			}
 			$coupon_template = get_post_meta( $coupon_id, 'coupon_details_coupon-template', true );
 
-			if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->is_trial() ) {
+			if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) {
 
 				if ( $coupon_template == 'Template One' ) {
 

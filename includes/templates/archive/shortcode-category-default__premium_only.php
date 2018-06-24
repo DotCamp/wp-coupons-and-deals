@@ -445,7 +445,7 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ): ?>
 
                     <div class="wpcd-col-1-4">
 						<?php if ( $coupon_type == 'Coupon' ) {
-						if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->is_trial() ) {
+						if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) {
 
 						if ( $hide_coupon == 'Yes' ) {
 

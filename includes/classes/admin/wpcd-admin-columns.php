@@ -61,7 +61,7 @@ class WPCD_Admin_Columns extends WP_List_Table {
 		 */
 		add_filter( 'manage_edit-wpcd_coupons_sortable_columns', array( __CLASS__, 'wpcd_column_sortable' ), 10, 2 );
 
-		if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->is_trial() ) {
+		if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) {
 
 			/**
 			 * Adding custom columns to Coupon Category list.
