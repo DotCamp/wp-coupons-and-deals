@@ -419,14 +419,6 @@ msgstr ""
 msgid "Start 14 day Free Trial!"
 msgstr ""
 
-#: ../includes/classes/admin/wpcd-meta-boxes.php:499
-msgid " (NO Credit Card Required)"
-msgstr ""
-
-#: ../includes/classes/admin/wpcd-meta-boxes.php:501
-msgid "More information about the Pro verison."
-msgstr ""
-
 #: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:94, ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:463, ../includes/classes/admin/wpcd-settings-page.php:94, ../includes/classes/admin/wpcd-settings-page.php:354, ../includes/classes/admin/wpcd-toolbar-links.php:79
 msgid "Settings"
 msgstr ""
@@ -1257,6 +1249,14 @@ msgstr ""
 
 #: ../includes/templates/extras/import-page.php:13
 msgid "This is a Pro Version feature and only available to Pro Version users. It lets you add bulk of coupons at once from CSV file."
+msgstr ""
+
+#: ../includes/templates/extras/import-page.php:15
+msgid " or "
+msgstr ""
+
+#: ../includes/templates/extras/import-page.php:15
+msgid "Start Free Trial!"
 msgstr ""
 
 #: ../includes/templates/extras/import-page.php:15
