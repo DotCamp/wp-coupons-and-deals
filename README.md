@@ -15,11 +15,13 @@ You can install it directly from your WordPress Dashboard just like any other Wo
 * Search for 'WP Coupons and Deals'
 * Install and Activate.
 
-You can also download the zip from [here](https://github.com/imtiazrayhan/WP-Coupons-and-Deals/archive/master.zip) and install it.
+You can also download the zip from [here](https://wordpress.org/plugins/wp-coupons-and-deals/) and install it.
 * Go to Plugins > Add New.
 * Click on Upload Plugin. 
 * Select the Zip from you computer.
 * Install and Activate.
+
+IMPORTANT: Don't use zip from GitHub repository. It might come with bugs. Download from WP.org for stable versions.
 
 ## Get Help
 

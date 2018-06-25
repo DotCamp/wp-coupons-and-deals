@@ -29,9 +29,7 @@ class WPCD_Assets {
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'wpcd_scripts' ) );
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'wpcd_admin_scripts' ) );
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'wpcd_admin_stylesheets' ) );
-                
-        //To add custom javascript code to tinymce editor at initiation 
-        add_filter( 'tiny_mce_before_init', array(__CLASS__, 'wpcd_tiny_mce'));
+
 	}
 
 	/**
@@ -311,6 +309,8 @@ class WPCD_Assets {
 				wp_enqueue_script( 'jquery-ui-datepicker' );
 				wp_enqueue_script( 'wpcd-jquery-ui-timepicker', WPCD_Plugin::instance()->plugin_assets . 'admin/js/jquery-ui-timepicker.js', array( 'jquery' ), WPCD_Plugin::PLUGIN_VERSION, false );
 				wp_enqueue_script( 'wpcd-countdown-js', WPCD_Plugin::instance()->plugin_assets . 'js/jquery.countdown.min.js', false, WPCD_Plugin::PLUGIN_VERSION, false );
+				//To add custom javascript code to tinymce editor at initiation 
+				add_filter( 'tiny_mce_before_init', array( __CLASS__, 'wpcd_tiny_mce' ) );
 
 			}
 

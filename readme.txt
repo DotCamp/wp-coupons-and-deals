@@ -38,11 +38,11 @@ Best WordPress Coupon Plugin. Generate more affiliate sales with coupon codes an
 * Show Coupons of specific Category.
 * Coupons Archive Page.
 
+**You can upgrade to Pro Version from your dashboard.** [__More Info and Demo of Pro Version__](https://wpcouponsdeals.com)
+
 Here's a video to quickly show you how the plugin works.
 
 [youtube https://www.youtube.com/watch?v=ZeeMcHQMdx8]
-
-**You can upgrade to Pro Version from your dashboard.** [__More Info and Demo of Pro Version__](https://wpcouponsdeals.com)
 
 WP Coupons and Deals is a Coupon plugin that lets you add coupons, deals to your posts, pages with a simple and beautiful shortcode.
 
@@ -141,6 +141,33 @@ You can [__submit a feature request__](https://wpcouponsdeals.com/submit-new-fea
 11. Adding the widget.
 
 == Changelog ==
+
+= 2.6.2 = 
+
+Release Date: June 24th, 2018
+
+* Add - Formatting Controls for Description i.e Bold, Italic, Underline, Lists, Alignments, Links.
+* Add - Options to Customize Coupon Type Names in Default Template.
+* Add - Option to Enable/Disable Coupon Title Link.
+* Add - NEW Settings Panel - Design Settings.
+* Add - Option to set Border Color for Default Template.
+* Add - Free Pro Trial Page in Admin Dashboard.
+* Add - Custom Styles in Live Preview Area.
+* Fix - FontAwesome Conflict with theme styles.
+* Fix - Missing Translation Strings and text domain.
+* Fix - Deal Type Custom Background Color Issue.
+* Fix - Undefined Index Bug in Settings Page.
+* Fix - Default checked=checked appearance in Metabox.
+* Fix - Tooltip height bug in some themes.
+* Fix - Voting Buttons Bug.
+* Fix - Voting Button Style Issue in Widgets and Some theme compatibality.
+* Fix - Thumbs Down Icon Bug in Widgets.
+* Update - Translation POT file.
+* Update - Freemius SDK to 2.1.0.
+* Update - Using SVG instead of FontAwesome for Buttons, better compatibility.
+* Pro - Add - Option to Hide Featured Image in Category and Archive Shortcode.
+* Pro - Fix - Link the Title in Archive Shortcode.
+* Pro - Fix - Link the Title in Category Shortcode.
 
 = 2.6.1 =
 
