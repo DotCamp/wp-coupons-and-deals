@@ -4,7 +4,7 @@ Contributors: imtiazrayhan, mohmedelwany
 Tags: coupon, coupons, deal, deals, affiliate, affiliate marketing
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 2.6.2
+Stable tag: 2.6.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -141,6 +141,18 @@ You can [__submit a feature request__](https://wpcouponsdeals.com/submit-new-fea
 11. Adding the widget.
 
 == Changelog ==
+
+= 2.6.2.2 = 
+
+Release Date: June 24th, 2018
+
+* Fix - Installation Problem. 
+
+= 2.6.2.1 = 
+
+Release Date: June 24th, 2018
+
+* Fix - Some File Removal.
 
 = 2.6.2 = 
 
