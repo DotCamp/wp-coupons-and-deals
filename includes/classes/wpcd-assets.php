@@ -131,7 +131,7 @@ class WPCD_Assets {
 			 
 			";
 
-			$wpcd_inline_style = preg_replace( '/\s+/', '', $wpcd_inline_style );
+			$wpcd_inline_style = preg_replace( '/\s+/', ' ', $wpcd_inline_style );
 
 			//add changes to stylesheet
 			wp_add_inline_style( 'wpcd-style', $wpcd_inline_style );
