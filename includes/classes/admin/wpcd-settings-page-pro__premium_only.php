@@ -295,6 +295,14 @@ class WPCD_Settings_Page_Pro {
 					'type'        => 'colorpicker',
 					'default'     => '#BEFFB9'
 				),
+				array(
+					'id' 		  => 'custom-css',
+					'label'	      => __( 'Custom CSS', 'wpcd-coupon' ),
+					'description' => __( 'Add any custom CSS you want here.', 'wpcd-coupon' ),
+					'type'		  => 'textarea',
+					'default' 	  => '',
+					'placeholder' => ''
+				)
 			),
 			array(
 				array(

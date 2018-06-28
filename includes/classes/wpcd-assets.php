@@ -41,6 +41,8 @@ class WPCD_Assets {
 
 		wp_enqueue_style( 'wpcd-style', WPCD_Plugin::instance()->plugin_assets . 'css/style.css', false, WPCD_Plugin::PLUGIN_VERSION );
 
+		$custom_css = get_option( 'wpcd_custom-css' ); 
+
 		$coupon_type_color = get_option( 'wpcd_coupon-type-bg-color' );
 		$coupon_border_color = get_option( 'wpcd_dt-border-color' );
 
@@ -87,9 +89,13 @@ class WPCD_Assets {
 
 		";
 
-		$inline_style = preg_replace( '/\s+/', '', $inline_style );
+		$inline_style = preg_replace( '/\s+/', ' ', $inline_style );
 
 		wp_add_inline_style( 'wpcd-style', $inline_style  );
+
+		$custom_css = preg_replace( '/\s+/', ' ', $custom_css );
+
+		wp_add_inline_style( 'wpcd-style', $custom_css  );
 
 		if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) {
 
