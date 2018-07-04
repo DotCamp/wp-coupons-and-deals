@@ -87,6 +87,9 @@ function wpcd_shortcode_code() {
                           style="display:none;"><?php echo $coupon_code; ?></span>
                 </a>
             </div>
+			<script type="text/javascript">
+                var clip = new Clipboard('.wpcd-btn-<?php echo $coupon_id; ?>');
+            </script>
 		<?php }
 	} elseif ( $coupon_type == 'Deal' ) {
 		?>
