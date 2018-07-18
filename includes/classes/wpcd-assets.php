@@ -317,6 +317,9 @@ class WPCD_Assets {
 				wp_enqueue_script( 'wpcd-countdown-js', WPCD_Plugin::instance()->plugin_assets . 'js/jquery.countdown.min.js', false, WPCD_Plugin::PLUGIN_VERSION, false );
 				//To add custom javascript code to tinymce editor at initiation 
 				add_filter( 'tiny_mce_before_init', array( __CLASS__, 'wpcd_tiny_mce' ) );
+				// color Picker
+				wp_enqueue_style('wpcd-color-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/colorpicker.css', false);
+				wp_enqueue_script('wpcd-color-script', WPCD_Plugin::instance()->plugin_assets . 'admin/js/colorpicker.js', array('jquery'), WPCD_Plugin::PLUGIN_VERSION, true);
 
 			}
 
