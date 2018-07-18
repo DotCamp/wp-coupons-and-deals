@@ -30,7 +30,7 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 		 *
 		 * @since 1.0
 		 */
-		const PLUGIN_VERSION = '2.6.2.3';
+		const PLUGIN_VERSION = '2.6.3';
 		const CUSTOM_POST_TYPE = 'wpcd_coupons';
 		const CUSTOM_TAXONOMY = 'wpcd_coupon_category';
 		const TEXT_DOMAIN = 'wpcd-coupon';

@@ -4,7 +4,7 @@ Contributors: imtiazrayhan, mohmedelwany
 Tags: coupon, coupons, deal, deals, affiliate, affiliate marketing
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 2.6.2.3
+Stable tag: 2.6.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -141,6 +141,15 @@ You can [__submit a feature request__](https://wpcouponsdeals.com/submit-new-fea
 11. Adding the widget.
 
 == Changelog ==
+
+= 2.6.3 =
+
+Release Date: July 17th, 2018
+
+* Add - Option to add Custom CSS.
+* Fix - Click to Copy not Working in Code Only Shortcode.
+* Pro - Fix - Hide Coupon Button Custom Color Not Showing.
+* Pro - Fix - Colorpicker issue for Template Five and Six.
 
 = 2.6.2.2 = 
 
