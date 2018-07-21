@@ -388,7 +388,14 @@ class WPCD_Short_Code {
 				// vertical style.
 				$coupon_template = 'shortcode-archive__premium_only';
 			} else {
-				$coupon_template = 'shortcode-archive-default__premium_only';
+                                switch ($temp){
+                                    case 'one':
+                                        $coupon_template = 'shortcode-archive-one__premium_only';
+                                        break;
+                                    default :
+                                        $coupon_template = 'shortcode-archive-default__premium_only';
+                                        break;
+                                }
 			}
 
 			// the loop.
@@ -452,7 +459,16 @@ class WPCD_Short_Code {
 		if ( $temp == '' ) { // vertical style
 			$coupon_template = 'shortcode-category__premium_only';
 		} else {
-			$coupon_template = 'shortcode-category-default__premium_only';
+			
+                        
+                        switch ($temp){
+                            case 'one':
+                                $coupon_template = 'shortcode-category-one__premium_only';
+                                break;
+                            default :
+                                $coupon_template = 'shortcode-category-default__premium_only';
+                                break;
+                        }
 		}
 
 		if ( $cat ) {

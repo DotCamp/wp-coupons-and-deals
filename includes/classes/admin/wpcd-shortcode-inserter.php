@@ -119,8 +119,8 @@ class WPCD_Shortcode_Inserter {
                             <select name="shortcode_template_box" id="coupons_template_select">
                                 <option value="default"
                                         selected="selected"><?php echo __( 'Default', 'wpcd-coupon' ); ?></option>
-                                <!--<option value="one"><?php echo __( 'Template one', 'wpcd-coupon' ); ?></--option>
-                            <option value="three"><?php echo __( 'Template three', 'wpcd-coupon' ); ?></option>-->
+                                <option value="one"><?php echo __( 'Template one', 'wpcd-coupon' ); ?></option>
+                            <!--<option value="three"><?php echo __( 'Template three', 'wpcd-coupon' ); ?></option>-->
                             </select>
                         </div>
                         <!-- End Archive -->
@@ -173,8 +173,8 @@ class WPCD_Shortcode_Inserter {
                         <select name="shortcode_template_box" id="coupons_template_category_select">
                             <option value="default"
                                     selected="selected"><?php echo __( 'Default', 'wpcd-coupon' ); ?></option>
-                            <!--<option value="one"><?php echo __( 'Template one', 'wpcd-coupon' ); ?></option>
-                            <option value="three"><?php echo __( 'Template three', 'wpcd-coupon' ); ?></option>-->
+                            <option value="one"><?php echo __( 'Template one', 'wpcd-coupon' ); ?></option>
+                            <!--<option value="three"><?php echo __( 'Template three', 'wpcd-coupon' ); ?></option>-->
                         </select>
                     </div>
                     <!-- End Category -->
