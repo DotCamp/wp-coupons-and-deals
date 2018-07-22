@@ -5,11 +5,17 @@
  * Date: 8/25/17
  * Time: 11:31 PM
  */
+
+if ( !function_exists( 'wpcd_coupon_thumbnail_img' ) ) {
+	include WPCD_Plugin::instance()->plugin_includes . 'functions/wpcd-coupon-thumbnail-img.php';
+}
+
 global $coupon_id, $parent;
 $title                    = get_the_title();
 $link                     = get_post_meta( $coupon_id, 'coupon_details_link', true );
 $coupon_code              = get_post_meta( $coupon_id, 'coupon_details_coupon-code-text', true );
 $featured_img_url         = get_the_post_thumbnail_url( get_the_ID(), 'large' );
+$coupon_thumbnail          = wpcd_coupon_thumbnail_img( $coupon_id );
 $discount_text            = get_post_meta( $coupon_id, 'coupon_details_discount-text', true );
 $coupon_type              = get_post_meta( $coupon_id, 'coupon_details_coupon-type', true );
 $description              = get_post_meta( $coupon_id, 'coupon_details_description', true );

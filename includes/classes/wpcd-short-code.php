@@ -388,14 +388,14 @@ class WPCD_Short_Code {
 				// vertical style.
 				$coupon_template = 'shortcode-archive__premium_only';
 			} else {
-                                switch ($temp){
-                                    case 'one':
-                                        $coupon_template = 'shortcode-archive-one__premium_only';
-                                        break;
-                                    default :
-                                        $coupon_template = 'shortcode-archive-default__premium_only';
-                                        break;
-                                }
+                switch ($temp) {
+                    case 'one':
+                        $coupon_template = 'shortcode-archive-one__premium_only';
+                        break;
+                    default :
+                        $coupon_template = 'shortcode-archive-default__premium_only';
+                        break;
+                }
 			}
 
 			// the loop.
@@ -407,11 +407,11 @@ class WPCD_Short_Code {
 				// check to print header or footer.
 				if ( $i == 1 && $num_posts !==1 ) {
 					$parent = 'header';
-                                } elseif ($num_posts ==1){
-                                    // means there's only one coupon 
-                                    // So, it should print the header and footer in this time
-                                    $parent = 'headerANDfooter';
-                                } elseif ( $i == $num_posts ) {
+                } elseif ($num_posts ==1){
+                    // means there's only one coupon 
+                    // So, it should print the header and footer in this time
+                    $parent = 'headerANDfooter';
+                } elseif ( $i == $num_posts ) {
 					$parent = 'footer';
 				}
 
@@ -458,17 +458,15 @@ class WPCD_Short_Code {
 		$temp = $a['temp'];
 		if ( $temp == '' ) { // vertical style
 			$coupon_template = 'shortcode-category__premium_only';
-		} else {
-			
-                        
-                        switch ($temp){
-                            case 'one':
-                                $coupon_template = 'shortcode-category-one__premium_only';
-                                break;
-                            default :
-                                $coupon_template = 'shortcode-category-default__premium_only';
-                                break;
-                        }
+		} else {  
+			switch ($temp){
+				case 'one':
+					$coupon_template = 'shortcode-category-one__premium_only';
+					break;
+				default :
+				$coupon_template = 'shortcode-category-default__premium_only';								
+				break;						
+			}
 		}
 
 		if ( $cat ) {
