@@ -388,14 +388,20 @@ class WPCD_Short_Code {
 				// vertical style.
 				$coupon_template = 'shortcode-archive__premium_only';
 			} else {
-                switch ($temp) {
-                    case 'one':
-                        $coupon_template = 'shortcode-archive-one__premium_only';
-                        break;
-                    default :
-                        $coupon_template = 'shortcode-archive-default__premium_only';
-                        break;
-                }
+                            switch ($temp) {
+                                case 'one':
+                                    $coupon_template = 'shortcode-archive-one__premium_only';
+                                    break;
+                                case 'two':
+                                    $coupon_template = 'shortcode-archive-two__premium_only';
+                                    break;
+                                case 'three':
+                                    $coupon_template = 'shortcode-archive-three__premium_only';
+                                    break;
+                                default :
+                                    $coupon_template = 'shortcode-archive-default__premium_only';
+                                    break;
+                            }
 			}
 
 			// the loop.
@@ -463,6 +469,12 @@ class WPCD_Short_Code {
 				case 'one':
 					$coupon_template = 'shortcode-category-one__premium_only';
 					break;
+                                case 'two':
+                                        $coupon_template = 'shortcode-category-two__premium_only';
+                                    break;
+                                case 'three':
+                                        $coupon_template = 'shortcode-category-three__premium_only';
+                                    break;
 				default :
 				$coupon_template = 'shortcode-category-default__premium_only';								
 				break;						
