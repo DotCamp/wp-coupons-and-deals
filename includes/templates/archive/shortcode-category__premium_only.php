@@ -16,7 +16,7 @@ $description              = get_post_meta( $coupon_id, 'coupon_details_descripti
 $deal_text                = get_post_meta( $coupon_id, 'coupon_details_deal-button-text', true );
 $coupon_hover_text        = get_option( 'wpcd_coupon-hover-text' );
 $deal_hover_text          = get_option( 'wpcd_deal-hover-text' );
-$button_class             = '.wpcd-btn-' . $coupon_id;
+$button_class             = 'wpcd-btn-' . $coupon_id;
 $no_expiry                = get_option( 'wpcd_no-expiry-message' );
 $never_expire             = get_post_meta( $coupon_id, 'coupon_details_never-expire-check', true );
 $expire_text              = get_option( 'wpcd_expire-text' );
@@ -221,6 +221,9 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ): ?>
 						<?php } ?>
                     </div>
                     <div class="clearfix"></div>
+    <script type="text/javascript">
+        var clip = new Clipboard('.<?php echo $button_class; ?>');
+    </script>
                     <div class="wpcd-li-footer">
                         <?php
                         if ( $coupon_share === 'on' ) {

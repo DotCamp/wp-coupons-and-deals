@@ -20,7 +20,7 @@ $third_coupon_code         = get_post_meta( $coupon_id, 'coupon_details_third-co
 $deal_text                 = get_post_meta( $coupon_id, 'coupon_details_deal-button-text', true );
 $coupon_hover_text         = get_option( 'wpcd_coupon-hover-text' );
 $deal_hover_text           = get_option( 'wpcd_deal-hover-text' );
-$button_class              = '.wpcd-btn-' . $coupon_id;
+$button_class              = 'wpcd-btn-' . $coupon_id;
 $no_expiry                 = get_option( 'wpcd_no-expiry-message' );
 $expire_text               = get_option( 'wpcd_expire-text' );
 $expired_text              = get_option( 'wpcd_expired-text' );
@@ -218,7 +218,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 			}
 		} ?>
         <script type="text/javascript">
-            var clip = new Clipboard('<?php echo $button_class; ?>');
+            var clip = new Clipboard('.<?php echo $button_class; ?>');
         </script>
     </div>
     <!-- End First Coupon -->
@@ -271,7 +271,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                 </div>
 			<?php } ?>
                 <script type="text/javascript">
-                    var clip = new Clipboard('<?php echo $button_class . '_' . $num_coupon;; ?>');
+                    var clip = new Clipboard('.<?php echo $button_class . '_' . $num_coupon;; ?>');
                 </script>
 			<?php } elseif ( $coupon_type == 'Deal' ) { ?>
                 <div class="wpcd-four-discount-text"><?php echo $discount_text; ?></div>
@@ -422,7 +422,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                 </div>
 			<?php } ?>
                 <script type="text/javascript">
-                    var clip = new Clipboard('<?php echo $button_class . '_' . $num_coupon;; ?>');
+                    var clip = new Clipboard('.<?php echo $button_class . '_' . $num_coupon;; ?>');
                 </script>
 			<?php } elseif ( $coupon_type == 'Deal' ) { ?>
                 <div class="wpcd-four-discount-text"><?php echo $discount_text; ?></div>

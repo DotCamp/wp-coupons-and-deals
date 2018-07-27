@@ -210,7 +210,7 @@ $template = new WPCD_Template_Loader();
         </div>
     </div>
     <script type="text/javascript">
-        var clip = new Clipboard('<?php echo $button_class; ?>');
+        var clip = new Clipboard('.<?php echo $button_class; ?>');
     </script>
     <div class="clearfix"></div>
     <?php

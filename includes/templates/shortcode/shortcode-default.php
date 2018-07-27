@@ -25,7 +25,7 @@ $coupon_code               = get_post_meta( $coupon_id, 'coupon_details_coupon-c
 $deal_text                 = get_post_meta( $coupon_id, 'coupon_details_deal-button-text', true );
 $coupon_hover_text         = get_option( 'wpcd_coupon-hover-text' );
 $deal_hover_text           = get_option( 'wpcd_deal-hover-text' );
-$button_class              = '.wpcd-btn-' . $coupon_id;
+$button_class              = 'wpcd-btn-' . $coupon_id;
 $no_expiry                 = get_option( 'wpcd_no-expiry-message' );
 $expire_text               = get_option( 'wpcd_expire-text' );
 $expired_text              = get_option( 'wpcd_expired-text' );
@@ -251,7 +251,7 @@ $template = new WPCD_Template_Loader();
         </div>
     </div>
     <script type="text/javascript">
-        var clip = new Clipboard('<?php echo $button_class; ?>');
+        var clip = new Clipboard('.<?php echo $button_class; ?>');
     </script>
     <div class="clearfix"></div>
     <?php
