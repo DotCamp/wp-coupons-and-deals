@@ -82,7 +82,26 @@ class WPCD_Admin_Columns extends WP_List_Table {
 				__CLASS__,
 				'wpcd_custom_taxonomy_columns_content__premium_only'
 			), 10, 3 );
-
+                        
+                        /**
+			 * Adding custom columns to Coupon Category list.
+			 *
+			 * @since 2.6.3
+			 */
+			add_filter( 'manage_edit-wpcd_coupon_vendor_columns', array(
+				__CLASS__,
+				'wpcd_vendor_taxonomy_columns__premium_only'
+			), 10, 2 );
+                        
+                        /**
+			 * Adding content to custom columns in Coupon Category List.
+			 *
+			 * @since 2.6.3
+			 */
+			add_filter( 'manage_wpcd_coupon_vendor_custom_column', array(
+				__CLASS__,
+				'wpcd_vendor_taxonomy_columns_content__premium_only'
+			), 10, 3 );
 		}
 
 	}
@@ -123,6 +142,7 @@ class WPCD_Admin_Columns extends WP_List_Table {
 		 */
 		$wpcd_columns['coupon_type'] = __( 'Coupon Type', 'wpcd-coupon' );
 		$wpcd_columns['coupon_category']  = __( 'Category', 'wpcd-coupon' );
+                $wpcd_columns['coupon_vendor']    = __('Vendor','wpcd-coupon');
 		$wpcd_columns['id']               = __( 'ID', 'wpcd-coupon' );
 		$wpcd_columns['coupon_shortcode'] = __( 'Shortcodes', 'wpcd-coupon' );
 		$wpcd_columns['coupon_expire']    = __( 'Expires', 'wpcd-coupon' );
@@ -207,6 +227,29 @@ class WPCD_Admin_Columns extends WP_List_Table {
 
 				}
 				break;
+                                
+                        case 'coupon_vendor':
+                                $terms = get_the_terms( $post_id, 'wpcd_coupon_vendor' );
+				if ( ! empty( $terms ) ) {
+					$out = array();
+
+					foreach ( $terms as $term ) {
+						$out[] = sprintf( '<a href="%s">%s</a>',
+							esc_url( add_query_arg( array(
+								'wpcd_coupon_vendor' => $term->slug,
+								'post_type'            => $post->post_type
+							), 'edit.php' ) ),
+							esc_html( sanitize_term_field( 'name', $term->name, $term->term_id, 'cpt_coupon_vendor', 'display' ) )
+						);
+					}
+
+					echo join( ', ', $out );
+
+				} else {
+
+					_e( 'No Vendor', 'wpcd-coupon' );
+
+				}
 				break;
 
 			case 'coupon_shortcode':
@@ -385,5 +428,49 @@ class WPCD_Admin_Columns extends WP_List_Table {
 
 		return $content;
 	}
+        
+        /**
+	 * Custom coloumns for Coupon Vendor page.
+	 *
+	 * @param $columns
+	 *
+	 * @return array
+	 * @since 2.6.3
+	 */
+	public static function wpcd_vendor_taxonomy_columns__premium_only( $columns ) {
 
+		$columns = array(
+			'cb'                 => '<input type="checkbox" />',
+			'name'               => __( 'Name', 'wpcd-coupon' ),
+			'slug'               => __( 'Slug', 'wpcd-coupon' ),
+			'posts'              => __( 'Posts', 'wpcd-coupon' ),
+			'wpcd_vend_shortcode' => __( 'Shortcode', 'wpcd-coupon' )
+		);
+
+		return $columns;
+	}
+        
+        /**
+	 * Content for vendor taxonomy columns.
+	 *
+	 * @param $content
+	 * @param $column_name
+	 * @param $term_id
+	 *
+	 * @return string
+	 *
+	 * @since 2.6.3
+	 */
+	public static function Wpcd_vendor_taxonomy_columns_content__premium_only( $content, $column_name, $term_id ) {
+               
+		if ( 'wpcd_vend_id' == $column_name ) {
+			$content = $term_id;
+		}
+
+		if ( 'wpcd_vend_shortcode' == $column_name ) {
+			$content = '[wpcd_coupons_loop vend=' . $term_id . ']';
+		}
+
+		return $content;
+	}
 }

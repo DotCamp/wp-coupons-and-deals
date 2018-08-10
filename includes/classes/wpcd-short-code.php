@@ -451,6 +451,7 @@ class WPCD_Short_Code {
 			'count' => 9,
 			'id'    => '',
 			'cat'   => '',
+                        'vend'  => '',
 			'temp'  => ''
 		), $atts );
 
@@ -459,6 +460,7 @@ class WPCD_Short_Code {
 
 		$id  = $a['id'];
 		$cat = $a['cat'];
+                $vend = $a['vend'];
 
 		//template system
 		$temp = $a['temp'];
@@ -480,8 +482,8 @@ class WPCD_Short_Code {
 				break;						
 			}
 		}
-
-		if ( $cat ) {
+                
+		if ( $cat || $vend) {
 			$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 			$args  = array(
 				'post_type'      => 'wpcd_coupons',
@@ -489,9 +491,9 @@ class WPCD_Short_Code {
 				'posts_per_page' => $a['count'],
 				'tax_query'      => array(
 					array(
-						'taxonomy' => 'wpcd_coupon_category',
+						'taxonomy' => ($cat) ? 'wpcd_coupon_category' : 'wpcd_coupon_vendor',
 						'field'    => 'term_id',
-						'terms'    => $cat,
+						'terms'    => ($cat) ? $cat : $vend,
 					),
 				),
 				'paged'          => $paged

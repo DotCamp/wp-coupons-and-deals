@@ -33,12 +33,14 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 		const PLUGIN_VERSION = '2.6.3';
 		const CUSTOM_POST_TYPE = 'wpcd_coupons';
 		const CUSTOM_TAXONOMY = 'wpcd_coupon_category';
+                const VENDOR_TAXONOMY = 'wpcd_coupon_vendor';
 		const TEXT_DOMAIN = 'wpcd-coupon';
 		const NAME_SINGULAR = 'Coupon';
 		const NAME_PLURAL = 'Coupons';
 		const TAXONOMY_SINGULAR = 'Coupon Category';
 		const TAXONOMY_PLURAL = 'Coupon Categories';
-
+                const VENDOR_SINGULAR = 'Coupon Vendor';
+                const VENDOR_PLURAL = 'Coupon Vendors';
 		/**
 		 * Instance to instantiate object.
 		 *
@@ -349,7 +351,9 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 		 * @since 1.0
 		 */
 		public static function custom_taxonomy_register() {
-
+                    /**
+                     * Category
+                     */
 			/**
 			 * Generating the labels for the custom taxonomy.
 			 */
@@ -365,6 +369,25 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 			);
 
 			WPCD_Custom_Taxonomy_Image::register( self::CUSTOM_TAXONOMY );
+                        
+                    /**
+                     * Vendor
+                     */
+                        /**
+			 * Generating the labels for the custom taxonomy.
+			 */
+			$labels = WPCD_Custom_Taxonomy::taxonomy_labels(
+				self::VENDOR_SINGULAR, self::VENDOR_PLURAL, self::TEXT_DOMAIN
+			);
+
+			/**
+			 * Registering the vendor taxonomy with WordPress.
+			 */
+			WPCD_Custom_Taxonomy::register_taxonomy(
+				self::VENDOR_TAXONOMY, self::CUSTOM_POST_TYPE, $labels, 'wpcd_coupon_vendor'
+			);
+
+			WPCD_Custom_Taxonomy_Image::register( self::VENDOR_TAXONOMY );
 		}
 
 		/**

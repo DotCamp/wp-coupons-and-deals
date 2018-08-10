@@ -513,6 +513,10 @@ jQuery(document).ready(function ($) {
     //for category
     window.coupons_style_category_select = $('#coupons_style_category_select');
     window.coupons_template_category_select = $('#coupons_template_category_select');
+    
+    //for vendor
+    window.coupons_style_vendor_select = $('#coupons_style_vendor_select');
+    window.coupons_template_vendor_select = $('#coupons_template_vendor_select');
 
     function WpcdCouponChoosingInsert() {
         function displayNoneforAll() {
@@ -544,6 +548,19 @@ jQuery(document).ready(function ($) {
                 $('.shortcode_inserter_select.wpcd_template_category_select').hide();
 
             $('#coupons_style_category_select').change(function () {
+                WpcdCouponChoosingInsert();
+            });
+
+        } else if (coupons_shortcode_type.val() === 'vendor') {
+            $('.shortcode_inserter_select.wpcd_vendors_select, .shortcode_inserter_select.wpcd_coupon_count').show();
+            $('.shortcode_inserter_select.wpcd_style_vendor_select').show();
+            //check if horizontal style chosen
+            if ($('#coupons_style_vendor_select').val() === 'horizontal')
+                $('.shortcode_inserter_select.wpcd_template_vendor_select').show();
+            else
+                $('.shortcode_inserter_select.wpcd_template_vendor_select').hide();
+
+            $('#coupons_style_vendor_select').change(function () {
                 WpcdCouponChoosingInsert();
             });
 
@@ -618,6 +635,19 @@ function WpcdCouponInsert() {
         else {
             var temp = coupons_template_category_select.val();
             window.send_to_editor("[wpcd_coupons_loop count=" + counts + " cat='" + category_id + "' temp='" + temp + "']");
+        }
+    } else if (coupons_shortcode_type.val() === 'vendor') {
+        var counts = window.coupons_count.val();
+        var $vendor_select = jQuery('#coupon_typelist_vendor').children('option[value="' + jQuery('#coupon_type_vendor').val() + '"]');
+        console.log($vendor_select);
+        console.log(jQuery('#coupon_typelist_vendor'));
+        var vendor_id = $vendor_select.attr('vendor_id');
+        console.log($vendor_select.attr('vendor_id'));
+        if (coupons_style_vendor_select.val() === 'vertical')
+            window.send_to_editor("[wpcd_coupons_loop count=" + counts + " vend=" + vendor_id + "]");
+        else {
+            var temp = coupons_template_vendor_select.val();
+            window.send_to_editor("[wpcd_coupons_loop count=" + counts + " vend='" + vendor_id + "' temp='" + temp + "']");
         }
     }
 

@@ -93,6 +93,7 @@ class WPCD_Shortcode_Inserter {
                                         selected="selected"><?php echo __( 'Single Coupon', 'wpcd-coupon' ); ?></option>
                                 <option value="archive"><?php echo __( 'Archive', 'wpcd-coupon' ); ?></option>
                                 <option value="category"><?php echo __( 'Category', 'wpcd-coupon' ); ?></option>
+                                <option value="vendor"><?php echo __( 'Vendor', 'wpcd-coupon' ); ?></option>
                             </select>
                         </div>
                         <!-- Start Archive -->
@@ -168,7 +169,7 @@ class WPCD_Shortcode_Inserter {
                     </div>
 
                     <div class="shortcode_inserter_select wpcd_template_category_select">
-                        <label for="coupons_templat_categorye_select">
+                        <label for="coupons_template_category_select">
 							<?php echo __( 'Select Template', 'wpcd-coupon' ); ?>
                         </label>
                         <select name="shortcode_template_box" id="coupons_template_category_select">
@@ -180,6 +181,48 @@ class WPCD_Shortcode_Inserter {
                         </select>
                     </div>
                     <!-- End Category -->
+                    
+                    <!-- Start Vendor -->
+                    <div class="shortcode_inserter_select wpcd_vendors_select">
+                        <label for="coupon_type">
+							<?php echo __( 'Select The Vendor', 'wpcd-coupon' ); ?>
+                        </label>
+                        <input autocomplete="off" type="text" id="coupon_type_vendor" list="coupon_typelist_vendor"
+                               placeholder="<?php echo __( 'Search the vendor', 'wpcd-coupon' ); ?>">
+                        <datalist name="coupon_select_type" id="coupon_typelist_vendor">
+							<?php
+							$terms = get_terms( 'wpcd_coupon_vendor' );
+							foreach ( $terms as $term ) {
+								$term = (array) $term;
+								echo '<option vendor_id="' . $term['term_id'] . '" value="' . $term['name'] . '"></option>';
+							}
+							?>
+                        </datalist>
+                    </div>
+                    <div class="shortcode_inserter_select wpcd_style_vendor_select">
+                        <label for="coupons_style_vendor_select">
+							<?php echo __( 'Select Style Type', 'wpcd-coupon' ); ?>
+                        </label>
+                        <select name="shortcode_style_box" id="coupons_style_vendor_select">
+                            <option value="vertical"><?php echo __( 'Vertical', 'wpcd-coupon' ); ?></option>
+                            <option value="horizontal"
+                                    selected="selected"><?php echo __( 'Horizontal', 'wpcd-coupon' ); ?></option>
+                        </select>
+                    </div>
+
+                    <div class="shortcode_inserter_select wpcd_template_vendor_select">
+                        <label for="coupons_template_vendor_select">
+							<?php echo __( 'Select Template', 'wpcd-coupon' ); ?>
+                        </label>
+                        <select name="shortcode_template_box" id="coupons_template_vendor_select">
+                            <option value="default"
+                                    selected="selected"><?php echo __( 'Default', 'wpcd-coupon' ); ?></option>
+                            <option value="one"><?php echo __( 'Template one', 'wpcd-coupon' ); ?></option>
+                            <option value="two"><?php echo __( 'Template two', 'wpcd-coupon' ); ?></option>
+                            <option value="three"><?php echo __( 'Template three', 'wpcd-coupon' ); ?></option>
+                        </select>
+                    </div>
+                    <!-- End Vendor -->
 
                     <!-- Start Single -->
                     <div class="shortcode_inserter_select wpcd_category_filter_select">
