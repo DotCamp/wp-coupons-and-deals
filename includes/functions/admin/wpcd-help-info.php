@@ -27,7 +27,7 @@ function wpcd_help_info() { ?>
 				echo '<a href="' . wcad_fs()->get_upgrade_url() . '">' .
 				     __( 'Upgrade to Pro!', 'wp-coupons-and-deals' ) .
 				     '</a>';
-				echo __( ' to search coupon and insert shortcode, and many more features!', 'wpcd-coupon' );
+				echo __( ' to insert category, vendor, archive shortcodes, and many more features!', 'wpcd-coupon' );
 			} ?></p>
     </div>
 

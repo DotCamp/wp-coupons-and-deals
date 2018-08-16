@@ -1,10 +1,9 @@
-
 === WP Coupons and Deals ===
 Contributors: imtiazrayhan, mohmedelwany
 Tags: coupon, coupons, deal, deals, affiliate, affiliate marketing
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 2.6.3
+Stable tag: 2.7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,6 +35,7 @@ Best WordPress Coupon Plugin. Generate more affiliate sales with coupon codes an
 * Coupon Templates.
 * Show Specific Coupons.
 * Show Coupons of specific Category.
+* Show Coupons of specific Vendor.
 * Coupons Archive Page.
 
 **You can upgrade to Pro Version from your dashboard.** [__More Info and Demo of Pro Version__](https://wpcouponsdeals.com)
@@ -141,6 +141,20 @@ You can [__submit a feature request__](https://wpcouponsdeals.com/submit-new-fea
 11. Adding the widget.
 
 == Changelog ==
+
+= 2.7.0 =
+
+Release Date: August 16th, 2018
+
+* Add - Coupon Vendors.
+* Fix - Custom CSS issue.
+* Fix - Pagination Issue in Category and Archive Shortcode.
+* Pro - Add - Template One for Category and Archive Shortcode.
+* Pro - Add - Template Two for Category and Archive Shortcode.
+* Pro - Add - Template Three for Category and Archive Shortcode.
+* Pro - Add - Template One for Vendor Shortcode.
+* Pro - Add - Template Two for Vendor Shortcode.
+* Pro - Add - Template Three for Vendor Shortcode.
 
 = 2.6.3 =
 

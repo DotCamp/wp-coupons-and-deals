@@ -281,8 +281,6 @@ class WPCD_Shortcode_Inserter {
 											<?php
 										endwhile;
 									}
-
-
 								}
 								//the coupons with no category
 								wp_reset_query();

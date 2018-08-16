@@ -451,7 +451,7 @@ class WPCD_Short_Code {
 			'count' => 9,
 			'id'    => '',
 			'cat'   => '',
-                        'vend'  => '',
+            'vend'  => '',
 			'temp'  => ''
 		), $atts );
 
@@ -460,7 +460,7 @@ class WPCD_Short_Code {
 
 		$id  = $a['id'];
 		$cat = $a['cat'];
-                $vend = $a['vend'];
+        $vend = $a['vend'];
 
 		//template system
 		$temp = $a['temp'];
@@ -471,15 +471,15 @@ class WPCD_Short_Code {
 				case 'one':
 					$coupon_template = 'shortcode-category-one__premium_only';
 					break;
-                                case 'two':
-                                        $coupon_template = 'shortcode-category-two__premium_only';
-                                    break;
-                                case 'three':
-                                        $coupon_template = 'shortcode-category-three__premium_only';
-                                    break;
+                case 'two':
+                    $coupon_template = 'shortcode-category-two__premium_only';
+                    break;
+                case 'three':
+                    $coupon_template = 'shortcode-category-three__premium_only';
+                    break;
 				default :
-				$coupon_template = 'shortcode-category-default__premium_only';								
-				break;						
+					$coupon_template = 'shortcode-category-default__premium_only';								
+					break;						
 			}
 		}
                 

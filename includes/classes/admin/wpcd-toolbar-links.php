@@ -74,7 +74,7 @@ class WPCD_Toolbar_Links {
 		);
 		$wp_admin_bar->add_node( $args );
                 
-                $args = array(
+        $args = array(
 			'id'     => 'wpcd_toolbar_vendors',
 			'title'  => __( 'Coupon Vendors', 'wpcd-coupon' ),
 			'href'   => admin_url() . 'edit-tags.php?taxonomy=wpcd_coupon_vendor&post_type=wpcd_coupons',

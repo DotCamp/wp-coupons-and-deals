@@ -30,17 +30,17 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 		 *
 		 * @since 1.0
 		 */
-		const PLUGIN_VERSION = '2.6.3';
+		const PLUGIN_VERSION = '2.7.0';
 		const CUSTOM_POST_TYPE = 'wpcd_coupons';
 		const CUSTOM_TAXONOMY = 'wpcd_coupon_category';
-                const VENDOR_TAXONOMY = 'wpcd_coupon_vendor';
+        const VENDOR_TAXONOMY = 'wpcd_coupon_vendor';
 		const TEXT_DOMAIN = 'wpcd-coupon';
 		const NAME_SINGULAR = 'Coupon';
 		const NAME_PLURAL = 'Coupons';
 		const TAXONOMY_SINGULAR = 'Coupon Category';
 		const TAXONOMY_PLURAL = 'Coupon Categories';
-                const VENDOR_SINGULAR = 'Coupon Vendor';
-                const VENDOR_PLURAL = 'Coupon Vendors';
+        const VENDOR_SINGULAR = 'Coupon Vendor';
+        const VENDOR_PLURAL = 'Coupon Vendors';
 		/**
 		 * Instance to instantiate object.
 		 *
