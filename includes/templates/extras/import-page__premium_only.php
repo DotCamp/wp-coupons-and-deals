@@ -39,6 +39,12 @@ $wpcd_coupon_templates = array('Template One', 'Template Two', 'Template Three',
 					} else {
 						$website = '';
 					}
+                                        
+                                        if ( isset( $import_fields_data['coupon_vendor'] ) ) {
+						$vendor = $data[ $import_fields_data['coupon_vendor'] ];
+					} else {
+						$vendor = '';
+					}
 
 					if ( isset( $import_fields_data['coupon_title'] ) ) {
 						$title = $data[ $import_fields_data['coupon_title'] ];
@@ -128,6 +134,10 @@ $wpcd_coupon_templates = array('Template One', 'Template Two', 'Template Three',
 							if ( $website != '' && $website != ' ' ) {
 								wp_set_object_terms( $post_id, $website, 'wpcd_coupon_category' );
 							}
+                                                        
+                                                        if ( $vendor != '' && $vendor != ' ' ) {
+								wp_set_object_terms( $post_id, $vendor, 'wpcd_coupon_vendor' );
+							}
 
 							$coupon_count ++;
 
@@ -214,6 +224,7 @@ $wpcd_coupon_templates = array('Template One', 'Template Two', 'Template Three',
 							echo '<option value="coupon_title">Coupon Title</option>';
 							echo '<option value="coupon_details_description">Coupon Description</option>';
 							echo '<option value="coupon_category">Coupon Category</option>';
+							echo '<option value="coupon_vendor">Coupon Vendor</option>';
 							echo '<option value="coupon_details_coupon-code-text">Coupon Code</option>';
 							echo '<option value="coupon_details_link">Coupon Link</option>';
 							echo '<option value="coupon_details_discount-text">Discount Amount/Text</option>';
@@ -235,7 +246,7 @@ $wpcd_coupon_templates = array('Template One', 'Template Two', 'Template Three',
 						break;
 					}
 
-					$wpcd_csv = dirname( __FILE__ ) . '/wpcd_file.csv';
+					$wpcd_csv = dirname( __FILE__ ) . '\wpcd_file.csv';
 					move_uploaded_file( $_FILES['wpcd_import_file']['tmp_name'], $wpcd_csv );
 					fclose( $handle2 );
 

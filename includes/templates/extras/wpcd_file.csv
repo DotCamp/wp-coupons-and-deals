@@ -1,14 +1,48 @@
-Website   ,Title   ,Coupon Code,Coupon Link                                                        ,Copon Text,Coupon Description,Expiry Date,Hide,Coupon Template
-Category 1,Title 4,100YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,15% Off   ,Get Flat 15% Off  ,10/30/2017,Yes,
-Category 2,Title 5,101YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,16% Off   ,Get Flat 16% Off  ,10/31/2017,No,
-Category 3,Title 6,102YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,17% Off   ,Get Flat 17% Off  ,11/1/2017,No,
-Category 4,Title 7,100YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,15% Off   ,Get Flat 15% Off  ,10/30/2017,Yes,
-Category 5,Title 8,101YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,16% Off   ,Get Flat 16% Off  ,10/31/2017,No,
-Category 6,Title 9,102YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,17% Off   ,Get Flat 17% Off  ,11/1/2017,No,
-Category 7,Title 10,100YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,15% Off   ,Get Flat 15% Off  ,10/30/2017,Yes,
-Category 8,Title 11,101YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,16% Off   ,Get Flat 16% Off  ,10/31/2017,No,
-Category 9,Title 12,102YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,17% Off   ,Get Flat 17% Off  ,11/1/2017,No,
-Category 10,Title 13,100YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,15% Off   ,Get Flat 15% Off  ,10/30/2017,Yes,
-Category 11,Title 14,101YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,16% Off   ,Get Flat 16% Off  ,10/31/2017,No,
-Category 12,Title 15,102YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,17% Off   ,Get Flat 17% Off  ,11/1/2017,No,
-Category 13,Title 16,100YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,15% Off   ,Get Flat 15% Off  ,10/30/2017,Yes,
+Website   ,Title   ,Coupon Code,Coupon Link                                                        ,Copon Text,Coupon Description,Expiry Date,Hide,Coupon Template,Coupon Vendor
+Category 1,Title 1,100YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,15% Off   ,Get Flat 15% Off  ,10/30/2017,Yes,Template Five,Vendor 1
+Category 1,Title 2,101YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,16% Off   ,Get Flat 16% Off  ,10/31/2017,No,Template One,Vendor 1
+Category 3,Title 3,102YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,17% Off   ,Get Flat 17% Off  ,11/1/2017,No,Template Two,Vendor 1
+Category 3,Title 4,100YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,15% Off   ,Get Flat 15% Off  ,10/30/2017,Yes,Template Three,Vendor 2
+Category 2,Title 5,101YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,16% Off   ,Get Flat 16% Off  ,10/31/2017,No,Template Five,Vendor 2
+Category 2,Title 6,102YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,17% Off   ,Get Flat 17% Off  ,11/1/2017,No,Template Four,Vendor 2
+Category 2,Title 7,100YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,15% Off   ,Get Flat 15% Off  ,10/30/2017,Yes,Template Six,Vendor 1
+Category 4,Title 8,101YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,16% Off   ,Get Flat 16% Off  ,10/31/2017,No,Template Five,Vendor 1
+Category 4,Title 9,102YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,17% Off   ,Get Flat 17% Off  ,11/1/2017,No,Template One,Vendor 1
+Category 4,Title 10,100YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,15% Off   ,Get Flat 15% Off  ,10/30/2017,Yes,Template Two,Vendor 2
+Category 5,Title 11,101YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,16% Off   ,Get Flat 16% Off  ,10/31/2017,No,Template Three,Vendor 2
+Category 5,Title 12,102YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,17% Off   ,Get Flat 17% Off  ,11/1/2017,No,Template Five,Vendor 2
+Category 5,Title 13,100YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,15% Off   ,Get Flat 15% Off  ,10/30/2017,Yes,Template Four,Vendor 1
+Category 1,Title 14,100YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,15% Off   ,Get Flat 15% Off  ,10/30/2017,Yes,Template Five,Vendor 1
+Category 1,Title 15,101YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,16% Off   ,Get Flat 16% Off  ,10/31/2017,No,Template One,Vendor 1
+Category 3,Title 16,102YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,17% Off   ,Get Flat 17% Off  ,11/1/2017,No,Template Two,Vendor 2
+Category 3,Title 17,100YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,15% Off   ,Get Flat 15% Off  ,10/30/2017,Yes,Template Three,Vendor 2
+Category 2,Title 18,101YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,16% Off   ,Get Flat 16% Off  ,10/31/2017,No,Template Five,Vendor 2
+Category 2,Title 19,102YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,17% Off   ,Get Flat 17% Off  ,11/1/2017,No,Template Four,Vendor 1
+Category 2,Title 20,100YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,15% Off   ,Get Flat 15% Off  ,10/30/2017,Yes,Template Six,Vendor 1
+Category 4,Title 21,101YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,16% Off   ,Get Flat 16% Off  ,10/31/2017,No,Template Five,Vendor 1
+Category 4,Title 22,102YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,17% Off   ,Get Flat 17% Off  ,11/1/2017,No,Template One,Vendor 2
+Category 4,Title 23,100YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,15% Off   ,Get Flat 15% Off  ,10/30/2017,Yes,Template Two,Vendor 2
+Category 5,Title 24,101YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,16% Off   ,Get Flat 16% Off  ,10/31/2017,No,Template Three,Vendor 2
+Category 5,Title 25,102YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,17% Off   ,Get Flat 17% Off  ,11/1/2017,No,Template Five,Vendor 1
+Category 5,Title 26,100YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,15% Off   ,Get Flat 15% Off  ,10/30/2017,Yes,Template Four,Vendor 1
+Category 1,Title 27,100YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,15% Off   ,Get Flat 15% Off  ,10/30/2017,Yes,Template Five,Vendor 1
+Category 1,Title 28,101YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,16% Off   ,Get Flat 16% Off  ,10/31/2017,No,Template One,Vendor 2
+Category 3,Title 29,102YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,17% Off   ,Get Flat 17% Off  ,11/1/2017,No,Template Two,Vendor 2
+Category 1,Title 30,100YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,15% Off   ,Get Flat 15% Off  ,10/30/2017,Yes,Template Five,Vendor 2
+Category 1,Title 31,101YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,16% Off   ,Get Flat 16% Off  ,10/31/2017,No,Template One,Vendor 1
+Category 3,Title 32,102YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,17% Off   ,Get Flat 17% Off  ,11/1/2017,No,Template Two,Vendor 1
+Category 3,Title 33,100YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,15% Off   ,Get Flat 15% Off  ,10/30/2017,Yes,Template Three,Vendor 1
+Category 2,Title 34,101YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,16% Off   ,Get Flat 16% Off  ,10/31/2017,No,Template Five,Vendor 2
+Category 2,Title 35,102YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,17% Off   ,Get Flat 17% Off  ,11/1/2017,No,Template Four,Vendor 2
+Category 2,Title 36,100YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,15% Off   ,Get Flat 15% Off  ,10/30/2017,Yes,Template Six,Vendor 2
+Category 4,Title 37,101YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,16% Off   ,Get Flat 16% Off  ,10/31/2017,No,Template Five,Vendor 1
+Category 4,Title 38,102YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,17% Off   ,Get Flat 17% Off  ,11/1/2017,No,Template One,Vendor 1
+Category 4,Title 39,100YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,15% Off   ,Get Flat 15% Off  ,10/30/2017,Yes,Template Two,Vendor 1
+Category 5,Title 40,101YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,16% Off   ,Get Flat 16% Off  ,10/31/2017,No,Template Three,Vendor 2
+Category 5,Title 41,102YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,17% Off   ,Get Flat 17% Off  ,11/1/2017,No,Template Five,Vendor 2
+Category 5,Title 42,100YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,15% Off   ,Get Flat 15% Off  ,10/30/2017,Yes,Template Four,Vendor 2
+Category 1,Title 43,100YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,15% Off   ,Get Flat 15% Off  ,10/30/2017,Yes,Template Five,Vendor 1
+Category 1,Title 44,101YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,16% Off   ,Get Flat 16% Off  ,10/31/2017,No,Template One,Vendor 1
+Category 3,Title 45,102YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,17% Off   ,Get Flat 17% Off  ,11/1/2017,No,Template Two,Vendor 1
+Category 3,Title 46,100YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,15% Off   ,Get Flat 15% Off  ,10/30/2017,Yes,Template Three,Vendor 2
+Category 2,Title 47,101YBA     ,https://developer.wordpress.org/reference/functions/wp_insert_post/,16% Off   ,Get Flat 16% Off  ,10/31/2017,No,Template Five,Vendor 2
