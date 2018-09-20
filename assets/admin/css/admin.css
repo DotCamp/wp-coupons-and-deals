@@ -698,6 +698,7 @@ a.wpcd-btn .wpcd_deal_icon {
     vertical-align: middle;
     cursor: pointer;
     -webkit-border-radius: 3px;
+    border-radius: 3px;
     background-image: none !important;
     border: none;
     text-shadow: none;
@@ -826,6 +827,7 @@ a.wpcd-btn .wpcd_deal_icon {
     vertical-align: middle;
     cursor: pointer;
     -webkit-border-radius: 3px;
+    border-radius: 3px;
     background-image: none !important;
     border: none;
     text-shadow: none;
@@ -947,6 +949,7 @@ p.wpcd-coupon-three-expired {
     vertical-align: middle;
     cursor: pointer;
     -webkit-border-radius: 3px;
+    border-radius: 3px;
     background-image: none !important;
     border: none;
     text-shadow: none;
@@ -1080,6 +1083,7 @@ p.wpcd-coupon-four-expired {
     vertical-align: middle;
     cursor: pointer;
     -webkit-border-radius: 3px;
+    border-radius: 3px;
     background-image: none !important;
     border: none;
     text-shadow: none;
@@ -2305,7 +2309,7 @@ h3.wpcd_coupon_popup_title {
     }
 }
 
-@media all and ( min-width: 600px) {
+@media all and (min-width: 600px) {
     .wpcd-col-2-3 {
         float: left;
         width: 66.66%;
