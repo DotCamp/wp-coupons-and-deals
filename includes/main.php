@@ -370,10 +370,10 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 
 			WPCD_Custom_Taxonomy_Image::register( self::CUSTOM_TAXONOMY );
                         
-                    /**
-                     * Vendor
-                     */
-                        /**
+            /**
+             * Vendor
+             */
+            /**
 			 * Generating the labels for the custom taxonomy.
 			 */
 			$labels = WPCD_Custom_Taxonomy::taxonomy_labels(

@@ -18,27 +18,37 @@ function wpcd_coupon_thumbnail_img( $coupon_id ) {
 		return get_the_post_thumbnail_url( $coupon_id );
 	}
 
-	if( $coupon ) {
-	  $terms = get_the_terms( $coupon_id, 'wpcd_coupon_category' );
-	  $max_count = -1;
-	  if( $terms && ! is_wp_error( $terms ) ) {
-	    
-	    foreach( $terms as $term ) {
-	      if( $max_count < $term->count ) {
-	        $max_count = $term->count;
-	        $term_meta = get_option( 'taxonomy_term_'.$term->term_id );
-	        if( empty( $term_meta ) || empty( $term_meta['image_id'] ) )
-	          continue;
-	        else {
-	          $attachment = wp_get_attachment_image_src( $term_meta['image_id'], 'full' );
-	          if( is_array( $attachment ) ) 
-	            $coupon_img = $attachment[0];
-	        }
-	      }
-	    }
+	if ( $coupon ) {
 
-	  }
+		$featured_image_setting = get_option( 'wpcd_featured-image' );
+		
+		if ( $featured_image_setting == 'vendor' ) {
+			$terms = get_the_terms( $coupon_id, 'wpcd_coupon_vendor' );
+		} else {
+			$terms = get_the_terms( $coupon_id, 'wpcd_coupon_category' );
+		}		
+		  
+		$max_count = -1;
+		
+		if ( $terms && ! is_wp_error( $terms ) ) {
+	    	foreach ( $terms as $term ) {
+	    		if ( $max_count < $term->count ) {
+	        		$max_count = $term->count;
+	        		$term_meta = get_option( 'taxonomy_term_'.$term->term_id );
+	        		if ( empty( $term_meta ) || empty( $term_meta['image_id'] ) )
+	          			continue;
+	        		else {
+	          			$attachment = wp_get_attachment_image_src( $term_meta['image_id'], 'full' );
+	          			if ( is_array( $attachment ) ) {
+								$coupon_img = $attachment[0];
+						}
+	        		}
+	      		}
+	    	}
+		}
+		
 	}
 
 	return $coupon_img;
+
 }

@@ -163,6 +163,17 @@ class WPCD_Settings_Page_Pro {
 		$settings['tabs_content'] = array(
 			array(
 				array(
+					'id'		  => 'featured-image',
+					'label'       => __( 'Featured Image', 'wpcd-coupon' ),
+					'description' => __( 'If there\'s no featured image selected, choose whether to use Category Image or Vendor Image as the featured image.', 'wpcd-coupon' ),
+					'type'	      => 'select',
+					'options'     => array(
+						'category' => __( 'Category Image', 'wpcd-coupon' ),
+						'vendor'   => __( 'Vendor Image', 'wpcd-coupon' )
+					),
+					'default' => 'category'
+				),
+				array(
 					'id'          => 'words-count',
 					'label'       => __( 'Words Count to Add More/Less Link', 'wpcd-coupon' ),
 					'description' => __( 'If coupon description is more than this count, More/Less link will be added. Default is 30 words.', 'wpcd-coupon' ),
