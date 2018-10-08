@@ -3,7 +3,7 @@ Contributors: imtiazrayhan, mohmedelwany
 Tags: coupon, coupons, deal, deals, affiliate, affiliate marketing
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 2.7.0
+Stable tag: 2.7.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -11,7 +11,7 @@ Best WordPress Coupon Plugin. Generate more affiliate sales with coupon codes an
 
 === Description ===
 
-**Best WordPress Coupon plugin to promote affiliate coupon and deals on your WordPress site. Present Coupons and Deals the right way. Protect affiliate sales and generate more revenue.**
+**Best WordPress Coupon and Deals plugin to promote affiliate coupon and deals on your WordPress site. Present Coupons and Deals the right way. Protect affiliate sales and generate more revenue.**
 
 [__Live Demo__](https://wpcouponsdeals.com/coupon-templates-demo/)
 
@@ -141,6 +141,15 @@ You can [__submit a feature request__](https://wpcouponsdeals.com/submit-new-fea
 11. Adding the widget.
 
 == Changelog ==
+
+= 2.7.1 = 
+
+Release Date: October 3rd, 2018
+
+* Update - Freemius SDK to 2.1.3.
+* Fix - CSS Bug: Missing property.
+* Pro - Add - Option to Set Vendor When Importing from CSV files.
+* Pro - Add - Option to choose Category Image or Vendor Image for default featured image.
 
 = 2.7.0 =
 
