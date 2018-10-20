@@ -40,7 +40,7 @@ $wpcd_coupon_templates = array('Template One', 'Template Two', 'Template Three',
 						$website = '';
 					}
                                         
-                                        if ( isset( $import_fields_data['coupon_vendor'] ) ) {
+                    if ( isset( $import_fields_data['coupon_vendor'] ) ) {
 						$vendor = $data[ $import_fields_data['coupon_vendor'] ];
 					} else {
 						$vendor = '';
@@ -120,26 +120,25 @@ $wpcd_coupon_templates = array('Template One', 'Template Two', 'Template Three',
 							add_post_meta( $post_id, 'coupon_details_show-expiration', 'Show', true );
 							add_post_meta( $post_id, 'coupon_details_expire-date', $expiry_date, true );
 							add_post_meta( $post_id, 'coupon_details_hide-coupon', $hide_coupon, true );
-							add_post_meta( $post_id, 'coupon_details_coupon-template', $default_coupon_template, true );
-                                                        
-                                                        
-                                                        // Theme Color for only template Five and Six
-                                                        $theme_color = $_POST['theme_color'];
-                                                        if ($default_coupon_template == 'Template Five'):
-                                                            add_post_meta($post_id, 'coupon_details_template-five-theme', $theme_color);
-                                                        elseif($default_coupon_template == 'Template Six'):
-                                                            add_post_meta($post_id, 'coupon_details_template-six-theme', $theme_color);
-                                                        endif;
+							add_post_meta( $post_id, 'coupon_details_coupon-template', $default_coupon_template, true );     
+
+                            // Theme Color for only template Five and Six
+                            $theme_color = $_POST['theme_color'];
+                            if ( $default_coupon_template == 'Template Five' ):
+                                add_post_meta( $post_id, 'coupon_details_template-five-theme', $theme_color );
+                        	elseif( $default_coupon_template == 'Template Six'):
+                                add_post_meta( $post_id, 'coupon_details_template-six-theme', $theme_color );
+                            endif;
 
 							if ( $website != '' && $website != ' ' ) {
 								wp_set_object_terms( $post_id, $website, 'wpcd_coupon_category' );
 							}
                                                         
-                                                        if ( $vendor != '' && $vendor != ' ' ) {
+                            if ( $vendor != '' && $vendor != ' ' ) {
 								wp_set_object_terms( $post_id, $vendor, 'wpcd_coupon_vendor' );
 							}
 
-							$coupon_count ++;
+							$coupon_count++;
 
 						} else {
 							echo $post_id->get_error_message() . __( ' | On Line Number ', 'wpcd-coupon' ) . $coupon_count . '<br />';
@@ -150,7 +149,7 @@ $wpcd_coupon_templates = array('Template One', 'Template Two', 'Template Three',
 					}
 
 				} else {
-					$coupon_count ++;
+					$coupon_count++;
 				}
 
 			}
@@ -240,13 +239,13 @@ $wpcd_coupon_templates = array('Template One', 'Template Two', 'Template Three',
 						echo '<input type="hidden" name="wpcd_import_counter_field" value="' . $name_var . '" />';
 						echo '<input type="file" style="display:none;" name="wpcd_import_file_final" value="' . $_FILES['wpcd_import_file']['tmp_name'] . '" />';
 						echo '<input type="hidden" name="wpcd_default_template" value="' . $_POST['wpcd_default_template'] . '">';
-                                                echo '<input type="hidden" name="theme_color" value="'.$_POST['theme_color'].'">';
+                        echo '<input type="hidden" name="theme_color" value="'.$_POST['theme_color'].'">';
 						echo '<input name="wpcd_import_submit_final" value="Import" class="button button-primary button-large" type="submit">';
 						echo '</div>';
 						break;
 					}
 
-					$wpcd_csv = dirname( __FILE__ ) . '\wpcd_file.csv';
+					$wpcd_csv = dirname( __FILE__ ) . '/wpcd_file.csv';
 					move_uploaded_file( $_FILES['wpcd_import_file']['tmp_name'], $wpcd_csv );
 					fclose( $handle2 );
 
