@@ -200,7 +200,7 @@ button.tab.active {
 }
 
 #wpcd_import_form {
-    background-color: #fff;
+    background-color: transparent;
     max-width: 90%;
     padding: 0;
     position: relative;

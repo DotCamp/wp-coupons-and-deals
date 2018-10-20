@@ -351,9 +351,10 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 		 * @since 1.0
 		 */
 		public static function custom_taxonomy_register() {
-                    /**
-                     * Category
-                     */
+			
+			/**
+            * Category
+            */
 			/**
 			 * Generating the labels for the custom taxonomy.
 			 */
@@ -427,7 +428,6 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 			 */
 			include WPCD_Plugin::instance()->plugin_includes . '/functions/admin/actions/' . 'wpcd-admin-actions.php';
 
-
 			/**
 			 * Instantiation of settings page class.
 			 * Adds the settings page.
@@ -491,8 +491,7 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 
 				new WPCD_Meta_Boxes();
 
-			}
-                        
+			}      
 
 			/**
 			 * Shows the shortcodes after coupon is published.

@@ -12,15 +12,15 @@ $wpcd_coupon_templates = array(
 <form id="wpcd_import_form" class="wpcd_clearfix" enctype='multipart/form-data' method='post'>
     <p style="font-size: 16px"><?php echo __( 'Here you can import coupons from a CSV file. Select the CSV file you want to import, then click on Next.', 'wpcd-coupon' ); ?></p>
     <p style="font-size: 16px"><?php echo __( 'Alternatively, you can check out ', 'wpcd-coupon' ) . '<a href="http://wpcouponsdeals.com/knowledgebase/import-coupons-csv-file/">' . __( 'this guide', 'wpcd-coupon' ) . '</a>' . __( ' to learn how importing from CSV file works.', 'wpcd-coupon' ); ?>
-
-    <p style="font-size: 16px; font-weight: bold;"><?php echo __( 'Few things to know before importing coupons:' ); ?></p>
     <ul>
-        <li style="font-size: 15px;">Coupons will be imported as coupons type.</li>
+        <li style="font-size: 15px;">
+            <?php echo __( 'Coupons will be imported as \'Coupon\' type.', 'wpcd-coupon' ); ?>
+        </li>
     </ul>
     <div class="wpcd_import_field">
         <div>
             <label>
-                Choose Default template which will be assigned to imported coupons.
+                <?php echo __( 'Choose Default template which will be assigned to imported coupons.', 'wpcd-coupon' ); ?>
             </label>
             <select name="wpcd_default_template">
 				<?php foreach ( $wpcd_coupon_templates as $template ): ?>
@@ -30,7 +30,7 @@ $wpcd_coupon_templates = array(
         </div>
         <div id="wpcd_import_color_parent" style="display:none;">
             <label>
-                Color Theme:
+               <?php echo __( 'Color Theme:', 'wpcd-coupon' ); ?>
             </label>
             <div id="wpcd_import_color" class="wpcd_colorSelectors">
                 <div data-color="#18e06e" style="background-color:#18e06e;"></div>
