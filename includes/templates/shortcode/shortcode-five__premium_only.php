@@ -141,7 +141,7 @@ $template = new WPCD_Template_Loader();
 			<?php else: ?>
                 <div class="wpcd-coupon-code">
                     <a class="wpcd-template-five-btn masterTooltip <?php echo $button_class; ?>"
-                       href="<?php echo $link; ?>" target="_blank"
+                       href="<?php echo $link; ?>" target="_blank" rel="nofollow"
                        title="<?php echo __( 'Click Here To Copy Coupon', 'wpcd-coupon' ); ?>"
                        data-clipboard-text="<?php if ( ! empty( $coupon_code ) ) {
 						   echo $coupon_code;
@@ -155,7 +155,7 @@ $template = new WPCD_Template_Loader();
 			<?php endif; ?>
 		<?php elseif ( $coupon_type == 'Deal' ): ?>
             <div class="wpcd-deal-code">
-                <a class="wpcd-template-five-btn masterTooltip" href="<?php echo $link; ?>" target="_blank"
+                <a class="wpcd-template-five-btn masterTooltip" rel="nofollow" href="<?php echo $link; ?>" target="_blank"
                    title="<?php echo __( 'Click Here To Get this deal', 'wpcd-coupon' ); ?>"
                    data-clipboard-text="<?php if ( ! empty( $deal_text ) ) {
 					   echo $deal_text;

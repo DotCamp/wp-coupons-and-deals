@@ -106,7 +106,7 @@ $template = new WPCD_Template_Loader();
                             ?>
                         </b>
                         <span class="wpcd-coupon-six-countdown clock_six_<?php echo $coupon_id; ?>"></span>
-                                            <?php if ( trim( $expire_date ) ) : ?>
+                            <?php if ( trim( $expire_date ) ) : ?>
                             <script type="text/javascript">
                                 if (jQuery('.clock_six_<?php echo $coupon_id; ?>').length === 1) {
                                     var clockClass = '.clock_six_<?php echo $coupon_id; ?>';
@@ -169,7 +169,7 @@ $template = new WPCD_Template_Loader();
 						?>
 					<?php else: ?>
                         <div class="wpcd-coupon-code wpcd-btn-wrap">
-                            <a class="wpcd-template-six-btn masterTooltip <?php echo $button_class; ?>" target="_blank"
+                            <a class="wpcd-template-six-btn masterTooltip <?php echo $button_class; ?>" target="_blank" rel="nofollow"
                                href="<?php echo $link; ?>"
                                title="<?php echo __( 'Click Here To Copy Coupon', 'wpcd-coupon' ); ?>"
                                data-clipboard-text="<?php if ( ! empty( $coupon_code ) ) {
@@ -184,7 +184,7 @@ $template = new WPCD_Template_Loader();
 					<?php endif; ?>
 				<?php elseif ( $coupon_type === 'Deal' ): ?>
                     <div class="wpcd-deal-code wpcd-btn-wrap">
-                        <a class="wpcd-template-six-btn masterTooltip" target="_blank" href="<?php echo $link; ?>"
+                        <a class="wpcd-template-six-btn masterTooltip" rel="nofollow" target="_blank" href="<?php echo $link; ?>"
                            title="<?php echo __( 'Click Here To Get this deal', 'wpcd-coupon' ); ?>"
                            data-clipboard-text="<?php if ( ! empty( $deal_text ) ) {
 							   echo $deal_text;
