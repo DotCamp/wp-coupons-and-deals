@@ -4,8 +4,9 @@
  *
  * @since 2.3
  */
-if(!function_exists('wpcd_coupon_thumbnail_img'))
-    include WPCD_Plugin::instance()->plugin_includes . 'functions/wpcd-coupon-thumbnail-img.php';
+if ( !function_exists( 'wpcd_coupon_thumbnail_img' ) ) {
+	include WPCD_Plugin::instance()->plugin_includes . 'functions/wpcd-coupon-thumbnail-img.php';
+}
 
 
 global $coupon_id;
@@ -159,7 +160,7 @@ $template = new WPCD_Template_Loader();
         </div>
         <div class="wpcd-coupon-six-img-and-btn">
             <div class="item-img">
-                <img  src="<?php echo empty( $coupon_thumbnail ) ? $wpcd_dummy_coupon_img : $coupon_thumbnail; ?>" alt="Coupon">
+                <img src="<?php echo $coupon_thumbnail; ?>" alt="Coupon">
             </div>
             <div>
 				<?php if ( $coupon_type === 'Coupon' ): ?>
