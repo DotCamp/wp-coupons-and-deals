@@ -131,7 +131,7 @@ $wpcd_show_coupon_popup = ! empty( $_GET['wpcd_coupon'] ) && $_GET['wpcd_coupon'
                     });
                 </script>
 	            <?php if ( $wpcd_enable_goto_button === 'on' ) { ?>
-                    <a target="_blank" class="wpcd_popup-go-link" href="<?php echo $link; ?>">
+                    <a target="_blank" rel="nofollow" class="wpcd_popup-go-link" href="<?php echo $link; ?>">
 			            <?php
 
 			            if ( ! empty( $wpcd_custom_goto ) ) {
