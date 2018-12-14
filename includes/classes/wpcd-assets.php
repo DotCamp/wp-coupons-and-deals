@@ -153,7 +153,7 @@ class WPCD_Assets {
 	 */
 	public static function wpcd_scripts() {
 
-		wp_register_script( 'wpcd-main-js', WPCD_Plugin::instance()->plugin_assets . 'js/main.js', array( 'jquery' ), WPCD_Plugin::PLUGIN_VERSION, true );
+		wp_register_script( 'wpcd-main-js', WPCD_Plugin::instance()->plugin_assets . 'js/main.js', array( 'jquery' ), WPCD_Plugin::PLUGIN_VERSION, false );
 		wp_register_script( 'wpcd-clipboardjs', WPCD_Plugin::instance()->plugin_assets . 'js/clipboard.min.js', null, WPCD_Plugin::PLUGIN_VERSION, false );
 
 		wp_enqueue_script( 'wpcd-main-js' );
