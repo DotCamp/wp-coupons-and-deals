@@ -20,6 +20,7 @@ class WPCD_AJAX {
         foreach ( $ajax_events as $ajax_event => $status ) {
             if ( $status ) {
                 add_action( 'wp_ajax_wpcd_' . $ajax_event, array( __CLASS__, $ajax_event ) );
+                add_action( 'wp_ajax_nopriv_wpcd_' . $ajax_event, array( __CLASS__, $ajax_event ) );
             }
         }
     }
