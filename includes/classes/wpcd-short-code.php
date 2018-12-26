@@ -102,6 +102,7 @@ class WPCD_Short_Code {
 			$coupon_type     = get_post_meta( $coupon_id, 'coupon_details_coupon-type', true );
 
 			if ( $coupon_type === 'Image' ) {
+
 				ob_start();
 
 				$template->get_template_part( 'shortcode-image' );
@@ -111,6 +112,7 @@ class WPCD_Short_Code {
 				wp_reset_postdata();
 
 				return $output;
+
 			}
 
 			// Hide expired coupon feature (default is Not to hide).
@@ -187,6 +189,15 @@ class WPCD_Short_Code {
 					// Return Variables.
 					$output = ob_get_clean();
 
+				} else if ( $coupon_template == 'Alternative' ) {
+
+					ob_start();
+
+					$template->get_template_part( 'shortcode-alternative' );
+
+					// Return Variables.
+					$output = ob_get_clean();
+
 				} else {
 
 					ob_start();
@@ -195,13 +206,27 @@ class WPCD_Short_Code {
 
 					$output = ob_get_clean();
 				}
+
 			} else {
 
-				ob_start();
+				if ( $coupon_template == 'Alternative' ) {
 
-				$template->get_template_part( 'shortcode-default' );
+					ob_start();
 
-				$output = ob_get_clean();
+					$template->get_template_part( 'shortcode-alternative' );
+
+					// Return Variables.
+					$output = ob_get_clean();
+
+				} else {
+
+					ob_start();
+
+					$template->get_template_part( 'shortcode-default' );
+
+					$output = ob_get_clean();
+
+				}
 
 			}
 
@@ -388,20 +413,20 @@ class WPCD_Short_Code {
 				// vertical style.
 				$coupon_template = 'shortcode-archive__premium_only';
 			} else {
-                            switch ($temp) {
-                                case 'one':
-                                    $coupon_template = 'shortcode-archive-one__premium_only';
-                                    break;
-                                case 'two':
-                                    $coupon_template = 'shortcode-archive-two__premium_only';
-                                    break;
-                                case 'three':
-                                    $coupon_template = 'shortcode-archive-three__premium_only';
-                                    break;
-                                default :
-                                    $coupon_template = 'shortcode-archive-default__premium_only';
-                                    break;
-                            }
+                switch ($temp) {
+                    case 'one':
+                        $coupon_template = 'shortcode-archive-one__premium_only';
+                        break;
+                    case 'two':
+                        $coupon_template = 'shortcode-archive-two__premium_only';
+                        break;
+                    case 'three':
+                        $coupon_template = 'shortcode-archive-three__premium_only';
+                        break;
+                    default :
+                        $coupon_template = 'shortcode-archive-default__premium_only';
+                        break;
+                }
 			}
 
 			// the loop.
@@ -467,7 +492,7 @@ class WPCD_Short_Code {
 		if ( $temp == '' ) { // vertical style
 			$coupon_template = 'shortcode-category__premium_only';
 		} else {  
-			switch ($temp){
+			switch ($temp) {
 				case 'one':
 					$coupon_template = 'shortcode-category-one__premium_only';
 					break;
@@ -478,7 +503,7 @@ class WPCD_Short_Code {
                     $coupon_template = 'shortcode-category-three__premium_only';
                     break;
 				default :
-					$coupon_template = 'shortcode-category-default__premium_only';								
+					$coupon_template = 'shortcode-category-default__premium_only';		
 					break;						
 			}
 		}

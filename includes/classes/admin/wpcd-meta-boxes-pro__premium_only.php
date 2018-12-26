@@ -153,12 +153,12 @@ class WPCD_Meta_Boxes_Pro {
 				'type'  => 'expiretime',
 				'help'  => __( 'Choose expiration time of the coupon.', 'wpcd-coupon' )
 			),
-                        array(
-                                'id'    => 'never-expire-check',
-                                'label' => __('Never expire', 'wpcd-coupon'),
-                                'type'  => 'neverexpire-checkbox',
-                                'help'  => __( 'Check this if the coupon never expires.', 'wpcd-coupon' )
-                        ),
+            array(
+                'id'    => 'never-expire-check',
+                'label' => __('Never expire', 'wpcd-coupon'),
+                'type'  => 'neverexpire-checkbox',
+            	'help'  => __( 'Check this if the coupon never expires.', 'wpcd-coupon' )
+            ),
 			array(
 				'id'      => 'hide-coupon',
 				'label'   => __( 'Hide Coupon', 'wpcd-coupon' ),
@@ -192,6 +192,7 @@ class WPCD_Meta_Boxes_Pro {
 				'help'    => __( 'Choose coupon shortcode template.', 'wpcd-coupon' ),
 				'options' => array(
 					'Default',
+					'Alternative',
 					'Template One',
 					'Template Two',
 					'Template Three',
@@ -539,17 +540,17 @@ class WPCD_Meta_Boxes_Pro {
 		}
                 
 		foreach ( $this->wpcd_fields as $wpcd_field ) {    
-                        if ( isset( $_POST[ $wpcd_field['id'] ] ) ) {
+            if ( isset( $_POST[ $wpcd_field['id'] ] ) ) {
 				switch ( $wpcd_field['type'] ) {
 					case 'email':
 						$_POST[ $wpcd_field['id'] ] = sanitize_email( $_POST[ $wpcd_field['id'] ] );
 						break;
 					case 'text':
-                                                if($wpcd_field['id'] == 'link')
-                                                    $_POST[ $wpcd_field['id'] ] = esc_url( $_POST[ $wpcd_field['id'] ] );
-                                                else
-                                                    $_POST[ $wpcd_field['id'] ] = sanitize_text_field( $_POST[ $wpcd_field['id'] ] );
-                                                break;
+                        if ( $wpcd_field['id'] == 'link' )
+                            $_POST[ $wpcd_field['id'] ] = esc_url( $_POST[ $wpcd_field['id'] ] );
+                        else
+                            $_POST[ $wpcd_field['id'] ] = sanitize_text_field( $_POST[ $wpcd_field['id'] ] );
+                        break;
 				}
 				update_post_meta( $post_id, 'coupon_details_' . $wpcd_field['id'], $_POST[ $wpcd_field['id'] ] );
 			} else if ( $wpcd_field['type'] === 'checkbox' ||  
