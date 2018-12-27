@@ -46,6 +46,14 @@ $wpcd_coupon_image_id      = get_post_meta( $coupon_id, 'coupon_details_coupon-i
 $wpcd_coupon_image_src     = wp_get_attachment_image_src( $wpcd_coupon_image_id, 'full' );
 $wpcd_show_print           = get_post_meta( $coupon_id, 'coupon_details_coupon-image-print', true );
 $disable_menu              = get_option( 'wpcd_disable-menu-archive-code' );
+$coupon_categories         = get_the_terms( $coupon_id, 'wpcd_coupon_category' );
+$coupon_categories_class   = '';
+
+if(count($coupon_categories) > 0){
+    foreach($coupon_categories as $category){
+        $coupon_categories_class .= ' '.$category->slug;
+    }
+}
 
 $template = new WPCD_Template_Loader();
 if ( is_array( $wpcd_coupon_image_src ) ) {
@@ -106,13 +114,13 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
 	?>
         <ul id="wpcd_cat_ul">
             <li>
-                <a href="<?php echo $current_url; ?>">
+                <a class="wpcd_category" data-category="all" href="<?php echo $current_url; ?>">
                     <?php echo __( 'All Coupons', 'wpcd-coupon' ); ?>
                 </a>
             </li>
 			<?php foreach ( $terms as $term ): ?>
                 <li>
-                    <a href="<?php echo $current_url . '?wpcd_category=' . $term->slug; ?>"><?php echo $term->name; ?></a>
+                    <a class="wpcd_category" data-category="<?php echo $term->slug;?>" href="<?php echo $current_url . '?wpcd_category=' . $term->slug; ?>"><?php echo $term->name; ?></a>
                 </li>
 			<?php endforeach; ?>
         </ul>
@@ -123,7 +131,7 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
 
 		<?php endif; ?>
 
-        <li class="wpcd_coupon_li wpcd-coupon-id-<?php echo $coupon_id; ?>">
+        <li class="wpcd_coupon_li wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item <?php echo $coupon_categories_class; ?>">
             <?php
             if ( $hide_featured_image != 'on' ) {
                 if ( ! empty( $featured_img_url ) ) { ?>

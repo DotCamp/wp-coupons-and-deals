@@ -1,8 +1,17 @@
 // all coupons archive nav active
-jQuery(document).ready(function($){
-    $.each($('#wpcd_cat_ul > li'), function() {
+jQuery(document).ready(function ($) {
+    $.each($('#wpcd_cat_ul > li'), function () {
         if ($(this).children('a').attr('href') === window.location.href) {
             $(this).children('a').addClass('active');
+        }
+    });
+    $('#wpcd_cat_ul .wpcd_category').on('click', function (e) {
+        e.preventDefault();
+        if ($(this).attr('data-category') !== 'all') {
+            $('.wpcd_item').hide();
+            $('.' + $(this).attr('data-category')).fadeIn();
+        } else {
+            $('.wpcd_item').fadeIn();
         }
     });
 });
@@ -35,49 +44,49 @@ jQuery(document).ready(function ($) {
     });
 });
 
-jQuery(document).ready(function($){
-    
+jQuery(document).ready(function ($) {
+
     // For social share
-    $('.fb-share,.tw-share,.go-share').click(function(e) {
+    $('.fb-share,.tw-share,.go-share').click(function (e) {
         e.preventDefault();
         window.open($(this).attr('href'), 'fbShareWindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 275) + ', left=' + ($(window).width() / 2 - 225) + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
         return false;
     });
-    
+
     /*
      * Vote System
      */
-    $('a[class^=wpcd-vote]').click(function(e){
+    $('a[class^=wpcd-vote]').click(function (e) {
         e.preventDefault();
-        var $this = $(this), 
+        var $this = $(this),
             coupon_id = $this.data('id'),
             meta = "up",
             el_sibling_percentage = $this.siblings(".wpcd-vote-percent"),
-            el_percentage = $('.wpcd-vote-percent[data-id='+coupon_id+']');
-        
-        if($this.hasClass("wpcd-vote-down")){
+            el_percentage = $('.wpcd-vote-percent[data-id=' + coupon_id + ']');
+
+        if ($this.hasClass("wpcd-vote-down")) {
             meta = "down";
         }
         var data = {
-			'action': 'wpcd_vote',
-			'meta' : meta, 
-			'coupon_id' : coupon_id,
-		};
+            'action': 'wpcd_vote',
+            'meta': meta,
+            'coupon_id': coupon_id,
+        };
 
-        jQuery.post(wpcd_object.ajaxurl, data, function(response) {
-                if(response === "Failed"){
-                    displayMsg(wpcd_main_js.vote_failed,el_percentage,2000);
-                }else if (response === "voted"){
-                    displayMsg(wpcd_main_js.vote_already,el_sibling_percentage,2000);
-                }else{
-                    displayMsg(wpcd_main_js.vote_success,el_percentage,2000);
-                    setTimeout(function(){
-                        displayMsg(response,el_percentage,0);
-                    },2000);
-                    
-                }
+        jQuery.post(wpcd_object.ajaxurl, data, function (response) {
+            if (response === "Failed") {
+                displayMsg(wpcd_main_js.vote_failed, el_percentage, 2000);
+            } else if (response === "voted") {
+                displayMsg(wpcd_main_js.vote_already, el_sibling_percentage, 2000);
+            } else {
+                displayMsg(wpcd_main_js.vote_success, el_percentage, 2000);
+                setTimeout(function () {
+                    displayMsg(response, el_percentage, 0);
+                }, 2000);
+
+            }
         });
-        
+
         /*
          * This function dispaly msg in a specific element for a little time
          * 
@@ -85,17 +94,17 @@ jQuery(document).ready(function($){
          * @param object 'el' is the element
          * @param int 'Time' is the time in milliSecond or 0 if this will be the text for ever
          */
-        function displayMsg(Msg,el,Time = 0){
-            
-            if(typeof(el) === "object"){
-                if(Time === 0){
+        function displayMsg(Msg, el, Time = 0) {
+
+            if (typeof(el) === "object") {
+                if (Time === 0) {
                     el.html(Msg);
-                }else{
+                } else {
                     var old_text = el.html();
                     el.html(Msg);
-                    setTimeout(function(){
+                    setTimeout(function () {
                         el.html(old_text);
-                    },Time);
+                    }, Time);
                 }
             }
         }
