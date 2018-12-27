@@ -1562,7 +1562,7 @@ p.wpcd-coupon-four-expired {
 
 .wpcd_coupon_li_inner {
     padding: 15px;
-    height: calc( 100% - 188px);
+    height: calc(100% - 188px);
 }
 
 .wpcd_coupon_li_title {
@@ -1780,7 +1780,7 @@ Coupon Button Hidden
 }
 
 .wpcd_coupon_li_content {
-    height: calc( 100% - 250px);
+    height: calc(100% - 250px);
     border: 1px solid #eeeeee;
     background-color: #f8f8f8;
     box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1);
@@ -1994,6 +1994,13 @@ Coupon Button Hidden
     text-align: right;
 }
 
+@media screen and (min-width: 980px) {
+    .wpcd-new-grid-container {
+        grid-template-columns: 0.5fr 1.5fr 0.75fr;
+        grid-template-rows: 1fr;
+    }
+}
+
 @media screen and (max-width: 980px) {
     #wpcd_coupon_ul li.wpcd_coupon_li {
         width: 48%;
@@ -2007,6 +2014,10 @@ Coupon Button Hidden
     .wpcd_coupon_btn_wr,
     .wpcd-coupon-code {
         text-align: right;
+    }
+    .wpcd-new-grid-container {
+        grid-template-columns: 0.5fr 1.5fr 0.75fr;
+        grid-template-rows: 1fr;
     }
 }
 
@@ -2064,6 +2075,10 @@ Coupon Button Hidden
     .wpcd-coupon-three h4 {
         text-align: center;
     }
+    .wpcd-new-grid-container {
+        grid-template-columns: 0.5fr 3fr;
+        grid-template-rows: 1fr;
+    }
 }
 
 
@@ -2100,12 +2115,18 @@ Coupon Button Hidden
         text-align: center;
         width: 100%;
     }
+    .wpcd-new-grid-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        text-align: center;
+        grid-row-gap: 1rem;
+    }
 }
 
 
 /* </fs_premium_only> */
 
-@media all and ( min-width: 600px) {
+@media all and (min-width: 600px) {
     .wpcd-col-2-3 {
         float: left;
         width: 66.66%;
@@ -2199,6 +2220,10 @@ Coupon Button Hidden
     .wpcd_coupon_popup_copy_code_wr span.wpcd_coupon_top_copy_span {
         font-size: 15px;
         line-height: 42px;
+    }
+    .wpcd-new-grid-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
     }
 }
 
@@ -2763,13 +2788,16 @@ div.wpcd-vote-wrapper div>img {
 .wpcd-new-grid-container {
     display: grid;
     background: transparent;
-    grid-template-columns: 0.5fr 1.5fr 0.75fr;
-    grid-template-rows: 1fr;
     margin: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 20px;
     box-shadow: 0px 1px 2px rgba(34, 34, 34, .2);
+}
+
+h1:not(.site-title):before,
+h2:before {
+    display: none;
 }
 
 .wpcd-new-grid-one {

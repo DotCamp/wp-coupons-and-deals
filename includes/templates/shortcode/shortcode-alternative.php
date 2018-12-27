@@ -7,7 +7,7 @@
 *
 */
 if ( ! defined( 'ABSPATH' ) ) {
-    exit;
+	exit;
 }
 
 /**
@@ -52,11 +52,11 @@ $no_expiry = ( !empty( $no_expiry ) ) ? $no_expiry : __( "Doesn't expire", 'wpcd
 $coupon_hover_text = ( ! empty( $coupon_hover_text ) ) ? $coupon_hover_text : __( 'Click To Copy Coupon', 'wpcd-coupon' );
 
 if ( $wpcd_text_to_show == 'description' ) {
-    $wpcd_custom_text = $description;
+	$wpcd_custom_text = $description;
 } else {
-    if ( empty( $wpcd_custom_text ) ) {
-        $wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wpcd-coupon' );
-    }
+	if ( empty( $wpcd_custom_text ) ) {
+		$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wpcd-coupon' );
+	}
 }
 
 wp_enqueue_script( 'wpcd-clipboardjs' );
@@ -65,76 +65,69 @@ $template = new WPCD_Template_Loader();
 ?>
 
 <div class="wpcd-new-grid-container">
+	<div class="wpcd-new-grid-one">
+		<div class="wpcd-new-discount-text">
+		   <?php echo $discount_text; ?>
+		</div>
 
-    <div class="wpcd-new-grid-one">
-
-        <div class="wpcd-new-discount-text">
-           <?php echo $discount_text; ?>
-        </div>
-
-        <?php if ( $coupon_type == 'Coupon' ) { ?>
-            <div class="wpcd-new-coupon-type">
-                <?php echo $dt_coupon_type_name; ?>
-            </div>
-        <?php } elseif ( $coupon_type == 'Deal' ) { ?>
-            <div class="wpcd-new-deal-type">
-                <?php echo $dt_deal_type_name; ?>
-            </div>
-        <?php }
-      
-        if ( $show_expiration == 'Show' ) {
-            if ( ! empty( $expire_date ) ) {
-                if ( strtotime( $expire_date ) >= strtotime( $today ) ) { ?>
-                    <p class="wpcd-new-expire-text">
-                        <?php echo $expire_text . ' ' . $expire_date; ?>
-                    </p> <?php
-                } elseif ( strtotime( $expire_date ) < strtotime( $today ) ) { ?>
-                    <p class="wpcd-new-expired-text">
-                        <?php echo $expired_text . ' ' . $expire_date; ?>
-                    </p> <?php
-                }
-            } else { ?>
-                <p class="wpcd-new-expire-text">
-                    <?php echo $no_expiry; ?>
-                </p> <?php
-            }
-        } else {
-            echo '';
-        } ?>
-
-   </div>
+		<?php if ( $coupon_type == 'Coupon' ) { ?>
+			<div class="wpcd-new-coupon-type">
+				<?php echo $dt_coupon_type_name; ?>
+			</div>
+		<?php } elseif ( $coupon_type == 'Deal' ) { ?>
+			<div class="wpcd-new-deal-type">
+				<?php echo $dt_deal_type_name; ?>
+			</div>
+		<?php }
+		if ( $show_expiration == 'Show' ) {
+			if ( ! empty( $expire_date ) ) {
+				if ( strtotime( $expire_date ) >= strtotime( $today ) ) { ?>
+					<p class="wpcd-new-expire-text">
+						<?php echo $expire_text . ' ' . $expire_date; ?>
+					</p> <?php
+				} elseif ( strtotime( $expire_date ) < strtotime( $today ) ) { ?>
+					<p class="wpcd-new-expired-text">
+						<?php echo $expired_text . ' ' . $expire_date; ?>
+					</p> <?php
+				}
+			} else { ?>
+				<p class="wpcd-new-expire-text">
+					<?php echo $no_expiry; ?>
+				</p> <?php
+			}
+		} else {
+			echo '';
+		} ?>
+   </div> <!-- End of grid-one -->
 
    <div class="wpcd-new-grid-two">
-
-       <?php
-        if ( 'on' === $disable_coupon_title_link ) { ?>
-            <<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-new-title">
-                <?php echo $title; ?>
-            </<?php echo esc_html( $coupon_title_tag ); ?>> <?php
-        } else { ?>
-            <<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-new-title">
-                <a href="<?php echo esc_url( $link ); ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
-            </<?php echo esc_html( $coupon_title_tag ); ?>> <?php
-        }
-       ?>
-
-        <div class="wpcd-coupon-description">
-            <span class="wpcd-full-description"><?php echo $description; ?></span>
-            <span class="wpcd-short-description"></span>
-            <a href="#" class="wpcd-more-description"><?php echo __( 'More', 'wpcd-coupon' ); ?></a>
-            <a href="#" class="wpcd-less-description"><?php echo __( 'Less', 'wpcd-coupon' ); ?></a>
-        </div>
-
-    </div>
-    <div class="wpcd-new-grid-three">
-        <a class="wpcd-new-coupon-code <?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank" data-clipboard-text="<?php echo $coupon_code; ?>" title="<?php echo $coupon_hover_text; ?>">
-           <?php echo $coupon_code; ?>
-        </a>
-        <a class="wpcd-new-goto-button" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank">
-           GO TO THE DEAL
-        </a>
-    </div>
-    <script type="text/javascript">
-        var clip = new Clipboard('.<?php echo $button_class; ?>');
-    </script>
+	   <?php
+		if ( 'on' === $disable_coupon_title_link ) { ?>
+			<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-new-title">
+				<?php echo $title; ?>
+			</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
+		} else { ?>
+			<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-new-title">
+				<a href="<?php echo esc_url( $link ); ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
+			</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
+		}
+	   ?>
+		<div class="wpcd-coupon-description">
+			<span class="wpcd-full-description"><?php echo $description; ?></span>
+			<span class="wpcd-short-description"></span>
+			<a href="#" class="wpcd-more-description"><?php echo __( 'More', 'wpcd-coupon' ); ?></a>
+			<a href="#" class="wpcd-less-description"><?php echo __( 'Less', 'wpcd-coupon' ); ?></a>
+		</div>
+	</div> <!-- End of grid-two -->
+	<div class="wpcd-new-grid-three">
+		<a class="wpcd-new-coupon-code <?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank" data-clipboard-text="<?php echo $coupon_code; ?>" title="<?php echo $coupon_hover_text; ?>">
+		   <?php echo $coupon_code; ?>
+		</a>
+		<a class="wpcd-new-goto-button" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank">
+		   GO TO THE DEAL
+		</a>
+	</div><!-- End of grid-three -->
+	<script type="text/javascript">
+		var clip = new Clipboard('.<?php echo $button_class; ?>');
+	</script>
 </div>
