@@ -49,7 +49,7 @@ $disable_menu              = get_option( 'wpcd_disable-menu-archive-code' );
 $coupon_categories         = get_the_terms( $coupon_id, 'wpcd_coupon_category' );
 $coupon_categories_class   = '';
 
-if(count($coupon_categories) > 0){
+if($coupon_categories && count($coupon_categories) > 0){
     foreach($coupon_categories as $category){
         $coupon_categories_class .= ' '.$category->slug;
     }
