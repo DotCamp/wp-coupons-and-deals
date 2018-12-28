@@ -2076,7 +2076,7 @@ Coupon Button Hidden
         text-align: center;
     }
     .wpcd-new-grid-container {
-        grid-template-columns: 0.5fr 3fr;
+        grid-template-columns: 0.5fr 1.5fr 0.75fr;
         grid-template-rows: 1fr;
     }
 }
