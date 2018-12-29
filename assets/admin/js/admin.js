@@ -55,10 +55,10 @@ jQuery(document).ready(function ($) {
 
 
     hide_coupon.on('change', onHideCouponFieldChange);
-    
+
     //on neverexpire checkbox change
     $(never_expire_check).on('change', onNeverExpireCheckboxChange);
-    
+
     //on featured image set
     wp.media.featuredImage.frame().on('select', function () {
         var frame = wp.media.featuredImage.frame();
@@ -200,8 +200,8 @@ jQuery(document).ready(function ($) {
             coupon_hidden.hide();
             coupon_not_hidden.show();
         }
-        
-        if(never_expire_check.prop('checked')){
+
+        if (never_expire_check.prop('checked')) {
             $('b.expires-on').toggle();
             $('b.never-expire').toggle();
         }
@@ -280,12 +280,12 @@ jQuery(document).ready(function ($) {
             coupon_not_hidden.show();
         }
     }
-    
-    function onNeverExpireCheckboxChange(){
+
+    function onNeverExpireCheckboxChange() {
         var checked = $(this).prop('checked');
         $('b.expires-on').toggle();
         $('b.never-expire').toggle();
-        
+
     }
 
     function updateTemplateFiveTheme(color) {
@@ -436,34 +436,34 @@ jQuery(document).ready(function ($) {
                 },
                 onChange: function (hsb, hex, rgb) {
                     $this = $('#' + this.data('targetid'));
-                    
+
                     $this.children('div').css('backgroundColor', '#' + hex);
                     $this.children('input').val('#' + hex);
                     $this.children('input').trigger('change');
                 }
             });
         }
-    
+
     /**
      *  color Picker for import Page
      */
     var select_temp_import = $('select[name="wpcd_default_template"]');
-    if(select_temp_import.length){
-        function is_temp_has_color(){
+    if (select_temp_import.length) {
+        function is_temp_has_color() {
             var selected_theme = $('select[name="wpcd_default_template"]').val();
-            
+
             // Template Five and Six has color picker
-            if(selected_theme == 'Template Five' || 
-                    selected_theme == 'Template Six'){
+            if (selected_theme == 'Template Five' ||
+                selected_theme == 'Template Six') {
                 $('#wpcd_import_color_parent').show();
-            }else{
+            } else {
                 $('#wpcd_import_color_parent').hide();
             }
         }
         is_temp_has_color();
-        
-        select_temp_import.change(function(){
-           is_temp_has_color();
+
+        select_temp_import.change(function () {
+            is_temp_has_color();
         });
     }
     /**
@@ -513,7 +513,7 @@ jQuery(document).ready(function ($) {
     //for category
     window.coupons_style_category_select = $('#coupons_style_category_select');
     window.coupons_template_category_select = $('#coupons_template_category_select');
-    
+
     //for vendor
     window.coupons_style_vendor_select = $('#coupons_style_vendor_select');
     window.coupons_template_vendor_select = $('#coupons_template_vendor_select');
@@ -599,7 +599,7 @@ jQuery(document).ready(function ($) {
         //resize the window
         thickbox_resize();
     });
-    
+
 });
 
 
@@ -709,7 +709,7 @@ jQuery(document).ready(function ($) {
             var mousex = e.pageX + 20;
             var mousey = e.pageY + 10;
             $('.tooltip')
-                .css({top: mousey, left: mousex})
+                .css({ top: mousey, left: mousex })
         });
     });
 });
@@ -723,7 +723,7 @@ function thickbox_resize() {
             var $ajax_content = $("#TB_ajaxContent");
             $thickbox.height((coupon_inserter_height - 20));
             $ajax_content.height((coupon_inserter_height));
-            $ajax_content.css({'width': '100%', 'padding': '0'});
+            $ajax_content.css({ 'width': '100%', 'padding': '0' });
         }
     });
 }
@@ -869,6 +869,7 @@ jQuery(document).ready(function ($) {
 jQuery(document).ready(function ($) {
     var templates = {
         DEFAULT: 'Default',
+        ALTERNATIVE: 'Alternative',
         ONE: 'Template One',
         TWO: 'Template Two',
         THREE: 'Template Three',
@@ -884,6 +885,7 @@ jQuery(document).ready(function ($) {
     var previewWrap = $('#coupon_preview');
     var couponPreview = previewWrap.find('.wpcd-coupon-preview');
     var couponDefault = $('.wpcd-coupon');
+    var couponAlternative = $('.wpcd-coupon-alternative');
     var couponOne = $('.wpcd-coupon-one');
     var couponTwo = $('.wpcd-coupon-two');
     var couponThree = $('.wpcd-coupon-three');
@@ -910,7 +912,11 @@ jQuery(document).ready(function ($) {
             couponImage.show("slow");
         } else if (currentTemplate === templates.DEFAULT) {
             couponDefault.show('slow');
-        } else if (currentTemplate === templates.ONE) {
+        }
+        else if (currentTemplate === templates.ALTERNATIVE) {
+            couponAlternative.show('slow');
+        }
+        else if (currentTemplate === templates.ONE) {
             couponOne.show("slow");
         } else if (currentTemplate === templates.TWO) {
             couponTwo.show("slow");
