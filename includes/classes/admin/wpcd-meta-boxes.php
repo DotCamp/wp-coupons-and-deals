@@ -282,7 +282,9 @@ class WPCD_Meta_Boxes {
 				$tr_class = $wpcd_field['tr_class'];
 			}
 			$type     = $wpcd_field['type'];
-			$label    = '<label for="' . $wpcd_field['id'] . '">' . $wpcd_field['label'] . '</label>';
+            $label    = '<label for="' . $wpcd_field['id'] . '">' . $wpcd_field['label'] . '</label>
+            <span data-tooltip="'.$wpcd_field['help'].'">
+            <span  class="dashicons dashicons-editor-help" ></span></span>';
 			$db_value = get_post_meta( $post->ID, 'coupon_details_' . $wpcd_field['id'], true );
 			switch ( $wpcd_field['type'] ) {
 
