@@ -283,69 +283,62 @@ class WPCD_Meta_Boxes {
 			}
 			$type     = $wpcd_field['type'];
             $label    = '<label for="' . $wpcd_field['id'] . '">' . $wpcd_field['label'] . '</label>
-            <span data-tooltip="'.$wpcd_field['help'].'">
+            <span wpcd-data-tooltip="'.$wpcd_field['help'].'">
             <span  class="dashicons dashicons-editor-help" ></span></span>';
 			$db_value = get_post_meta( $post->ID, 'coupon_details_' . $wpcd_field['id'], true );
 			switch ( $wpcd_field['type'] ) {
 
 				case 'dealtext':
 					$input = sprintf(
-						'<input type="text" name="%s" id="%s" value="%s"/><br><i style="font-size: 12px">%s</i>',
+						'<input type="text" name="%s" id="%s" value="%s"/>',
 						$wpcd_field['id'],
 						$wpcd_field['id'],
-						$db_value,
-						$wpcd_field['help']
-
+						$db_value
 					);
 					break;
 
 				case 'buttontext':
 					$input = sprintf(
-						'<input type="text" name="%s" id="%s" value="%s"/><br><i style="font-size: 12px">%s</i>',
+						'<input type="text" name="%s" id="%s" value="%s"/>',
 						$wpcd_field['id'],
 						$wpcd_field['id'],
-						$db_value,
-						$wpcd_field['help']
+						$db_value
 					);
 					break;
 				case 'temp4-buttontext':
 					$input = sprintf(
-						'<input type="text" name="%s" id="%s" value="%s"/><br><i style="font-size: 12px">%s</i>',
+						'<input type="text" name="%s" id="%s" value="%s"/>',
 						$wpcd_field['id'],
 						$wpcd_field['id'],
-						$db_value,
-						$wpcd_field['help']
+						$db_value
 					);
 					break;
 
 				case 'temp4-text':
 					$input = sprintf(
-						'<input %s id="%s" name="%s" type="%s" value="%s"><br><i style="font-size: 12px">%s</i>',
+						'<input %s id="%s" name="%s" type="%s" value="%s">',
 						$wpcd_field['type'] !== 'color' ? 'class="regular-text"' : '',
 						$wpcd_field['id'],
 						$wpcd_field['id'],
 						'text',
-						$db_value,
-						$wpcd_field['help']
+						$db_value
 					);
 					break;
 				case 'date':
 					$input = sprintf(
-						'<input type="%s" name="%s" id="%s" value="%s" /><br><i style="font-size: 12px">%s</i>',
+						'<input type="%s" name="%s" id="%s" value="%s" />',
 						$wpcd_field['type'],
 						$wpcd_field['id'],
 						$wpcd_field['id'],
-						$db_value,
-						$wpcd_field['help']
+						$db_value
 					);
 					break;
 
 				case 'select':
 					$input = sprintf(
-						'<select id="%s" name="%s"><br><i style="font-size: 12px">%s</i>',
+						'<select id="%s" name="%s">',
 						$wpcd_field['id'],
-						$wpcd_field['id'],
-						$wpcd_field['help']
+						$wpcd_field['id']
 					);
 					foreach ( $wpcd_field['options'] as $key => $value ) {
 						$field_value = ! is_numeric( $key ) ? $key : $value;
@@ -378,60 +371,54 @@ class WPCD_Meta_Boxes {
 							'textarea_name' => "description"
 						);
 						wp_editor( $db_value, 'description' ,$settings);
-						echo '<br><i style="font-size: 12px">' . $wpcd_field["help"] . '</i>';
 						$input = ob_get_clean();
 					else:
 						$input = sprintf(
-							'<textarea class="large-text" id="%s" name="%s" rows="5">%s</textarea><br><i style="font-size: 12px">%s</i>',
+							'<textarea class="large-text" id="%s" name="%s" rows="5">%s</textarea>',
 							$wpcd_field['id'],
 							$wpcd_field['id'],
-							$db_value,
-							$wpcd_field['help']
+							$db_value
 						);
 					endif;
 					break;
 
 				case 'expirationcheck':
 					$input = sprintf(
-						'<input type="checkbox" name="%s" id="%s" value="%s"/><br><i style="font-size: 12px">%s</i>',
+						'<input type="checkbox" name="%s" id="%s" value="%s"/>',
 						$wpcd_field['id'],
 						$wpcd_field['id'],
-						$db_value,
-						$wpcd_field['help']
+						$db_value
 					);
 					break;
 
 				case 'expiredate':
 					$input = sprintf(
-						'<input type="text" data-expiredate-format="%s" name="%s" id="%s" placeholder="%s" value="%s"/><br><i style="font-size: 12px">%s</i>',
+						'<input type="text" data-expiredate-format="%s" name="%s" id="%s" placeholder="%s" value="%s"/>',
 						$expire_date_format,
 						$wpcd_field['id'],
 						$wpcd_field['id'],
 						$expire_date_format,
-						$db_value,
-						$wpcd_field['help']
+						$db_value
 					);
 					break;
 
 				case 'temp4-expiredate':
 					$input = sprintf(
-						'<input type="text" data-expiredate-format="%s" name="%s" id="%s" placeholder="%s" value="%s"/><br><i style="font-size: 12px">%s</i>',
+						'<input type="text" data-expiredate-format="%s" name="%s" id="%s" placeholder="%s" value="%s"/>',
 						$expire_date_format,
 						$wpcd_field['id'],
 						$wpcd_field['id'],
 						$expire_date_format,
-						$db_value,
-						$wpcd_field['help']
+						$db_value
 					);
 					break;
 
 				case 'expiretime':
 					$input = sprintf(
-						'<input type="text" name="%s" id="%s" value="%s"/><br><i style="font-size: 12px">%s</i>',
+						'<input type="text" name="%s" id="%s" value="%s"/>',
 						$wpcd_field['id'],
 						$wpcd_field['id'],
-						$db_value,
-						$wpcd_field['help']
+						$db_value
 					);
 					break;
 
@@ -467,14 +454,13 @@ class WPCD_Meta_Boxes {
 					break;
 				default:
 					$input = sprintf(
-						'<input %s id="%s" name="%s" type="%s" value="%s" placeholder="%s"><br><i style="font-size: 12px">%s</i>',
+						'<input %s id="%s" name="%s" type="%s" value="%s" placeholder="%s">',
 						$wpcd_field['type'] !== 'color' ? 'class="regular-text"' : '',
 						$wpcd_field['id'],
 						$wpcd_field['id'],
 						$wpcd_field['type'],
 						$db_value,
-						( empty( $wpcd_field['placeholder'] ) ? '' : $wpcd_field['placeholder'] ),
-						( empty( $wpcd_field['help'] ) ? '' : $wpcd_field['help'] )
+						( empty( $wpcd_field['placeholder'] ) ? '' : $wpcd_field['placeholder'] )
 					);
 			}
 			$output .= $this->row_format( $type, $label, $input, $tr_class );

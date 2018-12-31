@@ -2602,19 +2602,19 @@ h2:before {
     color: red !important;
 }
 
-[data-tooltip] {
+[wpcd-data-tooltip] {
     position: relative;
     z-index: 2;
     cursor: pointer;
 }
-[data-tooltip] .dashicons {
+[wpcd-data-tooltip] .dashicons {
     font-size: 14px;
     padding-top: 4px;
     color: grey;
 }
 /* Hide the tooltip content by default */
-[data-tooltip]:before,
-[data-tooltip]:after {
+[wpcd-data-tooltip]:before,
+[wpcd-data-tooltip]:after {
     visibility: hidden;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
@@ -2623,7 +2623,7 @@ h2:before {
 }
 
 /* Position tooltip above the element */
-[data-tooltip]:before {
+[wpcd-data-tooltip]:before {
     position: absolute;
     bottom: 150%;
     left: 50%;
@@ -2637,14 +2637,14 @@ h2:before {
     background-color: #000;
     background-color: hsla(0, 0%, 20%, 0.9);
     color: #fff;
-    content: attr(data-tooltip);
+    content: attr(wpcd-data-tooltip);
     text-align: center;
     font-size: 11px;
     line-height: 1.2;
 }
 
 /* Triangle hack to make tooltip look like a speech bubble */
-[data-tooltip]:after {
+[wpcd-data-tooltip]:after {
     position: absolute;
     bottom: 150%;
     left: 50%;
@@ -2660,8 +2660,8 @@ h2:before {
 }
 
 /* Show tooltip content on hover */
-[data-tooltip]:hover:before,
-[data-tooltip]:hover:after {
+[wpcd-data-tooltip]:hover:before,
+[wpcd-data-tooltip]:hover:after {
     visibility: visible;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
