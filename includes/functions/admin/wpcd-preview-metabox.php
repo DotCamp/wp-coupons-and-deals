@@ -216,8 +216,9 @@ if ( $wpcd_text_to_show == 'description' ) {
 		</div>
 	</div>
 </div>
+
 <!-- Alternative Preview -->
-<div class="admin-wpcd-new-grid-container wpcd-coupon-preview wpcd-coupon-alternative">
+<div class="wpcd-coupon-preview wpcd-coupon-alternative admin-wpcd-new-grid-container">
 	<div class="admin-wpcd-new-grid-one">
 		<div class="admin-wpcd-new-discount-text wpcd-coupon-discount-text">
 		   <?php echo $discount_text; ?>
@@ -1335,7 +1336,7 @@ if ( $wpcd_text_to_show == 'description' ) {
 
 <!-- Template Seven Preview -->
 <section class="admin_wpcd_seven">
-	<div class="wpcd-coupon-preview admin_wpcd_seven_container wpcd-coupon-seven">
+	<div class="wpcd-coupon-preview wpcd-coupon-seven admin_wpcd_seven_container">
 		<div class="admin_wpcd_seven_couponBox">
 			<div class="admin_wpcd_seven_percentAndPic">
 				<div class="admin_wpcd_seven_percentOff">
@@ -1361,8 +1362,7 @@ if ( $wpcd_text_to_show == 'description' ) {
 					}?>
 					<p><?php echo wpautop( $description, false );?></p>
 					<div class="admin_wpcd_seven_expire" style="border-color:">
-					<p>
-			
+						<p>
 							<?php
 							if ( ! empty( $expire_text ) ) {
 								echo $expire_text;
@@ -1408,19 +1408,17 @@ if ( $wpcd_text_to_show == 'description' ) {
 									$clock2.countdown(selectedDate.toString());
 								});
 							</script>
-			
-						<b class="never-expire" style="display: none;">
-							<?php if ( ! empty( $no_expiry ) ) : ?>
-									<b><?php echo $no_expiry; ?></b>
-							<?php else : ?>
-									<b><?php echo __( "Doesn't expire", 'wpcd-coupon' ); ?></b>
-							<?php endif; ?>
+						
+							<b class="never-expire" style="display: none;">
+								<?php if ( ! empty( $no_expiry ) ) : ?>
+										<b><?php echo $no_expiry; ?></b>
+								<?php else : ?>
+										<b><?php echo __( "Doesn't expire", 'wpcd-coupon' ); ?></b>
+								<?php endif; ?>
 
-						</b>
-					</p>
-				</div>
-								
-					<!-- End of class wpcd_seven_expire -->
+							</b>
+						</p>
+					</div>
 				</div>		
 			</div>
 			<div class="admin_wpcd_seven_buttonSociaLikeDislike">
