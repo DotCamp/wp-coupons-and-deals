@@ -2419,20 +2419,20 @@ h2:before {
 
 /*Basic*/
 
-.admin_wpcd_container {
+.admin_wpcd_seven_container {
     width: 960px;
     height: auto;
     margin: 0 auto;
 }
 
-.admin_wpcd_couponBox {
+.admin_wpcd_seven_couponBox {
     width: 100%;
     height: 320px;
     border: 2px solid #9b59b6;
-    margin-top: 150px;
+    margin-top: 20px;
 }
 
-.admin_wpcd_clearfix {
+.admin_wpcd_seven_clearfix {
     content: ' ';
     display: table;
     clear: both;
@@ -2441,13 +2441,13 @@ h2:before {
 
 /*Percent and Product Picture*/
 
-.admin_wpcd_percentAndPic {
+.admin_wpcd_seven_percentAndPic {
     width: 30%;
     height: 150px;
     float: left;
 }
 
-.admin_wpcd_percentOff {
+.admin_wpcd_seven_percentOff {
     width: 80%;
     height: 60px;
     background: #9b59b6;
@@ -2456,7 +2456,7 @@ h2:before {
     position: relative;
 }
 
-.admin_wpcd_percentOff p {
+.admin_wpcd_seven_percentOff p {
     font-size: 40px;
     text-align: center;
     color: #fff;
@@ -2464,7 +2464,7 @@ h2:before {
     text-shadow: 2px 2px 5px rgb(57, 57, 57);
 }
 
-.admin_wpcd_percentOff:after {
+.admin_wpcd_seven_percentOff:after {
     position: absolute;
     content: ' ';
     top: 50%;
@@ -2476,7 +2476,7 @@ h2:before {
     border-bottom: 30px solid transparent;
 }
 
-.admin_wpcd_productPic img {
+.admin_wpcd_seven_productPic img {
     width: 175px;
     height: 175px;
     margin: 30px 0 0 40px;
@@ -2486,31 +2486,31 @@ h2:before {
 
 /*Heading and Expire Date*/
 
-.admin_wpcd_headingAndExpire {
+.admin_wpcd_seven_headingAndExpire {
     width: 45%;
     height: 100%;
     float: left;
 }
 
-.admin_wpcd_heading {
+.admin_wpcd_seven_heading {
     margin-top: 15px;
     padding: 15px;
 }
 
-.admin_wpcd_heading h2 {
+.admin_wpcd_seven_heading h2 {
     font-size: 26px;
 }
 
-.admin_wpcd_heading p {
+.admin_wpcd_seven_heading p {
     font-size: 18px;
     margin-top: 15px;
 }
 
-.admin_wpcd_heading p:nth-child(4) {
+.admin_wpcd_seven_heading p:nth-child(4) {
     display: none;
 }
 
-.admin_wpcd_expire {
+.admin_wpcd_seven_expire {
     width: 95%;
     height: 20%;
     margin: 15px auto 0 auto;
@@ -2518,31 +2518,31 @@ h2:before {
     border-bottom: 2px dashed;
 }
 
-.admin_wpcd_expire p {
+.admin_wpcd_seven_expire p {
     font-size: 16px;
     padding: 1% 0;
 }
 
-.admin_wpcd_desc {
+.admin_wpcd_seven_desc {
     display: none;
 }
 
 
 /*Button, Social Site and Like Dislike*/
 
-.admin_wpcd_buttonSociaLikeDislike {
+.admin_wpcd_seven_buttonSociaLikeDislike {
     width: 25%;
     height: 100%;
     float: left;
 }
 
-.admin_wpcd_btn {
+.admin_wpcd_seven_btn {
     text-transform: uppercase;
     margin-top: 15%;
     margin-left: 20%;
 }
 
-.admin_wpcd_btn a {
+.admin_wpcd_seven_btn a {
     text-decoration: none;
     font-size: 20px;
     transform-style: preserve-3d;
@@ -2550,7 +2550,7 @@ h2:before {
     transition: .5s;
 }
 
-.admin_wpcd_btn a:before {
+.admin_wpcd_seven_btn a:before {
     content: attr(title);
     position: absolute;
     top: 0;
@@ -2564,7 +2564,7 @@ h2:before {
     transform: translateX(-100%) rotateY(90deg);
 }
 
-.admin_wpcd_btn a:after {
+.admin_wpcd_seven_btn a:after {
     content: attr(title);
     position: absolute;
     top: 0;
@@ -2578,20 +2578,20 @@ h2:before {
     transform: translateX(0) rotateY(0deg);
 }
 
-.admin_wpcd_btn a:hover:before {
+.admin_wpcd_seven_btn a:hover:before {
     transform: translateX(0) rotateY(0deg);
 }
 
-.admin_wpcd_btn a:hover:after {
+.admin_wpcd_seven_btn a:hover:after {
     transform: translateX(100%) rotateY(90deg);
 }
 
-.admin_wpcd_social {
+.admin_wpcd_seven_social {
     margin-top: 70px;
     margin-left: 40px;
 }
 
-.admin_wpcd_social ul li {
+.admin_wpcd_seven_social ul li {
     width: 40px;
     height: 40px;
     list-style: none;
@@ -2601,16 +2601,16 @@ h2:before {
     margin-right: 10%;
 }
 
-.admin_wpcd_social ul li:last-child {
+.admin_wpcd_seven_social ul li:last-child {
     margin-right: 0;
 }
 
-.admin_wpcd_likeDislike {
+.admin_wpcd_seven_likeDislike {
     margin-top: 20%;
     margin-left: 25%;
 }
 
-.admin_wpcd_likeDislike ul li {
+.admin_wpcd_seven_likeDislike ul li {
     /*   width: 40px;
      height:40px; */
     list-style: none;
@@ -2619,49 +2619,49 @@ h2:before {
     font-size: 30px;
 }
 
-.admin_wpcd_likeDislike ul li:first-child {
+.admin_wpcd_seven_likeDislike ul li:first-child {
     color: #00ff31;
 }
 
-.admin_wpcd_likeDislike ul li:last-child {
+.admin_wpcd_seven_likeDislike ul li:last-child {
     margin-right: 0;
     transform: rotate(180deg);
     color: #d60000;
 }
 
-.admin_wpcd_social ul li .fav {
+.admin_wpcd_seven_social ul li .fav {
     background: #4267B2;
     color: #fff;
     border-radius: 50%;
 }
 
-.admin_wpcd_social ul li .fav:hover {
+.admin_wpcd_seven_social ul li .fav:hover {
     background: #fff;
     color: #4267B2;
     border-radius: 50%;
     border: 2px solid #4267B2;
 }
 
-.admin_wpcd_social ul li .twi {
+.admin_wpcd_seven_social ul li .twi {
     background: #1DA1F2;
     color: #fff;
     border-radius: 50%;
 }
 
-.admin_wpcd_social ul li .twi:hover {
+.admin_wpcd_seven_social ul li .twi:hover {
     background: #fff;
     color: #1DA1F2;
     border-radius: 50%;
     border: 2px solid #1DA1F2;
 }
 
-.admin_wpcd_social ul li .gogl {
+.admin_wpcd_seven_social ul li .gogl {
     background: #C55247;
     color: #fff;
     border-radius: 50%;
 }
 
-.admin_wpcd_social ul li .gogl:hover {
+.admin_wpcd_seven_social ul li .gogl:hover {
     background: #fff;
     color: #C55247;
     border-radius: 50%;

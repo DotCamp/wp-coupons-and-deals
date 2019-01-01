@@ -52,6 +52,9 @@ $disable_coupon_title_link = get_option( 'wpcd_disable-coupon-title-link' );
 $coupon_title_tag          = get_option( 'wpcd_coupon-title-tag', 'h1' );
 $dt_coupon_type_name       = get_option( 'wpcd_dt-coupon-type-text' );
 
+/** Seven Template Variables */
+$never_expire              = get_post_meta( $coupon_id, 'coupon_details_never-expire-check', true );
+
 if ( $wpcd_text_to_show == 'description' ) {
 	$wpcd_custom_text = $description;
 } else {
@@ -1332,42 +1335,102 @@ if ( $wpcd_text_to_show == 'description' ) {
 
 <!-- Template Seven Preview -->
 <section class="admin_wpcd_seven">
- 	<div class="wpcd-coupon-preview admin_wpcd_container wpcd-coupon-seven">
- 		<div class="admin_wpcd_couponBox">
- 			<div class="admin_wpcd_percentAndPic">
- 				<div class="admin_wpcd_percentOff">
- 					<p><?php echo $discount_text; ?></p>
- 				</div>
- 				<div class="admin_wpcd_productPic">
- 					<img src="http://rdironworks.com/wp-content/uploads/2017/12/dummy-200x200.png" alt="Product-pic">
- 				</div>
- 			</div>
- 
- 			<div class="admin_wpcd_headingAndExpire">
- 				<div class="admin_wpcd_heading">
- 				<?php
- 					if ( 'on' === $disable_coupon_title_link ) { ?>
- 						<<?php echo esc_html( $coupon_title_tag ); ?> class="admin_wpcd-new-title">
- 							<?php echo $title; ?>
- 						</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
- 					} else { ?>
- 						<<?php echo esc_html( $coupon_title_tag ); ?> class="admin_wpcd-new-title">
- 							<a href="<?php echo esc_url( $link ); ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
- 						</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
- 	
- 					}?>
- 					<p><?php echo wpautop( $description, false );?></p>
- 					<div class="admin_wpcd_expire"><p>Expires on: 6 weeks 5 days 02 hours 10 minutes 05 seconds</p></div>
- 				</div>		
- 			</div>
- 			<div class="admin_wpcd_buttonSociaLikeDislike">
- 				<div class="admin_wpcd_btn">
- 					<a href="#" title="wpcd10">wpcd10</a>
- 				</div>
- 			</div>
- 		</div>
- 	</div>
- </section>
+	<div class="wpcd-coupon-preview admin_wpcd_seven_container wpcd-coupon-seven">
+		<div class="admin_wpcd_seven_couponBox">
+			<div class="admin_wpcd_seven_percentAndPic">
+				<div class="admin_wpcd_seven_percentOff">
+					<p><?php echo $discount_text; ?></p>
+				</div>
+				<div class="admin_wpcd_seven_productPic">
+					<img src="http://rdironworks.com/wp-content/uploads/2017/12/dummy-200x200.png" alt="Product-pic">
+				</div>
+			</div>
+
+			<div class="admin_wpcd_seven_headingAndExpire">
+				<div class="admin_wpcd_seven_heading">
+				<?php
+					if ( 'on' === $disable_coupon_title_link ) { ?>
+						<<?php echo esc_html( $coupon_title_tag ); ?> class="admin_wpcd_seven_new_title">
+							<?php echo $title; ?>
+						</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
+					} else { ?>
+						<<?php echo esc_html( $coupon_title_tag ); ?> class="admin_wpcd_seven_new_title">
+							<a href="<?php echo esc_url( $link ); ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
+						</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
+	
+					}?>
+					<p><?php echo wpautop( $description, false );?></p>
+					<div class="admin_wpcd_seven_expire" style="border-color:">
+					<p>
+			
+							<?php
+							if ( ! empty( $expire_text ) ) {
+								echo $expire_text;
+							} else {
+								echo __( 'Expires on: ', 'wpcd-coupon' );
+							}
+							?>
+							<span class="wpcd-coupon-seven-countdown" id="clock_seven_<?php echo $post_id; ?>"></span>
+							<?php if ( ! $expire_date ) {
+									$expire_date_format = date( 'd/m/Y' );
+							} ?>
+							<script type="text/javascript">
+								var hasDate = "<?php echo empty( $expire_date ) ? 'no' : 'yes';?>";
+								if (hasDate === 'no')
+									jQuery('#clock_seven_<?php echo $post_id; ?>').hide();
+								var $clock2 = jQuery('#clock_seven_<?php echo $post_id; ?>').countdown('<?php echo $expire_date_format . ' ' . $expire_time; ?>', function (event) {
+									var format = '%M <?php echo __( 'minutes', 'wpcd-coupon' ); ?> %S <?php echo __( 'seconds', 'wpcd-coupon' ); ?>';
+									if (event.offset.hours > 0) {
+										format = "%H <?php echo __( 'hours', 'wpcd-coupon' ); ?> %M <?php echo __( 'minutes', 'wpcd-coupon' ); ?> %S <?php echo __( 'seconds', 'wpcd-coupon' ); ?>";
+									}
+									if (event.offset.totalDays > 0) {
+										format = "%-d <?php echo __( 'day', 'wpcd-coupon' ); ?>%!d " + format;
+									}
+									if (event.offset.weeks > 0) {
+										format = "%-w <?php echo __( 'week', 'wpcd-coupon' ); ?>%!w " + format;
+									}
+									jQuery(this).html(event.strftime(format));
+									if (event.offset.weeks == 0 && event.offset.totalDays == 0 && event.offset.hours == 0 && event.offset.minutes == 0 && event.offset.seconds == 0) {
+										jQuery(this).addClass('wpcd-countdown-expired').html('<?php echo __( 'This offer has expired!', 'wpcd-coupon' ); ?>');
+									} else {
+										jQuery(this).html(event.strftime(format));
+										jQuery('#clock_seven_<?php echo $post_id; ?>').removeClass('wpcd-countdown-expired');
+									}
+								});
+								jQuery("#expire-time").change(function () {
+									jQuery('#clock_seven_<?php echo $post_id; ?>').show();
+									var coup_date = jQuery("#expire-date").val();
+									if (coup_date.indexOf("-") >= 0) {
+										var dateAr = coup_date.split('-');
+										coup_date = dateAr[1] + '/' + dateAr[0] + '/' + dateAr[2];
+									}
+									selectedDate = coup_date + ' ' + jQuery("#expire-time").val();
+									$clock2.countdown(selectedDate.toString());
+								});
+							</script>
+			
+						<b class="never-expire" style="display: none;">
+							<?php if ( ! empty( $no_expiry ) ) : ?>
+									<b><?php echo $no_expiry; ?></b>
+							<?php else : ?>
+									<b><?php echo __( "Doesn't expire", 'wpcd-coupon' ); ?></b>
+							<?php endif; ?>
+
+						</b>
+					</p>
+				</div>
+								
+					<!-- End of class wpcd_seven_expire -->
+				</div>		
+			</div>
+			<div class="admin_wpcd_seven_buttonSociaLikeDislike">
+				<div class="admin_wpcd_seven_btn">
+					<a href="#" title="wpcd10">wpcd10</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
 <!-- Image Preview -->
 <div class="wpcd-coupon-preview wpcd-coupon-image">

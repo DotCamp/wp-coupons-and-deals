@@ -2915,20 +2915,20 @@ h2:before {
 
 /*Basic*/
 
-.wpcd_container {
+.wpcd_seven_container {
     width: 960px;
     height: auto;
     margin: 0 auto;
 }
 
-.wpcd_couponBox {
+.wpcd_seven_couponBox {
     width: 100%;
     height: 320px;
     border: 2px solid #9b59b6;
     margin-top: 150px;
 }
 
-.wpcd_clearfix {
+.wpcd_seven_clearfix {
     content: ' ';
     display: table;
     clear: both;
@@ -2937,13 +2937,13 @@ h2:before {
 
 /*Percent and Product Picture*/
 
-.wpcd_percentAndPic {
+.wpcd_seven_percentAndPic {
     width: 30%;
     height: 150px;
     float: left;
 }
 
-.wpcd_percentOff {
+.wpcd_seven_percentOff {
     width: 80%;
     height: 60px;
     background: #9b59b6;
@@ -2952,7 +2952,7 @@ h2:before {
     position: relative;
 }
 
-.wpcd_percentOff p {
+.wpcd_seven_percentOff p {
     font-size: 40px;
     text-align: center;
     color: #fff;
@@ -2960,7 +2960,7 @@ h2:before {
     text-shadow: 2px 2px 5px rgb(57, 57, 57);
 }
 
-.wpcd_percentOff:after {
+.wpcd_seven_percentOff:after {
     position: absolute;
     content: ' ';
     top: 50%;
@@ -2972,7 +2972,7 @@ h2:before {
     border-bottom: 30px solid transparent;
 }
 
-.wpcd_productPic img {
+.wpcd_seven_productPic img {
     width: 175px;
     height: 175px;
     margin: 30px 0 0 40px;
@@ -2982,31 +2982,31 @@ h2:before {
 
 /*Heading and Expire Date*/
 
-.wpcd_headingAndExpire {
+.wpcd_seven_headingAndExpire {
     width: 45%;
     height: 100%;
     float: left;
 }
 
-.wpcd_heading {
+.wpcd_seven_heading {
     margin-top: 15px;
     padding: 15px;
 }
 
-.wpcd_heading h2 {
+.wpcd_seven_heading h2 {
     font-size: 26px;
 }
 
-.wpcd_heading p {
+.wpcd_seven_heading p {
     font-size: 18px;
     margin-top: 15px;
 }
 
-.wpcd_heading p:nth-child(4) {
+.wpcd_seven_heading p:nth-child(4) {
     display: none;
 }
 
-.wpcd_expire {
+.wpcd_seven_expire {
     width: 95%;
     height: 20%;
     margin: 15px auto 0 auto;
@@ -3014,31 +3014,31 @@ h2:before {
     border-bottom: 2px dashed;
 }
 
-.wpcd_expire p {
+.wpcd_seven_expire p {
     font-size: 16px;
     padding: 1% 0;
 }
 
-.wpcd_desc {
+.wpcd_seven_desc {
     display: none;
 }
 
 
 /*Button, Social Site and Like Dislike*/
 
-.wpcd_buttonSociaLikeDislike {
+.wpcd_seven_buttonSociaLikeDislike {
     width: 25%;
     height: 100%;
     float: left;
 }
 
-.wpcd_btn {
+.wpcd_seven_btn {
     text-transform: uppercase;
     margin-top: 15%;
     margin-left: 20%;
 }
 
-.wpcd_btn a {
+.wpcd_seven_btn a {
     text-decoration: none;
     font-size: 20px;
     transform-style: preserve-3d;
@@ -3046,7 +3046,7 @@ h2:before {
     transition: .5s;
 }
 
-.wpcd_btn a:before {
+.wpcd_seven_btn a:before {
     content: attr(title);
     position: absolute;
     top: 0;
@@ -3060,7 +3060,7 @@ h2:before {
     transform: translateX(-100%) rotateY(90deg);
 }
 
-.wpcd_btn a:after {
+.wpcd_seven_btn a:after {
     content: attr(title);
     position: absolute;
     top: 0;
@@ -3074,20 +3074,20 @@ h2:before {
     transform: translateX(0) rotateY(0deg);
 }
 
-.wpcd_btn a:hover:before {
+.wpcd_seven_btn a:hover:before {
     transform: translateX(0) rotateY(0deg);
 }
 
-.wpcd_btn a:hover:after {
+.wpcd_seven_btn a:hover:after {
     transform: translateX(100%) rotateY(90deg);
 }
 
-.wpcd_social {
+.wpcd_seven_social {
     margin-top: 70px;
     margin-left: 40px;
 }
 
-.wpcd_social ul li {
+.wpcd_seven_social ul li {
     width: 40px;
     height: 40px;
     list-style: none;
@@ -3097,16 +3097,16 @@ h2:before {
     margin-right: 10%;
 }
 
-.wpcd_social ul li:last-child {
+.wpcd_seven_social ul li:last-child {
     margin-right: 0;
 }
 
-.wpcd_likeDislike {
+.wpcd_seven_likeDislike {
     margin-top: 20%;
     margin-left: 25%;
 }
 
-.wpcd_likeDislike ul li {
+.wpcd_seven_likeDislike ul li {
     /*   width: 40px;
      height:40px; */
     list-style: none;
@@ -3115,54 +3115,51 @@ h2:before {
     font-size: 30px;
 }
 
-.wpcd_likeDislike ul li:first-child {
+.wpcd_seven_likeDislike ul li:first-child {
     color: #00ff31;
 }
 
-.wpcd_likeDislike ul li:last-child {
+.wpcd_seven_likeDislike ul li:last-child {
     margin-right: 0;
     transform: rotate(180deg);
     color: #d60000;
 }
 
-.wpcd_social ul li .fav {
+.wpcd_seven_social ul li .fav {
     background: #4267B2;
     color: #fff;
     border-radius: 50%;
 }
 
-.wpcd_social ul li .fav:hover {
+.wpcd_seven_social ul li .fav:hover {
     background: #fff;
     color: #4267B2;
     border-radius: 50%;
     border: 2px solid #4267B2;
 }
 
-.wpcd_social ul li .twi {
+.wpcd_seven_social ul li .twi {
     background: #1DA1F2;
     color: #fff;
     border-radius: 50%;
 }
 
-.wpcd_social ul li .twi:hover {
+.wpcd_seven_social ul li .twi:hover {
     background: #fff;
     color: #1DA1F2;
     border-radius: 50%;
     border: 2px solid #1DA1F2;
 }
 
-.wpcd_social ul li .gogl {
+.wpcd_seven_social ul li .gogl {
     background: #C55247;
     color: #fff;
     border-radius: 50%;
 }
 
-.wpcd_social ul li .gogl:hover {
+.wpcd_seven_social ul li .gogl:hover {
     background: #fff;
     color: #C55247;
     border-radius: 50%;
     border: 2px solid #C55247;
-}
-
-
 }
