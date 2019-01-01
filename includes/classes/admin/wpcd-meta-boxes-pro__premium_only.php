@@ -198,7 +198,8 @@ class WPCD_Meta_Boxes_Pro {
 					'Template Three',
 					'Template Four',
 					'Template Five',
-					'Template Six'
+					'Template Six',
+ 					'Template Seven'
 				)
 			),
 			array(

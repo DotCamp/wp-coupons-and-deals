@@ -1330,6 +1330,45 @@ if ( $wpcd_text_to_show == 'description' ) {
 	</div>
 </div>
 
+<!-- Template Seven Preview -->
+<section class="admin_wpcd_seven">
+ 	<div class="wpcd-coupon-preview admin_wpcd_container wpcd-coupon-seven">
+ 		<div class="admin_wpcd_couponBox">
+ 			<div class="admin_wpcd_percentAndPic">
+ 				<div class="admin_wpcd_percentOff">
+ 					<p><?php echo $discount_text; ?></p>
+ 				</div>
+ 				<div class="admin_wpcd_productPic">
+ 					<img src="http://rdironworks.com/wp-content/uploads/2017/12/dummy-200x200.png" alt="Product-pic">
+ 				</div>
+ 			</div>
+ 
+ 			<div class="admin_wpcd_headingAndExpire">
+ 				<div class="admin_wpcd_heading">
+ 				<?php
+ 					if ( 'on' === $disable_coupon_title_link ) { ?>
+ 						<<?php echo esc_html( $coupon_title_tag ); ?> class="admin_wpcd-new-title">
+ 							<?php echo $title; ?>
+ 						</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
+ 					} else { ?>
+ 						<<?php echo esc_html( $coupon_title_tag ); ?> class="admin_wpcd-new-title">
+ 							<a href="<?php echo esc_url( $link ); ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
+ 						</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
+ 	
+ 					}?>
+ 					<p><?php echo wpautop( $description, false );?></p>
+ 					<div class="admin_wpcd_expire"><p>Expires on: 6 weeks 5 days 02 hours 10 minutes 05 seconds</p></div>
+ 				</div>		
+ 			</div>
+ 			<div class="admin_wpcd_buttonSociaLikeDislike">
+ 				<div class="admin_wpcd_btn">
+ 					<a href="#" title="wpcd10">wpcd10</a>
+ 				</div>
+ 			</div>
+ 		</div>
+ 	</div>
+ </section>
+
 <!-- Image Preview -->
 <div class="wpcd-coupon-preview wpcd-coupon-image">
 	<img style="max-width:100%;" src="<?php echo is_array( $coupon_image_src ) ? $coupon_image_src[0] : ''; ?>"
