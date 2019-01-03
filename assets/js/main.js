@@ -14,6 +14,14 @@ jQuery(document).ready(function ($) {
             $('.wpcd_item').fadeIn();
         }
     });
+    $('#wpcd_searchbar_search_icon').on('click', function(e) {
+       $('.wpcd_searchbar_search input').fadeIn();
+       $('#wpcd_searchbar_search_close').fadeIn();
+    });
+    $('#wpcd_searchbar_search_close').on('click', function(e) {
+        $('.wpcd_searchbar_search input').fadeOut();
+        $('#wpcd_searchbar_search_close').fadeOut();
+    });
 });
 
 //for count down

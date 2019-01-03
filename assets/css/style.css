@@ -2901,3 +2901,61 @@ h2:before {
     text-align: center;
     margin: 1.5em 0 0;
 }
+
+.wpcd_div_nav_block {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wpcd_cats {
+
+}
+
+.wpcd_searchbar {
+    padding-top: 5px;
+}
+
+.wpcd_searchbar_search {
+    margin-top: 7px;
+    border: 1px solid #e6e9ee;
+    padding: 5px;
+    border-bottom-left-radius: 50% ;
+    border-top-left-radius: 50% ;
+}
+
+.wpcd_searchbar_search span {
+    display: block;
+    color: #666;
+}
+.wpcd_searchbar_search span:hover {
+    color: #999;
+}
+.wpcd_searchbar_search input {
+    z-index: 9;
+    display: none;
+    border: 1px solid #e6e9ee;
+    text-indent: 10px;
+    height: 32px;
+    padding: 5px;
+    font-size: 20px;
+    width: 180px;
+    position: absolute;
+    margin-left: -154px;
+    margin-top: -26px;
+    padding-right: 26px;
+}
+.wpcd_searchbar_search_close_li {
+    position: absolute;
+    z-index: 99;
+}
+#wpcd_searchbar_search_close {
+    display: none;
+    z-index: 99;
+    margin-left: 16px;
+    margin-top: -36px;
+    position: absolute;
+    color: #666;
+}
+#wpcd_searchbar_search_close:hover {
+    color: #999;
+}
