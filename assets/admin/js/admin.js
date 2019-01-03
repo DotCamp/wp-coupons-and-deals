@@ -9,7 +9,7 @@ jQuery(document).ready(function ($) {
         FOUR: 'Template Four',
         FIVE: 'Template Five',
         SIX: 'Template Six',
-        SEVEN: 'Template Seven'
+        SEVEN: "Template Seven"
     };
     var couponTypes = {
         COUPON: 'Coupon',
@@ -932,8 +932,9 @@ jQuery(document).ready(function ($) {
         } else if (currentTemplate === templates.SEVEN) {
             couponSeven.show("slow");
         }
+    }
 
-    });
+});
 
 // upload coupon image
 jQuery(function ($) {

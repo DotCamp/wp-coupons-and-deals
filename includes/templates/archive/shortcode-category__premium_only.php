@@ -5,7 +5,13 @@
  * Date: 8/25/17
  * Time: 11:31 PM
  */
+
+if ( !function_exists( 'wpcd_coupon_thumbnail_img' ) ) {
+	include WPCD_Plugin::instance()->plugin_includes . 'functions/wpcd-coupon-thumbnail-img.php';
+}
+
 global $coupon_id, $parent;
+$coupon_thumbnail         = wpcd_coupon_thumbnail_img( $coupon_id );
 $title                    = get_the_title();
 $link                     = get_post_meta( $coupon_id, 'coupon_details_link', true );
 $coupon_code              = get_post_meta( $coupon_id, 'coupon_details_coupon-code-text', true );
@@ -84,17 +90,12 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ): ?>
 <section class="wpcd_archive_section wpcd_clearfix">
     <ul id="wpcd_coupon_ul" class="wpcd_clearfix">
 		<?php endif; ?>
-
+ 
 
         <li class="wpcd_coupon_li  wpcd-coupon-id-<?php echo $coupon_id; ?>">
             <?php
-            if ( $hide_featured_image != 'on' ) {
-                if ( ! empty( $featured_img_url ) ) { ?>
-                    <div class="wpcd_coupon_li_top_wr"
-                    style="background-image:url('<?php echo esc_url( $featured_img_url ); ?>')">
-				<?php } else { ?>
-                    <div class="wpcd_coupon_li_top_wr">
-				<?php } ?>
+            if ( $hide_featured_image != 'on' ) { ?>
+                    <div class="wpcd_coupon_li_top_wr" style="background-image:url('<?php echo esc_url( $coupon_thumbnail ); ?>')">
                     </div>
                 <?php } ?>
                 <div class="wpcd_coupon_li_content">
