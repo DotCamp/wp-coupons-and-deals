@@ -808,11 +808,16 @@ jQuery(document).ready(function ($) {
                 .text(coupon_code_text)
         });
 
-
         $('#deal-button-text').keyup(function () {
             var deal_code_text = $(this).val();
             $('.deal-code-button').text(deal_code_text);
             $('.wpcd-coupon-one-btn').text(deal_code_text);
+        });
+
+        // template seven coupon code button 
+        $('#coupon-code-text').keyup(function () {
+            var wpcd_seven_btn = $(this).val();
+            $('#wpcd-coupon-code-seven').attr('title', wpcd_seven_btn);
         });
 
         var coupon_code_div = $('.wpcd-coupon-code');
@@ -823,7 +828,7 @@ jQuery(document).ready(function ($) {
         var coupon_two_deal = $('.wpcd-coupon-two-deal');
         var coupon_three_coupon = $('.wpcd-coupon-three-coupon-code');
         var coupon_three_deal = $('.wpcd-coupon-three-deal');
-
+        var coupon_code_div = $('.wpcd-coupon-code');
 
         if ($('#coupon-type').val() === 'Coupon') {
             coupon_code_div.show();

@@ -1114,12 +1114,96 @@ p.wpcd-coupon-four-expired {
     -moz-box-sizing: border-box;
 }
 
+@media screen and (min-width: 980px) {
+    .wpcd-new-grid-container {
+        grid-template-columns: 0.5fr 1.5fr 0.75fr;
+        grid-template-rows: 1fr;
+    }
+    .admin_wpcd_seven_productPic img {
+        width: 45%;
+        height: auto;
+    }
+    .admin_wpcd_seven_percentAndPic {
+        width: 25%;
+        height: 150px;
+    }
+    .admin_wpcd_seven_percentOff:after {
+        top: 50%;
+        left: 89%;
+    }
+    .admin_wpcd_seven_btn {
+        margin-top: 15%;
+        margin: 10%;
+    }
+    .admin_wpcd_seven_btn a:before {
+        width: 170%;
+        padding: 12.8px;
+    }
+    .admin_wpcd_seven_btn a:after {
+        width: 170%;
+        padding: 12.8px;
+    }
+    .admin_wpcd_seven_percentOff p {
+        font-size: 30px;
+        padding: 6.4px;
+    }
+    .admin_wpcd_seven_percentOff:after {
+        top: 50%;
+        left: 80%;
+    }
+    .admin_wpcd_seven_heading p {
+        font-size: 18px;
+    }
+    .admin_wpcd_seven_heading h1 a {
+        font-size: 26px;
+        text-decoration: none;
+        color: #000000;
+    }
+}
+
 @media screen and (max-width: 980px) {
     .wpcd-coupon-four .wpcd-coupon-code {
         text-align: center;
     }
     .wpcd-coupon-four-info {
         width: 100%;
+    }
+    .admin_wpcd_seven_container {
+        width: 100%;
+    }
+    .admin_wpcd_seven_productPic img {
+        width: 65%;
+        height: auto;
+    }
+    .admin_wpcd_seven_percentAndPic {
+        width: 25%;
+        height: 150px;
+    }
+    .admin_wpcd_seven_btn a {
+        width: 30%;
+    }
+    .admin_wpcd_seven_btn {
+        margin-top: 15%;
+        margin: 20% auto;
+    }
+    .admin_wpcd_seven_btn a:before {
+        width: 150%;
+        padding: 12.8px;
+    }
+    .admin_wpcd_seven_btn a:after {
+        width: 150%;
+        padding: 12.8px;
+    }
+    .admin_wpcd_seven_percentOff p {
+        font-size: 18px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-left: auto;
+        padding-right: auto;
+    }
+    .admin_wpcd_seven_percentOff:after {
+        top: 50%;
+        left: 60%;
     }
 }
 
@@ -2284,6 +2368,82 @@ h3.wpcd_coupon_popup_title {
     max-width: 480px;
 }
 
+[wpcd-data-tooltip] {
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+
+[wpcd-data-tooltip] .dashicons {
+    font-size: 14px;
+    padding-top: 4px;
+    color: grey;
+}
+
+
+/* Hide the tooltip content by default */
+
+[wpcd-data-tooltip]:before,
+[wpcd-data-tooltip]:after {
+    visibility: hidden;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+/* Position tooltip above the element */
+
+[wpcd-data-tooltip]:before {
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    margin-bottom: 5px;
+    margin-left: -80px;
+    padding: 7px;
+    width: 160px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #000;
+    background-color: hsla(0, 0%, 20%, 0.9);
+    color: #fff;
+    content: attr(wpcd-data-tooltip);
+    text-align: center;
+    font-size: 11px;
+    line-height: 1.2;
+}
+
+
+/* Triangle hack to make tooltip look like a speech bubble */
+
+[wpcd-data-tooltip]:after {
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -5px;
+    width: 0;
+    border-top: 5px solid #000;
+    border-top: 5px solid hsla(0, 0%, 20%, 0.9);
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    content: " ";
+    font-size: 0;
+    line-height: 0;
+}
+
+
+/* Show tooltip content on hover */
+
+[wpcd-data-tooltip]:hover:before,
+[wpcd-data-tooltip]:hover:after {
+    visibility: visible;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+}
+
 
 /* New Styles */
 
@@ -2405,6 +2565,262 @@ h2:before {
     text-align: center;
     margin: 1.5em 0 0;
 }
+
+
+/* Template seven */
+
+.admin_wpcd_seven {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+/*Basic*/
+
+.admin_wpcd_seven_container {
+    margin: 0 auto;
+}
+
+.admin_wpcd_seven_couponBox {
+    width: 100%;
+    height: 360px;
+    border: 2px solid #9b59b6;
+    margin-top: 20px;
+}
+
+.admin_wpcd_seven_clearfix {
+    content: ' ';
+    display: table;
+    clear: both;
+}
+
+
+/*Percent and Product Picture*/
+
+.admin_wpcd_seven_percentAndPic {
+    float: left;
+}
+
+.admin_wpcd_seven_percentOff {
+    width: 80%;
+    height: 60px;
+    background: #9b59b6;
+    margin: 15px auto 0px auto;
+    border-radius: 10px;
+    position: relative;
+}
+
+.admin_wpcd_seven_percentOff p {
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgb(57, 57, 57);
+}
+
+.admin_wpcd_seven_heading h1 a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.admin_wpcd_seven_percentOff:after {
+    position: absolute;
+    content: ' ';
+    width: 0;
+    height: 0;
+    border-top: 30px solid transparent;
+    border-right: 25px solid #9b59b6;
+    border-bottom: 30px solid transparent;
+}
+
+.admin_wpcd_seven_productPic img {
+    margin: 30px auto;
+    box-shadow: 2px 2px 5px #888;
+}
+
+.admin_wpcd_seven_productPic {
+    text-align: center;
+}
+
+
+/*Heading and Expire Date*/
+
+.admin_wpcd_seven_headingAndExpire {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.admin_wpcd_seven_heading {
+    margin-top: 15px;
+    padding: 15px;
+}
+
+.admin_wpcd_seven_heading h2 {
+    font-size: 26px;
+}
+
+.admin_wpcd_seven_heading p:nth-child(4) {
+    display: none;
+}
+
+.admin_wpcd_seven_expire {
+    width: 95%;
+    height: 20%;
+    margin: 15px auto 0 auto;
+    border-top: 2px dashed;
+    border-bottom: 2px dashed;
+}
+
+.admin_wpcd_seven_expire p {
+    font-size: 16px;
+    padding: 1% 0;
+}
+
+.admin_wpcd_seven_desc {
+    display: none;
+}
+
+
+/*Button, Social Site and Like Dislike*/
+
+.admin_wpcd_seven_buttonSociaLikeDislike {
+    width: 25%;
+    height: 100%;
+    float: left;
+}
+
+.admin_wpcd_seven_btn {
+    text-transform: uppercase;
+}
+
+.admin_wpcd_seven_btn a {
+    text-decoration: none;
+    font-size: 20px;
+    transform-style: preserve-3d;
+    position: relative;
+    transition: .5s;
+}
+
+.admin_wpcd_seven_btn a:before {
+    content: attr(title);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+    color: #9b59b6;
+    border: 2px solid #9b59b6;
+    transition: .5s;
+    transform-origin: right;
+    transform: translateX(-100%) rotateY(90deg);
+}
+
+.admin_wpcd_seven_btn a:after {
+    content: attr(title);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #9b59b6;
+    color: #fff;
+    border: 2px solid #9b59b6;
+    transition: .5s;
+    transform-origin: left;
+    transform: translateX(0) rotateY(0deg);
+}
+
+.admin_wpcd_seven_btn a:hover:before {
+    transform: translateX(0) rotateY(0deg);
+}
+
+.admin_wpcd_seven_btn a:hover:after {
+    transform: translateX(100%) rotateY(90deg);
+}
+
+.admin_wpcd_seven_social {
+    margin-top: 70px;
+    margin-left: 40px;
+}
+
+.admin_wpcd_seven_social ul li {
+    width: 40px;
+    height: 40px;
+    list-style: none;
+    float: left;
+    text-align: center;
+    line-height: 40px;
+    margin-right: 10%;
+}
+
+.admin_wpcd_seven_social ul li:last-child {
+    margin-right: 0;
+}
+
+.admin_wpcd_seven_likeDislike {
+    margin-top: 20%;
+    margin-left: 25%;
+}
+
+.admin_wpcd_seven_likeDislike ul li {
+    /*   width: 40px;
+    height:40px; */
+    list-style: none;
+    float: left;
+    margin-right: 40%;
+    font-size: 30px;
+}
+
+.admin_wpcd_seven_likeDislike ul li:first-child {
+    color: #00ff31;
+}
+
+.admin_wpcd_seven_likeDislike ul li:last-child {
+    margin-right: 0;
+    transform: rotate(180deg);
+    color: #d60000;
+}
+
+.admin_wpcd_seven_social ul li .fav {
+    background: #4267B2;
+    color: #fff;
+    border-radius: 50%;
+}
+
+.admin_wpcd_seven_social ul li .fav:hover {
+    background: #fff;
+    color: #4267B2;
+    border-radius: 50%;
+    border: 2px solid #4267B2;
+}
+
+.admin_wpcd_seven_social ul li .twi {
+    background: #1DA1F2;
+    color: #fff;
+    border-radius: 50%;
+}
+
+.admin_wpcd_seven_social ul li .twi:hover {
+    background: #fff;
+    color: #1DA1F2;
+    border-radius: 50%;
+    border: 2px solid #1DA1F2;
+}
+
+.admin_wpcd_seven_social ul li .gogl {
+    background: #C55247;
+    color: #fff;
+    border-radius: 50%;
+}
+
+.admin_wpcd_seven_social ul li .gogl:hover {
+    background: #fff;
+    color: #C55247;
+    border-radius: 50%;
+    border: 2px solid #C55247;
+}
+
+
+/* End of Template Seven*/
 
 @media screen and (max-width: 980px) {
     #wpcd_coupon_ul li.wpcd_coupon_li {
@@ -2533,6 +2949,54 @@ h2:before {
     .wpcd_import_field_inner_wr>.wpcd_import_field select {
         width: 100%;
     }
+    .admin_wpcd_seven_percentAndPic {
+        width: 30%;
+        height: 150px;
+        text-align: center;
+    }
+    .admin_wpcd_seven_productPic img {
+        width: 75%;
+        height: auto;
+        margin: auto;
+    }
+    .admin_wpcd_seven_productPic {
+        text-align: center;
+        margin: auto;
+    }
+    .admin_wpcd_seven_percentOff {
+        width: 100%;
+        height: auto;
+        margin: 32px auto;
+    }
+    .admin_wpcd_seven_percentOff p {
+        font-size: 18px;
+        padding: 5px;
+    }
+    .admin_wpcd_seven_percentOff:after {
+        top: 10%;
+        left: 70%;
+    }
+    .admin_wpcd_seven_heading h1,
+    .admin_wpcd_seven_heading p {
+        font-size: 14px;
+    }
+    .admin_wpcd_seven_buttonSociaLikeDislike {
+        width: 100%;
+        height: auto;
+        padding-left: 45%;
+        padding-bottom: 64px;
+    }
+    .admin_wpcd_seven_headingAndExpire {
+        width: 70%;
+    }
+    .admin_wpcd_seven_btn {
+        text-transform: uppercase;
+        margin-top: 1%;
+        margin-left: auto;
+    }
+    .admin_wpcd_seven_couponBox {
+        height: auto;
+    }
 }
 
 @media only screen and (min-width: 48em) {
@@ -2600,70 +3064,4 @@ h2:before {
 
 .red-text {
     color: red !important;
-}
-
-[wpcd-data-tooltip] {
-    position: relative;
-    z-index: 2;
-    cursor: pointer;
-}
-[wpcd-data-tooltip] .dashicons {
-    font-size: 14px;
-    padding-top: 4px;
-    color: grey;
-}
-/* Hide the tooltip content by default */
-[wpcd-data-tooltip]:before,
-[wpcd-data-tooltip]:after {
-    visibility: hidden;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
-    opacity: 0;
-    pointer-events: none;
-}
-
-/* Position tooltip above the element */
-[wpcd-data-tooltip]:before {
-    position: absolute;
-    bottom: 150%;
-    left: 50%;
-    margin-bottom: 5px;
-    margin-left: -80px;
-    padding: 7px;
-    width: 160px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    background-color: #000;
-    background-color: hsla(0, 0%, 20%, 0.9);
-    color: #fff;
-    content: attr(wpcd-data-tooltip);
-    text-align: center;
-    font-size: 11px;
-    line-height: 1.2;
-}
-
-/* Triangle hack to make tooltip look like a speech bubble */
-[wpcd-data-tooltip]:after {
-    position: absolute;
-    bottom: 150%;
-    left: 50%;
-    margin-left: -5px;
-    width: 0;
-    border-top: 5px solid #000;
-    border-top: 5px solid hsla(0, 0%, 20%, 0.9);
-    border-right: 5px solid transparent;
-    border-left: 5px solid transparent;
-    content: " ";
-    font-size: 0;
-    line-height: 0;
-}
-
-/* Show tooltip content on hover */
-[wpcd-data-tooltip]:hover:before,
-[wpcd-data-tooltip]:hover:after {
-    visibility: visible;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
-    opacity: 1;
 }

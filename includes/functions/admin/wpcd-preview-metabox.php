@@ -46,11 +46,15 @@ $wpcd_dummy_coupon_img   = WPCD_Plugin::instance()->plugin_assets . 'admin/img/c
 $wpcd_text_to_show        = get_option( 'wpcd_text-to-show' );
 $wpcd_custom_text         = get_option( 'wpcd_custom-text' );
 
-/** Alternative Template variables */
+/** Alternative Template Variables */
 global $coupon_id;
 $disable_coupon_title_link = get_option( 'wpcd_disable-coupon-title-link' );
 $coupon_title_tag          = get_option( 'wpcd_coupon-title-tag', 'h1' );
 $dt_coupon_type_name       = get_option( 'wpcd_dt-coupon-type-text' );
+
+/** Seven Template Variables */
+$never_expire              = get_post_meta( $coupon_id, 'coupon_details_never-expire-check', true );
+
 
 if ( $wpcd_text_to_show == 'description' ) {
 	$wpcd_custom_text = $description;
@@ -213,11 +217,16 @@ if ( $wpcd_text_to_show == 'description' ) {
 		</div>
 	</div>
 </div>
+
 <!-- Alternative Preview -->
-<div class="admin-wpcd-new-grid-container wpcd-coupon-preview wpcd-coupon-alternative">
+<div class="wpcd-coupon-preview wpcd-coupon-alternative admin-wpcd-new-grid-container">
 	<div class="admin-wpcd-new-grid-one">
 		<div class="admin-wpcd-new-discount-text wpcd-coupon-discount-text">
-		   <?php echo $discount_text; ?>
+		<?php if ( ! empty( $discount_text ) ) {
+				echo $discount_text;
+				} else {
+				echo __( 'Discount Text', 'wpcd-coupon' );
+				} ?>
 		</div>
 		<div class="coupon-type">
 			<?php if ( ! empty( $coupon_type ) ) {
@@ -249,33 +258,56 @@ if ( $wpcd_text_to_show == 'description' ) {
    </div> <!-- End of grid-one -->
    <div class="admin-wpcd-new-grid-two">
 	   <?php
-		if ( 'on' === $disable_coupon_title_link ) { ?>
+
+	    if ( empty( $coupon_title_tag ) ) {
+			if ( 'on' === $disable_coupon_title_link ) { ?>
+				<<?php echo esc_html( $coupon_title_tag ); ?> class="admin-wpcd-new-title wpcd-coupon-title">
+					<?php echo $title; ?>
+				</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
+			} else { ?>
+				<<?php echo esc_html( $coupon_title_tag ); ?> class="admin-wpcd-new-title wpcd-coupon-title">
+					<a href="<?php echo esc_url( $link ); ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
+				</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
+			}
+		}
+		else { ?>
 			<<?php echo esc_html( $coupon_title_tag ); ?> class="admin-wpcd-new-title wpcd-coupon-title">
-				<?php echo $title; ?>
+				<?php echo __( 'Coupon Sample Code', 'wpcd-coupon' ); ?>
 			</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
-		} else { ?>
-			<<?php echo esc_html( $coupon_title_tag ); ?> class="admin-wpcd-new-title wpcd-coupon-title">
-				<a href="<?php echo esc_url( $link ); ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
-			</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
+			
 		}
 	   ?>
 		<div class="wpcd-coupon-description">
-			<span class="wpcd-full-description"><?php echo $description; ?></span>
-			<span class="wpcd-short-description"></span>
-			<a href="#" class="wpcd-more-description"><?php echo __( 'More', 'wpcd-coupon' ); ?></a>
-			<a href="#" class="wpcd-less-description"><?php echo __( 'Less', 'wpcd-coupon' ); ?></a>
+			<?php
+			if ( ! empty( $description ) ) {
+			?>
+				<span class="wpcd-full-description"><?php echo $description; ?></span>
+				<span class="wpcd-short-description"></span>
+			<?php 
+			} else {
+				echo __( 'This is the description of the coupon code. Additional details of what the coupon or deal is.', 'wpcd-coupon' );
+			}
+			?>
 		</div>
 	</div> <!-- End of grid-two -->
 	<div class="admin-wpcd-new-grid-three">
 		<a class="admin-wpcd-new-coupon-code masterTooltip coupon-code-button" rel="nofollow" href="#" target="_blank" data-clipboard-text="<?php echo $coupon_code; ?>" title="<?php echo $coupon_hover_text; ?>">
-			<?php echo $coupon_code; ?>
+			<?php
+				if ( ! empty($coupon_code) ) {
+					echo $coupon_code; 
+				} 
+				else {
+					echo __( 'Coupon Code', 'wpcd-coupon' );
+				}
+			?>
 		</a>
 		<a class="admin-wpcd-new-goto-button" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank">
-		   GO TO THE DEAL
+		   <?php echo __( 'GO TO THE DEAL', 'wpcd-coupon'); ?>
 		</a>
 	</div><!-- End of grid-three -->
 	<script type="text/javascript">
-		var clip = new Clipboard('.<?php echo $button_class; ?>');
+		var clip = new Clipboard('<?php echo $button_class; ?>');
+
 	</script>
 </div><!-- Alternative Preview -->
 
@@ -1329,6 +1361,132 @@ if ( $wpcd_text_to_show == 'description' ) {
 		</div>
 	</div>
 </div>
+<!-- Template Seven Preview -->
+<section class="admin_wpcd_seven">
+	<div class="wpcd-coupon-preview wpcd-coupon-seven admin_wpcd_seven_container">
+		<div class="admin_wpcd_seven_couponBox">
+			<div class="admin_wpcd_seven_percentAndPic">
+				<div class="admin_wpcd_seven_percentOff">
+					<p>
+					<?php 
+						if ( !empty( $dicount_text) ) {
+							echo $discount_text; 
+						}
+						else {
+							echo __( '50% OFF', 'wpcp-coupon');
+						}
+						
+					?>
+					</p>
+				</div>
+				<div class="admin_wpcd_seven_productPic">
+					<img src="http://rdironworks.com/wp-content/uploads/2017/12/dummy-200x200.png" alt="Product-pic">
+				</div>
+			</div>
+			<div class="admin_wpcd_seven_headingAndExpire">
+				<div class="admin_wpcd_seven_heading">
+				<?php
+					if ( empty( $coupon_title_tag) ) {
+						if ( 'on' === $disable_coupon_title_link ) { ?>
+							<<?php echo esc_html( $coupon_title_tag ); ?> class="admin_wpcd_seven_new_title">
+								<?php echo $title; ?>
+							</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
+						} else { ?>
+							<<?php echo esc_html( $coupon_title_tag ); ?> class="admin_wpcd_seven_new_title">
+								<a href="<?php echo esc_url( $link ); ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
+							</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
+		
+						}
+					} else { ?>
+						<<?php echo esc_html( $coupon_title_tag ); ?> class="admin_wpcd_seven_new_title">
+							<a href="<?php echo esc_url( $link ); ?>" target="_blank" rel="nofollow"><?php echo __( 'Coupon Code Sample Title', 'wpcp-coupon'); ?></a>
+						</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
+					}
+					?>
+					<p>
+						<?php 
+						if ( ! empty( $description ) ) {
+							echo wpautop( $description, false );
+						} else {
+							echo __( 'This is the description of the coupon code. Additional details of what the coupon or deal is.', 'wpcp-coupon');
+						}
+						
+						?>
+					</p>
+					<div class="admin_wpcd_seven_expire" style="border-color:">
+						<p>
+							<?php
+							if ( ! empty( $expire_text ) ) {
+								echo $expire_text;
+							} else {
+								echo __( 'Expires on: 6 weeks 1 day 16 hours 34 minutes 38 seconds', 'wpcd-coupon' );
+							}
+							?>
+							<span class="wpcd-coupon-seven-countdown" id="clock_seven_<?php echo $post_id; ?>"></span>
+							<?php if ( ! $expire_date ) {
+									$expire_date_format = date( 'd/m/Y' );
+							} ?>
+							<script type="text/javascript">
+								var hasDate = "<?php echo empty( $expire_date ) ? 'no' : 'yes';?>";
+								if (hasDate === 'no')
+									jQuery('#clock_seven_<?php echo $post_id; ?>').hide();
+								var $clock2 = jQuery('#clock_seven_<?php echo $post_id; ?>').countdown('<?php echo $expire_date_format . ' ' . $expire_time; ?>', function (event) {
+									var format = '%M <?php echo __( 'minutes', 'wpcd-coupon' ); ?> %S <?php echo __( 'seconds', 'wpcd-coupon' ); ?>';
+									if (event.offset.hours > 0) {
+										format = "%H <?php echo __( 'hours', 'wpcd-coupon' ); ?> %M <?php echo __( 'minutes', 'wpcd-coupon' ); ?> %S <?php echo __( 'seconds', 'wpcd-coupon' ); ?>";
+									}
+									if (event.offset.totalDays > 0) {
+										format = "%-d <?php echo __( 'day', 'wpcd-coupon' ); ?>%!d " + format;
+									}
+									if (event.offset.weeks > 0) {
+										format = "%-w <?php echo __( 'week', 'wpcd-coupon' ); ?>%!w " + format;
+									}
+									jQuery(this).html(event.strftime(format));
+
+									if (event.offset.weeks == 0 && event.offset.totalDays == 0 && event.offset.hours == 0 && event.offset.minutes == 0 && event.offset.seconds == 0) {
+										jQuery(this).addClass('wpcd-countdown-expired').html('<?php echo __( 'This offer has expired!', 'wpcd-coupon' ); ?>');
+									} else {
+										jQuery(this).html(event.strftime(format));
+										jQuery('#clock_seven_<?php echo $post_id; ?>').removeClass('wpcd-countdown-expired');
+									}
+								});
+
+								jQuery("#expire-time").change(function () {
+									jQuery('#clock_seven_<?php echo $post_id; ?>').show();
+									var coup_date = jQuery("#expire-date").val();
+									if (coup_date.indexOf("-") >= 0) {
+										var dateAr = coup_date.split('-');
+										coup_date = dateAr[1] + '/' + dateAr[0] + '/' + dateAr[2];
+									}
+									selectedDate = coup_date + ' ' + jQuery("#expire-time").val();
+									$clock2.countdown(selectedDate.toString());
+								});
+							</script>
+				
+							<b class="never-expire" style="display: none;">
+								<?php if ( ! empty( $no_expiry ) ) : ?>
+										<b><?php echo $no_expiry; ?></b>
+								<?php else : ?>
+										<b><?php echo __( "Doesn't expire", 'wpcd-coupon' ); ?></b>
+								<?php endif; ?>
+
+							</b>
+						</p>
+					</div>
+					<!-- End of class wpcd_seven_expire -->
+				</div>		
+			</div>
+			<div class="admin_wpcd_seven_buttonSociaLikeDislike">
+				<div class="admin_wpcd_seven_btn">
+					<a href="#" title="wpcd10" class="wpcd-coupon-code" id="wpcd-coupon-code-seven">
+						<?php echo __( 'wpcd10', 'wpcd-coupon'); ?>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
 
 <!-- Image Preview -->
 <div class="wpcd-coupon-preview wpcd-coupon-image">
