@@ -14,14 +14,33 @@ jQuery(document).ready(function ($) {
             $('.wpcd_item').fadeIn();
         }
     });
-    $('#wpcd_searchbar_search_icon').on('click', function(e) {
-       $('.wpcd_searchbar_search input').fadeIn();
-       $('#wpcd_searchbar_search_close').fadeIn();
+    $('#wpcd_searchbar_search_icon').on('click', function (e) {
+        $('.wpcd_searchbar_search input').fadeIn();
+        $('#wpcd_searchbar_search_close').fadeIn();
     });
-    $('#wpcd_searchbar_search_close').on('click', function(e) {
+    $('#wpcd_searchbar_search_close').on('click', function (e) {
         $('.wpcd_searchbar_search input').fadeOut();
         $('#wpcd_searchbar_search_close').fadeOut();
+        $('.wpcd_item').fadeIn();
+        $('.wpcd_searchbar_search input').val('');
     });
+    let delayTimer;
+    $('.wpcd_searchbar_search input').on('input', function (e) {
+        clearTimeout(delayTimer);
+        delayTimer = setTimeout(() => {
+            let search_string = $(this).val();
+
+            $('.wpcd_item').each(function () {
+                let name = $(this).attr('wpcd-data-search').toLowerCase();
+                let n = name.indexOf(search_string.toLowerCase());
+                if(n != -1){
+                    $(this).fadeIn();
+                } else {
+                    $(this).hide();
+                }
+            })
+        }, 800);
+    })
 });
 
 //for count down
