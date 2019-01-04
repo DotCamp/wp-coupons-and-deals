@@ -274,7 +274,7 @@ if ( $wpcd_text_to_show == 'description' ) {
 			<<?php echo esc_html( $coupon_title_tag ); ?> class="admin-wpcd-new-title wpcd-coupon-title">
 				<?php echo __( 'Coupon Sample Code', 'wpcd-coupon' ); ?>
 			</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
-			
+
 		}
 	   ?>
 		<div class="wpcd-coupon-description">
@@ -283,7 +283,7 @@ if ( $wpcd_text_to_show == 'description' ) {
 			?>
 				<span class="wpcd-full-description"><?php echo $description; ?></span>
 				<span class="wpcd-short-description"></span>
-			<?php 
+			<?php
 			} else {
 				echo __( 'This is the description of the coupon code. Additional details of what the coupon or deal is.', 'wpcd-coupon' );
 			}
@@ -294,8 +294,8 @@ if ( $wpcd_text_to_show == 'description' ) {
 		<a class="admin-wpcd-new-coupon-code masterTooltip coupon-code-button" rel="nofollow" href="#" target="_blank" data-clipboard-text="<?php echo $coupon_code; ?>" title="<?php echo $coupon_hover_text; ?>">
 			<?php
 				if ( ! empty($coupon_code) ) {
-					echo $coupon_code; 
-				} 
+					echo $coupon_code;
+				}
 				else {
 					echo __( 'Coupon Code', 'wpcd-coupon' );
 				}
@@ -1368,14 +1368,14 @@ if ( $wpcd_text_to_show == 'description' ) {
 			<div class="admin_wpcd_seven_percentAndPic">
 				<div class="admin_wpcd_seven_percentOff">
 					<p>
-					<?php 
+					<?php
 						if ( !empty( $dicount_text) ) {
-							echo $discount_text; 
+							echo $discount_text;
 						}
 						else {
 							echo __( '50% OFF', 'wpcp-coupon');
 						}
-						
+
 					?>
 					</p>
 				</div>
@@ -1395,7 +1395,7 @@ if ( $wpcd_text_to_show == 'description' ) {
 							<<?php echo esc_html( $coupon_title_tag ); ?> class="admin_wpcd_seven_new_title">
 								<a href="<?php echo esc_url( $link ); ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
 							</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
-		
+
 						}
 					} else { ?>
 						<<?php echo esc_html( $coupon_title_tag ); ?> class="admin_wpcd_seven_new_title">
@@ -1404,13 +1404,13 @@ if ( $wpcd_text_to_show == 'description' ) {
 					}
 					?>
 					<p>
-						<?php 
+						<?php
 						if ( ! empty( $description ) ) {
 							echo wpautop( $description, false );
 						} else {
 							echo __( 'This is the description of the coupon code. Additional details of what the coupon or deal is.', 'wpcp-coupon');
 						}
-						
+
 						?>
 					</p>
 					<div class="admin_wpcd_seven_expire" style="border-color:">
@@ -1462,7 +1462,7 @@ if ( $wpcd_text_to_show == 'description' ) {
 									$clock2.countdown(selectedDate.toString());
 								});
 							</script>
-				
+
 							<b class="never-expire" style="display: none;">
 								<?php if ( ! empty( $no_expiry ) ) : ?>
 										<b><?php echo $no_expiry; ?></b>
@@ -1474,7 +1474,7 @@ if ( $wpcd_text_to_show == 'description' ) {
 						</p>
 					</div>
 					<!-- End of class wpcd_seven_expire -->
-				</div>		
+				</div>
 			</div>
 			<div class="admin_wpcd_seven_buttonSociaLikeDislike">
 				<div class="admin_wpcd_seven_btn">

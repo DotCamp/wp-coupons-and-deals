@@ -198,7 +198,16 @@ class WPCD_Short_Code {
 					// Return Variables.
 					$output = ob_get_clean();
 
-				} else {
+				} else if ( $coupon_template == 'Template Seven' ) {
+					 
+					ob_start();
+					 
+					 $template->get_template_part( 'shortcode-seven' );
+ 					
+ 					// Return Variables
+ 					$output = ob_get_clean();
+ 					
+ 				} else {
 
 					ob_start();
 

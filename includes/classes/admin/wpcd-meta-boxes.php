@@ -185,12 +185,14 @@ class WPCD_Meta_Boxes {
 				'help'    => __( 'Choose coupon shortcode template.', 'wpcd-coupon' ),
 				'options' => array(
 					'Default',
+					'Alternative',
 					'Template One',
 					'Template Two',
 					'Template Three',
 					'Template Four',
 					'Template Five',
-					'Template Six'
+					'Template Six', 
+ 					'Template Seven',
 				)
 			),
 			array(

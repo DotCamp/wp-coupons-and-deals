@@ -8,7 +8,8 @@ jQuery(document).ready(function ($) {
         THREE: 'Template Three',
         FOUR: 'Template Four',
         FIVE: 'Template Five',
-        SIX: 'Template Six'
+        SIX: 'Template Six',
+        SEVEN: "Template Seven"
     };
     var couponTypes = {
         COUPON: 'Coupon',
@@ -880,7 +881,8 @@ jQuery(document).ready(function ($) {
         THREE: 'Template Three',
         FOUR: 'Template Four',
         FIVE: 'Template Five',
-        SIX: 'Template Six'
+        SIX: 'Template Six',
+        SEVEN: 'Template Seven'
     };
     var couponTypes = {
         COUPON: 'Coupon',
@@ -897,6 +899,7 @@ jQuery(document).ready(function ($) {
     var couponFour = $('.wpcd-coupon-four');
     var couponFive = $('.wpcd-coupon-five');
     var couponSix = $('.wpcd-coupon-six');
+    var couponSeven = $('.wpcd-coupon-seven');
     var couponImage = $('.wpcd-coupon-image');
     var couponTemplate = $('#coupon-template');
     var couponType = $('[name="coupon-type"]');
@@ -917,11 +920,9 @@ jQuery(document).ready(function ($) {
             couponImage.show("slow");
         } else if (currentTemplate === templates.DEFAULT) {
             couponDefault.show('slow');
-        }
-        else if (currentTemplate === templates.ALTERNATIVE) {
+        } else if (currentTemplate === templates.ALTERNATIVE) {
             couponAlternative.show('slow');
-        }
-        else if (currentTemplate === templates.ONE) {
+        } else if (currentTemplate === templates.ONE) {
             couponOne.show("slow");
         } else if (currentTemplate === templates.TWO) {
             couponTwo.show("slow");
@@ -933,6 +934,8 @@ jQuery(document).ready(function ($) {
             couponFive.show("slow");
         } else if (currentTemplate === templates.SIX) {
             couponSix.show("slow");
+        } else if (currentTemplate === templates.SEVEN) {
+            couponSeven.show("slow");
         }
     }
 
