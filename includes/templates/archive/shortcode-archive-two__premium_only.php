@@ -101,18 +101,31 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
 	$terms = get_terms( 'wpcd_coupon_category' );
 	if ( ! empty( $terms ) && ! is_wp_error( $terms ) && !$disable_menu ):
 		?>
-        <ul id="wpcd_cat_ul">
-            <li>
-                <a class="wpcd_category" data-category="all" href="<?php echo $current_url; ?>">
-                    <?php echo __( 'All Coupons', 'wpcd-coupon' ); ?>
-                </a>
-            </li>
-			<?php foreach ( $terms as $term ): ?>
-                <li>
-                    <a class="wpcd_category" data-category="<?php echo $term->slug;?>" href="<?php echo $current_url . '?wpcd_category=' . $term->slug; ?>"><?php echo $term->name; ?></a>
-                </li>
-			<?php endforeach; ?>
-        </ul>
+        <div class="wpcd_div_nav_block">
+            <div class="wpcd_cats">
+                <ul id="wpcd_cat_ul">
+                    <li>
+                        <a class="wpcd_category" data-category="all" href="<?php echo $current_url; ?>">
+                            <?php echo __( 'All Coupons', 'wpcd-coupon' ); ?>
+                        </a>
+                    </li>
+                    <?php foreach ( $terms as $term ): ?>
+                        <li>
+                            <a class="wpcd_category" data-category="<?php echo $term->slug;?>" href="<?php echo $current_url . '?wpcd_category=' . $term->slug; ?>"><?php echo $term->name; ?></a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+            <div class="wpcd_searchbar">
+                <ul id="wpcd_cat_ul">
+                    <li class="wpcd_searchbar_search">
+                        <span id="wpcd_searchbar_search_icon" class="dashicons dashicons-search"></span>
+                        <input type="text" placeholder="Search">
+                    </li>
+                    <span id="wpcd_searchbar_search_close" class="dashicons dashicons-dismiss"></span>
+                </ul>
+            </div>
+        </div>
         <div class="wpcd_cat_ul_border"></div>
 	<?php endif; ?>
 <?php endif; ?>
@@ -178,7 +191,8 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
     <!--- Template two start -->
             
         
-<div class="wpcd-coupon-two wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item <?php echo $coupon_categories_class; ?>">
+<div class="wpcd-coupon-two wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item <?php echo $coupon_categories_class; ?>"
+     wpcd-data-search="<?php echo $title;?>">
     <div class="wpcd-col-two-1-4">
         <figure>
             <img class="wpcd-coupon-two-img" src="<?php echo $coupon_thumbnail; ?>">

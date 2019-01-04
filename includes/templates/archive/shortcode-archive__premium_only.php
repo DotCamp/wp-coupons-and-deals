@@ -48,8 +48,6 @@ $wpcd_show_print = get_post_meta($coupon_id, 'coupon_details_coupon-image-print'
 $disable_menu = get_option('wpcd_disable-menu-archive-code');
 $coupon_categories = get_the_terms($coupon_id, 'wpcd_coupon_category');
 $coupon_categories_class = '';
-$search_text = explode(" ", $title);
-$search_text = implode(' ', $search_text);
 
 if ($coupon_categories && count($coupon_categories) > 0) {
     foreach ($coupon_categories as $category) {
@@ -148,7 +146,7 @@ if ($parent == 'header' || $parent == 'headerANDfooter'):
 <?php endif; ?>
 
     <li class="wpcd_coupon_li wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item <?php echo $coupon_categories_class; ?>"
-        wpcd-data-search="<?php echo $search_text;?>">
+        wpcd-data-search="<?php echo $title;?>">
         <?php
         if ($hide_featured_image != 'on') {
         if (!empty($featured_img_url)) { ?>
