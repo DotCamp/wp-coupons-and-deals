@@ -90,8 +90,6 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ): ?>
 <section class="wpcd_archive_section wpcd_clearfix">
     <ul id="wpcd_coupon_ul" class="wpcd_clearfix">
 		<?php endif; ?>
- 
-
         <li class="wpcd_coupon_li  wpcd-coupon-id-<?php echo $coupon_id; ?>">
             <?php
             if ( $hide_featured_image != 'on' ) { ?>

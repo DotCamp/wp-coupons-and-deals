@@ -9,7 +9,8 @@ jQuery(document).ready(function ($) {
         FOUR: 'Template Four',
         FIVE: 'Template Five',
         SIX: 'Template Six',
-        SEVEN: "Template Seven"
+        SEVEN: "Template Seven",
+        EIGHT: 'Template Eight'
     };
     var couponTypes = {
         COUPON: 'Coupon',
@@ -875,14 +876,14 @@ jQuery(document).ready(function ($) {
 jQuery(document).ready(function ($) {
     var templates = {
         DEFAULT: 'Default',
-        ALTERNATIVE: 'Alternative',
         ONE: 'Template One',
         TWO: 'Template Two',
         THREE: 'Template Three',
         FOUR: 'Template Four',
         FIVE: 'Template Five',
         SIX: 'Template Six',
-        SEVEN: 'Template Seven'
+        SEVEN: 'Template Seven',
+        EIGHT: 'Template Eight'
     };
     var couponTypes = {
         COUPON: 'Coupon',
@@ -920,7 +921,7 @@ jQuery(document).ready(function ($) {
             couponImage.show("slow");
         } else if (currentTemplate === templates.DEFAULT) {
             couponDefault.show('slow');
-        } else if (currentTemplate === templates.ALTERNATIVE) {
+        } else if (currentTemplate === templates.EIGHT) {
             couponAlternative.show('slow');
         } else if (currentTemplate === templates.ONE) {
             couponOne.show("slow");
