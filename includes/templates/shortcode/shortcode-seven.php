@@ -104,6 +104,7 @@ $template = new WPCD_Template_Loader();
 							<?php if ( ! $expire_date ) {
 									$expire_date_format = date( 'd/m/Y' );
 							} ?>
+
 							<script type="text/javascript">
 								
 								var hasDate = "<?php echo empty( $expire_date ) ? 'no' : 'yes';?>";
@@ -140,14 +141,13 @@ $template = new WPCD_Template_Loader();
 									$clock2.countdown(selectedDate.toString());
 								});
 							</script>
-				
+
 							<b class="never-expire" style="display: none;">
 								<?php if ( ! empty( $no_expiry ) ) : ?>
 										<b><?php echo $no_expiry; ?></b>
 								<?php else : ?>
 										<b><?php echo __( "Doesn't expire", 'wpcd-coupon' ); ?></b>
 								<?php endif; ?>
-
 							</b>
 						</p>
 					</div><!-- End of class wpcd_seven_expire -->

@@ -189,20 +189,40 @@ class WPCD_Short_Code {
 					// Return Variables.
 					$output = ob_get_clean();
 
+				} else if ( $coupon_template == 'Eight' ) {
+
+					ob_start();
+
+					$template->get_template_part( 'shortcode-eight' );
+
+					// Return Variables.
+					$output = ob_get_clean();
+
 				} else if ( $coupon_template == 'Template Seven' ) {
 					 
 					ob_start();
 					 
-					 $template->get_template_part( 'shortcode-seven__premium_only' );
+					 $template->get_template_part( 'shortcode-seven' );
  					
  					// Return Variables
  					$output = ob_get_clean();
  					
- 				} else if ( $coupon_template == 'Template Eight' ) {
+ 				} else {
 
 					ob_start();
 
-					$template->get_template_part( 'shortcode-eight__premium_only' );
+					$template->get_template_part( 'shortcode-default' );
+
+					$output = ob_get_clean();
+				}
+
+			} else {
+
+				if ( $coupon_template == 'Eight' ) {
+
+					ob_start();
+
+					$template->get_template_part( 'shortcode-eight' );
 
 					// Return Variables.
 					$output = ob_get_clean();
@@ -214,16 +234,9 @@ class WPCD_Short_Code {
 					$template->get_template_part( 'shortcode-default' );
 
 					$output = ob_get_clean();
+
 				}
 
-			} else {
-
-				ob_start();
-
-				$template->get_template_part( 'shortcode-default' );
-
-				$output = ob_get_clean();
-				
 			}
 
 		}

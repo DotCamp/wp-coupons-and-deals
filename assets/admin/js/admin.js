@@ -9,8 +9,8 @@ jQuery(document).ready(function ($) {
         FOUR: 'Template Four',
         FIVE: 'Template Five',
         SIX: 'Template Six',
-        SEVEN: "Template Seven",
-        EIGHT: 'Template Eight'
+        SEVEN: 'Template Seven',
+        EIGHT: 'Template Eight',
     };
     var couponTypes = {
         COUPON: 'Coupon',
@@ -641,10 +641,7 @@ function WpcdCouponInsert() {
     } else if (coupons_shortcode_type.val() === 'vendor') {
         var counts = window.coupons_count.val();
         var $vendor_select = jQuery('#coupon_typelist_vendor').children('option[value="' + jQuery('#coupon_type_vendor').val() + '"]');
-        console.log($vendor_select);
-        console.log(jQuery('#coupon_typelist_vendor'));
         var vendor_id = $vendor_select.attr('vendor_id');
-        console.log($vendor_select.attr('vendor_id'));
         if (coupons_style_vendor_select.val() === 'vertical')
             window.send_to_editor("[wpcd_coupons_loop count=" + counts + " vend=" + vendor_id + "]");
         else {
@@ -755,6 +752,7 @@ jQuery(document).ready(function ($) {
             $('.wpcd-coupon-four-title').text(title);
             $('.wpcd-coupon-five-title').text(title);
             $('.wpcd-coupon-six-title').text(title);
+            $('.admin_wpcd_seven_new_title a').text(title);
         });
 
         //change description dynamically (this works only with text editor)
@@ -767,6 +765,7 @@ jQuery(document).ready(function ($) {
         $('#description').change(function () {
             var description = $(this).val();
             $('.wpcd-coupon-description').html(description);
+
         });
 
         $('#discount-text').keyup(function () {
@@ -777,6 +776,7 @@ jQuery(document).ready(function ($) {
             $('.wpcd-four-discount-text').eq(0).text(discount_text);
             $('.wpcd-coupon-five-discount-text').text(discount_text);
             $('.wpcd-coupon-six-discount-text').text(discount_text);
+            $('.admin_wpcd_seven_percentOff p').text(discount_text);
         });
 
         $('#second-discount-text').keyup(function () {
@@ -881,9 +881,10 @@ jQuery(document).ready(function ($) {
         THREE: 'Template Three',
         FOUR: 'Template Four',
         FIVE: 'Template Five',
-        SIX: 'Template Six',
+        SIX: 'Template Six', 
         SEVEN: 'Template Seven',
-        EIGHT: 'Template Eight'
+        EIGHT: 'Template Eight',
+    
     };
     var couponTypes = {
         COUPON: 'Coupon',
@@ -893,7 +894,7 @@ jQuery(document).ready(function ($) {
     var previewWrap = $('#coupon_preview');
     var couponPreview = previewWrap.find('.wpcd-coupon-preview');
     var couponDefault = $('.wpcd-coupon');
-    var couponAlternative = $('.wpcd-coupon-alternative');
+    var couponEight = $('.wpcd-coupon-eight');
     var couponOne = $('.wpcd-coupon-one');
     var couponTwo = $('.wpcd-coupon-two');
     var couponThree = $('.wpcd-coupon-three');
@@ -921,9 +922,8 @@ jQuery(document).ready(function ($) {
             couponImage.show("slow");
         } else if (currentTemplate === templates.DEFAULT) {
             couponDefault.show('slow');
-        } else if (currentTemplate === templates.EIGHT) {
-            couponAlternative.show('slow');
-        } else if (currentTemplate === templates.ONE) {
+        }
+        else if (currentTemplate === templates.ONE) {
             couponOne.show("slow");
         } else if (currentTemplate === templates.TWO) {
             couponTwo.show("slow");
@@ -937,6 +937,8 @@ jQuery(document).ready(function ($) {
             couponSix.show("slow");
         } else if (currentTemplate === templates.SEVEN) {
             couponSeven.show("slow");
+        } else if (currentTemplate === templates.EIGHT) {
+            couponEight.show('slow');
         }
     }
 
@@ -1060,7 +1062,6 @@ jQuery(function ($) {
         onSelect: function (dateText) {
 
             $(this).trigger('change');
-
             var today = (new Date()).setHours(0, 0, 0, 0);
             var isExpired = Date.parse(dateText) < today;
             var expireBlock, expiredBlock;
@@ -1104,7 +1105,6 @@ jQuery(function ($) {
         }
     });
 });
-
 
 function wpcd_featured_img_func() {
     var imgSrc = jQuery("#set-post-thumbnail img").attr("src");

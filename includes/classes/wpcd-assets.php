@@ -333,7 +333,6 @@ class WPCD_Assets {
 
 
 	}
-        
     /**
      * to add custom javascript code tinymce Editor at initiation
      *

@@ -73,15 +73,15 @@ $template = new WPCD_Template_Loader();
 				?>
             </div>
 		<?php } elseif ( $coupon_type == 'Deal' ) { ?>
-            <div class="deal-type">
-				<?php
-					if ( !empty( $dt_deal_type_name ) ) {
-						echo $dt_deal_type_name;
-					} else {
-						echo __( 'Deal', 'wpcd-coupon' );
-					}
-				?>
-            </div>
+		<div class="deal-type">
+			<?php
+				if ( !empty( $dt_deal_type_name ) ) {
+					echo $dt_deal_type_name;
+				} else {
+					echo __( 'Deal', 'wpcd-coupon' );
+				}
+			?>
+		</div>
 		<?php } ?>
     </div>
     <div class="wpcd-coupon-content wpcd-col-7-8">

@@ -6,7 +6,9 @@ $wpcd_coupon_templates = array(
 	'Template Three',
 	'Template Four',
 	'Template Five',
-	'Template Six'
+    'Template Six',
+    'Template Seven',
+    'Template Eight'
 );
 ?>
 <form id="wpcd_import_form" class="wpcd_clearfix" enctype='multipart/form-data' method='post'>

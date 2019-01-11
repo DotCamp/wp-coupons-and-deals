@@ -185,14 +185,14 @@ class WPCD_Meta_Boxes {
 				'help'    => __( 'Choose coupon shortcode template.', 'wpcd-coupon' ),
 				'options' => array(
 					'Default',
+					'Alternative',
 					'Template One',
 					'Template Two',
 					'Template Three',
 					'Template Four',
 					'Template Five',
 					'Template Six', 
-					'Template Seven',
-					'Template Eight'
+ 					'Template Seven',
 				)
 			),
 			array(
@@ -532,11 +532,11 @@ class WPCD_Meta_Boxes {
 						$_POST[ $wpcd_field['id'] ] = sanitize_email( $_POST[ $wpcd_field['id'] ] );
 						break;
 					case 'text':
-						if ( $wpcd_field['id'] == 'link' )
-                            $_POST[ $wpcd_field['id'] ] = esc_url( $_POST[ $wpcd_field['id'] ] );
-                        else
-                        	$_POST[ $wpcd_field['id'] ] = sanitize_text_field( $_POST[ $wpcd_field['id'] ] );
-                        break;
+						if($wpcd_field['id'] == 'link')
+                                                    $_POST[ $wpcd_field['id'] ] = esc_url( $_POST[ $wpcd_field['id'] ] );
+                                                else
+                                                    $_POST[ $wpcd_field['id'] ] = sanitize_text_field( $_POST[ $wpcd_field['id'] ] );
+                                                break;
 				}
 
 				$field_checker = 'coupon_details_' . $wpcd_field['id'];

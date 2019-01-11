@@ -56,7 +56,7 @@ $wpcd_show_coupon_popup = ! empty( $_GET['wpcd_coupon'] ) && $_GET['wpcd_coupon'
 <?php if ( $wpcd_coupon_template === 'Template Five' ): ?>
 
     <div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden <?php echo $button_class; ?>">
-        <a data-type="code" data-coupon-id="<?php echo $new_coupon_id; ?>"
+       dfsfsfsdf <a data-type="code" data-coupon-id="<?php echo $new_coupon_id; ?>"
            href="<?php echo $wpcd_show_coupon_popup ? 'javascript:void(0)' : '?wpcd_coupon=' . $new_coupon_id; ?>"
            target="_blank"
            class="coupon-button coupon-code-wpcd <?php echo $wpcd_show_coupon_popup ? '' : 'masterTooltip'; ?> <?php echo $button_class; ?>"
