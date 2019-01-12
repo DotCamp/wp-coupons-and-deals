@@ -434,6 +434,12 @@ class WPCD_Short_Code {
                     case 'three':
                         $coupon_template = 'shortcode-archive-three__premium_only';
                         break;
+                    case 'seven':
+                        $coupon_template = 'shortcode-archive-seven__premium_only';
+                        break;
+                    case 'eight':
+                        $coupon_template = 'shortcode-archive-eight__premium_only';
+                        break;
                     default :
                         $coupon_template = 'shortcode-archive-default__premium_only';
                         break;
@@ -512,6 +518,12 @@ class WPCD_Short_Code {
                     break;
                 case 'three':
                     $coupon_template = 'shortcode-category-three__premium_only';
+                    break;
+                case 'seven':
+                    $coupon_template = 'shortcode-category-seven__premium_only';
+                    break;
+                case 'eight':
+                    $coupon_template = 'shortcode-category-eight__premium_only';
                     break;
 				default :
 					$coupon_template = 'shortcode-category-default__premium_only';		

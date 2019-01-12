@@ -48,8 +48,6 @@ $wpcd_show_print = get_post_meta($coupon_id, 'coupon_details_coupon-image-print'
 $disable_menu = get_option('wpcd_disable-menu-archive-code');
 $coupon_categories = get_the_terms($coupon_id, 'wpcd_coupon_category');
 $coupon_categories_class = '';
-$search_text = explode(" ", $title);
-$search_text = implode(' ', $search_text);
 
 if ($coupon_categories && count($coupon_categories) > 0) {
     foreach ($coupon_categories as $category) {
@@ -105,50 +103,10 @@ if (!has_post_thumbnail()) {
  * header and in the bottom footer
  */
 global $parent;
-if ($parent == 'header' || $parent == 'headerANDfooter'):
-    ?>
-    <section class="wpcd_archive_section wpcd_clearfix">
-    <?php
-    global $current_url;
-    $terms = get_terms('wpcd_coupon_category');
-    if (!empty($terms) && !is_wp_error($terms) && !$disable_menu):
-
-        ?>
-        <div class="wpcd_div_nav_block">
-            <div class="wpcd_cats">
-                <ul id="wpcd_cat_ul">
-                    <li>
-                        <a class="wpcd_category" data-category="all" href="<?php echo $current_url; ?>">
-                            <?php echo __('All Coupons', 'wpcd-coupon'); ?>
-                        </a>
-                    </li>
-                    <?php foreach ($terms as $term): ?>
-                        <li>
-                            <a class="wpcd_category" data-category="<?php echo $term->slug; ?>"
-                               href="<?php echo $current_url . '?wpcd_category=' . $term->slug; ?>"><?php echo $term->name; ?></a>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-            <div class="wpcd_searchbar">
-                <ul id="wpcd_cat_ul">
-                    <li class="wpcd_searchbar_search">
-                        <span id="wpcd_searchbar_search_icon" class="dashicons dashicons-search"></span>
-                        <input type="text" placeholder="Search">
-                    </li>
-                    <span id="wpcd_searchbar_search_close" class="dashicons dashicons-dismiss"></span>
-                </ul>
-            </div>
-        </div>
-        <div class="wpcd_cat_ul_border"></div>
-    <?php endif; ?>
-
-    <ul id="wpcd_coupon_ul" class="wpcd_clearfix">
-
-<?php endif; ?>
-
+include('header-grid.php');
+?>
     <li class="wpcd_coupon_li wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item <?php echo $coupon_categories_class; ?>"
-        wpcd-data-search="<?php echo $search_text;?>">
+        wpcd-data-search="<?php echo $title;?>">
         <?php
         if ($hide_featured_image != 'on') {
         if (!empty($featured_img_url)) { ?>
@@ -295,22 +253,4 @@ if ($parent == 'header' || $parent == 'headerANDfooter'):
         </div>
         </div>
     </li>
-<?php if ($parent == 'footer' || $parent == 'headerANDfooter'): ?>
-    </ul>
-    <div id="wpcd_coupon_pagination_wr" class="wpcd_coupon_pagination wpcd_clearfix">
-        <?php
-        $big = 999999999; // need an unlikely integer
-        echo paginate_links(array(
-            'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
-            'format' => '?paged=%#%',
-            'current' => max(1, get_query_var('paged')),
-            'total' => $max_num_page,
-            'prev_next' => true,
-            'prev_text' => __('« Prev', 'wpcd-coupon'),
-            'next_text' => __('Next »', 'wpcd-coupon'),
-        ));
-        ?>
-    </div>
-
-    </section>
-<?php endif; ?>
+<?php include('footer-grid.php'); ?>

@@ -5,21 +5,12 @@
  * Date: 8/25/17
  * Time: 11:31 PM
  */
-/**
- *
- * This exits from the script if it's accessed
- * directly from somewhere else.
- *
- */
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
 
 if ( !function_exists( 'wpcd_coupon_thumbnail_img' ) ) {
 	include WPCD_Plugin::instance()->plugin_includes . 'functions/wpcd-coupon-thumbnail-img.php';
 }
 
-global $coupon_id, $max_num_page;
+global $coupon_id, $parent;
 $title                    = get_the_title();
 $link                     = get_post_meta( $coupon_id, 'coupon_details_link', true );
 $coupon_code              = get_post_meta( $coupon_id, 'coupon_details_coupon-code-text', true );
@@ -40,29 +31,20 @@ $hidden_coupon_hover_text = get_option( 'wpcd_hidden-coupon-hover-text' );
 $copy_button_text         = get_option( 'wpcd_copy-button-text' );
 $coupon_title_tag         = get_option( 'wpcd_coupon-title-tag', 'h1' );
 $disable_coupon_title_link = get_option( 'wpcd_disable-coupon-title-link' );
-$coupon_share             = get_option( 'wpcd_coupon-social-share' );
+$coupon_share = get_option( 'wpcd_coupon-social-share' );
 $show_expiration          = get_post_meta( $coupon_id, 'coupon_details_show-expiration', true );
 $today                    = date( 'd-m-Y' );
 $expire_date              = get_post_meta( $coupon_id, 'coupon_details_expire-date', true );
 $expire_date_format       = date( "m/d/Y", strtotime( $expire_date ) );
-$never_expire             = get_post_meta( $coupon_id, 'coupon_details_never-expire-check', true );
 $expire_time              = get_post_meta( $coupon_id, 'coupon_details_expire-time', true );
+$never_expire             = get_post_meta( $coupon_id, 'coupon_details_never-expire-check', true );
 $hide_coupon              = get_post_meta( $coupon_id, 'coupon_details_hide-coupon', true );
 $wpcd_coupon_image_id     = get_post_meta( $coupon_id, 'coupon_details_coupon-image-input', true );
 $wpcd_coupon_image_src    = wp_get_attachment_image_src( $wpcd_coupon_image_id, 'full' );
 $wpcd_show_print          = get_post_meta( $coupon_id, 'coupon_details_coupon-image-print', true );
 $wpcd_image_width         = get_post_meta( $coupon_id, 'coupon_details_coupon-image-width', true );
 $wpcd_image_height        = get_post_meta( $coupon_id, 'coupon_details_coupon-image-height', true );
-$disable_menu             = get_option( 'wpcd_disable-menu-archive-code' );
-$template                 = new WPCD_Template_Loader();
-$coupon_categories        = get_the_terms( $coupon_id, 'wpcd_coupon_category' );
-$coupon_categories_class  = '';
-
-if($coupon_categories && count($coupon_categories) > 0){
-    foreach($coupon_categories as $category){
-        $coupon_categories_class .= ' '.$category->slug;
-    }
-}
+$template = new WPCD_Template_Loader();
 
 if ( is_array( $wpcd_coupon_image_src ) ) {
 	$wpcd_coupon_image_src = $wpcd_coupon_image_src[0];
@@ -71,14 +53,13 @@ if ( is_array( $wpcd_coupon_image_src ) ) {
 }
 
 $wpcd_coupon_template     = get_post_meta( $coupon_id, 'coupon_details_coupon-template', true );
-$wpcd_template_five_theme = get_post_meta( $coupon_id, 'coupon_details_template-five-theme', true );
+$wpcd_template_five_theme = get_post_meta( $coupon_id, 'coupon_details_template-five-theme', true ); // the color of five theme
 $wpcd_coupon_thumbnail    = $featured_img_url;
-$wpcd_template_six_theme  = get_post_meta( $coupon_id, 'coupon_details_template-six-theme', true );
-$wpcd_dummy_coupon_img    = WPCD_Plugin::instance()->plugin_assets . 'img/coupon-200x200.png';
-$wpcd_text_to_show        = get_option( 'wpcd_text-to-show' );
-$wpcd_custom_text         = get_option( 'wpcd_custom-text' );
-$dt_coupon_type_name 	  = get_option( 'wpcd_dt-coupon-type-text' );
-$dt_deal_type_name 	      = get_option( 'wpcd_dt-deal-type-text' );
+$wpcd_template_six_theme  = get_post_meta( $coupon_id, 'coupon_details_template-six-theme', true ); // the color of the theme six
+$wpcd_dummy_coupon_img   = WPCD_Plugin::instance()->plugin_assets . 'img/coupon-200x200.png';
+
+$wpcd_text_to_show = get_option( 'wpcd_text-to-show' );
+$wpcd_custom_text  = get_option( 'wpcd_custom-text' );
 
 if ( $wpcd_text_to_show == 'description' ) {
 	$wpcd_custom_text = $description;
@@ -88,76 +69,73 @@ if ( $wpcd_text_to_show == 'description' ) {
 	}
 }
 
-/*
- * to build the parent elment
- * header and in the bottom footer
- */
-global $parent;
-include('header-default.php');
-?>
-<?php if ( $coupon_type === 'Image' ): ?>
-    <div class="wpcd-coupon-image-wrapper">
-        <style>
-            .wpcd-coupon-image {
-                text-align: center;
-                margin: 0px auto;
-            }
 
-            .wpcd-coupon-image img {
-                max-width: 100%;
-                max-height: 100%;
-                -webkit-box-shadow: none !important;
-                box-shadow: none !important;
-                padding: 10px;
-                border: 2px dashed #000000;
-            }
+if ( $parent == 'header' || $parent == 'headerANDfooter' ): ?>
+<section class="wpcd_archive_section wpcd_clearfix">
+	<?php endif; ?>
 
-            .coupon-image-print-link {
-                font-size: 16px;
-                display: inline-block;
-                color: blue;
-                line-height: 26px;
-                cursor: pointer;
-                -webkit-box-shadow: none !important;
-                box-shadow: none !important;
-                text-decoration: underline;
-            }
-
-            .coupon-image-print-link:hover {
-                color: blue !important;
-                text-decoration: underline;
-                -webkit-box-shadow: none !important;
-                box-shadow: none !important;
-            }
-        </style>
-        <div class="wpcd-coupon-image"
-             style="width: <?php echo $wpcd_image_width; ?>; height: <?php echo $wpcd_image_height; ?>">
-            <a href="<?php echo $link; ?>" target="_blank">
-                <img src="<?php echo $wpcd_coupon_image_src; ?>"
-                     alt="<?php _e( 'Coupon image not uploaded', 'wpcd-coupon' ); ?>">
-            </a>
-        </div>
-
-		<?php if ( $wpcd_show_print != 'No' ): ?>
-            <div style="text-align:center">
-                <a class="coupon-image-print-link"
-                   onclick="wpcd_print_coupon_img('<?php echo $wpcd_coupon_image_src; ?>')"><?php _e( 'Click To Print', 'wpcd-coupon' ); ?></a>
-            </div>
-            <script>
-                function wpcd_print_coupon_img(url) {
-                    if (!url) return;
-                    var win = window.open("");
-                    win.document.write('<img style="max-width:100%" src="' + url + '" onload="window.print();window.close()" />');
-                    win.focus()
+	<?php if ( $coupon_type === 'Image' ): ?>
+        <div class="wpcd-coupon-image-wrapper">
+            <style>
+                .wpcd-coupon-image {
+                    text-align: center;
+                    margin: 0px auto;
                 }
-            </script>
-		<?php endif; ?>
-    </div>
-<?php else: ?>
-    <!--- Template One start -->
 
-<div class="wpcd-coupon-one wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item <?php echo $coupon_categories_class; ?>"
-    wpcd-data-search="<?php echo $title;?>">
+                .wpcd-coupon-image img {
+                    max-width: 100%;
+                    max-height: 100%;
+                    -webkit-box-shadow: none !important;
+                    box-shadow: none !important;
+                    padding: 10px;
+                    border: 2px dashed #000000;
+                }
+
+                .coupon-image-print-link {
+                    font-size: 16px;
+                    display: inline-block;
+                    color: blue;
+                    line-height: 26px;
+                    cursor: pointer;
+                    -webkit-box-shadow: none !important;
+                    box-shadow: none !important;
+                    text-decoration: underline;
+                }
+
+                .coupon-image-print-link:hover {
+                    color: blue !important;
+                    text-decoration: underline;
+                    -webkit-box-shadow: none !important;
+                    box-shadow: none !important;
+                }
+            </style>
+            <div class="wpcd-coupon-image"
+                 style="width: <?php echo $wpcd_image_width; ?>; height: <?php echo $wpcd_image_height; ?>">
+                <a href="<?php echo $link; ?>" target="_blank">
+                    <img src="<?php echo $wpcd_coupon_image_src; ?>"
+                         alt="<?php _e( 'Coupon image not uploaded', 'wpcd-coupon' ); ?>">
+                </a>
+            </div>
+
+			<?php if ( $wpcd_show_print != 'No' ): ?>
+                <div style="text-align:center">
+                    <a class="coupon-image-print-link"
+                       onclick="wpcd_print_coupon_img('<?php echo $wpcd_coupon_image_src; ?>')"><?php _e( 'Click To Print', 'wpcd-coupon' ); ?></a>
+                </div>
+                <script>
+                    function wpcd_print_coupon_img(url) {
+                        if (!url) return;
+                        var win = window.open("");
+                        win.document.write('<img style="max-width:100%" src="' + url + '" onload="window.print();window.close()" />');
+                        win.focus()
+                    }
+                </script>
+			<?php endif; ?>
+        </div>
+        <?php else: ?> <!--- Template One start -->
+            
+        
+<div class="wpcd-coupon-one wpcd-coupon-id-<?php echo $coupon_id; ?>">
     <div class="wpcd-col-one-1-8">
         <figure>
             <img class="wpcd-coupon-one-img" src="<?php echo $coupon_thumbnail; ?>">
@@ -174,7 +152,7 @@ include('header-default.php');
 					<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
 						<a href="<?php echo $link; ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
                 	</<?php echo esc_html( $coupon_title_tag ); ?>>
-				<?php }
+				<?php } 
 			?>
 		</div>
         <div id="clear"></div>
@@ -335,6 +313,27 @@ include('header-default.php');
         $template->get_template_part('vote-system');
     ?>
 </div>
-    <!--  Template one End -->
-<?php endif; ?>
-<?php include('footer-default.php'); ?>
+
+        
+	 <!--  Template one End --><?php endif; ?>
+
+
+	<?php if ( $parent == 'footer' || $parent == 'headerANDfooter' ): ?>
+    <div id="wpcd_coupon_pagination_wr" class="wpcd_coupon_pagination wpcd_clearfix">
+		<?php
+		global $max_num_page;
+		$big = 999999999; // need an unlikely integer
+		echo paginate_links( array(
+			'base'      => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+			'format'    => '?paged=%#%',
+			'current'   => max( 1, get_query_var( 'paged' ) ),
+			'total'     => $max_num_page,
+			'prev_next' => true,
+			'prev_text' => __( '« Prev', 'wpcd-coupon' ),
+			'next_text' => __( 'Next »', 'wpcd-coupon' ),
+		) );
+		?>
+    </div>
+</section>
+
+<?php endif; ?>            

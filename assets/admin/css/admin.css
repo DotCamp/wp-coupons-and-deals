@@ -314,9 +314,6 @@ table.wpcd_import_preview th {
 
 /** end tabs style **/
 
-
-
-
 /** color pickers **/
 
 .wpcd_colorSelectors {
@@ -1102,19 +1099,6 @@ p.wpcd-coupon-four-expired {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
 }
-
-
-
-
-
-.wpcd-four-discount-text {
-    text-align: center;
-    padding: 10px 0;
-    font-size: 21px;
-    margin-bottom: 10px;
-}
-
-
 /* Shortcode Template five coupon 
 ----------------------------------*/
 
@@ -1291,13 +1275,6 @@ p.wpcd-coupon-four-expired {
     text-align: left;
 }
 
-
-
-
-
-
-
-
 /* Shortcode Template six coupon
 -----------------------------------*/
 
@@ -1442,7 +1419,7 @@ p.wpcd-coupon-four-expired {
 .wpcd-coupon-six-img-and-btn .item-img {
     height: 115px;
     clear: both;
-    max-width: 150 px;
+    max-width: 150px;
     margin-top: 15px;
     text-align: center;
 }
@@ -1591,9 +1568,6 @@ p.wpcd-coupon-four-expired {
 .wpcd-coupon-six-mobile .wpcd-coupon-six-title {
     text-align: center;
 }
-
-
-
 
 /* Shortcode Template image coupon Styles
 -----------------------------------------------------*/
@@ -2574,6 +2548,82 @@ h2:before {
 
 .red-text {
     color: red !important;
+}
+
+[wpcd-data-tooltip] {
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+
+[wpcd-data-tooltip] .dashicons {
+    font-size: 14px;
+    padding-top: 4px;
+    color: grey;
+}
+
+
+/* Hide the tooltip content by default */
+
+[wpcd-data-tooltip]:before,
+[wpcd-data-tooltip]:after {
+    visibility: hidden;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+/* Position tooltip above the element */
+
+[wpcd-data-tooltip]:before {
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    margin-bottom: 5px;
+    margin-left: -80px;
+    padding: 7px;
+    width: 160px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #000;
+    background-color: hsla(0, 0%, 20%, 0.9);
+    color: #fff;
+    content: attr(wpcd-data-tooltip);
+    text-align: center;
+    font-size: 11px;
+    line-height: 1.2;
+}
+
+
+/* Triangle hack to make tooltip look like a speech bubble */
+
+[wpcd-data-tooltip]:after {
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -5px;
+    width: 0;
+    border-top: 5px solid #000;
+    border-top: 5px solid hsla(0, 0%, 20%, 0.9);
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    content: " ";
+    font-size: 0;
+    line-height: 0;
+}
+
+
+/* Show tooltip content on hover */
+
+[wpcd-data-tooltip]:hover:before,
+[wpcd-data-tooltip]:hover:after {
+    visibility: visible;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
 }
 
 @media screen and (max-width: 980px) {

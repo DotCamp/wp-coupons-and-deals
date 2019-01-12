@@ -93,29 +93,8 @@ if ( $wpcd_text_to_show == 'description' ) {
  * header and in the bottom footer
  */
 global $parent;
-if ( $parent == 'header' || $parent == 'headerANDfooter' ):
-	?>
-    <section class="wpcd_archive_section wpcd_clearfix">
-	<?php
-	global $current_url;
-	$terms = get_terms( 'wpcd_coupon_category' );
-	if ( ! empty( $terms ) && ! is_wp_error( $terms ) && !$disable_menu ):
-		?>
-        <ul id="wpcd_cat_ul">
-            <li>
-                <a class="wpcd_category" data-category="all" href="<?php echo $current_url; ?>">
-                    <?php echo __( 'All Coupons', 'wpcd-coupon' ); ?>
-                </a>
-            </li>
-			<?php foreach ( $terms as $term ): ?>
-                <li>
-                    <a class="wpcd_category" data-category="<?php echo $term->slug;?>" href="<?php echo $current_url . '?wpcd_category=' . $term->slug; ?>"><?php echo $term->name; ?></a>
-                </li>
-			<?php endforeach; ?>
-        </ul>
-        <div class="wpcd_cat_ul_border"></div>
-	<?php endif; ?>
-<?php endif; ?>
+include('header-default.php');
+?>
 <?php if ( $coupon_type === 'Image' ): ?>
     <div class="wpcd-coupon-image-wrapper">
         <style>
@@ -176,9 +155,10 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
     </div>
 <?php else: ?>
     <!--- Template two start -->
-            
-        
-<div class="wpcd-coupon-two wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item <?php echo $coupon_categories_class; ?>">
+
+
+<div class="wpcd-coupon-two wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item <?php echo $coupon_categories_class; ?>"
+    wpcd-data-search="<?php echo $title;?>">
     <div class="wpcd-col-two-1-4">
         <figure>
             <img class="wpcd-coupon-two-img" src="<?php echo $coupon_thumbnail; ?>">
@@ -304,27 +284,6 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
     $template->get_template_part('vote-system');
     ?>
 </div>
-
-
-        
 	 <!--  Template two End -->
 <?php endif; ?>
-<?php 
-if ( $parent == 'footer' || $parent == 'headerANDfooter' ): ?>
-    <div id="wpcd_coupon_pagination_wr" class="wpcd_coupon_pagination wpcd_clearfix">
-		<?php
-		$big = 999999999; // need an unlikely integer
-		echo paginate_links( array(
-			'base'      => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-			'format'    => '?paged=%#%',
-			'current'   => max( 1, get_query_var( 'paged' ) ),
-			'total'     => $max_num_page,
-			'prev_next' => true,
-			'prev_text' => __( '« Prev', 'wpcd-coupon' ),
-			'next_text' => __( 'Next »', 'wpcd-coupon' ),
-		) );
-		?>
-    </div>
-
-    </section>
-<?php endif; ?>
+<?php include('footer-default.php'); ?>

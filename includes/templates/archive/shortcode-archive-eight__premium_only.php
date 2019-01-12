@@ -155,9 +155,10 @@ include('header-default.php');
     </div>
 <?php else: ?>
     <!--- Template One start -->
-
+            
+        
 <div class="wpcd-coupon-one wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item <?php echo $coupon_categories_class; ?>"
-    wpcd-data-search="<?php echo $title;?>">
+     wpcd-data-search="<?php echo $title;?>">
     <div class="wpcd-col-one-1-8">
         <figure>
             <img class="wpcd-coupon-one-img" src="<?php echo $coupon_thumbnail; ?>">
@@ -174,7 +175,7 @@ include('header-default.php');
 					<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
 						<a href="<?php echo $link; ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
                 	</<?php echo esc_html( $coupon_title_tag ); ?>>
-				<?php }
+				<?php } 
 			?>
 		</div>
         <div id="clear"></div>
@@ -335,6 +336,6 @@ include('header-default.php');
         $template->get_template_part('vote-system');
     ?>
 </div>
-    <!--  Template one End -->
+	 <!--  Template one End -->
 <?php endif; ?>
 <?php include('footer-default.php'); ?>
