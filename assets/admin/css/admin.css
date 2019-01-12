@@ -2128,7 +2128,6 @@ h3.wpcd_coupon_popup_title {
     color: grey;
 }
 
-
 /* Hide the tooltip content by default */
 
 [wpcd-data-tooltip]:before,
@@ -2139,7 +2138,6 @@ h3.wpcd_coupon_popup_title {
     opacity: 0;
     pointer-events: none;
 }
-
 
 /* Position tooltip above the element */
 
@@ -2422,7 +2420,7 @@ h2:before {
 }
 
 .admin_wpcd_seven_expire p {
-    font-size: 16px;
+    font-size: 14px;
     padding: 1% 0;
 }
 
@@ -2630,7 +2628,13 @@ h2:before {
     .admin_wpcd_seven_percentOff:after {
         top: 50%;
         left: 60%;
+        z-index: -10;
     }
+    .admin_wpcd_seven_heading p {
+        font-size: 14px;
+        padding: 5px;
+    }
+    
 }
 
 @media screen and (min-width: 980px) {

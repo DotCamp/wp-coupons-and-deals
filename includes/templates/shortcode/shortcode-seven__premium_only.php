@@ -128,7 +128,6 @@ $template = new WPCD_Template_Loader();
 										jQuery('#clock_seven_<?php echo $post_id; ?>').removeClass('wpcd-countdown-expired');
 									}
 								});
-							
 								jQuery("#expire-time").change(function () {
 									jQuery('#clock_seven_<?php echo $post_id; ?>').show();
 									var coup_date = jQuery("#expire-date").val();
@@ -139,8 +138,7 @@ $template = new WPCD_Template_Loader();
 									selectedDate = coup_date + ' ' + jQuery("#expire-time").val();
 									$clock2.countdown(selectedDate.toString());
 								});
-							</script>
-				
+							</script>	
 							<b class="never-expire" style="display: none;">
 								<?php if ( ! empty( $no_expiry ) ) : ?>
 										<b><?php echo $no_expiry; ?></b>

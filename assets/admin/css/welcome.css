@@ -9,7 +9,7 @@
     padding: 0;
 }
 
-// #wpcd-@import 'templates/template_seven';welcome *,
+#wpcd-welcome *,
 #wpcd-welcome ::before,
 #wpcd-welcome ::after {
     -webkit-box-sizing: border-box;

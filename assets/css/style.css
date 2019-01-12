@@ -529,8 +529,8 @@ p.wpcd-coupon-three-expired {
   -moz-box-sizing: border-box;
 }
 
-
-/* Template Four */
+/* Template Four
+-----------------------------------*/
 
 .wpcd-coupon-four {
   width: 100%;
@@ -845,8 +845,8 @@ p.wpcd-coupon-four-expired {
   top: 0;
 }
 
-
-/* mobile*/
+/* Mobile
+-----------------------------------*/
 
 .wpcd-template-five-mobile .wpcd-template-five-percent-off p {
   font-size: 20px;
@@ -946,8 +946,8 @@ p.wpcd-coupon-four-expired {
   cursor: pointer;
 }
 
-
-/*percent off start*/
+/* Percent Off Start
+-------------------------------------------------------------- */
 
 .wpcd-coupon-six-percent-off {
   width: 14%;
@@ -955,8 +955,8 @@ p.wpcd-coupon-four-expired {
   margin-right: 6px;
 }
 
-
-/*ribbon design*/
+/* Ribbon Design
+-------------------------------------------------------------- */
 
 .wpcd-coupon-six-percent-off .wpcd-for-ribbon {
   width: 100%;
@@ -977,7 +977,9 @@ p.wpcd-coupon-four-expired {
 }
 
 
-/*.wpcd-ribbon:after, .wpcd-ribbon:before*/
+
+/* .wpcd-ribbon:after, .wpcd-ribbon:before
+-------------------------------------------------------------- */
 
 .wpcd-coupon-six .wpcd-ribbon .wpcd-ribbon-before,
 .wpcd-coupon-six .wpcd-ribbon .wpcd-ribbon-after {
@@ -988,9 +990,8 @@ p.wpcd-coupon-four-expired {
   height: 0;
 }
 
-
-/*.wpcd-ribbon:before*/
-
+/* wpcd-ribbon:before
+-------------------------------------------------------------- */
 .wpcd-coupon-six .wpcd-ribbon .wpcd-ribbon-before {
   left: 0;
   border-left: 50px solid #18E06E;
@@ -1001,7 +1002,9 @@ p.wpcd-coupon-four-expired {
 }
 
 
-/*.wpcd-ribbon:after*/
+
+/* wpcd-ribbon:after
+-------------------------------------------------------------- */
 
 .wpcd-coupon-six .wpcd-ribbon .wpcd-ribbon-after {
   right: 0;
@@ -1024,8 +1027,8 @@ p.wpcd-coupon-four-expired {
   z-index: 2;
 }
 
-
-/*ribbon design end*/
+/* Ribbon Design End
+-------------------------------------------------------------- */
 
 .wpcd-coupon-six-texts {
   width: 55%;
@@ -1141,7 +1144,8 @@ p.wpcd-coupon-four-expired {
 }
 
 
-/* mobile class */
+/* Mobile Class.
+-------------------------------------------------------------- */
 
 .wpcd-coupon-six-mobile.wpcd-coupon-six {
   height: auto;
@@ -1543,10 +1547,8 @@ p.wpcd-coupon-loop-expired {
   color: red !important;
 }
 
-
-/**
-Coupon Button Hidden
-*/
+/* Coupon Button Hidden 
+-----------------------------------*/
 
 .wpcd-coupon-button-type .coupon-code-wpcd {
   line-height: 1;
@@ -1633,8 +1635,8 @@ Coupon Button Hidden
   width: calc(100% - 40px);
 }
 
-
-/* Wpcd Coupon Design */
+/* Wpcd Coupon Design 
+-----------------------------------*/
 
 .wpcd_coupon_popup_wr {
   background-color: rgba(0, 0, 0, 0.85);
@@ -1865,8 +1867,8 @@ Coupon Button Hidden
 
 /* </fs_premium_only> */
 
-
-/*widget elwany*/
+/* Widget Elwany
+-----------------------------------*/
 
 .wpcd-widget .wpcd-coupon-widget-title {
   font-weight: bold;
@@ -1915,10 +1917,8 @@ Coupon Button Hidden
   text-align: center;
 }
 
-
-
-
-/*fix bugs*/
+/* Fix Bugs
+-----------------------------------*/
 
 .wpcd_archive_section .wpcd_coupon_li_top_discount_left {
   width: auto;
@@ -1987,7 +1987,6 @@ Coupon Button Hidden
 }
 
 .wpcd-share-this-product:hover {
-  /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);*/
   border-radius: 3px;
   -webkit-filter: brightness(120%);
   -moz-filter: brightness(120%);
@@ -2054,7 +2053,8 @@ Coupon Button Hidden
 }
 
 
-/* social button */
+/* Social Button
+-----------------------------------*/
 
 a.wpcd-btn-social,
 .wpcd-btn-social {
@@ -2156,7 +2156,6 @@ a.wpcd-btn-social,
   width: 50%;
   box-sizing: border-box !important;
   display: inline-block;
-  /*    background: #FBFCFC;*/
 }
 
 .share-w {
@@ -2188,7 +2187,8 @@ a.wpcd-btn-social,
   -webkit-transition: all .25s;
 }
 
-/* vote system */
+/* Vote System
+-----------------------------------*/
 
 .wpcd-widget .wpcd-vote-wrapper,
 .wpcd-widget-default .wpcd-vote-wrapper,
@@ -2249,7 +2249,7 @@ a.wpcd-btn-social,
   pointer-events: none;
 }
 
-.wpcd-widget .wpcd-vote-wrapper a>.wpcd-tooltip:after {
+.wpcd-widget .wpcd-vote-wrapper a >.wpcd-tooltip:after {
   bottom: -5px;
 }
 
@@ -2299,7 +2299,9 @@ div.wpcd-vote-wrapper div>img {
   padding: 0 10px;
 }
 
-/* New Styles */
+/* New Styles
+-----------------------------------*/
+
 .wpcd-new-grid-container {
   display: grid;
   background: transparent;
@@ -2414,7 +2416,9 @@ h1:not(.site-title):before, h2:before {
   margin: 1.5em 0 0;
 }
 
-/* Template seven */
+/* Template seven
+-----------------------------------*/
+
 .wpcd_seven {
   margin: 0;
   padding: 0;
@@ -2422,7 +2426,8 @@ h1:not(.site-title):before, h2:before {
   font-family: 'Open Sans', sans-serif;
 }
 
-/*Basic*/
+/* Basic
+-----------------------------------*/
 
 .wpcd_seven_container {
   width: 100%;
@@ -2443,8 +2448,8 @@ h1:not(.site-title):before, h2:before {
   clear: both;
 }
 
-
-/*Percent and Product Picture*/
+/* Percent and Product Picture
+-----------------------------------*/
 
 .wpcd_seven_percentAndPic {
   width: 30%;
@@ -2488,7 +2493,8 @@ h1:not(.site-title):before, h2:before {
   box-shadow: 2px 2px 5px #888;
 }
 
-/*Heading and Expire Date*/
+/* Heading and Expire Date
+-----------------------------------*/
 
 .wpcd_seven_headingAndExpire {
   width: 45%;
@@ -2528,7 +2534,9 @@ h1:not(.site-title):before, h2:before {
   display: none;
 }
 
-/*Button, Social Site and Like Dislike*/
+
+/* Button, Social Site and Like Dislike
+-----------------------------------*/
 
 .wpcd_seven_buttonSociaLikeDislike {
   width: 25%;
@@ -2611,8 +2619,6 @@ h1:not(.site-title):before, h2:before {
 }
 
 .wpcd_seven_likeDislike ul li {
-  /*   width: 40px;
-  height:40px; */
   list-style: none;
   float: left;
   margin-right: 40%;
@@ -2782,7 +2788,6 @@ h1:not(.site-title):before, h2:before {
   }
   .wpcd_seven_percentOff p {
       font-size: 24px;
-      /* padding: 6.4px; */
   }
   .wpcd_seven_percentOff:after {
       top: 50%;
@@ -2859,7 +2864,6 @@ h1:not(.site-title):before, h2:before {
       text-align: center;
   }
   .wpcd-new-grid-container {
-      /* grid-template-columns: 0.5fr 3fr; */
       grid-template-columns: 0.5fr 1.5fr 0.75fr;
       grid-template-rows: 1fr;
   }
@@ -3061,9 +3065,9 @@ h1:not(.site-title):before, h2:before {
       width: -moz-calc(100% - 150px);
       width: calc(100% - 150px);
   }
-  /*
- Template one styles.
- */
+  /* Template One Styles.
+  -----------------------------------*/
+  
   .wpcd-col-one-1-4 {
       float: left;
       width: 24%;
@@ -3077,8 +3081,9 @@ h1:not(.site-title):before, h2:before {
       float: left;
       width: 49.5%;
   }
-  /* template two styles.
- */
+ /* Template Two Styles.
+  -----------------------------------*/
+  
   .wpcd-col-two-1-4 {
       float: left;
       width: 25%;
@@ -3087,8 +3092,8 @@ h1:not(.site-title):before, h2:before {
       float: left;
       width: 75%;
   }
-  /* template three styles.
- */
+  /* Template Three Styles.
+  -----------------------------------*/
   .wpcd-col-three-1-4 {
       float: left;
       width: 25%;
@@ -3269,7 +3274,6 @@ h1:not(.site-title):before, h2:before {
   .wpcd-coupon-one h4 {
       text-align: justify;
   }
-  /* height: 150px; Don't know why this is here will be remove*/
 }
 
 @media screen and (max-width: 568px) and (min-width: 320px) {
