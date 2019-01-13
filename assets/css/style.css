@@ -3163,6 +3163,9 @@ h1:not(.site-title):before, h2:before {
   }
 }
 
+.wpcd_item .wpcd_seven_couponBox {
+  margin-top: 30px;
+}
 
 @media screen and (max-width: 599px) {
   .wpcd_coupon_btn_wr,
