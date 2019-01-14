@@ -189,22 +189,20 @@ class WPCD_Short_Code {
 					// Return Variables.
 					$output = ob_get_clean();
 
-				} 
-				else if ( $coupon_template == 'Template Seven' ) {
+				} else if ( $coupon_template == 'Template Seven' ) {
 					 
 					ob_start();
-					 
-					$template->get_template_part( 'shortcode-seven' );
+					
+					$template->get_template_part( 'shortcode-seven__premium_only' );
  	
  					// Return Variables
  					$output = ob_get_clean();
  					
- 				}
-				else if ( $coupon_template == 'Eight' ) {
+ 				} else if ( $coupon_template == 'Template Eight' ) {
 
 					ob_start();
 
-					$template->get_template_part( 'shortcode-eight' );
+					$template->get_template_part( 'shortcode-eight__premium_only' );
 
 					// Return Variables.
 					$output = ob_get_clean();

@@ -43,6 +43,7 @@ $dt_deal_type_name         = get_option( 'wpcd_dt-deal-type-text' );
 $disable_coupon_title_link = get_option( 'wpcd_disable-coupon-title-link' );
 $wpcd_text_to_show         = get_option( 'wpcd_text-to-show' );
 $wpcd_custom_text          = get_option( 'wpcd_custom-text' );
+$wpcd_eight_btn_text       = get_option( 'wpcd_eight-button-text' );
 
 $dt_coupon_type_name = ( !empty( $dt_coupon_type_name ) ) ? $dt_coupon_type_name : __( 'Coupon', 'wpcd-coupon' );
 $dt_deal_type_name = ( !empty( $dt_deal_type_name ) ) ? $dt_deal_type_name : __( 'Deal', 'wpcd-coupon' );
@@ -50,6 +51,7 @@ $expire_text = ( !empty( $expire_text ) ) ? $expire_text : __( 'Expires On: ', '
 $expired_text = ( !empty( $expired_text ) ) ? $expired_text : __( 'Expired On: ', 'wpcd-coupon' );
 $no_expiry = ( !empty( $no_expiry ) ) ? $no_expiry : __( "Doesn't expire", 'wpcd-coupon' );
 $coupon_hover_text = ( ! empty( $coupon_hover_text ) ) ? $coupon_hover_text : __( 'Click To Copy Coupon', 'wpcd-coupon' );
+$wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text : __( 'GET THE DEAL', 'wpcd-coupon' );
 
 if ( $wpcd_text_to_show == 'description' ) {
 	$wpcd_custom_text = $description;
@@ -124,7 +126,7 @@ $template = new WPCD_Template_Loader();
 		   <?php echo $coupon_code; ?>
 		</a>
 		<a class="wpcd-new-goto-button" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank">
-		   GO TO THE DEAL
+		   <?php echo $wpcd_eight_btn_text; ?>
 		</a>
 	</div><!-- End of grid-three -->
 	<script type="text/javascript">

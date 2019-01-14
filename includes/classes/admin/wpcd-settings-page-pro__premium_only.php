@@ -455,6 +455,14 @@ class WPCD_Settings_Page_Pro {
 					'type'		  => 'text',
 					'default'	  => __( 'Deal', 'wpcd-coupon' ),
 					'placeholder' => __( 'Deal', 'wpcd-coupon' )
+				),
+				array(
+					'id'		  => 'eight-button-text',
+					'label'		  => __( 'Template 8 CTA Button Text' ),
+					'description' => __( 'Text for CTA Button In Template Eight. Default is - GET THE DEAL', 'wpcd-coupon' ),
+					'type'		  => 'text',
+					'default'	  => __( 'GET THE DEAL', 'wpcd-coupon' ),
+					'placeholder' => __( 'GET THE DEAL', 'wpcd-coupon' )
 				)
 			),
 		);
