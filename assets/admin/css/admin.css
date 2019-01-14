@@ -2352,6 +2352,7 @@ h2:before {
     border-top: 30px solid transparent;
     border-right: 25px solid #9b59b6;
     border-bottom: 30px solid transparent;
+    z-index: -10;
 }
 
 .admin_wpcd_seven_productPic img {
@@ -2725,7 +2726,7 @@ h2:before {
         left: 80%;
     }
     .admin_wpcd_seven_heading p {
-        font-size: 18px;
+        font-size: 14px;
     }
     .admin_wpcd_seven_heading h1 a {
         font-size: 26px;

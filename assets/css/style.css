@@ -2556,6 +2556,7 @@ h2:before {
     left: 89%;
     width: 0;
     height: 0;
+    z-index: -10;
     border-top: 30px solid transparent;
     border-right: 25px solid #9b59b6;
     border-bottom: 30px solid transparent;
@@ -2572,13 +2573,13 @@ h2:before {
 -----------------------------------*/
 
 .wpcd_seven_headingAndExpire {
-    width: 45%;
+    /* width: 45%; */
     height: 100%;
     float: left;
 }
 
 .wpcd_seven_heading {
-    margin-top: 15px;
+    /* margin-top: 15px; */
     padding: 15px;
 }
 
@@ -2806,11 +2807,11 @@ h2:before {
         margin: 20% auto;
     }
     .wpcd_seven_btn a:before {
-        width: 150%;
+        /* width: 150%; */
         padding: 12.8px;
     }
     .wpcd_seven_btn a:after {
-        width: 150%;
+        /* width: 150%; */
         padding: 12.8px;
     }
     .wpcd_seven_percentOff p {
@@ -2829,9 +2830,12 @@ h2:before {
         font-size: 14px;
     }
     .wpcd_seven_heading h1 a {
-        font-size: 24px;
+        font-size: 20px;
         text-decoration: none;
         color: #000000;
+    }
+    .wpcd_seven_headingAndExpire {
+        width: 50%;
     }
 }
 
@@ -2886,6 +2890,9 @@ h2:before {
         font-size: 24px;
         text-decoration: none;
         color: #000000;
+    }
+    .wpcd_seven_headingAndExpire {
+        width: 50%;
     }
 }
 
