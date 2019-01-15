@@ -314,6 +314,7 @@ table.wpcd_import_preview th {
 
 /** end tabs style **/
 
+
 /** color pickers **/
 
 .wpcd_colorSelectors {
@@ -1099,6 +1100,15 @@ p.wpcd-coupon-four-expired {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
 }
+
+.wpcd-four-discount-text {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+
 /* Shortcode Template five coupon 
 ----------------------------------*/
 
@@ -1274,6 +1284,7 @@ p.wpcd-coupon-four-expired {
 .wpcd-template-five .wpcd-coupon-description {
     text-align: left;
 }
+
 
 /* Shortcode Template six coupon
 -----------------------------------*/
@@ -1568,6 +1579,7 @@ p.wpcd-coupon-four-expired {
 .wpcd-coupon-six-mobile .wpcd-coupon-six-title {
     text-align: center;
 }
+
 
 /* Shortcode Template image coupon Styles
 -----------------------------------------------------*/
@@ -2102,6 +2114,7 @@ h3.wpcd_coupon_popup_title {
     color: grey;
 }
 
+
 /* Hide the tooltip content by default */
 
 [wpcd-data-tooltip]:before,
@@ -2112,6 +2125,7 @@ h3.wpcd_coupon_popup_title {
     opacity: 0;
     pointer-events: none;
 }
+
 
 /* Position tooltip above the element */
 
@@ -2193,8 +2207,9 @@ h2:before {
 }
 
 .admin-wpcd-new-title {
-    margin: 0;
-    font-size: 30px;
+    margin: 0 !important;
+    font-size: 30px !important;
+    padding: 0px !important;
 }
 
 .admin-wpcd-new-coupon-code {
@@ -2538,7 +2553,11 @@ h2:before {
     color: #C55247;
     border-radius: 50%;
     border: 2px solid #C55247;
-}/* End of Template Seven*/
+}
+
+
+/* End of Template Seven*/
+
 
 /* helper classes */
 
@@ -2685,7 +2704,6 @@ h2:before {
         font-size: 14px;
         padding: 5px;
     }
-    
 }
 
 @media screen and (min-width: 980px) {
