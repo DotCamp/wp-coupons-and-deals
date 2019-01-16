@@ -1259,7 +1259,7 @@ p.wpcd-coupon-four-expired {
     color: red;
 }
 
-.tooltip {
+.wpcd-copy-tooltip {
     display: none;
     position: absolute;
     border: 1px solid #333;
@@ -1434,7 +1434,7 @@ p.wpcd-coupon-four-expired {
 
 .wpcd_coupon_li_inner {
     padding: 15px;
-    height: calc( 100% - 188px);
+    height: calc(100% - 188px);
 }
 
 .wpcd_coupon_li_title {
@@ -1652,7 +1652,7 @@ p.wpcd-coupon-loop-expired {
 }
 
 .wpcd_coupon_li_content {
-    height: calc( 100% - 250px);
+    height: calc(100% - 250px);
     border: 1px solid #eeeeee;
     background-color: #f8f8f8;
     box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1);
@@ -3112,7 +3112,7 @@ h2:before {
 
 /* </fs_premium_only> */
 
-@media all and ( min-width: 600px) {
+@media all and (min-width: 600px) {
     .wpcd-col-2-3 {
         float: left;
         width: 66.66%;

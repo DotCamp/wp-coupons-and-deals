@@ -46,7 +46,7 @@
     font-size: 14px;
 }
 
-.tooltip {
+.wpcd-copy-tooltip {
     display: none;
     position: absolute;
     border: 1px solid #333;
@@ -1623,7 +1623,7 @@ p.wpcd-coupon-four-expired {
     font-size: 17px;
 }
 
-.tooltip {
+.wpcd-copy-tooltip {
     display: none;
     position: absolute;
     border: 1px solid #333;

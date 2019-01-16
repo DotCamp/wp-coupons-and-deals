@@ -697,17 +697,17 @@ jQuery(document).ready(function ($) {
         $('.masterTooltip').hover(function () {
             var title = $(this).attr('title');
             $(this).data('tipText', title).removeAttr('title');
-            $('<p class="tooltip"></p>')
+            $('<p class="wpcd-copy-tooltip"></p>')
                 .text(title)
                 .appendTo('body')
                 .fadeIn('slow');
         }, function () {
             $(this).attr('title', $(this).data('tipText'));
-            $('.tooltip').remove();
+            $('.wpcd-copy-tooltip').remove();
         }).mousemove(function (e) {
             var mousex = e.pageX + 20;
             var mousey = e.pageY + 10;
-            $('.tooltip')
+            $('.wpcd-copy-tooltip')
                 .css({ top: mousey, left: mousex })
         });
     });
@@ -881,10 +881,10 @@ jQuery(document).ready(function ($) {
         THREE: 'Template Three',
         FOUR: 'Template Four',
         FIVE: 'Template Five',
-        SIX: 'Template Six', 
+        SIX: 'Template Six',
         SEVEN: 'Template Seven',
         EIGHT: 'Template Eight',
-    
+
     };
     var couponTypes = {
         COUPON: 'Coupon',
