@@ -78,7 +78,7 @@ $wpcd_template_six_theme  = get_post_meta( $coupon_id, 'coupon_details_template-
 $wpcd_dummy_coupon_img    = WPCD_Plugin::instance()->plugin_assets . 'img/coupon-200x200.png';
 $wpcd_text_to_show        = get_option( 'wpcd_text-to-show' );
 $wpcd_custom_text         = get_option( 'wpcd_custom-text' );
-$dt_coupon_type_name 	  = get_option( 'wpcd_dt-coupon-type-text' );
+    $dt_coupon_type_name 	  = get_option( 'wpcd_dt-coupon-type-text' );
 $dt_deal_type_name 	      = get_option( 'wpcd_dt-deal-type-text' );
 
 if ( $wpcd_text_to_show == 'description' ) {

@@ -162,33 +162,95 @@ include('header-default.php');
                 <?php echo $discount_text; ?>
             </div>
 
-            <?php if ( $coupon_type == 'Coupon' ) { ?>
+            <?php if ($coupon_type == 'Coupon') { ?>
                 <div class="wpcd-new-coupon-type">
-                    <?php echo $dt_coupon_type_name; ?>
+                    <?php echo $coupon_type; ?>
                 </div>
-            <?php } elseif ( $coupon_type == 'Deal' ) { ?>
+            <?php } elseif ($coupon_type == 'Deal') { ?>
                 <div class="wpcd-new-deal-type">
-                    <?php echo $dt_deal_type_name; ?>
+                    <?php echo $coupon_type; ?>
                 </div>
             <?php }
-            if ( $show_expiration == 'Show' ) {
-                if ( ! empty( $expire_date ) ) {
-                    if ( strtotime( $expire_date ) >= strtotime( $today ) ) { ?>
+            ?>
+            <?php
+            if ( $coupon_type == 'Coupon' ) {
+                if ( $show_expiration == 'Show' ) {
+                    if ( ! empty( $expire_date ) ) {
+                        if ( strtotime( $expire_date ) >= strtotime( $today ) ) { ?>
+                            <p class="wpcd-new-expire-text">
+                                <?php
+                                if ( ! empty( $expire_text ) ) {
+                                    echo $expire_text . ' ' . $expire_date;
+                                } else {
+                                    echo __( 'Expires on: ', 'wpcd-coupon' ) . $expire_date;
+                                }
+                                ?>
+                            </p>
+                        <?php } elseif ( strtotime( $expire_date ) < strtotime( $today ) ) { ?>
+                            <p class="wpcd-new-expired-text">
+                                <?php
+                                if ( ! empty( $expired_text ) ) {
+                                    echo $expired_text . ' ' . $expire_date;
+                                } else {
+                                    echo __( 'Expired on: ', 'wpcd-coupon' ) . $expire_date;
+                                }
+                                ?>
+                            </p>
+                        <?php }
+                    } else { ?>
                         <p class="wpcd-new-expire-text">
-                            <?php echo $expire_text . ' ' . $expire_date; ?>
-                        </p> <?php
-                    } elseif ( strtotime( $expire_date ) < strtotime( $today ) ) { ?>
-                        <p class="wpcd-new-expired-text">
-                            <?php echo $expired_text . ' ' . $expire_date; ?>
-                        </p> <?php
-                    }
-                } else { ?>
-                    <p class="wpcd-new-expire-text">
-                        <?php echo $no_expiry; ?>
-                    </p> <?php
+                            <?php if ( ! empty( $no_expiry ) ) {
+                                echo $no_expiry;
+                            } else {
+                                echo __( "Doesn't expire", 'wpcd-coupon' );
+                            } ?>
+                        </p>
+                    <?php }
+                } else {
+                    echo '';
                 }
-            } else {
-                echo '';
+
+            } elseif ( $coupon_type == 'Deal' ) {
+                if ( $show_expiration == 'Show' ) {
+                    if ( ! empty( $expire_date ) ) {
+                        if ( strtotime( $expire_date ) >= strtotime( $today ) ) { ?>
+                            <p class="wpcd-new-expire-text">
+                                <?php
+                                if ( ! empty( $expire_text ) ) {
+                                    echo $expire_text . ' ' . $expire_date;
+                                } else {
+                                    echo __( 'Expires on: ', 'wpcd-coupon' ) . $expire_date;
+                                }
+                                ?>
+                            </p>
+                        <?php } elseif ( strtotime( $expire_date ) < strtotime( $today ) ) { ?>
+                            <p class="wpcd-new-expired-text">
+                                <?php
+                                if ( ! empty( $expired_text ) ) {
+                                    echo $expired_text . ' ' . $expire_date;
+                                } else {
+                                    echo __( 'Expired on: ', 'wpcd-coupon' ) . $expire_date;
+                                }
+                                ?>
+                            </p>
+                        <?php }
+
+                    } else { ?>
+
+                        <p class="wpcd-new-expire-text">
+
+                            <?php if ( ! empty( $no_expiry ) ) {
+                                echo $no_expiry;
+                            } else {
+                                echo __( "Doesn't expire", 'wpcd-coupon' );
+                            }
+                            ?>
+                        </p>
+
+                    <?php }
+                } else {
+                    echo '';
+                }
             } ?>
         </div> <!-- End of grid-one -->
 
@@ -212,12 +274,23 @@ include('header-default.php');
     </div>
     </div> <!-- End of grid-two -->
     <div class="wpcd-new-grid-three">
-        <a class="wpcd-new-coupon-code <?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank" data-clipboard-text="<?php echo $coupon_code; ?>" title="<?php echo $coupon_hover_text; ?>">
-            <?php echo $coupon_code; ?>
-        </a>
-        <a class="wpcd-new-goto-button" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank">
-            GO TO THE DEAL
-        </a>
+        <?php
+        if($coupon_type == 'Coupon'):
+            ?>
+            <a class="wpcd-new-coupon-code <?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip" rel="nofollow"
+               href="<?php echo esc_url($link); ?>" target="_blank" data-clipboard-text="<?php echo $coupon_code; ?>"
+               title="<?php echo $coupon_hover_text; ?>">
+                <?php echo $coupon_code; ?>
+            </a>
+        <?php
+        elseif($coupon_type == 'Deal'):
+            ?>
+            <a class="wpcd-new-goto-button" rel="nofollow" href="<?php echo esc_url($link); ?>" target="_blank">
+                GO TO THE DEAL
+            </a>
+        <?php
+        endif;
+        ?>
     </div><!-- End of grid-three -->
     <script type="text/javascript">
         var clip = new Clipboard('.<?php echo $button_class; ?>');
