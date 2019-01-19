@@ -2649,11 +2649,13 @@ h2:before {
     transition: .5s;
     transform-origin: right;
     transform: translateX(-100%) rotateY(90deg);
+    text-align: center;
 }
 
 .wpcd_seven_btn a:after {
     content: attr(title);
     position: absolute;
+    text-align: center;
     top: 0;
     left: 0;
     padding: 10px 30px;
@@ -2816,9 +2818,9 @@ h2:before {
     }
     .wpcd_seven_percentOff p {
         font-size: 18px;
-        padding-top: 8px;
+        padding-top: 14px;
         /* R */
-        padding-bottom: 8px;
+        padding-bottom: 14px;
         padding-left: auto;
         padding-right: auto;
     }
@@ -2870,6 +2872,8 @@ h2:before {
     }
     .wpcd_seven_percentOff p {
         font-size: 24px;
+        padding-top: 8px;
+        padding-bottom: 8px;
     }
     .wpcd_seven_percentOff:after {
         top: 50%;
