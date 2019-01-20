@@ -78,7 +78,7 @@ jQuery(document).ready(function ($) {
     });
 
     removeFeaturedImage();
-
+    // Import
     jQuery("#wpcd_import_form").submit(function () {
         jQuery(".wpcd_import_form_loader").fadeIn();
     });

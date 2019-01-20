@@ -231,10 +231,10 @@ button.tab.active {
     background-position: center;
     background-size: 45px auto;
     height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
     width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 #wpcd_import_form_wr h5 {
@@ -2617,7 +2617,6 @@ h2:before {
     line-height: 1.2;
 }
 
-
 /* Triangle hack to make tooltip look like a speech bubble */
 
 [wpcd-data-tooltip]:after {
@@ -2644,6 +2643,24 @@ h2:before {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
     opacity: 1;
+}
+/* Import button and row info data */
+#wpcd_import_form_final .wpcd_import_field_submit span {
+    padding: 1rem;
+    line-height: 2.3;
+    
+}
+#wpcd_import_form_final .wpcp-import-btn {
+    border-radius: 5rem;
+    background: url('../../img/wpcp-import-btn-icon16.png') no-repeat #006799 center;
+    width: 40px;
+    height: 40px;
+    border: 3px solid green;
+    
+}
+.wpcd_import_field_submit span strong {
+    color: green;
+    font-size: 16px;
 }
 
 @media screen and (max-width: 980px) {

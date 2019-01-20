@@ -161,6 +161,7 @@ $wpcd_coupon_templates = array('Template One', 'Template Two', 'Template Three',
 		} else {
 
 			// Upload File.
+			$count_row = 0;
 			if ( isset( $_POST['wpcd_import_submit'] ) ) {
 				$mimes = array(
 					'application/vnd.ms-excel',
@@ -201,6 +202,7 @@ $wpcd_coupon_templates = array('Template One', 'Template Two', 'Template Three',
 							break;
 						}
 						$i ++;
+						$count_row += 1;
 					}
 					fclose( $handle );
 					echo '</table>';
@@ -240,7 +242,8 @@ $wpcd_coupon_templates = array('Template One', 'Template Two', 'Template Three',
 						echo '<input type="file" style="display:none;" name="wpcd_import_file_final" value="' . $_FILES['wpcd_import_file']['tmp_name'] . '" />';
 						echo '<input type="hidden" name="wpcd_default_template" value="' . $_POST['wpcd_default_template'] . '">';
                         echo '<input type="hidden" name="theme_color" value="'.$_POST['theme_color'].'">';
-						echo '<input name="wpcd_import_submit_final" value="Import" class="button button-primary button-large" type="submit">';
+						echo '<input name="wpcd_import_submit_final" value="" class="button button-primary button-large wpcp-import-btn" type="submit">';
+                        echo '<span><strong>' . ($count_row - 1) . '</strong> Rows will be added! </span>'; 
 						echo '</div>';
 						break;
 					}
@@ -251,7 +254,7 @@ $wpcd_coupon_templates = array('Template One', 'Template Two', 'Template Three',
 
 					echo '</form>';
 					echo '<div class="wpcd_import_form_final_loader wpcd_loader" style="display:none;"></div>';
-					echo '</div>';
+					
 				} else { 
                     include('import-form__premium_only.php');
 				}
