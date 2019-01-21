@@ -266,10 +266,10 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 		<?php
 		if ( $show_expiration !== 'Hide' ) { ?>
 			<div class="with-expiration1 <?php echo empty( $expire_date ) ? 'hidden' : ''; ?>">
-				<div class="wpcd-coupon-one-expire expire-text-block1 <?php echo strtotime( $expire_date ) >= strtotime( $today ) ? 'hidden' : ''; ?>">
+				<div class="wpcd-coupon-one-expire expire-text-block1 <?php echo strtotime( $expire_date ) <= strtotime( $today ) ? 'hidden' : ''; ?>">
 					<?php echo $expire_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>';?>
 				</div>
-				<div class="wpcd-coupon-one-expired expired-text-block1 <?php echo strtotime( $expire_date ) < strtotime( $today ) ? 'hidden' : ''; ?>">
+				<div class="wpcd-coupon-one-expired expired-text-block1 <?php echo strtotime( $expire_date ) > strtotime( $today ) ? 'hidden' : ''; ?>">
 					<?php echo $expired_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>';?>
 				</div>
 			</div>
