@@ -5,7 +5,7 @@
  * Date: 8/25/17
  * Time: 11:31 PM
  */
-global $coupon_id, $parent;
+global $coupon_id, $parent, $max_num_page;
 $title                    = get_the_title();
 $link                     = get_post_meta( $coupon_id, 'coupon_details_link', true );
 $coupon_code              = get_post_meta( $coupon_id, 'coupon_details_coupon-code-text', true );
