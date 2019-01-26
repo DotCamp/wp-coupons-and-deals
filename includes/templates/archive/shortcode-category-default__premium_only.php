@@ -9,7 +9,7 @@ if ( !function_exists( 'wpcd_coupon_thumbnail_img' ) ) {
 	include WPCD_Plugin::instance()->plugin_includes . 'functions/wpcd-coupon-thumbnail-img.php';
 }
 
-global $coupon_id, $parent;
+global $coupon_id, $parent, $max_num_page;
 $title                    = get_the_title();
 $link                     = get_post_meta( $coupon_id, 'coupon_details_link', true );
 $coupon_code              = get_post_meta( $coupon_id, 'coupon_details_coupon-code-text', true );
