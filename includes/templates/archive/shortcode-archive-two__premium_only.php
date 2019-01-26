@@ -96,67 +96,9 @@ global $parent;
 include('header-default.php');
 ?>
 <?php if ( $coupon_type === 'Image' ): ?>
-    <div class="wpcd-coupon-image-wrapper">
-        <style>
-            .wpcd-coupon-image {
-                text-align: center;
-                margin: 0px auto;
-            }
-
-            .wpcd-coupon-image img {
-                max-width: 100%;
-                max-height: 100%;
-                -webkit-box-shadow: none !important;
-                box-shadow: none !important;
-                padding: 10px;
-                border: 2px dashed #000000;
-            }
-
-            .coupon-image-print-link {
-                font-size: 16px;
-                display: inline-block;
-                color: blue;
-                line-height: 26px;
-                cursor: pointer;
-                -webkit-box-shadow: none !important;
-                box-shadow: none !important;
-                text-decoration: underline;
-            }
-
-            .coupon-image-print-link:hover {
-                color: blue !important;
-                text-decoration: underline;
-                -webkit-box-shadow: none !important;
-                box-shadow: none !important;
-            }
-        </style>
-        <div class="wpcd-coupon-image"
-             style="width: <?php echo $wpcd_image_width; ?>; height: <?php echo $wpcd_image_height; ?>">
-            <a href="<?php echo $link; ?>" target="_blank">
-                <img src="<?php echo $wpcd_coupon_image_src; ?>"
-                     alt="<?php _e( 'Coupon image not uploaded', 'wpcd-coupon' ); ?>">
-            </a>
-        </div>
-
-		<?php if ( $wpcd_show_print != 'No' ): ?>
-            <div style="text-align:center">
-                <a class="coupon-image-print-link"
-                   onclick="wpcd_print_coupon_img('<?php echo $wpcd_coupon_image_src; ?>')"><?php _e( 'Click To Print', 'wpcd-coupon' ); ?></a>
-            </div>
-            <script>
-                function wpcd_print_coupon_img(url) {
-                    if (!url) return;
-                    var win = window.open("");
-                    win.document.write('<img style="max-width:100%" src="' + url + '" onload="window.print();window.close()" />');
-                    win.focus()
-                }
-            </script>
-		<?php endif; ?>
-    </div>
+    <?php include('coupon_type__image.php'); ?>
 <?php else: ?>
-    <!--- Template two start -->
-
-
+<!--- Template two start -->
 <div class="wpcd-coupon-two wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item <?php echo $coupon_categories_class; ?>"
     wpcd-data-search="<?php echo $title;?>">
     <div class="wpcd-col-two-1-4">
@@ -284,6 +226,6 @@ include('header-default.php');
     $template->get_template_part('vote-system');
     ?>
 </div>
-	 <!--  Template two End -->
+<!--  Template two End -->
 <?php endif; ?>
 <?php include('footer-default.php'); ?>
