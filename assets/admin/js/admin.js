@@ -78,28 +78,211 @@ jQuery(document).ready(function ($) {
     });
 
     removeFeaturedImage();
-    // Import
+
+    // Start of Import
     jQuery("#wpcd_import_form").submit(function () {
         jQuery(".wpcd_import_form_loader").fadeIn();
     });
-
-    jQuery("#wpcd_import_form_final").submit(function () {
-        var status = 'no';
-        jQuery(".wpcd_import_field_select").each(function () {
-            var import_key = jQuery(this).val();
-            if (import_key == 'coupon_title') {
-                status = 'yes';
+    
+    jQuery(".wpcd-import-btn").on("click", function(e) {
+        e.preventDefault();
+        console.log("click2");
+        
+        var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.csv|.txt)$/;
+        if (regex.test($("#wpcd_import_file").val().toLowerCase())) {
+            if (typeof (FileReader) != "undefined") {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var rows = e.target.result.split("\n");
+                    var import_fields_data      = [];
+                    var j                       = 0;
+                    var i                       = 0;
+                    var cells                   = 0;
+                    var rowcount                = rows.length-1;
+                    var percent                 = 0;
+                    var wpcp_coupons_data = {
+                        website                 : '',
+                        vendor                  : '',
+                        title                   : '',
+                        coupon_code             : '',
+                        link                    : '',
+                        discount_text           : '',
+                        description             : '',
+                        hide_coupon             : '',
+                        default_coupon_template : '',
+                        coupon_count            : 0,
+                        row_count               : rowcount-1, // minus the csv header
+                    }
+                    
+                    jQuery('#wpcd_import_select_website option').each(function(index, option) {
+                        import_fields_data[option.value] = index;
+                    });
+                       
+                    // preparing the select ID array
+                    for (i = 0; i < rows.length; i++) {
+                        // Filter header
+                        console.log("original i: "+i);
+                        cells = rows[i].split(",");
+                        if (cells.length > 1) {
+                            // Column values
+                            if (i == 0) {// Headers
+                                for (j = 0; j < cells.length; j++) {
+                                    // import_fields_data.push('wpcd_import_select_' + cells[j].trim().toLowerCase().replace(/ /g,"_"));
+                                    wpcd_temp4 = '#wpcd_import_select_' + cells[j].trim().toLowerCase().replace(/ /g,"_");
+                                }
+                            }
+                            else {
+                                
+                                wpcp_coupons_data['website']                 = cells[import_fields_data['coupon_category']];
+                                wpcp_coupons_data['vendor']                  = cells[import_fields_data['coupon_vendor']];
+                                wpcp_coupons_data['title']                   = cells[import_fields_data['coupon_title']];
+                                wpcp_coupons_data['coupon_code']             = cells[import_fields_data['coupon_details_coupon-code-text']];
+                                wpcp_coupons_data['link']                    = cells[import_fields_data['coupon_details_link']];
+                                wpcp_coupons_data['discount_text']           = cells[import_fields_data['coupon_details_discount-text']];
+                                wpcp_coupons_data['description']             = cells[import_fields_data['coupon_details_description']];
+                                wpcp_coupons_data['expiry_date']             = cells[import_fields_data['coupon_details_expire-date']];
+                                wpcp_coupons_data['hide_coupon']             = cells[import_fields_data['coupon_details_hide-coupon']];
+                                wpcp_coupons_data['default_coupon_template'] = cells[import_fields_data['coupon_details_coupon-template']];
+                                wpcp_coupons_data['coupon_count']            = i; 
+                                // Import Loader
+                                var status = 'no';
+                                jQuery(".wpcd_import_field_select").each(function () {
+                                    var import_key = jQuery(this).val();
+                                    if (import_key == 'coupon_title') {
+                                        status = 'yes';
+                                    }
+                                });
+                                if (status == 'yes') {
+                                    jQuery(".wpcd_import_form_final_loader").fadeIn();
+                              
+                                    wpcd_ajax_import('wpcd_process_import', JSON.stringify(wpcp_coupons_data));
+                                    // wpcd_ajax_import('wpcd_process_import', JSON.stringify(wpcp_coupons_data));
+                                } 
+                                 // End of Import Loader
+                            }
+                        }
+                    }
+                } // Row Loop
+                reader.readAsText($("#wpcd_import_file")[0].files[0]);
+            } else {
+                alert("This browser does not support HTML5.");
             }
-        });
-        if (status == 'yes') {
-            jQuery(".wpcd_import_form_final_loader").fadeIn();
-            return true;
         } else {
-            jQuery(".wpcd_import_notes").show();
-            jQuery(".wpcd_import_form_final_loader").fadeOut();
-            return false;
+            alert("Please upload a valid CSV file.");
         }
+         
+    }); // End of final submit click
+    
+ 
+    $("#wpcd_import_next_submit").on("click", function (e) {
+        e.preventDefault();
+        console.log("click");
+        var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.csv|.txt)$/;
+        jQuery(".wpcd-import-wrapper").show();
+        // jQuery('.wpcd_choose_fields_wr').show();
+        var countCol = jQuery(".wpcd_import_field span strong"); // Storing selector to prevent call redundancy
+        var array_temp = ""; // Storing object data
+       
+        if (regex.test($("#wpcd_import_file").val().toLowerCase())) {
+            if (typeof (FileReader) != "undefined") {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var table = $("<table class=\"widefat wpcd_import_preview\" cellspacing=\"0\"></table>");
+                    var rows = e.target.result.split("\n");
+                    var rows2 = e.target.result.split("\n"); // same with rows
+                    var row   = "";
+                    var cells = "";
+                    var cell = "";
+                    var j = 0;
+                    var i = 0;
+                    // Row loop
+                    for (i = 0; i < rows.length; i++) {
+                        row = $("<tr />");
+                        cells = rows[i].split(","); 
+                        if (cells != "") { // Check if there are blanks  
+                            console.log(cells);
+                            countCol.text(i); //Removes index 0 
+                            //If Header
+                            if ( i == 0 ) {
+                                row = $("<thead/>");
+                                cells = rows[i].split(",");  
+                            }
+                            // Column loop
+                            for (j = 0; j < cells.length; j++) {
+                                // console.log(j + ": value of j ");
+                                cell = $("<td />");
+                                cells[j] = cells[j].trim();
+                                cell.html(cells[j]);
+                                row.append(cell);
+                            }
+                            table.append(row);
+                            
+                        } // End of Blank filter check
+                    }
+                    $("#wpcd-table-csv").html('');
+                    $("#wpcd-table-csv").append(table);
+                      
+                    // Select option data
+                    var wpcd_import_field_inner_wr = jQuery(".wpcd_import_field_inner_wr"); // storing selector
+                    var rows_length = rows2.length; // to prevent calling length forever
+                    jQuery("#wpfooter").detach(); // removes the WP footer at the bottom 
+                    var column2 = [];
+                    
+                    var col = null;
+                    i = 0;
+                    row = null;
+                    var wpcd_temp = "";
+                    var wpcd_temp2 = "";
+                    var wpcd_count = 0;
+                    for (i = 0; i < rows_length; i++) {
+                        row = $("<tr />");
+                        col = rows2[i].split(","); 
+                        column2.push( [col] );
+                        col_length = col.length;
+                        // If Titles on first row
+                        wpcd_temp = "";
+                        wpcd_temp2 = "";
+                        if ( i == 0 ) {
+                            wpcd_count = col_length-1;
+                            do {
+                                wpcd_temp2 = col[wpcd_count].toLowerCase().trim().split(' ').join('_');
+                                wpcd_temp = "";
+                                wpcd_temp += "<div class=\"wpcd_import_field\"><label>" + col[wpcd_count].trim() + "</label>";
+                                wpcd_temp +='<select class="wpcd_import_field_select" name="wpcd_import_select_' + wpcd_temp2 + '" id="wpcd_import_select_' + wpcd_temp2 + '" ' + 'onChange="return wpcd_checkDuplicateField(\'' + wpcd_temp2 + '\')">';
+                                wpcd_temp += "<option value=\"\">Select</option>";
+                                wpcd_temp += "<option value=\"coupon_title\">Coupon Title</option>";
+                                wpcd_temp += "<option value=\"coupon_details_description\">Coupon Description</option>";
+                                wpcd_temp += "<option value=\"coupon_category\">Coupon Category</option>";
+                                wpcd_temp += "<option value=\"coupon_vendor\">Coupon Vendor</option>";
+                                wpcd_temp += "<option value=\"coupon_details_coupon-code-text\">Coupon Code</option>";
+                                wpcd_temp += "<option value=\"coupon_details_link\">Coupon Link</option>";
+                                wpcd_temp += "<option value=\"coupon_details_discount-text\">Discount Amount/Text</option>";
+                                wpcd_temp += "<option value=\"coupon_details_expire-date\">Expiration Date</option>";
+                                wpcd_temp += "<option value=\"coupon_details_hide-coupon\">Hide Coupon</option>";
+                                wpcd_temp += "<option value=\"coupon_details_coupon-template\">Coupon Template</option>";
+                                wpcd_temp += "</select>";
+                                wpcd_temp += "</div>";
+                                
+                                jQuery(wpcd_temp).prependTo(wpcd_import_field_inner_wr);
+                                wpcd_count--;
+                                
+                            } while (wpcd_count >= 0);    
+                        }
+                    }// End of Select data
+                    
+                }
+                reader.readAsText($("#wpcd_import_file")[0].files[0]);
+                
+            } else {
+                alert("This browser does not support HTML5.");
+            }
+        } else {
+            alert("Please upload a valid CSV file.");
+        }
+        jQuery("#wpcd_import_form").hide(); // Hides the first Import Form
     });
+
+    // End of Import
 
 
     $(document).on('change', 'input[name="template-five-theme"]', function () {
@@ -1125,5 +1308,67 @@ function wpcd_checkDuplicateField(field_key) {
         if (data == newdata) {
             jQuery(this).val("");
         }
+    });
+}
+
+function wpcd_ajax_import(action, tosent){
+    var data = {
+        action: action,
+        post_var: tosent
+    };
+    // store search to prevent searching the element. 
+    var wpcd_temp5 = JSON.parse(tosent);
+    var wpcd_percent_element = jQuery('#wpcd-pbar-percent'); 
+    var wpcd_percent_element_span = jQuery('#wpcd-pbar-percent span');
+    var wpcd_row_count = jQuery('.wpcd_import_field_submit span strong').text();
+    var wpcd_green = jQuery('.wrap .wpcd_green'); // Storing search element
+    // (tosent!=null) ? (data.post_var = tosent) : (data.post_var = null);
+    var jqxhr =  $.post(wpcd_ajax_script_import.ajaxurl, data, function(response, status) {
+        jqxhr.success(function(){ 
+            // alert("second complete");
+            // Check if success to move the progressbar.
+            if (status) { 
+                // Calculate percent
+                var percent = ((wpcd_temp5.coupon_count / wpcd_temp5.row_count) * 100).toFixed(2);
+                // Remove the console log on production for checking only
+                console.log("******percent********");
+                console.log("percent: "+ percent + " | count:"+wpcd_temp5.coupon_count);
+                
+                if (percent >= 5) {
+                    wpcd_percent_element.removeClass('wpcd-zero-percent');
+                    wpcd_percent_element.addClass('wpcd-twentyfive-percent');
+                    wpcd_percent_element_span.text(percent+"%");
+                    
+                }
+                if (percent >= 25) {
+                    wpcd_percent_element.removeClass('wpcd-twentyfive-percent');
+                    wpcd_percent_element.addClass('wpcd-fifty-percent');
+                    wpcd_percent_element_span.text(percent+"%");
+                }
+                if (percent >= 50) {
+                    wpcd_percent_element.removeClass('wpcd-fifty-percent');
+                    wpcd_percent_element.addClass('wpcd-seventyfive-percent');
+                    wpcd_percent_element_span.text(percent+"%");
+                }
+                if (percent >= 75) {
+                    wpcd_percent_element.removeClass('wpcd-seventyfive-percent');
+                    wpcd_percent_element.addClass('wpcd-onehundred-percent');
+                    wpcd_percent_element_span.text(percent+"%");
+                }
+                if (percent == 100) {
+                    jQuery(".wpcd_import_notes").show();
+                    jQuery(".wpcd_import_form_final_loader").fadeOut();
+                    jQuery('.wpcd-import-wrapper').hide();
+                    jQuery('#wpcd_import_form').hide();
+                    
+                    // Showing the green div element after import success.
+                    jQuery(wpcd_green).show(); 
+                    // Replacing the info for the Coupons added. 
+                    jQuery('.wrap .wpcd_green span').text(function () {
+                        return jQuery(this).text().replace("0 Coupons added.", wpcd_row_count + " Coupons added.");
+                    }); 
+                }
+            }
+        });   
     });
 }

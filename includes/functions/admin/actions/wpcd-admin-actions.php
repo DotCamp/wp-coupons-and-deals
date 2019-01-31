@@ -42,3 +42,50 @@ function wpcd_post_thumbnail_fallback( $content, $post_id, $thumbnail_id = '' ) 
 }
 
 add_filter( 'admin_post_thumbnail_html', 'wpcd_post_thumbnail_fallback', 10, 3 );
+
+// Import CSV using Ajax to function call.
+add_action('wp_ajax_wpcd_process_import', 'wpcd_import_process_php');
+function wpcd_import_process_php() {
+	$wpcd_coupon_templates = array('Template One', 'Template Two', 'Template Three', 'Template Four', 'Template Five', 'Template Six', 'Template Seven', 'Template Eight');
+	$wpcd_coupon_data = json_decode(stripslashes($_POST['post_var']));
+	if ( $wpcd_coupon_data->title != '' ) {
+		$args = array(
+			'post_type'    => 'wpcd_coupons',
+			'post_title'   => $wpcd_coupon_data->title,
+			'post_content' => '',
+			'post_status'  => 'publish',
+		);
+		$post_id = wp_insert_post( $args );
+		if ( ! is_wp_error( $post_id ) ) {
+			add_post_meta( $post_id, 'coupon_details_coupon-type', 'Coupon', true );
+			add_post_meta( $post_id, 'coupon_details_coupon-code-text', $wpcd_coupon_data->coupon_code, true );
+			add_post_meta( $post_id, 'coupon_details_link', $wpcd_coupon_data->link, true );
+			add_post_meta( $post_id, 'coupon_details_description', $wpcd_coupon_data->description, true );
+			add_post_meta( $post_id, 'coupon_details_discount-text', $wpcd_coupon_data->discount_text, true );
+			add_post_meta( $post_id, 'coupon_details_show-expiration', 'Show', true );
+			add_post_meta( $post_id, 'coupon_details_expire-date', $wpcd_coupon_data->expiry_date, true );
+			add_post_meta( $post_id, 'coupon_details_hide-coupon', $wpcd_coupon_data->hide_coupon, true );
+			add_post_meta( $post_id, 'coupon_details_coupon-template', $wpcd_coupon_data->default_coupon_template, true );     
+
+			// Theme Color for only template Five and Six
+			$theme_color = $_POST['theme_color'];
+			if ( $wpcd_coupon_data->default_coupon_template == 'Template Five' ):
+				add_post_meta( $post_id, 'coupon_details_template-five-theme', $theme_color );
+			elseif( $wpcd_coupon_data->default_coupon_template == 'Template Six'):
+				add_post_meta( $post_id, 'coupon_details_template-six-theme', $theme_color );
+			endif;
+			if ( $wpcd_coupon_data->website != '' && $wpcd_coupon_data->website != ' ' ) {
+				wp_set_object_terms( $post_id, $wpcd_coupon_data->website, 'wpcd_coupon_category' );
+			}	
+			if ( $wpcd_coupon_data->vendor != '' && $wpcd_coupon_data->vendor != ' ' ) {
+				wp_set_object_terms( $post_id, $wpcd_coupon_data->vendor, 'wpcd_coupon_vendor' );
+			}	
+		}else {
+			wp_send_json($post_id->get_error_message() . __( ' | On Line Number1', 'wpcd-coupon' ) . $wpcd_coupon_data->coupon_count . '<br />');
+		}
+
+	} else {
+		wp_send_json(__( 'Error | On Line Number 2', 'wpcd-coupon' ) . $wpcd_coupon_data->coupon_count . '<br />');
+	}
+	wp_send_json($wpcd_coupon_data); // sends all the data back to js
+} // End of wpcd_import_process_php
