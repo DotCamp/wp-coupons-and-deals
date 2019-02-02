@@ -2433,28 +2433,34 @@ h2:before {
 
 .wpcd_cats {}
 
-.wpcd_searchbar {
+#wpcd_searchbar {
     padding-top: 5px;
 }
 
-.wpcd_searchbar_search {
-    margin-top: 7px;
+#wpcd_searchbar .wpcd_searchbar_search {
+    margin-top: 10px;
     border: 1px solid #e6e9ee;
     padding: 5px;
     border-bottom-left-radius: 50%;
     border-top-left-radius: 50%;
 }
 
-.wpcd_searchbar_search span {
+#wpcd_searchbar .wpcd_search2 .wpcd_searchbar_search {
+    margin-top: 0 !important;
+    border: none;
+    padding: 21px 5px 0px 5px;
+}
+
+#wpcd_searchbar .wpcd_searchbar_search span {
     display: block;
     color: #666;
 }
 
-.wpcd_searchbar_search span:hover {
+#wpcd_searchbar .wpcd_searchbar_search span:hover {
     color: #999;
 }
 
-.wpcd_searchbar_search input {
+#wpcd_searchbar .wpcd_searchbar_search input {
     z-index: 9;
     display: none;
     border: 1px solid #e6e9ee;
@@ -2469,21 +2475,21 @@ h2:before {
     padding-right: 26px;
 }
 
-.wpcd_searchbar_search_close_li {
+#wpcd_searchbar .wpcd_searchbar_search_close_li {
     position: absolute;
     z-index: 99;
 }
 
-#wpcd_searchbar_search_close {
+#wpcd_searchbar #wpcd_searchbar_search_close {
     display: none;
     z-index: 99;
     margin-left: 16px;
-    margin-top: -36px;
+    margin-top: -38px;
     position: absolute;
     color: #666;
 }
 
-#wpcd_searchbar_search_close:hover {
+#wpcd_searchbar #wpcd_searchbar_search_close:hover {
     color: #999;
 }
 
@@ -3395,4 +3401,47 @@ h2:before {
     .wpcd-coupon-default .wpcd-coupon-button-type .coupon-code-wpcd {
         float: right;
     }
+}
+#wpcd_cat_ul.wpcd_search2 {
+    position: absolute;
+    margin-top: -78px;
+    margin-left: -9px;
+}
+
+li a, .wpcd_dropbtn {
+    display: inline-block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover, .wpcd_dropdown:hover .wpcd_dropbtn {
+
+}
+
+li.wpcd_dropdown {
+    display: inline-block;
+}
+
+.wpcd_dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.wpcd_dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.wpcd_dropdown-content a:hover {background-color: #f1f1f1}
+
+.wpcd_dropdown:hover .wpcd_dropdown-content {
+    display: block;
 }
