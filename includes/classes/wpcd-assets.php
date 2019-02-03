@@ -331,7 +331,12 @@ class WPCD_Assets {
 			'wp-color-picker'
 		), WPCD_Plugin::PLUGIN_VERSION, false );
 
-		wp_localize_script( 'wpcd-admin-js', 'wpcd_ajax_script_import', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );	
+		$ajax_data = array(
+			'ajaxurl'   => admin_url( 'admin-ajax.php' ),
+			'nonce' => wp_create_nonce( 'wpcd-script-nonce' ),
+		);
+
+		wp_localize_script( 'wpcd-admin-js', 'wpcd_ajax_script_import', $ajax_data );	
 	}
     /**
      * to add custom javascript code tinymce Editor at initiation

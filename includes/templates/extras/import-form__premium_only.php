@@ -42,6 +42,7 @@ $wpcd_coupon_templates = array(
 		</div>
 		<div>
 			<input type="file" name='wpcd_import_file' id="wpcd_import_file" required/>
+			
 		</div>
 		<div>
 			<input type="submit" name='wpcd_import_submit' class="button button-primary button-large" id="wpcd_import_next_submit" value="Next" />

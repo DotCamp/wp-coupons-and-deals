@@ -40,6 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<input type="file" style="display:none;" name="wpcd_import_file_final" value="' . $_FILES['wpcd_import_file']['tmp_name'] . '" />
 							<input type="hidden" name="wpcd_default_template" value="' . $_POST['wpcd_default_template'] . '">
 							<input type="hidden" name="theme_color" value="'.$_POST['theme_color'].'">
+							<?php wp_nonce_field( 'wpcd_nonce' ); ?>
 							<input name="wpcd_import_submit_final" value="" class="button button-primary button-large wpcd-import-btn" type="submit">
 							<span><strong>5</strong> Rows will be added! </span>
 						</div>
