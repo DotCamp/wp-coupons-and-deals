@@ -125,8 +125,90 @@ include('header-default.php');
     </div>
     <div class="wpcd-col-one-1-4">
         <div class="wpcd-coupon-one-discount-text">
-			<?php echo $discount_text; ?>
+            <?php echo $discount_text; ?>
         </div>
+        <?php
+        if ( $coupon_type == 'Coupon' ) {
+            if ( $show_expiration == 'Show' ) {
+                $never_expire = ( $wpcd_coupon_template == 'Template Two' ) ? $never_expire: '';
+                if ( ! empty( $expire_date )  && $never_expire != 'on') {
+                    if ( strtotime( $expire_date ) >= strtotime( $today ) ) { ?>
+                        <div class="wpcd-coupon-expire">
+                            <?php
+                            if ( ! empty( $expire_text ) ) {
+                                echo $expire_text . ' ' . $expire_date;
+                            } else {
+                                echo __( 'Expires on: ', 'wpcd-coupon' ) . $expire_date;
+                            }
+                            ?>
+                        </div>
+                    <?php } elseif ( strtotime( $expire_date ) < strtotime( $today ) ) { ?>
+                        <div class="wpcd-coupon-expired">
+                            <?php
+                            if ( ! empty( $expired_text ) ) {
+                                echo $expired_text . ' ' . $expire_date;
+                            } else {
+                                echo __( 'Expired on: ', 'wpcd-coupon' ) . $expire_date;
+                            }
+                            ?>
+                        </div>
+                    <?php }
+                } else { ?>
+                    <div class="wpcd-coupon-expire">
+                        <?php if ( ! empty( $no_expiry )) {
+                            echo $no_expiry;
+                        } else {
+                            echo __( "Doesn't expire", 'wpcd-coupon' );
+                        } ?>
+                    </div>
+                <?php }
+            } else {
+                echo '';
+            }
+
+        } elseif ( $coupon_type == 'Deal' ) {
+            if ( $show_expiration == 'Show' ) {
+                $never_expire = ( $wpcd_coupon_template == 'Template Two' ) ? $never_expire: '';
+                if ( ! empty( $expire_date )  && $never_expire != 'on') {
+                    if ( strtotime( $expire_date ) >= strtotime( $today ) ) { ?>
+                        <div class="wpcd-coupon-expire">
+                            <?php
+                            if ( ! empty( $expire_text ) ) {
+                                echo $expire_text . ' ' . $expire_date;
+                            } else {
+                                echo __( 'Expires on: ', 'wpcd-coupon' ) . $expire_date;
+                            }
+                            ?>
+                        </div>
+                    <?php } elseif ( strtotime( $expire_date ) < strtotime( $today ) ) { ?>
+                        <div class="wpcd-coupon-expired">
+                            <?php
+                            if ( ! empty( $expired_text ) ) {
+                                echo $expired_text . ' ' . $expire_date;
+                            } else {
+                                echo __( 'Expired on: ', 'wpcd-coupon' ) . $expire_date;
+                            }
+                            ?>
+                        </div>
+                    <?php }
+
+                } else { ?>
+
+                    <div class="wpcd-coupon-expire">
+
+                        <?php if ( ! empty( $no_expiry ) ) {
+                            echo $no_expiry;
+                        } else {
+                            echo __( "Doesn't expire", 'wpcd-coupon' );
+                        }
+                        ?>
+                    </div>
+
+                <?php }
+            } else {
+                echo '';
+            }
+        } ?>
 		<?php if ( $coupon_type == 'Coupon' ) {
 			if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) {
 				if ( $hide_coupon == 'Yes' ) {
