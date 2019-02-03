@@ -12,25 +12,9 @@ if ($parent == 'header' || $parent == 'headerANDfooter'):
         ?>
         <div class="wpcd_div_nav_block">
             <div class="wpcd_cats">
-                <?php if ( is_active_sidebar(1) ) : ?>
-                    <ul id="wpcd_cat_ul" class="wpcd_dropdown">
-                        <a href="javascript:void(0)" class="wpcd_dropbtn">Categories</a>
-                        <div class="wpcd_dropdown-content">
-                            <li>
-                                <a class="wpcd_category" data-category="all" href="<?php echo $current_url; ?>">
-                                    <?php echo __('All Coupons', 'wpcd-coupon'); ?>
-                                </a>
-                            </li>
-                            <?php foreach ($terms as $term): ?>
-                                <li>
-                                    <a class="wpcd_category" data-category="<?php echo $term->slug; ?>"
-                                       href="<?php echo $current_url . '?wpcd_category=' . $term->slug; ?>"><?php echo $term->name; ?></a>
-                                </li>
-                            <?php endforeach; ?>
-                        </div>
-                    </ul>
-                <?php else : ?>
-                    <ul id="wpcd_cat_ul">
+                <ul id="wpcd_cat_ul" class="wpcd_dropdown wpcd_categories_in_dropdown" style="display: none;">
+                    <a href="javascript:void(0)" class="wpcd_dropbtn">Categories</a>
+                    <div class="wpcd_dropdown-content">
                         <li>
                             <a class="wpcd_category" data-category="all" href="<?php echo $current_url; ?>">
                                 <?php echo __('All Coupons', 'wpcd-coupon'); ?>
@@ -42,8 +26,21 @@ if ($parent == 'header' || $parent == 'headerANDfooter'):
                                    href="<?php echo $current_url . '?wpcd_category=' . $term->slug; ?>"><?php echo $term->name; ?></a>
                             </li>
                         <?php endforeach; ?>
-                    </ul>
-                <?php endif; ?>
+                    </div>
+                </ul>
+                <ul id="wpcd_cat_ul" class="wpcd_categories_full">
+                    <li>
+                        <a class="wpcd_category" data-category="all" href="<?php echo $current_url; ?>">
+                            <?php echo __('All Coupons', 'wpcd-coupon'); ?>
+                        </a>
+                    </li>
+                    <?php foreach ($terms as $term): ?>
+                        <li>
+                            <a class="wpcd_category" data-category="<?php echo $term->slug; ?>"
+                               href="<?php echo $current_url . '?wpcd_category=' . $term->slug; ?>"><?php echo $term->name; ?></a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
             </div>
             <div id="wpcd_searchbar">
                 <ul id="wpcd_cat_ul">
