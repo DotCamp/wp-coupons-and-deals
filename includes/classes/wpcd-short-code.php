@@ -218,24 +218,11 @@ class WPCD_Short_Code {
 
 			} else {
 
-				if ( $coupon_template == 'Eight' ) {
+				ob_start();
 
-					ob_start();
+				$template->get_template_part( 'shortcode-default' );
 
-					$template->get_template_part( 'shortcode-eight' );
-
-					// Return Variables.
-					$output = ob_get_clean();
-
-				} else {
-
-					ob_start();
-
-					$template->get_template_part( 'shortcode-default' );
-
-					$output = ob_get_clean();
-
-				}
+				$output = ob_get_clean();
 
 			}
 
