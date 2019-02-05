@@ -1272,7 +1272,11 @@ jQuery(function ($) {
 
             $(this).trigger('change');
             var today = (new Date()).setHours(0, 0, 0, 0);
-            var isExpired = Date.parse(dateText) < today;
+            var isExpired = Date.parse(dateText+' 00:00:00') < today;
+            console.log(dateText+' 00:00:00');
+            console.log(new Date(dateText+' 00:00:00'));
+            console.log(today);
+            console.log(Date.parse(dateText) > today);
             var expireBlock, expiredBlock;
 
             if ($(this).attr('id').search('third') !== -1) {
