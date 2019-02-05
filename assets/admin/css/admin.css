@@ -2634,7 +2634,6 @@ h2:before {
     line-height: 0;
 }
 
-
 /* Show tooltip content on hover */
 
 [wpcd-data-tooltip]:hover:before,
@@ -2650,9 +2649,10 @@ h2:before {
     line-height: 2.3;
     
 }
-#wpcd_import_form_final .wpcp-import-btn {
+
+#wpcd_import_form_final .wpcd-import-btn {
     border-radius: 5rem;
-    background: url('../../img/wpcp-import-btn-icon16.png') no-repeat #006799 center;
+    background: url('../../img/wpcd-import-btn-icon16.png') no-repeat #006799 center;
     width: 40px;
     height: 40px;
     border: 3px solid green;
@@ -2662,6 +2662,90 @@ h2:before {
     color: green;
     font-size: 16px;
 }
+/* Writing the green div not as inline*/
+.wrap .wpcd_green {
+    display: none;
+}
+.wpcd-import-wrapper {
+    display: none;
+}
+/* Progress Bar */
+.wpcd-pbar-container {
+    background-color: rgba(255, 255, 255, 0.85);
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+.wpcd-pbar-progress {
+    margin: 340px auto;
+    width: 400px;
+    padding: 4px;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+}
+.wpcd-pbar-progress-bar {
+    height: 16px;
+    border-radius: 4px;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+    transition: 0.4s linear;
+    transition-property: width, background-color;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+}
+.wpcd-zero-percent {
+    width: 0%;
+    background-color: #11f2d4;
+}
+ .wpcd-five-percent {
+    width: 5%;
+    background-color: #f63a0f;
+}
+
+.wpcd-twentyfive-percent {
+    width: 25%;
+    background-color: #f27011;
+}
+
+.wpcd-fifty-percent {
+    width: 50%;
+    background-color: #f2b01e;
+}
+
+.wpcd-seventyfive-percent  {
+    width: 75%;
+    background-color: #f809d8;
+}
+
+.wpcd-onehundred-percent {
+    width: 100%;
+    background-color: #86e01e;
+}
+
+.wpcd-pbar-radio {
+    display: none;
+}
+
+.wpcd-pbar-label {
+    display: inline-block;
+    margin: 0 5px 20px;
+    padding: 3px 8px;
+    color: #aaa;
+    text-shadow: 0 1px black;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.wpcd-pbar-radio + .wpcd-pbar-label {
+    color: white;
+    background: rgba(0, 0, 0, 0.25);
+}
+#wpcd-pbar-percent {
+    color: white;
+} /* End of Progress Bar */
 
 @media screen and (max-width: 980px) {
     #wpcd_coupon_ul li.wpcd_coupon_li {
