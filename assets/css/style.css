@@ -794,8 +794,8 @@ p.wpcd-coupon-four-expired {
     font-size: 18px;
     color: #18E06E;
     margin: 0 auto !important;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 
 .wpcd-coupon-five-expired {
@@ -2498,10 +2498,10 @@ h2:before {
 -----------------------------------*/
 
 .wpcd_seven {
-    margin: 0;
+    margin: 30px auto;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
+    max-width: 100%;
 }
 
 
@@ -2518,7 +2518,6 @@ h2:before {
     width: 100%;
     height: 320px;
     border: 2px solid #9b59b6;
-    margin-top: 150px;
 }
 
 .wpcd_seven_clearfix {
@@ -2569,8 +2568,8 @@ h2:before {
 }
 
 .wpcd_seven_productPic img {
-    width: 65%;
-    margin: 30px 0 0 40px;
+    width: 75%;
+    margin: 20px;
     box-shadow: 2px 2px 5px #888;
 }
 
@@ -3402,22 +3401,23 @@ h2:before {
         float: right;
     }
 }
+
 #wpcd_cat_ul.wpcd_search2 {
     position: absolute;
     margin-top: -78px;
     margin-left: -9px;
 }
 
-li a, .wpcd_dropbtn {
+li a,
+.wpcd_dropbtn {
     display: inline-block;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 
-li a:hover, .wpcd_dropdown:hover .wpcd_dropbtn {
-
-}
+li a:hover,
+.wpcd_dropdown:hover .wpcd_dropbtn {}
 
 li.wpcd_dropdown {
     display: inline-block;
@@ -3428,7 +3428,7 @@ li.wpcd_dropdown {
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -3440,7 +3440,9 @@ li.wpcd_dropdown {
     text-align: left;
 }
 
-.wpcd_dropdown-content a:hover {background-color: #f1f1f1}
+.wpcd_dropdown-content a:hover {
+    background-color: #f1f1f1
+}
 
 .wpcd_dropdown:hover .wpcd_dropdown-content {
     display: block;
