@@ -969,7 +969,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 </div><!-- End of Template Six Preview -->
 
 <!-- Template Seven Preview -->
-<section class="admin_wpcd_seven">
+<section class="admin_wpcd_seven admin_wpcd_seven_shortcode">
 	<div class="wpcd-coupon-preview wpcd-coupon-seven admin_wpcd_seven_container">
 		<div class="admin_wpcd_seven_couponBox">
 			<div class="admin_wpcd_seven_percentAndPic">
@@ -1005,6 +1005,16 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 					<p>
 						<?php echo '<div class="wpcd-coupon-description">' . $description . '</div>';?>
 					</p>
+				</div>		
+			</div>
+			<div class="admin_wpcd_seven_buttonSociaLikeDislike">
+				<div class="admin_wpcd_seven_btn">
+					<a href="#" title="<?php echo $coupon_code; ?>" class="wpcd-coupon-code" id="wpcd-coupon-code-seven">
+						<?php echo $coupon_code; ?>
+					</a>
+				</div>
+			</div>
+				<div class="admin_wpcd_seven_expire_correct_box">
 					<div class="admin_wpcd_seven_expire" style="border-color:">
 						<p>
 							<?php echo $expire_text; ?>
@@ -1055,15 +1065,8 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 						</p>
 					</div>
 					<!-- End of class wpcd_seven_expire -->
-				</div>		
-			</div>
-			<div class="admin_wpcd_seven_buttonSociaLikeDislike">
-				<div class="admin_wpcd_seven_btn">
-					<a href="#" title="<?php echo $coupon_code; ?>" class="wpcd-coupon-code" id="wpcd-coupon-code-seven">
-						<?php echo $coupon_code; ?>
-					</a>
 				</div>
-			</div>
+			<div class="admin_wpcd_seven_couponBox_both"></div>
 		</div>
 	</div>
 </section><!-- End of Template Seven Preview -->

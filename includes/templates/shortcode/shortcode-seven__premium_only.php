@@ -66,7 +66,7 @@ wp_enqueue_script( 'wpcd-clipboardjs' );
 $template = new WPCD_Template_Loader();
 
 ?>
-<section class="wpcd_seven">
+<section class="wpcd_seven wpcd_seven_shortcode">
 	<div class="wpcd_seven_container">
 		<div class="wpcd_seven_couponBox">
 			<div class="wpcd_seven_percentAndPic">
@@ -90,6 +90,14 @@ $template = new WPCD_Template_Loader();
 						</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
 					}?>
 					<p><?php echo wpautop( $description, false );?></p>
+				</div>		
+			</div>
+			<div class="wpcd_seven_buttonSociaLikeDislike">
+				<div class="wpcd_seven_btn">
+					<a href="#" title="<?php echo $coupon_code; ?>"><?php echo $coupon_code; ?></a>
+				</div>
+			</div>
+				<div class="wpcd_seven_expire_correct_box">
 					<div class="wpcd_seven_expire">
 						<p>
 							<?php
@@ -149,13 +157,8 @@ $template = new WPCD_Template_Loader();
 							</b>
 						</p>
 					</div><!-- End of class wpcd_seven_expire -->
-				</div>		
-			</div>
-			<div class="wpcd_seven_buttonSociaLikeDislike">
-				<div class="wpcd_seven_btn">
-					<a href="#" title="wpcd10">wpcd10</a>
 				</div>
-			</div>
+			<div class="wpcd_seven_couponBox_both"></div>
 		</div>
 	</div>
 </section>
