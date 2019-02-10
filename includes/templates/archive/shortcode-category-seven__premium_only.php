@@ -221,4 +221,4 @@ include('header-category.php');
         </section>
 	 <!--  Template Seven End -->
     <?php endif; ?>
-<?php include('footer-default.php'); ?>
+<?php include('footer-category.php'); ?>

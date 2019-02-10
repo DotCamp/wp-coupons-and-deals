@@ -254,4 +254,4 @@ include('header-category.php');
 </div>
 	 <!--  Template one End -->
     <?php endif; ?>
-<?php include('footer-default.php'); ?>
+<?php include('footer-category.php'); ?>

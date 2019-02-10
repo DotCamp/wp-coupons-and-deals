@@ -5,11 +5,20 @@
 if ( $parent == 'footer' || $parent == 'headerANDfooter' ): ?>
     <div id="wpcd_coupon_pagination_wr" class="wpcd_coupon_pagination wpcd_clearfix">
         <?php
-        $big = 999999999; // need an unlikely integer
+        if(isset($_POST['wpcd_category']) && !empty($_POST['wpcd_category'])) {
+            $add_args = array('wpcd_category'=>sanitize_text_field($_POST['wpcd_category']));
+        }
+        if(isset($_POST['page_num']) && !empty($_POST['page_num'])) {
+            $current = intval($_POST['page_num']);
+        } else {
+            $current = 1;
+        }
+        
         echo paginate_links( array(
-            'base'      => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-            'format'    => '?paged=%#%',
-            'current'   => max( 1, get_query_var( 'paged' ) ),
+            'base'      => '?page_num=%#%',
+            'format'    => '?page=%#%',
+            'add_args'  => $add_args,
+            'current'   => $current,
             'total'     => $max_num_page,
             'prev_next' => true,
             'prev_text' => __( '« Prev', 'wpcd-coupon' ),
@@ -17,6 +26,8 @@ if ( $parent == 'footer' || $parent == 'headerANDfooter' ): ?>
         ) );
         ?>
     </div>
-
+    <?php if (!isset($_POST['action']) || $_POST['action'] != 'wpcd_coupons_category_action'): ?>
+        </div> <!-- wpcd_wpcd_coupon_container -->
+    <?php endif; ?>
 </section>
 <?php endif; ?>
