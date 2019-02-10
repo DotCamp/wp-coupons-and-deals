@@ -5,6 +5,7 @@
 if ( $parent == 'footer' || $parent == 'headerANDfooter' ): ?>
     <div id="wpcd_coupon_pagination_wr" class="wpcd_coupon_pagination wpcd_clearfix">
         <?php
+        $add_args = array();
         if(isset($_POST['wpcd_category']) && !empty($_POST['wpcd_category'])) {
             $add_args = array('wpcd_category'=>sanitize_text_field($_POST['wpcd_category']));
         }
