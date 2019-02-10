@@ -2,13 +2,13 @@
 /*
  * Header Grid for Templates
  */
-if ($parent == 'header' || $parent == 'headerANDfooter'):
-    if (!isset($_POST['action']) || $_POST['action'] != 'wpcd_coupons_category_action'): ?>
+if ( $parent == 'header' || $parent == 'headerANDfooter' ):
+    if ( !isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_action' ): ?>
         <section class="wpcd_archive_section wpcd_clearfix">
         <?php
         global $current_url;
-        $terms = get_terms('wpcd_coupon_category');
-        if (!empty($terms) && !is_wp_error($terms) && !$disable_menu):
+        $terms = get_terms( 'wpcd_coupon_category' );
+        if ( !empty( $terms ) && !is_wp_error( $terms ) && !$disable_menu ):
 
             ?>
             <div class="wpcd_div_nav_block">
@@ -16,10 +16,10 @@ if ($parent == 'header' || $parent == 'headerANDfooter'):
                     <ul id="wpcd_cat_ul">
                         <li>
                             <a class="wpcd_category" data-category="all" href="<?php echo $current_url; ?>">
-                                <?php echo __('All Coupons', 'wpcd-coupon'); ?>
+                                <?php echo __( 'All Coupons', 'wpcd-coupon' ); ?>
                             </a>
                         </li>
-                        <?php foreach ($terms as $term): ?>
+                        <?php foreach ( $terms as $term ): ?>
                             <li>
                                 <a class="wpcd_category" data-category="<?php echo $term->slug; ?>"
                                    href="<?php echo $current_url . '?wpcd_category=' . $term->slug; ?>"><?php echo $term->name; ?></a>

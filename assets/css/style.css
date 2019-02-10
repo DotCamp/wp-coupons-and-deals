@@ -3591,7 +3591,6 @@ h2:before {
     margin-left: -9px;
 }
 
-li a,
 .wpcd_dropbtn {
     display: inline-block;
     text-align: center;
@@ -3599,7 +3598,6 @@ li a,
     text-decoration: none;
 }
 
-li a:hover,
 .wpcd_dropdown:hover .wpcd_dropbtn {}
 
 li.wpcd_dropdown {

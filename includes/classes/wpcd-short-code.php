@@ -143,88 +143,63 @@ class WPCD_Short_Code {
 				if ( $coupon_template == 'Template One' ) {
 
 					ob_start();
-
 					$template->get_template_part( 'shortcode-one__premium_only' );
-
 					$output = ob_get_clean();
 
 				} elseif ( $coupon_template == 'Template Two' ) {
 
 					ob_start();
-
 					$template->get_template_part( 'shortcode-two__premium_only' );
-
 					$output = ob_get_clean();
 
 				} elseif ( $coupon_template == 'Template Three' ) {
 
 					ob_start();
-
 					$template->get_template_part( 'shortcode-three__premium_only' );
-
-					// Return Variables.
 					$output = ob_get_clean();
 
 				} elseif ( $coupon_template == 'Template Four' ) {
 
 					ob_start();
-
 					$template->get_template_part( 'shortcode-four__premium_only' );
-
-					// Return Variables.
 					$output = ob_get_clean();
 
 				} elseif ( $coupon_template == 'Template Five' ) {
 
 					ob_start();
-
 					$template->get_template_part( 'shortcode-five__premium_only' );
-
-					// Return Variables.
 					$output = ob_get_clean();
 
 				} else if ( $coupon_template == 'Template Six' ) {
 
 					ob_start();
-
 					$template->get_template_part( 'shortcode-six__premium_only' );
-
-					// Return Variables.
 					$output = ob_get_clean();
 
 				} else if ( $coupon_template == 'Template Seven' ) {
 					 
 					ob_start();
-					
 					$template->get_template_part( 'shortcode-seven__premium_only' );
- 	
- 					// Return Variables
  					$output = ob_get_clean();
  					
  				} else if ( $coupon_template == 'Template Eight' ) {
 
 					ob_start();
-
 					$template->get_template_part( 'shortcode-eight__premium_only' );
-
-					// Return Variables.
 					$output = ob_get_clean();
 
 				}  else {
 
 					ob_start();
-
 					$template->get_template_part( 'shortcode-default' );
-
 					$output = ob_get_clean();
+
 				}
 
 			} else {
 
 				ob_start();
-
 				$template->get_template_part( 'shortcode-default' );
-
 				$output = ob_get_clean();
 
 			}
@@ -303,7 +278,8 @@ class WPCD_Short_Code {
 	 */
 	public static function wpcd_coupons_archive_func__premium_only( $atts ) {
 
-		if(!isset($_POST['action']) || $_POST['action'] != 'wpcd_coupons_category_action') {
+		if ( !isset($_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_action' ) {
+
 			wp_enqueue_script( 'wpcd-main-js' );
 			$a = shortcode_atts( array(
 				'count' => '9',
@@ -311,27 +287,31 @@ class WPCD_Short_Code {
 			), $atts );
 
 			$output = "";
-
 			$paged = 1;
 			$wpcd_data_category = 'all';
+
 		} else {
+
 			$a = array();
-			if(isset($_POST['coupon_template']) && !empty($_POST['coupon_template'])) {
-				$a['temp'] = sanitize_text_field($_POST['coupon_template']);
+
+			if ( isset( $_POST['coupon_template'] ) && !empty( $_POST['coupon_template'] ) ) {
+				$a['temp'] = sanitize_text_field( $_POST['coupon_template'] );
 			} else {
 				$a['temp'] = '';
 			}
 
-			if(isset($_POST['coupon_items_count']) && !empty($_POST['coupon_items_count'])) {
-				$a['count'] = sanitize_text_field($_POST['coupon_items_count']);
+			if ( isset( $_POST['coupon_items_count'] ) && !empty( $_POST['coupon_items_count'] ) ) {
+				$a['count'] = sanitize_text_field( $_POST['coupon_items_count'] );
 			} else {
 				$a['count'] = '';
 			}
-			if(isset($_POST['page_num']) && !empty($_POST['page_num'])) {
-				$paged = intval($_POST['page_num']);
+
+			if ( isset( $_POST['page_num'] ) && !empty( $_POST['page_num'] ) ) {
+				$paged = intval( $_POST['page_num'] );
 			}
-			if(isset($_POST['wpcd_category']) && !empty($_POST['wpcd_category'])) {
-				$wpcd_data_category = sanitize_text_field($_POST['wpcd_category']);
+
+			if ( isset( $_POST['wpcd_category'] ) && !empty( $_POST['wpcd_category'] ) ) {
+				$wpcd_data_category = sanitize_text_field( $_POST['wpcd_category'] );
 			}
 			
 		}
@@ -456,7 +436,7 @@ class WPCD_Short_Code {
                         break;
                 }
 			}
-			if(!isset($_POST['action']) || $_POST['action'] != 'wpcd_coupons_category_action') {
+			if ( !isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_action' ) {
 				global $post;
 				$wpcd_data_coupon_page_url = get_page_link( $post->ID );
 				$output = '<div id="wpcd_coupon_template" wpcd-data-coupon_template="'.$temp.'" wpcd-data-coupon_items_count="'.$a["count"].'" wpcd-data-coupon_page_url="'.$wpcd_data_coupon_page_url.'" wpcd-data_category="'.$wpcd_data_category.'"></div>';
@@ -464,6 +444,7 @@ class WPCD_Short_Code {
 			
 			// the loop.
 			while ( $the_query->have_posts() ) : $the_query->the_post();
+
 				global $coupon_id;
 				$coupon_id = get_the_ID();
 				$parent = "";
@@ -484,6 +465,7 @@ class WPCD_Short_Code {
 				$template->get_template_part( $coupon_template );
 				$output .= ob_get_clean();
 				$i ++;
+
 			endwhile;
 			// end of the loop.
 			wp_reset_postdata();
@@ -491,8 +473,8 @@ class WPCD_Short_Code {
 			$output .= '<p>' . __( 'Sorry, no coupons/deals found.', 'wpcd-coupon' ) . '</p>';
 		endif;
 
-		if(isset($_POST['action']) && $_POST['action'] == 'wpcd_coupons_category_action') {
-			echo json_encode($output);
+		if ( isset( $_POST['action'] ) && $_POST['action'] == 'wpcd_coupons_category_action' ) {
+			echo json_encode( $output );
 			die();
 		}
 		
