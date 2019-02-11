@@ -41,8 +41,9 @@ if ( $parent == 'footer' || $parent == 'headerANDfooter' ): ?>
     </div>
 
     <?php if ( !isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_action' ): ?>
-        </div> <!-- wpcd_coupon_archive_container -->
-    </div> <!-- wpcd_coupon_archive_container_main -->
+            </div> <!-- wpcd_coupon_archive_container -->
+        </div> <!-- wpcd_coupon_archive_container_main -->
+    </ul> <!-- wpcd_coupon_ul -->
     <?php endif; ?>
 
 </section>
