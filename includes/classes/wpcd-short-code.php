@@ -277,7 +277,9 @@ class WPCD_Short_Code {
 	 * @return string
 	 */
 	public static function wpcd_coupons_archive_func__premium_only( $atts ) {
-
+		$output = "";
+		$paged = 1;
+		$wpcd_data_category = 'all';
 		if ( !isset($_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_action' ) {
 
 			wp_enqueue_script( 'wpcd-main-js' );
@@ -285,11 +287,6 @@ class WPCD_Short_Code {
 				'count' => '9',
 				'temp'  => ''
 			), $atts );
-
-			$output = "";
-			$paged = 1;
-			$wpcd_data_category = 'all';
-
 		} else {
 
 			$a = array();
@@ -316,7 +313,7 @@ class WPCD_Short_Code {
 			
 		}
 
-		if ( isset( $_POST['wpcd_category'] ) && $_POST['wpcd_category'] != 'all' &&  $_POST['wpcd_category'] != '') {
+		if ( isset( $_POST['wpcd_category'] ) && $_POST['wpcd_category'] != 'all' &&  $_POST['wpcd_category'] != '' && ( ! isset($_POST['search_text']) || empty($_POST['search_text']) ) ) {
 			$args = array(
 				'post_type'      => 'wpcd_coupons',
 				'order'          => 'DESC',
@@ -330,12 +327,21 @@ class WPCD_Short_Code {
 				),
 				'paged'          => $paged
 			);
+		} elseif ( isset( $_POST['search_text']) && !empty( $_POST['search_text'] ) ) {
+			$search_text = $_POST['search_text'] ;
+			$args = array(
+				'post_type'		 => 'wpcd_coupons',
+				'order'			 => 'DESC',
+				'posts_per_page' => $a['count'],
+				'paged'			 => $paged,
+				's'				 => $search_text,
+			);
 		} else {
 			$args = array(
 				'post_type'      => 'wpcd_coupons',
 				'order'          => 'DESC',
 				'posts_per_page' => $a['count'],
-				'paged'          => $paged
+				'paged'          => $paged,
 			);
 		}
 

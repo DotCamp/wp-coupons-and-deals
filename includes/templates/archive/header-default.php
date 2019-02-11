@@ -48,10 +48,8 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
                     <div id="wpcd_searchbar">
                         <ul id="wpcd_cat_ul">
                             <li class="wpcd_searchbar_search">
-                                <span id="wpcd_searchbar_search_icon" class="dashicons dashicons-search"></span>
                                 <input type="text" placeholder="Search">
                             </li>
-                            <span id="wpcd_searchbar_search_close" class="dashicons dashicons-dismiss"></span>
                         </ul>
                         <!--
                         <ul id="wpcd_cat_ul" class="wpcd_search2">
@@ -65,6 +63,10 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
                 </div>
                 <div class="wpcd_cat_ul_border"></div>
             <?php endif; ?>
-        <div id="wpcd_wpcd_coupon_container">
+        <div class="wpcd_coupon_archive_container_main">
+            <div class="wpcd_coupon_loader wpcd_coupon_hidden_loader">
+                <img src="<?php echo WPCD_Plugin::instance()->plugin_assets . 'img/loading.gif'; ?>">
+            </div>
+            <div id="wpcd_coupon_archive_container">
     <?php endif; ?>
 <?php endif; ?>

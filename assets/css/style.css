@@ -1364,6 +1364,34 @@ p.wpcd-coupon-four-expired {
     flex-wrap: wrap;
 }
 
+.wpcd_coupon_archive_container_main {
+    position: relative;
+}
+
+.wpcd_coupon_loader {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    opacity: 1;
+    z-index: 10;
+    text-align: center;
+}
+
+.wpcd_coupon_loader:before {
+    content: " ";
+    display: block;
+    width: 100%;
+    height: 20%;
+    max-height: 200px;
+}
+
+.wpcd_coupon_hidden_loader {
+    display: none;
+}
+
 #wpcd_coupon_ul li.wpcd_coupon_li {
     background-color: #ffffff;
     float: left;
@@ -2449,8 +2477,6 @@ h2:before {
     margin-top: 10px;
     border: 1px solid #e6e9ee;
     padding: 5px;
-    border-bottom-left-radius: 50%;
-    border-top-left-radius: 50%;
 }
 
 #wpcd_searchbar .wpcd_search2 .wpcd_searchbar_search {
@@ -2470,16 +2496,12 @@ h2:before {
 
 #wpcd_searchbar .wpcd_searchbar_search input {
     z-index: 9;
-    display: none;
     border: 1px solid #e6e9ee;
     text-indent: 10px;
     height: 32px;
     padding: 5px;
     font-size: 20px;
-    width: 180px;
-    position: absolute;
-    margin-left: -154px;
-    margin-top: -26px;
+    width: 230px;
     padding-right: 26px;
 }
 

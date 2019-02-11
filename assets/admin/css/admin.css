@@ -2327,6 +2327,7 @@ h2:before {
     height: 360px;
     border: 2px solid #9b59b6;
     margin-top: 20px;
+    overflow: hidden;
 }
 
 .admin_wpcd_seven_shortcode .admin_wpcd_seven_couponBox {
