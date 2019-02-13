@@ -83,63 +83,63 @@ jQuery(document).ready(function ($) {
     jQuery("#wpcd_import_form").submit(function () {
         jQuery(".wpcd_import_form_loader").fadeIn();
     });
-    
-    jQuery(".wpcd-import-btn").on("click", function(e) {
+
+    jQuery(".wpcd-import-btn").on("click", function (e) {
         e.preventDefault();
-        
-        
+
+
         var regex = /^([a-zA-Z0-9()\s_\\.\-:])+(.csv)$/;
         if (regex.test($("#wpcd_import_file").val().toLowerCase())) {
             if (typeof (FileReader) != "undefined") {
                 var reader = new FileReader();
                 reader.onload = function (e) {
                     var rows = e.target.result.split("\n");
-                    var import_fields_data      = [];
-                    var j                       = 0;
-                    var i                       = 0;
-                    var cells                   = 0;
-                    var rowcount                = rows.length-1;
+                    var import_fields_data = [];
+                    var j = 0;
+                    var i = 0;
+                    var cells = 0;
+                    var rowcount = rows.length - 1;
                     var wpcp_coupons_data = {
-                        category                 : '',
-                        vendor                  : '',
-                        title                   : '',
-                        coupon_code             : '',
-                        link                    : '',
-                        discount_text           : '',
-                        description             : '',
-                        hide_coupon             : '',
-                        default_coupon_template : '',
-                        coupon_count            : 0,
-                        row_count               : rowcount-1, // minus the csv header
+                        category: '',
+                        vendor: '',
+                        title: '',
+                        coupon_code: '',
+                        link: '',
+                        discount_text: '',
+                        description: '',
+                        hide_coupon: '',
+                        default_coupon_template: '',
+                        coupon_count: 0,
+                        row_count: rowcount - 1, // minus the csv header
                     }
                     // Collect options value to determine index.
                     var select_options_value = [];
-                    jQuery('.wpcd_import_field_select option').each(function(index, option) {
-                        if (index <= 10){ // Ten option values since we are using class ".wpcd_import" this will iterate to all select options.
+                    jQuery('.wpcd_import_field_select option').each(function (index, option) {
+                        if (index <= 10) { // Ten option values since we are using class ".wpcd_import" this will iterate to all select options.
                             select_options_value.push(option.value);
-                        }else {
+                        } else {
                             return false;
-                        } 
+                        }
                     });
                     // Get selected options insert to array and get index.
-                    jQuery('.wpcd_import_field_select option:selected').each(function(index, option) {
+                    jQuery('.wpcd_import_field_select option:selected').each(function (index, option) {
                         if (option.value == "" || option.value == null) {
                             import_fields_data[select_options_value[index]] = index;
-                            
-                        }else {
+
+                        } else {
                             import_fields_data[option.value] = select_options_value.indexOf(option.value);
                         }
-                        
+
                     });
-                    wpcp_coupons_data['category']                = cells[import_fields_data['coupon_category']];
-                    wpcp_coupons_data['vendor']                  = cells[import_fields_data['coupon_vendor']];
-                    wpcp_coupons_data['title']                   = cells[import_fields_data['coupon_title']];
-                    wpcp_coupons_data['coupon_code']             = cells[import_fields_data['coupon_details_coupon-code-text']];
-                    wpcp_coupons_data['link']                    = cells[import_fields_data['coupon_details_link']];
-                    wpcp_coupons_data['discount_text']           = cells[import_fields_data['coupon_details_discount-text']];
-                    wpcp_coupons_data['description']             = cells[import_fields_data['coupon_details_description']];
-                    wpcp_coupons_data['expiry_date']             = cells[import_fields_data['coupon_details_expire-date']];
-                    wpcp_coupons_data['hide_coupon']             = cells[import_fields_data['coupon_details_hide-coupon']];
+                    wpcp_coupons_data['category'] = cells[import_fields_data['coupon_category']];
+                    wpcp_coupons_data['vendor'] = cells[import_fields_data['coupon_vendor']];
+                    wpcp_coupons_data['title'] = cells[import_fields_data['coupon_title']];
+                    wpcp_coupons_data['coupon_code'] = cells[import_fields_data['coupon_details_coupon-code-text']];
+                    wpcp_coupons_data['link'] = cells[import_fields_data['coupon_details_link']];
+                    wpcp_coupons_data['discount_text'] = cells[import_fields_data['coupon_details_discount-text']];
+                    wpcp_coupons_data['description'] = cells[import_fields_data['coupon_details_description']];
+                    wpcp_coupons_data['expiry_date'] = cells[import_fields_data['coupon_details_expire-date']];
+                    wpcp_coupons_data['hide_coupon'] = cells[import_fields_data['coupon_details_hide-coupon']];
                     wpcp_coupons_data['default_coupon_template'] = cells[import_fields_data['coupon_details_coupon-template']];
                     // preparing the select ID array
                     for (i = 0; i < rows.length; i++) {
@@ -151,23 +151,23 @@ jQuery(document).ready(function ($) {
                             // Column values
                             if (i == 0) {// Headers
                                 for (j = 0; j < cells.length; j++) {
-                                    wpcd_temp4 = '#wpcd_import_select_' + cells[j].trim().toLowerCase().replace(/ /g,"_");
+                                    wpcd_temp4 = '#wpcd_import_select_' + cells[j].trim().toLowerCase().replace(/ /g, "_");
                                 }
                             }
                             else {
-                                
-                                wpcp_coupons_data['category']                = cells[import_fields_data['coupon_category']];
-                                wpcp_coupons_data['vendor']                  = cells[import_fields_data['coupon_vendor']];
-                                wpcp_coupons_data['title']                   = cells[import_fields_data['coupon_title']];
-                                wpcp_coupons_data['coupon_code']             = cells[import_fields_data['coupon_details_coupon-code-text']];
-                                wpcp_coupons_data['link']                    = cells[import_fields_data['coupon_details_link']];
-                                wpcp_coupons_data['discount_text']           = cells[import_fields_data['coupon_details_discount-text']];
-                                wpcp_coupons_data['description']             = cells[import_fields_data['coupon_details_description']];
-                                wpcp_coupons_data['expiry_date']             = cells[import_fields_data['coupon_details_expire-date']];
-                                wpcp_coupons_data['hide_coupon']             = cells[import_fields_data['coupon_details_hide-coupon']];
+
+                                wpcp_coupons_data['category'] = cells[import_fields_data['coupon_category']];
+                                wpcp_coupons_data['vendor'] = cells[import_fields_data['coupon_vendor']];
+                                wpcp_coupons_data['title'] = cells[import_fields_data['coupon_title']];
+                                wpcp_coupons_data['coupon_code'] = cells[import_fields_data['coupon_details_coupon-code-text']];
+                                wpcp_coupons_data['link'] = cells[import_fields_data['coupon_details_link']];
+                                wpcp_coupons_data['discount_text'] = cells[import_fields_data['coupon_details_discount-text']];
+                                wpcp_coupons_data['description'] = cells[import_fields_data['coupon_details_description']];
+                                wpcp_coupons_data['expiry_date'] = cells[import_fields_data['coupon_details_expire-date']];
+                                wpcp_coupons_data['hide_coupon'] = cells[import_fields_data['coupon_details_hide-coupon']];
                                 wpcp_coupons_data['default_coupon_template'] = cells[import_fields_data['coupon_details_coupon-template']];
-                                wpcp_coupons_data['coupon_count']            = i; 
-                    
+                                wpcp_coupons_data['coupon_count'] = i;
+
                                 // Import Loader
                                 var status = 'no';
                                 jQuery(".wpcd_import_field_select").each(function () {
@@ -179,8 +179,8 @@ jQuery(document).ready(function ($) {
                                 if (status == 'yes') {
                                     jQuery(".wpcd_import_form_final_loader").fadeIn();
                                     wpcd_ajax_import('wpcd_process_import', JSON.stringify(wpcp_coupons_data));
-                                } 
-                                 // End of Import Loader
+                                }
+                                // End of Import Loader
                             }
                         }
                     }
@@ -192,28 +192,28 @@ jQuery(document).ready(function ($) {
         } else {
             alert("Please upload a valid CSV file.");
         }
-         
+
     }); // End of final submit click
-    
- 
+
+
     $("#wpcd_import_next_submit").on("click", function (e) {
         e.preventDefault();
 
         var regex = /^([a-zA-Z0-9()\s_\\.\-:])+(.csv)$/;
-        
+
         // jQuery('.wpcd_choose_fields_wr').show();
         var countCol = jQuery(".wpcd_import_field span strong"); // Storing selector to prevent call redundancy
         var array_temp = ""; // Storing object data
-       
+
         if (regex.test($("#wpcd_import_file").val().toLowerCase())) {
             if (typeof (FileReader) != "undefined") {
                 var reader = new FileReader();
                 reader.onload = function (e) {
-                    
+
                     var table = $("<table class=\"widefat wpcd_import_preview\" cellspacing=\"0\"></table>");
                     var rows = e.target.result.split("\n");
                     var rows2 = e.target.result.split("\n"); // same with rows
-                    var row   = "";
+                    var row = "";
                     var cells = "";
                     var cell = "";
                     var j = 0;
@@ -221,14 +221,14 @@ jQuery(document).ready(function ($) {
                     // Row loop
                     for (i = 0; i < rows.length; i++) {
                         row = $("<tr />");
-                        cells = rows[i].split(","); 
+                        cells = rows[i].split(",");
                         if (cells != "") { // Check if there are blanks  
-                           
+
                             countCol.text(i); //Removes index 0 
                             //If Header
-                            if ( i == 0 ) {
+                            if (i == 0) {
                                 row = $("<thead/>");
-                                cells = rows[i].split(",");  
+                                cells = rows[i].split(",");
                             }
                             // Column loop
                             for (j = 0; j < cells.length; j++) {
@@ -239,18 +239,18 @@ jQuery(document).ready(function ($) {
                                 row.append(cell);
                             }
                             table.append(row);
-                            
+
                         } // End of Blank filter check
                     }
                     $("#wpcd-table-csv").html('');
                     $("#wpcd-table-csv").append(table);
-                      
+
                     // Select option data
                     var wpcd_import_field_inner_wr = jQuery(".wpcd_import_field_inner_wr"); // storing selector
                     var rows_length = rows2.length; // to prevent calling length forever
                     jQuery("#wpfooter").detach(); // removes the WP footer at the bottom 
                     var column2 = [];
-                    
+
                     var col = null;
                     i = 0;
                     row = null;
@@ -259,19 +259,19 @@ jQuery(document).ready(function ($) {
                     var wpcd_count = 0;
                     for (i = 0; i < rows_length; i++) {
                         row = $("<tr />");
-                        col = rows2[i].split(","); 
-                        column2.push( [col] );
+                        col = rows2[i].split(",");
+                        column2.push([col]);
                         col_length = col.length;
                         // If Titles on first row
                         wpcd_temp = "";
                         wpcd_temp2 = "";
-                        if ( i == 0 ) {
-                            wpcd_count = col_length-1;
+                        if (i == 0) {
+                            wpcd_count = col_length - 1;
                             do {
                                 wpcd_temp2 = col[wpcd_count].toLowerCase().trim().split(' ').join('_');
                                 wpcd_temp = "";
                                 wpcd_temp += "<div class=\"wpcd_import_field\"><label>" + col[wpcd_count].trim() + "</label>";
-                                wpcd_temp +='<select class="wpcd_import_field_select" name="wpcd_import_select_' + wpcd_temp2 + '" id="wpcd_import_select_' + wpcd_temp2 + '" ' + 'onChange="return wpcd_checkDuplicateField(\'' + wpcd_temp2 + '\')">';
+                                wpcd_temp += '<select class="wpcd_import_field_select" name="wpcd_import_select_' + wpcd_temp2 + '" id="wpcd_import_select_' + wpcd_temp2 + '" ' + 'onChange="return wpcd_checkDuplicateField(\'' + wpcd_temp2 + '\')">';
                                 wpcd_temp += "<option value=\"\">Select</option>";
                                 wpcd_temp += "<option value=\"coupon_title\">Coupon Title</option>";
                                 wpcd_temp += "<option value=\"coupon_details_description\">Coupon Description</option>";
@@ -285,14 +285,14 @@ jQuery(document).ready(function ($) {
                                 wpcd_temp += "<option value=\"coupon_details_coupon-template\">Coupon Template</option>";
                                 wpcd_temp += "</select>";
                                 wpcd_temp += "</div>";
-                                
+
                                 jQuery(wpcd_temp).prependTo(wpcd_import_field_inner_wr);
                                 wpcd_count--;
-                                
-                            } while (wpcd_count >= 0);    
+
+                            } while (wpcd_count >= 0);
                         }
                     }// End of Select data
-                    
+
                 }
                 reader.readAsText($("#wpcd_import_file")[0].files[0]);
                 jQuery(".wpcd-import-wrapper").show(); // Second form shows only if file is valid
@@ -305,7 +305,7 @@ jQuery(document).ready(function ($) {
             // jQuery('.wpcd-import-wrapper').hide();
             jQuery("#wpcd_import_form_wr").show();
         }
-        
+
     });
 
     // End of Import
@@ -1272,11 +1272,7 @@ jQuery(function ($) {
 
             $(this).trigger('change');
             var today = (new Date()).setHours(0, 0, 0, 0);
-            var isExpired = Date.parse(dateText+' 00:00:00') < today;
-            console.log(dateText+' 00:00:00');
-            console.log(new Date(dateText+' 00:00:00'));
-            console.log(today);
-            console.log(Date.parse(dateText) > today);
+            var isExpired = Date.parse(dateText + ' 00:00:00') < today;
             var expireBlock, expiredBlock;
 
             if ($(this).attr('id').search('third') !== -1) {
@@ -1341,61 +1337,61 @@ function wpcd_checkDuplicateField(field_key) {
     });
 }
 
-function wpcd_ajax_import(action, tosent){
+function wpcd_ajax_import(action, tosent) {
     var data = {
         action: action,
-        nonce_ajax : wpcd_ajax_script_import.nonce,
+        nonce_ajax: wpcd_ajax_script_import.nonce,
         post_var: tosent
     };
     // store search to prevent searching the element. 
     var wpcd_temp5 = JSON.parse(tosent);
-    var wpcd_percent_element = jQuery('#wpcd-pbar-percent'); 
+    var wpcd_percent_element = jQuery('#wpcd-pbar-percent');
     var wpcd_percent_element_span = jQuery('#wpcd-pbar-percent span');
     var wpcd_row_count = jQuery('.wpcd_import_field_submit span strong').text();
     var wpcd_green = jQuery('.wrap .wpcd_green'); // Storing search element
     // (tosent!=null) ? (data.post_var = tosent) : (data.post_var = null);
-    var jqxhr =  $.post(wpcd_ajax_script_import.ajaxurl, data, function(response, status) {
-        jqxhr.success(function(){ 
+    var jqxhr = $.post(wpcd_ajax_script_import.ajaxurl, data, function (response, status) {
+        jqxhr.success(function () {
             // Check if success to move the progressbar.
-            if (status) { 
+            if (status) {
                 // Calculate percent
                 var percent = ((wpcd_temp5.coupon_count / wpcd_temp5.row_count) * 100).toFixed(2);
                 // Remove the console log on production for checking only
                 if (percent >= 5) {
                     wpcd_percent_element.removeClass('wpcd-zero-percent');
                     wpcd_percent_element.addClass('wpcd-twentyfive-percent');
-                    wpcd_percent_element_span.text(percent+"%");
-                    
+                    wpcd_percent_element_span.text(percent + "%");
+
                 }
                 if (percent >= 25) {
                     wpcd_percent_element.removeClass('wpcd-twentyfive-percent');
                     wpcd_percent_element.addClass('wpcd-fifty-percent');
-                    wpcd_percent_element_span.text(percent+"%");
+                    wpcd_percent_element_span.text(percent + "%");
                 }
                 if (percent >= 50) {
                     wpcd_percent_element.removeClass('wpcd-fifty-percent');
                     wpcd_percent_element.addClass('wpcd-seventyfive-percent');
-                    wpcd_percent_element_span.text(percent+"%");
+                    wpcd_percent_element_span.text(percent + "%");
                 }
                 if (percent >= 75) {
                     wpcd_percent_element.removeClass('wpcd-seventyfive-percent');
                     wpcd_percent_element.addClass('wpcd-onehundred-percent');
-                    wpcd_percent_element_span.text(percent+"%");
+                    wpcd_percent_element_span.text(percent + "%");
                 }
                 if (percent == 100) {
                     jQuery(".wpcd_import_notes").show();
                     jQuery(".wpcd_import_form_final_loader").fadeOut();
                     jQuery('.wpcd-import-wrapper').hide();
                     jQuery('#wpcd_import_form').hide();
-                    
+
                     // Showing the green div element after import success.
-                    jQuery(wpcd_green).show(); 
+                    jQuery(wpcd_green).show();
                     // Replacing the info for the Coupons added. 
                     jQuery('.wrap .wpcd_green span').text(function () {
                         return jQuery(this).text().replace("0 Coupons added.", wpcd_row_count + " Coupons added.");
-                    }); 
+                    });
                 }
             }
-        });   
+        });
     });
 }
