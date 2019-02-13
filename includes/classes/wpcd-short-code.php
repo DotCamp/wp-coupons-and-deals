@@ -312,24 +312,37 @@ class WPCD_Short_Code {
 			}
 			
 		}
-		$args = array(
-			'post_type'      => 'wpcd_coupons',
-			'order'          => 'DESC',
-			'posts_per_page' => $a['count'],
-			'paged'          => $paged,
-		);
+
 		if ( isset( $_POST['wpcd_category'] ) && $_POST['wpcd_category'] != 'all' &&  $_POST['wpcd_category'] != '' && ( ! isset($_POST['search_text']) || empty($_POST['search_text']) ) ) {
-			$args['tax_query'] = array(
-				array(
-					'taxonomy' => 'wpcd_coupon_category',
-					'field'    => 'slug',
-					'terms'    => $_POST['wpcd_category'],
+			$args = array(
+				'post_type'      => 'wpcd_coupons',
+				'order'          => 'DESC',
+				'posts_per_page' => $a['count'],
+				'tax_query'      => array(
+					array(
+						'taxonomy' => 'wpcd_coupon_category',
+						'field'    => 'slug',
+						'terms'    => $_POST['wpcd_category'],
+					),
 				),
+				'paged'          => $paged
 			);
 		} elseif ( isset( $_POST['search_text']) && !empty( $_POST['search_text'] ) ) {
 			$search_text = $_POST['search_text'] ;
-
-			$args['s'] = $search_text;
+			$args = array(
+				'post_type'		 => 'wpcd_coupons',
+				'order'			 => 'DESC',
+				'posts_per_page' => $a['count'],
+				'paged'			 => $paged,
+				's'				 => $search_text,
+			);
+		} else {
+			$args = array(
+				'post_type'      => 'wpcd_coupons',
+				'order'          => 'DESC',
+				'posts_per_page' => $a['count'],
+				'paged'          => $paged,
+			);
 		}
 
 		if ( empty( $a['temp'] ) ) {
