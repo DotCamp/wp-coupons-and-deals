@@ -36,6 +36,8 @@ class WPCD_Short_Code {
 
 			add_action( 'wp_ajax_wpcd_coupons_category_action', array( __CLASS__, 'wpcd_coupons_archive_func__premium_only' ) );
         	add_action( 'wp_ajax_nopriv_wpcd_coupons_category_action', array( __CLASS__, 'wpcd_coupons_archive_func__premium_only' ) );
+   //      	add_action( 'amp_post_template_css', array( __CLASS__, 'wpce_print_amp_styles' ), 1500 ); // AMP, Accelerated Mobile Pages
+			// add_action( 'amphtml_template_css', array( __CLASS__, 'wpce_print_amp_styles' ), 1500 ); // WP AMP
 		}
 
 	}
@@ -270,6 +272,51 @@ class WPCD_Short_Code {
 	}
 
 	/**
+	 * Check activiti AMP page
+	 *
+	 * @return bool
+	 */
+	public static function wpcd_amp_is() {
+		if ( function_exists( 'is_amp_endpoint' ) && is_amp_endpoint() ) {
+			return true;
+		}
+		if ( function_exists( 'is_wp_amp' ) && is_wp_amp() ) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Embed AMP styles
+	 *
+	 * @param $file
+	 *
+	 * @return mixed|string
+	 */
+	public static function wpcd_asset_embed( $file ) {
+
+		$response = wp_remote_get( $file );
+
+		if ( ! is_array( $response ) || ! isset( $response['body'] ) ) {
+			return '';
+		}
+
+		$content = $response['body'];
+
+		return $content;
+	}
+
+	/**
+	 * Get AMP Css 
+	 *
+	 * @return string
+	 */
+	public static function wpce_print_amp_styles() {
+		$wpcd_asset_embed = WPCD_Short_Code::wpcd_asset_embed(plugin_dir_url( __FILE__ ) . 'assets/css/amp.style.css');
+		echo $wpcd_asset_embed;
+	}
+
+	/**
 	 * Shortcode for the coupon archive page.
 	 *
 	 * @param $atts
@@ -280,6 +327,7 @@ class WPCD_Short_Code {
 		$output = "";
 		$paged = 1;
 		$wpcd_data_category = 'all';
+		$a = array();
 		if ( !isset($_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_action' ) {
 
 			wp_enqueue_script( 'wpcd-main-js' );
@@ -287,33 +335,33 @@ class WPCD_Short_Code {
 				'count' => '9',
 				'temp'  => ''
 			), $atts );
-		} else {
+			$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+		} 
 
-			$a = array();
-
-			if ( isset( $_POST['coupon_template'] ) && !empty( $_POST['coupon_template'] ) ) {
-				$a['temp'] = sanitize_text_field( $_POST['coupon_template'] );
-			} else {
-				$a['temp'] = '';
-			}
-
-			if ( isset( $_POST['coupon_items_count'] ) && !empty( $_POST['coupon_items_count'] ) ) {
-				$a['count'] = sanitize_text_field( $_POST['coupon_items_count'] );
-			} else {
-				$a['count'] = '';
-			}
-
-			if ( isset( $_POST['page_num'] ) && !empty( $_POST['page_num'] ) ) {
-				$paged = intval( $_POST['page_num'] );
-			}
-
-			if ( isset( $_POST['wpcd_category'] ) && !empty( $_POST['wpcd_category'] ) ) {
-				$wpcd_data_category = sanitize_text_field( $_POST['wpcd_category'] );
-			}
 			
+		if ( isset( $_POST['coupon_template'] ) && !empty( $_POST['coupon_template'] ) ) {
+			$a['temp'] = sanitize_text_field( $_POST['coupon_template'] );
+		} 
+
+		if ( isset( $_POST['coupon_items_count'] ) && !empty( $_POST['coupon_items_count'] ) ) {
+			$a['count'] = sanitize_text_field( $_POST['coupon_items_count'] );
 		}
 
-		if ( isset( $_POST['wpcd_category'] ) && $_POST['wpcd_category'] != 'all' &&  $_POST['wpcd_category'] != '' && ( ! isset($_POST['search_text']) || empty($_POST['search_text']) ) ) {
+		if ( isset( $_POST['page_num'] ) && !empty( $_POST['page_num'] ) ) {
+			$paged = (int)( $_POST['page_num'] );
+		} elseif( isset( $_GET['wpcd_amp_p_num'] ) && !empty( $_GET['wpcd_amp_p_num'] ) ) {
+			$paged = (int)( $_GET['wpcd_amp_p_num'] );
+		}
+
+		if ( isset( $_POST['wpcd_category'] ) && !empty( $_POST['wpcd_category'] ) ) {
+			$wpcd_data_category = sanitize_text_field( $_POST['wpcd_category'] );
+		} elseif ( isset( $_GET['wpcd_category'] ) && !empty( $_GET['wpcd_category'] ) ) {
+			$wpcd_data_category = sanitize_text_field( $_GET['wpcd_category'] );
+		}
+			
+		
+
+		if ( isset( $wpcd_data_category ) && $wpcd_data_category != 'all' &&  $wpcd_data_category != '' && ( ! isset($_POST['search_text']) || empty($_POST['search_text']) ) ) {
 			$args = array(
 				'post_type'      => 'wpcd_coupons',
 				'order'          => 'DESC',
@@ -322,7 +370,7 @@ class WPCD_Short_Code {
 					array(
 						'taxonomy' => 'wpcd_coupon_category',
 						'field'    => 'slug',
-						'terms'    => $_POST['wpcd_category'],
+						'terms'    => $wpcd_data_category,
 					),
 				),
 				'paged'          => $paged
@@ -416,32 +464,40 @@ class WPCD_Short_Code {
 
 			// template system.
 			$temp = $a['temp'];
-			if ( $temp === '' ) { 
-				// vertical style.
-				$coupon_template = 'shortcode-archive__premium_only';
+
+			if(self::wpcd_amp_is()) {
+				
+	        	
+				$coupon_template = 'shortcode-archive-amp__premium';
 			} else {
-                switch ($temp) {
-                    case 'one':
-                        $coupon_template = 'shortcode-archive-one__premium_only';
-                        break;
-                    case 'two':
-                        $coupon_template = 'shortcode-archive-two__premium_only';
-                        break;
-                    case 'three':
-                        $coupon_template = 'shortcode-archive-three__premium_only';
-                        break;
-                    case 'seven':
-                        $coupon_template = 'shortcode-archive-seven__premium_only';
-                        break;
-                    case 'eight':
-                        $coupon_template = 'shortcode-archive-eight__premium_only';
-                        break;
-                    default :
-                        $coupon_template = 'shortcode-archive-default__premium_only';
-                        $temp = 'default';
-                        break;
-                }
+				if ( $temp == '' ) { 
+					// vertical style.
+					$coupon_template = 'shortcode-archive__premium_only';
+				} else {
+	                switch ($temp) {
+	                    case 'one':
+	                        $coupon_template = 'shortcode-archive-one__premium_only';
+	                        break;
+	                    case 'two':
+	                        $coupon_template = 'shortcode-archive-two__premium_only';
+	                        break;
+	                    case 'three':
+	                        $coupon_template = 'shortcode-archive-three__premium_only';
+	                        break;
+	                    case 'seven':
+	                        $coupon_template = 'shortcode-archive-seven__premium_only';
+	                        break;
+	                    case 'eight':
+	                        $coupon_template = 'shortcode-archive-eight__premium_only';
+	                        break;
+	                    default :
+	                        $coupon_template = 'shortcode-archive-default__premium_only';
+	                        $temp = 'default';
+	                        break;
+	                }
+				}
 			}
+			
 			if ( !isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_action' ) {
 				global $post;
 				$wpcd_data_coupon_page_url = get_page_link( $post->ID );

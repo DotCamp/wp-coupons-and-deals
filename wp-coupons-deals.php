@@ -90,3 +90,13 @@ WPCD_Plugin::instance();
 WPCD_Plugin::init();
 register_activation_hook( __FILE__, array( 'WPCD_Plugin', 'wpcd_activate' ) );
 register_deactivation_hook( __FILE__, array( 'WPCD_Plugin', 'wpcd_deactivate' ) );
+
+
+
+function wpce_print_amp_styles() {
+	$wpcd_asset_embed = WPCD_Short_Code::wpcd_asset_embed(plugin_dir_url( __FILE__ ) . 'assets/css/amp.style.css');
+	echo $wpcd_asset_embed;
+}
+
+add_action( 'amp_post_template_css', 'wpce_print_amp_styles' ); // AMP, Accelerated Mobile Pages
+add_action( 'amphtml_template_css', 'wpce_print_amp_styles' ); // WP AMP
