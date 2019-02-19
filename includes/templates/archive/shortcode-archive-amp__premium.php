@@ -1,13 +1,17 @@
 <?php
 /**
- * AMP Template Shortcode Archives
+ * Created by PhpStorm.
+ * User: imtiazrayhan
+ * Date: 8/25/17
+ * Time: 11:31 PM
  */
-
 /**
+ *
  * This exits from the script if it's accessed
  * directly from somewhere else.
+ *
  */
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
     exit;
 }
 
@@ -99,7 +103,7 @@ if (!has_post_thumbnail()) {
  * header and in the bottom footer
  */
 global $parent;
-include('header-amp.php');
+include('header-amp-grid.php');
 ?>
 <li class="wpcd_coupon_li wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item <?php echo $coupon_categories_class; ?>"
     wpcd-data-search="<?php echo $title;?>">
@@ -138,7 +142,7 @@ include('header-amp.php');
 
                 <?php } else { ?>
                 <div class="wpcd-coupon-code wpcd_btn_wr">
-                <?php if (!empty($coupon_hover_text)) { ?>
+                    <?php if (!empty($coupon_hover_text)) { ?>
                     <a rel="nofollow"
                     class="wpcd-btn-<?php echo $coupon_id; ?> masterTooltip wpcd-btn wpcd-coupon-button"
                     href="<?php echo $link; ?>" title="<?php echo $coupon_hover_text; ?>"
@@ -236,4 +240,4 @@ include('header-amp.php');
             <div class="clearfix"></div>
         </div>
 </li>
-<?php include('footer-amp.php'); ?>
+<?php include('footer-amp-grid.php'); ?>

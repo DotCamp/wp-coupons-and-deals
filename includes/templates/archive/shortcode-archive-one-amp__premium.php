@@ -88,7 +88,7 @@ if ( $wpcd_text_to_show == 'description' ) {
 	}
 }
 global $parent;
-include('header-default.php');
+include('header-amp-default.php');
 ?>
 <?php if ( $coupon_type === 'Image' ): ?>
 <?php include('coupon_type__image.php'); ?>
@@ -119,10 +119,8 @@ include('header-default.php');
         <div class="wpcd-coupon-description">
             <span class="wpcd-full-description"><?php echo $description; ?></span>
             <span class="wpcd-short-description"></span>
-            <?php if( !WPCD_Amp::wpcd_amp_is() ): ?>
-                <a href="#" class="wpcd-more-description"><?php echo __( 'More', 'wpcd-coupon' ); ?></a>
-                <a href="#" class="wpcd-less-description"><?php echo __( 'Less', 'wpcd-coupon' ); ?></a>
-            <?php endif; ?>
+            <a href="#" class="wpcd-more-description"><?php echo __( 'More', 'wpcd-coupon' ); ?></a>
+            <a href="#" class="wpcd-less-description"><?php echo __( 'Less', 'wpcd-coupon' ); ?></a>
         </div>
     </div>
     <div class="wpcd-col-one-1-4">
@@ -226,10 +224,8 @@ include('header-default.php');
 							   echo __( "Click To Copy Coupon", 'wpcd-coupon' );
 						   } ?>"
                            data-clipboard-text="<?php echo $coupon_code; ?>">
-                            <span class="wpcd_coupon_icon">
-                                <img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/coupon-code-24.png" style="width: 100%;height: 100%;" >
-                            </span> <?php echo $coupon_code; ?>
-                            <span id="coupon_code_<?php echo $coupon_id; ?>" class="coupon_code_amp"
+                            <span class="wpcd_coupon_icon"></span> <?php echo $coupon_code; ?>
+                            <span id="coupon_code_<?php echo $coupon_id; ?>"
                                   style="display:none;"><?php echo $coupon_code; ?></span>
                         </a>
                     </div>
@@ -245,10 +241,8 @@ include('header-default.php');
 						   echo __( "Click To Copy Coupon", 'wpcd-coupon' );
 					   } ?>"
                        data-clipboard-text="<?php echo $coupon_code; ?>">
-                        <span class="wpcd_coupon_icon">
-                            <img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/coupon-code-24.png" style="width: 100%;height: 100%;" >
-                        </span> <?php echo $coupon_code; ?>
-                        <span id="coupon_code_<?php echo $coupon_id; ?>" class="coupon_code_amp" style="display:none;">
+                        <span class="wpcd_coupon_icon"></span> <?php echo $coupon_code; ?>
+                        <span id="coupon_code_<?php echo $coupon_id; ?>" style="display:none;">
 							<?php echo $coupon_code; ?>
 						</span>
                     </a>
@@ -350,18 +344,7 @@ include('header-default.php');
         <div id="clear"></div>
     </div>
     <div id="clear"></div>
-    <script type="text/javascript">
-        var clip = new Clipboard('.<?php echo $button_class; ?>');
-    </script>
-    <div class="clearfix"></div>
-    <?php if( !WPCD_Amp::wpcd_amp_is() ):
-            if ( $coupon_share === 'on' ) {
-    	        $template->get_template_part('social-share');
-            }
-            $template->get_template_part('vote-system');
-        endif;
-    ?>
 </div>
 <!--  Template one End -->
 <?php endif; ?>
-<?php include('footer-default.php'); ?>
+<?php include('footer-amp-default.php'); ?>

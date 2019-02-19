@@ -110,7 +110,7 @@
     width: -moz-calc(48% - 4px);
     width: calc(48% - 4px);
 }
-.wpcd-btn {
+.wpcd-coupon-code .wpcd-btn {
     font-size: 13px;
     border: 2px dashed #ccc;
     color: #347BAF;
@@ -122,6 +122,17 @@
     text-decoration: none;
     padding: 4px 4px 4px 4px;
 	border-radius: 2px;
+}
+.wpcd_coupon_icon {
+    display: inline-block;
+    height: 24px;
+    margin: -2px 0px 0 0;
+        margin-top: -2px;
+    vertical-align: text-top;
+    width: 24px;
+}
+.coupon_code_amp {
+    display: none;
 }
 .wpcd_coupon_li_inner {
     padding: 15px;

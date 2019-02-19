@@ -1324,7 +1324,7 @@ p.wpcd-coupon-four-expired {
     clear: both;
 }
 
-#wpcd_cat_ul {
+#wpcd_cat_ul, #wpcd_cat_ul_search {
     list-style: outside none none;
     margin: 0 -10px 0;
     padding: 0 0 5px;
@@ -1335,7 +1335,7 @@ p.wpcd-coupon-four-expired {
     margin-bottom: 20px;
 }
 
-#wpcd_cat_ul li {
+#wpcd_cat_ul li, #wpcd_cat_ul_search li {
     display: inline-block;
     margin: 0 10px 10px;
     vertical-align: top;

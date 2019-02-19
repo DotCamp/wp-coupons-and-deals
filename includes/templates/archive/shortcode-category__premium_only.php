@@ -121,9 +121,11 @@ include('header-category-grid.php');
                                        href="<?php echo $link; ?>" title="<?php echo $coupon_hover_text; ?>"
                                        target="_blank"
                                        data-clipboard-text="<?php echo $coupon_code; ?>">
-                                        <span class="wpcd_coupon_icon"></span> <?php echo $coupon_code; ?>
+                                        <span class="wpcd_coupon_icon">
+                                            <img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/coupon-code-24.png" style="width: 100%;height: 100%;" >
+                                        </span> <?php echo $coupon_code; ?>
                                         <span id="coupon_code_<?php echo $coupon_id; ?>"
-                                              style="display:none;"><?php echo $coupon_code; ?></span>
+                                              class="coupon_code_amp" style="display:none;"><?php echo $coupon_code; ?></span>
                                     </a>
 								<?php } else { ?>
                                     <a rel="nofollow"
@@ -132,9 +134,11 @@ include('header-category-grid.php');
                                        title="<?php echo __( 'Click To Copy Coupon', 'wpcd-coupon' ); ?>"
                                        target="_blank"
                                        data-clipboard-text="<?php echo $coupon_code; ?>">
-                                        <span class="wpcd_coupon_icon"></span> <?php echo $coupon_code; ?>
+                                        <span class="wpcd_coupon_icon">
+                                            <img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/coupon-code-24.png" style="width: 100%;height: 100%;" >
+                                        </span> <?php echo $coupon_code; ?>
                                         <span id="coupon_code_<?php echo $coupon_id; ?>"
-                                              style="display:none;"><?php echo $coupon_code; ?></span>
+                                              class="coupon_code_amp" style="display:none;"><?php echo $coupon_code; ?></span>
                                     </a>
 								<?php } ?>
                             </div>
@@ -220,10 +224,12 @@ include('header-category-grid.php');
     </script>
                     <div class="wpcd-li-footer">
                         <?php
-                        if ( $coupon_share === 'on' ) {
-                                $template->get_template_part('social-share');
-                        }
-                        $template->get_template_part('vote-system');
+                        if( !WPCD_Amp::wpcd_amp_is() ):
+                            if ( $coupon_share === 'on' ) {
+                                    $template->get_template_part('social-share');
+                            }
+                            $template->get_template_part('vote-system');
+                        endif;
                         ?>
                     </div>
                 </div>

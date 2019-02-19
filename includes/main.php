@@ -304,6 +304,13 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 			 * @since 2.0
 			 */
 			new WPCD_Toolbar_Links();
+
+			/**
+			 * Include pagination functions
+			 *
+			 * @since 2.7.2
+			 */
+			self::wpcd_pagination();
 		}
 
 		/**
@@ -602,7 +609,18 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 			
 			$submenu[$parent_menu][] = array( $menu_name, $capability, $url );
 		
-		}		
+		}	
+
+		/**
+		 * This function loads the file with pagination functions
+		 *
+		 * @since 2.7.2
+		 */
+        public static function wpcd_pagination() {
+			
+			include WPCD_Plugin::instance()->plugin_includes . '/functions/wpcd-coupon-pagination.php';
+		
+		}	
 
 	}
 
