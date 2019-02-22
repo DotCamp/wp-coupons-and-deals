@@ -1,25 +1,6 @@
 .wpcd_clearfix {
     clear: both;
 }
-.wpcd_div_nav_block {
-    display: flex;
-    justify-content: space-between;
-}
-#wpcd_cat_ul {
-    list-style: outside none none;
-    margin: 0 -10px 0;
-    padding: 0 0 5px;
-}
-#wpcd_cat_ul li {
-    display: inline-block;
-    margin: 0 10px 10px;
-    vertical-align: top;
-}
-#wpcd_cat_ul li a {
-    font-size: 20px;
-    text-decoration: none;
-    box-shadow: none;
-}
 .wpcd_cat_ul_border {
     border-bottom: 1px solid #e6e9ee;
     margin-bottom: 20px;
@@ -131,6 +112,14 @@
     vertical-align: text-top;
     width: 24px;
 }
+.wpcd_deal_icon {
+    display: inline-block;
+    height: 24px;
+    margin: -2px 3px 0 0;
+        margin-top: -2px;
+    vertical-align: text-top;
+    width: 24px;
+}
 .coupon_code_amp {
     display: none;
 }
@@ -156,37 +145,12 @@
 p.wpcd-coupon-loop-expired {
     color: red;
 }
+p.wpcd-coupon-loop-expire {
+    color: green;
+}
 
 .wpcd_coupon_pagination {
     margin: 20px 0;
-}
-
-#wpcd_coupon_pagination_wr {
-    width: 100%;
-}
-
-#wpcd_coupon_pagination_wr a:hover, #wpcd_coupon_pagination_wr span.current {
-    background-color: #3b4452;
-}
-
-#wpcd_coupon_pagination_wr a, #wpcd_coupon_pagination_wr span {
-    background: #56b151;
-        background-color: rgb(86, 177, 81);
-    border-radius: 3px;
-    color: #ffffff;
-    display: inline-block;
-    font-size: 16px;
-    margin: 0 3px 5px 0;
-    padding: 12px;
-    -moz-transition: all 0.2s ease 0s;
-    -webkit-transition: all 0.2s ease 0s;
-    -o-transition: all 0.2s ease 0s;
-    transition: all 0.2s ease 0s;
-    vertical-align: middle;
-}
-
-#wpcd_coupon_pagination_wr span.current {
-    padding: 15px;
 }
 
 #wpcd_coupon_ul li .wpcd-full-description p, #wpcd_coupon_ul li p.wpcd-coupon-loop-expire, #wpcd_coupon_ul li p.wpcd-coupon-loop-expired {
@@ -194,6 +158,8 @@ p.wpcd-coupon-loop-expired {
     line-height: 27px;
     font-weight: 400;
     padding: 0;
+    margin-bottom: 0;
+    margin-top: 0;
 }
 
 #wpcd_coupon_ul li .wpcd-full-description p::before, #wpcd_coupon_ul li p.wpcd-coupon-loop-expire:before, #wpcd_coupon_ul li p.wpcd-coupon-loop-expired:before {
@@ -203,6 +169,7 @@ p.wpcd-coupon-loop-expired {
 @media screen and (max-width: 980px) {
 	#wpcd_coupon_ul li.wpcd_coupon_li {
 		width: 48%;
+        margin-bottom: 12px;
 	}
 }
 

@@ -6,7 +6,7 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
     if ( !isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_action' ):
         ?>
         <section class="wpcd_archive_section wpcd_clearfix">
-            <?php
+        <?php
             
             $terms = get_terms( 'wpcd_coupon_category' );
             if ( !empty( $terms ) && !is_wp_error( $terms ) && !$disable_menu ):
@@ -15,7 +15,7 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
                 $current_url_final = preparationMenuLinks( $current_url );
                 $current_url_final_all = $current_url_final['all'];
                 $current_url_final_sin = $current_url_final['sin'];
-                ?>
+        ?>
                 <div class="wpcd_div_nav_block">
                     <div class="wpcd_cats">
                         <ul id="wpcd_cat_ul" class="wpcd_dropdown wpcd_categories_in_dropdown">
@@ -64,7 +64,7 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
             <div class="wpcd_coupon_loader wpcd_coupon_hidden_loader">
                 <img src="<?php echo WPCD_Plugin::instance()->plugin_assets . 'img/loading.gif'; ?>">
             </div>
-            <div id="wpcd_coupon_archive_container">
+            <div class="wpcd_coupon_archive_container">
         <?php endif; ?>
     <?php endif; ?>
 <?php endif; ?>

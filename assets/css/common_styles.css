@@ -1,0 +1,74 @@
+.wpcd_div_nav_block {
+    display: flex;
+    justify-content: space-between;
+}
+#wpcd_cat_ul {
+    list-style: outside none none;
+    margin: 0 -10px 0;
+    padding: 0 0 5px;
+}
+#wpcd_cat_ul li {
+    display: inline-block;
+    margin: 0 10px 10px;
+    vertical-align: top;
+}
+#wpcd_cat_ul li a {
+    font-size: 20px;
+    text-decoration: none;
+    box-shadow: none;
+}
+.wpcd_cat_ul_border {
+    border-bottom: 1px solid #e6e9ee;
+    margin-bottom: 20px;
+}
+.wpcd_coupon_archive_container_main {
+    position: relative;
+}
+.wpcd-coupon-image {
+    text-align: center;
+    margin: 0px auto;
+}
+.wpcd-coupon-image a {
+    display: inline-block;
+}
+.wpcd-coupon-image amp-img {
+    max-width: 100%;
+    max-height: 100%;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    padding: 10px;
+    border: 2px dashed #000000;
+    margin: auto;
+}
+.wpcd-coupon-image a amp-img img.i-amphtml-fill-content {
+    position: relative;
+    width: auto;
+    height: auto;
+}
+.wpcd-coupon-image amp-img i-amphtml-sizer {
+    position: absolute;
+}
+#wpcd_coupon_pagination_wr {
+    width: 100%;
+}
+#wpcd_coupon_pagination_wr a:hover, #wpcd_coupon_pagination_wr span.current {
+    background-color: #3b4452;
+}
+#wpcd_coupon_pagination_wr a, #wpcd_coupon_pagination_wr span {
+    background: #56b151;
+    background-color: rgb(86, 177, 81);
+    border-radius: 3px;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0 3px 5px 0;
+    padding: 12px;
+    -moz-transition: all 0.2s ease 0s;
+    -webkit-transition: all 0.2s ease 0s;
+    -o-transition: all 0.2s ease 0s;
+    transition: all 0.2s ease 0s;
+    vertical-align: middle;
+}
+#wpcd_coupon_pagination_wr span.current {
+    padding: 15px;
+}

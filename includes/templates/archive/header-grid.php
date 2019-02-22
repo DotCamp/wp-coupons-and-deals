@@ -3,20 +3,21 @@
  * Header Grid for Templates
  */
 if ( $parent == 'header' || $parent == 'headerANDfooter' ):
-    if ( !isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_action' ): ?>
+    if ( !isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_action' ): 
+        ?>
         <section class="wpcd_archive_section wpcd_clearfix">
         <?php
 
-        $terms = get_terms( 'wpcd_coupon_category' );
-        if ( !empty( $terms ) && !is_wp_error( $terms ) && !$disable_menu ):
+            $terms = get_terms( 'wpcd_coupon_category' );
+            if ( !empty( $terms ) && !is_wp_error( $terms ) && !$disable_menu ):
 
-            $pageNum=(get_query_var('paged')) ? get_query_var('paged') : 1;
-            $current_url = get_pagenum_link($pageNum);
-            $current_url_final = preparationMenuLinks( $current_url );
-            $current_url_final_all = $current_url_final['all'];
-            $current_url_final_sin = $current_url_final['sin'];
+                $pageNum=(get_query_var('paged')) ? get_query_var('paged') : 1;
+                $current_url = get_pagenum_link($pageNum);
+                $current_url_final = preparationMenuLinks( $current_url );
+                $current_url_final_all = $current_url_final['all'];
+                $current_url_final_sin = $current_url_final['sin'];
 
-            ?>
+        ?>
             <div class="wpcd_div_nav_block">
                 <div class="wpcd_cats">
                     <ul id="wpcd_cat_ul">
@@ -52,7 +53,7 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
             <div class="wpcd_coupon_loader wpcd_coupon_hidden_loader">
                 <img src="<?php echo WPCD_Plugin::instance()->plugin_assets . 'img/loading.gif'; ?>">
             </div>
-            <div id="wpcd_coupon_archive_container">
+            <div class="wpcd_coupon_archive_container">
     <?php endif; ?>
     <ul id="wpcd_coupon_ul" class="wpcd_clearfix">
 <?php endif; ?>

@@ -100,9 +100,7 @@ include('header-default.php');
     <?php include('coupon_type__image.php'); ?>
 <?php else: ?>
     <!--  Template Seven Start -->
-    <section
-            class="wpcd_seven wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item <?php echo $coupon_categories_class; ?>"
-            wpcd-data-search="<?php echo $title; ?>">
+    <section class="wpcd_seven wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item <?php echo $coupon_categories_class; ?>" wpcd-data-search="<?php echo $title; ?>">
         <div class="wpcd_seven_container">
             <div class="wpcd_seven_couponBox">
                 <div class="wpcd_seven_percentAndPic">
@@ -114,11 +112,11 @@ include('header-default.php');
                         <?php if ($coupon_thumbnail): ?>
                             <a href="<?php echo $link; ?>" target="_blank">
                                 <img src="<?php echo $coupon_thumbnail; ?>"
-                                     alt="<?php _e('Coupon image not uploaded', 'wpcd-coupon'); ?>" alt="Product-pic">
+                                alt="<?php _e('Coupon image not uploaded', 'wpcd-coupon'); ?>" alt="Product-pic">
                             </a>
                         <?php else: ?>
                             <img src="http://rdironworks.com/wp-content/uploads/2017/12/dummy-200x200.png"
-                                 alt="Product-pic">
+                            alt="Product-pic">
                         <?php endif; ?>
                     </div>
                 </div>
@@ -126,128 +124,132 @@ include('header-default.php');
                     <div class="wpcd_seven_heading">
                         <?php
                         if ('on' === $disable_coupon_title_link) { ?>
-                        <<?php echo esc_html($coupon_title_tag); ?> class="wpcd-new-title">
-                        <?php echo $title; ?>
-                    </<?php echo esc_html($coupon_title_tag); ?>> <?php
-                    } else { ?>
-                    <<?php echo esc_html($coupon_title_tag); ?> class="wpcd-new-title">
-                    <a href="<?php echo esc_url($link); ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
-                </<?php echo esc_html($coupon_title_tag); ?>> <?php
-                } ?>
-                <p><?php echo wpautop($description, false); ?></p>
-                <div class="wpcd_seven_expire">
-                    <p>
-                        <?php
-                        if ($coupon_type == 'Coupon') {
-                        if ($show_expiration == 'Show') {
-                        if (!empty($expire_date)) {
-                        if (strtotime($expire_date) >= strtotime($today)) { ?>
-                        <span class="wpcd-coupon-seven-countdown">
-                    <p class="wpcd-new-expire-text">
-                        <?php
-                        if (!empty($expire_text)) {
-                            echo $expire_text . ' ' . $expire_date_format;
-                        } else {
-                            echo __('Expires on: ', 'wpcd-coupon') . $expire_date_format;
-                        }
-                        ?>
-                    </p>
-                    </span>
-                    <?php } elseif (strtotime($expire_date) < strtotime($today)) { ?>
-                        <span class="wpcd-coupon-seven-countdown">
-                                <p class="wpcd-new-expired-text">
-                                    <?php
-                                    if (!empty($expired_text)) {
-                                        echo $expired_text . ' ' . $expire_date_format;
+                            <<?php echo esc_html($coupon_title_tag); ?> class="wpcd-new-title">
+                            <?php echo $title; ?>
+                            </<?php echo esc_html($coupon_title_tag); ?>> <?php
+                        } else { ?>
+                            <<?php echo esc_html($coupon_title_tag); ?> class="wpcd-new-title">
+                            <a href="<?php echo esc_url($link); ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
+                            </<?php echo esc_html($coupon_title_tag); ?>> <?php
+                        } ?>
+                        <p><?php echo wpautop($description, false); ?></p>
+                        
+                    </div>
+                </div>
+                <?php if ($coupon_type == 'Coupon') : ?>
+                    <?php if (!empty($coupon_code)) : ?>
+                        <div class="wpcd_seven_buttonSociaLikeDislike">
+                            <div class="wpcd_seven_btn">
+                                <a href="<?php echo $link; ?>"
+                                 title="<?php echo $coupon_code; ?>"><?php echo $coupon_code; ?></a>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                <?php endif; ?>
+                <?php if ($coupon_type == 'Deal') : ?>
+                    <?php if (!empty($deal_text)) : ?>
+                        <div class="wpcd_seven_buttonSociaLikeDislike">
+                            <div class="wpcd_seven_btn">
+                                <a href="<?php echo $link; ?>"
+                                 title="<?php echo $deal_text; ?>"><?php echo $deal_text; ?></a>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                <?php endif; ?>
+                <div class="wpcd_seven_expire_correct_box">
+                    <div class="wpcd_seven_expire">
+                                <?php
+                                if ($coupon_type == 'Coupon') {
+                                    if ($show_expiration == 'Show') {
+                                        if (!empty($expire_date)) {
+                                            if (strtotime($expire_date) >= strtotime($today)) { ?>
+                                            <span class="wpcd-coupon-seven-countdown">
+                                                <p class="wpcd-new-expire-text">
+                                                    <?php
+                                                    if (!empty($expire_text)) {
+                                                        echo $expire_text . ' ' . $expire_date_format;
+                                                    } else {
+                                                        echo __('Expires on: ', 'wpcd-coupon') . $expire_date_format;
+                                                    }
+                                                    ?>
+                                                </p>
+                                            </span>
+                                            <?php } elseif (strtotime($expire_date) < strtotime($today)) { ?>
+                                            <span class="wpcd-coupon-seven-countdown">
+                                                <p class="wpcd-new-expired-text">
+                                                    <?php
+                                                    if (!empty($expired_text)) {
+                                                        echo $expired_text . ' ' . $expire_date_format;
+                                                    } else {
+                                                        echo __('Expired on: ', 'wpcd-coupon') . $expire_date_format;
+                                                    }
+                                                    ?>
+                                                </p>
+                                            </span>
+                                            <?php }
+                                        } else { ?>
+                                        <span class="wpcd-coupon-seven-countdown">
+                                            <p class="wpcd-new-expire-text">
+                                                <?php if (!empty($no_expiry)) {
+                                                    echo $no_expiry;
+                                                } else {
+                                                    echo __("Doesn't expire", 'wpcd-coupon');
+                                                } ?>
+                                            </p>
+                                        </span>
+                                        <?php }
                                     } else {
-                                        echo __('Expired on: ', 'wpcd-coupon') . $expire_date_format;
+                                        echo '';
                                     }
-                                    ?>
-                                </p>
-                                </span>
-                    <?php }
-                    } else { ?>
-                        <span class="wpcd-coupon-seven-countdown">
-                            <p class="wpcd-new-expire-text">
-                                <?php if (!empty($no_expiry)) {
-                                    echo $no_expiry;
-                                } else {
-                                    echo __("Doesn't expire", 'wpcd-coupon');
+
+                                } elseif ($coupon_type == 'Deal') {
+                                    if ($show_expiration == 'Show') {
+                                        if (!empty($expire_date)) {
+                                            if (strtotime($expire_date) >= strtotime($today)) { ?>
+                                            <p class="wpcd-new-expire-text">
+                                                <?php
+                                                if (!empty($expire_text)) {
+                                                    echo $expire_text . ' ' . $expire_date_format;
+                                                } else {
+                                                    echo __('Expires on: ', 'wpcd-coupon') . $expire_date_format;
+                                                }
+                                                ?>
+                                            </p>
+                                            <?php } elseif (strtotime($expire_date) < strtotime($today)) { ?>
+                                            <p class="wpcd-new-expired-text">
+                                                <?php
+                                                if (!empty($expired_text)) {
+                                                    echo $expired_text . ' ' . $expire_date_format;
+                                                } else {
+                                                    echo __('Expired on: ', 'wpcd-coupon') . $expire_date_format;
+                                                }
+                                                ?>
+                                            </p>
+                                            <?php }
+
+                                        } else { ?>
+
+                                        <p class="wpcd-new-expire-text">
+
+                                            <?php if (!empty($no_expiry)) {
+                                                echo $no_expiry;
+                                            } else {
+                                                echo __("Doesn't expire", 'wpcd-coupon');
+                                            }
+                                            ?>
+                                        </p>
+
+                                        <?php }
+                                    } else {
+                                        echo '';
+                                    }
                                 } ?>
-                            </p>
-                        </span>
-                    <?php }
-                    } else {
-                        echo '';
-                    }
-
-                    } elseif ($coupon_type == 'Deal') {
-                        if ($show_expiration == 'Show') {
-                            if (!empty($expire_date)) {
-                                if (strtotime($expire_date) >= strtotime($today)) { ?>
-                                    <p class="wpcd-new-expire-text">
-                                        <?php
-                                        if (!empty($expire_text)) {
-                                            echo $expire_text . ' ' . $expire_date_format;
-                                        } else {
-                                            echo __('Expires on: ', 'wpcd-coupon') . $expire_date_format;
-                                        }
-                                        ?>
-                                    </p>
-                                <?php } elseif (strtotime($expire_date) < strtotime($today)) { ?>
-                                    <p class="wpcd-new-expired-text">
-                                        <?php
-                                        if (!empty($expired_text)) {
-                                            echo $expired_text . ' ' . $expire_date_format;
-                                        } else {
-                                            echo __('Expired on: ', 'wpcd-coupon') . $expire_date_format;
-                                        }
-                                        ?>
-                                    </p>
-                                <?php }
-
-                            } else { ?>
-
-                                <p class="wpcd-new-expire-text">
-
-                                    <?php if (!empty($no_expiry)) {
-                                        echo $no_expiry;
-                                    } else {
-                                        echo __("Doesn't expire", 'wpcd-coupon');
-                                    }
-                                    ?>
-                                </p>
-
-                            <?php }
-                        } else {
-                            echo '';
-                        }
-                    } ?>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <?php if ($coupon_type == 'Coupon') : ?>
-            <?php if (!empty($coupon_code)) : ?>
-                <div class="wpcd_seven_buttonSociaLikeDislike">
-                    <div class="wpcd_seven_btn">
-                        <a href="<?php echo $link; ?>"
-                           title="<?php echo $coupon_code; ?>"><?php echo $coupon_code; ?></a>
+                        </div>
                     </div>
+                    <div id="clear"></div>
                 </div>
-            <?php endif; ?>
-        <?php endif; ?>
-        <?php if ($coupon_type == 'Deal') : ?>
-            <?php if (!empty($deal_text)) : ?>
-                <div class="wpcd_seven_buttonSociaLikeDislike">
-                    <div class="wpcd_seven_btn">
-                        <a href="<?php echo $link; ?>"
-                           title="<?php echo $deal_text; ?>"><?php echo $deal_text; ?></a>
-                    </div>
-                </div>
-            <?php endif; ?>
-        <?php endif; ?>
-    </section>
-    <!--  Template Seven End -->
-<?php endif; ?>
-<?php include('footer-default.php'); ?>
+            </div>    
+     </section>
+     <!--  Template Seven End -->
+ <?php endif; ?>
+ <?php include('footer-default.php'); ?>

@@ -9,7 +9,7 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ): ?>
 	            <div class="wpcd_coupon_loader wpcd_coupon_hidden_loader">
 	                <img src="<?php echo WPCD_Plugin::instance()->plugin_assets . 'img/loading.gif'; ?>">
 	            </div>
-	            <div id="wpcd_coupon_archive_container">
+	            <div class="wpcd_coupon_archive_container">
 	    <?php endif; ?>
         <ul id="wpcd_coupon_ul" class="wpcd_clearfix">
 <?php endif;

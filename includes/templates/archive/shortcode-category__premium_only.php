@@ -153,14 +153,18 @@ include('header-category-grid.php');
                                        class="wpcd-btn-<?php echo $coupon_id; ?> wpcd-btn masterTooltip wpcd-deal-button"
                                        title="<?php echo $deal_hover_text; ?>" href="<?php echo $link; ?>"
                                        target="_blank">
-                                        <span class="wpcd_deal_icon"></span><?php echo $deal_text; ?>
+                                        <span class="wpcd_deal_icon">
+                                          <img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/deal-24.png" style="width: 100%;height: 100%;" >
+                                        </span><?php echo $deal_text; ?>
                                     </a>
 								<?php } else { ?>
                                     <a rel="nofollow"
                                        class="wpcd-btn-<?php echo $coupon_id; ?> wpcd-btn masterTooltip wpcd-deal-button"
                                        title="<?php echo __( 'Click Here To Get This Deal', 'wpcd-coupon' ); ?>"
                                        href="<?php echo $link; ?>" target="_blank">
-                                        <span class="wpcd_deal_icon"></span><?php echo $deal_text; ?>
+                                        <span class="wpcd_deal_icon">
+                                          <img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/deal-24.png" style="width: 100%;height: 100%;" >
+                                        </span><?php echo $deal_text; ?>
                                     </a>
 								<?php } ?>
                             </div>

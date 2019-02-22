@@ -114,10 +114,10 @@ if( ! function_exists( 'preparationMenuLinks' ) ) {
                 if( is_array($parametrs_arr) && count($parametrs_arr) > 0 ) {
                     $parametrs_arr_new = array();
                     foreach ($parametrs_arr as $single_par) {
-                        if( strpos( $single_par, 'wpcd_category') ) {
+                        if( strpos( $single_par, 'wpcd_category') !== false) {
                             continue;
                         } 
-                        if ( strpos( $single_par, 'wpcd_amp_p_num') ) {
+                        if ( strpos( $single_par, 'wpcd_amp_p_num') !== false ) {
                             continue;
                         }
                         $parametrs_arr_new[] = $single_par;

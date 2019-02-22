@@ -117,8 +117,10 @@ include('header-default.php');
 		<div class="wpcd-coupon-description">
             <span class="wpcd-full-description"><?php echo $description; ?></span>
             <span class="wpcd-short-description"></span>
-            <a href="#" class="wpcd-more-description"><?php echo __( 'More', 'wpcd-coupon' ); ?></a>
-            <a href="#" class="wpcd-less-description"><?php echo __( 'Less', 'wpcd-coupon' ); ?></a>
+            <?php if( !WPCD_Amp::wpcd_amp_is() ): ?>
+	            <a href="#" class="wpcd-more-description"><?php echo __( 'More', 'wpcd-coupon' ); ?></a>
+	            <a href="#" class="wpcd-less-description"><?php echo __( 'Less', 'wpcd-coupon' ); ?></a>
+	        <?php endif; ?>
         </div>
     </div>
     <div class="wpcd-coupon-three-info">
@@ -228,8 +230,10 @@ include('header-default.php');
 								   echo __( "Click To Copy Coupon", 'wpcd-coupon' );
 							   } ?>"
                                data-clipboard-text="<?php echo $coupon_code; ?>">
-                                <span class="wpcd_coupon_icon"></span> <?php echo $coupon_code; ?>
-                                <span id="coupon_code_<?php echo $coupon_id; ?>"
+                                <span class="wpcd_coupon_icon">
+                                	<img src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/coupon-code-24.png" style="width: 100%;height: 100%;" >
+                                </span> <?php echo $coupon_code; ?>
+                                <span id="coupon_code_<?php echo $coupon_id; ?>" class="coupon_code_amp"
                                       style="display:none;"><?php echo $coupon_code; ?></span>
                             </a>
                         </div>
@@ -245,9 +249,11 @@ include('header-default.php');
 							   echo __( "Click To Copy Coupon", 'wpcd-coupon' );
 						   } ?>"
                            data-clipboard-text="<?php echo $coupon_code; ?>">
-                            <span class="wpcd_coupon_icon"></span> <?php echo $coupon_code; ?>
+                            <span class="wpcd_coupon_icon">
+                            	<img src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/coupon-code-24.png" style="width: 100%;height: 100%;" >
+                            </span> <?php echo $coupon_code; ?>
                             <span id="coupon_code_<?php echo $coupon_id; ?>"
-                                  style="display:none;"><?php echo $coupon_code; ?></span>
+                                 class="coupon_code_amp" style="display:none;"><?php echo $coupon_code; ?></span>
                         </a>
                     </div>
 				<?php }
@@ -260,7 +266,9 @@ include('header-default.php');
 					   } else {
 						   echo __( "Click Here To Get This Deal", 'wpcd-coupon' );
 					   } ?>" href="<?php echo $link; ?>" target="_blank        ">
-                        <span class="wpcd_deal_icon"></span><?php echo $deal_text; ?>
+                        <span class="wpcd_deal_icon">
+                        	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/deal-24.png" style="width: 100%;height: 100%;" >
+                        </span><?php echo $deal_text; ?>
                     </a>
                 </div>
 			<?php } ?>
@@ -271,10 +279,12 @@ include('header-default.php');
     </script>
     <div class="clearfix"></div>
     <?php
-    if ( $coupon_share === 'on' ) {
-	    $template->get_template_part('social-share');
-    }
-    $template->get_template_part('vote-system');
+	    if( !WPCD_Amp::wpcd_amp_is() ):
+		    if ( $coupon_share === 'on' ) {
+			    $template->get_template_part('social-share');
+		    }
+		    $template->get_template_part('vote-system');
+		endif;
     ?>
 </div>
 <!--  Template three End -->

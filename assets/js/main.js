@@ -106,7 +106,7 @@ jQuery(document).ready(function ($) {
                 },
                 success: function( response ) {
                     if( response ) {
-                        var coupon_container = $('#wpcd_coupon_archive_container');
+                        var coupon_container = $('.wpcd_coupon_archive_container');
                         if(coupon_container.length > 0) {
                             coupon_container.html(response);
                             $('.wpcd_coupon_loader').addClass('wpcd_coupon_hidden_loader');
@@ -251,6 +251,7 @@ jQuery(document).ready(function ($) {
     count_down_span.each(function () {
         var $this = $(this), finalDate = $(this).data('countdown_coupon');
         $this.countdown(finalDate, function (event) {
+            console.log(event);
             var format = '%M ' + wpcd_main_js.minutes + ' %S ' + wpcd_main_js.seconds;
             if (event.offset.hours > 0) {
                 format = '%H ' + wpcd_main_js.hours + ' %M ' + wpcd_main_js.minutes + ' %S ' + wpcd_main_js.seconds;

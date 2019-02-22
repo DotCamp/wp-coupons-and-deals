@@ -424,41 +424,43 @@ class WPCD_Short_Code {
 			// template system.
 			$temp = $a['temp'];
 
+			$argcss = array();
 			if ( $temp == '' ) { // vertical style.
-				if ( WPCD_Amp::wpcd_amp_is() ) {
-            		WPCD_Amp::instance()->setCssFile( array('archive', 'not_temp') );
-            	} 
+            	$argcss = 'not_temp';
             	$coupon_template = 'shortcode-archive__premium_only';
 			} else {
                 switch ($temp) {
                     case 'one':
-                    	if ( WPCD_Amp::wpcd_amp_is() ) {
-                    		WPCD_Amp::instance()->setCssFile( array('archive', 'one') );
-                    		
-                    	} 
-                    		$coupon_template = 'shortcode-archive-one__premium_only';
-                    	
+                    	$argcss = 'one';
+                    	$coupon_template = 'shortcode-archive-one__premium_only';
                         break;
                     case 'two':
+                    	$argcss = 'two';
                         $coupon_template = 'shortcode-archive-two__premium_only';
                         break;
                     case 'three':
+                    	$argcss = 'three';
                         $coupon_template = 'shortcode-archive-three__premium_only';
                         break;
                     case 'seven':
+                    	$argcss = 'seven';
                         $coupon_template = 'shortcode-archive-seven__premium_only';
                         break;
                     case 'eight':
+                    	$argcss = 'eight';
                         $coupon_template = 'shortcode-archive-eight__premium_only';
                         break;
                     default :
+                    	$argcss = 'default';
                         $coupon_template = 'shortcode-archive-default__premium_only';
-                        $temp = 'default';
                         break;
                 }
 			}
-		
-			
+			if ( WPCD_Amp::wpcd_amp_is() ) {
+				WPCD_Amp::instance()->setCss( 'common' );
+        		WPCD_Amp::instance()->setCss( $argcss );
+			}
+				
 			if ( !isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_action' ) {
 				global $post;
 				$wpcd_data_coupon_page_url = get_page_link( $post->ID );
@@ -554,32 +556,40 @@ class WPCD_Short_Code {
 		} 
 
 		if ( $temp == '' ) { // vertical style
-			if ( WPCD_Amp::wpcd_amp_is() ) {
-            		WPCD_Amp::instance()->setCssFile( array('archive', 'not_temp') );
-            	} 
+        	$argcss = 'not_temp';
 			$coupon_template = 'shortcode-category__premium_only';
 		} else {  
 			switch ($temp) {
 				case 'one':
+					$argcss = 'one';
 					$coupon_template = 'shortcode-category-one__premium_only';
 					break;
                 case 'two':
+                	$argcss = 'two';
                     $coupon_template = 'shortcode-category-two__premium_only';
                     break;
                 case 'three':
+                	$argcss = 'three';
                     $coupon_template = 'shortcode-category-three__premium_only';
                     break;
                 case 'seven':
+                    $argcss = 'seven';
                     $coupon_template = 'shortcode-category-seven__premium_only';
                     break;
                 case 'eight':
+                    $argcss = 'eight';
                     $coupon_template = 'shortcode-category-eight__premium_only';
                     break;
 				default :
+                    $argcss = 'default';
 					$coupon_template = 'shortcode-category-default__premium_only';		
 					break;						
 			}
 		}
+		if ( WPCD_Amp::wpcd_amp_is() ) {
+			WPCD_Amp::instance()->setCss( 'common' );
+    		WPCD_Amp::instance()->setCss( $argcss );
+    	}
 
 		if ( !isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_action' ) {
 			global $post;

@@ -263,7 +263,9 @@ include('header-default.php');
 				   } else {
 					   echo __( "Click Here To Get This Deal", 'wpcd-coupon' );
 				   } ?>" href="<?php echo $link; ?>" target="_blank        ">
-                    <span class="wpcd_deal_icon"></span><?php echo $deal_text; ?>
+                    <span class="wpcd_deal_icon">
+                        <img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/deal-24.png" style="width: 100%;height: 100%;" >
+                    </span><?php echo $deal_text; ?>
                 </a>
             </div>
 		<?php } ?>
@@ -354,7 +356,8 @@ include('header-default.php');
         var clip = new Clipboard('.<?php echo $button_class; ?>');
     </script>
     <div class="clearfix"></div>
-    <?php if( !WPCD_Amp::wpcd_amp_is() ):
+    <?php 
+        if( !WPCD_Amp::wpcd_amp_is() ):
             if ( $coupon_share === 'on' ) {
     	        $template->get_template_part('social-share');
             }
