@@ -1,17 +1,6 @@
 .wpcd_clearfix {
     clear: both;
 }
-.wpcd-btn {
-    padding: 4px 4px 4px 4px;
-    border-radius: 2px;
-    border: 0;
-    color: #fff;
-    line-height: 1.3;
-    margin: 0;
-}
-.wpcd_dropbtn {
-    display: none;
-}
 .wpcd_cat_ul_border {
     border-bottom: 1px solid #e6e9ee;
     margin-bottom: 20px;
@@ -103,23 +92,12 @@
     padding-left: 5px;
 
 }
-.wpcd-coupon-code .wpcd-btn {
-    font-size: 13px;
-    border: 2px dashed #ccc;
-    color: #347BAF;
-    background: #FAFAFA;
-    text-align: center;
-    cursor: pointer;
-    font-weight: 600;
-    display: inline-block;
-    text-decoration: none;
-    word-break: break-all;
-}
 .wpcd-full-description p {
     font-size: 22px;
     font-weight: 400;
-    line-height: 1.8;
+    line-height: 40px;
     word-wrap: break-word;
+    padding: 0px;
 }
 .wpcd-full-description p::before {
     display: none;

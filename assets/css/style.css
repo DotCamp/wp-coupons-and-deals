@@ -2982,7 +2982,8 @@ h2:before {
         width: 100% !important;
     }
     .wpcd-coupon-discount-text,
-    .coupon-type {
+    .coupon-type,
+    .deal-type {
         box-sizing: border-box;
         width: 100% !important;
     }

@@ -979,7 +979,10 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 					</p>
 				</div>
 				<div class="admin_wpcd_seven_productPic">
-					<img src="http://rdironworks.com/wp-content/uploads/2017/12/dummy-200x200.png" alt="Product-pic">
+					<!-- <img src="http://rdironworks.com/wp-content/uploads/2017/12/dummy-200x200.png" alt="Product-pic"> -->
+					<img data-src="<?php echo $wpcd_dummy_coupon_img; ?>"
+					 src="<?php echo empty( $coupon_thumbnail ) ? $wpcd_dummy_coupon_img : $coupon_thumbnail; ?>"
+					 alt="Coupon">
 				</div>
 			</div>
 			<div class="admin_wpcd_seven_headingAndExpire">

@@ -1,7 +1,7 @@
 <?php
  
-if( !function_exists( 'generatePageUrl' ) ) {
-    function generatePageUrl( $current_url, $necessary_page_num ) {
+if( !function_exists( 'wpcd_generatePageUrl' ) ) {
+    function wpcd_generatePageUrl( $current_url, $necessary_page_num ) {
         $pos1 = strpos( $current_url, '?' );
 
         if( $pos1 === false ) {
@@ -36,8 +36,8 @@ if( !function_exists( 'generatePageUrl' ) ) {
 }
 
 
-if( !function_exists( 'curPageURL' ) ) {
-    function curPageURL() {
+if( !function_exists( 'wpcd_curPageURL' ) ) {
+    function wpcd_curPageURL() {
         $pageURL = 'http';
         if ( $_SERVER["HTTPS"] == "on" ) {$pageURL .= "s";}
         $pageURL .= "://";
@@ -55,8 +55,8 @@ if( !function_exists( 'curPageURL' ) ) {
 }
 
            
-if( !function_exists( 'generatePagination' ) ) {
-    function generatePagination( $current_url, $max_num_page, $end_size = 1, $mid_size = 2, $prev_next = true, $show_all = false ) {
+if( !function_exists( 'wpcd_generatePagination' ) ) {
+    function wpcd_generatePagination( $current_url, $max_num_page, $end_size = 1, $mid_size = 2, $prev_next = true, $show_all = false ) {
         if( $max_num_page < 2 ) {
             return;
         }
@@ -65,7 +65,7 @@ if( !function_exists( 'generatePagination' ) ) {
         $page_links = array();
         if ( $prev_next && $current && 1 < $current ) :
             $current_minus_one = $current - 1;
-            $page_links[] = '<a class="prev page-numbers" href="' . esc_url( generatePageUrl($current_url, $current_minus_one) ) . '">« Prev</a>';
+            $page_links[] = '<a class="prev page-numbers" href="' . esc_url( wpcd_generatePageUrl($current_url, $current_minus_one) ) . '">« Prev</a>';
         endif;
         for ( $n = 1; $n <= $max_num_page; $n++ ) :
             if ( $n == $current ) :
@@ -74,7 +74,7 @@ if( !function_exists( 'generatePagination' ) ) {
             else :
                 if ( $show_all || ( $n <= $end_size || ( $current && $n >= $current - $mid_size && $n <= $current + $mid_size ) || $n > $max_num_page - $end_size ) ) :
 
-                    $page_links[] = "<a class='page-numbers' href='" . esc_url( generatePageUrl($current_url, $n) ) . "'>" . number_format_i18n( $n ) . "</a>";
+                    $page_links[] = "<a class='page-numbers' href='" . esc_url( wpcd_generatePageUrl($current_url, $n) ) . "'>" . number_format_i18n( $n ) . "</a>";
                     $dots = true;
                 elseif ( $dots && ! $show_all ) :
                     $page_links[] = '<span class="page-numbers dots">' . __( '&hellip;' ) . '</span>';
@@ -85,7 +85,7 @@ if( !function_exists( 'generatePagination' ) ) {
         if ( $prev_next && $current && $current < $max_num_page ) :
             
             $current_plus_one = $current + 1;
-            $page_links[] = '<a class="next page-numbers" href="' . esc_url( generatePageUrl($current_url, $current_plus_one) ) . '">Next »</a>';
+            $page_links[] = '<a class="next page-numbers" href="' . esc_url( wpcd_generatePageUrl($current_url, $current_plus_one) ) . '">Next »</a>';
         endif;
 
         if( is_array( $page_links ) && count( $page_links ) > 0 ) {
@@ -103,8 +103,8 @@ if( !function_exists( 'generatePagination' ) ) {
  * @return array
  */
 
-if( ! function_exists( 'preparationMenuLinks' ) ) {
-    function preparationMenuLinks( $current_url ) {
+if( ! function_exists( 'wpcd_preparationMenuLinks' ) ) {
+    function wpcd_preparationMenuLinks( $current_url ) {
         $pos = strpos($current_url, '?');
         $current_url_final = array();
         if( $pos !== false ) {

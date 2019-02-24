@@ -37,9 +37,10 @@ class WPCD_Assets {
 	 *
 	 * @since 2.2.2
 	 */
-	public static function wpcd_stylesheets() {
-
-		wp_enqueue_style( 'wpcd-style', WPCD_Plugin::instance()->plugin_assets . 'css/style.css', false, WPCD_Plugin::PLUGIN_VERSION );
+	public static function wpcd_stylesheets( $amp = false ) {
+		if ( ! $amp ) {
+			wp_enqueue_style( 'wpcd-style', WPCD_Plugin::instance()->plugin_assets . 'css/style.css', false, WPCD_Plugin::PLUGIN_VERSION );
+		}
 
 		$custom_css = get_option( 'wpcd_custom-css' ); 
 
@@ -47,6 +48,9 @@ class WPCD_Assets {
 		$coupon_border_color = get_option( 'wpcd_dt-border-color' );
 
 		$hide_featured_image = get_option( 'wpcd_hide-archive-thumbnail' );
+		if ( $amp ) {
+			$output_for_amp = '';
+		}
 
 		if ( $hide_featured_image === 'on' ) {
 			
@@ -69,8 +73,12 @@ class WPCD_Assets {
 
 			$custom_style = preg_replace( '/\s+/', ' ', $custom_style );
 
-			wp_add_inline_style( 'wpcd-style', $custom_style  );
-
+			if ( ! $amp ) {
+				wp_add_inline_style( 'wpcd-style', $custom_style  );
+			} else {
+				$output_for_amp .= $custom_style;
+			}
+			
 		}
 
 		$inline_style = "
@@ -91,11 +99,19 @@ class WPCD_Assets {
 
 		$inline_style = preg_replace( '/\s+/', ' ', $inline_style );
 
-		wp_add_inline_style( 'wpcd-style', $inline_style  );
+		if ( ! $amp ) {
+			wp_add_inline_style( 'wpcd-style', $inline_style  );
+		} else {
+			$output_for_amp .= $inline_style;
+		}
 
 		$custom_css = preg_replace( '/\s+/', ' ', $custom_css );
 
-		wp_add_inline_style( 'wpcd-style', $custom_css  );
+		if ( ! $amp ) {
+			wp_add_inline_style( 'wpcd-style', $custom_css  );
+		} else {
+			$output_for_amp .= $custom_css;
+		}
 
 		if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) {
 
@@ -140,8 +156,16 @@ class WPCD_Assets {
 			$wpcd_inline_style = preg_replace( '/\s+/', ' ', $wpcd_inline_style );
 
 			//add changes to stylesheet
-			wp_add_inline_style( 'wpcd-style', $wpcd_inline_style );
+			if ( ! $amp ) {
+				wp_add_inline_style( 'wpcd-style', $wpcd_inline_style );
+			} else {
+				$output_for_amp .= $wpcd_inline_style;
+			}
 
+		}
+
+		if ( $amp ) {
+			return $output_for_amp;
 		}
 
 	}

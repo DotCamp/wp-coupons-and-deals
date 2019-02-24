@@ -115,6 +115,10 @@ class WPCD_Short_Code {
 
 				$output = ob_get_clean();
 
+				if ( WPCD_Amp::wpcd_amp_is() ) {
+					WPCD_Amp::instance()->setCss( 'shortcode_image' );
+	        	} 
+
 				wp_reset_postdata();
 
 				return $output;
@@ -145,54 +149,63 @@ class WPCD_Short_Code {
 
 				if ( $coupon_template == 'Template One' ) {
 
+					$argcss = 'shortcode_one';
 					ob_start();
 					$template->get_template_part( 'shortcode-one__premium_only' );
 					$output = ob_get_clean();
 
 				} elseif ( $coupon_template == 'Template Two' ) {
 
+					$argcss = 'shortcode_two';
 					ob_start();
 					$template->get_template_part( 'shortcode-two__premium_only' );
 					$output = ob_get_clean();
 
 				} elseif ( $coupon_template == 'Template Three' ) {
 
+					$argcss = 'shortcode_three';
 					ob_start();
 					$template->get_template_part( 'shortcode-three__premium_only' );
 					$output = ob_get_clean();
 
 				} elseif ( $coupon_template == 'Template Four' ) {
 
+					$argcss = 'shortcode_four';
 					ob_start();
 					$template->get_template_part( 'shortcode-four__premium_only' );
 					$output = ob_get_clean();
 
 				} elseif ( $coupon_template == 'Template Five' ) {
 
+					$argcss = 'shortcode_five';
 					ob_start();
 					$template->get_template_part( 'shortcode-five__premium_only' );
 					$output = ob_get_clean();
 
 				} else if ( $coupon_template == 'Template Six' ) {
 
+					$argcss = 'shortcode_six';
 					ob_start();
 					$template->get_template_part( 'shortcode-six__premium_only' );
 					$output = ob_get_clean();
 
 				} else if ( $coupon_template == 'Template Seven' ) {
-					 
+					
+					$argcss = 'shortcode_seven';
 					ob_start();
 					$template->get_template_part( 'shortcode-seven__premium_only' );
  					$output = ob_get_clean();
  					
  				} else if ( $coupon_template == 'Template Eight' ) {
 
+ 					$argcss = 'shortcode_eight';
 					ob_start();
 					$template->get_template_part( 'shortcode-eight__premium_only' );
 					$output = ob_get_clean();
 
 				}  else {
-
+					
+					$argcss = 'shortcode_default';
 					ob_start();
 					$template->get_template_part( 'shortcode-default' );
 					$output = ob_get_clean();
@@ -200,12 +213,19 @@ class WPCD_Short_Code {
 				}
 
 			} else {
-
+				$argcss = 'shortcode_default';
 				ob_start();
 				$template->get_template_part( 'shortcode-default' );
 				$output = ob_get_clean();
 
 			}
+			if ( WPCD_Amp::wpcd_amp_is() ) {
+				WPCD_Amp::instance()->setCss( 'shortcode_common' );
+        		WPCD_Amp::instance()->setCss( $argcss );
+        		$user_stylesheets = WPCD_Assets::wpcd_stylesheets( true );
+        		WPCD_Amp::instance()->setCss( $user_stylesheets, false );
+        	} 
+
 
 		}
 
@@ -426,42 +446,43 @@ class WPCD_Short_Code {
 
 			$argcss = array();
 			if ( $temp == '' ) { // vertical style.
-            	$argcss = 'not_temp';
+            	$argcss = 'archive_not_temp';
             	$coupon_template = 'shortcode-archive__premium_only';
 			} else {
                 switch ($temp) {
                     case 'one':
-                    	$argcss = 'one';
+                    	$argcss = 'archive_one';
                     	$coupon_template = 'shortcode-archive-one__premium_only';
                         break;
                     case 'two':
-                    	$argcss = 'two';
+                    	$argcss = 'archive_two';
                         $coupon_template = 'shortcode-archive-two__premium_only';
                         break;
                     case 'three':
-                    	$argcss = 'three';
+                    	$argcss = 'archive_three';
                         $coupon_template = 'shortcode-archive-three__premium_only';
                         break;
                     case 'seven':
-                    	$argcss = 'seven';
+                    	$argcss = 'archive_seven';
                         $coupon_template = 'shortcode-archive-seven__premium_only';
                         break;
                     case 'eight':
-                    	$argcss = 'eight';
+                    	$argcss = 'archive_eight';
                         $coupon_template = 'shortcode-archive-eight__premium_only';
                         break;
                     default :
-                    	$argcss = 'default';
+                    	$argcss = 'archive_default';
                         $coupon_template = 'shortcode-archive-default__premium_only';
                         break;
                 }
 			}
 			if ( WPCD_Amp::wpcd_amp_is() ) {
-				WPCD_Amp::instance()->setCss( 'common' );
+				WPCD_Amp::instance()->setCss( 'archive_common' );
         		WPCD_Amp::instance()->setCss( $argcss );
-			}
-				
-			if ( !isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_action' ) {
+        	} 
+		
+			
+			if ( ! WPCD_Amp::wpcd_amp_is() && (!isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_action' ) ) {
 				global $post;
 				$wpcd_data_coupon_page_url = get_page_link( $post->ID );
 				$output = '<div id="wpcd_coupon_template" wpcd-data-coupon_template="'.$temp.'" wpcd-data-coupon_items_count="'.$a["count"].'" wpcd-data-coupon_page_url="'.$wpcd_data_coupon_page_url.'" wpcd-data_category="'.$wpcd_data_category.'"></div>';
@@ -556,42 +577,42 @@ class WPCD_Short_Code {
 		} 
 
 		if ( $temp == '' ) { // vertical style
-        	$argcss = 'not_temp';
+        	$argcss = 'archive_not_temp';
 			$coupon_template = 'shortcode-category__premium_only';
 		} else {  
 			switch ($temp) {
 				case 'one':
-					$argcss = 'one';
+					$argcss = 'archive_one';
 					$coupon_template = 'shortcode-category-one__premium_only';
 					break;
                 case 'two':
-                	$argcss = 'two';
+                	$argcss = 'archive_two';
                     $coupon_template = 'shortcode-category-two__premium_only';
                     break;
                 case 'three':
-                	$argcss = 'three';
+                	$argcss = 'archive_three';
                     $coupon_template = 'shortcode-category-three__premium_only';
                     break;
                 case 'seven':
-                    $argcss = 'seven';
+                    $argcss = 'archive_seven';
                     $coupon_template = 'shortcode-category-seven__premium_only';
                     break;
                 case 'eight':
-                    $argcss = 'eight';
+                    $argcss = 'archive_eight';
                     $coupon_template = 'shortcode-category-eight__premium_only';
                     break;
 				default :
-                    $argcss = 'default';
+                    $argcss = 'archive_default';
 					$coupon_template = 'shortcode-category-default__premium_only';		
 					break;						
 			}
 		}
 		if ( WPCD_Amp::wpcd_amp_is() ) {
-			WPCD_Amp::instance()->setCss( 'common' );
+			WPCD_Amp::instance()->setCss( 'archive_common' );
     		WPCD_Amp::instance()->setCss( $argcss );
     	}
 
-		if ( !isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_action' ) {
+		if ( ! WPCD_Amp::wpcd_amp_is() && ( !isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_action' ) ) {
 			global $post;
 			$wpcd_data_coupon_page_url = get_page_link( $post->ID );
 			$output = '<div id="wpcd_coupon_template" wpcd-data-coupon_template="'.$temp.'" wpcd-data-coupon_items_count="'.$a["count"].'" wpcd-data-coupon_page_url="'.$wpcd_data_coupon_page_url.'" wpcd-data_category_coupons="'.$cat.'" wpcd-data_vendor_coupons="'.$vend.'"></div>';

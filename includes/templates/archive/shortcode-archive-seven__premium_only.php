@@ -189,7 +189,7 @@ include('header-default.php');
                                             <?php }
                                         } else { ?>
                                         <span class="wpcd-coupon-seven-countdown">
-                                            <p class="wpcd-new-expire-text">
+                                            <p class="never-expire">
                                                 <?php if (!empty($no_expiry)) {
                                                     echo $no_expiry;
                                                 } else {

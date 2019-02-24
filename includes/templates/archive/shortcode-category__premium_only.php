@@ -177,10 +177,12 @@ include('header-category-grid.php');
                                 <div class="wpcd-coupon-description">
                                     <span class="wpcd-full-description"><?php echo $description; ?></span>
                                     <span class="wpcd-short-description"></span>
-                                    <a href="#"
-                                       class="wpcd-more-description"><?php echo __( 'More', 'wpcd-coupon' ); ?></a>
-                                    <a href="#"
+                                    <?php if( !WPCD_Amp::wpcd_amp_is() ): ?>
+                                      <a href="#"
+                                         class="wpcd-more-description"><?php echo __( 'More', 'wpcd-coupon' ); ?></a>
+                                      <a href="#"
                                        class="wpcd-less-description"><?php echo __( 'Less', 'wpcd-coupon' ); ?></a>
+                                    <?php endif; ?>
                                 </div>
                             </div>
 						<?php } ?>

@@ -90,18 +90,23 @@ p.wpcd-new-expired-text:before, p.wpcd-new-expire-text:before {
 .wpcd-new-grid-container .wpcd-coupon-description p:before {
     display: none;
 }
-.wpcd-new-coupon-code {
+a.wpcd-new-coupon-code {
     display: block;
     max-width: 100%;
     text-decoration: none;
     background: #fafafa;
     margin: 0 auto;
-    color: #000;
+    color: #0073aa;
     padding: 12px;
     text-align: center;
     font-size: 14px;
     border: 2px dashed #cdcdcd;
     border-radius: 3px;
+}
+.wpcd-new-coupon-code:hover {
+    background: #fff;
+    border-color: #329d40;
+    color: #005177;
 }
 .wpcd-new-goto-button {
     display: block;

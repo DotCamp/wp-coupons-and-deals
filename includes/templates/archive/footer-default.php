@@ -43,8 +43,8 @@ if ( $parent == 'footer' || $parent == 'headerANDfooter' ): ?>
                 } 
             
             } else {
-                $current_url = curPageURL();
-                echo generatePagination($current_url, $max_num_page);
+                $current_url = wpcd_curPageURL();
+                echo wpcd_generatePagination($current_url, $max_num_page);
                 echo "</div>";
             }
         ?>

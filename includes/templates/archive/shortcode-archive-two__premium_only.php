@@ -128,19 +128,19 @@ include('header-default.php');
         <div class="wpcd-coupon-two-info">
             <div class="wpcd-coupon-two-title">
                 <?php if( ! empty( $expire_date ) && $never_expire != 'on' ): ?>
-                    <?php if( !WPCD_Amp::wpcd_amp_is() ) { ?>
-                    <span class="wpcd-coupon-two-countdown-text">
-                        <?php
-                        if ( ! empty( $expire_text ) ) {
-                            echo $expire_text;
-                        } else {
-                            echo __( 'Expires on: ', 'wpcd-coupon' );
-                        }
-                        ?>
-                    </span>
-                    <span class="wpcd-coupon-two-countdown test"
-                        data-countdown_coupon="<?php echo $expire_date_format . ' ' . $expire_time; ?>"
-                        id="clock_<?php echo $coupon_id; ?>"></span>
+                    <?php if( ! WPCD_Amp::wpcd_amp_is() ) { ?>
+                        <span class="wpcd-coupon-two-countdown-text">
+                            <?php
+                            if ( ! empty( $expire_text ) ) {
+                                echo $expire_text;
+                            } else {
+                                echo __( 'Expires on: ', 'wpcd-coupon' );
+                            }
+                            ?>
+                        </span>
+                        <span class="wpcd-coupon-two-countdown test"
+                            data-countdown_coupon="<?php echo $expire_date_format . ' ' . $expire_time; ?>"
+                            id="clock_<?php echo $coupon_id; ?>"></span>
                     <?php } else { 
                         if ( strtotime( $expire_date ) >= strtotime( $today ) ) { ?>
                             <span class="wpcd-coupon-expire">

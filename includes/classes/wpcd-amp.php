@@ -26,14 +26,25 @@ class WPCD_Amp {
 	 * @since 2.7.2
 	 */
 	private $css_list = array(
-		'not_temp'	=> 'amp_archive_not-temp.css',
-		'one'		=> 'amp_archive_one.css', 
-		'two'		=> 'amp_archive_two.css',
-		'three' 	=> 'amp_archive_three.css',
-		'seven' 	=> 'amp_archive_seven.css',
-		'eight'		=> 'amp_archive_eight.css',
-		'default'		=> 'amp_archive_default.css',
-		'common'	=> 'common_styles.css',
+		'archive_not_temp'		=> 'amp_archive_not-temp.css',
+		'archive_one'			=> 'amp_archive_one.css', 
+		'archive_two'			=> 'amp_archive_two.css',
+		'archive_three' 		=> 'amp_archive_three.css',
+		'archive_seven' 		=> 'amp_archive_seven.css',
+		'archive_eight'			=> 'amp_archive_eight.css',
+		'archive_default'		=> 'amp_archive_default.css',
+		'archive_common'		=> 'amp_archive_common.css',
+		'shortcode_default' 	=> 'amp_shortcode_default.css',
+		'shortcode_one'			=> 'amp_archive_one.css',
+		'shortcode_two'			=> 'amp_archive_two.css',
+		'shortcode_three'		=> 'amp_archive_three.css',
+		'shortcode_four'		=> 'amp_shortcode_four.css',
+		'shortcode_five'		=> 'amp_shortcode_five.css',
+		'shortcode_six'			=> 'amp_shortcode_six.css',
+		'shortcode_seven'		=> 'amp_archive_seven.css',
+		'shortcode_eight'		=> 'amp_archive_eight.css',
+		'shortcode_image'		=> 'amp_shortcode_image.css',
+		'shortcode_common'		=> 'amp_shortcode_common.css',
 	);
 
 	/**
@@ -89,16 +100,25 @@ class WPCD_Amp {
 	 *
 	 * @since 2.7.2
 	 */
-	public function setCss( $css_file ) {
-		if( ! empty($css_file) ) {
-			$this->css_file = $css_file;
+	public function setCss( $css_file, $is_file = true ) {
+		if ( $is_file ) {
+			if( ! empty($css_file)) {
+				$this->css_file = $css_file;
+			}
+			if( in_array( $this->css_list[$this->css_file], $this->used_css_files ) ) {
+				return;
+			}
+			$wpcd_asset_embed = $this->wpcd_asset_embed( WPCD_Plugin::instance()->plugin_assets . '/css/' . $this->css_list[$this->css_file] );
+			$this->used_css_files[] = $this->css_list[$this->css_file];
+		} else {
+			if( in_array( 'user_stylesheets', $this->used_css_files ) ) {
+				return;
+			}
+			$wpcd_asset_embed = $css_file;
+			$this->used_css_files[] = 'user_stylesheets';
 		}
-		if( in_array( $this->css_list[$this->css_file], $this->used_css_files ) ) {
-			return;
-		}
-		$wpcd_asset_embed = $this->wpcd_asset_embed( WPCD_Plugin::instance()->plugin_assets . '/css/' . $this->css_list[$this->css_file] );
+		
 		$this->styles .= $wpcd_asset_embed;
-		$this->used_css_files[] = $this->css_list[$this->css_file];
 	}
 
 	/**
@@ -109,6 +129,8 @@ class WPCD_Amp {
 	public function wpcd_print_amp_styles() {
 		echo $this->styles;
 	}
+
+
 
 	/**
 	 * Embed AMP styles

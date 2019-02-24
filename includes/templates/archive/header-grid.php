@@ -13,7 +13,7 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
 
                 $pageNum=(get_query_var('paged')) ? get_query_var('paged') : 1;
                 $current_url = get_pagenum_link($pageNum);
-                $current_url_final = preparationMenuLinks( $current_url );
+                $current_url_final = wpcd_preparationMenuLinks( $current_url );
                 $current_url_final_all = $current_url_final['all'];
                 $current_url_final_sin = $current_url_final['sin'];
 
@@ -22,13 +22,26 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
                 <div class="wpcd_cats">
                     <ul id="wpcd_cat_ul">
                         <li>
-                            <a class="wpcd_category" data-category="all" href="<?php echo $current_url_final_all; ?>">
+                            <?php 
+                                if( ! isset( $_GET['wpcd_category'] ) || $_GET['wpcd_category'] == '' ) {
+                                    $wpcd_dropdown_content = ' active';
+                                } else {
+                                    $wpcd_dropdown_content = '';
+                                }
+                            ?>
+                            <a class="wpcd_category<?php echo $wpcd_dropdown_content; ?>" data-category="all" href="<?php echo $current_url_final_all; ?>">
                                 <?php echo __( 'All Coupons', 'wpcd-coupon' ); ?>
                             </a>
                         </li>
-                        <?php foreach ( $terms as $term ): ?>
+                        <?php foreach ( $terms as $term ): 
+                            if( isset( $_GET['wpcd_category'] ) && $_GET['wpcd_category'] == $term->slug ) {
+                                $wpcd_dropdown_content = ' active';
+                            } else {
+                                $wpcd_dropdown_content = '';
+                            }
+                        ?>
                             <li>
-                                <a class="wpcd_category" data-category="<?php echo $term->slug; ?>"
+                                <a class="wpcd_category<?php echo $wpcd_dropdown_content; ?>" data-category="<?php echo $term->slug; ?>"
                                    href="<?php echo $current_url_final_sin . 'wpcd_category=' . $term->slug; ?>"><?php echo $term->name; ?></a>
                             </li>
                         <?php endforeach; ?>

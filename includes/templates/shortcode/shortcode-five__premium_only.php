@@ -51,6 +51,7 @@ if ( $wpcd_text_to_show == 'description' ) {
 		$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wpcd-coupon' );
 	}
 }
+if( ! $link ) $link = "#";
 
 wp_enqueue_script( 'wpcd-clipboardjs' );
 $template = new WPCD_Template_Loader();
@@ -87,8 +88,10 @@ $template = new WPCD_Template_Loader();
             <div class="wpcd-coupon-description">
                 <span class="wpcd-full-description"><?php echo $description; ?></span>
                 <span class="wpcd-short-description"></span>
-                <a href="#" class="wpcd-more-description"><?php echo __( 'More', 'wpcd-coupon' ); ?></a>
-                <a href="#" class="wpcd-less-description"><?php echo __( 'Less', 'wpcd-coupon' ); ?></a>
+                <?php if( !WPCD_Amp::wpcd_amp_is() ): ?>
+	                <a href="#" class="wpcd-more-description"><?php echo __( 'More', 'wpcd-coupon' ); ?></a>
+	                <a href="#" class="wpcd-less-description"><?php echo __( 'Less', 'wpcd-coupon' ); ?></a>
+	            <?php endif; ?>
             </div>
         </div>
     </div>
@@ -181,9 +184,11 @@ $template = new WPCD_Template_Loader();
     </script>
     <div class="clearfix"></div>
     <?php
-    if ( $coupon_share === 'on' ) {
-	    $template->get_template_part('social-share');
-    }
-    $template->get_template_part('vote-system');
+    if( !WPCD_Amp::wpcd_amp_is() ):
+	    if ( $coupon_share === 'on' ) {
+		    $template->get_template_part('social-share');
+	    }
+	    $template->get_template_part('vote-system');
+	endif;
     ?>
 </div>
