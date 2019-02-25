@@ -1,8 +1,11 @@
-.wpcd-coupon-three, .wpcd-coupon-three::after, .wpcd-coupon-three::before {
+.wpcd-coupon-three,
+.wpcd-coupon-three::after,
+.wpcd-coupon-three::before {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
 }
+
 .wpcd-coupon-three {
     width: 100%;
     padding: 5px 5px 5px 5px;
@@ -16,38 +19,46 @@
     box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1);
     border-radius: 3px;
 }
+
 .wpcd-coupon-three p::before {
     display: none;
 }
+
 .wpcd-coupon-three-content {
     width: 100%;
     padding: 10px;
     margin: 0;
 }
+
 .wpcd-coupon-title {
     width: 100%;
     font-size: 21px;
     margin: 5px 0px 10px 0px;
 }
+
 .wpcd-coupon-description {
     margin-top: 10px;
     font-size: inherit;
 }
+
 .wpcd-coupon-description p {
-    font-size: 22px;
-    font-weight: 400;
+    font-size: inherit;
+    font-weight: inherit;
     padding: 0;
-    line-height: 40px;
+    line-height: inherit;
     margin: 0px;
 }
+
 #wpcd_coupon_ul p::before {
     display: none;
 }
+
 .wpcd-coupon-three-info {
     width: 100%;
     margin: 10px 0 0 0;
     position: relative;
 }
+
 .wpcd-coupon-three-info::before {
     width: 100%;
     border-top: 1px dashed #d1d1d1;
@@ -58,11 +69,13 @@
     right: 0;
     bottom: 0;
 }
+
 .wpcd-coupon-three-expire {
     width: 60%;
     float: left;
     margin: 0;
 }
+
 .wpcd-coupon-three-expire p {
     font-size: 16px;
     color: green;
@@ -72,35 +85,41 @@
     font-weight: 400;
     line-height: 27px;
 }
+
 .wpcd-coupon-three-coupon {
     width: 40%;
     float: right;
     padding: 10px 0px 3px 0;
     margin: 0;
 }
+
 .wpcd-coupon-code {
     width: 100%;
     text-align: center;
 }
+
 .wpcd-coupon-button {
     margin: 0;
 }
+
 .wpcd_coupon_icon {
     display: inline-block;
     height: 24px;
     margin: -2px 0px 0 0;
-        margin-top: -2px;
+    margin-top: -2px;
     vertical-align: text-top;
     width: 24px;
 }
+
 .wpcd_deal_icon {
     display: inline-block;
     height: 24px;
     margin: -2px 3px 0 0;
-        margin-top: -2px;
+    margin-top: -2px;
     vertical-align: text-top;
     width: 24px;
 }
+
 .clearfix::after {
     visibility: hidden;
     display: block;
@@ -108,9 +127,11 @@
     clear: both;
     height: 0;
 }
+
 .coupon_code_amp {
     display: none;
 }
+
 #clear {
     clear: both;
 }
