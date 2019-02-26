@@ -80,7 +80,7 @@ $template = new WPCD_Template_Loader();
         <div class="wpcd-coupon-two-info">
             <div class="wpcd-coupon-two-title">
                 <?php if( ! empty( $expire_date ) && $never_expire != 'on' ): ?>
-                    <?php if( !WPCD_Amp::wpcd_amp_is() ) { ?>
+                    <?php if( ! WPCD_Amp::wpcd_amp_is() ) { ?>
                         <span class="wpcd-coupon-two-countdown-text">
                             <?php
                             if ( ! empty( $expire_text ) ) {

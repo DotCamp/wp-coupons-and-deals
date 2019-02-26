@@ -114,9 +114,11 @@ jQuery(document).ready(function ($) {
                     }
                     // Collect options value to determine index.
                     var select_options_value = [];
-                    jQuery('.wpcd_import_field_select option').each(function (index, option) {
-                        if (index <= 10) { // Ten option values since we are using class ".wpcd_import" this will iterate to all select options.
-                            select_options_value.push(option.value);
+                    jQuery('.wpcd_import_field_select option').each(function(index, option) {
+                        if (index <= 10){ // Ten option values since we are using class ".wpcd_import" this will iterate to all select options.
+                            if(option.value.trim() != "" && option.value != null) {
+                                select_options_value.push(option.value);
+                            }
                         } else {
                             return false;
                         }
@@ -125,22 +127,25 @@ jQuery(document).ready(function ($) {
                     jQuery('.wpcd_import_field_select option:selected').each(function (index, option) {
                         if (option.value == "" || option.value == null) {
                             import_fields_data[select_options_value[index]] = index;
-
                         } else {
-                            import_fields_data[option.value] = select_options_value.indexOf(option.value);
+                            import_fields_data[select_options_value[index]] = select_options_value.indexOf(option.value);
                         }
 
                     });
-                    wpcp_coupons_data['category'] = cells[import_fields_data['coupon_category']];
-                    wpcp_coupons_data['vendor'] = cells[import_fields_data['coupon_vendor']];
-                    wpcp_coupons_data['title'] = cells[import_fields_data['coupon_title']];
-                    wpcp_coupons_data['coupon_code'] = cells[import_fields_data['coupon_details_coupon-code-text']];
-                    wpcp_coupons_data['link'] = cells[import_fields_data['coupon_details_link']];
-                    wpcp_coupons_data['discount_text'] = cells[import_fields_data['coupon_details_discount-text']];
-                    wpcp_coupons_data['description'] = cells[import_fields_data['coupon_details_description']];
-                    wpcp_coupons_data['expiry_date'] = cells[import_fields_data['coupon_details_expire-date']];
-                    wpcp_coupons_data['hide_coupon'] = cells[import_fields_data['coupon_details_hide-coupon']];
-                    wpcp_coupons_data['default_coupon_template'] = cells[import_fields_data['coupon_details_coupon-template']];
+
+                    console.log(import_fields_data);
+                    wpcp_coupons_data['category']                = (cells[import_fields_data['coupon_category']]) ? cells[import_fields_data['coupon_category']].trim() : "";
+                    wpcp_coupons_data['vendor']                  = (cells[import_fields_data['coupon_vendor']]) ? cells[import_fields_data['coupon_vendor']].trim() : "";
+                    wpcp_coupons_data['title']                   = (cells[import_fields_data['coupon_title']]) ? cells[import_fields_data['coupon_title']].trim() : "";
+                    wpcp_coupons_data['coupon_code']             = (cells[import_fields_data['coupon_details_coupon-code-text']]) ? cells[import_fields_data['coupon_details_coupon-code-text']].trim() : "";
+                    wpcp_coupons_data['link']                    = (cells[import_fields_data['coupon_details_link']]) ? cells[import_fields_data['coupon_details_link']].trim() : "";
+                    wpcp_coupons_data['discount_text']           = (cells[import_fields_data['coupon_details_discount-text']]) ? cells[import_fields_data['coupon_details_discount-text']].trim() : "";
+                    wpcp_coupons_data['description']             = (cells[import_fields_data['coupon_details_description']]) ? cells[import_fields_data['coupon_details_description']].trim() : "";
+                    wpcp_coupons_data['expiry_date']             = (cells[import_fields_data['coupon_details_expire-date']]) ? cells[import_fields_data['coupon_details_expire-date']].trim() : "";
+                    wpcp_coupons_data['hide_coupon']             = (cells[import_fields_data['coupon_details_hide-coupon']]) ? cells[import_fields_data['coupon_details_hide-coupon']].trim() : "";
+                    wpcp_coupons_data['default_coupon_template'] = (cells[import_fields_data['coupon_details_coupon-template']]) ? cells[import_fields_data['coupon_details_coupon-template']].trim() : "";
+                    console.log(wpcp_coupons_data);
+
                     // preparing the select ID array
                     for (i = 0; i < rows.length; i++) {
                         // Filter header
@@ -155,19 +160,18 @@ jQuery(document).ready(function ($) {
                                 }
                             }
                             else {
-
-                                wpcp_coupons_data['category'] = cells[import_fields_data['coupon_category']];
-                                wpcp_coupons_data['vendor'] = cells[import_fields_data['coupon_vendor']];
-                                wpcp_coupons_data['title'] = cells[import_fields_data['coupon_title']];
-                                wpcp_coupons_data['coupon_code'] = cells[import_fields_data['coupon_details_coupon-code-text']];
-                                wpcp_coupons_data['link'] = cells[import_fields_data['coupon_details_link']];
-                                wpcp_coupons_data['discount_text'] = cells[import_fields_data['coupon_details_discount-text']];
-                                wpcp_coupons_data['description'] = cells[import_fields_data['coupon_details_description']];
-                                wpcp_coupons_data['expiry_date'] = cells[import_fields_data['coupon_details_expire-date']];
-                                wpcp_coupons_data['hide_coupon'] = cells[import_fields_data['coupon_details_hide-coupon']];
-                                wpcp_coupons_data['default_coupon_template'] = cells[import_fields_data['coupon_details_coupon-template']];
-                                wpcp_coupons_data['coupon_count'] = i;
-
+                                wpcp_coupons_data['category']                = (cells[import_fields_data['coupon_category']]) ? cells[import_fields_data['coupon_category']].trim() : "";
+                                wpcp_coupons_data['vendor']                  = (cells[import_fields_data['coupon_vendor']]) ? cells[import_fields_data['coupon_vendor']].trim() : "";
+                                wpcp_coupons_data['title']                   = (cells[import_fields_data['coupon_title']]) ? cells[import_fields_data['coupon_title']].trim() : "";
+                                wpcp_coupons_data['coupon_code']             = (cells[import_fields_data['coupon_details_coupon-code-text']]) ? cells[import_fields_data['coupon_details_coupon-code-text']].trim() : "";
+                                wpcp_coupons_data['link']                    = (cells[import_fields_data['coupon_details_link']]) ? cells[import_fields_data['coupon_details_link']].trim() : "";
+                                wpcp_coupons_data['discount_text']           = (cells[import_fields_data['coupon_details_discount-text']]) ? cells[import_fields_data['coupon_details_discount-text']].trim() : "";
+                                wpcp_coupons_data['description']             = (cells[import_fields_data['coupon_details_description']]) ? cells[import_fields_data['coupon_details_description']].trim() : "";
+                                wpcp_coupons_data['expiry_date']             = (cells[import_fields_data['coupon_details_expire-date']]) ? cells[import_fields_data['coupon_details_expire-date']].trim() : "";
+                                wpcp_coupons_data['hide_coupon']             = (cells[import_fields_data['coupon_details_hide-coupon']]) ? cells[import_fields_data['coupon_details_hide-coupon']].trim() : "";
+                                wpcp_coupons_data['default_coupon_template'] = (cells[import_fields_data['coupon_details_coupon-template']]) ? cells[import_fields_data['coupon_details_coupon-template']].trim() : "";
+                                wpcp_coupons_data['coupon_count']            = i;
+                                
                                 // Import Loader
                                 var status = 'no';
                                 jQuery(".wpcd_import_field_select").each(function () {
@@ -273,16 +277,16 @@ jQuery(document).ready(function ($) {
                                 wpcd_temp += "<div class=\"wpcd_import_field\"><label>" + col[wpcd_count].trim() + "</label>";
                                 wpcd_temp += '<select class="wpcd_import_field_select" name="wpcd_import_select_' + wpcd_temp2 + '" id="wpcd_import_select_' + wpcd_temp2 + '" ' + 'onChange="return wpcd_checkDuplicateField(\'' + wpcd_temp2 + '\')">';
                                 wpcd_temp += "<option value=\"\">Select</option>";
-                                wpcd_temp += "<option value=\"coupon_title\">Coupon Title</option>";
-                                wpcd_temp += "<option value=\"coupon_details_description\">Coupon Description</option>";
                                 wpcd_temp += "<option value=\"coupon_category\">Coupon Category</option>";
-                                wpcd_temp += "<option value=\"coupon_vendor\">Coupon Vendor</option>";
+                                wpcd_temp += "<option value=\"coupon_title\">Coupon Title</option>";
                                 wpcd_temp += "<option value=\"coupon_details_coupon-code-text\">Coupon Code</option>";
                                 wpcd_temp += "<option value=\"coupon_details_link\">Coupon Link</option>";
                                 wpcd_temp += "<option value=\"coupon_details_discount-text\">Discount Amount/Text</option>";
+                                wpcd_temp += "<option value=\"coupon_details_description\">Coupon Description</option>";
                                 wpcd_temp += "<option value=\"coupon_details_expire-date\">Expiration Date</option>";
                                 wpcd_temp += "<option value=\"coupon_details_hide-coupon\">Hide Coupon</option>";
                                 wpcd_temp += "<option value=\"coupon_details_coupon-template\">Coupon Template</option>";
+                                wpcd_temp += "<option value=\"coupon_vendor\">Coupon Vendor</option>";
                                 wpcd_temp += "</select>";
                                 wpcd_temp += "</div>";
 
