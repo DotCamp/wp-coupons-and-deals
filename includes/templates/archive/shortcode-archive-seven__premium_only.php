@@ -70,6 +70,7 @@ if (is_array($wpcd_coupon_image_src)) {
 } else {
     $wpcd_coupon_image_src = '';
 }
+if( ! $link && WPCD_Amp::wpcd_amp_is() ) $link = "#";
 
 $wpcd_coupon_template = get_post_meta($coupon_id, 'coupon_details_coupon-template', true);
 $wpcd_template_five_theme = get_post_meta($coupon_id, 'coupon_details_template-five-theme', true);

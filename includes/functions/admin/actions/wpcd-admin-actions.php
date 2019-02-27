@@ -79,6 +79,8 @@ function wpcd_import_process_php() {
 					add_post_meta( $post_id, 'coupon_details_template-five-theme', $theme_color );
 				elseif( $wpcd_coupon_data->default_coupon_template == 'Template Six'):
 					add_post_meta( $post_id, 'coupon_details_template-six-theme', $theme_color );
+				elseif( $wpcd_coupon_data->default_coupon_template == 'Template Eight'):
+					add_post_meta( $post_id, 'coupon_details_template-eight-theme', $theme_color );
 				endif;
 				if ( $wpcd_coupon_data->category != '' && $wpcd_coupon_data->category != ' ' ) {
 					wp_set_object_terms( $post_id, $wpcd_coupon_data->category, 'wpcd_coupon_category' );

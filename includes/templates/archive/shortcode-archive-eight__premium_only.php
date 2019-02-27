@@ -69,6 +69,7 @@ if ( is_array( $wpcd_coupon_image_src ) ) {
 } else {
 	$wpcd_coupon_image_src = '';
 }
+if( ! $link && WPCD_Amp::wpcd_amp_is() ) $link = "#";
 
 $wpcd_coupon_template     = get_post_meta( $coupon_id, 'coupon_details_coupon-template', true );
 $wpcd_template_five_theme = get_post_meta( $coupon_id, 'coupon_details_template-five-theme', true );
@@ -79,6 +80,9 @@ $wpcd_text_to_show        = get_option( 'wpcd_text-to-show' );
 $wpcd_custom_text         = get_option( 'wpcd_custom-text' );
 $dt_coupon_type_name 	  = get_option( 'wpcd_dt-coupon-type-text' );
 $dt_deal_type_name 	      = get_option( 'wpcd_dt-deal-type-text' );
+$wpcd_template_eight_theme  = get_post_meta( $coupon_id, 'coupon_details_template-eight-theme', true );
+
+$coupon_hover_text   = ( ! empty( $coupon_hover_text ) ) ? $coupon_hover_text : __( 'Click To Copy Coupon', 'wpcd-coupon' );
 
 if ( $wpcd_text_to_show == 'description' ) {
 	$wpcd_custom_text = $description;
@@ -220,23 +224,20 @@ include('header-default.php');
     </div>
     </div> <!-- End of grid-two -->
     <div class="wpcd-new-grid-three">
-        <?php
-        if($coupon_type == 'Coupon'):
-            ?>
-            <a class="wpcd-new-coupon-code <?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip" rel="nofollow"
-               href="<?php echo esc_url($link); ?>" target="_blank" data-clipboard-text="<?php echo $coupon_code; ?>"
-               title="<?php echo $coupon_hover_text; ?>">
-                <?php echo $coupon_code; ?>
-            </a>
-        <?php
-        elseif($coupon_type == 'Deal'):
-            ?>
-            <a class="wpcd-new-goto-button" rel="nofollow" href="<?php echo esc_url($link); ?>" target="_blank">
-                GO TO THE DEAL
-            </a>
-        <?php
-        endif;
-        ?>
+        <?php if ( $coupon_type === 'Coupon' ): ?>
+            <?php if ( $hide_coupon === 'Yes' && ! WPCD_Amp::wpcd_amp_is() ): ?>
+                <?php
+                $template->get_template_part( 'hide-coupon2__premium_only' );
+                ?>
+            <?php else: ?>
+                <a class="wpcd-new-coupon-code <?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank" data-clipboard-text="<?php echo $coupon_code; ?>" title="<?php echo $coupon_hover_text; ?>">
+                   <?php echo $coupon_code; ?>
+                </a>
+            <?php endif; ?>
+        <?php endif; ?>
+        <a class="wpcd-new-goto-button" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank" >
+           <?php echo $deal_text; ?>
+        </a>
     </div><!-- End of grid-three -->
     <script type="text/javascript">
         var clip = new Clipboard('.<?php echo $button_class; ?>');

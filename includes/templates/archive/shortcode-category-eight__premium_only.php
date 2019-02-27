@@ -169,23 +169,20 @@ include( 'header-category.php' );
     </div>
     </div> <!-- End of grid-two -->
     <div class="wpcd-new-grid-three">
-        <?php
-            if ( $coupon_type == 'Coupon' ):
-        ?>
-        <a class="wpcd-new-coupon-code <?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip" rel="nofollow"
-           href="<?php echo esc_url($link); ?>" target="_blank" data-clipboard-text="<?php echo $coupon_code; ?>"
-           title="<?php echo $coupon_hover_text; ?>">
-            <?php echo $coupon_code; ?>
+        <?php if ( $coupon_type === 'Coupon' ): ?>
+            <?php if ( $hide_coupon === 'Yes' && ! WPCD_Amp::wpcd_amp_is() ): ?>
+                <?php
+                $template->get_template_part( 'hide-coupon2__premium_only' );
+                ?>
+            <?php else: ?>
+                <a class="wpcd-new-coupon-code <?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank" data-clipboard-text="<?php echo $coupon_code; ?>" title="<?php echo $coupon_hover_text; ?>">
+                   <?php echo $coupon_code; ?>
+                </a>
+            <?php endif; ?>
+        <?php endif; ?>
+        <a class="wpcd-new-goto-button" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank" >
+           <?php echo $deal_text; ?>
         </a>
-        <?php
-            elseif ( $coupon_type == 'Deal' ):
-        ?>
-        <a class="wpcd-new-goto-button" rel="nofollow" href="<?php echo esc_url($link); ?>" target="_blank">
-            <?php echo $wpcd_eight_btn_text; ?>
-        </a>
-        <?php
-            endif;
-        ?>
     </div><!-- End of grid-three -->
     <script type="text/javascript">
         var clip = new Clipboard('.<?php echo $button_class; ?>');

@@ -51,6 +51,7 @@ if ( $wpcd_text_to_show == 'description' ) {
 		$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wpcd-coupon' );
 	}
 }
+if( ! $link && WPCD_Amp::wpcd_amp_is() ) $link = "#";
 
 wp_enqueue_script( 'wpcd-clipboardjs' );
 $template = new WPCD_Template_Loader();
@@ -89,7 +90,7 @@ $template = new WPCD_Template_Loader();
             <div class="wpcd-col-1-4">
 				<?php if ( $coupon_type == 'Coupon' ) {
 					if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) {
-						if ( $hide_coupon == 'Yes' ) {
+						if ( $hide_coupon == 'Yes' && ! WPCD_Amp::wpcd_amp_is() ) {
 							$template->get_template_part( 'hide-coupon__premium_only' );
 
 						} else { ?>
@@ -263,7 +264,7 @@ $template = new WPCD_Template_Loader();
     </script>
     <div class="clearfix"></div>
     <?php
-    	if( !WPCD_Amp::wpcd_amp_is() ):
+    	if( ! WPCD_Amp::wpcd_amp_is() ):
 	        if ( $coupon_share === 'on' ) {
 		        $template->get_template_part('social-share');
 	        }

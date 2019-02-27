@@ -222,7 +222,7 @@ class WPCD_Short_Code {
 			if ( WPCD_Amp::wpcd_amp_is() ) {
 				WPCD_Amp::instance()->setCss( 'shortcode_common' );
         		WPCD_Amp::instance()->setCss( $argcss );
-        		$user_stylesheets = WPCD_Assets::wpcd_stylesheets( true );
+        		$user_stylesheets = WPCD_Assets::wpcd_stylesheets( true, $coupon_id, $coupon_template );
         		WPCD_Amp::instance()->setCss( $user_stylesheets, false );
         	} 
 
@@ -479,6 +479,8 @@ class WPCD_Short_Code {
 			if ( WPCD_Amp::wpcd_amp_is() ) {
 				WPCD_Amp::instance()->setCss( 'archive_common' );
         		WPCD_Amp::instance()->setCss( $argcss );
+        		$user_stylesheets = WPCD_Assets::wpcd_stylesheets( true );
+        		WPCD_Amp::instance()->setCss( $user_stylesheets, false );
         	} 
 		
 			
@@ -508,6 +510,7 @@ class WPCD_Short_Code {
 
 				$template  = new WPCD_Template_Loader();
 				ob_start();
+				$test_template_eithgt = 'Hello';
 				$template->get_template_part( $coupon_template );
 				$output .= ob_get_clean();
 				$i ++;
@@ -610,6 +613,8 @@ class WPCD_Short_Code {
 		if ( WPCD_Amp::wpcd_amp_is() ) {
 			WPCD_Amp::instance()->setCss( 'archive_common' );
     		WPCD_Amp::instance()->setCss( $argcss );
+    		$user_stylesheets = WPCD_Assets::wpcd_stylesheets( true );
+    		WPCD_Amp::instance()->setCss( $user_stylesheets, false );
     	}
 
 		if ( ! WPCD_Amp::wpcd_amp_is() && ( !isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_action' ) ) {

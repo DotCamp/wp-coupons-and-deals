@@ -51,6 +51,7 @@ if ( is_array( $wpcd_coupon_image_src ) ) {
 } else {
 	$wpcd_coupon_image_src = '';
 }
+if( ! $link && WPCD_Amp::wpcd_amp_is() ) $link = "#";
 
 $wpcd_coupon_template     = get_post_meta( $coupon_id, 'coupon_details_coupon-template', true );
 $wpcd_template_five_theme = get_post_meta( $coupon_id, 'coupon_details_template-five-theme', true ); // the color of five theme
@@ -110,7 +111,7 @@ include('header-category.php');
         </div>
 		<?php if ( $coupon_type == 'Coupon' ) {
 			if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) {
-				if ( $hide_coupon == 'Yes' ) {
+				if ( $hide_coupon == 'Yes' && ! WPCD_Amp::wpcd_amp_is() ) {
 					$template->get_template_part( 'hide-coupon__premium_only' );
 				} else { ?>
                     <div class="wpcd-coupon-code">

@@ -37,7 +37,7 @@ class WPCD_Assets {
 	 *
 	 * @since 2.2.2
 	 */
-	public static function wpcd_stylesheets( $amp = false ) {
+	public static function wpcd_stylesheets( $amp = false, $coupon_id = false, $coupon_template = false ) {
 		if ( ! $amp ) {
 			wp_enqueue_style( 'wpcd-style', WPCD_Plugin::instance()->plugin_assets . 'css/style.css', false, WPCD_Plugin::PLUGIN_VERSION );
 		}
@@ -161,6 +161,30 @@ class WPCD_Assets {
 			} else {
 				$output_for_amp .= $wpcd_inline_style;
 			}
+
+			if ( $amp ) {
+				$coupon_theme_color = "";
+				if ( $coupon_template === 'Template Five' ) {
+
+				} elseif ( $coupon_template === 'Template Six' ) {
+
+				} elseif ( $coupon_template === 'Template Eight' ) {
+					$wpcd_template_eight_theme  = get_post_meta( $coupon_id, 'coupon_details_template-eight-theme', true );
+					$coupon_theme_color = "
+	                    
+						a.wpcd-new-coupon-code:hover {
+							border-color: {$wpcd_template_eight_theme};
+							color: {$wpcd_template_eight_theme};
+						}
+
+					";
+				}
+				if ( $coupon_theme_color ) {
+					$coupon_theme_color = preg_replace( '/\s+/', ' ', $coupon_theme_color );
+					$output_for_amp .= $coupon_theme_color;
+				}
+			}
+			
 
 		}
 

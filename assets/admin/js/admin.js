@@ -37,6 +37,8 @@ jQuery(document).ready(function ($) {
     var templateFiveTheme = $('#template-five-theme');
     var templateSixThemeField = $('.template-six-theme-field');
     var templateSixTheme = $('#template-six-theme');
+    var templateEightThemeField = $('.template-eight-theme-field');
+    var templateEightTheme = $('#template-eight-theme');
 
     //initializations
     initCouponTemplate();
@@ -323,6 +325,10 @@ jQuery(document).ready(function ($) {
         updateTemplateSixTheme($(this).val());
     });
 
+    $(document).on('change', 'input[name="template-eight-theme"]', function () {
+        updateTemplateEightTheme($(this).val());
+    });
+
     //functions 
     function coupon_deal_change() {
         var ctype = $('[name="coupon-type"]').val();
@@ -337,8 +343,9 @@ jQuery(document).ready(function ($) {
                 all_button_text.show();
             else
                 button_text.show();
-
-            deal_text.hide();
+            if (coupon_template.val() !== templates.EIGHT) {
+                deal_text.hide();
+            }
             hide_coupon_parent.show();
 
         } else if (ctype === couponTypes.DEAL) {
@@ -391,6 +398,13 @@ jQuery(document).ready(function ($) {
             templateSixThemeField.show();
         } else {
             templateSixThemeField.hide();
+        }
+
+        if (currentTemplate === templates.EIGHT) {
+            templateEightThemeField.show();
+            deal_text.show();
+        } else {
+            templateEightThemeField.hide();
         }
 
         coupon_deal_change();
@@ -483,6 +497,13 @@ jQuery(document).ready(function ($) {
             templateSixThemeField.hide();
         }
 
+        if (currentTemplate === templates.EIGHT) {
+            templateEightThemeField.show();
+            deal_text.show();
+        } else {
+            templateEightThemeField.hide();
+        }
+
         coupon_deal_change();
     }
 
@@ -561,6 +582,39 @@ jQuery(document).ready(function ($) {
             .find('.wpcd-coupon-hidden .coupon-button')
             .css('border-color', color);
 
+    }
+
+    function updateTemplateEightTheme(color) {
+        var couponEight = $('.wpcd-coupon-eight');
+
+        couponEight
+            .css( 'border-color', color );
+
+        couponEight
+            .find( '.coupon-type' )
+            .css( 'background-color', color );
+
+        couponEight
+            .find( '.get-code-wpcd' )
+            .css( 'background-color', color );
+
+        couponEight
+            .find( '.get-code-wpcd div' )
+            .css( 'border-left-color', color );
+
+        couponEight
+            .find( '.admin-wpcd-new-coupon-code' )
+            .hover( function(){ 
+                $( this ).css( "border-color", color )
+                         .css( "color", color );
+            }, function(){   
+                $( this ).css( "border-color", "#cdcdcd" )
+                         .css( "color", "#000" );
+            });
+
+        couponEight
+            .find('.admin-wpcd-new-goto-button')
+            .css('background-color', color);
     }
 
     function removeFeaturedImage() {
@@ -1027,6 +1081,7 @@ jQuery(document).ready(function ($) {
             var deal_code_text = $(this).val();
             $('.deal-code-button').text(deal_code_text);
             $('.wpcd-coupon-one-btn').text(deal_code_text);
+            $('.admin-wpcd-new-goto-button').text(deal_code_text);
         });
 
         // template seven coupon code button 
@@ -1276,7 +1331,11 @@ jQuery(function ($) {
 
             $(this).trigger('change');
             var today = (new Date()).setHours(0, 0, 0, 0);
-            var isExpired = Date.parse(dateText + ' 00:00:00') < today;
+            var dateTextCompare = dateText.split('-').reverse().join('-');
+            var input_date = Date.parse(dateTextCompare + 'T' + '00:00:00');
+            console.log(today);
+            console.log(input_date);
+            var isExpired = input_date < today;
             var expireBlock, expiredBlock;
 
             if ($(this).attr('id').search('third') !== -1) {
@@ -1306,6 +1365,7 @@ jQuery(function ($) {
             }
 
             if (isExpired) {
+
                 expireBlock.addClass('hidden');
                 expiredBlock.removeClass('hidden');
             } else {

@@ -42,6 +42,7 @@ $coupon_image_id          = get_post_meta( $post_id, 'coupon_details_coupon-imag
 $coupon_image_src         = wp_get_attachment_image_src( $coupon_image_id, 'full' );
 $wpcd_template_five_theme = get_post_meta( $post_id, 'coupon_details_template-five-theme', true );
 $wpcd_template_six_theme  = get_post_meta( $post_id, 'coupon_details_template-six-theme', true );
+$wpcd_template_eight_theme  = get_post_meta( $post_id, 'coupon_details_template-eight-theme', true );
 $wpcd_dummy_coupon_img   = WPCD_Plugin::instance()->plugin_assets . 'admin/img/coupon-200x200.png';
 $wpcd_text_to_show        = get_option( 'wpcd_text-to-show' );
 $wpcd_custom_text         = get_option( 'wpcd_custom-text' );
@@ -1075,31 +1076,33 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 </section><!-- End of Template Seven Preview -->
 
 <!-- Template Eight Preview -->
-<div class="wpcd-coupon-preview wpcd-coupon-eight admin-wpcd-new-grid-container">
+<div class="wpcd-coupon-preview wpcd-coupon-eight admin-wpcd-new-grid-container" style="border-color:<?php echo $wpcd_template_eight_theme; ?>">
 	<div class="admin-wpcd-new-grid-one">
 		<div class="admin-wpcd-new-discount-text wpcd-coupon-discount-text">
 			<?php echo $discount_text; ?>
 		</div>
-		<div class="coupon-type">
+		<div class="coupon-type" style="background-color: <?php echo $wpcd_template_eight_theme; ?>">
 			<?php echo $coupon_type; ?>
 		</div>
 		<?php
-		if ( $show_expiration == 'Show' ) {
-			if ( ! empty( $expire_date ) ) {
-				if ( strtotime( $expire_date ) >= strtotime( $today ) ) { ?>
-					<p class="admin-wpcd-new-expire-text expiration-date">
-						<?php echo $expire_text . ' ' . $expire_date; ?>
-					</p> <?php
-				} elseif ( strtotime( $expire_date ) < strtotime( $today ) ) { ?>
-					<p class="admin-wpcd-new-expire-text expiration-date">
-						<?php echo $expired_text . ' ' . $expire_date; ?>
-					</p> <?php
-				}
-			} else { ?>
-				<p class="admin-wpcd-new-expire-text expiration-date">
-					<?php echo $no_expiry; ?>
-				</p> <?php
-			}
+		if ( $show_expiration == 'Show' ) {?>
+			<div class="with-expiration1 <?php echo empty( $expire_date ) ? 'hidden' : ''; ?>">
+					<div class="wpcd-coupon-three-expire expire-text-block1 <?php echo strtotime( $expire_date ) >= strtotime( $today ) ? '' : 'hidden'; ?>">
+						<p class="wpcd-coupon-three-expire-text">
+							<?php echo $expire_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>';
+							?>
+						</p>
+					</div>
+					<div class="wpcd-coupon-three-expire expired-text-block1 <?php echo strtotime( $expire_date ) < strtotime( $today ) ? '' : 'hidden'; ?>">
+						<p class="wpcd-coupon-three-expired">
+							<?php echo $expired_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>'; ?>
+						</p>
+					</div>
+				</div>
+				<div class="wpcd-coupon-three-expire without-expiration1 <?php echo empty( $expire_date ) ? '' : 'hidden'; ?>">
+					<p><?php echo $no_expiry; ?></p>
+				</div>
+			<?php
 		} else {
 			echo '';
 		} ?>
@@ -1130,11 +1133,38 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 		</div>
 	</div> <!-- End of grid-two -->
 	<div class="admin-wpcd-new-grid-three">
-		<a class="admin-wpcd-new-coupon-code masterTooltip coupon-code-button" rel="nofollow" href="#" target="_blank" data-clipboard-text="<?php echo $coupon_code; ?>" title="<?php echo $coupon_hover_text; ?>">
-			<?php echo $coupon_code; ?>
-		</a>
-		<a class="admin-wpcd-new-goto-button" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank">
-		   <?php echo $wpcd_eight_btn_text; ?>
+			<div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden">
+				<a 
+					data-type="code"
+					data-coupon-id="<?php echo $post_id; ?>"
+					href=""
+					class="coupon-button coupon-code-wpcd masterTooltip"
+					id="coupon-button-<?php echo $post_id; ?>"
+					title="<?php echo $hidden_coupon_hover_text; ?>"
+					data-position="top center"
+					data-inverted=""
+					data-aff-url="<?php echo $link; ?>">
+					<span class="code-text-wpcd" rel="nofollow">
+						<?php echo $coupon_code; ?>
+					</span>
+					<span class="get-code-wpcd" style="background-color: <?php echo $wpcd_template_eight_theme; ?>">
+						<span>
+							<?php echo $hide_coupon_text; ?>
+						</span>
+						<div style="border-left-color: <?php echo $wpcd_template_eight_theme; ?>"></div>
+					</span>
+				</a>
+			</div>
+			<div class="wpcd-coupon-not-hidden">
+				<div class="wpcd-coupon-code">
+					<a class="admin-wpcd-new-coupon-code masterTooltip coupon-code-button" rel="nofollow" href="#" target="_blank" data-clipboard-text="<?php echo $coupon_code; ?>" title="<?php echo $coupon_hover_text; ?>" onmouseover="this.style.borderColor='<?php echo $wpcd_template_eight_theme; ?>'; this.style.color='<?php echo $wpcd_template_eight_theme; ?>';" onmouseout="this.style.borderColor='#cdcdcd'; this.style.color='#000';">
+						<?php echo $coupon_code; ?>
+					</a>
+				</div>
+			</div>
+		
+		<a class="admin-wpcd-new-goto-button" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank" style="background-color: <?php echo $wpcd_template_eight_theme; ?>">
+		   <?php echo $deal_text; ?>
 		</a>
 	</div><!-- End of grid-three -->
 	<script type="text/javascript">

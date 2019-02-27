@@ -46,9 +46,9 @@ if ( $wpcd_text_to_show == 'description' ) {
 		$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wpcd-coupon' );
 	}
 }
-if( ! $link ) $link = "#";
-if( ! $second_link ) $second_link = "#";
-if( ! $third_link ) $third_link = "#";
+if( ! $link && WPCD_Amp::wpcd_amp_is() ) $link = "#";
+if( ! $second_link && WPCD_Amp::wpcd_amp_is() ) $second_link = "#";
+if( ! $third_link && WPCD_Amp::wpcd_amp_is() ) $third_link = "#";
 
 $template = new WPCD_Template_Loader();
 /*
@@ -87,7 +87,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 				if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) {
 					?>
                     <div class="wpcd-four-discount-text"><?php echo $discount_text; ?></div> <?php
-					if ( $hide_coupon == 'Yes' ) {
+					if ( $hide_coupon == 'Yes' && ! WPCD_Amp::wpcd_amp_is() ) {
 						$template->get_template_part( 'hide-coupon__premium_only' );
 					} else { ?>
                         <div class="wpcd-coupon-code">
@@ -243,7 +243,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 				?>
                 <div class="wpcd-four-discount-text"><?php echo $second_discount_text; ?></div> <?php
 				$num_coupon = 2;
-					if ( $hide_coupon == 'Yes' ) {
+					if ( $hide_coupon == 'Yes' && ! WPCD_Amp::wpcd_amp_is() ) {
 						$template = new WPCD_Template_Loader();
 						$template->get_template_part( 'hide-coupon__premium_only' );
 						$num_coupon = 0;
@@ -401,7 +401,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 				?>
                 	<div class="wpcd-four-discount-text"><?php echo $third_discount_text; ?></div> <?php
 					$num_coupon = 3;
-					if ( $hide_coupon == 'Yes' ) {
+					if ( $hide_coupon == 'Yes' && ! WPCD_Amp::wpcd_amp_is() ) {
 						$template = new WPCD_Template_Loader();
 						$template->get_template_part( 'hide-coupon__premium_only' );
 					} else { ?>

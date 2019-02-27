@@ -47,6 +47,7 @@ if ( $wpcd_text_to_show == 'description' ) {
 		$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wpcd-coupon' );
 	}
 }
+if( ! $link && WPCD_Amp::wpcd_amp_is() ) $link = "#";
 
 $template = new WPCD_Template_Loader();
 
@@ -129,7 +130,7 @@ $template = new WPCD_Template_Loader();
             <div class="wpcd-coupon-two-coupon">
 				<?php if ( $coupon_type == 'Coupon' ) {
 					if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) {
-						if ( $hide_coupon == 'Yes' ) {
+						if ( $hide_coupon == 'Yes' && ! WPCD_Amp::wpcd_amp_is() ) {
 							$template->get_template_part( 'hide-coupon__premium_only' );
 						} else { ?>
                             <div class="wpcd-coupon-code">

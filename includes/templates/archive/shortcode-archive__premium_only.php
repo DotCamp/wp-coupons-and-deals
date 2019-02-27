@@ -72,6 +72,8 @@ if ($wpcd_text_to_show == 'description') {
         $wpcd_custom_text = __("Click on 'Copy' to Copy the Coupon Code.", 'wpcd-coupon');
     }
 }
+if( ! $link && WPCD_Amp::wpcd_amp_is() ) $link = "#";
+
 $wpcd_coupon_template = get_post_meta($coupon_id, 'coupon_details_coupon-template', true);
 
 /*
@@ -138,7 +140,7 @@ include('header-grid.php');
                 <?php
             }
             if ($coupon_type == 'Coupon') {
-            if ($hide_coupon == 'Yes') { ?>
+            if ( $hide_coupon == 'Yes' && ! WPCD_Amp::wpcd_amp_is() ) { ?>
 
                 <div class="wpcd-coupon-code wpcd_btn_wr">
                     <?php $template->get_template_part('hide-coupon__premium_only'); ?>
