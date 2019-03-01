@@ -51,6 +51,7 @@ $expire_text         = ( !empty( $expire_text ) ) ? $expire_text : __( 'Expires 
 $expired_text        = ( !empty( $expired_text ) ) ? $expired_text : __( 'Expired On: ', 'wpcd-coupon' );
 $no_expiry           = ( !empty( $no_expiry ) ) ? $no_expiry : __( "Doesn't expire", 'wpcd-coupon' );
 $coupon_hover_text   = ( ! empty( $coupon_hover_text ) ) ? $coupon_hover_text : __( 'Click To Copy Coupon', 'wpcd-coupon' );
+$deal_hover_text = ( !empty( $deal_hover_text ) ) ? $deal_hover_text : __( 'Click Here To Get This Deal' );
 $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text : __( 'GET THE DEAL', 'wpcd-coupon' );
 
 $wpcd_template_eight_theme  = get_post_meta( $coupon_id, 'coupon_details_template-eight-theme', true );
@@ -69,7 +70,7 @@ $template = new WPCD_Template_Loader();
 
 ?>
 
-<div class="wpcd-new-grid-container" style="border-color: <?php echo $wpcd_template_eight_theme; ?>">
+<div class="wpcd-new-grid-container">
 	<div class="wpcd-new-grid-one">
 		<div class="wpcd-new-discount-text">
 		   <?php echo $discount_text; ?>
@@ -80,7 +81,7 @@ $template = new WPCD_Template_Loader();
 				<?php echo $dt_coupon_type_name; ?>
 			</div>
 		<?php } elseif ( $coupon_type == 'Deal' ) { ?>
-			<div class="wpcd-new-deal-type">
+			<div class="wpcd-new-deal-type" style="background-color: <?php echo $wpcd_template_eight_theme; ?>">
 				<?php echo $dt_deal_type_name; ?>
 			</div>
 		<?php }
@@ -133,12 +134,12 @@ $template = new WPCD_Template_Loader();
 				$template->get_template_part( 'hide-coupon2__premium_only' );
 				?>
 			<?php else: ?>
-				<a class="wpcd-new-coupon-code <?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank" data-clipboard-text="<?php echo $coupon_code; ?>" title="<?php echo $coupon_hover_text; ?>" onmouseover="this.style.borderColor='<?php echo $wpcd_template_eight_theme; ?>'; this.style.color='<?php echo $wpcd_template_eight_theme; ?>';" onmouseout="this.style.borderColor='#cdcdcd'; this.style.color='#000';">
+				<a class="wpcd-new-coupon-code <?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank" data-clipboard-text="<?php echo $coupon_code; ?>" title="<?php echo $coupon_hover_text; ?>" style="border-color: <?php echo $wpcd_template_eight_theme; ?>;">
 				   <?php echo $coupon_code; ?>
 				</a>
 			<?php endif; ?>
 		<?php endif; ?>
-		<a class="wpcd-new-goto-button" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank" style="background-color: <?php echo $wpcd_template_eight_theme; ?>">
+		<a class="wpcd-new-goto-button masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank" title="<?php echo $deal_hover_text; ?>" style="background-color: <?php echo $wpcd_template_eight_theme; ?>">
 		   <?php echo $deal_text; ?>
 		</a>
 	</div><!-- End of grid-three -->

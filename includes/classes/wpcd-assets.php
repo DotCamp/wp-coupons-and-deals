@@ -174,7 +174,6 @@ class WPCD_Assets {
 	                    
 						a.wpcd-new-coupon-code:hover {
 							border-color: {$wpcd_template_eight_theme};
-							color: {$wpcd_template_eight_theme};
 						}
 
 					";

@@ -67,6 +67,7 @@ if ( $wpcd_text_to_show == 'description' ) {
 		$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wpcd-coupon' );
 	}
 }
+if( ! $link && WPCD_Amp::wpcd_amp_is() ) $link = "#";
 include('header-category.php');
 ?>
 <?php if ( $coupon_type === 'Image' ): ?>
@@ -154,7 +155,7 @@ include('header-category.php');
 					?>
                 </div>
 				<?php if ( $coupon_type == 'Coupon' ): ?>
-					<?php if ( $hide_coupon === 'Yes' ): ?>
+					<?php if ( $hide_coupon === 'Yes'  && ! WPCD_Amp::wpcd_amp_is() ): ?>
 						<?php
 						$template->get_template_part( 'hide-coupon2__premium_only' );
 						?>
@@ -215,7 +216,7 @@ include('header-category.php');
             <div class="wpcd-coupon-six-holder">
                 <div class="wpcd-coupon-six-percent-off">
                     <div class="wpcd-for-ribbon">
-                        <div class="wpcd-ribbon" style="background-color: <?php echo $wpcd_template_six_theme; ?>">
+                        <div class="wpcd-ribbon" style="background-color: <?php echo $wpcd_template_six_theme; ?>; border-color: <?php echo $wpcd_template_six_theme; ?>">
                             <div class="wpcd-ribbon-before"
                                  style="border-left-color: <?php echo $wpcd_template_six_theme; ?>"></div>
                             <p class="wpcd-coupon-six-discount-text">
@@ -343,7 +344,7 @@ include('header-category.php');
                     </div>
                     <div>
 						<?php if ( $coupon_type === 'Coupon' ): ?>
-							<?php if ( $hide_coupon === 'Yes' ): ?>
+							<?php if ( $hide_coupon === 'Yes'  && ! WPCD_Amp::wpcd_amp_is()): ?>
 								<?php
 								$template = new WPCD_Template_Loader();
 								$template->get_template_part( 'hide-coupon2__premium_only' );
@@ -357,9 +358,8 @@ include('header-category.php');
 										   echo $coupon_code;
 									   } else {
 										   echo __( 'COUPONCODE', 'wpcd-coupon' );
-									   } ?>" style="border-color: <?php echo $wpcd_template_six_theme; ?>">
-                                        <span class="coupon-code-button"
-                                              style="border-color: <?php echo $wpcd_template_six_theme; ?>; color: <?php echo $wpcd_template_six_theme; ?>"><?php echo( ! empty( $coupon_code ) ? $coupon_code : __( 'COUPONCODE', 'wpcd-coupon' ) ); ?></span>
+									   } ?>" style="border-color: <?php echo $wpcd_template_six_theme; ?>; color: <?php echo $wpcd_template_six_theme; ?>">
+                                        <span class="coupon-code-button"><?php echo( ! empty( $coupon_code ) ? $coupon_code : __( 'COUPONCODE', 'wpcd-coupon' ) ); ?></span>
                                     </a>
                                 </div>
 							<?php endif; ?>
@@ -372,9 +372,8 @@ include('header-category.php');
 									   echo $deal_text;
 								   } else {
 									   echo __( 'Claim This Deal', 'wpcd-coupon' );
-								   } ?>" style="border-color: <?php echo $wpcd_template_six_theme; ?>">
-				    			<span class="deal-code-button"
-                                      style="border-color: <?php echo $wpcd_template_six_theme; ?>;color: <?php echo $wpcd_template_six_theme; ?>">
+								   } ?>" style="border-color: <?php echo $wpcd_template_six_theme; ?>; color: <?php echo $wpcd_template_six_theme; ?>">
+				    			<span class="deal-code-button">
 				    				<?php if ( ! empty( $deal_text ) ) {
 									    echo $deal_text;
 								    } else {
@@ -423,7 +422,7 @@ include('header-category.php');
 						<?php if ( $coupon_type == 'Coupon' ) {
 						if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) {
 
-						if ( $hide_coupon == 'Yes' ) {
+						if ( $hide_coupon == 'Yes'  && ! WPCD_Amp::wpcd_amp_is() ) {
 
 							$template = new WPCD_Template_Loader();
 

@@ -36,13 +36,13 @@
     height: 120px;
     min-height: 120px;
     height: auto;
-    background: #18E06E;
     margin: 0 auto;
     position: relative;
 }
 .wpcd-coupon-six .wpcd-ribbon .wpcd-ribbon-before {
     left: 0;
-    border-left: 50px solid #18E06E;
+    border-left: 50px solid;
+    border-left-color: inherit;
     border-top: 40px solid transparent;
     border-bottom: 40px solid transparent;
     position: absolute;
@@ -54,14 +54,15 @@
     text-align: center;
     text-transform: uppercase;
     padding-top: 8px;
-    margin: 0px !important;
+    margin: 0px;
     position: absolute;
     position: relative;
     z-index: 2;
 }
 .wpcd-coupon-six .wpcd-ribbon .wpcd-ribbon-after {
     right: 0;
-    border-right: 50px solid #18E06E;
+    border-right: 50px solid;
+    border-right-color: inherit;
     border-top: 40px solid transparent;
     border-bottom: 40px solid transparent;
     position: absolute;
@@ -99,10 +100,17 @@
     font-size: 22px;
 }
 .wpcd-coupon-six-texts .exp {
-    border-top: 1px dashed #18E06E;
-    border-bottom: 1px dashed #18E06E;
     margin-top: 20px;
-    padding: 5px 0px;
+    padding: 0px;
+}
+.wpcd-coupon-six-texts .exp::before, .wpcd-coupon-six-texts .exp::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    height: 0px;
+    border-top: 1px dashed;
+    border-top-color: inherit;
 }
 .wpcd-coupon-six-texts .exp p {
     margin: 0px;
@@ -143,8 +151,9 @@
     padding: 5px 0px;
     margin-top: 15px;
     background: none;
-    border: 2px solid #18E06E;
-    color: #18E06E;
+    border: 2px solid;
+    border-color: inherit;
+    color: inherit;
     display: inline-block;
 }
 .wpcd-coupon-six-img-and-btn .wpcd-btn-wrap .coupon-code-button:hover, .wpcd-coupon-six-img-and-btn .wpcd-btn-wrap .deal-code-button:hover {

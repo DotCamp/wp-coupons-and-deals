@@ -186,6 +186,14 @@ class WPCD_Meta_Boxes_Pro {
 				'default'  => '#18e06e'
 			),
 			array(
+				'id'       => 'template-seven-theme',
+				'label'    => __( 'Coupon Theme', 'wpcd-coupon' ),
+				'type'     => 'colorpicker',
+				'tr_class' => 'coupon-code-field coupon-deal-field template-seven-theme-field',
+				'help'     => '',
+				'default'  => '#9b59b6'
+			),
+			array(
 				'id'       => 'template-eight-theme',
 				'label'    => __( 'Coupon Theme', 'wpcd-coupon' ),
 				'type'     => 'colorpicker',

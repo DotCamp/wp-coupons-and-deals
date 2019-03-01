@@ -42,6 +42,7 @@ $coupon_image_id          = get_post_meta( $post_id, 'coupon_details_coupon-imag
 $coupon_image_src         = wp_get_attachment_image_src( $coupon_image_id, 'full' );
 $wpcd_template_five_theme = get_post_meta( $post_id, 'coupon_details_template-five-theme', true );
 $wpcd_template_six_theme  = get_post_meta( $post_id, 'coupon_details_template-six-theme', true );
+$wpcd_template_seven_theme  = get_post_meta( $post_id, 'coupon_details_template-seven-theme', true );
 $wpcd_template_eight_theme  = get_post_meta( $post_id, 'coupon_details_template-eight-theme', true );
 $wpcd_dummy_coupon_img   = WPCD_Plugin::instance()->plugin_assets . 'admin/img/coupon-200x200.png';
 $wpcd_text_to_show        = get_option( 'wpcd_text-to-show' );
@@ -972,9 +973,9 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 <!-- Template Seven Preview -->
 <section class="admin_wpcd_seven admin_wpcd_seven_shortcode">
 	<div class="wpcd-coupon-preview wpcd-coupon-seven admin_wpcd_seven_container">
-		<div class="admin_wpcd_seven_couponBox">
+		<div class="admin_wpcd_seven_couponBox" style="border-color: <?php echo $wpcd_template_seven_theme; ?>">
 			<div class="admin_wpcd_seven_percentAndPic">
-				<div class="admin_wpcd_seven_percentOff">
+				<div class="admin_wpcd_seven_percentOff" style="background-color: <?php echo $wpcd_template_seven_theme; ?>; border-color: <?php echo $wpcd_template_seven_theme; ?>;">
 					<p>
 						<?php echo $discount_text; ?>
 					</p>
@@ -1012,12 +1013,55 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 				</div>		
 			</div>
 			<div class="admin_wpcd_seven_buttonSociaLikeDislike">
-				<div class="admin_wpcd_seven_btn">
-					<a href="#" title="<?php echo $coupon_code; ?>" class="wpcd-coupon-code" id="wpcd-coupon-code-seven">
-						<?php echo $coupon_code; ?>
+				<div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden">
+					<a 
+						data-type="code"
+						data-coupon-id="<?php echo $post_id; ?>"
+						href=""
+						class="coupon-button coupon-code-wpcd masterTooltip"
+						id="coupon-button-<?php echo $post_id; ?>"
+						title="<?php echo $hidden_coupon_hover_text; ?>"
+						data-position="top center"
+						data-inverted=""
+						data-aff-url="<?php echo $link; ?>">
+						<span class="code-text-wpcd" rel="nofollow">
+							<?php echo $coupon_code; ?>
+						</span>
+						<span class="get-code-wpcd">
+							<div class="square_wpcd" style="background-color: <?php echo $wpcd_template_seven_theme; ?>"></div>
+							<span>
+								<?php echo $hide_coupon_text; ?>
+							</span>
+							<div class="rectangle_wpcd" style="border-left-color: <?php echo $wpcd_template_seven_theme; ?>"></div>
+						</span>
 					</a>
 				</div>
+				<div class="wpcd-coupon-not-hidden">
+					<div class="wpcd-coupon-code">
+		                <div class="admin_wpcd_seven_btn">
+		                    <a class="masterTooltip"
+		                    	href="#"
+			                    title="<?php echo $coupon_hover_text; ?>"
+								data-clipboard-text="<?php echo $coupon_code; ?>"
+			                    data-title-ab="<?php echo $coupon_code; ?>" 
+			                    style="background-color: <?php echo $wpcd_template_seven_theme; ?>; border-color: <?php echo $wpcd_template_seven_theme; ?>; color: <?php echo $wpcd_template_seven_theme; ?>;"><?php echo $coupon_code; ?>
+		                    </a>
+		                </div>
+					</div>
+					<div class="wpcd-deal-code">
+		                <div class="admin_wpcd_seven_btn">
+		                    <a class="masterTooltip"
+		                    	href="#"
+			                    title="<?php echo $deal_hover_text; ?>"
+								data-clipboard-text="<?php echo $deal_text; ?>"
+			                    data-title-ab="<?php echo $deal_text; ?>" style="background-color: <?php echo $wpcd_template_seven_theme; ?>; border-color: <?php echo $wpcd_template_seven_theme; ?>; color: <?php echo $wpcd_template_seven_theme; ?>;"><?php echo $deal_text; ?>
+			                </a>
+		                </div>
+					</div>
+				</div>
 			</div>
+
+		
 				<div class="admin_wpcd_seven_expire_correct_box">
 					<div class="admin_wpcd_seven_expire" style="border-color:">
 						<p>
@@ -1076,7 +1120,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 </section><!-- End of Template Seven Preview -->
 
 <!-- Template Eight Preview -->
-<div class="wpcd-coupon-preview wpcd-coupon-eight admin-wpcd-new-grid-container" style="border-color:<?php echo $wpcd_template_eight_theme; ?>">
+<div class="wpcd-coupon-preview wpcd-coupon-eight admin-wpcd-new-grid-container">
 	<div class="admin-wpcd-new-grid-one">
 		<div class="admin-wpcd-new-discount-text wpcd-coupon-discount-text">
 			<?php echo $discount_text; ?>
@@ -1133,37 +1177,38 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 		</div>
 	</div> <!-- End of grid-two -->
 	<div class="admin-wpcd-new-grid-three">
-			<div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden">
-				<a 
-					data-type="code"
-					data-coupon-id="<?php echo $post_id; ?>"
-					href=""
-					class="coupon-button coupon-code-wpcd masterTooltip"
-					id="coupon-button-<?php echo $post_id; ?>"
-					title="<?php echo $hidden_coupon_hover_text; ?>"
-					data-position="top center"
-					data-inverted=""
-					data-aff-url="<?php echo $link; ?>">
-					<span class="code-text-wpcd" rel="nofollow">
-						<?php echo $coupon_code; ?>
+		<div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden">
+			<a 
+				data-type="code"
+				data-coupon-id="<?php echo $post_id; ?>"
+				href=""
+				class="coupon-button coupon-code-wpcd masterTooltip"
+				id="coupon-button-<?php echo $post_id; ?>"
+				title="<?php echo $hidden_coupon_hover_text; ?>"
+				data-position="top center"
+				data-inverted=""
+				data-aff-url="<?php echo $link; ?>">
+				<span class="code-text-wpcd" rel="nofollow">
+					<?php echo $coupon_code; ?>
+				</span>
+				<span class="get-code-wpcd">
+					<div class="square_wpcd" style="background-color: <?php echo $wpcd_template_eight_theme; ?>"></div>
+					<span>
+						<?php echo $hide_coupon_text; ?>
 					</span>
-					<span class="get-code-wpcd" style="background-color: <?php echo $wpcd_template_eight_theme; ?>">
-						<span>
-							<?php echo $hide_coupon_text; ?>
-						</span>
-						<div style="border-left-color: <?php echo $wpcd_template_eight_theme; ?>"></div>
-					</span>
+					<div class="rectangle_wpcd" style="border-left-color: <?php echo $wpcd_template_eight_theme; ?>"></div>
+				</span>
+			</a>
+		</div>
+		<div class="wpcd-coupon-not-hidden">
+			<div class="wpcd-coupon-code">
+				<a class="admin-wpcd-new-coupon-code masterTooltip coupon-code-button" rel="nofollow" href="#" target="_blank" data-clipboard-text="<?php echo $coupon_code; ?>" title="<?php echo $coupon_hover_text; ?>" onmouseover="this.style.borderColor='<?php echo $wpcd_template_eight_theme; ?>';" onmouseout="this.style.borderColor='#cdcdcd';">
+					<?php echo $coupon_code; ?>
 				</a>
 			</div>
-			<div class="wpcd-coupon-not-hidden">
-				<div class="wpcd-coupon-code">
-					<a class="admin-wpcd-new-coupon-code masterTooltip coupon-code-button" rel="nofollow" href="#" target="_blank" data-clipboard-text="<?php echo $coupon_code; ?>" title="<?php echo $coupon_hover_text; ?>" onmouseover="this.style.borderColor='<?php echo $wpcd_template_eight_theme; ?>'; this.style.color='<?php echo $wpcd_template_eight_theme; ?>';" onmouseout="this.style.borderColor='#cdcdcd'; this.style.color='#000';">
-						<?php echo $coupon_code; ?>
-					</a>
-				</div>
-			</div>
+		</div>
 		
-		<a class="admin-wpcd-new-goto-button" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank" style="background-color: <?php echo $wpcd_template_eight_theme; ?>">
+		<a class="admin-wpcd-new-goto-button masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank" title="<?php echo $deal_hover_text; ?>" style="background-color: <?php echo $wpcd_template_eight_theme; ?>">
 		   <?php echo $deal_text; ?>
 		</a>
 	</div><!-- End of grid-three -->

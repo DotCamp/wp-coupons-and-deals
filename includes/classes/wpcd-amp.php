@@ -61,7 +61,7 @@ class WPCD_Amp {
 	 * @var string
 	 * @since 2.7.2
 	 */
-	private $styles = '';
+	private $styles = array();
 
 	/**
 	 * This is array have names of css files which was be used
@@ -105,20 +105,20 @@ class WPCD_Amp {
 			if( ! empty($css_file)) {
 				$this->css_file = $css_file;
 			}
-			if( in_array( $this->css_list[$this->css_file], $this->used_css_files ) ) {
+			if( array_key_exists( $this->css_list[$this->css_file], $this->styles ) ) {
 				return;
 			}
 			$wpcd_asset_embed = $this->wpcd_asset_embed( WPCD_Plugin::instance()->plugin_assets . '/css/' . $this->css_list[$this->css_file] );
-			$this->used_css_files[] = $this->css_list[$this->css_file];
+			$this->styles[$this->css_list[$this->css_file]] = $wpcd_asset_embed;
 		} else {
-			if( in_array( 'user_stylesheets', $this->used_css_files ) ) {
-				return;
+			if( array_key_exists( 'user_stylesheets', $this->styles ) ) {
+				unset($this->styles['user_stylesheets']);
+				$this->styles['user_stylesheets'] = $css_file;
 			}
-			$wpcd_asset_embed = $css_file;
-			$this->used_css_files[] = 'user_stylesheets';
+			$this->styles['user_stylesheets'] = $css_file;
 		}
 		
-		$this->styles .= $wpcd_asset_embed;
+		
 	}
 
 	/**
@@ -127,7 +127,9 @@ class WPCD_Amp {
 	 * @since 2.7.2
 	 */
 	public function wpcd_print_amp_styles() {
-		echo $this->styles;
+		foreach ($this->styles as  $style) {
+			echo $style;
+		}
 	}
 
 

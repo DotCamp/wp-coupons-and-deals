@@ -60,7 +60,7 @@ $template = new WPCD_Template_Loader();
     <div class="wpcd-coupon-six-holder">
         <div class="wpcd-coupon-six-percent-off">
             <div class="wpcd-for-ribbon">
-                <div class="wpcd-ribbon" style="background-color: <?php echo $wpcd_template_six_theme; ?>">
+                <div class="wpcd-ribbon" style="background-color: <?php echo $wpcd_template_six_theme; ?>; border-color: <?php echo $wpcd_template_six_theme; ?>">
                     <div class="wpcd-ribbon-before"
                          style="border-left-color: <?php echo $wpcd_template_six_theme; ?>"></div>
                     <p class="wpcd-coupon-six-discount-text">
@@ -203,9 +203,8 @@ $template = new WPCD_Template_Loader();
 								   echo $coupon_code;
 							   } else {
 								   echo __( 'COUPONCODE', 'wpcd-coupon' );
-							   } ?>" style="border-color: <?php echo $wpcd_template_six_theme; ?>">
-                                <span class="coupon-code-button"
-                                      style="border-color: <?php echo $wpcd_template_six_theme; ?>; color: <?php echo $wpcd_template_six_theme; ?>"><?php echo( ! empty( $coupon_code ) ? $coupon_code : __( 'COUPONCODE', 'wpcd-coupon' ) ); ?></span>
+							   } ?>" style="border-color: <?php echo $wpcd_template_six_theme; ?>; color: <?php echo $wpcd_template_six_theme; ?>">
+                                <span class="coupon-code-button"><?php echo( ! empty( $coupon_code ) ? $coupon_code : __( 'COUPONCODE', 'wpcd-coupon' ) ); ?></span>
                             </a>
                         </div>
 					<?php endif; ?>
@@ -217,9 +216,8 @@ $template = new WPCD_Template_Loader();
 							   echo $deal_text;
 						   } else {
 							   echo __( 'Claim This Deal', 'wpcd-coupon' );
-						   } ?>" style="border-color: <?php echo $wpcd_template_six_theme; ?>">
-		    			<span class="deal-code-button"
-                              style="border-color: <?php echo $wpcd_template_six_theme; ?>;color: <?php echo $wpcd_template_six_theme; ?>">
+						   } ?>" style="border-color: <?php echo $wpcd_template_six_theme; ?>; color: <?php echo $wpcd_template_six_theme; ?>">
+		    			<span class="deal-code-button">
 		    				<?php if ( ! empty( $deal_text ) ) {
 							    echo $deal_text;
 						    } else {

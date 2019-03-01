@@ -49,6 +49,7 @@ $wpcd_custom_text          = get_option( 'wpcd_custom-text' );
 $never_expire              = get_post_meta( $coupon_id, 'coupon_details_never-expire-check', true );
 $expire_date_format        = date( "m/d/Y", strtotime( $expire_date ) );
 $expire_time               = get_post_meta( $coupon_id, 'coupon_details_expire-time', true );
+$wpcd_template_seven_theme  = get_post_meta( $coupon_id, 'coupon_details_template-seven-theme', true );
 $post_id                   = get_the_ID();
 
 $dt_coupon_type_name = ( !empty( $dt_coupon_type_name ) ) ? $dt_coupon_type_name : __( 'Coupon', 'wpcd-coupon' );
@@ -57,6 +58,7 @@ $expire_text = ( !empty( $expire_text ) ) ? $expire_text : __( 'Expires On: ', '
 $expired_text = ( !empty( $expired_text ) ) ? $expired_text : __( 'Expired On: ', 'wpcd-coupon' );
 $no_expiry = ( !empty( $no_expiry ) ) ? $no_expiry : __( "Doesn't expire", 'wpcd-coupon' );
 $coupon_hover_text = ( ! empty( $coupon_hover_text ) ) ? $coupon_hover_text : __( 'Click To Copy Coupon', 'wpcd-coupon' );
+$deal_hover_text = ( !empty( $deal_hover_text ) ) ? $deal_hover_text : __( 'Click Here To Get This Deal' );
 
 if ( $wpcd_text_to_show == 'description' ) {
 	$wpcd_custom_text = $description;
@@ -73,9 +75,9 @@ $template = new WPCD_Template_Loader();
 ?>
 <section class="wpcd_seven wpcd_seven_shortcode">
 	<div class="wpcd_seven_container">
-		<div class="wpcd_seven_couponBox">
+		<div class="wpcd_seven_couponBox" style="border-color: <?php echo $wpcd_template_seven_theme; ?>">
 			<div class="wpcd_seven_percentAndPic">
-				<div class="wpcd_seven_percentOff">
+				<div class="wpcd_seven_percentOff" style="background-color: <?php echo $wpcd_template_seven_theme; ?>; border-color: <?php echo $wpcd_template_seven_theme; ?>;">
 					<p><?php echo $discount_text; ?></p>
 				</div>
 				<div class="wpcd_seven_productPic">
@@ -98,11 +100,42 @@ $template = new WPCD_Template_Loader();
 					<p><?php echo wpautop( $description, false );?></p>
 				</div>		
 			</div>
-			<div class="wpcd_seven_buttonSociaLikeDislike">
-				<div class="wpcd_seven_btn">
-					<a href="#" title="<?php echo $coupon_code; ?>"><?php echo $coupon_code; ?></a>
-				</div>
-			</div>
+                <?php if ($coupon_type == 'Coupon') : ?>
+                    <?php if (!empty($coupon_code)) : ?>
+                        <div class="wpcd_seven_buttonSociaLikeDislike">
+                        	<?php if ( $hide_coupon === 'Yes' && ! WPCD_Amp::wpcd_amp_is() ): ?>
+								<?php
+								$template->get_template_part( 'hide-coupon2__premium_only' );
+								?>
+							<?php else: ?>
+	                        	<div class="wpcd_seven_btn">
+	                                <a class="masterTooltip" 
+	                                	href="<?php echo $link; ?>"
+	                                	title="<?php echo $coupon_hover_text; ?>"
+										data-clipboard-text="<?php echo $coupon_code; ?>"
+			                    		data-title-ab="<?php echo $coupon_code; ?>" 
+	                                 	style="background-color: <?php echo $wpcd_template_seven_theme; ?>; border-color: <?php echo $wpcd_template_seven_theme; ?>; color: <?php echo $wpcd_template_seven_theme; ?>"><?php echo $coupon_code; ?>
+	                                </a>
+	                            </div>
+                            <?php endif; ?>
+                        </div>
+                    <?php endif; ?>
+                <?php endif; ?>
+                <?php if ($coupon_type == 'Deal') : ?>
+                    <?php if (!empty($deal_text)) : ?>
+                        <div class="wpcd_seven_buttonSociaLikeDislike">
+                            <div class="wpcd_seven_btn">
+                                <a class="masterTooltip" 
+                                	href="<?php echo $link; ?>"
+                                 	title="<?php echo $deal_hover_text; ?>"
+									data-clipboard-text="<?php echo $deal_text; ?>"
+			                    	data-title-ab="<?php echo $deal_text; ?>" 
+			                    	style="background-color: <?php echo $wpcd_template_seven_theme; ?>; border-color: <?php echo $wpcd_template_seven_theme; ?>; color: <?php echo $wpcd_template_seven_theme; ?>"><?php echo $deal_text; ?>
+			                    </a>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                <?php endif; ?>
 				<div class="wpcd_seven_expire_correct_box">
 					<div class="wpcd_seven_expire">
 						<p>

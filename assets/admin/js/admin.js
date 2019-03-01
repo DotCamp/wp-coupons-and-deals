@@ -37,6 +37,8 @@ jQuery(document).ready(function ($) {
     var templateFiveTheme = $('#template-five-theme');
     var templateSixThemeField = $('.template-six-theme-field');
     var templateSixTheme = $('#template-six-theme');
+    var templateSevenThemeField = $('.template-seven-theme-field');
+    var templateSevenTheme = $('#template-seven-theme');
     var templateEightThemeField = $('.template-eight-theme-field');
     var templateEightTheme = $('#template-eight-theme');
 
@@ -325,6 +327,10 @@ jQuery(document).ready(function ($) {
         updateTemplateSixTheme($(this).val());
     });
 
+    $(document).on('change', 'input[name="template-seven-theme"]', function () {
+        updateTemplateSevenTheme($(this).val());
+    });
+
     $(document).on('change', 'input[name="template-eight-theme"]', function () {
         updateTemplateEightTheme($(this).val());
     });
@@ -398,6 +404,12 @@ jQuery(document).ready(function ($) {
             templateSixThemeField.show();
         } else {
             templateSixThemeField.hide();
+        }
+
+        if (currentTemplate === templates.SEVEN) {
+            templateSevenThemeField.show();
+        } else {
+            templateSevenThemeField.hide();
         }
 
         if (currentTemplate === templates.EIGHT) {
@@ -497,6 +509,12 @@ jQuery(document).ready(function ($) {
             templateSixThemeField.hide();
         }
 
+        if (currentTemplate === templates.SEVEN) {
+            templateSevenThemeField.show();
+        } else {
+            templateSevenThemeField.hide();
+        }
+
         if (currentTemplate === templates.EIGHT) {
             templateEightThemeField.show();
             deal_text.show();
@@ -584,32 +602,54 @@ jQuery(document).ready(function ($) {
 
     }
 
+    function updateTemplateSevenTheme(color) {
+        var couponSeven = $('.admin_wpcd_seven');
+
+        couponSeven
+            .find('.admin_wpcd_seven_couponBox')
+            .css('border-color', color);
+
+        couponSeven
+            .find('.admin_wpcd_seven_percentOff')
+            .css('background-color', color)
+            .css('border-color', color);
+
+        couponSeven
+            .find('.admin_wpcd_seven_btn a')
+            .css('background-color', color)
+            .css('border-color', color)
+            .css('color', color);
+
+        couponSeven
+            .find('.get-code-wpcd .square_wpcd')
+            .css('background-color', color);
+
+        couponSeven
+            .find('.get-code-wpcd .rectangle_wpcd')
+            .css('border-left-color', color);
+    }
+
     function updateTemplateEightTheme(color) {
         var couponEight = $('.wpcd-coupon-eight');
-
-        couponEight
-            .css( 'border-color', color );
 
         couponEight
             .find( '.coupon-type' )
             .css( 'background-color', color );
 
         couponEight
-            .find( '.get-code-wpcd' )
-            .css( 'background-color', color );
+            .find('.get-code-wpcd .square_wpcd')
+            .css('background-color', color);
 
         couponEight
-            .find( '.get-code-wpcd div' )
-            .css( 'border-left-color', color );
+            .find('.get-code-wpcd .rectangle_wpcd')
+            .css('border-left-color', color);
 
         couponEight
             .find( '.admin-wpcd-new-coupon-code' )
             .hover( function(){ 
-                $( this ).css( "border-color", color )
-                         .css( "color", color );
+                $( this ).css( "border-color", color );
             }, function(){   
-                $( this ).css( "border-color", "#cdcdcd" )
-                         .css( "color", "#000" );
+                $( this ).css( "border-color", "#cdcdcd" );
             });
 
         couponEight

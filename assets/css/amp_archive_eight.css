@@ -115,14 +115,29 @@ a.wpcd-new-coupon-code {
     padding: 12px;
     text-align: center;
     font-size: 14px;
-    border: 2px dashed #cdcdcd;
     border-radius: 3px;
+    position: relative;
+    border-color: #cdcdcd;
+}
+a.wpcd-new-coupon-code::before {
+    display: ;
+    content: "";
+    display: block;
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px dashed;
+    border-color: #cdcdcd;
+}
+a.wpcd-new-coupon-code:hover:before {
+    border-color: inherit;
 }
 
 .wpcd-new-coupon-code:hover {
     background: #fff;
-    border-color: #329d40;
-    color: #005177;
+    color: #000;
 }
 
 a.wpcd-new-goto-button {
@@ -143,7 +158,8 @@ a.wpcd-new-goto-button {
     border-radius: 3px;
 }
 a.wpcd-new-goto-button:hover {
-    text-decoration: underline;
+    opacity: 0.9;
+    color: #fff;
 }
 
 @media screen and (max-width: 980px) {}

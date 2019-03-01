@@ -115,10 +115,12 @@
     top: 0;
     right: 0;
     bottom: 0;
-    border: 1px dashed #18E06E;
+    border: 1px dashed;
+    border-color: inherit;
 }
 .wpcd-template-five-btn:hover::before {
-    border: 2px dashed #18E06E;
+    border: 2px dashed;
+    border-color: inherit;
 }
 .wpcd-template-five-btn p {
     text-align: center;

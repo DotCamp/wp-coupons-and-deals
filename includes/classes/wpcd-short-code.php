@@ -510,7 +510,6 @@ class WPCD_Short_Code {
 
 				$template  = new WPCD_Template_Loader();
 				ob_start();
-				$test_template_eithgt = 'Hello';
 				$template->get_template_part( $coupon_template );
 				$output .= ob_get_clean();
 				$i ++;

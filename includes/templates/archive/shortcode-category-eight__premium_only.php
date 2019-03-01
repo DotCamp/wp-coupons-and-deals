@@ -62,6 +62,7 @@ $expire_text               = ( !empty( $expire_text ) ) ? $expire_text : __( 'Ex
 $expired_text              = ( !empty( $expired_text ) ) ? $expired_text : __( 'Expired On: ', 'wpcd-coupon' );
 $no_expiry                 = ( !empty( $no_expiry ) ) ? $no_expiry : __( "Doesn't expire", 'wpcd-coupon' );
 $coupon_hover_text         = ( ! empty( $coupon_hover_text ) ) ? $coupon_hover_text : __( 'Click To Copy Coupon', 'wpcd-coupon' );
+$deal_hover_text = ( !empty( $deal_hover_text ) ) ? $deal_hover_text : __( 'Click Here To Get This Deal' );
 $wpcd_eight_btn_text       = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text : __( 'GET THE DEAL', 'wpcd-coupon' );
 
 if ( $wpcd_text_to_show == 'description' ) {
@@ -168,11 +169,11 @@ include( 'header-category.php' );
         <?php endif; ?>
     </div>
     </div> <!-- End of grid-two -->
-    <div class="wpcd-new-grid-three">
+    <div class="wpcd-new-grid-three wpcd_template_eight_archive_button">
         <?php if ( $coupon_type === 'Coupon' ): ?>
             <?php if ( $hide_coupon === 'Yes' && ! WPCD_Amp::wpcd_amp_is() ): ?>
                 <?php
-                $template->get_template_part( 'hide-coupon2__premium_only' );
+                $template->get_template_part( 'hide-coupon3__premium_only' );
                 ?>
             <?php else: ?>
                 <a class="wpcd-new-coupon-code <?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank" data-clipboard-text="<?php echo $coupon_code; ?>" title="<?php echo $coupon_hover_text; ?>">
@@ -180,7 +181,7 @@ include( 'header-category.php' );
                 </a>
             <?php endif; ?>
         <?php endif; ?>
-        <a class="wpcd-new-goto-button" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank" >
+        <a class="wpcd-new-goto-button masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank" title="<?php echo $deal_hover_text; ?>" >
            <?php echo $deal_text; ?>
         </a>
     </div><!-- End of grid-three -->
