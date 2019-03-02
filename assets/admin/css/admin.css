@@ -1993,7 +1993,8 @@ h3.wpcd_coupon_li_title {
     left: 0;
     right: 25px;
     overflow: hidden;
-    }
+    text-align: center;
+}
 .admin_wpcd_seven .wpcd-coupon-button-type .coupon-code-wpcd .get-code-wpcd .rectangle_wpcd {
     display: block;
     width: 0px;

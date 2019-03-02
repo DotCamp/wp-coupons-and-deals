@@ -672,6 +672,14 @@ jQuery(document).ready(function ($) {
             $('.wpcd-coupon-six-img-and-btn')
                 .find('img')
                 .attr('src', dummySrc);
+
+            dummySrc = $('.admin_wpcd_seven_productPic')
+                .find('img')
+                .data('src');
+            $('.admin_wpcd_seven_productPic')
+                .find('img')
+                .attr('src', dummySrc);
+
         });
     }
 

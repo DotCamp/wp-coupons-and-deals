@@ -15,39 +15,43 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+if ( !function_exists( 'wpcd_coupon_thumbnail_img' ) ) {
+    include WPCD_Plugin::instance()->plugin_includes . 'functions/wpcd-coupon-thumbnail-img.php';
+}
+
 global $coupon_id, $max_num_page;
-$title = get_the_title();
-$link = get_post_meta($coupon_id, 'coupon_details_link', true);
-$coupon_code = get_post_meta($coupon_id, 'coupon_details_coupon-code-text', true);
-$featured_img_url = get_the_post_thumbnail_url(get_the_ID(), 'large');
-$discount_text = get_post_meta($coupon_id, 'coupon_details_discount-text', true);
-$coupon_type = get_post_meta($coupon_id, 'coupon_details_coupon-type', true);
-$description = get_post_meta($coupon_id, 'coupon_details_description', true);
-$deal_text = get_post_meta($coupon_id, 'coupon_details_deal-button-text', true);
-$coupon_hover_text = get_option('wpcd_coupon-hover-text');
-$deal_hover_text = get_option('wpcd_deal-hover-text');
-$button_class = 'wpcd-btn-' . $coupon_id;
-$no_expiry = get_option('wpcd_no-expiry-message');
-$never_expire = get_post_meta($coupon_id, 'coupon_details_never-expire-check', true);
-$expire_text = get_option('wpcd_expire-text');
-$expired_text = get_option('wpcd_expired-text');
-$hide_coupon_text = get_option('wpcd_hidden-coupon-text');
-$hidden_coupon_hover_text = get_option('wpcd_hidden-coupon-hover-text');
-$copy_button_text = get_option('wpcd_copy-button-text');
-$coupon_title_tag = get_option('wpcd_coupon-title-tag', 'h1');
+$title                     = get_the_title();
+$link                      = get_post_meta($coupon_id, 'coupon_details_link', true);
+$coupon_code               = get_post_meta($coupon_id, 'coupon_details_coupon-code-text', true);
+$coupon_thumbnail          = wpcd_coupon_thumbnail_img( $coupon_id );
+$discount_text             = get_post_meta($coupon_id, 'coupon_details_discount-text', true);
+$coupon_type               = get_post_meta($coupon_id, 'coupon_details_coupon-type', true);
+$description               = get_post_meta($coupon_id, 'coupon_details_description', true);
+$deal_text                 = get_post_meta($coupon_id, 'coupon_details_deal-button-text', true);
+$coupon_hover_text         = get_option('wpcd_coupon-hover-text');
+$deal_hover_text           = get_option('wpcd_deal-hover-text');
+$button_class              = 'wpcd-btn-' . $coupon_id;
+$no_expiry                 = get_option('wpcd_no-expiry-message');
+$never_expire              = get_post_meta($coupon_id, 'coupon_details_never-expire-check', true);
+$expire_text               = get_option('wpcd_expire-text');
+$expired_text              = get_option('wpcd_expired-text');
+$hide_coupon_text          = get_option('wpcd_hidden-coupon-text');
+$hidden_coupon_hover_text  = get_option('wpcd_hidden-coupon-hover-text');
+$copy_button_text          = get_option('wpcd_copy-button-text');
+$coupon_title_tag          = get_option('wpcd_coupon-title-tag', 'h1');
 $disable_coupon_title_link = get_option('wpcd_disable-coupon-title-link');
-$hide_featured_image = get_option('wpcd_hide-archive-thumbnail');
-$coupon_share = get_option('wpcd_coupon-social-share');
-$show_expiration = get_post_meta($coupon_id, 'coupon_details_show-expiration', true);
-$today = date('d-m-Y');
-$expire_date = get_post_meta($coupon_id, 'coupon_details_expire-date', true);
-$hide_coupon = get_post_meta($coupon_id, 'coupon_details_hide-coupon', true);
-$wpcd_coupon_image_id = get_post_meta($coupon_id, 'coupon_details_coupon-image-input', true);
-$wpcd_coupon_image_src = wp_get_attachment_image_src($wpcd_coupon_image_id, 'full');
-$wpcd_show_print = get_post_meta($coupon_id, 'coupon_details_coupon-image-print', true);
-$disable_menu = get_option('wpcd_disable-menu-archive-code');
-$coupon_categories = get_the_terms($coupon_id, 'wpcd_coupon_category');
-$coupon_categories_class = '';
+$hide_featured_image       = get_option('wpcd_hide-archive-thumbnail');
+$coupon_share              = get_option('wpcd_coupon-social-share');
+$show_expiration           = get_post_meta($coupon_id, 'coupon_details_show-expiration', true);
+$today                     = date('d-m-Y');
+$expire_date               = get_post_meta($coupon_id, 'coupon_details_expire-date', true);
+$hide_coupon               = get_post_meta($coupon_id, 'coupon_details_hide-coupon', true);
+$wpcd_coupon_image_id      = get_post_meta($coupon_id, 'coupon_details_coupon-image-input', true);
+$wpcd_coupon_image_src     = wp_get_attachment_image_src($wpcd_coupon_image_id, 'full');
+$wpcd_show_print           = get_post_meta($coupon_id, 'coupon_details_coupon-image-print', true);
+$disable_menu              = get_option('wpcd_disable-menu-archive-code');
+$coupon_categories         = get_the_terms($coupon_id, 'wpcd_coupon_category');
+$coupon_categories_class   = '';
 
 if ($coupon_categories && count($coupon_categories) > 0) {
     foreach ($coupon_categories as $category) {
@@ -76,29 +80,7 @@ if( ! $link && WPCD_Amp::wpcd_amp_is() ) $link = "#";
 
 $wpcd_coupon_template = get_post_meta($coupon_id, 'coupon_details_coupon-template', true);
 
-/*
- * use category image as featured image
- */
-if (!has_post_thumbnail()) {
-    $terms = get_the_terms($coupon_id, 'wpcd_coupon_category');
-    $max_count = -1;
-    if ($terms && !is_wp_error($terms)) {
-        foreach ($terms as $term) {
-            if ($max_count < $term->count) {
-                $max_count = $term->count;
-                $term_meta = get_option('taxonomy_term_' . $term->term_id);
-                if (empty($term_meta) || empty($term_meta['image_id'])) {
-                    continue;
-                } else {
-                    $attachment = wp_get_attachment_image_src($term_meta['image_id'], 'full');
-                    if (is_array($attachment)) {
-                        $featured_img_url = $attachment[0];
-                    }
-                }
-            }
-        }
-    }
-}
+
 
 /*
  * to build the parent elment
@@ -111,11 +93,11 @@ include('header-grid.php');
         wpcd-data-search="<?php echo $title;?>">
         <?php
         if ($hide_featured_image != 'on') {
-        if (!empty($featured_img_url)) { ?>
+        if (!empty($coupon_thumbnail)) { ?>
             <div class="wpcd_coupon_li_top_wr"
-             style="background-image:url('<?php echo esc_url($featured_img_url); ?>')">
+             style="background-image:url('<?php echo esc_url($coupon_thumbnail); ?>')">
             <?php if( WPCD_Amp::wpcd_amp_is() ) { ?>
-                <img class="wpcd_archive_coupon_feature_image" src="<?php echo esc_url($featured_img_url); ?>" style="width: 100%;height: 100%;" >
+                <img class="wpcd_archive_coupon_feature_image" src="<?php echo esc_url($coupon_thumbnail); ?>" style="width: 100%;height: 100%;" >
             <?php } ?>
              </div>
         <?php } else { ?>

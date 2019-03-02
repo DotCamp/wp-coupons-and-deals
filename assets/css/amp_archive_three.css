@@ -86,6 +86,10 @@
     line-height: 27px;
 }
 
+p.wpcd-coupon-three-expired {
+    color: red;
+}
+
 .wpcd-coupon-three-coupon {
     width: 40%;
     float: right;

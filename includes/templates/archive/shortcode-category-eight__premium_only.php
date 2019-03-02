@@ -52,8 +52,6 @@ $wpcd_coupon_image_src     = wp_get_attachment_image_src( $wpcd_coupon_image_id,
 $today                     = date( 'd-m-Y' );
 $expire_date_format        = date( "m/d/Y", strtotime( $expire_date ) );
 $template                  = new WPCD_Template_Loader();
-$wpcd_dummy_coupon_img     = WPCD_Plugin::instance()->plugin_assets . 'img/coupon-200x200.png';
-$wpcd_coupon_thumbnail     = $featured_img_url;
 $button_class              = 'wpcd-btn-' . $coupon_id;
 
 $dt_coupon_type_name       = ( !empty( $dt_coupon_type_name ) ) ? $dt_coupon_type_name : __( 'Coupon', 'wpcd-coupon' );

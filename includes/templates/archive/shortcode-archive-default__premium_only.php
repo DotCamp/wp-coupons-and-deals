@@ -14,11 +14,16 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+if (!function_exists('wpcd_coupon_thumbnail_img')) {
+    include WPCD_Plugin::instance()->plugin_includes . 'functions/wpcd-coupon-thumbnail-img.php';
+}
+
 global $coupon_id, $max_num_page;
 $title                    = get_the_title();
 $link                     = get_post_meta( $coupon_id, 'coupon_details_link', true );
 $coupon_code              = get_post_meta( $coupon_id, 'coupon_details_coupon-code-text', true );
-$featured_img_url         = get_the_post_thumbnail_url( get_the_ID(), 'large' );
+$coupon_thumbnail         = wpcd_coupon_thumbnail_img($coupon_id);
 $discount_text            = get_post_meta( $coupon_id, 'coupon_details_discount-text', true );
 $coupon_type              = get_post_meta( $coupon_id, 'coupon_details_coupon-type', true );
 $description              = get_post_meta( $coupon_id, 'coupon_details_description', true );
@@ -66,7 +71,6 @@ if ( is_array( $wpcd_coupon_image_src ) ) {
 
 $wpcd_coupon_template     = get_post_meta( $coupon_id, 'coupon_details_coupon-template', true );
 $wpcd_template_five_theme = get_post_meta( $coupon_id, 'coupon_details_template-five-theme', true );
-$wpcd_coupon_thumbnail    = $featured_img_url;
 $wpcd_template_six_theme  = get_post_meta( $coupon_id, 'coupon_details_template-six-theme', true );
 $wpcd_dummy_coupon_img    = WPCD_Plugin::instance()->plugin_assets . 'img/coupon-200x200.png';
 $wpcd_text_to_show        = get_option( 'wpcd_text-to-show' );
@@ -106,7 +110,7 @@ include('header-default.php');
                 </p>
             </div>
             <div class="wpcd-template-five-pro-img">
-                <img src="<?php echo empty( $wpcd_coupon_thumbnail ) ? $wpcd_dummy_coupon_img : $wpcd_coupon_thumbnail; ?>"
+                <img src="<?php echo $coupon_thumbnail; ?>"
                      alt="image">
             </div>
 
@@ -359,7 +363,7 @@ include('header-default.php');
             </div>
             <div class="wpcd-coupon-six-img-and-btn">
                 <div class="item-img">
-                    <img src="<?php echo empty( $wpcd_coupon_thumbnail ) ? $wpcd_dummy_coupon_img : $wpcd_coupon_thumbnail; ?>"
+                    <img src="<?php echo $coupon_thumbnail; ?>"
                          alt="Coupon">
                 </div>
                 <div>
