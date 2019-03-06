@@ -418,10 +418,16 @@ jQuery(document).ready(function ($) {
 
     function updateCouponSixClass() {
         $.each($('.wpcd-coupon-six'), function () {
-            if ($(this).width() > 600)
+            if ($(this).width() > 600) {
                 $(this).removeClass('wpcd-coupon-six-mobile');
-            else
+            } else {
                 $(this).addClass('wpcd-coupon-six-mobile');
+            }
+            if ($(this).width() > 380) {
+                $(this).removeClass('wpcd-coupon-six-mobile-mini');
+            } else {
+                $(this).addClass('wpcd-coupon-six-mobile-mini');
+            }
         });
     }
 
@@ -434,16 +440,55 @@ jQuery(document).ready(function ($) {
 
     function updateCouponFiveClass() {
         $.each($('.wpcd-template-five'), function () {
-            if ($(this).width() > 600)
+            if ($(this).width() > 600) {
                 $(this).removeClass('wpcd-template-five-mobile');
-            else
+            } else {
                 $(this).addClass('wpcd-template-five-mobile');
+            }
+            if ($(this).width() > 380) {
+                $(this).removeClass('wpcd-coupon-five-mobile-mini');
+            } else {
+                $(this).addClass('wpcd-coupon-five-mobile-mini');
+            }
         });
     }
 
     updateCouponFiveClass();
 });
 
+jQuery(document).ready(function ($) {
+
+    $(window).resize(updateCouponSevenClass);
+
+    function updateCouponSevenClass() {
+        $.each($('.wpcd_seven_shortcode'), function () {
+            if ($(this).width() > 700) {
+                $(this).removeClass('wpcd-template-seven-mobile');
+            } else {
+                $(this).addClass('wpcd-template-seven-mobile');
+            }
+        });
+    }
+
+    updateCouponSevenClass();
+});
+
+jQuery(document).ready(function ($) {
+
+    $(window).resize(updateCouponEightClass);
+
+    function updateCouponEightClass() {
+        $.each($('.wpcd-new-grid-container'), function () {
+            if ($(this).width() > 600) {
+                $(this).removeClass('wpcd-template-eight-mobile');
+            } else {
+                $(this).addClass('wpcd-template-eight-mobile');
+            }
+        });
+    }
+
+    updateCouponEightClass();
+});
 function wpcdCopyToClipboard(element) {
     var $temp = jQuery("<input>");
     jQuery("body").append($temp);

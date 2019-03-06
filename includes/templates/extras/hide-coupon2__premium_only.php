@@ -85,17 +85,19 @@ echo $coupon_template;
 	        } else {
 		        echo __( 'COUPONCODE', 'wpcd-coupon' );
 	        } ?></span>
-            <span class="get-code-wpcd <?php echo $wpcd_show_coupon_popup ? 'hidden' : ''; ?>"
-                  style="background-color: <?php echo $wpcd_template_five_theme; ?>">
-            <?php
-            if ( ! empty( $hide_coupon_text ) ) {
-	            echo $hide_coupon_text;
-            } else {
-	            echo __( 'Show Code', 'wpcd-coupon' );
-            }
-            ?>
-                <div style="border-left-color: <?php echo $wpcd_template_five_theme; ?>"></div>
-        </span>
+              <span class="get-code-wpcd <?php echo $wpcd_show_coupon_popup ? 'hidden' : ''; ?>">
+                  <div class="square_wpcd" style="background-color: <?php echo $wpcd_template_five_theme; ?>"></div>
+                  <span>
+                    <?php
+                    if ( ! empty( $hide_coupon_text ) ) {
+                      echo $hide_coupon_text;
+                    } else {
+                      echo __( 'Show Code', 'wpcd-coupon' );
+                    }
+                    ?>
+                  </span>
+                  <div class="rectangle_wpcd" style="border-left-color: <?php echo $wpcd_template_five_theme; ?>"></div>
+              </span>
         </a>
     </div>
 
@@ -125,17 +127,19 @@ echo $coupon_template;
 	            } else {
 		            echo __( 'COUPONCODE', 'wpcd-coupon' );
 	            } ?></span>
-                <span class="get-code-wpcd <?php echo $wpcd_show_coupon_popup ? 'hidden' : ''; ?>"
-                      style="background-color: <?php echo $wpcd_template_six_theme; ?>">
-                <?php
-                if ( ! empty( $hide_coupon_text ) ) {
-	                echo $hide_coupon_text;
-                } else {
-	                echo __( 'Show Code', 'wpcd-coupon' );
-                }
-                ?>
-                    <div style="border-left-color: <?php echo $wpcd_template_six_theme; ?>"></div>
-            </span>
+                    <span class="get-code-wpcd <?php echo $wpcd_show_coupon_popup ? 'hidden' : ''; ?>">
+                        <div class="square_wpcd" style="background-color: <?php echo $wpcd_template_six_theme; ?>"></div>
+                        <span>
+                          <?php
+                          if ( ! empty( $hide_coupon_text ) ) {
+                            echo $hide_coupon_text;
+                          } else {
+                            echo __( 'Show Code', 'wpcd-coupon' );
+                          }
+                          ?>
+                        </span>
+                        <div class="rectangle_wpcd" style="border-left-color: <?php echo $wpcd_template_six_theme; ?>"></div>
+                    </span>
             </a>
         </div>
     </div>

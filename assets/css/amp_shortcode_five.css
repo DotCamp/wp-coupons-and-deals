@@ -6,7 +6,7 @@
     margin: 25px auto;
     clear: both;
     overflow: hidden;
-    padding: 20px;
+    padding: 10px;
     box-sizing: border-box;
 }
 .wpcd-template-five-holder {
@@ -67,14 +67,8 @@
     float: left;
     overflow: hidden;
     margin-top: 10px;
-}
-.extra-wpcd-template-five-holder {
-    width: 100%;
-    margin: 0 auto;
-    clear: both;
-    float: left;
-    overflow: hidden;
-    margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .wpcd-template-five-exp {
     width: 60%;
@@ -91,45 +85,51 @@
     margin: 0 auto;
     padding-top: 19px;
     padding-bottom: 19px;
+    line-height: 21px;
 }
 .wpcd-template-five p.wpcd-coupon-five-expired {
     color: red;
 }
-.wpcd-coupon-code {
-    width: 100%;
-    text-align: center;
-}
-.wpcd-template-five-btn {
-    width: 38%;
-    margin-left: 2%;
+.extra-wpcd-template-five-holder > .wpcd-coupon-code {
+    width: 40%;
     float: left;
+}
+
+.wpcd-template-five-btn {
+    margin-left: 10px;
+    display: block;
     position: relative;
     text-decoration: none;
     -webkit-box-shadow: none;
     box-shadow: none;
+    white-space: nowrap;
 }
-.wpcd-template-five-btn::before {
-    content: " ";
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
+
+.wpcd-template-five-btn:before {
+    content: "";
     border: 1px dashed;
     border-color: inherit;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
 }
-.wpcd-template-five-btn:hover::before {
+
+.wpcd-template-five-btn:hover:before {
     border: 2px dashed;
     border-color: inherit;
 }
+
 .wpcd-template-five-btn p {
     text-align: center;
     font-weight: 600;
     font-size: 18px;
+    line-height: 27px;
     color: #18E06E;
-    margin: 0 auto !important;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    margin: 0 auto;
+    padding-top: 16px;
+    padding-bottom: 16px;
 }
 .wpcd-template-five p::before {
     display: none;
@@ -160,10 +160,23 @@
     }
     .wpcd-template-five-exp {
         width: 100%;
-        border-bottom-left-radius: 0px;
         margin-bottom: 10px;
+        border-bottom-left-radius: 0px;
+        float: none;
+    }
+    .extra-wpcd-template-five-holder .wpcd-template-five-exp p {
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+    .extra-wpcd-template-five-holder > .wpcd-coupon-code {
+        width: 100%;
+        float: none;
     }
     .wpcd-template-five-btn::before {
         border-bottom-left-radius: 15px;
+    }
+    .extra-wpcd-template-five-holder .wpcd-template-five-btn p {
+        padding-top: 13px;
+        padding-bottom: 13px;
     }
 }

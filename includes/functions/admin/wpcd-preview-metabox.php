@@ -789,9 +789,12 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 					<span class="code-text-wpcd" rel="nofollow">
 						<?php echo $coupon_code; ?>
 					</span>
-					<span class="get-code-wpcd" style="background-color: <?php echo $wpcd_template_five_theme; ?>">
-						<?php echo $hide_coupon_text; ?>
-						<div style="border-left-color: <?php echo $wpcd_template_five_theme; ?>"></div>
+					<span class="get-code-wpcd">
+						<div class="square_wpcd" style="background-color: <?php echo $wpcd_template_five_theme; ?>"></div>
+						<span>
+							<?php echo $hide_coupon_text; ?>
+						</span>
+						<div class="rectangle_wpcd" style="border-left-color: <?php echo $wpcd_template_five_theme; ?>"></div>
 					</span>
 				</a>
 			</div>
@@ -862,7 +865,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 							if (hasDate === 'no')
 								jQuery('#clock_six_<?php echo $post_id; ?>').hide();
 
-							var $clock2 = jQuery('#clock_six_<?php echo $post_id; ?>').countdown('<?php echo $expire_date_format . ' ' . $expire_time; ?>', function (event) {
+							var $clock6 = jQuery('#clock_six_<?php echo $post_id; ?>').countdown('<?php echo $expire_date_format . ' ' . $expire_time; ?>', function (event) {
 								var format = '%M <?php echo __( 'minutes', 'wpcd-coupon' ); ?> %S <?php echo __( 'seconds', 'wpcd-coupon' ); ?>';
 								if (event.offset.hours > 0) {
 									format = "%H <?php echo __( 'hours', 'wpcd-coupon' ); ?> %M <?php echo __( 'minutes', 'wpcd-coupon' ); ?> %S <?php echo __( 'seconds', 'wpcd-coupon' ); ?>";
@@ -891,7 +894,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 									coup_date = dateAr[1] + '/' + dateAr[0] + '/' + dateAr[2];
 								}
 								selectedDate = coup_date + ' ' + jQuery("#expire-time").val();
-								$clock2.countdown(selectedDate.toString());
+								$clock6.countdown(selectedDate.toString());
 							});
 						</script>
 					</b>
@@ -923,9 +926,12 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 						<span class="code-text-wpcd" rel="nofollow">
 							<?php echo $coupon_code; ?>
 						</span>
-						<span class="get-code-wpcd" style="background-color: <?php echo $wpcd_template_six_theme; ?>">
-							<?php echo $hide_coupon_text; ?>
-							<div style="border-left-color: <?php echo $wpcd_template_six_theme; ?>"></div>
+						<span class="get-code-wpcd">
+							<div class="square_wpcd" style="background-color: <?php echo $wpcd_template_six_theme; ?>"></div>
+							<span>
+								<?php echo $hide_coupon_text; ?>
+							</span>
+							<div class="rectangle_wpcd" style="border-left-color: <?php echo $wpcd_template_six_theme; ?>"></div>
 						</span>
 					</a>
 				</div>
@@ -1029,7 +1035,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 				<div class="wpcd-coupon-not-hidden">
 					<div class="wpcd-coupon-code">
 		                <div class="admin_wpcd_seven_btn">
-		                    <a class="masterTooltip"
+		                    <a class="masterTooltip coupon-code-button"
 		                    	href="#"
 			                    title="<?php echo $coupon_hover_text; ?>"
 								data-clipboard-text="<?php echo $coupon_code; ?>"
@@ -1040,7 +1046,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 					</div>
 					<div class="wpcd-deal-code">
 		                <div class="admin_wpcd_seven_btn">
-		                    <a class="masterTooltip"
+		                    <a class="masterTooltip deal-code-button"
 		                    	href="#"
 			                    title="<?php echo $deal_hover_text; ?>"
 								data-clipboard-text="<?php echo $deal_text; ?>"
@@ -1056,7 +1062,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 					<div class="admin_wpcd_seven_expire" style="border-color:">
 						<p>
 							<?php echo $expire_text; ?>
-							<span class="wpcd-coupon-seven-countdown" id="clock_seven_<?php echo $post_id; ?>"></span>
+							<span class="wpcd-coupon-seven-countdown" data-countdown_coupon="<?php echo $expire_date_format . ' ' . $expire_time; ?>" id="clock_seven_<?php echo $post_id; ?>"></span>
 							<?php if ( ! $expire_date ) {
 									$expire_date_format = date( 'd/m/Y' );
 							} ?>
@@ -1064,7 +1070,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 								var hasDate = "<?php echo empty( $expire_date ) ? 'no' : 'yes';?>";
 								if (hasDate === 'no')
 									jQuery('#clock_seven_<?php echo $post_id; ?>').hide();
-								var $clock2 = jQuery('#clock_seven_<?php echo $post_id; ?>').countdown('<?php echo $expire_date_format . ' ' . $expire_time; ?>', function (event) {
+								var $clock7 = jQuery('#clock_seven_<?php echo $post_id; ?>').countdown('<?php echo $expire_date_format . ' ' . $expire_time; ?>', function (event) {
 									var format = '%M <?php echo __( 'minutes', 'wpcd-coupon' ); ?> %S <?php echo __( 'seconds', 'wpcd-coupon' ); ?>';
 									if (event.offset.hours > 0) {
 										format = "%H <?php echo __( 'hours', 'wpcd-coupon' ); ?> %M <?php echo __( 'minutes', 'wpcd-coupon' ); ?> %S <?php echo __( 'seconds', 'wpcd-coupon' ); ?>";
@@ -1093,7 +1099,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 										coup_date = dateAr[1] + '/' + dateAr[0] + '/' + dateAr[2];
 									}
 									selectedDate = coup_date + ' ' + jQuery("#expire-time").val();
-									$clock2.countdown(selectedDate.toString());
+									$clock7.countdown(selectedDate.toString());
 								});
 							</script>
 				

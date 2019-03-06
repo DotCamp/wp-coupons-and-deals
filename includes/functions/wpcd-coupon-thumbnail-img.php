@@ -40,7 +40,7 @@ function wpcd_coupon_thumbnail_img( $coupon_id, $not_featured = false ) {
 	        		else {
 	          			$attachment = wp_get_attachment_image_src( $term_meta['image_id'], 'full' );
 	          			if ( is_array( $attachment ) ) {
-								$coupon_img = $attachment[0];
+							$coupon_img = $attachment[0];
 						}
 	        		}
 	      		}

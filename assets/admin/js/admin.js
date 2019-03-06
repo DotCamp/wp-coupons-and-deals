@@ -543,8 +543,18 @@ jQuery(document).ready(function ($) {
     }
 
     function updateTemplateFiveTheme(color) {
-        $('.wpcd-template-five')
+        var couponFive = $('.wpcd-template-five');
+
+        couponFive
             .css('border-color', color);
+
+        couponFive
+            .find('.square_wpcd')
+            .css('background-color', color);
+
+        couponFive
+            .find('.rectangle_wpcd')
+            .css('border-left-color', color);
 
         $('.wpcd-template-five-exp')
             .css('background-color', color);
@@ -554,10 +564,6 @@ jQuery(document).ready(function ($) {
 
         $('.wpcd-template-five-btn p')
             .css('color', color);
-        $('.wpcd-template-five .get-code-wpcd')
-            .css('background-color', color);
-        $('.wpcd-template-five .get-code-wpcd > div')
-            .css('border-left-color', color);
 
     }
 
@@ -581,11 +587,11 @@ jQuery(document).ready(function ($) {
             .css('border-color', color);
 
         couponSix
-            .find('.get-code-wpcd')
+            .find('.get-code-wpcd .square_wpcd')
             .css('background-color', color);
 
         couponSix
-            .find('.get-code-wpcd > div')
+            .find('.get-code-wpcd .rectangle_wpcd')
             .css('border-left-color', color);
 
         couponSix
@@ -1003,7 +1009,18 @@ function update_six_counter_date(data) {
         coup_date = dateAr[1] + '/' + dateAr[0] + '/' + dateAr[2];
     }
     selectedDate = coup_date + ' ' + jQuery("#expire-time").val();
-    $clock2.countdown(selectedDate.toString());
+    $clock6.countdown(selectedDate.toString());
+}
+
+function update_seven_counter_date(data) {
+    jQuery('[id^=clock_seven_').show();
+    var coup_date = data;
+    if (coup_date.indexOf("-") >= 0) {
+        var dateAr = coup_date.split('-');
+        coup_date = dateAr[1] + '/' + dateAr[0] + '/' + dateAr[2];
+    }
+    selectedDate = coup_date + ' ' + jQuery("#expire-time").val();
+    $clock7.countdown(selectedDate.toString());
 }
 
 //Adding the tooltip to show when hovered.
@@ -1107,7 +1124,11 @@ jQuery(document).ready(function ($) {
         $('#coupon-code-text').keyup(function () {
             var coupon_code_text = $(this).val();
             $.each($('.wpcd-coupon-preview'), function () {
-                $(this).find('.coupon-code-button:eq(0)').text(coupon_code_text)
+                var coupon_code_button = $(this).find('.coupon-code-button:eq(0)');
+                coupon_code_button.text(coupon_code_text);
+                if(coupon_code_button.attr('data-title-ab')) {
+                    coupon_code_button.attr('data-title-ab', coupon_code_text);
+                }
             });
         });
 
@@ -1127,7 +1148,12 @@ jQuery(document).ready(function ($) {
 
         $('#deal-button-text').keyup(function () {
             var deal_code_text = $(this).val();
-            $('.deal-code-button').text(deal_code_text);
+            $.each($('.deal-code-button'), function () {
+                $(this).text(deal_code_text);
+                if($(this).attr('data-title-ab')) {
+                    $(this).attr('data-title-ab', deal_code_text);
+                }
+            });
             $('.wpcd-coupon-one-btn').text(deal_code_text);
             $('.admin-wpcd-new-goto-button').text(deal_code_text);
         });
@@ -1423,6 +1449,7 @@ jQuery(function ($) {
 
             update_two_counter_date(dateText);
             update_six_counter_date(dateText);
+            update_seven_counter_date(dateText);
         }
     });
 });
