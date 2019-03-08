@@ -72,7 +72,7 @@ echo $coupon_template;
            data-position="top center"
            data-inverted=""
            data-aff-url="<?php echo $link; ?>"
-           onClick="return wpcdOpenCouponAffLink('<?php echo $new_coupon_id; ?>')"
+           onClick="return wpcdOpenCouponAffLink(this, '<?php echo $new_coupon_id; ?>')"
            data-clipboard-text="<?php if ( ! empty( $coupon_code ) ) {
          echo $coupon_code;
        } else {

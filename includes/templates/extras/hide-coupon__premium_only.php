@@ -61,7 +61,7 @@ $wpcd_show_coupon_popup = ! empty( $_GET['wpcd_coupon'] ) && $_GET['wpcd_coupon'
 		} else {
 			_e( 'Click Here to Show Code', 'wpcd-coupon' );
 		} ?>" data-position="top center" data-inverted="" data-aff-url="<?php echo $link; ?>"
-           onClick="return wpcdOpenCouponAffLink('<?php echo $new_coupon_id; ?>')" target="_blank">
+           onClick="return wpcdOpenCouponAffLink(this, '<?php echo $new_coupon_id; ?>')" target="_blank">
             <span class="code-text-wpcd" rel="nofollow"><?php echo $coupon_code; ?></span>
             <span class="get-code-wpcd">
         <?php

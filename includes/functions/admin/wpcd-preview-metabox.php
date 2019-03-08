@@ -23,6 +23,8 @@ $coupon_code              	   = get_post_meta( $post_id, 'coupon_details_coupon-
 $second_coupon_code       	   = get_post_meta( $post_id, 'coupon_details_second-coupon-code-text', true );
 $third_coupon_code        	   = get_post_meta( $post_id, 'coupon_details_third-coupon-code-text', true );
 $deal_text                	   = get_post_meta( $post_id, 'coupon_details_deal-button-text', true );
+$second_deal_text          	   = get_post_meta( $post_id, 'coupon_details_second-deal-button-text', true );
+$third_deal_text           	   = get_post_meta( $post_id, 'coupon_details_third-deal-button-text', true );
 $coupon_hover_text        	   = get_option( 'wpcd_coupon-hover-text' );
 $deal_hover_text          	   = get_option( 'wpcd_deal-hover-text' );
 $button_class             	   = '.wpcd-btn-' . $post_id;
@@ -83,6 +85,8 @@ $second_discount_text = ( !empty( $second_discount_text ) ) ? $second_discount_t
 $third_discount_text = ( !empty( $third_discount_text ) ) ? $third_discount_text : __( 'Discount Text' );
 $discount_text = ( !empty( $discount_text ) ) ? $discount_text : __( 'Discount Text' );
 $deal_text = ( !empty( $deal_text ) ) ? $deal_text : __( 'Claim This Deal' );
+$second_deal_text = ( !empty( $second_deal_text ) ) ? $second_deal_text : __( 'Claim This Deal' );
+$third_deal_text = ( !empty( $third_deal_text ) ) ? $third_deal_text : __( 'Claim This Deal' );
 $coupon_hover_text = ( !empty( $coupon_hover_text ) ) ? $coupon_hover_text : __( 'Click To Copy Coupon' );
 $deal_hover_text = ( !empty( $deal_hover_text ) ) ? $deal_hover_text : __( 'Click Here To Get This Deal' );
 $no_expiry = ( !empty( $no_expiry ) ) ? $no_expiry : __( "Doesn't Expire" );
@@ -618,10 +622,10 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 					<button 
 						class="wpcd-btn masterTooltip wpcd-deal-button"
 						title="<?php echo $deal_hover_text; ?>"
-						data-clipboard-text="<?php echo $deal_text; ?>">
+						data-clipboard-text="<?php echo $second_deal_text; ?>">
 						<span class="wpcd_deal_icon"></span>
 						<span class="deal-code-button">
-							<?php echo $deal_text; ?>
+							<?php echo $second_deal_text; ?>
 						</span>
 					</button>
 				</div>
@@ -693,10 +697,10 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 					<button 
 						class="wpcd-btn masterTooltip wpcd-deal-button"
 						title="<?php echo $deal_hover_text; ?>"
-						data-clipboard-text="<?php echo $deal_text; ?>">
+						data-clipboard-text="<?php echo $third_deal_text; ?>">
 						<span class="wpcd_deal_icon"></span>
 						<span class="deal-code-button">
-							<?php echo $deal_text; ?>
+							<?php echo $third_deal_text; ?>
 						</span>
 					</button>
 				</div>

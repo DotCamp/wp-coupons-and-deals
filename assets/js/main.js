@@ -372,6 +372,11 @@ jQuery(document).ready(function ($) {
         var sw = jQuery(".wpcd_archive_section").width();
         if (sw < 1000) {
             jQuery(".wpcd_archive_section").addClass("wpcd_archive_section_small");
+            if (sw < 600) {
+                jQuery(".wpcd_archive_section").addClass("wpcd_archive_section_mini");
+            } else {
+                jQuery(".wpcd_archive_section").removeClass("wpcd_archive_section_mini");
+            }
         } else {
             jQuery(".wpcd_archive_section").removeClass("wpcd_archive_section_small");
         }
@@ -414,81 +419,41 @@ jQuery(document).ready(function ($) {
 
 jQuery(document).ready(function ($) {
 
-    $(window).resize(updateCouponSixClass);
+    $(window).resize(wpcdUpdateCouponClassRan);
 
-    function updateCouponSixClass() {
-        $.each($('.wpcd-coupon-six'), function () {
-            if ($(this).width() > 600) {
-                $(this).removeClass('wpcd-coupon-six-mobile');
+    function wpcdUpdateCouponClassRan() {
+        wpcdUpdateCouponClass('.wpcd-coupon-default', 'wpcd-template-default-mobile', 'wpcd-mobile-mini', 600, 380);
+        wpcdUpdateCouponClass('.wpcd-coupon-one', 'wpcd-template-one-mobile', 'wpcd-mobile-mini', 600, 380);
+        wpcdUpdateCouponClass('.wpcd-coupon-two', 'wpcd-template-two-mobile', 'wpcd-mobile-mini', 600, 380);
+        wpcdUpdateCouponClass('.wpcd-coupon-three', 'wpcd-template-three-mobile', 'wpcd-mobile-mini', 600, 380);
+        wpcdUpdateCouponClass('.wpcd-coupon-four', 'wpcd-template-four-mobile', 'wpcd-mobile-mini', 600, 380);
+        wpcdUpdateCouponClass('.wpcd-template-five', 'wpcd-template-five-mobile', 'wpcd-mobile-mini', 600, 380);
+        wpcdUpdateCouponClass('.wpcd-coupon-six', 'wpcd-template-six-mobile', 'wpcd-mobile-mini', 600, 380);
+        wpcdUpdateCouponClass('.wpcd_seven_couponBox', 'wpcd-template-seven-mobile', 'wpcd-mobile-mini', 700, 380);
+        wpcdUpdateCouponClass('.wpcd-new-grid-container', 'wpcd-template-eight-mobile', 'wpcd-mobile-mini', 600, 380);
+    }
+
+    function wpcdUpdateCouponClass(class_box, class1, class2, width1, width2) {
+        $.each($(class_box), function () {
+            if ($(this).width() > width1) {
+                $(this).removeClass(class1);
             } else {
-                $(this).addClass('wpcd-coupon-six-mobile');
+                $(this).addClass(class1);
             }
-            if ($(this).width() > 380) {
-                $(this).removeClass('wpcd-coupon-six-mobile-mini');
+            if ($(this).width() > width2) {
+                $(this).removeClass(class2);
             } else {
-                $(this).addClass('wpcd-coupon-six-mobile-mini');
+                $(this).addClass(class2);
             }
         });
     }
 
-    updateCouponSixClass();
+    wpcdUpdateCouponClassRan();
+
+    
 });
 
-jQuery(document).ready(function ($) {
 
-    $(window).resize(updateCouponFiveClass);
-
-    function updateCouponFiveClass() {
-        $.each($('.wpcd-template-five'), function () {
-            if ($(this).width() > 600) {
-                $(this).removeClass('wpcd-template-five-mobile');
-            } else {
-                $(this).addClass('wpcd-template-five-mobile');
-            }
-            if ($(this).width() > 380) {
-                $(this).removeClass('wpcd-coupon-five-mobile-mini');
-            } else {
-                $(this).addClass('wpcd-coupon-five-mobile-mini');
-            }
-        });
-    }
-
-    updateCouponFiveClass();
-});
-
-jQuery(document).ready(function ($) {
-
-    $(window).resize(updateCouponSevenClass);
-
-    function updateCouponSevenClass() {
-        $.each($('.wpcd_seven_shortcode'), function () {
-            if ($(this).width() > 700) {
-                $(this).removeClass('wpcd-template-seven-mobile');
-            } else {
-                $(this).addClass('wpcd-template-seven-mobile');
-            }
-        });
-    }
-
-    updateCouponSevenClass();
-});
-
-jQuery(document).ready(function ($) {
-
-    $(window).resize(updateCouponEightClass);
-
-    function updateCouponEightClass() {
-        $.each($('.wpcd-new-grid-container'), function () {
-            if ($(this).width() > 600) {
-                $(this).removeClass('wpcd-template-eight-mobile');
-            } else {
-                $(this).addClass('wpcd-template-eight-mobile');
-            }
-        });
-    }
-
-    updateCouponEightClass();
-});
 function wpcdCopyToClipboard(element) {
     var $temp = jQuery("<input>");
     jQuery("body").append($temp);
@@ -497,18 +462,33 @@ function wpcdCopyToClipboard(element) {
     $temp.remove();
 }
 
-function wpcdOpenCouponAffLink(CoupenId) {
-    var a = jQuery("#coupon-button-" + CoupenId);
+function wpcdOpenCouponAffLink(objectThis, CoupenId, numCoupon) {
+    var a = jQuery(objectThis);
     var oldLink = a.attr('href');
 
 
     if (window.location.href.indexOf('wpcd_coupon') > -1) {// check if there's wpcd_coupon in the url
         var wpcd_id = jQuery.urlParam('wpcd_coupon');
         oldLink = window.location.href.replace("wpcd_coupon=" + wpcd_id, "wpcd_coupon=" + CoupenId);
+        if (window.location.href.indexOf('wpcd_num_coupon') > -1) {
+            var num_coupon = jQuery.urlParam('wpcd_num_coupon');
+            if(numCoupon) {
+                oldLink = oldLink.replace("wpcd_num_coupon=" + num_coupon, "wpcd_num_coupon=" + numCoupon);
+            } else {
+                oldLink = oldLink.replace("&wpcd_num_coupon=" + num_coupon, "");
+            }
+            
+        }
+        else if (numCoupon) {
+            oldLink = oldLink + "&wpcd_num_coupon=" + numCoupon;
+        } 
 
     }
     else if (window.location.href.indexOf('?') > -1 && window.location.href.indexOf('?wpcd_coupon') === -1) {// check if there's paramater in the url   
         oldLink = window.location.href + oldLink.replace("?", "&");
+        if (numCoupon) {
+            oldLink = oldLink + "&wpcd_num_coupon=" + numCoupon;
+        }
     }
     a.attr('href', oldLink);
 

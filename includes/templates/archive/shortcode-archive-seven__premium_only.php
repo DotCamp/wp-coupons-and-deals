@@ -212,7 +212,16 @@ include('header-default.php');
                         </p>
                     </div>
                 </div>
-                <div id="clear"></div>
+                <div class="wpcd_seven_couponBox_both"></div>
+                <div class="clearfix"></div>
+                <?php
+                if( !WPCD_Amp::wpcd_amp_is() ):
+                    if ( $coupon_share === 'on' ) {
+                        $template->get_template_part('social-share');
+                    }
+                    $template->get_template_part('vote-system');
+                endif;
+                ?>
             </div>
         </div>    
     </section>

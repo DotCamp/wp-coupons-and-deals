@@ -121,6 +121,7 @@
 .wpcd-coupon-six-img-and-btn {
     width: 27%;
     float: right;
+    padding: 0px 8px;
 }
 .wpcd-coupon-six-img-and-btn .item-img {
     height: 115px;
@@ -128,6 +129,8 @@
     margin-top: 15px;
     text-align: center;
     max-width: 96%;
+    margin-left: auto;
+    margin-right: auto;
 }
 .wpcd-coupon-six-img-and-btn .item-img amp-img {
     max-height: 100%;

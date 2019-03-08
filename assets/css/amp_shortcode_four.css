@@ -42,6 +42,8 @@
     float: left;
     margin: 10px 0 0 0;
     position: relative;
+    padding: 0px 15px;
+    box-sizing: border-box;
 }
 
 .wpcd-coupon-four-info::before {

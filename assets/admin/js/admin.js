@@ -20,6 +20,7 @@ jQuery(document).ready(function ($) {
     var button_text = $('#buttontext');
     var all_button_text = $('[id$=buttontext]');
     var deal_text = $('#dealtext');
+    var all_deal_text = $('[id$=dealtext]');
     var show_expiration = $('#show-expiration');
     var expiration = $('#expiredate');
     var time_expiration = $('#expiretime');
@@ -345,19 +346,24 @@ jQuery(document).ready(function ($) {
 
         if (ctype === couponTypes.COUPON) {
 
+            all_deal_text.hide();
             if (coupon_template.val() === templates.FOUR)
                 all_button_text.show();
             else
                 button_text.show();
-            if (coupon_template.val() !== templates.EIGHT) {
-                deal_text.hide();
+            if (coupon_template.val() === templates.EIGHT) {
+                deal_text.show();
             }
             hide_coupon_parent.show();
 
         } else if (ctype === couponTypes.DEAL) {
 
             all_button_text.hide();
-            deal_text.show();
+            if (coupon_template.val() === templates.FOUR)
+                all_deal_text.show();
+            else
+                deal_text.show();
+
             hide_coupon_parent.hide();
             hide_coupon.val('No');
             coupon_not_hidden.show();
@@ -1148,14 +1154,29 @@ jQuery(document).ready(function ($) {
 
         $('#deal-button-text').keyup(function () {
             var deal_code_text = $(this).val();
-            $.each($('.deal-code-button'), function () {
-                $(this).text(deal_code_text);
-                if($(this).attr('data-title-ab')) {
-                    $(this).attr('data-title-ab', deal_code_text);
+            $.each($('.wpcd-coupon-preview'), function () {
+                var deal_code_button = $(this).find('.deal-code-button:eq(0)');
+                deal_code_button.text(deal_code_text);
+                if(deal_code_button.attr('data-title-ab')) {
+                    deal_code_button.attr('data-title-ab', deal_code_text);
                 }
             });
             $('.wpcd-coupon-one-btn').text(deal_code_text);
             $('.admin-wpcd-new-goto-button').text(deal_code_text);
+        });
+
+        $('#second-deal-button-text').keyup(function () {
+            var deal_code_text = $(this).val();
+            $('.wpcd-coupon-four')
+                .find('.deal-code-button:eq(1)')
+                .text(deal_code_text)
+        });
+
+        $('#third-deal-button-text').keyup(function () {
+            var deal_code_text = $(this).val();
+            $('.wpcd-coupon-four')
+                .find('.deal-code-button:eq(2)')
+                .text(deal_code_text)
         });
 
         // template seven coupon code button 

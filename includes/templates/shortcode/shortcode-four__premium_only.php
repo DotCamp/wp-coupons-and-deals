@@ -18,6 +18,8 @@ $coupon_code               = get_post_meta( $coupon_id, 'coupon_details_coupon-c
 $second_coupon_code        = get_post_meta( $coupon_id, 'coupon_details_second-coupon-code-text', true );
 $third_coupon_code         = get_post_meta( $coupon_id, 'coupon_details_third-coupon-code-text', true );
 $deal_text                 = get_post_meta( $coupon_id, 'coupon_details_deal-button-text', true );
+$second_deal_text          = get_post_meta( $coupon_id, 'coupon_details_second-deal-button-text', true );
+$third_deal_text           = get_post_meta( $coupon_id, 'coupon_details_third-deal-button-text', true );
 $coupon_hover_text         = get_option( 'wpcd_coupon-hover-text' );
 $deal_hover_text           = get_option( 'wpcd_deal-hover-text' );
 $button_class              = 'wpcd-btn-' . $coupon_id;
@@ -88,7 +90,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 					?>
                     <div class="wpcd-four-discount-text"><?php echo $discount_text; ?></div> <?php
 					if ( $hide_coupon == 'Yes' && ! WPCD_Amp::wpcd_amp_is() ) {
-						$template->get_template_part( 'hide-coupon__premium_only' );
+						$template->get_template_part( 'hide-coupon2__premium_only' );
 					} else { ?>
                         <div class="wpcd-coupon-code">
                             <a rel="nofollow"
@@ -245,7 +247,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 				$num_coupon = 2;
 					if ( $hide_coupon == 'Yes' && ! WPCD_Amp::wpcd_amp_is() ) {
 						$template = new WPCD_Template_Loader();
-						$template->get_template_part( 'hide-coupon__premium_only' );
+						$template->get_template_part( 'hide-coupon2__premium_only' );
 						$num_coupon = 0;
 					} else { ?>
                 <div class="wpcd-coupon-code">
@@ -300,7 +302,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 					   } ?>" href="<?php echo $second_link; ?>" target="_blank        ">
                         <span class="wpcd_deal_icon">
                         	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/deal-24.png" style="width: 100%;height: 100%;" >
-                        </span><?php echo $deal_text; ?>
+                        </span><?php echo $second_deal_text; ?>
                     </a>
                 </div>
 			<?php } ?>
@@ -403,7 +405,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 					$num_coupon = 3;
 					if ( $hide_coupon == 'Yes' && ! WPCD_Amp::wpcd_amp_is() ) {
 						$template = new WPCD_Template_Loader();
-						$template->get_template_part( 'hide-coupon__premium_only' );
+						$template->get_template_part( 'hide-coupon2__premium_only' );
 					} else { ?>
                 		<div class="wpcd-coupon-code">
                     	<a rel="nofollow"
@@ -457,7 +459,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 					   } ?>" href="<?php echo $third_link; ?>" target="_blank        ">
                         <span class="wpcd_deal_icon">
                         	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/deal-24.png" style="width: 100%;height: 100%;" >
-                        </span><?php echo $deal_text; ?>
+                        </span><?php echo $third_deal_text; ?>
                     </a>
                 </div>
 			<?php } ?>

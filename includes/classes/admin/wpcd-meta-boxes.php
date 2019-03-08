@@ -77,6 +77,18 @@ class WPCD_Meta_Boxes {
 				'help'  => __( 'Deal button text. Put something like Get this Deal.', 'wpcd-coupon' )
 			),
 			array(
+				'id'    => 'second-deal-button-text',
+				'label' => __( 'Second Deal Button Text', 'wpcd-coupon' ),
+				'type'  => 'temp4-dealtext',
+				'help'  => __( 'Deal button text. Put something like Get this Deal.', 'wpcd-coupon' )
+			),
+			array(
+				'id'    => 'third-deal-button-text',
+				'label' => __( 'Third Deal Button Text', 'wpcd-coupon' ),
+				'type'  => 'temp4-dealtext',
+				'help'  => __( 'Deal button text. Put something like Get this Deal.', 'wpcd-coupon' )
+			),
+			array(
 				'id'    => 'link',
 				'label' => __( 'Link', 'wpcd-coupon' ),
 				'type'  => 'text',
@@ -307,6 +319,15 @@ class WPCD_Meta_Boxes {
 			switch ( $wpcd_field['type'] ) {
 
 				case 'dealtext':
+					$input = sprintf(
+						'<input type="text" name="%s" id="%s" value="%s"/>',
+						$wpcd_field['id'],
+						$wpcd_field['id'],
+						$db_value
+					);
+					break;
+					
+				case 'temp4-dealtext':
 					$input = sprintf(
 						'<input type="text" name="%s" id="%s" value="%s"/>',
 						$wpcd_field['id'],
