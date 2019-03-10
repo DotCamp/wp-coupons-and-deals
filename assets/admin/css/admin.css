@@ -2469,6 +2469,10 @@ h2:before {
     padding-right: 10px;
 }
 
+.admin-wpcd-new-grid-one .coupon-type {
+    background-color: #329d40;
+}
+
 .admin-wpcd-new-grid-two {
     padding: 0 10px;
     color: #444;

@@ -17,6 +17,9 @@
 		<title>Title</title>
 		<coupon_code>100YBA</coupon_code>
 		<coupon_link>https://developer.wordpress.org/reference/functions/wp_insert_post/</coupon_link>
+		<coupon_text>15% Off</coupon_text>
+		<coupon_description>Get Flat 15% Off</coupon_description>
+		<expiry_date>10/30/2017</expiry_date>
 		<hide>yes</hide>
 		<coupon_template>Template One</coupon_template>
 		<coupon_vendor>Vendor 1</coupon_vendor>
@@ -50,8 +53,8 @@
 		<title>Title 4</title>
 		<coupon_code>100YBA</coupon_code>
 		<coupon_link>https://developer.wordpress.org/reference/functions/wp_insert_post/</coupon_link>
-		<coupon_text>15% Off</coupon_text>
-		<coupon_description>Get Flat 15% Off</coupon_description>
+		<coupon_text>      </coupon_text>
+		<coupon_description>        </coupon_description>
 		<expiry_date>10/30/2017</expiry_date>
 		<hide>yes</hide>
 		<coupon_template>Template Four</coupon_template>
@@ -106,6 +109,7 @@
 		<coupon_vendor>Vendor 8</coupon_vendor>
 	</item>
 	<item>
+		<category></category>
 		<title>Title 8</title>
 		<coupon_code>100YBA</coupon_code>
 		<coupon_link>https://developer.wordpress.org/reference/functions/wp_insert_post/</coupon_link>
@@ -113,5 +117,7 @@
 		<coupon_description>Get Flat 15% Off</coupon_description>
 		<expiry_date>10/30/2017</expiry_date>
 		<hide>yes</hide>
+		<coupon_template></coupon_template>
+		<coupon_vendor></coupon_vendor>
 	</item>
 </coupons>

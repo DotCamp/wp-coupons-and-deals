@@ -86,68 +86,22 @@ jQuery(document).ready(function ($) {
 
     function wpcdEachItemXml ( items ) {
         var rows = [];
-        items.each( function( index, option ) {
-            rows[index] = "";
-            var category = option.getElementsByTagName( 'category' );
-            if(category.length > 0) {
-                rows[index] += category[0].innerHTML;
+            console.log(items);
+        for( var i = 0; i < items.length; i++ ) {
+            var item = items[i].children;
+            rows[i] = "";
+            for( var j = 0; j < item.length; j++ ) {
+                rows[i] += item[j].innerHTML;
+                if( j < item.length - 1) {
+                    rows[i] += ', ';
+                }
+                
             }
-            rows[index] += ', ';
-            var title = option.getElementsByTagName( 'title' );
-            if(title.length > 0) {
-                rows[index] += title[0].innerHTML;
-            }
-            rows[index] += ', ';
-            var coupon_code = option.getElementsByTagName( 'coupon_code' );
-            if(coupon_code.length > 0) {
-                rows[index] += coupon_code[0].innerHTML;
-            }
-            rows[index] += ', ';
-            var coupon_link = option.getElementsByTagName( 'coupon_link' );
-            if(coupon_link.length > 0) {
-                rows[index] += coupon_link[0].innerHTML;
-            }
-            rows[index] += ', ';
-            var coupon_text = option.getElementsByTagName( 'coupon_text' );
-            if(coupon_text.length > 0) {
-                rows[index] += coupon_text[0].innerHTML;
-            }
-            rows[index] += ', ';
-            var coupon_description = option.getElementsByTagName( 'coupon_description' );
-            if(coupon_description.length > 0) {
-                rows[index] += coupon_description[0].innerHTML;
-            }
-            rows[index] += ', ';
-            var expiry_date = option.getElementsByTagName( 'expiry_date' );
-            if(expiry_date.length > 0) {
-                rows[index] += expiry_date[0].innerHTML;
-            }
-            rows[index] += ', ';
-            var hide = option.getElementsByTagName( 'hide' );
-            if(hide.length > 0) {
-                rows[index] += hide[0].innerHTML;
-            }
-            rows[index] += ', ';
-            var coupon_template = option.getElementsByTagName( 'coupon_template' );
-            if(coupon_template.length > 0) {
-                rows[index] += coupon_template[0].innerHTML;
-            }
-            rows[index] += ', ';
-            var coupon_vendor = option.getElementsByTagName( 'coupon_vendor' );
-            if(coupon_vendor.length > 0) {
-                rows[index] += coupon_vendor[0].innerHTML;
-            }
-            rows[index] = rows[index].trim();
-            var itemWhile = 0;
-            while ( rows[index].slice(-1) == ',' && itemWhile < 15 ) {
-                rows[index] = rows[index].slice(0, -1);
-                rows[index] = rows[index].trim();
-                itemWhile++;
-            } 
-        });
+        }
 
         return rows;
     }
+    
     function wpcdXmlImportFileParse( data ) {
         xmlDoc = $.parseXML( data );
         var xml = $( xmlDoc );
@@ -160,7 +114,6 @@ jQuery(document).ready(function ($) {
             rows = wpcdEachItemXml( items );
 
             rows = rows_header.concat(rows);
-
         return rows;
     }
 
@@ -227,8 +180,6 @@ jQuery(document).ready(function ($) {
                         }
 
                     });
-
-                    console.log(import_fields_data);
                     wpcp_coupons_data['category']                = (cells[import_fields_data['coupon_category']]) ? cells[import_fields_data['coupon_category']].trim() : "";
                     wpcp_coupons_data['vendor']                  = (cells[import_fields_data['coupon_vendor']]) ? cells[import_fields_data['coupon_vendor']].trim() : "";
                     wpcp_coupons_data['title']                   = (cells[import_fields_data['coupon_title']]) ? cells[import_fields_data['coupon_title']].trim() : "";
@@ -239,7 +190,6 @@ jQuery(document).ready(function ($) {
                     wpcp_coupons_data['expiry_date']             = (cells[import_fields_data['coupon_details_expire-date']]) ? cells[import_fields_data['coupon_details_expire-date']].trim() : "";
                     wpcp_coupons_data['hide_coupon']             = (cells[import_fields_data['coupon_details_hide-coupon']]) ? cells[import_fields_data['coupon_details_hide-coupon']].trim() : "";
                     wpcp_coupons_data['default_coupon_template'] = (cells[import_fields_data['coupon_details_coupon-template']]) ? cells[import_fields_data['coupon_details_coupon-template']].trim() : "";
-                    console.log(wpcp_coupons_data);
 
                     // preparing the select ID array
                     for (i = 0; i < rows.length; i++) {
