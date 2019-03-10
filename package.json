@@ -17,8 +17,13 @@
     "homepage": "https://github.com/imtiazrayhan/wp-coupons-and-deals/",
     "devDependencies": {
         "gulp": "^3.9.1",
+        "gulp-clean-css": "^4.0.0",
         "gulp-notify": "^3.0.0",
+        "gulp-rename": "^1.4.0",
         "gulp-sort": "^2.0.0",
         "gulp-wp-pot": "^2.0.4"
+    },
+    "dependencies": {
+        "npm": "^6.9.0"
     }
 }

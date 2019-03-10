@@ -5,3 +5,5 @@
 /includes/sdk/freemius/nbproject/project.xml
 /.gitignore
 .DS_Store
+node_modules/
+.node_modules/
