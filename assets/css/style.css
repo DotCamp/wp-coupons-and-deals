@@ -893,6 +893,7 @@ p.wpcd-coupon-four-expired {
     white-space: nowrap;
     padding-left: 10px;
     padding-right: 10px;
+    border-color: #18E06E;
 }
 
 .wpcd-template-five-btn:before {

@@ -103,6 +103,7 @@
     -webkit-box-shadow: none;
     box-shadow: none;
     white-space: nowrap;
+    border-color: #18E06E;
 }
 
 .wpcd-template-five-btn:before {

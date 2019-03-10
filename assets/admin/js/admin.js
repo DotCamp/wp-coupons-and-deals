@@ -84,6 +84,86 @@ jQuery(document).ready(function ($) {
 
     removeFeaturedImage();
 
+    function wpcdEachItemXml ( items ) {
+        var rows = [];
+        items.each( function( index, option ) {
+            rows[index] = "";
+            var category = option.getElementsByTagName( 'category' );
+            if(category.length > 0) {
+                rows[index] += category[0].innerHTML;
+            }
+            rows[index] += ', ';
+            var title = option.getElementsByTagName( 'title' );
+            if(title.length > 0) {
+                rows[index] += title[0].innerHTML;
+            }
+            rows[index] += ', ';
+            var coupon_code = option.getElementsByTagName( 'coupon_code' );
+            if(coupon_code.length > 0) {
+                rows[index] += coupon_code[0].innerHTML;
+            }
+            rows[index] += ', ';
+            var coupon_link = option.getElementsByTagName( 'coupon_link' );
+            if(coupon_link.length > 0) {
+                rows[index] += coupon_link[0].innerHTML;
+            }
+            rows[index] += ', ';
+            var coupon_text = option.getElementsByTagName( 'coupon_text' );
+            if(coupon_text.length > 0) {
+                rows[index] += coupon_text[0].innerHTML;
+            }
+            rows[index] += ', ';
+            var coupon_description = option.getElementsByTagName( 'coupon_description' );
+            if(coupon_description.length > 0) {
+                rows[index] += coupon_description[0].innerHTML;
+            }
+            rows[index] += ', ';
+            var expiry_date = option.getElementsByTagName( 'expiry_date' );
+            if(expiry_date.length > 0) {
+                rows[index] += expiry_date[0].innerHTML;
+            }
+            rows[index] += ', ';
+            var hide = option.getElementsByTagName( 'hide' );
+            if(hide.length > 0) {
+                rows[index] += hide[0].innerHTML;
+            }
+            rows[index] += ', ';
+            var coupon_template = option.getElementsByTagName( 'coupon_template' );
+            if(coupon_template.length > 0) {
+                rows[index] += coupon_template[0].innerHTML;
+            }
+            rows[index] += ', ';
+            var coupon_vendor = option.getElementsByTagName( 'coupon_vendor' );
+            if(coupon_vendor.length > 0) {
+                rows[index] += coupon_vendor[0].innerHTML;
+            }
+            rows[index] = rows[index].trim();
+            var itemWhile = 0;
+            while ( rows[index].slice(-1) == ',' && itemWhile < 15 ) {
+                rows[index] = rows[index].slice(0, -1);
+                rows[index] = rows[index].trim();
+                itemWhile++;
+            } 
+        });
+
+        return rows;
+    }
+    function wpcdXmlImportFileParse( data ) {
+        xmlDoc = $.parseXML( data );
+        var xml = $( xmlDoc );
+        var rows = [],
+            rows_header = [],
+            item,
+            header = xml.find( "header" );
+            items = xml.find( "item" );
+            rows_header = wpcdEachItemXml( header );
+            rows = wpcdEachItemXml( items );
+
+            rows = rows_header.concat(rows);
+
+        return rows;
+    }
+
     // Start of Import
     jQuery("#wpcd_import_form").submit(function () {
         jQuery(".wpcd_import_form_loader").fadeIn();
@@ -94,11 +174,21 @@ jQuery(document).ready(function ($) {
 
 
         var regex = /^([a-zA-Z0-9()\s_\\.\-:])+(.csv)$/;
-        if (regex.test($("#wpcd_import_file").val().toLowerCase())) {
+        var regex2 = /^([a-zA-Z0-9()\s_\\.\-:])+(.xml)$/;
+
+        var is_csv = regex.test($("#wpcd_import_file").val().toLowerCase());
+        var is_xml = regex2.test($("#wpcd_import_file").val().toLowerCase());
+        if ( is_csv || is_xml ) {
             if (typeof (FileReader) != "undefined") {
                 var reader = new FileReader();
                 reader.onload = function (e) {
-                    var rows = e.target.result.split("\n");
+                    var rows;
+                    var data = e.target.result;
+                    if( is_csv ) {
+                        rows = data.split("\n");
+                    } else if ( is_xml ) {
+                        rows = wpcdXmlImportFileParse( data );
+                    }
                     var import_fields_data = [];
                     var j = 0;
                     var i = 0;
@@ -199,29 +289,36 @@ jQuery(document).ready(function ($) {
                 alert("This browser does not support HTML5.");
             }
         } else {
-            alert("Please upload a valid CSV file.");
+            alert("Please upload a valid file.");
         }
 
     }); // End of final submit click
-
 
     $("#wpcd_import_next_submit").on("click", function (e) {
         e.preventDefault();
 
         var regex = /^([a-zA-Z0-9()\s_\\.\-:])+(.csv)$/;
+        var regex2 = /^([a-zA-Z0-9()\s_\\.\-:])+(.xml)$/;
 
         // jQuery('.wpcd_choose_fields_wr').show();
         var countCol = jQuery(".wpcd_import_field span strong"); // Storing selector to prevent call redundancy
         var array_temp = ""; // Storing object data
-
-        if (regex.test($("#wpcd_import_file").val().toLowerCase())) {
+        var is_csv = regex.test($("#wpcd_import_file").val().toLowerCase());
+        var is_xml = regex2.test($("#wpcd_import_file").val().toLowerCase());
+        if (is_csv || is_xml) {
             if (typeof (FileReader) != "undefined") {
                 var reader = new FileReader();
                 reader.onload = function (e) {
-
+                    var rows = [], 
+                        rows2 = []
+                        data = e.target.result;
                     var table = $("<table class=\"widefat wpcd_import_preview\" cellspacing=\"0\"></table>");
-                    var rows = e.target.result.split("\n");
-                    var rows2 = e.target.result.split("\n"); // same with rows
+                    if ( is_csv ) {
+                        rows = data.split("\n");
+                    } else if ( is_xml ) {
+                        rows = wpcdXmlImportFileParse( data );
+                    }
+                    rows2 = rows; // same with rows 
                     var row = "";
                     var cells = "";
                     var cell = "";
@@ -310,7 +407,7 @@ jQuery(document).ready(function ($) {
                 alert("This browser does not support HTML5.");
             }
         } else {
-            alert("Please upload a valid CSV file.");
+            alert("Please upload a valid file.");
             // jQuery('.wpcd-import-wrapper').hide();
             jQuery("#wpcd_import_form_wr").show();
         }

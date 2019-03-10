@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<coupons>
+	<header>
+		<category>Website</category>
+		<title>Title</title>
+		<coupon_code>Coupon Code</coupon_code>
+		<coupon_link>Coupon Link</coupon_link>
+		<coupon_text>Coupon Text</coupon_text>
+		<coupon_description>Coupon Description</coupon_description>
+		<expiry_date>Expiry Date</expiry_date>
+		<hide>Hide</hide>
+		<coupon_template>Coupon Template</coupon_template>
+		<coupon_vendor>Coupon Vendor</coupon_vendor>
+	</header>
+	<item>
+		<category>Category 1</category>
+		<title>Title</title>
+		<coupon_code>100YBA</coupon_code>
+		<coupon_link>https://developer.wordpress.org/reference/functions/wp_insert_post/</coupon_link>
+		<hide>yes</hide>
+		<coupon_template>Template One</coupon_template>
+		<coupon_vendor>Vendor 1</coupon_vendor>
+	</item>
+	<item>
+		<category>Category 2</category>
+		<title>Title 2</title>
+		<coupon_code>100YBA</coupon_code>
+		<coupon_link>https://developer.wordpress.org/reference/functions/wp_insert_post/</coupon_link>
+		<coupon_text>15% Off</coupon_text>
+		<coupon_description>Get Flat 15% Off</coupon_description>
+		<expiry_date>10/30/2017</expiry_date>
+		<hide>yes</hide>
+		<coupon_template>Template Two</coupon_template>
+		<coupon_vendor>Vendor 2</coupon_vendor>
+	</item>
+	<item>
+		<category>Category 3</category>
+		<title>Title 3</title>
+		<coupon_code>100YBA</coupon_code>
+		<coupon_link>https://developer.wordpress.org/reference/functions/wp_insert_post/</coupon_link>
+		<coupon_text>15% Off</coupon_text>
+		<coupon_description>Get Flat 15% Off</coupon_description>
+		<expiry_date>10/30/2017</expiry_date>
+		<hide>yes</hide>
+		<coupon_template>Template Three</coupon_template>
+		<coupon_vendor>Vendor 3</coupon_vendor>
+	</item>
+	<item>
+		<category>Category 4</category>
+		<title>Title 4</title>
+		<coupon_code>100YBA</coupon_code>
+		<coupon_link>https://developer.wordpress.org/reference/functions/wp_insert_post/</coupon_link>
+		<coupon_text>15% Off</coupon_text>
+		<coupon_description>Get Flat 15% Off</coupon_description>
+		<expiry_date>10/30/2017</expiry_date>
+		<hide>yes</hide>
+		<coupon_template>Template Four</coupon_template>
+		<coupon_vendor>Vendor 4</coupon_vendor>
+	</item>
+	<item>
+		<category>Category 5</category>
+		<title>Title 5</title>
+		<coupon_code>100YBA</coupon_code>
+		<coupon_link>https://developer.wordpress.org/reference/functions/wp_insert_post/</coupon_link>
+		<coupon_text>15% Off</coupon_text>
+		<coupon_description>Get Flat 15% Off</coupon_description>
+		<expiry_date>10/30/2017</expiry_date>
+		<hide>yes</hide>
+		<coupon_template>Template Five</coupon_template>
+		<coupon_vendor>Vendor 5</coupon_vendor>
+	</item>
+	<item>
+		<category>Category 6</category>
+		<title>Title 6</title>
+		<coupon_code>100YBA</coupon_code>
+		<coupon_link>https://developer.wordpress.org/reference/functions/wp_insert_post/</coupon_link>
+		<coupon_text>15% Off</coupon_text>
+		<coupon_description>Get Flat 15% Off</coupon_description>
+		<expiry_date>10/30/2017</expiry_date>
+		<hide>yes</hide>
+		<coupon_template>Template Six</coupon_template>
+		<coupon_vendor>Vendor 6</coupon_vendor>
+	</item>
+	<item>
+		<category>Category 7</category>
+		<title>Title 7</title>
+		<coupon_code>100YBA</coupon_code>
+		<coupon_link>https://developer.wordpress.org/reference/functions/wp_insert_post/</coupon_link>
+		<coupon_text>15% Off</coupon_text>
+		<coupon_description>Get Flat 15% Off</coupon_description>
+		<expiry_date>10/30/2017</expiry_date>
+		<hide>yes</hide>
+		<coupon_template>Template Seven</coupon_template>
+		<coupon_vendor>Vendor 7</coupon_vendor>
+	</item>
+	<item>
+		<category>Category 8</category>
+		<title>Title 8</title>
+		<coupon_code>100YBA</coupon_code>
+		<coupon_link>https://developer.wordpress.org/reference/functions/wp_insert_post/</coupon_link>
+		<coupon_text>15% Off</coupon_text>
+		<coupon_description>Get Flat 15% Off</coupon_description>
+		<expiry_date>10/30/2017</expiry_date>
+		<hide>yes</hide>
+		<coupon_template>Template Eight</coupon_template>
+		<coupon_vendor>Vendor 8</coupon_vendor>
+	</item>
+	<item>
+		<title>Title 8</title>
+		<coupon_code>100YBA</coupon_code>
+		<coupon_link>https://developer.wordpress.org/reference/functions/wp_insert_post/</coupon_link>
+		<coupon_text>15% Off</coupon_text>
+		<coupon_description>Get Flat 15% Off</coupon_description>
+		<expiry_date>10/30/2017</expiry_date>
+		<hide>yes</hide>
+	</item>
+</coupons>
