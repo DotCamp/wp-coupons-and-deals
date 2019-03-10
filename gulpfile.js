@@ -7,7 +7,7 @@ gulp.task('css-minify', function () {
         src('./assets/css/*.css')
         .pipe(cleanCSS())
         .pipe(rename({ extname: '.min.css' }))
-        .pipe(gulp.dest('./assets/css/'))
+        .pipe(gulp.dest('./assets/css/dist/'))
 });
 
 gulp.task('admin-css-minify', function () {
@@ -15,5 +15,5 @@ gulp.task('admin-css-minify', function () {
         src('./assets/admin/css/*.css')
         .pipe(cleanCSS())
         .pipe(rename({ extname: '.min.css' }))
-        .pipe(gulp.dest('./assets/admin/css/'))
+        .pipe(gulp.dest('./assets/admin/css/dist/'))
 });
