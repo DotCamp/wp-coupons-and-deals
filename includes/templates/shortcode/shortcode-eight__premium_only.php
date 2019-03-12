@@ -134,7 +134,19 @@ $template = new WPCD_Template_Loader();
 				$template->get_template_part( 'hide-coupon2__premium_only' );
 				?>
 			<?php else: ?>
-				<a class="wpcd-new-coupon-code <?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank" data-clipboard-text="<?php echo $coupon_code; ?>" title="<?php echo $coupon_hover_text; ?>" style="border-color: <?php echo $wpcd_template_eight_theme; ?>;">
+				<a class="wpcd-new-coupon-code <?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip" 
+				   rel="nofollow" href="<?php echo esc_url( $link ); ?>" 
+				   target="_blank" 
+				   data-clipboard-text="<?php echo $coupon_code; ?>" 
+				   title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
+                                    if ( ! empty( $coupon_hover_text ) ) {
+                                        echo $coupon_hover_text;
+                                    } else {
+                                        echo __( "Click To Copy Coupon", 'wpcd-coupon' );
+                                    }
+                                }
+                            ?>" 
+		           style="border-color: <?php echo $wpcd_template_eight_theme; ?>;">
 				   <?php echo $coupon_code; ?>
 				</a>
 			<?php endif; ?>

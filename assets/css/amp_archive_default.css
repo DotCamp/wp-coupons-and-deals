@@ -247,19 +247,20 @@ a.wpcd-btn .wpcd_deal_icon {
     color: red;
 }
 
-.wpcd-coupon-code {
-    width: 100%;
-    text-align: center;
+.extra-wpcd-template-five-holder > .wpcd-coupon-code, 
+.extra-wpcd-template-five-holder > .wpcd-deal-code {
+    width: 40%;
+    float: left;
 }
 
 .wpcd-template-five-btn {
-    width: 38%;
-    margin-left: 2%;
-    float: left;
+    margin-left: 10px;
+    display: block;
     position: relative;
     text-decoration: none;
     -webkit-box-shadow: none;
     box-shadow: none;
+    white-space: nowrap;
     border-color: #18E06E;
 }
 

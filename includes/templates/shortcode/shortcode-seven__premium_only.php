@@ -111,7 +111,14 @@ $template = new WPCD_Template_Loader();
 	                        	<div class="wpcd_seven_btn">
 	                                <a class="masterTooltip" 
 	                                	href="<?php echo $link; ?>"
-	                                	title="<?php echo $coupon_hover_text; ?>"
+	                                	title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
+		                                                 if ( ! empty( $coupon_hover_text ) ) {
+		                                                     echo $coupon_hover_text;
+		                                                 } else {
+		                                                     echo __( "Click To Copy Coupon", 'wpcd-coupon' );
+		                                                 }
+		                                             }
+		                                        ?>"
 										data-clipboard-text="<?php echo $coupon_code; ?>"
 			                    		data-title-ab="<?php echo $coupon_code; ?>" 
 	                                 	style="background-color: <?php echo $wpcd_template_seven_theme; ?>; border-color: <?php echo $wpcd_template_seven_theme; ?>; color: <?php echo $wpcd_template_seven_theme; ?>"><?php echo $coupon_code; ?>

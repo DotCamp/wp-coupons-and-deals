@@ -63,6 +63,9 @@ $coupon_hover_text         = ( ! empty( $coupon_hover_text ) ) ? $coupon_hover_t
 $deal_hover_text = ( !empty( $deal_hover_text ) ) ? $deal_hover_text : __( 'Click Here To Get This Deal' );
 $wpcd_eight_btn_text       = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text : __( 'GET THE DEAL', 'wpcd-coupon' );
 
+
+if( ! $link && WPCD_Amp::wpcd_amp_is() ) $link = "#";
+
 if ( $wpcd_text_to_show == 'description' ) {
     $wpcd_custom_text = $description;
 } else {
@@ -174,7 +177,11 @@ include( 'header-category.php' );
                 $template->get_template_part( 'hide-coupon3__premium_only' );
                 ?>
             <?php else: ?>
-                <a class="wpcd-new-coupon-code <?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank" data-clipboard-text="<?php echo $coupon_code; ?>" title="<?php echo $coupon_hover_text; ?>">
+                <a class="wpcd-new-coupon-code <?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank" data-clipboard-text="<?php echo $coupon_code; ?>" 
+                title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
+                                 echo $coupon_hover_text;
+                             }
+                         ?>">
                    <?php echo $coupon_code; ?>
                 </a>
             <?php endif; ?>

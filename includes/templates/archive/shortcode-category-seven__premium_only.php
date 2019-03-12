@@ -118,7 +118,10 @@ include('header-category.php');
                                     <div class="wpcd_seven_btn">
                                         <a class="masterTooltip" 
                                             href="<?php echo $link; ?>"
-                                            title="<?php echo $coupon_hover_text; ?>"
+                                            title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
+                                                             echo $coupon_hover_text;
+                                                         }
+                                                     ?>"
                                             data-title-ab="<?php echo $coupon_code; ?>"><?php echo $coupon_code; ?>
                                         </a>
                                     </div>

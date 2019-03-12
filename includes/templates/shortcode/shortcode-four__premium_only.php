@@ -96,11 +96,14 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                             <a rel="nofollow"
                                class="<?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip wpcd-btn wpcd-coupon-button"
                                target="_blank" href="<?php echo $link; ?>"
-                               title="<?php if ( ! empty( $coupon_hover_text ) ) {
-								   echo $coupon_hover_text;
-							   } else {
-								   echo __( "Click To Copy Coupon", 'wpcd-coupon' );
-							   } ?>"
+                               title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
+		                                   		if ( ! empty( $coupon_hover_text ) ) {
+												    echo $coupon_hover_text;
+											    } else {
+												    echo __( "Click To Copy Coupon", 'wpcd-coupon' );
+											    }
+		                                    }
+	                            		?>"
                                data-clipboard-text="<?php echo $coupon_code; ?>">
                                 <span class="wpcd_coupon_icon">
                                 	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/coupon-code-24.png" style="width: 100%;height: 100%;" >
@@ -115,11 +118,14 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                         <a rel="nofollow"
                            class="<?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip wpcd-btn wpcd-coupon-button"
                            target="_blank" href="<?php echo $link; ?>"
-                           title="<?php if ( ! empty( $coupon_hover_text ) ) {
-							   echo $coupon_hover_text;
-						   } else {
-							   echo __( "Click To Copy Coupon", 'wpcd-coupon' );
-						   } ?>"
+                           title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
+	                                   		if ( ! empty( $coupon_hover_text ) ) {
+											    echo $coupon_hover_text;
+										    } else {
+											    echo __( "Click To Copy Coupon", 'wpcd-coupon' );
+										    }
+	                                    }
+                            		?>"
                            data-clipboard-text="<?php echo $coupon_code; ?>">
                             <span class="wpcd_coupon_icon">
                             	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/coupon-code-24.png" style="width: 100%;height: 100%;" >
@@ -135,10 +141,11 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                     <a rel="nofollow"
                        class="<?php echo 'wpcd-btn-' . $coupon_id; ?> wpcd-btn masterTooltip wpcd-deal-button"
                        title="<?php if ( ! empty( $deal_hover_text ) ) {
-						   echo $deal_hover_text;
-					   } else {
-						   echo __( "Click Here To Get This Deal", 'wpcd-coupon' );
-					   } ?>" href="<?php echo $link; ?>" target="_blank        ">
+									    echo $deal_hover_text;
+								    } else {
+									    echo __( "Click Here To Get This Deal", 'wpcd-coupon' );
+								    } ?>" 
+					   href="<?php echo $link; ?>" target="_blank        ">
                         <span class="wpcd_deal_icon">
                         	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/deal-24.png" style="width: 100%;height: 100%;" >
                         </span><?php echo $deal_text; ?>
@@ -254,11 +261,14 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                     <a rel="nofollow"
                        class="<?php echo 'wpcd-btn-' . $coupon_id . '_' . $num_coupon; ?> masterTooltip wpcd-btn wpcd-coupon-button"
                        target="_blank" href="<?php echo $second_link; ?>"
-                       title="<?php if ( ! empty( $coupon_hover_text ) ) {
-						   echo $coupon_hover_text;
-					   } else {
-						   echo __( "Click To Copy Coupon", 'wpcd-coupon' );
-					   } ?>"
+                       title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
+                                   		if ( ! empty( $coupon_hover_text ) ) {
+										    echo $coupon_hover_text;
+									    } else {
+										    echo __( "Click To Copy Coupon", 'wpcd-coupon' );
+									    }
+                                    }
+                        		?>"
                        data-clipboard-text="<?php echo $second_coupon_code; ?>">
                         <span class="wpcd_coupon_icon">
                         	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/coupon-code-24.png" style="width: 100%;height: 100%;" >
@@ -273,11 +283,14 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                     <a rel="nofollow"
                        class="<?php echo 'wpcd-btn-' . $coupon_id . '_' . $num_coupon; ?> masterTooltip wpcd-btn wpcd-coupon-button"
                        target="_blank" href="<?php echo $second_link; ?>"
-                       title="<?php if ( ! empty( $coupon_hover_text ) ) {
-						   echo $coupon_hover_text;
-					   } else {
-						   echo __( "Click To Copy Coupon", 'wpcd-coupon' );
-					   } ?>"
+                       title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
+                                   		if ( ! empty( $coupon_hover_text ) ) {
+										    echo $coupon_hover_text;
+									    } else {
+										    echo __( "Click To Copy Coupon", 'wpcd-coupon' );
+									    }
+                                    }
+                        		?>"
                        data-clipboard-text="<?php echo $second_coupon_code; ?>">
                         <span class="wpcd_coupon_icon">
                         	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/coupon-code-24.png" style="width: 100%;height: 100%;" >
@@ -296,10 +309,11 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                     <a rel="nofollow"
                        class="<?php echo 'wpcd-btn-' . $coupon_id . '_' . $num_coupon; ?> wpcd-btn masterTooltip wpcd-deal-button"
                        title="<?php if ( ! empty( $deal_hover_text ) ) {
-						   echo $deal_hover_text;
-					   } else {
-						   echo __( "Click Here To Get This Deal", 'wpcd-coupon' );
-					   } ?>" href="<?php echo $second_link; ?>" target="_blank        ">
+									   	echo $deal_hover_text;
+								    } else {
+									   echo __( "Click Here To Get This Deal", 'wpcd-coupon' );
+								    } ?>" 
+					   href="<?php echo $second_link; ?>" target="_blank        ">
                         <span class="wpcd_deal_icon">
                         	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/deal-24.png" style="width: 100%;height: 100%;" >
                         </span><?php echo $second_deal_text; ?>
@@ -411,11 +425,14 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                     	<a rel="nofollow"
                        class="<?php echo 'wpcd-btn-' . $coupon_id . '_' . $num_coupon; ?> masterTooltip wpcd-btn wpcd-coupon-button"
                        target="_blank" href="<?php echo $third_link; ?>"
-                       title="<?php if ( ! empty( $coupon_hover_text ) ) {
-						   echo $coupon_hover_text;
-					   } else {
-						   echo __( "Click To Copy Coupon", 'wpcd-coupon' );
-					   } ?>"
+                       title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
+                                   		if ( ! empty( $coupon_hover_text ) ) {
+										    echo $coupon_hover_text;
+									    } else {
+										    echo __( "Click To Copy Coupon", 'wpcd-coupon' );
+									    }
+                                    }
+                        		?>"
                        data-clipboard-text="<?php echo $third_coupon_code; ?>">
                         <span class="wpcd_coupon_icon">
                         	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/coupon-code-24.png" style="width: 100%;height: 100%;" >
@@ -430,11 +447,14 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                     <a rel="nofollow"
                        class="<?php echo 'wpcd-btn-' . $coupon_id . '_' . $num_coupon; ?> masterTooltip wpcd-btn wpcd-coupon-button"
                        target="_blank" href="<?php echo $third_link; ?>"
-                       title="<?php if ( ! empty( $coupon_hover_text ) ) {
-						   echo $coupon_hover_text;
-					   } else {
-						   echo __( "Click To Copy Coupon", 'wpcd-coupon' );
-					   } ?>"
+                       title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
+                                   		if ( ! empty( $coupon_hover_text ) ) {
+										    echo $coupon_hover_text;
+									    } else {
+										    echo __( "Click To Copy Coupon", 'wpcd-coupon' );
+									    }
+                                    }
+                        		?>"
                        data-clipboard-text="<?php echo $third_coupon_code; ?>">
                         <span class="wpcd_coupon_icon">
                         	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/coupon-code-24.png" style="width: 100%;height: 100%;" >
@@ -453,10 +473,11 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                     <a rel="nofollow"
                        class="<?php echo 'wpcd-btn-' . $coupon_id; ?> wpcd-btn masterTooltip wpcd-deal-button"
                        title="<?php if ( ! empty( $deal_hover_text ) ) {
-						   echo $deal_hover_text;
-					   } else {
-						   echo __( "Click Here To Get This Deal", 'wpcd-coupon' );
-					   } ?>" href="<?php echo $third_link; ?>" target="_blank        ">
+								   	echo $deal_hover_text;
+							    } else {
+								    echo __( "Click Here To Get This Deal", 'wpcd-coupon' );
+							    } ?>" 
+					   href="<?php echo $third_link; ?>" target="_blank        ">
                         <span class="wpcd_deal_icon">
                         	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/deal-24.png" style="width: 100%;height: 100%;" >
                         </span><?php echo $third_deal_text; ?>

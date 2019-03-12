@@ -66,6 +66,9 @@ if ( $wpcd_text_to_show == 'description' ) {
 	}
 }
 if( ! $link && WPCD_Amp::wpcd_amp_is() ) $link = "#";
+$coupon_hover_text = ( ! empty( $coupon_hover_text ) ) ? $coupon_hover_text : __( 'Click To Copy Coupon', 'wpcd-coupon' );
+$deal_hover_text = ( !empty( $deal_hover_text ) ) ? $deal_hover_text : __( 'Click Here To Get This Deal' );
+
 include('header-category.php');
 ?>
 <?php if ( $coupon_type === 'Image' ): ?>
@@ -161,7 +164,10 @@ include('header-category.php');
                         <div class="wpcd-coupon-code">
                             <a class="wpcd-template-five-btn masterTooltip <?php echo $button_class; ?>"
                                href="<?php echo $link; ?>" target="_blank"
-                               title="<?php echo __( 'Click Here To Copy Coupon', 'wpcd-coupon' ); ?>"
+                               title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
+                                                echo $coupon_hover_text;
+                                            }
+                                        ?>"
                                data-clipboard-text="<?php if ( ! empty( $coupon_code ) ) {
 								   echo $coupon_code;
 							   } else {
@@ -351,7 +357,10 @@ include('header-category.php');
                                 <div class="wpcd-coupon-code wpcd-btn-wrap">
                                     <a class="wpcd-template-six-btn masterTooltip <?php echo $button_class; ?>"
                                        target="_blank" href="<?php echo $link; ?>"
-                                       title="<?php echo __( 'Click Here To Copy Coupon', 'wpcd-coupon' ); ?>"
+                                       title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
+                                                        echo $coupon_hover_text;
+                                                    }
+                                                ?>"
                                        data-clipboard-text="<?php if ( ! empty( $coupon_code ) ) {
 										   echo $coupon_code;
 									   } else {
@@ -420,39 +429,39 @@ include('header-category.php');
 						<?php if ( $coupon_type == 'Coupon' ) {
 						if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) {
 
-						if ( $hide_coupon == 'Yes'  && ! WPCD_Amp::wpcd_amp_is() ) {
+    						if ( $hide_coupon == 'Yes'  && ! WPCD_Amp::wpcd_amp_is() ) {
 
-							$template = new WPCD_Template_Loader();
+    							$template = new WPCD_Template_Loader();
 
-							$template->get_template_part( 'hide-coupon__premium_only' );
+    							$template->get_template_part( 'hide-coupon__premium_only' );
 
+    						} else { ?>
+                                <div class="wpcd-coupon-code">
+                                    <a rel="nofollow"
+                                       class="<?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip wpcd-btn wpcd-coupon-button"
+                                       title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
+                                                        echo $coupon_hover_text;
+                                                    }
+                                                ?>" 
+                                       href="<?php echo $link; ?>" target="_blank"
+                                       data-clipboard-text="<?php echo $coupon_code; ?>">
+                                        <span class="wpcd_coupon_icon">
+                                            <img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/coupon-code-24.png" style="width: 100%;height: 100%;" >
+                                        </span> <?php echo $coupon_code; ?>
+                                        <span id="coupon_code_<?php echo $coupon_id; ?>"
+                                              class="coupon_code_amp" style="display:none;"><?php echo $coupon_code; ?></span>
+                                    </a>
+                                </div>
+    						<?php }
 						} else { ?>
                             <div class="wpcd-coupon-code">
                                 <a rel="nofollow"
                                    class="<?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip wpcd-btn wpcd-coupon-button"
-                                   title="<?php if ( ! empty( $coupon_hover_text ) ) {
-									   echo $coupon_hover_text;
-								   } else {
-									   echo __( "Click To Copy Coupon", 'wpcd-coupon' );
-								   } ?>" href="<?php echo $link; ?>" target="_blank"
-                                   data-clipboard-text="<?php echo $coupon_code; ?>">
-                                    <span class="wpcd_coupon_icon">
-                                        <img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/coupon-code-24.png" style="width: 100%;height: 100%;" >
-                                    </span> <?php echo $coupon_code; ?>
-                                    <span id="coupon_code_<?php echo $coupon_id; ?>"
-                                          class="coupon_code_amp" style="display:none;"><?php echo $coupon_code; ?></span>
-                                </a>
-                            </div>
-						<?php }
-						} else { ?>
-                            <div class="wpcd-coupon-code">
-                                <a rel="nofollow"
-                                   class="<?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip wpcd-btn wpcd-coupon-button"
-                                   title="<?php if ( ! empty( $coupon_hover_text ) ) {
-									   echo $coupon_hover_text;
-								   } else {
-									   echo __( "Click To Copy Coupon", 'wpcd-coupon' );
-								   } ?>" href="<?php echo $link; ?>" target="_blank"
+                                   title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
+                                                    echo $coupon_hover_text;
+                                                }
+                                            ?>" 
+                                   href="<?php echo $link; ?>" target="_blank"
                                    data-clipboard-text="<?php echo $coupon_code; ?>">
                                     <span class="wpcd_coupon_icon">
                                         <img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/coupon-code-24.png" style="width: 100%;height: 100%;" >

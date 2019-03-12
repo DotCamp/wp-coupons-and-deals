@@ -145,7 +145,14 @@ $template = new WPCD_Template_Loader();
                 <div class="wpcd-coupon-code">
                     <a class="wpcd-template-five-btn masterTooltip <?php echo $button_class; ?>"
                        href="<?php echo $link; ?>" target="_blank" rel="nofollow"
-                       title="<?php echo __( 'Click Here To Copy Coupon', 'wpcd-coupon' ); ?>"
+                       title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
+                                   		if ( ! empty( $coupon_hover_text ) ) {
+										    echo $coupon_hover_text;
+									    } else {
+										    echo __( "Click To Copy Coupon", 'wpcd-coupon' );
+									    }
+                                    }
+                        		?>"
                        data-clipboard-text="<?php if ( ! empty( $coupon_code ) ) {
 						   echo $coupon_code;
 					   } else {

@@ -90,7 +90,8 @@
 .wpcd-template-five p.wpcd-coupon-five-expired {
     color: red;
 }
-.extra-wpcd-template-five-holder > .wpcd-coupon-code {
+.extra-wpcd-template-five-holder > .wpcd-coupon-code, 
+.extra-wpcd-template-five-holder > .wpcd-deal-code {
     width: 40%;
     float: left;
 }

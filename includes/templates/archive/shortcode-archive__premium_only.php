@@ -130,10 +130,17 @@ include('header-grid.php');
 
             <?php } else { ?>
                 <div class="wpcd-coupon-code wpcd_btn_wr">
-                    <?php if (!empty($coupon_hover_text)) { ?>
                         <a rel="nofollow"
                            class="wpcd-btn-<?php echo $coupon_id; ?> masterTooltip wpcd-btn wpcd-coupon-button"
-                           href="<?php echo $link; ?>" title="<?php echo $coupon_hover_text; ?>"
+                           href="<?php echo $link; ?>" 
+                           title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
+                                            if ( ! empty( $coupon_hover_text ) ) {
+                                                echo $coupon_hover_text;
+                                            } else {
+                                                echo __( "Click To Copy Coupon", 'wpcd-coupon' );
+                                            }
+                                        }
+                                    ?>"
                            target="_blank"
                            data-clipboard-text="<?php echo $coupon_code; ?>">
                             <span class="wpcd_coupon_icon">
@@ -141,19 +148,6 @@ include('header-grid.php');
                             </span> <?php echo $coupon_code; ?>
                             <span id="coupon_code_<?php echo $coupon_id; ?>" class="coupon_code_amp" style="display:none;"><?php echo $coupon_code; ?></span>
                         </a>
-                    <?php } else { ?>
-                        <a rel="nofollow"
-                           class="wpcd-btn-<?php echo $coupon_id; ?> masterTooltip wpcd-btn wpcd-coupon-button"
-                           href="<?php echo $link; ?>"
-                           title="<?php echo __('Click To Copy Coupon', 'wpcd-coupon'); ?>"
-                           target="_blank"
-                           data-clipboard-text="<?php echo $coupon_code; ?>">
-                            <span class="wpcd_coupon_icon">
-                                <img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/coupon-code-24.png" style="width: 100%;height: 100%;" >
-                            </span> <?php echo $coupon_code; ?>
-                            <span id="coupon_code_<?php echo $coupon_id; ?>" class="coupon_code_amp" style="display:none;"><?php echo $coupon_code; ?></span>
-                        </a>
-                    <?php } ?>
                 </div>
             <?php } ?>
 
@@ -163,25 +157,20 @@ include('header-grid.php');
 
             <?php } elseif ($coupon_type == 'Deal') { ?>
                 <div class="wpcd-coupon-code wpcd_btn_wr">
-                    <?php if (!empty($deal_hover_text)) { ?>
                         <a rel="nofollow"
                            class="wpcd-btn-<?php echo $coupon_id; ?> wpcd-btn masterTooltip wpcd-deal-button"
-                           title="<?php echo $deal_hover_text; ?>" href="<?php echo $link; ?>"
+                           title="<?php if ( ! empty( $deal_hover_text ) ) {
+                                            echo $deal_hover_text;
+                                        } else {
+                                            echo __( "Click Here To Get This Deal", 'wpcd-coupon' );
+                                        }
+                                    ?>" 
+                           href="<?php echo $link; ?>"
                            target="_blank">
                             <span class="wpcd_deal_icon">
                                 <img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/deal-24.png" style="width: 100%;height: 100%;" >
                             </span><?php echo $deal_text; ?>
                         </a>
-                    <?php } else { ?>
-                        <a rel="nofollow"
-                           class="wpcd-btn-<?php echo $coupon_id; ?> wpcd-btn masterTooltip wpcd-deal-button"
-                           title="<?php echo __('Click Here To Get This Deal', 'wpcd-coupon'); ?>"
-                           href="<?php echo $link; ?>" target="_blank">
-                            <span class="wpcd_deal_icon">
-                                <img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/deal-24.png" style="width: 100%;height: 100%;" >
-                            </span><?php echo $deal_text; ?>
-                        </a>
-                    <?php } ?>
                 </div>
             <?php } ?>
 
