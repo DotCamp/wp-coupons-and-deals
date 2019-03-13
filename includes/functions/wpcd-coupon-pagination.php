@@ -35,28 +35,11 @@ if( !function_exists( 'wpcd_generatePageUrl' ) ) {
     }
 }
 
-
-if( !function_exists( 'wpcd_curPageURL' ) ) {
-    function wpcd_curPageURL() {
-        $pageURL = 'http';
-        if ( $_SERVER["HTTPS"] == "on" ) {$pageURL .= "s";}
-        $pageURL .= "://";
-        if ( $_SERVER["SERVER_PORT"] != "80" ) {
-            $pageURL .= $_SERVER["SERVER_NAME"].
-                        ":".
-                        $_SERVER["SERVER_PORT"].
-                        $_SERVER["REQUEST_URI"];
-        } else {
-            $pageURL .= $_SERVER["SERVER_NAME"].
-                        $_SERVER["REQUEST_URI"];
-        }
-        return $pageURL;
-    }
-}
-
            
 if( !function_exists( 'wpcd_generatePagination' ) ) {
-    function wpcd_generatePagination( $current_url, $max_num_page, $end_size = 1, $mid_size = 2, $prev_next = true, $show_all = false ) {
+    function wpcd_generatePagination( $max_num_page, $end_size = 1, $mid_size = 2, $prev_next = true, $show_all = false ) {
+        $pageNum=(get_query_var('paged')) ? get_query_var('paged') : 1;
+        $current_url = get_pagenum_link($pageNum);
         if( $max_num_page < 2 ) {
             return;
         }
@@ -104,7 +87,9 @@ if( !function_exists( 'wpcd_generatePagination' ) ) {
  */
 
 if( ! function_exists( 'wpcd_preparationMenuLinks' ) ) {
-    function wpcd_preparationMenuLinks( $current_url ) {
+    function wpcd_preparationMenuLinks() {
+        $pageNum=(get_query_var('paged')) ? get_query_var('paged') : 1;
+        $current_url = get_pagenum_link($pageNum);
         $pos = strpos($current_url, '?');
         $current_url_final = array();
         if( $pos !== false ) {

@@ -79,7 +79,7 @@ class WPCD_Welcome_Page {
 		// Welcome page styles.
 		wp_enqueue_style(
 			'wpcd_welcome_style',
-			WPCD_Plugin::instance()->plugin_assets . 'admin/css/welcome.css',
+			WPCD_Plugin::instance()->plugin_assets . 'admin/css/' . WPCD_Assets::wpcd_version_correct( 'dir' ) . 'welcome' . WPCD_Assets::wpcd_version_correct( 'suffix' ) . '.css',
 			array(),
 			WPCD_Plugin::PLUGIN_VERSION,
 			'all'

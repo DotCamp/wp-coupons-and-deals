@@ -10,13 +10,9 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
 
             $terms = get_terms( 'wpcd_coupon_category' );
             if ( !empty( $terms ) && !is_wp_error( $terms ) && !$disable_menu ):
-
-                $pageNum=(get_query_var('paged')) ? get_query_var('paged') : 1;
-                $current_url = get_pagenum_link($pageNum);
-                $current_url_final = wpcd_preparationMenuLinks( $current_url );
+                $current_url_final = wpcd_preparationMenuLinks();
                 $current_url_final_all = $current_url_final['all'];
                 $current_url_final_sin = $current_url_final['sin'];
-
         ?>
             <div class="wpcd_div_nav_block">
                     <div class="wpcd_cats">

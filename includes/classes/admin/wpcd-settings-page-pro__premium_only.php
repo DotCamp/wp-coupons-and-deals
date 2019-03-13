@@ -500,10 +500,10 @@ class WPCD_Settings_Page_Pro {
 		if ( $hook != $settings_page ) {
 			return;
 		} else {
-			wp_enqueue_style( 'wpcd-admin-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/admin.css', false );
+			wp_enqueue_style( 'wpcd-admin-style', WPCD_Plugin::instance()->plugin_assets . WPCD_Plugin::instance()->plugin_assets . 'admin/css/' . WPCD_Assets::wpcd_version_correct( 'dir' ) . 'admin' . WPCD_Assets::wpcd_version_correct( 'suffix' ) . '.css', false );
 
 			// color Picker
-			wp_enqueue_style( 'wpcd-color-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/colorpicker.css', false );
+			wp_enqueue_style( 'wpcd-color-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/' . WPCD_Assets::wpcd_version_correct( 'dir' ) . 'colorpicker' . WPCD_Assets::wpcd_version_correct( 'suffix' ) . '.css', false );
 			wp_enqueue_script( 'wpcd-color-script', WPCD_Plugin::instance()->plugin_assets . 'admin/js/colorpicker.js', array( 'jquery' ), WPCD_Plugin::PLUGIN_VERSION, true );
 		}
 	}

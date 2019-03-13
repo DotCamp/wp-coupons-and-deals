@@ -39,7 +39,7 @@ class WPCD_Assets {
 	 */
 	public static function wpcd_stylesheets( $amp = false, $coupon_id = false, $coupon_template = false ) {
 		if ( ! $amp ) {
-			wp_enqueue_style( 'wpcd-style', WPCD_Plugin::instance()->plugin_assets . 'css/style.css', false, WPCD_Plugin::PLUGIN_VERSION );
+			wp_enqueue_style( 'wpcd-style', WPCD_Plugin::instance()->plugin_assets . 'css/' . self::wpcd_version_correct( 'dir' ) . 'style' . self::wpcd_version_correct( 'suffix' ) . '.css', false, WPCD_Plugin::PLUGIN_VERSION );
 		}
 
 		$custom_css = get_option( 'wpcd_custom-css' ); 
@@ -291,7 +291,7 @@ class WPCD_Assets {
 
 			if ( is_object( $screen ) && $custom_post_type == $screen->post_type ) {
 
-				wp_enqueue_style( 'wpcd-jquery-ui-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/jquery-ui.css', false, WPCD_Plugin::PLUGIN_VERSION );
+				wp_enqueue_style( 'wpcd-jquery-ui-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/' . self::wpcd_version_correct( 'dir' ) . 'jquery-ui' . self::wpcd_version_correct( 'suffix' ) . '.css', false, WPCD_Plugin::PLUGIN_VERSION );
 
 			}
 		}
@@ -302,7 +302,7 @@ class WPCD_Assets {
 
 			if ( is_object( $screen ) && $custom_post_type == $screen->post_type ) {
 
-				wp_enqueue_style( 'wpcd-admin-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/admin.css', false, WPCD_Plugin::PLUGIN_VERSION );
+				wp_enqueue_style( 'wpcd-admin-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/' . self::wpcd_version_correct( 'dir' ) . 'admin' . self::wpcd_version_correct( 'suffix' ) . '.css', false, WPCD_Plugin::PLUGIN_VERSION );
 				wp_enqueue_style( 'wpcd-admin-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/select2.min.css', false, WPCD_Plugin::PLUGIN_VERSION );
 
 			}
@@ -310,7 +310,7 @@ class WPCD_Assets {
 
 		if ( in_array( $hook_suffix, array( 'edit.php', 'post.php', 'post-new.php' ) ) ) {
 
-			wp_enqueue_style( 'wpcd-admin-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/admin.css', false, WPCD_Plugin::PLUGIN_VERSION );
+			wp_enqueue_style( 'wpcd-admin-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/' . self::wpcd_version_correct( 'dir' ) . 'admin' . self::wpcd_version_correct( 'suffix' ) . '.css', false, WPCD_Plugin::PLUGIN_VERSION );
 
 		}
 
@@ -365,7 +365,7 @@ class WPCD_Assets {
 				//To add custom javascript code to tinymce editor at initiation 
 				add_filter( 'tiny_mce_before_init', array( __CLASS__, 'wpcd_tiny_mce' ) );
 				// color Picker
-				wp_enqueue_style('wpcd-color-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/colorpicker.css', false);
+				wp_enqueue_style('wpcd-color-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/' . self::wpcd_version_correct( 'dir' ) . 'colorpicker' . self::wpcd_version_correct( 'suffix' ) . '.css', false);
 				wp_enqueue_script('wpcd-color-script', WPCD_Plugin::instance()->plugin_assets . 'admin/js/colorpicker.js', array('jquery'), WPCD_Plugin::PLUGIN_VERSION, true);
 
 			}
@@ -416,5 +416,27 @@ class WPCD_Assets {
 }][0]
 JS;
         return $initArray;
+    }
+
+    /**
+	 * This function checks debug is switch on or switch off 
+	 * and then return the necessary directory or suffix if it needs ( for minimized version )
+	 * 
+	 * @since 2.7.2
+	 * @param string $way_correct
+	 * @return string 
+	 */
+    public static function wpcd_version_correct( $way_correct ) {
+        $correct = array(
+        	'dir'   => 'dist/', 
+        	'suffix' => '.min',
+        );
+        if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
+        	$correct['dir']   = '';
+        	$correct['suffix'] = '';
+        }
+
+        return array_key_exists($way_correct, $correct) ? $correct[$way_correct] : '';
+        
     }
 }

@@ -46,8 +46,7 @@ if ( $parent == 'footer' || $parent == 'headerANDfooter' ):
                 }
                 
             } else {
-                $current_url = wpcd_curPageURL();
-                echo wpcd_generatePagination($current_url, $max_num_page);
+                echo wpcd_generatePagination( $max_num_page );
                 echo "</div>";
             }
         ?>
