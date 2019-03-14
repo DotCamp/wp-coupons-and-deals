@@ -29,6 +29,9 @@ class WPCD_AJAX {
      * AJAX adding new vote
      */
     public static function vote() {
+        if ( ! check_ajax_referer( 'wpcd-security-nonce', 'security' ) ) {
+            wp_die();
+        }
         $coupon_id = intval($_POST['coupon_id']);
         $meta = esc_sql($_POST['meta']);
 

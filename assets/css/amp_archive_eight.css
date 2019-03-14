@@ -23,10 +23,6 @@
     box-shadow: 0px 1px 2px rgba(34, 34, 34, .2);
 }
 
-.wpcd-coupon-image-wrapper div:last-child {
-    display: none;
-}
-
 .wpcd-new-coupon-type {
     display: block;
     background: #56b151;

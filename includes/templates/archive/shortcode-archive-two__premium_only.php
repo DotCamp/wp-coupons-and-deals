@@ -95,7 +95,12 @@ global $parent;
 include('header-default.php');
 ?>
 <?php if ( $coupon_type === 'Image' ): ?>
-    <?php include('coupon_type__image.php'); ?>
+<?php 
+    include('coupon_type__image.php'); 
+    if ( WPCD_Amp::wpcd_amp_is() ) {
+        WPCD_Amp::instance()->setCss( 'shortcode_image' );
+    } 
+?>
 <?php else: ?>
 <!--- Template two start -->
 <div class="wpcd-coupon-two wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item <?php echo $coupon_categories_class; ?>"

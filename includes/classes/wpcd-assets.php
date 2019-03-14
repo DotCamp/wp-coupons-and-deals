@@ -207,7 +207,14 @@ class WPCD_Assets {
 		wp_enqueue_script( 'wpcd-clipboardjs' );
                 
         //To make sure that "ajax_url" is defined in main.js
-        wp_localize_script( 'wpcd-main-js', 'wpcd_object', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+        wp_localize_script( 
+        	'wpcd-main-js', 
+        	'wpcd_object', 
+        	[
+			  	'ajaxurl'  => admin_url( 'admin-ajax.php' ),
+			  	'security'  => wp_create_nonce( 'wpcd-security-nonce' ),
+			] 
+		);
 		
         $word_count = get_option( 'wpcd_words-count' );
 		if ( empty( $word_count ) ) {
@@ -261,7 +268,7 @@ class WPCD_Assets {
 			'button_text'  => $button_text,
 			'after_copy'   => $after_copy,
 			'vote_success' => $vote_success_message,
-			'vote_fail' => $vote_failed_message,
+			'vote_fail'    => $vote_failed_message,
 			'vote_already' => $vote_already_message
 		) );
 

@@ -87,13 +87,13 @@ jQuery(document).ready(function ($) {
                 search_text = undefined;
             }
 
-            var ajaxurl = '/wp-admin/admin-ajax.php';
             $.ajax({
                 type: 'post',
                 dataType: 'json',
-                url: ajaxurl,
+                url: wpcd_object.ajaxurl,
                 data: {
                     action: action,
+                    security: wpcd_object.security,
                     wpcd_category: wpcd_category,
                     coupon_template: coupon_template,
                     coupon_items_count: coupon_items_count,
@@ -145,6 +145,8 @@ jQuery(document).ready(function ($) {
                             });
                             more_less_description();
                         }
+                    } else {
+                        $('.wpcd_coupon_loader').addClass('wpcd_coupon_hidden_loader');
                     }
                 }
             });
@@ -294,6 +296,7 @@ jQuery(document).ready(function ($) {
         }
         var data = {
             'action': 'wpcd_vote',
+            'security': wpcd_object.security,
             'meta': meta,
             'coupon_id': coupon_id,
         };

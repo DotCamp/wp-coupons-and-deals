@@ -302,19 +302,24 @@ class WPCD_Short_Code {
 	 * @return string
 	 */
 	public static function wpcd_coupons_archive_func__premium_only( $atts ) {
+		if ( isset( $_POST['action'] ) && $_POST['action'] == 'wpcd_coupons_category_action' ) {
+			if ( ! check_ajax_referer( 'wpcd-security-nonce', 'security' ) ) {
+			    wp_die();
+			}
+		}
+		
+
 		$output = "";
 		$paged = 1;
 		$wpcd_data_category = 'all';
 		$wpcd_amp_page_indicate = false;
 		$a = array();
 		if ( !isset($_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_action' ) {
-
 			wp_enqueue_script( 'wpcd-main-js' );
 			$a = shortcode_atts( array(
 				'count' => '9',
 				'temp'  => ''
 			), $atts );
-			$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 		} 
 
 			
@@ -523,7 +528,7 @@ class WPCD_Short_Code {
 
 		if ( isset( $_POST['action'] ) && $_POST['action'] == 'wpcd_coupons_category_action' ) {
 			echo json_encode( $output );
-			die();
+			wp_die();
 		}
 		
 		return $output;
@@ -538,15 +543,23 @@ class WPCD_Short_Code {
 	 * @return string
 	 */
 	public static function wpcd_coupons_loop_func__premium_only( $atts ) {
+		if ( isset( $_POST['action'] ) && $_POST['action'] == 'coupons_cat_vend_action' ) {
+			if ( ! check_ajax_referer( 'wpcd-security-nonce', 'security' ) ) {
+			    wp_die();
+			}
+		}
 
-		wp_enqueue_script( 'wpcd-main-js' );
-		$a = shortcode_atts( array(
-			'count' => 9,
-			'id'    => '',
-			'cat'   => '',
-            'vend'  => '',
-			'temp'  => ''
-		), $atts );
+		if ( !isset($_POST['action'] ) || $_POST['action'] != 'coupons_cat_vend_action' ) {
+			wp_enqueue_script( 'wpcd-main-js' );
+			$a = shortcode_atts( array(
+				'count' => 9,
+				'id'    => '',
+				'cat'   => '',
+	            'vend'  => '',
+				'temp'  => ''
+			), $atts );
+		}
+		
 
 		global $args;
 		$output = "";
@@ -569,6 +582,10 @@ class WPCD_Short_Code {
 		if ( isset( $_POST['coupon_template'] ) && !empty( $_POST['coupon_template'] ) ) {
 			$temp = sanitize_text_field( $_POST['coupon_template'] );
 		} 
+
+		if ( isset( $_POST['coupon_items_count'] ) && !empty( $_POST['coupon_items_count'] ) ) {
+			$a['count'] = sanitize_text_field( $_POST['coupon_items_count'] );
+		}
 
 		if ( isset( $_POST['wpcd_data_category_coupons'] ) && !empty( $_POST['wpcd_data_category_coupons'] ) ) {
 			$cat = sanitize_text_field( $_POST['wpcd_data_category_coupons'] );
@@ -616,7 +633,7 @@ class WPCD_Short_Code {
     		WPCD_Amp::instance()->setCss( $user_stylesheets, false );
     	}
 
-		if ( ! WPCD_Amp::wpcd_amp_is() && ( !isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_action' ) ) {
+		if ( ! WPCD_Amp::wpcd_amp_is() && ( !isset( $_POST['action'] ) || $_POST['action'] != 'coupons_cat_vend_action' ) ) {
 			global $post;
 			$wpcd_data_coupon_page_url = get_page_link( $post->ID );
 			$output = '<div id="wpcd_coupon_template" wpcd-data-coupon_template="'.$temp.'" wpcd-data-coupon_items_count="'.$a["count"].'" wpcd-data-coupon_page_url="'.$wpcd_data_coupon_page_url.'" wpcd-data_category_coupons="'.$cat.'" wpcd-data_vendor_coupons="'.$vend.'"></div>';

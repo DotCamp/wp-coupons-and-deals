@@ -73,6 +73,11 @@ if ( is_array( $wpcd_coupon_image_src ) ) {
         <a href="<?php echo $wpcd_link; ?>" target="_blank">
             <img class="wpcd_coupon_img" src="<?php echo $wpcd_coupon_image_src; ?>"
                  alt="<?php _e( 'Coupon image not uploaded', 'wpcd-coupon' ); ?>">
+            <?php 
+                if( WPCD_Amp::wpcd_amp_is() ) {
+                    echo '<div>' . __('Coupon image not uploaded', 'wpcd-coupon') . '</div>';
+                }
+            ?>
         </a>
     </div>
 <?php if( !WPCD_Amp::wpcd_amp_is() ): ?>

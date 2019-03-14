@@ -11,6 +11,12 @@
             margin: 0px auto;
         }
 
+        .wpcd-coupon-image div {
+            padding: 10px;
+            border: 2px dashed #000000;
+            display: inline-block;
+        }
+
         .wpcd-coupon-image img {
             max-width: 100%;
             max-height: 100%;
@@ -44,10 +50,15 @@
         <a href="<?php echo $link; ?>" target="_blank">
             <img src="<?php echo $wpcd_coupon_image_src; ?>"
                  alt="<?php _e('Coupon image not uploaded', 'wpcd-coupon'); ?>">
+            <?php 
+                if( WPCD_Amp::wpcd_amp_is() ) {
+                    echo '<div>' . __('Coupon image not uploaded', 'wpcd-coupon') . '</div>';
+                }
+            ?>
         </a>
     </div>
 <?php if( !WPCD_Amp::wpcd_amp_is() ): ?>
-    <?php if ($wpcd_show_print != 'No'): ?>
+    <?php if ( $wpcd_show_print != 'No' ): ?>
         <div style="text-align:center">
             <a class="coupon-image-print-link"
                onclick="wpcd_print_coupon_img('<?php echo $wpcd_coupon_image_src; ?>')"><?php _e('Click To Print', 'wpcd-coupon'); ?></a>

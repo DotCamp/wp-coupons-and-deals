@@ -69,7 +69,12 @@ if ( $wpcd_text_to_show == 'description' ) {
 include('header-category.php');
 ?>
 <?php if ( $coupon_type === 'Image' ): ?>
-    <?php include('coupon_type__image.php'); ?>
+<?php 
+    include('coupon_type__image.php'); 
+    if ( WPCD_Amp::wpcd_amp_is() ) {
+        WPCD_Amp::instance()->setCss( 'shortcode_image' );
+    } 
+?>
 <?php else: ?>
 <!--- Template three start -->
 <div class="wpcd-coupon-three wpcd-coupon-id-<?php echo $coupon_id; ?>">

@@ -1,6 +1,18 @@
+.wpcd-coupon-image-wrapper {
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
 .wpcd-coupon-image {
     text-align: center;
     margin: 0px auto;
+}
+.wpcd-coupon-image  div {
+    padding: 10px;
+    border: 2px dashed #000000;
+    display: inline-block;
+}
+.wpcd-coupon-image div:hover {
+    text-decoration: underline;
 }
 .wpcd-coupon-image a {
     display: inline-block;

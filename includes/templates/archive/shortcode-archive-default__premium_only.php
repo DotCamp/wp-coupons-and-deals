@@ -98,7 +98,12 @@ global $parent;
 include('header-default.php');
 ?>
 <?php if ( $coupon_type === 'Image' ): ?>
-    <?php include('coupon_type__image.php'); ?>
+<?php 
+    include('coupon_type__image.php'); 
+    if ( WPCD_Amp::wpcd_amp_is() ) {
+        WPCD_Amp::instance()->setCss( 'shortcode_image' );
+    } 
+?>
 <?php elseif ( $wpcd_coupon_template === 'Template Five' ): ?>
     <!--Template Five -->
     <div class="wpcd-template-five" style="border-color: <?php echo $wpcd_template_five_theme; ?>">

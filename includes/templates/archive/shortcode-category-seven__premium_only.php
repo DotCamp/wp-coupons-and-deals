@@ -71,7 +71,12 @@ $deal_hover_text = ( !empty( $deal_hover_text ) ) ? $deal_hover_text : __( 'Clic
 include('header-category.php');
 ?>
 <?php if ( $coupon_type === 'Image' ): ?>
-    <?php include('coupon_type__image.php'); ?>
+<?php 
+    include('coupon_type__image.php'); 
+    if ( WPCD_Amp::wpcd_amp_is() ) {
+        WPCD_Amp::instance()->setCss( 'shortcode_image' );
+    } 
+?>
 <?php else: ?>
 <!--- Template Seven start -->
         <section class="wpcd_seven wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item <?php echo $coupon_categories_class; ?>"
