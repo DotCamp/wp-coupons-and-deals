@@ -66,7 +66,7 @@ $wpcd_eight_btn_text       = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_bt
 
 if( ! $link && WPCD_Amp::wpcd_amp_is() ) $link = "#";
 
-$expireDateFormatFun = getExpireDateFormatFun( $expireDateFormat );
+$expireDateFormatFun = wpcd_getExpireDateFormatFun( $expireDateFormat );
 if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
     $expire_date = date( $expireDateFormatFun, $expire_date );
 } elseif ( ! empty( $expire_date ) ) {

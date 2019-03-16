@@ -1,7 +1,7 @@
 <?php
  
-if( !function_exists( 'getExpireDateFormatFun' ) ) {
-    function getExpireDateFormatFun( $expireDateFormat ) {
+if( !function_exists( 'wpcd_getExpireDateFormatFun' ) ) {
+    function wpcd_getExpireDateFormatFun( $expireDateFormat ) {
         if ( $expireDateFormat == 'mm/dd/yy' ) {
             $expireDateFormatFun = 'm/d/Y';
         } elseif ( $expireDateFormat == 'yy/mm/dd' ) {

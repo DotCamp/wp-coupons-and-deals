@@ -53,7 +53,7 @@ if( ! $link && WPCD_Amp::wpcd_amp_is() ) $link = "#";
 if( ! $second_link && WPCD_Amp::wpcd_amp_is() ) $second_link = "#";
 if( ! $third_link && WPCD_Amp::wpcd_amp_is() ) $third_link = "#";
 
-$expireDateFormatFun = getExpireDateFormatFun( $expireDateFormat );
+$expireDateFormatFun = wpcd_getExpireDateFormatFun( $expireDateFormat );
 if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
 	$expire_date = date( $expireDateFormatFun, $expire_date );
 } elseif ( ! empty( $expire_date ) ) {

@@ -2532,6 +2532,14 @@ a.wpcd-btn-social,
     background-color: #83c3f3;
 }
 
+.wpcd-btn-linkedin {
+    background-color: #007ca9;
+}
+
+.wpcd-btn-linkedin:hover {
+    background-color: #5cc2e7;
+}
+
 .wpcd-share-buttons-container {
     padding-left: 4px;
     margin-top: 15px;

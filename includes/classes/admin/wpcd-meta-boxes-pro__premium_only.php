@@ -311,7 +311,7 @@ class WPCD_Meta_Boxes_Pro {
 			$expire_date_format = 'dd-mm-yy';
 		}
 		
-		$expireDateFormatFun = getExpireDateFormatFun( $expire_date_format );
+		$expireDateFormatFun = wpcd_getExpireDateFormatFun( $expire_date_format );
 		
 		$output           = '';
 		$help             = '';
