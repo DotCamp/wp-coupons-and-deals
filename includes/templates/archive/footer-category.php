@@ -3,9 +3,6 @@
  * Footer for Templates
  */
 if ( $parent == 'footer' || $parent == 'headerANDfooter' ): 
-    if ( !isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_action' ):
-        echo "</ul>";
-    endif;
 ?>                
     <div id="wpcd_coupon_pagination_wr" class="wpcd_coupon_pagination wpcd_clearfix" wpcd-data-action="wpcd_coupons_cat_vend_action">
         

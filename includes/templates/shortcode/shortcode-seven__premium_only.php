@@ -40,6 +40,7 @@ $coupon_share              = get_option( 'wpcd_coupon-social-share' );
 $show_expiration           = get_post_meta( $coupon_id, 'coupon_details_show-expiration', true );
 $today                     = date( 'd-m-Y' );
 $expire_date               = get_post_meta( $coupon_id, 'coupon_details_expire-date', true );
+$expireDateFormat          = get_option( 'wpcd_expiry-date-format' );
 $hide_coupon               = get_post_meta( $coupon_id, 'coupon_details_hide-coupon', true );
 $dt_coupon_type_name       = get_option( 'wpcd_dt-coupon-type-text' );
 $dt_deal_type_name         = get_option( 'wpcd_dt-deal-type-text' );
@@ -47,9 +48,8 @@ $disable_coupon_title_link = get_option( 'wpcd_disable-coupon-title-link' );
 $wpcd_text_to_show         = get_option( 'wpcd_text-to-show' );
 $wpcd_custom_text          = get_option( 'wpcd_custom-text' );
 $never_expire              = get_post_meta( $coupon_id, 'coupon_details_never-expire-check', true );
-$expire_date_format        = date( "m/d/Y", strtotime( $expire_date ) );
 $expire_time               = get_post_meta( $coupon_id, 'coupon_details_expire-time', true );
-$wpcd_template_seven_theme  = get_post_meta( $coupon_id, 'coupon_details_template-seven-theme', true );
+$wpcd_template_seven_theme = get_post_meta( $coupon_id, 'coupon_details_template-seven-theme', true );
 $post_id                   = get_the_ID();
 
 $dt_coupon_type_name = ( !empty( $dt_coupon_type_name ) ) ? $dt_coupon_type_name : __( 'Coupon', 'wpcd-coupon' );
@@ -68,6 +68,14 @@ if ( $wpcd_text_to_show == 'description' ) {
 	}
 }
 if( ! $link && WPCD_Amp::wpcd_amp_is() ) $link = "#";
+
+$expireDateFormatFun = getExpireDateFormatFun( $expireDateFormat );
+if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
+    $expire_date = date( $expireDateFormatFun, $expire_date );
+} elseif ( ! empty( $expire_date ) ) {
+    $expire_date = date( $expireDateFormatFun, strtotime( $expire_date ) );
+}
+$expire_date_format = date( "m/d/Y", strtotime( $expire_date ) );
 
 wp_enqueue_script( 'wpcd-clipboardjs' );
 $template = new WPCD_Template_Loader();

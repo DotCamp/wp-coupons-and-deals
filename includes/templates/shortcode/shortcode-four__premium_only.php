@@ -37,6 +37,7 @@ $today                     = date( 'd-m-Y' );
 $expire_date               = get_post_meta( $coupon_id, 'coupon_details_expire-date', true );
 $second_expire_date        = get_post_meta( $coupon_id, 'coupon_details_second-expire-date', true );
 $third_expire_date         = get_post_meta( $coupon_id, 'coupon_details_third-expire-date', true );
+$expireDateFormat          = get_option( 'wpcd_expiry-date-format' );
 $hide_coupon               = get_post_meta( $coupon_id, 'coupon_details_hide-coupon', true );
 $wpcd_text_to_show         = get_option( 'wpcd_text-to-show' );
 $wpcd_custom_text          = get_option( 'wpcd_custom-text' );
@@ -51,6 +52,23 @@ if ( $wpcd_text_to_show == 'description' ) {
 if( ! $link && WPCD_Amp::wpcd_amp_is() ) $link = "#";
 if( ! $second_link && WPCD_Amp::wpcd_amp_is() ) $second_link = "#";
 if( ! $third_link && WPCD_Amp::wpcd_amp_is() ) $third_link = "#";
+
+$expireDateFormatFun = getExpireDateFormatFun( $expireDateFormat );
+if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
+	$expire_date = date( $expireDateFormatFun, $expire_date );
+} elseif ( ! empty( $expire_date ) ) {
+	$expire_date = date( $expireDateFormatFun, strtotime( $expire_date ) );
+}
+if ( ! empty( $second_expire_date ) && (string)(int)$second_expire_date == $second_expire_date ) {
+	$second_expire_date = date( $expireDateFormatFun, $second_expire_date );
+} elseif ( ! empty( $second_expire_date ) ) {
+	$second_expire_date = date( $expireDateFormatFun, strtotime( $second_expire_date ) );
+}
+if ( ! empty( $third_expire_date ) && (string)(int)$third_expire_date == $third_expire_date ) {
+	$third_expire_date = date( $expireDateFormatFun, $third_expire_date );
+} elseif ( !empty( $third_expire_date ) ) {
+	$third_expire_date = date( $expireDateFormatFun, strtotime( $third_expire_date ) );
+}
 
 $template = new WPCD_Template_Loader();
 /*

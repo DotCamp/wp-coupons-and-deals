@@ -303,6 +303,9 @@ class WPCD_Meta_Boxes {
 		if ( empty( $expire_date_format ) ) {
 			$expire_date_format = 'dd-mm-yy';
 		}
+			
+		$expireDateFormatFun = getExpireDateFormatFun( $expire_date_format );
+		
 		$output           = '';
 		$help             = '';
 
@@ -316,6 +319,13 @@ class WPCD_Meta_Boxes {
             <span wpcd-data-tooltip="'.$wpcd_field['help'].'">
             <span  class="dashicons dashicons-editor-help" ></span></span>';
 			$db_value = get_post_meta( $post->ID, 'coupon_details_' . $wpcd_field['id'], true );
+			if ( $wpcd_field['type'] == 'expiredate' || $wpcd_field['type'] == 'temp4-expiredate' ) {
+				if ( ! empty( $db_value ) && ( (string)(int)$db_value ) == $db_value ) {
+					$db_value = date( $expireDateFormatFun, $db_value );
+				} elseif ( ! empty( $db_value ) ) {
+					$db_value = date( $expireDateFormatFun, strtotime( $db_value ) );
+				}
+			}
 			switch ( $wpcd_field['type'] ) {
 
 				case 'dealtext':
@@ -570,11 +580,21 @@ class WPCD_Meta_Boxes {
 						break;
 					case 'text':
 						if($wpcd_field['id'] == 'link')
-                                                    $_POST[ $wpcd_field['id'] ] = esc_url( $_POST[ $wpcd_field['id'] ] );
-                                                else
-                                                    $_POST[ $wpcd_field['id'] ] = sanitize_text_field( $_POST[ $wpcd_field['id'] ] );
-                                                break;
+                            $_POST[ $wpcd_field['id'] ] = esc_url( $_POST[ $wpcd_field['id'] ] );
+                        else
+                            $_POST[ $wpcd_field['id'] ] = sanitize_text_field( $_POST[ $wpcd_field['id'] ] );
+                        break;
 				}
+
+				if ( $wpcd_field['id'] == 'expire-date' ) {
+                	$_POST[ $wpcd_field['id'] ] = strtotime( sanitize_text_field( $_POST[ $wpcd_field['id'] ] ) );
+                } 
+				if ( $wpcd_field['id'] == 'second-expire-date' ) {
+                	$_POST[ $wpcd_field['id'] ] = strtotime( sanitize_text_field( $_POST[ $wpcd_field['id'] ] ) );
+                } 
+				if ( $wpcd_field['id'] == 'third-expire-date' ) {
+                	$_POST[ $wpcd_field['id'] ] = strtotime( sanitize_text_field( $_POST[ $wpcd_field['id'] ] ) );
+                } 
 
 				$field_checker = 'coupon_details_' . $wpcd_field['id'];
 

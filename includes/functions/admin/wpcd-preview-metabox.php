@@ -42,7 +42,6 @@ $second_expire_date       	   = get_post_meta( $post_id, 'coupon_details_second-
 $third_expire_date        	   = get_post_meta( $post_id, 'coupon_details_third-expire-date', true );
 $expire_time              	   = get_post_meta( $post_id, 'coupon_details_expire-time', true );
 $expireDateFormat         	   = get_option( 'wpcd_expiry-date-format' );
-$expire_date_format       	   = date( "m/d/Y", strtotime( $expire_date ) );
 $hide_coupon              	   = get_post_meta( $post_id, 'coupon_details_hide-coupon', true );
 $coupon_image_id          	   = get_post_meta( $post_id, 'coupon_details_coupon-image-input', true );
 $coupon_image_src         	   = wp_get_attachment_image_src( $coupon_image_id, 'full' );
@@ -72,6 +71,30 @@ if ( $wpcd_text_to_show == 'description' ) {
 		$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wpcd-coupon' );
 	}
 }
+
+if ( $expireDateFormat == 'mm/dd/yy' ) {
+	$expireDateFormatFun = 'm/d/Y';
+} elseif ( $expireDateFormat == 'yy/mm/dd' ) {
+	$expireDateFormatFun = 'Y/m/d';
+} else {
+	$expireDateFormatFun = 'd-m-Y';
+}
+if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
+	$expire_date = date( $expireDateFormatFun, $expire_date );
+} elseif ( ! empty( $expire_date ) ) {
+	$expire_date = date( $expireDateFormatFun, strtotime( $expire_date ) );
+}
+if ( ! empty( $second_expire_date ) && (string)(int)$second_expire_date == $second_expire_date ) {
+	$second_expire_date = date( $expireDateFormatFun, $second_expire_date );
+} elseif ( ! empty( $second_expire_date ) ) {
+	$second_expire_date = date( $expireDateFormatFun, strtotime( $second_expire_date ) );
+}
+if ( ! empty( $third_expire_date ) && (string)(int)$third_expire_date == $third_expire_date ) {
+	$third_expire_date = date( $expireDateFormatFun, $third_expire_date );
+} elseif ( !empty( $third_expire_date ) ) {
+	$third_expire_date = date( $expireDateFormatFun, strtotime( $third_expire_date ) );
+}
+$expire_date_format = date( "m/d/Y", strtotime( $expire_date ) );
 
 /** Setting Default Values if Empty */
 $title = ( !empty( $title ) ) ? $title : __( 'Sample Coupon Title' );
@@ -710,7 +733,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 			<?php
 			if ( $show_expiration !== 'Hide' ) { ?>
 				<div class="with-expiration-4-3 <?php echo empty( $third_expire_date ) ? 'hidden' : ''; ?>">
-					<div class="wpcd-coupon-four-expire expire-text-block3 <?php echo strtotime( $third_expire_date ) >= strtotime( $today ); ?>">
+					<div class="wpcd-coupon-four-expire expire-text-block3 <?php echo strtotime( $third_expire_date ) >= strtotime( $today ) ? '' : 'hidden'; ?>">
 						<p class="wpcd-coupon-four-expire-text">
 							<?php echo $expire_text . ' ' . '<span class="expiration-date">' . $third_expire_date . '</span>';?>
 						</p>
@@ -1212,9 +1235,6 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 		   <?php echo $deal_text; ?>
 		</a>
 	</div><!-- End of grid-three -->
-	<script type="text/javascript">
-		var clip = new Clipboard('<?php echo $button_class; ?>');
-	</script>
 </div><!-- End of Template Eight Preview -->
 
 <!-- Image Preview -->

@@ -311,6 +311,14 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 			 * @since 2.7.2
 			 */
 			self::wpcd_pagination();
+
+			/**
+			 * Include addition functions
+			 *
+			 * @since 2.7.2
+			 */
+			self::wpcd_additional_functions();
+
 		}
 
 		/**
@@ -619,6 +627,17 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
         public static function wpcd_pagination() {
 			
 			include WPCD_Plugin::instance()->plugin_includes . '/functions/wpcd-coupon-pagination.php';
+		
+		}		
+
+		/**
+		 * This function loads the file with different help functions
+		 *
+		 * @since 2.7.2
+		 */
+        public static function wpcd_additional_functions() {
+			
+			include WPCD_Plugin::instance()->plugin_includes . '/functions/wpcd-addition-functions.php';
 		
 		}	
 

@@ -20,7 +20,7 @@ $description               = get_post_meta( $coupon_id, 'coupon_details_descript
 $deal_text                 = get_post_meta( $coupon_id, 'coupon_details_deal-button-text', true );
 $show_expiration           = get_post_meta( $coupon_id, 'coupon_details_show-expiration', true );
 $expire_date               = get_post_meta( $coupon_id, 'coupon_details_expire-date', true );
-$expire_time               = get_post_meta( $coupon_id, 'coupon_details_expire-time', true );
+$expireDateFormat          = get_option( 'wpcd_expiry-date-format' );
 $never_expire              = get_post_meta( $coupon_id, 'coupon_details_never-expire-check', true );
 $hide_coupon               = get_post_meta( $coupon_id, 'coupon_details_hide-coupon', true );
 $wpcd_coupon_image_id      = get_post_meta( $coupon_id, 'coupon_details_coupon-image-input', true );
@@ -65,6 +65,13 @@ $wpcd_eight_btn_text       = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_bt
 
 
 if( ! $link && WPCD_Amp::wpcd_amp_is() ) $link = "#";
+
+$expireDateFormatFun = getExpireDateFormatFun( $expireDateFormat );
+if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
+    $expire_date = date( $expireDateFormatFun, $expire_date );
+} elseif ( ! empty( $expire_date ) ) {
+    $expire_date = date( $expireDateFormatFun, strtotime( $expire_date ) );
+}
 
 if ( $wpcd_text_to_show == 'description' ) {
     $wpcd_custom_text = $description;

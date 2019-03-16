@@ -146,7 +146,7 @@ jQuery(document).ready(function ($) {
                             more_less_description();
                         }
                     } else {
-                        $('.wpcd_coupon_loader').addClass('wpcd_coupon_hidden_loader');
+                        //$('.wpcd_coupon_loader').addClass('wpcd_coupon_hidden_loader');
                     }
                 }
             });

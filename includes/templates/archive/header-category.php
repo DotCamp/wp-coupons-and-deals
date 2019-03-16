@@ -11,5 +11,4 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ): ?>
 	            </div>
 	            <div class="wpcd_coupon_archive_container">
 	    <?php endif; ?>
-        <ul id="wpcd_coupon_ul" class="wpcd_clearfix">
 <?php endif;

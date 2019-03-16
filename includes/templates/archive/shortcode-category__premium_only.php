@@ -36,6 +36,7 @@ $coupon_share              = get_option( 'wpcd_coupon-social-share' );
 $show_expiration           = get_post_meta( $coupon_id, 'coupon_details_show-expiration', true );
 $today                     = date( 'd-m-Y' );
 $expire_date               = get_post_meta( $coupon_id, 'coupon_details_expire-date', true );
+$expireDateFormat          = get_option( 'wpcd_expiry-date-format' );
 $hide_coupon               = get_post_meta( $coupon_id, 'coupon_details_hide-coupon', true );
 $wpcd_coupon_image_id      = get_post_meta( $coupon_id, 'coupon_details_coupon-image-input', true );
 $wpcd_coupon_image_src     = wp_get_attachment_image_src( $wpcd_coupon_image_id, 'full' );
@@ -59,6 +60,20 @@ if ( $wpcd_text_to_show == 'description' ) {
 	}
 }
 if( ! $link && WPCD_Amp::wpcd_amp_is() ) $link = "#";
+
+$expireDateFormatFun = getExpireDateFormatFun( $expireDateFormat );
+if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
+    $expire_date = date( $expireDateFormatFun, $expire_date );
+} elseif ( ! empty( $expire_date ) ) {
+    $expire_date = date( $expireDateFormatFun, strtotime( $expire_date ) );
+}
+
+$template = new WPCD_Template_Loader();
+if (is_array($wpcd_coupon_image_src)) {
+    $wpcd_coupon_image_src = $wpcd_coupon_image_src[0];
+} else {
+    $wpcd_coupon_image_src = '';
+}
 
 $wpcd_coupon_template     = get_post_meta( $coupon_id, 'coupon_details_coupon-template', true );
 

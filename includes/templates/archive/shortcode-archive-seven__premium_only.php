@@ -43,7 +43,7 @@ $coupon_share              = get_option('wpcd_coupon-social-share');
 $show_expiration           = get_post_meta($coupon_id, 'coupon_details_show-expiration', true);
 $today                     = date('d-m-Y');
 $expire_date               = get_post_meta($coupon_id, 'coupon_details_expire-date', true);
-$expire_date_format        = date("m/d/Y", strtotime($expire_date));
+$expireDateFormat          = get_option( 'wpcd_expiry-date-format' );
 $never_expire              = get_post_meta($coupon_id, 'coupon_details_never-expire-check', true);
 $expire_time               = get_post_meta($coupon_id, 'coupon_details_expire-time', true);
 $hide_coupon               = get_post_meta($coupon_id, 'coupon_details_hide-coupon', true);
@@ -69,6 +69,14 @@ if (is_array($wpcd_coupon_image_src)) {
     $wpcd_coupon_image_src = '';
 }
 if( ! $link && WPCD_Amp::wpcd_amp_is() ) $link = "#";
+
+$expireDateFormatFun = getExpireDateFormatFun( $expireDateFormat );
+if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
+    $expire_date = date( $expireDateFormatFun, $expire_date );
+} elseif ( ! empty( $expire_date ) ) {
+    $expire_date = date( $expireDateFormatFun, strtotime( $expire_date ) );
+}
+$expire_date_format = date( "m/d/Y", strtotime( $expire_date ) );
 
 $wpcd_coupon_template = get_post_meta($coupon_id, 'coupon_details_coupon-template', true);
 $wpcd_template_five_theme = get_post_meta($coupon_id, 'coupon_details_template-five-theme', true);

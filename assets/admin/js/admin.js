@@ -86,7 +86,6 @@ jQuery(document).ready(function ($) {
 
     function wpcdEachItemXml ( items ) {
         var rows = [];
-            console.log(items);
         for( var i = 0; i < items.length; i++ ) {
             var item = items[i].children;
             rows[i] = "";
@@ -430,7 +429,8 @@ jQuery(document).ready(function ($) {
 
         if (
             currentTemplate === templates.TWO ||
-            currentTemplate === templates.SIX
+            currentTemplate === templates.SIX ||
+            currentTemplate === templates.SEVEN
         ) {
             time_expiration.show();
             expiration.show();
@@ -532,7 +532,8 @@ jQuery(document).ready(function ($) {
 
         if (
             currentTemplate === templates.TWO ||
-            currentTemplate === templates.SIX
+            currentTemplate === templates.SIX ||
+            currentTemplate === templates.SEVEN
         ) {
             time_expiration.show("slow");
             expiration.show("slow");
@@ -1473,10 +1474,18 @@ jQuery(function ($) {
 
             $(this).trigger('change');
             var today = (new Date()).setHours(0, 0, 0, 0);
-            var dateTextCompare = dateText.split('-').reverse().join('-');
+            var expiredate_format = $(this).data('expiredate-format');
+            var dateTextCompare;
+            if( expiredate_format == 'dd-mm-yy' ) {
+                dateTextCompare = dateText.split('-').reverse().join('-');
+            } else if ( expiredate_format == 'yy/mm/dd' ) {
+                dateTextCompare = dateText.split('/').join('-');
+            } else if ( expiredate_format == 'mm/dd/yy' ) {
+                var dateTextSplit = dateText.split('/');
+                dateTextCompare = dateTextSplit[2] + '-' + dateTextSplit[0] + '-' + dateTextSplit[1];
+            }
+            
             var input_date = Date.parse(dateTextCompare + 'T' + '00:00:00');
-            console.log(today);
-            console.log(input_date);
             var isExpired = input_date < today;
             var expireBlock, expiredBlock;
 
