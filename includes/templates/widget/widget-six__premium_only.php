@@ -29,8 +29,8 @@ $show_expiration           = get_post_meta( $coupon_id, 'coupon_details_show-exp
 $today                     = date( 'd-m-Y' );
 $time_now                  = time();
 $expire_date               = get_post_meta( $coupon_id, 'coupon_details_expire-date', true );
+$expireDateFormat          = get_option( 'wpcd_expiry-date-format' );
 $expire_time               = get_post_meta( $coupon_id, 'coupon_details_expire-time', true );
-$expire_date_format        = date( 'm/d/Y', strtotime( $expire_date ) );
 $never_expire              = get_post_meta( $coupon_id, 'coupon_details_never-expire-check', true );
 $hide_coupon               = get_post_meta( $coupon_id, 'coupon_details_hide-coupon', true );
 $wpcd_template_six_theme   = get_post_meta( $coupon_id, 'coupon_details_template-six-theme', true );
@@ -45,6 +45,15 @@ if ( $wpcd_text_to_show == 'description' ) {
 		$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wpcd-coupon' );
 	}
 }
+
+$expireDateFormatFun = wpcd_getExpireDateFormatFun( $expireDateFormat );
+if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
+    $expire_date = date( $expireDateFormatFun, $expire_date );
+} elseif ( ! empty( $expire_date ) ) {
+    $expire_date = date( $expireDateFormatFun, strtotime( $expire_date ) );
+}
+$expire_date_format = date( "m/d/Y", strtotime( $expire_date ) );
+
 ?>
 
 <div class="wpcd-coupon-six wpcd-widget" style="border-color: <?php echo $wpcd_template_six_theme; ?>">

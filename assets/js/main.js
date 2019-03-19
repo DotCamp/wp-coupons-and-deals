@@ -58,36 +58,39 @@ jQuery(document).ready(function ($) {
     //     }
     // });
     var categories_pagination_set_timeout;
-    function ajax_coupon_categories_pagination(page_num, action, wpcd_category, search_text) {
-        var scrollTop = $('#wpcd_coupon_template').offset().top;
-        $('html, body').animate({ scrollTop: scrollTop }, 300);
+    function ajax_coupon_categories_pagination( wpcd_page_num, action, wpcd_category, search_text ) {
+        var scrollTop = $( '#wpcd_coupon_template' ).offset().top;
+        $( 'html, body' ).animate( { scrollTop: scrollTop }, 300 );
 
-        $('.wpcd_coupon_loader').removeClass('wpcd_coupon_hidden_loader');
-        clearTimeout(categories_pagination_set_timeout);
-        categories_pagination_set_timeout = setTimeout(function () {
+        $( '.wpcd_coupon_loader' ).removeClass( 'wpcd_coupon_hidden_loader' );
+        clearTimeout( categories_pagination_set_timeout );
+        categories_pagination_set_timeout = setTimeout( function () {
             var coupon_template;
             var coupon_items_count;
             var wpcd_data_coupon_page_url;
-            var wpcd
-            var wpcd_coupon_template = $('#wpcd_coupon_template');
-            if (wpcd_coupon_template.length > 0) {
-                coupon_template = wpcd_coupon_template.attr('wpcd-data-coupon_template');
-                coupon_items_count = wpcd_coupon_template.attr('wpcd-data-coupon_items_count');
-                wpcd_data_coupon_page_url = wpcd_coupon_template.attr('wpcd-data-coupon_page_url');
-                wpcd_data_category_coupons = wpcd_coupon_template.attr('wpcd-data_category_coupons');
-                wpcd_data_vendor_coupons = wpcd_coupon_template.attr('wpcd-data_vendor_coupons');
+            var wpcd_data_category_coupons;
+            var wpcd_data_vendor_coupons;
+            var wpcd_data_ven_cat_id;
+            var wpcd_coupon_template = $( '#wpcd_coupon_template' );
+            if ( wpcd_coupon_template.length > 0 ) {
+                coupon_template = wpcd_coupon_template.attr( 'wpcd-data-coupon_template' );
+                coupon_items_count = wpcd_coupon_template.attr( 'wpcd-data-coupon_items_count' );
+                wpcd_data_coupon_page_url = wpcd_coupon_template.attr( 'wpcd-data-coupon_page_url' );
+                wpcd_data_category_coupons = wpcd_coupon_template.attr( 'wpcd-data_category_coupons' );
+                wpcd_data_vendor_coupons = wpcd_coupon_template.attr( 'wpcd-data_vendor_coupons' );
+                wpcd_data_ven_cat_id = wpcd_coupon_template.attr( 'wpcd-data_ven_cat_id' );
             }
-            if (!coupon_template) {
+            if ( !coupon_template ) {
                 coupon_template = undefined;
             }
-            if (!page_num) {
-                page_num = undefined;
+            if ( !wpcd_page_num ) {
+                wpcd_page_num = undefined;
             }
-            if (!search_text) {
+            if ( !search_text ) {
                 search_text = undefined;
             }
 
-            $.ajax({
+            $.ajax( {
                 type: 'post',
                 dataType: 'json',
                 url: wpcd_object.ajaxurl,
@@ -100,47 +103,48 @@ jQuery(document).ready(function ($) {
                     wpcd_data_coupon_page_url: wpcd_data_coupon_page_url,
                     wpcd_data_category_coupons: wpcd_data_category_coupons,
                     wpcd_data_vendor_coupons: wpcd_data_vendor_coupons,
-                    page_num: page_num,
+                    wpcd_data_ven_cat_id: wpcd_data_ven_cat_id,
+                    wpcd_page_num: wpcd_page_num,
                     search_text: search_text
                 },
-                success: function (response) {
-                    if (response) {
-                        var coupon_container = $('.wpcd_coupon_archive_container');
-                        if (coupon_container.length > 0) {
-                            coupon_container.html(response);
-                            $('.wpcd_coupon_loader').addClass('wpcd_coupon_hidden_loader');
-                            $('#wpcd_coupon_pagination_wr a.page-numbers').off('click');
-                            $('#wpcd_coupon_pagination_wr a.page-numbers').on('click', function (e) {
+                success: function ( response ) {
+                    if ( response ) {
+                        var coupon_container = $( '.wpcd_coupon_archive_container' );
+                        if ( coupon_container.length > 0 ) {
+                            coupon_container.html( response );
+                            $( '.wpcd_coupon_loader' ).addClass( 'wpcd_coupon_hidden_loader' );
+                            $( '#wpcd_coupon_pagination_wr a.page-numbers' ).off( 'click' );
+                            $( '#wpcd_coupon_pagination_wr a.page-numbers' ).on( 'click', function ( e ) {
                                 e.preventDefault();
-                                var href = $(this).attr('href');
-                                var href_arr = getUrlVar(href);
-                                var page_num = href_arr['page_num'];
+                                var href = $( this ).attr( 'href' );
+                                var href_arr = getUrlVar( href );
+                                var wpcd_page_num = href_arr['wpcd_page_num'];
                                 var search_text = href_arr['search_text'];
-                                var this_parrent = $(this).parent('#wpcd_coupon_pagination_wr');
-                                var action = this_parrent.attr('wpcd-data-action');
-                                ajax_coupon_categories_pagination(page_num, action, wpcd_category, search_text);
+                                var this_parrent = $( this ).parent( '#wpcd_coupon_pagination_wr' );
+                                var action = this_parrent.attr( 'wpcd-data-action' );
+                                ajax_coupon_categories_pagination( wpcd_page_num, action, wpcd_category, search_text );
                             });
-                            $('.masterTooltip').hover(function () {
-                                var title = $(this).attr('title');
-                                $(this).data('tipText', title).removeAttr('title');
-                                $('<p class="wpcd-copy-tooltip"></p>')
-                                    .text(title)
-                                    .appendTo('body')
-                                    .fadeIn('slow');
+                            $( '.masterTooltip' ).hover( function () {
+                                var title = $( this ).attr( 'title' );
+                                $( this ).data( 'tipText', title ).removeAttr( 'title' );
+                                $( '<p class="wpcd-copy-tooltip"></p>' )
+                                    .text( title )
+                                    .appendTo( 'body' )
+                                    .fadeIn( 'slow' );
                             }, function () {
-                                $(this).attr('title', $(this).data('tipText'));
-                                $('.wpcd-copy-tooltip').remove();
-                            }).mousemove(function (e) {
+                                $( this ).attr( 'title', $( this ).data( 'tipText' ) );
+                                $( '.wpcd-copy-tooltip' ).remove();
+                            }).mousemove( function ( e ) {
                                 var mousex = e.pageX + 20;
                                 var mousey = e.pageY + 10;
-                                $('.wpcd-copy-tooltip')
-                                    .css({ top: mousey, left: mousex })
+                                $( '.wpcd-copy-tooltip' )
+                                    .css( { top: mousey, left: mousex } )
                             });
-                            $.each($('#wpcd_cat_ul  li'), function () {
-                                if ($(this).children('a').attr('data-category') == wpcd_category) {
-                                    $(this).children('a').addClass('active');
+                            $.each( $( '#wpcd_cat_ul  li' ), function () {
+                                if ( $( this ).children( 'a' ).attr( 'data-category' ) == wpcd_category ) {
+                                    $( this ).children( 'a' ).addClass( 'active' );
                                 } else {
-                                    $(this).children('a').removeClass('active');
+                                    $( this ).children( 'a' ).removeClass( 'active' );
                                 }
                             });
                             more_less_description();
@@ -149,8 +153,8 @@ jQuery(document).ready(function ($) {
                         //$('.wpcd_coupon_loader').addClass('wpcd_coupon_hidden_loader');
                     }
                 }
-            });
-        }, 500);
+            } );
+        }, 500 );
 
     };
 
@@ -164,12 +168,12 @@ jQuery(document).ready(function ($) {
         e.preventDefault();
         var href = $(this).attr('href');
         var href_arr = getUrlVar(href);
-        var page_num = href_arr['page_num'];
+        var wpcd_page_num = href_arr['wpcd_page_num'];
         var wpcd_category = href_arr['wpcd_category'];
         var search_text = href_arr['search_text'];
         var this_parrent = $(this).parent('#wpcd_coupon_pagination_wr');
         var action = this_parrent.attr('wpcd-data-action');
-        ajax_coupon_categories_pagination(page_num, action, wpcd_category, search_text);
+        ajax_coupon_categories_pagination(wpcd_page_num, action, wpcd_category, search_text);
     });
 
     let delayTimer;

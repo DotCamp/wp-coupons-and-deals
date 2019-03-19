@@ -37,6 +37,7 @@ $disable_coupon_title_link = get_option( 'wpcd_disable-coupon-title-link' );
 $show_expiration           = get_post_meta( $coupon_id, 'coupon_details_show-expiration', true );
 $today                     = date( 'd-m-Y' );
 $expire_date               = get_post_meta( $coupon_id, 'coupon_details_expire-date', true );
+$expireDateFormat          = get_option( 'wpcd_expiry-date-format' );
 $hide_coupon               = get_post_meta( $coupon_id, 'coupon_details_hide-coupon', true );
 $wpcd_template_five_theme  = get_post_meta( $coupon_id, 'coupon_details_template-five-theme', true );
 $wpcd_coupon_thumbnail     = get_the_post_thumbnail_url( $coupon_id );
@@ -50,6 +51,13 @@ if ( $wpcd_text_to_show == 'description' ) {
 	if ( empty( $wpcd_custom_text ) ) {
 		$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wpcd-coupon' );
 	}
+}
+
+$expireDateFormatFun = wpcd_getExpireDateFormatFun( $expireDateFormat );
+if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
+	$expire_date = date( $expireDateFormatFun, $expire_date );
+} elseif ( ! empty( $expire_date ) ) {
+	$expire_date = date( $expireDateFormatFun, strtotime( $expire_date ) );
 }
 
 wp_enqueue_script( 'wpcd-clipboardjs' );

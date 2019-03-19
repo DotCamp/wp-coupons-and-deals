@@ -11,19 +11,18 @@ if ( $parent == 'footer' || $parent == 'headerANDfooter' ):
         
         <?php
             if( !WPCD_Amp::wpcd_amp_is() ) {
-                $add_args = array();
-
-                if ( isset($_POST['page_num'] ) && !empty( $_POST['page_num'] ) ) {
-                    $current = (int)( $_POST['page_num'] );
+                if ( isset( $_POST['wpcd_page_num'] ) && ! empty( $_POST['wpcd_page_num'] ) && absint( $_POST['wpcd_page_num'] ) == $_POST['wpcd_page_num'] ) {
+                    $current = absint( $_POST['wpcd_page_num'] );
+                } elseif ( isset( $_GET['wpcd_page_num'] ) && ! empty( $_GET['wpcd_page_num'] ) && absint( $_GET['wpcd_page_num'] ) == $_GET['wpcd_page_num'] ) {
+                    $current = absint( $_GET['wpcd_page_num'] );
                 } else {
                     $current = 1;
                 }
             
                 echo paginate_links( 
                     array(
-                        'base'      => '?page_num=%#%',
+                        'base'      => '?wpcd_page_num=%#%',
                         'format'    => '?page=%#%',
-                        'add_args'  => $add_args,
                         'current'   => $current,
                         'total'     => $max_num_page,
                         'prev_next' => true,
@@ -33,8 +32,8 @@ if ( $parent == 'footer' || $parent == 'headerANDfooter' ):
                 );  
 
                 if ( !isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_action' ) {
-                    echo '</div></div> <!-- wpcd_coupon_archive_container -->
-            </div> <!-- wpcd_coupon_archive_container_main -->';
+                    echo '</div></div> <!-- wpcd_coupon_archive_container -->';
+                    echo '</div> <!-- wpcd_coupon_archive_container_main -->';
                 }
                 
             } else {
