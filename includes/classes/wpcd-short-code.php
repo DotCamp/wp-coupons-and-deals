@@ -317,35 +317,42 @@ class WPCD_Short_Code {
 			    wp_die();
 			}
 
-			if ( isset( $_POST['coupon_template'] ) && ! empty( $_POST['coupon_template'] ) && sanitize_text_field( $_POST['coupon_template'] ) === $_POST['coupon_template'] ) {
+			if ( isset( $_POST['coupon_template'] ) && ! empty( $_POST['coupon_template'] ) && 
+                    sanitize_text_field( $_POST['coupon_template'] ) === $_POST['coupon_template'] ) {
 				$a['temp'] = sanitize_text_field( $_POST['coupon_template'] );
 			} 
 
-			if ( isset( $_POST['coupon_items_count'] ) && ! empty( $_POST['coupon_items_count'] ) && absint( $_POST['coupon_items_count'] ) == $_POST['coupon_items_count'] ) {
+			if ( isset( $_POST['coupon_items_count'] ) && ! empty( $_POST['coupon_items_count'] ) && 
+                    absint( $_POST['coupon_items_count'] ) == $_POST['coupon_items_count'] ) {
 				$a['count'] = absint( $_POST['coupon_items_count'] );
 			}
 
-			if ( isset( $_POST['wpcd_page_num'] ) && ! empty( $_POST['wpcd_page_num'] ) && absint( $_POST['wpcd_page_num'] ) == $_POST['wpcd_page_num'] ) {
+			if ( isset( $_POST['wpcd_page_num'] ) && ! empty( $_POST['wpcd_page_num'] ) && 
+                    absint( $_POST['wpcd_page_num'] ) == $_POST['wpcd_page_num'] ) {
 				$paged = absint( $_POST['wpcd_page_num'] );
 			}
 
-			if ( isset( $_POST['wpcd_category'] ) && ! empty( $_POST['wpcd_category'] && sanitize_text_field( $_POST['wpcd_category'] ) === $_POST['wpcd_category'] ) ) {
+			if ( isset( $_POST['wpcd_category'] ) && ! empty( $_POST['wpcd_category'] ) && 
+                    sanitize_text_field( $_POST['wpcd_category'] ) === $_POST['wpcd_category'] ) {
 				if ( get_term_by( 'slug', sanitize_text_field( $_POST['wpcd_category'] ), WPCD_Plugin::CUSTOM_TAXONOMY ) ) {
                     $wpcd_data_category = sanitize_text_field( $_POST['wpcd_category'] );
                 }
 			}
 
-			if ( isset( $_POST['search_text'] ) && ! empty( $_POST['search_text'] ) && sanitize_text_field( $_POST['search_text'] ) === $_POST['search_text'] ) {
+			if ( isset( $_POST['search_text'] ) && ! empty( $_POST['search_text'] ) && 
+                    sanitize_text_field( $_POST['search_text'] ) === $_POST['search_text'] ) {
 				$wpcd_data_search = sanitize_text_field( $_POST['search_text'] );
 			}
 		} else {
 			wp_enqueue_script( 'wpcd-main-js' );
 
-			if( isset( $_GET['wpcd_page_num'] ) && ! empty( $_GET['wpcd_page_num'] ) && absint( $_GET['wpcd_page_num'] ) == $_GET['wpcd_page_num']  ) {
+			if( isset( $_GET['wpcd_page_num'] ) && ! empty( $_GET['wpcd_page_num'] ) && 
+                    absint( $_GET['wpcd_page_num'] ) == $_GET['wpcd_page_num']  ) {
 				$paged = absint( $_GET['wpcd_page_num'] );
 			}
 
-			if ( isset( $_GET['wpcd_category'] ) && ! empty( $_GET['wpcd_category'] ) && sanitize_text_field( $_GET['wpcd_category'] ) === $_GET['wpcd_category'] ) {
+			if ( isset( $_GET['wpcd_category'] ) && ! empty( $_GET['wpcd_category'] ) && 
+                    sanitize_text_field( $_GET['wpcd_category'] ) === $_GET['wpcd_category'] ) {
 				if ( get_term_by( 'slug', sanitize_text_field( $_GET['wpcd_category'] ), WPCD_Plugin::CUSTOM_TAXONOMY ) ) {
                     $wpcd_data_category = sanitize_text_field( $_GET['wpcd_category'] );
                 }

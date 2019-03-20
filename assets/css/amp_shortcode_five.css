@@ -96,7 +96,8 @@
     float: left;
 }
 
-.wpcd-template-five-btn {
+.wpcd-coupon-code .wpcd-template-five-btn {
+    margin: 0px;
     margin-left: 10px;
     display: block;
     position: relative;
@@ -104,10 +105,9 @@
     -webkit-box-shadow: none;
     box-shadow: none;
     white-space: nowrap;
-    border-color: #18E06E;
 }
 
-.wpcd-template-five-btn:before {
+.wpcd-coupon-code .wpcd-template-five-btn:before {
     content: "";
     border: 1px dashed;
     border-color: inherit;
@@ -118,17 +118,16 @@
     bottom: 0px;
 }
 
-.wpcd-template-five-btn:hover:before {
+.wpcd-coupon-code .wpcd-template-five-btn:hover:before {
     border: 2px dashed;
     border-color: inherit;
 }
 
-.wpcd-template-five-btn p {
+.wpcd-coupon-code .wpcd-template-five-btn p {
     text-align: center;
     font-weight: 600;
     font-size: 18px;
     line-height: 27px;
-    color: #18E06E;
     margin: 0 auto;
     padding-top: 16px;
     padding-bottom: 16px;

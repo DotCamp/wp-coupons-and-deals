@@ -3011,9 +3011,10 @@ a.wpcd-new-coupon-code:hover:before {
 }
 
 .wpcd_seven_productPic img {
-    width: 65%;
+    width: 65% !important;
     margin: 30px 0 0 40px;
     box-shadow: 2px 2px 5px #888;
+    height: auto;
 }
 
 
@@ -3393,7 +3394,7 @@ a.wpcd-new-coupon-code:hover:before {
         width: 100%;
     }
     .wpcd_seven_productPic img {
-        width: 100%;
+        width: 100% !important;
         margin: auto;
         height: auto;
     }
@@ -3441,10 +3442,6 @@ a.wpcd-new-coupon-code:hover:before {
         grid-template-columns: 0.5fr 1.5fr 0.75fr;
         grid-template-rows: 1fr;
     }
-    .admin_wpcd_seven_productPic img {
-        width: 45%;
-        height: auto;
-    }
     .wpcd_seven_percentAndPic {
         width: 25%;
     }
@@ -3467,7 +3464,6 @@ a.wpcd-new-coupon-code:hover:before {
         right: 17%;
     }
     .wpcd_seven_productPic img {
-        max-width: 230px;
         margin-right: auto;
         margin-left: auto;
         display: block;
@@ -3510,24 +3506,6 @@ a.wpcd-new-coupon-code:hover:before {
     .wpcd-col-7-8 {
         box-sizing: border-box;
         width: 100% !important;
-    }
-    .wpcd-coupon-one .wpcd-col-one-1-4 {
-        margin: 10px 0 0;
-        width: 100%;
-    }
-    .wpcd-coupon-one-discount-text,
-    .wpcd-coupon-one .coupon-code {
-        margin-left: 0;
-    }
-    .wpcd-coupon-one .wpcd-col-one-1-8 {
-        width: 100%;
-    }
-    .wpcd-coupon-one .wpcd-col-one-7-8 {
-        width: 100%;
-    }
-    .wpcd-coupon-one h4,
-    .wpcd-coupon-one .wpcd-coupon-description {
-        text-align: center !important;
     }
     .wpcd-coupon-two .wpcd-col-two-1-4 {
         margin-bottom: 8px;
@@ -3645,6 +3623,24 @@ a.wpcd-new-coupon-code:hover:before {
 }
 
 @media (max-width: 600px) {
+    .wpcd-coupon-one .wpcd-col-one-1-4 {
+        margin: 10px 0 0;
+        width: 100%;
+    }
+    .wpcd-coupon-one-discount-text,
+    .wpcd-coupon-one .coupon-code {
+        margin-left: 0;
+    }
+    .wpcd-coupon-one .wpcd-col-one-1-8 {
+        width: 100%;
+    }
+    .wpcd-coupon-one .wpcd-col-one-7-8 {
+        width: 100%;
+    }
+    .wpcd-coupon-one h4,
+    .wpcd-coupon-one .wpcd-coupon-description {
+        text-align: center !important;
+    }
     .wpcd-coupon-four-info {
         width: 100%;
     }

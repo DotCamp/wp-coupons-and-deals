@@ -116,7 +116,6 @@ a.wpcd-new-coupon-code {
     border-color: #56b151;
 }
 a.wpcd-new-coupon-code::before {
-    display: ;
     content: "";
     display: block;
     position: absolute;

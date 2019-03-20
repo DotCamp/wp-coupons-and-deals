@@ -2748,6 +2748,10 @@ a.admin-wpcd-new-goto-button {
     float: left;
 }
 
+.admin_wpcd_seven_expire b {
+    font-weight: 400;
+}
+
 .admin_wpcd_seven_btn {
     text-transform: uppercase;
 }
