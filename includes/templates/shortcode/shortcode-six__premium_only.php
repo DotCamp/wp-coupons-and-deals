@@ -106,7 +106,6 @@ $template = new WPCD_Template_Loader();
                 </div>
             </div>
             <div class="exp" style="border-color: <?php echo $wpcd_template_six_theme; ?>">
-                <p>
                     <?php if( ! empty( trim( $expire_date ) ) && $never_expire != 'on' ) : ?>
                         <?php if( !WPCD_Amp::wpcd_amp_is() ) { ?>
                             <b>
@@ -150,8 +149,6 @@ $template = new WPCD_Template_Loader();
                             <b><?php echo __( "Doesn't expire", 'wpcd-coupon' ); ?></b>
                         <?php endif; ?>
                     <?php endif; ?> 
-                    
-                </p>
             </div>
         </div>
         <div class="wpcd-coupon-six-img-and-btn">

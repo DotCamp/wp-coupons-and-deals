@@ -32,7 +32,6 @@ class WPCD_Amp {
 		'archive_three' 		=> 'amp_archive_three',
 		'archive_seven' 		=> 'amp_archive_seven',
 		'archive_eight'			=> 'amp_archive_eight',
-		'archive_default'		=> 'amp_archive_default',
 		'archive_common'		=> 'amp_archive_common',
 		'shortcode_default' 	=> 'amp_shortcode_default',
 		'shortcode_one'			=> 'amp_archive_one',

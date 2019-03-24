@@ -473,7 +473,7 @@ a.wpcd-btn .wpcd_deal_icon {
 
 .wpcd-coupon {
     width: 95%;
-    padding: 10px 5px 10px 10px;
+    padding: 10px 5px;
     border: 2px dashed #000000;
     background: #FAFAFA;
     margin: 15px 0 15px 5px;
@@ -482,16 +482,19 @@ a.wpcd-btn .wpcd_deal_icon {
 
 .wpcd-coupon-discount-text {
     width: 95%;
+    margin: auto;
     text-align: center;
     font-size: 20px;
     padding: 5px;
     margin-top: 5px;
     word-spacing: 99999px;
     box-shadow: 1px 1px 4px rgba(34, 34, 34, .2);
+    line-height: 24px;
 }
 
 .coupon-type {
     width: 95%;
+    margin: auto;
     background: #56b151;
     padding: 7px 6px;
     color: #fff;
@@ -504,6 +507,7 @@ a.wpcd-btn .wpcd_deal_icon {
 
 .deal-type {
     width: 95%;
+    margin: auto;
     background: #56b151;
     padding: 7px 6px;
     color: #fff;
@@ -533,6 +537,8 @@ a.wpcd-btn .wpcd_deal_icon {
 .wpcd-coupon-title {
     width: 100%;
     font-size: 21px;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 .wpcd-coupon-code, 
@@ -558,6 +564,7 @@ a.wpcd-btn .wpcd_deal_icon {
     cursor: pointer;
     font-weight: 600;
     display: inline-block;
+    word-break: break-all;
 }
 
 .wpcd-coupon-button {
@@ -650,6 +657,7 @@ a.wpcd-btn .wpcd_deal_icon {
 
 .wpcd-coupon-one-img {
     max-width: 100%;
+    max-height: 130px;
 }
 
 .wpcd-coupon-one h4 {
@@ -779,21 +787,20 @@ a.wpcd-btn .wpcd_deal_icon {
     padding-bottom: 5px;
 }
 
-.wpcd-coupon-two-title {
-    float: left;
-    width: 67%;
-}
-
-.wpcd-coupon-two-coupon {
-    width: 33%;
-    float: left;
-}
-
 .wpcd-coupon-two-countdown {
     font-size: 16px;
     color: green;
 }
 
+.wpcd-coupon-two-title {
+   width: 100%;
+   text-align: center;
+   margin-bottom: 10px;
+}
+.wpcd-coupon-two-coupon {
+    width: 100%;
+    text-align: center;
+}
 .wpcd-coupon-two-countdown-text {
     font-size: 20px;
     color: green;
@@ -801,6 +808,7 @@ a.wpcd-btn .wpcd_deal_icon {
 
 .wpcd-coupon-two-header {
     width: 100%;
+    text-align: center;
 }
 
 .wpcd-coupon-two-btn {
@@ -861,9 +869,10 @@ a.wpcd-btn .wpcd_deal_icon {
     margin: 0;
 }
 
-.wpcd-coupon-three h4 {
+.wpcd-coupon-three .wpcd-coupon-three-title {
     margin: 0 0 15px 0;
     font-size: 22px;
+    text-align: center;
 }
 
 .wpcd-coupon-three-info {
@@ -890,16 +899,12 @@ a.wpcd-btn .wpcd_deal_icon {
 }
 
 .wpcd-coupon-three-coupon {
-    width: 40%;
-    float: left;
     padding: 10px 0 0 0;
     margin: 0;
     
 }
 
 .wpcd-coupon-three-info-left {
-    width: 60%;
-    float: left;
     margin: 0;
     min-height: 50px;
 }
@@ -1161,7 +1166,7 @@ p.wpcd-coupon-four-expired {
     color: #3A3A3A;
     font-size: 29px;
     text-align: center;
-    margin: 11px;
+    margin-bottom: 11px;
     margin-top: 0px;
     border: 2px dashed #3a3a3a;
     padding: 7px;
@@ -1218,7 +1223,7 @@ p.wpcd-coupon-four-expired {
 
 .extra-wpcd-template-five-holder .wpcd-coupon-not-hidden {
     width: 40%;
-    float: left;
+    float: right;
 }
 
 .wpcd-template-five-btn {
@@ -1259,12 +1264,8 @@ p.wpcd-coupon-four-expired {
     overflow: hidden;
 }
 
-.wpcd-coupon-five-expired {
-    color: red !important;
-}
-
 .wpcd-template-five .wpcd-coupon-button-type {
-    float: left;
+    float: right;
     width: 40%;
 }
 
@@ -1516,6 +1517,7 @@ p.wpcd-coupon-four-expired {
     border: 2px solid #18E06E;
     color: #18E06E;
     display: inline-block;
+    word-break: break-all;
 }
 
 .wpcd-coupon-six-img-and-btn .wpcd-btn-wrap .coupon-code-button:hover,
@@ -2219,7 +2221,7 @@ h3.wpcd_coupon_li_title {
     background: #347BAF;
     color: #FFFFFF;
     font-size: 12px;
-    padding: 14px 0px 11px 13px;
+    padding: 14px 0px 11px 0px;
     border-top-left-radius: 2px;
     border-bottom-left-radius: 2px;
     transition: all 0.5s ease;
@@ -2519,6 +2521,7 @@ a.admin-wpcd-new-goto-button {
     font-weight: 600;
     border: 0px dashed #cdcdcd;
     border-radius: 3px;
+    word-break: break-all;
 }
 
 .admin-wpcd-new-goto-button:hover {
@@ -2530,6 +2533,7 @@ a.admin-wpcd-new-goto-button {
     display: block;
     text-align: center;
     font-size: 20px;
+    line-height: 26px;
     padding: 5px;
     margin-top: 5px;
     box-shadow: 0px 1px 2px rgba(34, 34, 34, .2);
@@ -2700,12 +2704,14 @@ a.admin-wpcd-new-goto-button {
     padding: 15px;
 }
 
-.admin_wpcd_seven_heading h2 {
-    font-size: 26px;
+.admin_wpcd_seven_new_title {
+    font-size: 22px !important;
+    font-weight: bolder !important;
+    padding: 0px !important;
 }
 
 .admin_wpcd_seven_heading p:nth-child(2) {
-    display: none;
+/*    display: none;*/
 }
 
 .admin_wpcd_seven_expire {
@@ -3126,6 +3132,12 @@ a.admin-wpcd-new-goto-button {
     .wpcd-coupon-four .wpcd-coupon-code {
         text-align: center;
     }
+    .wpcd-coupon-four-content .wpcd-coupon-four-title {
+        text-align: center;
+    }
+    .wpcd-coupon-four-content .wpcd-coupon-description {
+        text-align: justify;
+    }
     .wpcd-coupon-four-info {
         width: 100%;
     }
@@ -3297,6 +3309,12 @@ a.admin-wpcd-new-goto-button {
     .admin_wpcd_seven_shortcode .admin_wpcd_seven_heading {
         padding-bottom: 0px;
     }
+    .admin_wpcd_seven_shortcode .admin_wpcd_seven_new_title {
+        text-align: center;
+    }
+    .admin_wpcd_seven_shortcode .wpcd-coupon-description {
+        text-align: justify;
+    }
     .admin_wpcd_seven_shortcode .admin_wpcd_seven_buttonSociaLikeDislike {
         float: none;
         width: 70%;
@@ -3316,15 +3334,22 @@ a.admin-wpcd-new-goto-button {
         width: 100%;
         float: none;
         margin-left: 0px;
+        text-align: center;
     }
 }
 
 @media only screen and (max-width: 600px) {
+    .wpcd-coupon-discount-text, .coupon-type, .deal-type {
+        width: 100%;
+    }
     .wpcd-coupon-six {
         height: auto;
     }
     .wpcd-coupon-six-title {
         text-align: center;
+    }
+    .wpcd-coupon-six-texts {
+        text-align: justify;
     }
     .wpcd-coupon-six-percent-off {
         width: 60px;
@@ -3343,6 +3368,9 @@ a.admin-wpcd-new-goto-button {
         width: 100%;
         padding: 10px;
         margin: 0;
+    }
+    .wpcd-coupon-six-texts .exp {
+        text-align: center;
     }
     .wpcd-coupon-six-texts .texts {
         min-height: 75px;
@@ -3412,6 +3440,9 @@ a.admin-wpcd-new-goto-button {
     .extra-wpcd-template-five-holder .wpcd-coupon-not-hidden {
         width: 100%;
     }
+    .wpcd-template-five-holder .wpcd-template-five-texts p {
+        text-align: justify;
+    }
     .wpcd-template-five .wpcd-coupon-button-type .coupon-code-wpcd {
         margin-left: unset;
         border-bottom-left-radius: 15px;
@@ -3458,6 +3489,23 @@ a.admin-wpcd-new-goto-button {
 }
 
 @media all and (min-width: 600px) {
+    .wpcd-col-1-4 .wpcd-coupon-expire, 
+    .wpcd-col-1-4 .wpcd-coupon-expired,
+    .wpcd-col-1-4 .wpcd-coupon-code,
+    .wpcd-col-1-4 .wpcd-deal-code,
+    .wpcd-col-1-4 .coupon-code-wpcd {
+        text-align: right;
+    }
+    .wpcd-coupon-description {
+        text-align: initial;
+    }
+    .wpcd-coupon-three .wpcd-coupon-three-title {
+        text-align: initial;
+    }
+    .wpcd-coupon-title {
+        text-align: initial;
+        margin-bottom: 0px;
+    }
     .wpcd-col-2-3 {
         float: left;
         width: 66.66%;
@@ -3506,6 +3554,9 @@ a.admin-wpcd-new-goto-button {
         float: left;
         width: 56.5%;
     }
+    .wpcd-coupon-one h4 {
+        text-align: initial;
+    }
     /* template two styles.
     */
     .wpcd-col-two-1-4 {
@@ -3516,6 +3567,19 @@ a.admin-wpcd-new-goto-button {
         float: left;
         width: 82%;
     }
+    .wpcd-coupon-two-header {
+        text-align: left;
+    }
+    .wpcd-coupon-two-title {
+        float: left;
+        width: 67%;
+        margin-bottom: 0px;
+        text-align: left;
+    }
+    .wpcd-coupon-two-coupon {
+        width: 33%;
+        float: left;
+    }
     /* template three styles.
     */
     .wpcd-col-three-1-4 {
@@ -3525,6 +3589,15 @@ a.admin-wpcd-new-goto-button {
     .wpcd-col-three-3-4 {
         float: left;
         width: 75%;
+    }
+    .wpcd-coupon-three-coupon {
+        width: 40%;
+        float: left;
+
+    }
+    .wpcd-coupon-three-info-left {
+        width: 60%;
+        float: left;
     }
 }
 
@@ -3655,7 +3728,7 @@ a.admin-wpcd-new-goto-button {
         display: block;
         width: 0;
         height: 0;
-        border-top: 33px solid transparent;
+        border-top: 37px solid transparent;
         border-left: 32px solid #347BAF;
         position: absolute;
         right: -32px;
@@ -3679,9 +3752,6 @@ a.admin-wpcd-new-goto-button {
 }
 
 @media only screen and (min-width: 32.5em) {
-    .wpcd-coupon-one h4 {
-        text-align: justify;
-    }
 }
 
 @media screen and (max-width: 568px) and (min-width: 320px) {

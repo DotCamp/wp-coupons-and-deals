@@ -21,7 +21,7 @@ jQuery(document).ready(function ($) {
     var all_button_text = $('[id$=buttontext]');
     var deal_text = $('#dealtext');
     var all_deal_text = $('[id$=dealtext]');
-    var show_expiration = $('#show-expiration');
+    var show_expiration = $('#show-expiration').closest('tr');
     var expiration = $('#expiredate');
     var time_expiration = $('#expiretime');
     var never_expire = $('#neverexpire-checkbox'); // the wrraper of the checkbox
@@ -496,8 +496,8 @@ jQuery(document).ready(function ($) {
         }
 
         if (never_expire_check.prop('checked')) {
-            $('b.expires-on').toggle();
-            $('b.never-expire').toggle();
+            $('b.expires-on').hide();
+            $('b.never-expire').show();
         }
     }
     function onExpirationSelectFieldChange() {
@@ -524,6 +524,15 @@ jQuery(document).ready(function ($) {
             $('.with-expiration-4-3').addClass('hide-expire-preview');
             $('.without-expiration-4-3').addClass('hide-expire-preview');
             allexpiration.hide();
+            var currentTemplate = coupon_template.val();
+
+            if (
+                currentTemplate === templates.TWO ||
+                currentTemplate === templates.SIX ||
+                currentTemplate === templates.SEVEN
+            ) {
+                expiration.show();
+            }
         }
     }
 
@@ -591,8 +600,16 @@ jQuery(document).ready(function ($) {
 
     function onNeverExpireCheckboxChange() {
         var checked = $(this).prop('checked');
-        $('b.expires-on').toggle();
-        $('b.never-expire').toggle();
+        if ( checked ) {
+            $('b.expires-on').hide();
+            $('b.never-expire').show();
+        } else {
+            if( $('#expire-date').val() ) {
+                $('b.expires-on').show();
+                $('b.never-expire').hide();
+            }
+        }
+        
 
     }
 
@@ -625,40 +642,45 @@ jQuery(document).ready(function ($) {
         var couponSix = $('.wpcd-coupon-six');
 
         couponSix
-            .css('border-color', color);
+            .css( 'border-color', color );
 
         couponSix
-            .find('.wpcd-ribbon')
-            .css('background-color', color);
+            .find( '.wpcd-ribbon' )
+            .css( 'background-color', color );
 
         couponSix
-            .find('.coupon-code-button')
-            .css('border-color', color)
-            .css('color', color);
+            .find( '.coupon-code-button' )
+            .css( 'border-color', color )
+            .css( 'color', color );
+    
+        couponSix
+            .find( '.deal-code-button' )
+            .css( 'border-color', color )
+            .css( 'color', color );
 
         couponSix
-            .find('.wpcd-coupon-six-texts .exp')
-            .css('border-color', color);
+            .find( '.wpcd-coupon-six-texts .exp' )
+            .css( 'border-color', color );
 
         couponSix
-            .find('.get-code-wpcd .square_wpcd')
-            .css('background-color', color);
+            .find( '.get-code-wpcd .square_wpcd' )
+            .css( 'background-color', color );
 
         couponSix
-            .find('.get-code-wpcd .rectangle_wpcd')
-            .css('border-left-color', color);
+            .find( '.get-code-wpcd .rectangle_wpcd' )
+            .css( 'border-left-color', color );
 
         couponSix
-            .find('.wpcd-ribbon-before')
-            .css('border-left-color', color);
+            .find( '.wpcd-ribbon-before' )
+            .css( 'border-left-color', color );
 
         couponSix
-            .find('.wpcd-ribbon-after')
-            .css('border-right-color', color);
+            .find( '.wpcd-ribbon-after')
+            .css( 'border-right-color', color );
 
         couponSix
-            .find('.wpcd-coupon-hidden .coupon-button')
-            .css('border-color', color);
+            .find( '.wpcd-coupon-hidden .coupon-button' )
+            .css( 'border-color', color );
 
     }
 
@@ -1444,7 +1466,8 @@ jQuery(function ($) {
     //update manually
     $('[id$=expire-date]').on('change', function () {
         var val = $(this).val();
-        var withExpireBlock, withoutExpireBlock;
+        var withExpireBlock, withoutExpireBlock, withExpireBlock267 = '', withoutExpireBlock267 = '';
+        
 
         if ($(this).attr('id').search('third') !== -1) {
             withExpireBlock = couponPreview.find('.with-expiration-4-3');
@@ -1455,14 +1478,26 @@ jQuery(function ($) {
         } else {
             withExpireBlock = couponPreview.find('.with-expiration1');
             withoutExpireBlock = couponPreview.find('.without-expiration1');
+            withExpireBlock267 = couponPreview.find('.expires-on');
+            withoutExpireBlock267 = couponPreview.find('.never-expire');
         }
 
         if (val || val.trim().length > 0) {
             withExpireBlock.removeClass('hidden');
             withoutExpireBlock.addClass('hidden');
+            if( ! $('#never-expire-check').prop('checked') && withExpireBlock267 && withoutExpireBlock267 ) {
+                withExpireBlock267.show();
+                withoutExpireBlock267.hide();
+            }
+            
         } else {
             withExpireBlock.addClass('hidden');
             withoutExpireBlock.removeClass('hidden');
+            if( withExpireBlock267 && withoutExpireBlock267 ) {
+                withExpireBlock267.hide();
+                withoutExpireBlock267.show();
+            }
+            
         }
     });
 

@@ -53,12 +53,14 @@ $wpcd_template_seven_theme = get_post_meta( $coupon_id, 'coupon_details_template
 $post_id                   = get_the_ID();
 
 $dt_coupon_type_name = ( !empty( $dt_coupon_type_name ) ) ? $dt_coupon_type_name : __( 'Coupon', 'wpcd-coupon' );
-$dt_deal_type_name = ( !empty( $dt_deal_type_name ) ) ? $dt_deal_type_name : __( 'Deal', 'wpcd-coupon' );
-$expire_text = ( !empty( $expire_text ) ) ? $expire_text : __( 'Expires On: ', 'wpcd-coupon' );
-$expired_text = ( !empty( $expired_text ) ) ? $expired_text : __( 'Expired On: ', 'wpcd-coupon' );
-$no_expiry = ( !empty( $no_expiry ) ) ? $no_expiry : __( "Doesn't expire", 'wpcd-coupon' );
-$coupon_hover_text = ( ! empty( $coupon_hover_text ) ) ? $coupon_hover_text : __( 'Click To Copy Coupon', 'wpcd-coupon' );
-$deal_hover_text = ( !empty( $deal_hover_text ) ) ? $deal_hover_text : __( 'Click Here To Get This Deal' );
+$dt_deal_type_name   = ( !empty( $dt_deal_type_name ) ) ? $dt_deal_type_name : __( 'Deal', 'wpcd-coupon' );
+$expire_text         = ( !empty( $expire_text ) ) ? $expire_text : __( 'Expires On: ', 'wpcd-coupon' );
+$expired_text        = ( !empty( $expired_text ) ) ? $expired_text : __( 'Expired On: ', 'wpcd-coupon' );
+$no_expiry           = ( !empty( $no_expiry ) ) ? $no_expiry : __( "Doesn't expire", 'wpcd-coupon' );
+$coupon_code         = ( ! empty( $coupon_code ) ? $coupon_code : __( 'COUPONCODE', 'wpcd-coupon' ) );
+$deal_text           = ( ! empty( $deal_text ) ? $deal_text : __( 'Claim This Deal', 'wpcd-coupon' ) );
+$coupon_hover_text   = ( ! empty( $coupon_hover_text ) ) ? $coupon_hover_text : __( 'Click To Copy Coupon', 'wpcd-coupon' );
+$deal_hover_text     = ( !empty( $deal_hover_text ) ) ? $deal_hover_text : __( 'Click Here To Get This Deal' );
 
 if ( $wpcd_text_to_show == 'description' ) {
 	$wpcd_custom_text = $description;
@@ -105,51 +107,58 @@ $template = new WPCD_Template_Loader();
 							<a href="<?php echo esc_url( $link ); ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
 						</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
 					}?>
-					<p><?php echo wpautop( $description, false );?></p>
+                    <div class="wpcd-coupon-description">
+                        <span class="wpcd-full-description"><?php echo wpautop( $description, false );?></span>
+                        <span class="wpcd-short-description"></span>
+                        <?php if( !WPCD_Amp::wpcd_amp_is() ): ?>
+                            <a href="#" class="wpcd-more-description"><?php echo __( 'More', 'wpcd-coupon' ); ?></a>
+                            <a href="#" class="wpcd-less-description"><?php echo __( 'Less', 'wpcd-coupon' ); ?></a>
+                        <?php endif; ?>
+                    </div>
 				</div>		
 			</div>
                 <?php if ($coupon_type == 'Coupon') : ?>
-                    <?php if (!empty($coupon_code)) : ?>
-                        <div class="wpcd_seven_buttonSociaLikeDislike">
-                        	<?php if ( $hide_coupon === 'Yes' && ! WPCD_Amp::wpcd_amp_is() ): ?>
-								<?php
-								$template->get_template_part( 'hide-coupon2__premium_only' );
-								?>
-							<?php else: ?>
-	                        	<div class="wpcd_seven_btn">
-	                                <a class="masterTooltip" 
-	                                	href="<?php echo $link; ?>"
-	                                	title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
-		                                                 if ( ! empty( $coupon_hover_text ) ) {
-		                                                     echo $coupon_hover_text;
-		                                                 } else {
-		                                                     echo __( "Click To Copy Coupon", 'wpcd-coupon' );
-		                                                 }
-		                                             }
-		                                        ?>"
-										data-clipboard-text="<?php echo $coupon_code; ?>"
-			                    		data-title-ab="<?php echo $coupon_code; ?>" 
-	                                 	style="background-color: <?php echo $wpcd_template_seven_theme; ?>; border-color: <?php echo $wpcd_template_seven_theme; ?>; color: <?php echo $wpcd_template_seven_theme; ?>"><?php echo $coupon_code; ?>
-	                                </a>
-	                            </div>
-                            <?php endif; ?>
-                        </div>
-                    <?php endif; ?>
-                <?php endif; ?>
-                <?php if ($coupon_type == 'Deal') : ?>
-                    <?php if (!empty($deal_text)) : ?>
-                        <div class="wpcd_seven_buttonSociaLikeDislike">
+                    <div class="wpcd_seven_buttonSociaLikeDislike">
+                        <?php if ( $hide_coupon === 'Yes' && ! WPCD_Amp::wpcd_amp_is() ): ?>
+                            <?php
+                            $template->get_template_part( 'hide-coupon2__premium_only' );
+                            ?>
+                        <?php else: ?>
                             <div class="wpcd_seven_btn">
                                 <a class="masterTooltip" 
-                                	href="<?php echo $link; ?>"
-                                 	title="<?php echo $deal_hover_text; ?>"
-									data-clipboard-text="<?php echo $deal_text; ?>"
-			                    	data-title-ab="<?php echo $deal_text; ?>" 
-			                    	style="background-color: <?php echo $wpcd_template_seven_theme; ?>; border-color: <?php echo $wpcd_template_seven_theme; ?>; color: <?php echo $wpcd_template_seven_theme; ?>"><?php echo $deal_text; ?>
-			                    </a>
+                                    target="_blank"
+                                    href="<?php echo $link; ?>"
+                                    title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
+                                                     if ( ! empty( $coupon_hover_text ) ) {
+                                                         echo $coupon_hover_text;
+                                                     } else {
+                                                         echo __( "Click To Copy Coupon", 'wpcd-coupon' );
+                                                     }
+                                                 }
+                                            ?>"
+                                    data-clipboard-text="<?php echo $coupon_code; ?>"
+                                    data-title-ab="<?php echo $coupon_code; ?>" 
+                                    style="background-color: <?php echo $wpcd_template_seven_theme; ?>; 
+                                           border-color: <?php echo $wpcd_template_seven_theme; ?>; 
+                                           color: <?php echo $wpcd_template_seven_theme; ?>"><?php echo $coupon_code; ?>
+                                </a>
                             </div>
+                        <?php endif; ?>
+                    </div>
+                <?php endif; ?>
+                <?php if ($coupon_type == 'Deal') : ?>
+                    <div class="wpcd_seven_buttonSociaLikeDislike">
+                        <div class="wpcd_seven_btn">
+                            <a class="masterTooltip"
+                                target="_blank"
+                                href="<?php echo $link; ?>"
+                                title="<?php echo $deal_hover_text; ?>"
+                                data-clipboard-text="<?php echo $deal_text; ?>"
+                                data-title-ab="<?php echo $deal_text; ?>" 
+                                style="background-color: <?php echo $wpcd_template_seven_theme; ?>; border-color: <?php echo $wpcd_template_seven_theme; ?>; color: <?php echo $wpcd_template_seven_theme; ?>"><?php echo $deal_text; ?>
+                            </a>
                         </div>
-                    <?php endif; ?>
+                    </div>
                 <?php endif; ?>
 				<div class="wpcd_seven_expire_correct_box">
 					<div class="wpcd_seven_expire">

@@ -205,23 +205,17 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 				</div>
 			</div>
 			<div class="wpcd-col-1-4">
-				<?php
-				if ( $show_expiration !== 'Hide' ) { ?>
-					<div class="with-expiration1 <?php echo empty( $expire_date ) ? 'hidden' : ''; ?>">
-						<div class="wpcd-coupon-expire expire-text-block1 <?php echo strtotime( $expire_date ) < strtotime( $today ) ? 'hidden' : ''; ?>">
-							<?php echo $expire_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>'; ?>
-						</div>
-						<div class="wpcd-coupon-expired expired-text-block1 <?php echo strtotime( $expire_date ) >= strtotime( $today ) ? 'hidden' : ''; ?>">
-							<?php echo $expired_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>'; ?>
-						</div>
-					</div>
-					<div class="wpcd-coupon-expire without-expiration1 <?php echo empty( $expire_date ) ? '' : 'hidden'; ?>">
-						<?php echo $no_expiry; ?>
-					</div>
-					<?php
-				} else {
-					echo '';
-				} ?>
+                <div class="with-expiration1 <?php echo empty( $expire_date ) ? 'hidden' : ''; ?>">
+                    <div class="wpcd-coupon-expire expire-text-block1 <?php echo strtotime( $expire_date ) < strtotime( $today ) ? 'hidden' : ''; ?>">
+                        <?php echo $expire_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>'; ?>
+                    </div>
+                    <div class="wpcd-coupon-expired expired-text-block1 <?php echo strtotime( $expire_date ) >= strtotime( $today ) ? 'hidden' : ''; ?>">
+                        <?php echo $expired_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>'; ?>
+                    </div>
+                </div>
+                <div class="wpcd-coupon-expire without-expiration1 <?php echo empty( $expire_date ) ? '' : 'hidden'; ?>">
+                    <?php echo $no_expiry; ?>
+                </div>
 			</div>
 		</div>
 	</div>
@@ -289,8 +283,6 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 				</button>
 			</div>
 		</div>
-		<?php
-		if ( $show_expiration !== 'Hide' ) { ?>
 			<div class="with-expiration1 <?php echo empty( $expire_date ) ? 'hidden' : ''; ?>">
 				<div class="wpcd-coupon-one-expire expire-text-block1 <?php echo strtotime( $expire_date ) <= strtotime( $today ) ? 'hidden' : ''; ?>">
 					<?php echo $expire_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>';?>
@@ -302,11 +294,6 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 			<div class="wpcd-coupon-one-expire without-expiration1 <?php echo empty( $expire_date ) ? '' : 'hidden'; ?>">
 				<?php echo $no_expiry; ?>
 			</div>
-			<?php
-		} else {
-			echo '';
-		}
-		?>
 		<div id="clear"></div>
 	</div>
 	<div id="clear"></div>
@@ -330,8 +317,8 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 		</div>
 		<div class="wpcd-coupon-two-info">
 			<div class="wpcd-coupon-two-title">
-				<b class="expires-on">
-					<span>
+				<b class="expires-on" <?php echo empty( $expire_date ) ? 'style="display:none"' : ''; ?>>
+					<span >
 						<?php echo $expire_text; ?>
 					</span>
 					<span class="wpcd-coupon-two-countdown" id="clock_two_<?php echo $post_id; ?>"></span>
@@ -377,7 +364,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 						$clock.countdown(selectedDate.toString());
 					});
 				</script>
-				<b class="never-expire" style="display: none;">
+				<b class="never-expire" <?php echo empty( $expire_date ) ? '' : 'style="display:none"'; ?>>
 					<b><?php echo $no_expiry; ?></b>
 				</b>
 			</div>
@@ -447,29 +434,22 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 	</div>
 	<div class="wpcd-coupon-three-info">
 		<div class="wpcd-coupon-three-info-left">
-			<?php
-			if ( $show_expiration !== 'Hide' ) { ?>
-				<div class="with-expiration1 <?php echo empty( $expire_date ) ? 'hidden' : ''; ?>">
-					<div class="wpcd-coupon-three-expire expire-text-block1 <?php echo strtotime( $expire_date ) >= strtotime( $today ) ? '' : 'hidden'; ?>">
-						<p class="wpcd-coupon-three-expire-text">
-							<?php echo $expire_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>';
-							?>
-						</p>
-					</div>
-					<div class="wpcd-coupon-three-expire expired-text-block1 <?php echo strtotime( $expire_date ) < strtotime( $today ) ? '' : 'hidden'; ?>">
-						<p class="wpcd-coupon-three-expired">
-							<?php echo $expired_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>'; ?>
-						</p>
-					</div>
-				</div>
-				<div class="wpcd-coupon-three-expire without-expiration1 <?php echo empty( $expire_date ) ? '' : 'hidden'; ?>">
-					<p><?php echo $no_expiry; ?></p>
-				</div>
-				<?php
-			} else {
-				echo '';
-			}
-			?>
+            <div class="with-expiration1 <?php echo empty( $expire_date ) ? 'hidden' : ''; ?>">
+                <div class="wpcd-coupon-three-expire expire-text-block1 <?php echo strtotime( $expire_date ) >= strtotime( $today ) ? '' : 'hidden'; ?>">
+                    <p class="wpcd-coupon-three-expire-text">
+                        <?php echo $expire_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>';
+                        ?>
+                    </p>
+                </div>
+                <div class="wpcd-coupon-three-expire expired-text-block1 <?php echo strtotime( $expire_date ) < strtotime( $today ) ? '' : 'hidden'; ?>">
+                    <p class="wpcd-coupon-three-expired">
+                        <?php echo $expired_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>'; ?>
+                    </p>
+                </div>
+            </div>
+            <div class="wpcd-coupon-three-expire without-expiration1 <?php echo empty( $expire_date ) ? '' : 'hidden'; ?>">
+                <p><?php echo $no_expiry; ?></p>
+            </div>
 		</div>
 		<div class="wpcd-coupon-three-coupon">
 			<div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden">
@@ -581,27 +561,21 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 			</div>
 		</div>
 		<div class="wpcd-coupon-four-info-left">
-			<?php
-			if ( $show_expiration !== 'Hide' ) { ?>
-				<div class="with-expiration1 <?php echo empty( $expire_date ) ? 'hidden' : ''; ?>">
-					<div class="wpcd-coupon-four-expire expire-text-block1 <?php echo strtotime( $expire_date ) >= strtotime( $today ) ? '' : 'hidden'; ?>">
-						<p class="wpcd-coupon-four-expire-text">
-							<?php echo $expire_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>'; ?>
-						</p>
-					</div>
-					<div class="wpcd-coupon-four-expire expired-text-block1 <?php echo strtotime( $expire_date ) < strtotime( $today ) ? '' : 'hidden'; ?>">
-						<p class="wpcd-coupon-four-expired">
-							<?php echo $expired_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>'; ?>
-						</p>
-					</div>
-				</div>
-				<div class="wpcd-coupon-four-expire without-expiration1 <?php echo empty( $expire_date ) ? '' : 'hidden'; ?>">
-					<p><?php echo $no_expiry; ?></p>
-				</div>
-			<?php } else {
-				echo '';
-			}
-			?>
+            <div class="with-expiration1 <?php echo empty( $expire_date ) ? 'hidden' : ''; ?>">
+                <div class="wpcd-coupon-four-expire expire-text-block1 <?php echo strtotime( $expire_date ) >= strtotime( $today ) ? '' : 'hidden'; ?>">
+                    <p class="wpcd-coupon-four-expire-text">
+                        <?php echo $expire_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>'; ?>
+                    </p>
+                </div>
+                <div class="wpcd-coupon-four-expire expired-text-block1 <?php echo strtotime( $expire_date ) < strtotime( $today ) ? '' : 'hidden'; ?>">
+                    <p class="wpcd-coupon-four-expired">
+                        <?php echo $expired_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>'; ?>
+                    </p>
+                </div>
+            </div>
+            <div class="wpcd-coupon-four-expire without-expiration1 <?php echo empty( $expire_date ) ? '' : 'hidden'; ?>">
+                <p><?php echo $no_expiry; ?></p>
+            </div>
 		</div>
 	</div>
 	<!-- end first coupon -->
@@ -655,28 +629,21 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 			</div>
 		</div>
 		<div class="wpcd-coupon-four-info-left">
-			<?php
-			if ( $show_expiration !== 'Hide' ) { ?>
-				<div class="with-expiration-4-2 <?php echo empty( $second_expire_date ) ? 'hidden' : ''; ?>">
-					<div class="wpcd-coupon-four-expire expire-text-block2 <?php echo strtotime( $second_expire_date ) >= strtotime( $today ) ? '' : 'hidden'; ?>">
-						<p class="wpcd-coupon-four-expire-text">
-							<?php echo $expire_text . ' ' . '<span class="expiration-date">' . $second_expire_date . '</span>'; ?>
-						</p>
-					</div>
-					<div class="wpcd-coupon-four-expire expired-text-block2 <?php echo strtotime( $second_expire_date ) < strtotime( $today ) ? '' : 'hidden'; ?>">
-						<p class="wpcd-coupon-four-expired">
-							<?php echo $expired_text . ' ' . '<span class="expiration-date">' . $second_expire_date . '</span>'; ?>
-						</p>
-					</div>
-				</div>
-				<div class="wpcd-coupon-four-expire without-expiration-4-2 <?php echo empty( $second_expire_date ) ? '' : 'hidden'; ?>">
-					<p><?php echo $no_expiry; ?></p>
-				</div>
-				<?php
-			} else {
-				echo '';
-			}
-			?>
+            <div class="with-expiration-4-2 <?php echo empty( $second_expire_date ) ? 'hidden' : ''; ?>">
+                <div class="wpcd-coupon-four-expire expire-text-block2 <?php echo strtotime( $second_expire_date ) >= strtotime( $today ) ? '' : 'hidden'; ?>">
+                    <p class="wpcd-coupon-four-expire-text">
+                        <?php echo $expire_text . ' ' . '<span class="expiration-date">' . $second_expire_date . '</span>'; ?>
+                    </p>
+                </div>
+                <div class="wpcd-coupon-four-expire expired-text-block2 <?php echo strtotime( $second_expire_date ) < strtotime( $today ) ? '' : 'hidden'; ?>">
+                    <p class="wpcd-coupon-four-expired">
+                        <?php echo $expired_text . ' ' . '<span class="expiration-date">' . $second_expire_date . '</span>'; ?>
+                    </p>
+                </div>
+            </div>
+            <div class="wpcd-coupon-four-expire without-expiration-4-2 <?php echo empty( $second_expire_date ) ? '' : 'hidden'; ?>">
+                <p><?php echo $no_expiry; ?></p>
+            </div>
 		</div>
 	</div>
 	<!-- end second coupon -->
@@ -730,28 +697,21 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 			</div>
 		</div>
 		<div class="wpcd-coupon-four-info-left">
-			<?php
-			if ( $show_expiration !== 'Hide' ) { ?>
-				<div class="with-expiration-4-3 <?php echo empty( $third_expire_date ) ? 'hidden' : ''; ?>">
-					<div class="wpcd-coupon-four-expire expire-text-block3 <?php echo strtotime( $third_expire_date ) >= strtotime( $today ) ? '' : 'hidden'; ?>">
-						<p class="wpcd-coupon-four-expire-text">
-							<?php echo $expire_text . ' ' . '<span class="expiration-date">' . $third_expire_date . '</span>';?>
-						</p>
-					</div>
-					<div class="wpcd-coupon-four-expire expired-text-block3 <?php echo strtotime( $third_expire_date ) < strtotime( $today ) ? '' : 'hidden'; ?>">
-						<p class="wpcd-coupon-four-expired">
-							<?php echo $expired_text . ' ' . '<span class="expiration-date">' . $third_expire_date . '</span>'; ?>
-						</p>
-					</div>
-				</div>
-				<div class="wpcd-coupon-four-expire without-expiration-4-3 <?php echo empty( $third_expire_date ) ? '' : 'hidden'; ?>">
-					<p><?php echo $no_expiry; ?></p>
-				</div>
-				<?php
-			} else {
-				echo '';
-			}
-			?>
+            <div class="with-expiration-4-3 <?php echo empty( $third_expire_date ) ? 'hidden' : ''; ?>">
+                <div class="wpcd-coupon-four-expire expire-text-block3 <?php echo strtotime( $third_expire_date ) >= strtotime( $today ) ? '' : 'hidden'; ?>">
+                    <p class="wpcd-coupon-four-expire-text">
+                        <?php echo $expire_text . ' ' . '<span class="expiration-date">' . $third_expire_date . '</span>';?>
+                    </p>
+                </div>
+                <div class="wpcd-coupon-four-expire expired-text-block3 <?php echo strtotime( $third_expire_date ) < strtotime( $today ) ? '' : 'hidden'; ?>">
+                    <p class="wpcd-coupon-four-expired">
+                        <?php echo $expired_text . ' ' . '<span class="expiration-date">' . $third_expire_date . '</span>'; ?>
+                    </p>
+                </div>
+            </div>
+            <div class="wpcd-coupon-four-expire without-expiration-4-3 <?php echo empty( $third_expire_date ) ? '' : 'hidden'; ?>">
+                <p><?php echo $no_expiry; ?></p>
+            </div>
 		</div>
 	</div>
 	<!-- end third coupon -->
@@ -881,7 +841,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 			</div>
 			<div class="exp" style="border-color: <?php echo $wpcd_template_six_theme; ?>">
 				<p>
-					<b class="expires-on">
+					<b class="expires-on"  <?php echo empty( $expire_date ) ? 'style="display:none"' : ''; ?>>
 						<?php echo $expire_text; ?>
 						<span class="wpcd-coupon-six-countdown" id="clock_six_<?php echo $post_id; ?>"></span>
 						<?php if ( ! $expire_date ) {
@@ -925,7 +885,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 							});
 						</script>
 					</b>
-					<b class="never-expire" style="display: none;">
+					<b class="never-expire" <?php echo empty( $expire_date ) ? '' : 'style="display:none"'; ?>>
 						<b><?php echo $no_expiry; ?></b>
 					</b>
 				</p>
@@ -1012,24 +972,9 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 			</div>
 			<div class="admin_wpcd_seven_headingAndExpire">
 				<div class="admin_wpcd_seven_heading">
-				<?php
-					if ( empty( $coupon_title_tag) ) {
-						if ( 'on' === $disable_coupon_title_link ) { ?>
-							<<?php echo esc_html( $coupon_title_tag ); ?> class="admin_wpcd_seven_new_title">
-								<?php echo $title; ?>
-							</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
-						} else { ?>
-							<<?php echo esc_html( $coupon_title_tag ); ?> class="admin_wpcd_seven_new_title">
-								<a href="<?php echo esc_url( $link ); ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
-							</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
-		
-						}
-					} else { ?>
-						<<?php echo esc_html( $coupon_title_tag ); ?> class="admin_wpcd_seven_new_title">
-							<a href="<?php echo esc_url( $link ); ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
-						</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
-					}
-					?>
+                    <h2 class="admin_wpcd_seven_new_title">
+                        <?php echo $title; ?>
+                    </h2>
 					<p>
 						<?php echo '<div class="wpcd-coupon-description">' . $description . '</div>';?>
 					</p>
@@ -1088,7 +1033,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 				<div class="admin_wpcd_seven_expire_correct_box">
 					<div class="admin_wpcd_seven_expire" style="border-color:">
 						<p>
-                            <b class="expires-on">
+                            <b class="expires-on"  <?php echo empty( $expire_date ) ? 'style="display:none"' : ''; ?>>
                                 <?php echo $expire_text; ?>
                                 <span class="wpcd-coupon-seven-countdown" data-countdown_coupon="<?php echo $expire_date_format . ' ' . $expire_time; ?>" id="clock_seven_<?php echo $post_id; ?>"></span>
                                 <?php if ( ! $expire_date ) {
@@ -1131,7 +1076,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
                                     });
                                 </script>
                             </b>
-							<b class="never-expire" style="display: none;">
+							<b class="never-expire" <?php echo empty( $expire_date ) ? '' : 'style="display:none"'; ?>>
 								<b><?php echo $no_expiry; ?></b>
 							</b>
 						</p>
@@ -1152,28 +1097,22 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 		<div class="coupon-type" style="background-color: <?php echo $wpcd_template_eight_theme; ?>">
 			<?php echo $coupon_type; ?>
 		</div>
-		<?php
-		if ( $show_expiration == 'Show' ) {?>
-			<div class="with-expiration1 <?php echo empty( $expire_date ) ? 'hidden' : ''; ?>">
-					<div class="wpcd-coupon-three-expire expire-text-block1 <?php echo strtotime( $expire_date ) >= strtotime( $today ) ? '' : 'hidden'; ?>">
-						<p class="wpcd-coupon-three-expire-text">
-							<?php echo $expire_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>';
-							?>
-						</p>
-					</div>
-					<div class="wpcd-coupon-three-expire expired-text-block1 <?php echo strtotime( $expire_date ) < strtotime( $today ) ? '' : 'hidden'; ?>">
-						<p class="wpcd-coupon-three-expired">
-							<?php echo $expired_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>'; ?>
-						</p>
-					</div>
-				</div>
-				<div class="wpcd-coupon-three-expire without-expiration1 <?php echo empty( $expire_date ) ? '' : 'hidden'; ?>">
-					<p><?php echo $no_expiry; ?></p>
-				</div>
-			<?php
-		} else {
-			echo '';
-		} ?>
+        <div class="with-expiration1 <?php echo empty( $expire_date ) ? 'hidden' : ''; ?>">
+            <div class="wpcd-coupon-three-expire expire-text-block1 <?php echo strtotime( $expire_date ) >= strtotime( $today ) ? '' : 'hidden'; ?>">
+                <p class="wpcd-coupon-three-expire-text">
+                    <?php echo $expire_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>';
+                    ?>
+                </p>
+            </div>
+            <div class="wpcd-coupon-three-expire expired-text-block1 <?php echo strtotime( $expire_date ) < strtotime( $today ) ? '' : 'hidden'; ?>">
+                <p class="wpcd-coupon-three-expired">
+                    <?php echo $expired_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>'; ?>
+                </p>
+            </div>
+        </div>
+        <div class="wpcd-coupon-three-expire without-expiration1 <?php echo empty( $expire_date ) ? '' : 'hidden'; ?>">
+            <p><?php echo $no_expiry; ?></p>
+        </div>
    </div> <!-- End of grid-one -->
    <div class="admin-wpcd-new-grid-two">
 	   <?php

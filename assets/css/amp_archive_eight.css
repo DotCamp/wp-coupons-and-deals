@@ -84,17 +84,21 @@ p.wpcd-new-expire-text:before {
     word-break: break-all;
 }
 
+.wpcd-new-title a {
+    font-size: 24px;
+}
+
 .wpcd-coupon-description {
     margin-top: 10px;
     font-size: inherit;
 }
 
-.wpcd-new-grid-container .wpcd-coupon-description p {
+.wpcd-new-grid-two .wpcd-coupon-description p {
+    margin: 0px 0px 15px;
     font-size: inherit;
-    font-weight: inherit;
+    font-weight: 300;
+    padding: 0px;
     line-height: inherit;
-    overflow-wrap: break-word;
-    padding-top: 0px;
 }
 
 .wpcd-new-grid-container .wpcd-coupon-description p:before {
@@ -171,5 +175,8 @@ a.wpcd-new-goto-button:hover {
         grid-template-rows: 1fr;
         text-align: center;
         grid-row-gap: 1rem;
+    }
+    .wpcd-new-grid-container .wpcd-coupon-description p {
+        text-align: justify;
     }
 }

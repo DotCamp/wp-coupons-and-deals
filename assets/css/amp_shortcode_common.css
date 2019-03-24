@@ -17,6 +17,7 @@ a.wpcd-btn {
     display: inline-block;
     text-decoration: none;
     box-sizing: border-box;
+    word-break: break-all;
 }
 a.wpcd-coupon-button:hover {
     color: #347BAF;

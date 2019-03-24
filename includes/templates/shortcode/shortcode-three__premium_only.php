@@ -32,6 +32,9 @@ $hide_coupon               = get_post_meta( $coupon_id, 'coupon_details_hide-cou
 $wpcd_text_to_show         = get_option( 'wpcd_text-to-show' );
 $wpcd_custom_text          = get_option( 'wpcd_custom-text' );
 
+$coupon_code               = ( ! empty( $coupon_code ) ? $coupon_code : __( 'COUPONCODE', 'wpcd-coupon' ) );
+$deal_text                 = ( ! empty( $deal_text ) ? $deal_text : __( 'Claim This Deal', 'wpcd-coupon' ) );
+
 if ( $wpcd_text_to_show == 'description' ) {
 	$wpcd_custom_text = $description;
 } else {

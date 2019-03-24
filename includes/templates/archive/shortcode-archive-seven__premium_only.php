@@ -94,6 +94,8 @@ if ($wpcd_text_to_show == 'description') {
         $wpcd_custom_text = __("Click on 'Copy' to Copy the Coupon Code.", 'wpcd-coupon');
     }
 }
+$coupon_code = ( ! empty( $coupon_code ) ? $coupon_code : __( 'COUPONCODE', 'wpcd-coupon' ) );
+$deal_text = ( ! empty( $deal_text ) ? $deal_text : __( 'Claim This Deal', 'wpcd-coupon' ) );
 $coupon_hover_text = ( ! empty( $coupon_hover_text ) ) ? $coupon_hover_text : __( 'Click To Copy Coupon', 'wpcd-coupon' );
 $deal_hover_text = ( !empty( $deal_hover_text ) ) ? $deal_hover_text : __( 'Click Here To Get This Deal' );
 
@@ -132,17 +134,24 @@ include('header-default.php');
                 </div>
                 <div class="wpcd_seven_headingAndExpire">
                     <div class="wpcd_seven_heading">
-                        <?php
-                        if ('on' === $disable_coupon_title_link) { ?>
-                            <<?php echo esc_html($coupon_title_tag); ?> class="wpcd-new-title">
-                            <?php echo $title; ?>
-                            </<?php echo esc_html($coupon_title_tag); ?>> <?php
+                    <?php
+                        if ( 'on' === $disable_coupon_title_link ) { ?>
+                            <<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-new-title">
+                                <?php echo $title; ?>
+                            </<?php echo esc_html( $coupon_title_tag ); ?>> <?php
                         } else { ?>
-                            <<?php echo esc_html($coupon_title_tag); ?> class="wpcd-new-title">
-                            <a href="<?php echo esc_url($link); ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
-                            </<?php echo esc_html($coupon_title_tag); ?>> <?php
-                        } ?>
-                        <p><?php echo wpautop($description, false); ?></p>
+                            <<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-new-title">
+                                <a href="<?php echo esc_url( $link ); ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
+                            </<?php echo esc_html( $coupon_title_tag ); ?>> <?php
+                        }?>
+                        <div class="wpcd-coupon-description">
+                            <span class="wpcd-full-description"><?php echo wpautop( $description, false );?></span>
+                            <span class="wpcd-short-description"></span>
+                            <?php if( !WPCD_Amp::wpcd_amp_is() ): ?>
+                                <a href="#" class="wpcd-more-description"><?php echo __( 'More', 'wpcd-coupon' ); ?></a>
+                                <a href="#" class="wpcd-less-description"><?php echo __( 'Less', 'wpcd-coupon' ); ?></a>
+                            <?php endif; ?>
+                        </div>
                         
                     </div>
                 </div>
@@ -157,6 +166,7 @@ include('header-default.php');
                                 <div class="wpcd_seven_btn">
                                     <a class="masterTooltip" 
                                         href="<?php echo $link; ?>"
+                                        target="_blank"
                                         title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
                                                          echo $coupon_hover_text;
                                                      }
@@ -174,6 +184,7 @@ include('header-default.php');
                             <div class="wpcd_seven_btn">
                                 <a class="masterTooltip" 
                                     href="<?php echo $link; ?>"
+                                    target="_blank"
                                     title="<?php echo $deal_hover_text; ?>"
                                     data-title-ab="<?php echo $deal_text; ?>"><?php echo $deal_text; ?>
                                 </a>

@@ -502,7 +502,13 @@ class WPCD_Short_Code {
 			if ( WPCD_Amp::wpcd_amp_is() ) {
 				WPCD_Amp::instance()->setCss( 'archive_common' );
 				WPCD_Amp::instance()->setCss( 'shortcode_common' );
-        		WPCD_Amp::instance()->setCss( $argcss );
+                if ( $argcss == 'archive_default' ) {
+                    WPCD_Amp::instance()->setCss( 'shortcode_five' );
+                    WPCD_Amp::instance()->setCss( 'shortcode_six' );
+                    WPCD_Amp::instance()->setCss( 'shortcode_default' );
+                } else {
+                    WPCD_Amp::instance()->setCss( $argcss ); 
+                }
         		$user_stylesheets = WPCD_Assets::wpcd_stylesheets( true );
         		WPCD_Amp::instance()->setCss( $user_stylesheets, false );
         	} 
@@ -649,7 +655,13 @@ class WPCD_Short_Code {
 		if ( WPCD_Amp::wpcd_amp_is() ) {
 			WPCD_Amp::instance()->setCss( 'archive_common' );
 			WPCD_Amp::instance()->setCss( 'shortcode_common' );
-    		WPCD_Amp::instance()->setCss( $argcss );
+            if ( $argcss == 'archive_default' ) {
+                WPCD_Amp::instance()->setCss( 'shortcode_five' );
+                WPCD_Amp::instance()->setCss( 'shortcode_six' );
+                WPCD_Amp::instance()->setCss( 'shortcode_default' );
+            } else {
+                WPCD_Amp::instance()->setCss( $argcss ); 
+            }
     		$user_stylesheets = WPCD_Assets::wpcd_stylesheets( true );
     		WPCD_Amp::instance()->setCss( $user_stylesheets, false );
     	}

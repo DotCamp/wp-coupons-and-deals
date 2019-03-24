@@ -112,6 +112,11 @@ a.wpcd-btn .wpcd_deal_icon {
 .wpcd-coupon-description {
     margin-top: 10px;
     font-size: inherit;
+    text-align: initial;
+}
+
+wpcd-coupon-description p {
+    margin: 0px 0px 15px;
 }
 
 .wpcd-btn {
@@ -124,6 +129,7 @@ a.wpcd-btn .wpcd_deal_icon {
     font-weight: 600;
     display: inline-block;
     text-decoration: none !important;
+    word-break: break-all;
 }
 
 .wpcd-coupon-button {
@@ -189,6 +195,15 @@ a.wpcd-btn .wpcd_deal_icon {
 /* Shortcode template default styles.
 -------------------------------------------------------------- */
 
+
+.wpcd-coupon-default .wpcd-coupon-description p {
+    margin: 0px 0px 15px;
+    font-size: inherit;
+    font-weight: 400;
+    padding: 0px;
+    line-height: inherit;
+}
+
 /* Mobile styles */
 
 .wpcd-template-default-mobile .wpcd-coupon-discount-text, 
@@ -201,6 +216,22 @@ a.wpcd-btn .wpcd_deal_icon {
 .wpcd-template-default-mobile .wpcd-coupon-code {
     width: 100% !important;
     text-align: center;
+}
+
+.wpcd-template-default-mobile .wpcd-col-1-4 .wpcd-coupon-code, 
+.wpcd-template-default-mobile .wpcd-col-1-4 .wpcd-coupon-expire, 
+.wpcd-template-default-mobile .wpcd-col-1-4 .wpcd-coupon-expired {
+        text-align: center;
+}
+
+.wpcd-template-default-mobile .wpcd-coupon-description {
+    text-align: justify;
+}
+
+.wpcd-coupon-default.wpcd-template-default-mobile 
+.wpcd-coupon-header .wpcd-col-1-4 .coupon-code-wpcd {
+    float: none;
+    margin: auto;
 }
 
 .wpcd-mobile-mini .wpcd-share-buttons-container {
@@ -254,6 +285,14 @@ a.wpcd-btn .wpcd_deal_icon {
     margin-top: 2px;
     text-align: center;
     font-size: 22px;
+}
+
+.wpcd-coupon-one .wpcd-coupon-description p {
+    margin: 0px 0px 15px;
+    font-size: inherit;
+    font-weight: 400;
+    padding: 0px;
+    line-height: inherit;
 }
 
 .wpcd-coupon-one-discount-text {
@@ -343,10 +382,19 @@ a.wpcd-btn .wpcd_deal_icon {
     margin: 10px 0 0;
     width: 100%;
 }
-.wpcd-template-one-mobile .wpcd-coupon-title, .wpcd-template-one-mobile .wpcd-coupon-description {
+.wpcd-template-one-mobile .wpcd-coupon-title {
     text-align: center;
 }
-.wpcd-template-one-mobile .wpcd-coupon-one-discount-text, .wpcd-template-one-mobile .coupon-code {
+
+.wpcd-template-one-mobile .wpcd-coupon-description {
+    text-align: justify;
+}
+.wpcd-template-one-mobile .wpcd-coupon-description 
+.wpcd-full-description p {
+    margin-bottom: 0px;
+}
+.wpcd-template-one-mobile .wpcd-coupon-one-discount-text, 
+.wpcd-template-one-mobile .coupon-code {
     margin-left: 0;
 }
 .wpcd-template-one-mobile .wpcd-coupon-code {
@@ -412,6 +460,15 @@ a.wpcd-btn .wpcd_deal_icon {
 .wpcd-coupon-two-title {
     float: left;
     width: 67%;
+    padding-right: 5px;
+}
+
+.wpcd-coupon-two .wpcd-coupon-description p {
+    margin: 0px 0px 15px;
+    font-size: inherit;
+    font-weight: 400;
+    padding: 0px;
+    line-height: inherit;
 }
 
 .wpcd-coupon-two-coupon {
@@ -475,11 +532,17 @@ a.wpcd-btn .wpcd_deal_icon {
     margin-bottom: 10px;
     text-align: center;
     width: 100%;
+    padding-right: 0px;
+}
+.wpcd-template-two-mobile .wpcd-coupon-two-coupon .wpcd-coupon-code {
+    text-align: center;
 }
 
-.wpcd-template-two-mobile .wpcd-coupon-title, 
-.wpcd-template-two-mobile .wpcd-coupon-description {
+.wpcd-template-two-mobile .wpcd-coupon-title {
     text-align: center;
+}
+.wpcd-template-two-mobile .wpcd-coupon-description {
+    text-align: justify;
 }
 
 
@@ -525,6 +588,14 @@ a.wpcd-btn .wpcd_deal_icon {
     width: 100%;
     padding: 10px;
     margin: 0;
+}
+
+.wpcd-coupon-three-content .wpcd-coupon-description p {
+    margin: 0px 0px 15px;
+    font-size: inherit;
+    font-weight: 400;
+    padding: 0px;
+    line-height: inherit;
 }
 
 .wpcd-coupon-three-info:before {
@@ -611,9 +682,14 @@ p.wpcd-coupon-three-expired {
 
 /* Mobile styles */
 
-.wpcd-template-three-mobile .wpcd-coupon-three-expire, .wpcd-template-three-mobile .wpcd-coupon-three-coupon {
+.wpcd-template-three-mobile .wpcd-coupon-title,
+.wpcd-template-three-mobile .wpcd-coupon-three-expire, 
+.wpcd-template-three-mobile .wpcd-coupon-three-coupon {
     text-align: center;
     width: 100%;
+}
+.wpcd-template-three-mobile .wpcd-coupon-description {
+    text-align: justify;
 }
 
 
@@ -654,7 +730,7 @@ p.wpcd-coupon-three-expired {
     float: left;
     margin: 10px 0 0 0;
     position: relative;
-    padding: 0px 15px;
+    padding: 0px 15px 8px;
     box-sizing: border-box;
 }
 
@@ -662,6 +738,14 @@ p.wpcd-coupon-three-expired {
     /*width: 100%;*/
     padding: 10px;
     margin: 0;
+}
+
+.wpcd-coupon-four-content .wpcd-coupon-description p {
+    margin: 0px 0px 15px;
+    font-size: inherit;
+    font-weight: 400;
+    padding: 0px;
+    line-height: inherit;
 }
 
 .wpcd-coupon-four-info:before {
@@ -680,7 +764,7 @@ p.wpcd-coupon-three-expired {
     width: 100%;
     float: left;
     padding: 10px 0 0 0;
-    margin: 0;
+    margin: 0px 0px 5px;
 }
 
 .wpcd-coupon-four-expire {
@@ -764,9 +848,11 @@ p.wpcd-coupon-four-expired {
     width: 100%;
 }
 
-.wpcd-template-four-mobile .wpcd-coupon-four-content .wpcd-coupon-title,
-.wpcd-template-four-mobile .wpcd-coupon-four-content .wpcd-coupon-description {
+.wpcd-template-four-mobile .wpcd-coupon-four-content .wpcd-coupon-title {
     text-align: center;
+}
+.wpcd-template-four-mobile .wpcd-coupon-four-content .wpcd-coupon-description {
+    text-align: justify;
 }
 
 
@@ -786,8 +872,7 @@ p.wpcd-coupon-four-expired {
     margin: 25px auto;
     clear: both;
     overflow: hidden;
-    padding: 10px;
-    padding-bottom: 5px;
+    padding: 15px;
     box-sizing: border-box;
 }
 
@@ -808,8 +893,6 @@ p.wpcd-coupon-four-expired {
     float: left;
     overflow: hidden;
     margin-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
 }
 
 .wpcd-template-five-percent-off {
@@ -821,7 +904,7 @@ p.wpcd-coupon-four-expired {
     color: #3A3A3A;
     font-size: 29px;
     text-align: center;
-    margin: 11px;
+    margin-bottom: 11px;
     margin-top: 0px;
     border: 2px dashed #3a3a3a;
     padding: 7px;
@@ -842,16 +925,17 @@ p.wpcd-coupon-four-expired {
     font-weight: bolder !important;
 }
 
-.wpcd-template-five-texts p {
+.wpcd-template-five-texts .wpcd-coupon-description p {
+    margin: 0px 0px 15px;
+    font-size: inherit;
     font-weight: 400;
-    font-size: 16px;
-    padding-top: 5px;
+    padding: 0px;
+    line-height: inherit;
 }
 
 .wpcd-template-five-pro-img {
     width: 25%;
     float: right;
-    margin-right: 10px;
 }
 
 .wpcd-template-five-pro-img img {
@@ -880,7 +964,7 @@ p.wpcd-coupon-four-expired {
 .extra-wpcd-template-five-holder > .wpcd-coupon-code,
 .extra-wpcd-template-five-holder > .wpcd-deal-code {
     width: 40%;
-    float: left;
+    float: right;
 }
 
 .wpcd-template-five-btn {
@@ -929,7 +1013,7 @@ p.wpcd-coupon-four-expired {
 }
 
 .wpcd-template-five .wpcd-coupon-button-type {
-    float: left;
+    float: right;
     width: 40%;
 }
 
@@ -999,6 +1083,12 @@ p.wpcd-coupon-four-expired {
 
 /* Mobile
 -----------------------------------*/
+.wpcd-template-five-mobile .wpcd-coupon-title {
+    text-align: center;
+}
+.wpcd-template-five-mobile .wpcd-coupon-description {
+    text-align: justify;
+}
 .wpcd-template-five-mobile .wpcd-template-five-exp {
     width: 100%;
     border-bottom-left-radius: 0px;
@@ -1213,7 +1303,7 @@ p.wpcd-coupon-four-expired {
 -------------------------------------------------------------- */
 
 .wpcd-coupon-six-texts {
-    width: 55%;
+    width: 54%;
     margin: 0 1.5%;
     box-sizing: border-box;
     overflow: hidden;
@@ -1226,8 +1316,11 @@ p.wpcd-coupon-four-expired {
 }
 
 .wpcd-coupon-six-texts .texts p {
-    margin-top: 10px;
+    margin: 0px 0px 15px;
+    font-size: inherit;
     font-weight: 400;
+    padding: 0px;
+    line-height: inherit;
 }
 
 .wpcd-coupon-six-texts .exp {
@@ -1281,6 +1374,7 @@ p.wpcd-coupon-four-expired {
     color: inherit;
     display: inline-block;
     font-size: 13px;
+    word-break: break-all;
 }
 
 .wpcd-coupon-six-img-and-btn .wpcd-btn-wrap .coupon-code-button:hover,
@@ -1411,8 +1505,8 @@ p.wpcd-coupon-four-expired {
     min-height: 75px;
 }
 
-.wpcd-template-six-mobile .wpcd-coupon-six .wpcd-coupon-description {
-    text-align: center;
+.wpcd-template-six-mobile.wpcd-coupon-six .wpcd-coupon-description {
+    text-align: justify;
 }
 
 .wpcd-template-six-mobile .wpcd-coupon-six-img-and-btn {
@@ -1444,6 +1538,7 @@ p.wpcd-coupon-four-expired {
     margin-top: 0px;
 }
 
+.wpcd-template-six-mobile .wpcd-coupon-six-texts .exp, 
 .wpcd-template-six-mobile .wpcd-coupon-six-texts .exp p {
     text-align: center;
 }
@@ -1453,7 +1548,7 @@ p.wpcd-coupon-four-expired {
     display: none;
 }
 
-.wpcd-template-six-mobile .wpcd-coupon-six-title {
+.wpcd-template-six-mobile .wpcd-coupon-title {
     text-align: center;
 }
 
@@ -1719,6 +1814,15 @@ p.wpcd-coupon-four-expired {
     line-height: 1.5;
     min-height: 90px;
     /*height: calc(100% - 60px);*/
+}
+
+.wpcd_coupon_li_description .wpcd-coupon-description p {
+    text-align: justify;
+    margin: 0px 0px 15px;
+    font-size: inherit;
+    font-weight: 300;
+    padding: 0px;
+    line-height: inherit;
 }
 
 .wpcd_coupon_li_bottom.wpcd_clearfix {
@@ -2214,6 +2318,10 @@ p.wpcd-coupon-loop-expired {
     text-align: center;
 }
 
+.wpcd_coupon_li_bottom.wpcd_clearfix p {
+    margin: 0px;
+}
+
 .wpcd_archive_section_small #wpcd_coupon_ul li.wpcd_coupon_li {
     width: 48%;
 }
@@ -2231,16 +2339,30 @@ p.wpcd-coupon-loop-expired {
     margin: 10px auto;
 }
 
+.wpcd_archive_section_small.wpcd_archive_section_mini.wpcd_archive_section_mini_share 
+.wpcd-share-buttons-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+.wpcd_archive_section_small.wpcd_archive_section_mini.wpcd_archive_section_mini_share 
+.wpcd-vote-wrapper {
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    margin-top: 0px;
+}
+.wpcd_archive_section_small.wpcd_archive_section_mini.wpcd_archive_section_mini_share 
+.wpcd-share-buttons-container a.wpcd-btn-social.wpcd-btn-xs {
+    margin: 6px 12px;
+}
+
 .wpcd_coupon_btn_wr {
     text-align: center;
 }
 
 .wpcd-coupon-one .coupon-code {
     text-align: center;
-}
-
-.wpcd-coupon-two-coupon {
-    text-align: right;
 }
 
 
@@ -2548,6 +2670,12 @@ a.wpcd-btn-social,
     display: inline-block;
 }
 
+.wpcd-share-buttons-container div.col-md-12.row {
+    margin-left: 0px;
+    margin-right: 0px;
+    display: block;
+}
+
 .share-w {
     font-size: 12px;
     font-family: Inherit;
@@ -2727,6 +2855,14 @@ h2:before {
     box-shadow: none;
 }
 
+.wpcd-new-grid-two .wpcd-coupon-description p {
+    margin: 0px 0px 15px;
+    font-size: inherit;
+    font-weight: 300;
+    padding: 0px;
+    line-height: inherit;
+}
+
 .wpcd-new-grid-three a.wpcd-new-coupon-code {
     display: block;
     max-width: 100%;
@@ -2777,6 +2913,7 @@ a.wpcd-new-coupon-code:hover:before {
     font-weight: 600;
     border: 0px dashed #cdcdcd;
     border-radius: 3px;
+    word-break: break-all;
 }
 
 .wpcd-new-grid-footer {
@@ -2798,7 +2935,9 @@ a.wpcd-new-coupon-code:hover:before {
     text-align: center;
     grid-row-gap: 1rem;
 }
-
+.wpcd-new-grid-container.wpcd-template-eight-mobile .wpcd-coupon-description p {
+    text-align: justify;
+}
 .wpcd-template-eight-mobile .wpcd-new-grid-footer {
     grid-column: unset;
     grid-row: unset;
@@ -2892,6 +3031,7 @@ a.wpcd-new-coupon-code:hover:before {
     font-size: 20px;
     width: 230px;
     padding-right: 26px;
+    margin: 0px;
 }
 
 #wpcd_searchbar .wpcd_searchbar_search_close_li {
@@ -3032,13 +3172,17 @@ a.wpcd-new-coupon-code:hover:before {
     padding: 15px;
 }
 
-.wpcd_seven_heading h2 {
+.wpcd_seven_heading h2.wpcd-new-title,
+.wpcd_seven_heading h2.wpcd-new-title a{
     font-size: 26px;
 }
 
-.wpcd_seven_heading p {
-    font-size: 18px !important;
-    margin-top: 15px;
+.wpcd_seven_heading .wpcd-coupon-description p {
+    margin: 0px 0px 15px;
+    font-size: inherit;
+    font-weight: 300;
+    padding: 0px;
+    line-height: inherit;
 }
 
 .wpcd_seven_heading p:nth-child(4) {
@@ -3141,6 +3285,10 @@ a.wpcd-new-coupon-code:hover:before {
     transition: .5s;
     transform-origin: left;
     transform: translateX(0) rotateY(0deg);
+}
+
+.wpcd_seven_btn a:hover {
+    color: #9b59b6;
 }
 
 .wpcd_seven_btn a:hover:before {
@@ -3328,7 +3476,13 @@ a.wpcd-new-coupon-code:hover:before {
     float: none;
     text-align: center;
 }
-
+.wpcd-template-seven-mobile .wpcd-new-title {
+    text-align: center;
+    padding: 0px;
+}
+.wpcd-template-seven-mobile .wpcd-coupon-description {
+    text-align: justify;
+}
 .wpcd-template-seven-mobile .wpcd_seven_buttonSociaLikeDislike {
     float: none;
     width: 70%;
@@ -3427,9 +3581,6 @@ a.wpcd-new-coupon-code:hover:before {
         top: 50%;
         left: 60%;
     }
-    .wpcd_seven_heading p {
-        font-size: 14px !important;
-    }
     .wpcd_seven_heading h1 a {
         font-size: 20px;
         text-decoration: none;
@@ -3468,16 +3619,10 @@ a.wpcd-new-coupon-code:hover:before {
         margin-left: auto;
         display: block;
     }
-    .wpcd_seven_heading p {
-        font-size: 18px;
-    }
     .wpcd_seven_heading h1 a {
         font-size: 26px;
         text-decoration: none;
         color: #000000;
-    }
-    .wpcd_seven_heading p {
-        font-size: 14px;
     }
     .wpcd_seven_heading h1 a {
         font-size: 24px;
@@ -3490,10 +3635,6 @@ a.wpcd-new-coupon-code:hover:before {
 /* </fs_premium_only> */
 
 @media screen and (max-width: 767px) {
-    .wpcd-col-1-8 {
-        margin-bottom: 5px;
-        width: 100% !important;
-    }
     .wpcd-coupon-discount-text,
     .coupon-type,
     .deal-type {
@@ -3503,34 +3644,9 @@ a.wpcd-new-coupon-code:hover:before {
     .wpcd-coupon {
         padding: 10px;
     }
-    .wpcd-col-7-8 {
-        box-sizing: border-box;
-        width: 100% !important;
-    }
-    .wpcd-coupon-two .wpcd-col-two-1-4 {
-        margin-bottom: 8px;
-        width: 100%;
-    }
-    .wpcd-coupon-two .wpcd-col-two-3-4 {
-        width: 100%;
-    }
-    .wpcd-coupon-three-expire,
-    .wpcd-coupon-three-coupon {
-        text-align: center;
-        width: 100%;
-    }
-    .wpcd-coupon-three .wpcd-coupon-description,
-    .wpcd-coupon-three h4 {
-        text-align: center;
-    }
     .wpcd-new-grid-container {
         grid-template-columns: 0.5fr 1.5fr 0.75fr;
         grid-template-rows: 1fr;
-    }
-    .wpcd_seven_heading p {
-        font-size: 14px;
-        margin-top: 15px;
-        margin-bottom: 24px;
     }
     .wpcd_seven_expire p {
         font-size: 14px;
@@ -3596,8 +3712,15 @@ a.wpcd-new-coupon-code:hover:before {
         float: none;
     }
     .wpcd_seven_heading {
-        padding-bottom: 0px;
+/*        padding-bottom: 0px;*/
         text-align: center;
+    }
+    .wpcd_seven_heading .wpcd-new-title {
+        text-align: center;
+        padding: 0;
+    }
+    .wpcd_seven_heading .wpcd-coupon-description {
+        text-align: justify;
     }
     .wpcd_seven_buttonSociaLikeDislike {
         float: none;
@@ -3623,6 +3746,14 @@ a.wpcd-new-coupon-code:hover:before {
 }
 
 @media (max-width: 600px) {
+    .wpcd-col-1-8 {
+        margin-bottom: 5px;
+        width: 100% !important;
+    }
+    .wpcd-col-7-8 {
+        box-sizing: border-box;
+        width: 100% !important;
+    }
     .wpcd-coupon-one .wpcd-col-one-1-4 {
         margin: 10px 0 0;
         width: 100%;
@@ -3637,9 +3768,24 @@ a.wpcd-new-coupon-code:hover:before {
     .wpcd-coupon-one .wpcd-col-one-7-8 {
         width: 100%;
     }
-    .wpcd-coupon-one h4,
-    .wpcd-coupon-one .wpcd-coupon-description {
+    .wpcd-coupon-one h4 {
         text-align: center !important;
+    }
+    .wpcd-coupon-one .wpcd-coupon-description {
+        text-align: justify;
+    }
+    .wpcd-coupon-two .wpcd-col-two-1-4 {
+        margin-bottom: 8px;
+        width: 100%;
+    }
+    .wpcd-coupon-two .wpcd-col-two-3-4 {
+        width: 100%;
+    }
+    .wpcd-coupon-three h4 {
+        text-align: center;
+    }
+    .wpcd-coupon-three .wpcd-coupon-description {
+        text-align: justify;
     }
     .wpcd-coupon-four-info {
         width: 100%;
@@ -3685,7 +3831,7 @@ a.wpcd-new-coupon-code:hover:before {
         width: 100%;
     }
     .wpcd-template-five .wpcd-coupon-description {
-        text-align: center;
+        text-align: justify;
     }
     .wpcd-template-five .wpcd-coupon-hidden.wpcd-coupon-button-type {
         width: 100%;
@@ -3723,6 +3869,16 @@ a.wpcd-new-coupon-code:hover:before {
     .wpcd-template-five-percent-off,
     .wpcd-template-five-pro-img {
         display: none;
+    }
+    .wpcd-new-grid-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        text-align: center;
+        grid-row-gap: 1rem;
+    }
+    .wpcd-new-grid-footer {
+        grid-column: unset;
+        grid-row: unset;
     }
 }
 
@@ -3806,6 +3962,12 @@ a.wpcd-new-coupon-code:hover:before {
         width: 64%;
         padding-left: 0px;
     }
+    .wpcd-col-1-4 .wpcd-coupon-code,
+    .wpcd-col-1-4 .wpcd-coupon-expire, 
+    .wpcd-col-1-4 .wpcd-coupon-expired,
+    .wpcd-col-1-4 .coupon-code-wpcd {
+        text-align: right;
+    }
     .wpcd-extra-content-full .wpcd-col-3-4 {
         padding-right: 0;
         width: 100%;
@@ -3861,10 +4023,13 @@ a.wpcd-new-coupon-code:hover:before {
 }
 
 @media screen and (max-width: 599px) {
+    
+    .wpcd-coupon-description {
+        text-align: justify;
+    }
     .wpcd_coupon_btn_wr,
     .wpcd-coupon-code,
-    .wpcd-coupon-title,
-    .wpcd-coupon-description {
+    .wpcd-coupon-title {
         text-align: center;
     }
     .wpcd-coupon-two h4 {
@@ -3876,6 +4041,7 @@ a.wpcd-new-coupon-code:hover:before {
         margin-bottom: 10px;
         text-align: center;
         width: 100%;
+        padding-right: 0px;
     }
     .wpcd-new-grid-container {
         grid-template-columns: 1fr;
@@ -3917,11 +4083,7 @@ a.wpcd-new-coupon-code:hover:before {
     }
     .wpcd_seven_productPic {
         text-align: center;
-        margin: auto;
         width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 22px;
         margin: auto;
     }
     .wpcd_seven_percentOff {
@@ -3988,6 +4150,11 @@ a.wpcd-new-coupon-code:hover:before {
     }
     .wpcd_coupon_li_description {
         text-align: center;
+    }
+    .wpcd-coupon-three-expire,
+    .wpcd-coupon-three-coupon {
+        text-align: center;
+        width: 100%;
     }
 }
 
@@ -4071,6 +4238,7 @@ a.wpcd-new-coupon-code:hover:before {
         text-align: center;
         padding: 0;
         margin-top: 0px;
+        padding-right: 0px;
     }
 
     .wpcd_seven_couponBox .wpcd-share-buttons-container a {
@@ -4078,18 +4246,20 @@ a.wpcd-new-coupon-code:hover:before {
     }
 }
 
-@media (min-width: 600px) {
-    .wpcd-coupon-default .wpcd-coupon-header .wpcd-col-1-4 {
-        width: auto;
-        float: right;
+@media screen and (max-width: 400px) {
+    .wpcd-share-buttons-container {
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
     }
-    .wpcd-coupon-default .wpcd-coupon-header .wpcd-col-3-4 {
-        overflow: auto;
-        float: none;
-        width: auto;
+    .wpcd-vote-wrapper {
+        width: 100%;
+        text-align: center;
+        padding: 0;
+        margin-top: 0px;
     }
-    .wpcd-coupon-default .wpcd-coupon-button-type .coupon-code-wpcd {
-        float: right;
+    .wpcd-share-buttons-container a.wpcd-btn-social.wpcd-btn-xs {
+        margin: 6px 12px;
     }
 }
 
@@ -4119,7 +4289,7 @@ li.wpcd_dropdown {
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
+    z-index: 3;
 }
 
 .wpcd_dropdown-content a {
@@ -4128,6 +4298,7 @@ li.wpcd_dropdown {
     text-decoration: none;
     display: block;
     text-align: left;
+    line-height: 10px;
 }
 
 .wpcd_dropdown-content a:hover {

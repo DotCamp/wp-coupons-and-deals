@@ -50,19 +50,34 @@ if ( $wpcd_text_to_show == 'description' ) {
 
 $wpcd_show_coupon_popup = ! empty( $_GET['wpcd_coupon'] ) && $_GET['wpcd_coupon'] == $coupon_id;
 
+if ( isset( $_POST['wpcd_page_num'] ) && ! empty( $_POST['wpcd_page_num'] ) && absint( $_POST['wpcd_page_num'] ) == $_POST['wpcd_page_num'] ) {
+    $wpcd_page_num = '&wpcd_page_num=' . absint( $_POST['wpcd_page_num'] );
+} elseif ( isset( $_GET['wpcd_page_num'] ) && ! empty( $_GET['wpcd_page_num'] ) && absint( $_GET['wpcd_page_num'] ) == $_GET['wpcd_page_num'] ) {
+    $wpcd_page_num = '&wpcd_page_num=' . absint( $_GET['wpcd_page_num'] );
+} else {
+    $wpcd_page_num = '';
+}
+if ( isset( $_POST['wpcd_category'] ) && ! empty( $_POST['wpcd_category'] ) && sanitize_text_field( $_POST['wpcd_category'] ) === $_POST['wpcd_category'] ) {
+    $wpcd_category = '&wpcd_category=' . sanitize_text_field( $_POST['wpcd_category'] );
+} elseif ( isset( $_GET['wpcd_category'] ) && ! empty( $_GET['wpcd_category'] ) && sanitize_text_field( $_GET['wpcd_category'] ) === $_GET['wpcd_category'] ) {
+    $wpcd_category = '&wpcd_category=' . sanitize_text_field( $_GET['wpcd_category'] );
+} else {
+    $wpcd_category = '';
+}
+
 ?>
 
 
     <div class="coupon-code-wpcd coupon-detail wpcd-coupon-id-<?php echo $new_coupon_id; ?> wpcd-coupon-button-type">
         <a data-type="code" data-coupon-id="<?php echo $new_coupon_id; ?>"
-           href="?wpcd_coupon=<?php echo $new_coupon_id; ?>" class="coupon-button coupon-code-wpcd masterTooltip"
+           href="?wpcd_coupon=<?php echo $new_coupon_id; echo $wpcd_category; echo $wpcd_page_num; ?>" class="coupon-button coupon-code-wpcd masterTooltip"
            id="coupon-button-<?php echo $new_coupon_id; ?>" title="<?php if ( ! empty( $hidden_coupon_hover_text ) ) {
 			echo $hidden_coupon_hover_text;
 		} else {
 			_e( 'Click Here to Show Code', 'wpcd-coupon' );
 		} ?>" data-position="top center" data-inverted="" data-aff-url="<?php echo $link; ?>"
            onClick="return wpcdOpenCouponAffLink(this, '<?php echo $new_coupon_id; ?>')" target="_blank">
-            <span class="code-text-wpcd" rel="nofollow"><?php echo $coupon_code; ?></span>
+            <span class="code-text-wpcd" rel="nofollow"><?php echo( ! empty( $coupon_code ) ? $coupon_code : __( 'COUPONCODE', 'wpcd-coupon' ) ); ?></span>
             <span class="get-code-wpcd">
         <?php
         if ( ! empty( $hide_coupon_text ) ) {
@@ -92,15 +107,15 @@ $wpcd_show_coupon_popup = ! empty( $_GET['wpcd_coupon'] ) && $_GET['wpcd_coupon'
                     <p><?php echo $wpcd_custom_text; ?></p>
                 </div>
                 <div class="wpcd_coupon_popup_copy_code_wr">
-                    <span class="wpcd_coupon_popup_copy_code_span"><?php echo $coupon_code; ?></span>
+                    <span class="wpcd_coupon_popup_copy_code_span"><?php echo( ! empty( $coupon_code ) ? $coupon_code : __( 'COUPONCODE', 'wpcd-coupon' ) ); ?></span>
                     <span class="wpcd_coupon_top_copy_span wpcd_coupon_top_copy_span_<?php echo $new_coupon_id; ?>"
-                          data-clipboard-text="<?php echo $coupon_code; ?>"><?php if ( ! empty( $copy_button_text ) ) {
+                          data-clipboard-text="<?php echo( ! empty( $coupon_code ) ? $coupon_code : __( 'COUPONCODE', 'wpcd-coupon' ) ); ?>"><?php if ( ! empty( $copy_button_text ) ) {
 							echo $copy_button_text;
 						} else {
 							echo __( 'Copy', 'wpcd-coupon' );
 						} ?></span>
                     <span id="coupon_code_<?php echo $new_coupon_id; ?>"
-                          style="display:none;"><?php echo $coupon_code; ?></span>
+                          style="display:none;"><?php echo( ! empty( $coupon_code ) ? $coupon_code : __( 'COUPONCODE', 'wpcd-coupon' ) ); ?></span>
                 </div>
 				<?php
 				$copy_button_text = get_option( 'wpcd_copy-button-text' );

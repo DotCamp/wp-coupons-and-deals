@@ -30,6 +30,10 @@
     -moz-box-sizing: border-box;
 }
 
+.wpcd-col-two-1-4, .wpcd-col-two-3-4 {
+    padding: 5px;
+}
+
 .wpcd-coupon-two figure {
     text-align: center;
     margin: 2px 0 0 0;
@@ -45,8 +49,8 @@
     margin: 0;
     margin-top: 0px;
     margin-top: 10px;
-    padding: 0px 10px;
     display: inline-block;
+    vertical-align: bottom;
 }
 
 .wpcd-coupon-two-img img {
@@ -91,6 +95,14 @@
     width: 67%;
 }
 
+.wpcd-coupon-two .wpcd-coupon-description p {
+    margin: 0px 0px 15px;
+    font-size: inherit;
+    font-weight: 400;
+    padding: 0px;
+    line-height: inherit;
+}
+
 .wpcd-coupon-two-countdown {
     font-size: 17px;
     color: green;
@@ -101,7 +113,6 @@
 }
 
 .wpcd-coupon-two-coupon {
-    text-align: right;
     width: 33%;
     float: left;
 }
@@ -148,14 +159,6 @@
     padding-left: 5px;
 }
 
-.wpcd-full-description p {
-    font-size: inherit;
-    font-weight: inherit;
-    line-height: inherit;
-    word-wrap: break-word;
-    padding: 0px;
-}
-
 .wpcd-full-description p::before {
     display: none;
 }
@@ -190,7 +193,7 @@
     clear: both;
 }
 
-@media all and (max-width: 767px) {
+@media all and (max-width: 649px) {
     .wpcd-coupon-two .wpcd-col-two-1-4 {
         margin-bottom: 8px;
         width: 100%;
@@ -198,39 +201,34 @@
     .wpcd-coupon-two .wpcd-col-two-3-4 {
         width: 100%;
     }
-}
-
-@media all and (max-width: 599px) {
     .wpcd-coupon-title {
         text-align: center;
     }
-    .wpcd-coupon-two-title {
+    .wpcd-coupon-two .wpcd-coupon-two-title {
         clear: both;
         width: 100%;
         text-align: center;
         margin-bottom: 10px;
     }
-    .wpcd-coupon-two-coupon {
+    .wpcd-coupon-two .wpcd-coupon-two-coupon {
         clear: both;
         width: 100%;
         text-align: center;
         margin-bottom: 10px;
     }
-    .wpcd-full-description p {
-        text-align: center;
+    .wpcd-coupon-two .wpcd-coupon-description {
+        text-align: justify;
     }
 }
 
-@media all and (min-width: 600px) {
+@media all and (min-width: 650px) {
     .wpcd-col-two-1-4 {
         float: left;
         width: 25%;
-        padding: 5px;
     }
     .wpcd-col-two-3-4 {
         float: left;
         width: 75%;
-        padding: 5px;
     }
 }
 

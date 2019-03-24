@@ -86,18 +86,17 @@
 .wpcd-coupon-six-texts .texts {
     padding-top: 5px;
 }
-.wpcd-coupon-title {
+.wpcd-coupon-six .wpcd-coupon-title {
     width: 100%;
     font-size: 21px;
     margin: 5px 0px 10px 0px;
 }
-.wpcd-coupon-six .wpcd-coupon-description {
-    text-align: left;
-}
 .wpcd-coupon-six-texts .texts p {
-    margin-top: 10px;
+    margin: 0px 0px 15px;
+    font-size: inherit;
     font-weight: 400;
-    font-size: 22px;
+    padding: 0px;
+    line-height: inherit;
 }
 .wpcd-coupon-six-texts .exp {
     margin-top: 20px;
@@ -112,11 +111,13 @@
     border-top: 1px dashed;
     border-top-color: inherit;
 }
-.wpcd-coupon-six-texts .exp p {
-    margin: 0px;
-    font-size: 22px;
-    line-height: 40px;
-    padding: 0;
+.wpcd-coupon-six-texts .exp span, .wpcd-coupon-six-texts .exp b {
+    display: inline-block;
+    text-align: initial;
+    padding: 5px 0px;
+}
+.wpcd-coupon-six-texts .exp .wpcd-coupon-expire {
+    color: initial;
 }
 .wpcd-coupon-six-img-and-btn {
     width: 27%;
@@ -158,6 +159,7 @@
     border-color: inherit;
     color: inherit;
     display: inline-block;
+    font-size: 13px;
 }
 .wpcd-coupon-six-img-and-btn .wpcd-btn-wrap .coupon-code-button:hover, .wpcd-coupon-six-img-and-btn .wpcd-btn-wrap .deal-code-button:hover {
     font-weight: 600;
@@ -166,16 +168,23 @@
 
 
 @media all and (max-width: 599px) {
-    .wpcd_coupon_btn_wr,
-    .wpcd-coupon-code,
-    .wpcd-coupon-title,
-    .wpcd-coupon-description {
+    .wpcd-coupon-six .wpcd_coupon_btn_wr,
+    .wpcd-coupon-six .wpcd-coupon-code,
+    .wpcd-coupon-six .wpcd-coupon-title {
+        text-align: center;
+    }
+    .wpcd-coupon-six .wpcd-coupon-description {
+        text-align: justify;
+    }
+    .wpcd-coupon-six-texts .exp span, 
+    .wpcd-coupon-six-texts .exp b {
         text-align: center;
     }
     .wpcd-coupon-six {
         height: auto;
     }
-    .wpcd-coupon-six-img-and-btn .item-img, .wpcd-coupon-six-percent-off {
+    .wpcd-coupon-six-img-and-btn .item-img, 
+    .wpcd-coupon-six-percent-off {
         display: none;
     }
     .wpcd-coupon-six-texts {
@@ -187,7 +196,7 @@
         padding: 10px;
         min-height: 75px;
     }
-    .wpcd-coupon-six-texts .exp p {
+    .wpcd-coupon-six-texts .exp {
         text-align: center;
     }
     .wpcd-coupon-six-img-and-btn {

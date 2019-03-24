@@ -17,9 +17,8 @@ $link                     = get_post_meta( $coupon_id, 'coupon_details_link', tr
 $link_second              = get_post_meta( $coupon_id, 'coupon_details_second-link', true );
 $link_third               = get_post_meta( $coupon_id, 'coupon_details_third-link', true );
 $coupon_code              = get_post_meta( $coupon_id, 'coupon_details_coupon-code-text', true );
-$coupon_code_second       = get_post_meta( $coupon_id, 'coupon_details_second-coupon-code-text', true );
-$coupon_code_third        = get_post_meta( $coupon_id, 'coupon_details_third-coupon-code-text', true );
-$deal_text                = get_post_meta( $coupon_id, 'coupon_details_deal-button-text', true );
+$second_coupon_code        = get_post_meta( $coupon_id, 'coupon_details_second-coupon-code-text', true );
+$third_coupon_code         = get_post_meta( $coupon_id, 'coupon_details_third-coupon-code-text', true );
 $coupon_hover_text        = get_option( 'wpcd_coupon-hover-text' );
 $deal_hover_text          = get_option( 'wpcd_deal-hover-text' );
 $button_class             = 'wpcd-btn-' . $coupon_id;
@@ -46,6 +45,10 @@ $wpcd_coupon_thumbnail    = $featured_img_url;
 $wpcd_template_six_theme  = get_post_meta( $coupon_id, 'coupon_details_template-six-theme', true );
 $wpcd_template_seven_theme  = get_post_meta( $coupon_id, 'coupon_details_template-seven-theme', true );
 $wpcd_template_eight_theme  = get_post_meta( $coupon_id, 'coupon_details_template-eight-theme', true );
+
+$coupon_code               = ( ! empty( $coupon_code ) ? $coupon_code : __( 'COUPONCODE', 'wpcd-coupon' ) );
+$second_coupon_code        = ( ! empty( $second_coupon_code ) ? $second_coupon_code : __( 'COUPONCODE', 'wpcd-coupon' ) );
+$third_coupon_code         = ( ! empty( $third_coupon_code ) ? $third_coupon_code : __( 'COUPONCODE', 'wpcd-coupon' ) );
 
 if ( $wpcd_text_to_show == 'description' ) {
 	$wpcd_custom_text = $description;
@@ -80,11 +83,11 @@ echo $coupon_template;
 
         $wpcd_template_four_number_iter = wpcdCheckNumberCouponDeal();
         if ( $wpcd_template_four_number_iter == 2 ) {
-          $coupon_code = $coupon_code_second;
+          $coupon_code = $second_coupon_code;
           $link = $link_second;
         } 
         if ( $wpcd_template_four_number_iter == 3 ) {
-          $coupon_code = $coupon_code_third;
+          $coupon_code = $third_coupon_code;
           $link = $link_third;
         }
     ?>
@@ -179,7 +182,7 @@ echo $coupon_template;
                onClick="return wpcdOpenCouponAffLink(this, '<?php echo $new_coupon_id; ?>')"
                style="border-color: <?php echo $wpcd_template_six_theme; ?>">
             <span class="code-text-wpcd" rel="nofollow"
-                  style="<?php echo $wpcd_show_coupon_popup ? 'display: inline-block; width: 100%; text-align: center;' : ''; ?>"><?php if ( ! empty( $coupon_code ) ) {
+                  style="<?php echo $wpcd_show_coupon_popup ? 'width: 100%; text-align: center;' : ''; ?>"><?php if ( ! empty( $coupon_code ) ) {
 		            echo $coupon_code;
 	            } else {
 		            echo __( 'COUPONCODE', 'wpcd-coupon' );

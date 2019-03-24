@@ -124,6 +124,7 @@ jQuery(document).ready(function ($) {
                                 var action = this_parrent.attr( 'wpcd-data-action' );
                                 ajax_coupon_categories_pagination( wpcd_page_num, action, wpcd_category, search_text );
                             });
+                            countDownFun($);
                             $( '.masterTooltip' ).hover( function () {
                                 var title = $( this ).attr( 'title' );
                                 $( this ).data( 'tipText', title ).removeAttr( 'title' );
@@ -245,34 +246,37 @@ jQuery(document).ready(function ($) {
     //     $('.wpcd_searchbar_search input').val('');
     // });
 
+    function countDownFun() {
+        var count_down_span = $('[data-countdown_coupon]');
+        count_down_span.each(function () {
+            var $this = $(this), finalDate = $(this).data('countdown_coupon');
+            $this.countdown(finalDate, function (event) {
+                var format = '%M ' + wpcd_main_js.minutes + ' %S ' + wpcd_main_js.seconds;
+                if (event.offset.hours > 0) {
+                    format = '%H ' + wpcd_main_js.hours + ' %M ' + wpcd_main_js.minutes + ' %S ' + wpcd_main_js.seconds;
+                }
+                if (event.offset.totalDays > 0) {
+                    format = '%-d ' + wpcd_main_js.day + '%!d ' + format;
+                }
+                if (event.offset.weeks > 0) {
+                    format = '%-w ' + wpcd_main_js.week + '%!w ' + format;
+                }
+                if (event.offset.weeks == 0 && event.offset.totalDays == 0 && event.offset.hours == 0 && event.offset.minutes == 0 && event.offset.seconds == 0) {
+                    jQuery(this).parent().addClass('wpcd-countdown-expired').html(wpcd_main_js.expired_text);
+                } else {
+                    jQuery(this).html(event.strftime(format));
+                }
+            }).on('finish.countdown', function (event) {
+                jQuery('.wpcd-coupon-two-countdown-text').hide();
+                jQuery(this).html(wpcd_main_js.expired_text).parent().addClass('disabled');
+            });
+        });
+    }
+    countDownFun();
 });
 
 //for count down
 jQuery(document).ready(function ($) {
-    var count_down_span = $('[data-countdown_coupon]');
-    count_down_span.each(function () {
-        var $this = $(this), finalDate = $(this).data('countdown_coupon');
-        $this.countdown(finalDate, function (event) {
-            var format = '%M ' + wpcd_main_js.minutes + ' %S ' + wpcd_main_js.seconds;
-            if (event.offset.hours > 0) {
-                format = '%H ' + wpcd_main_js.hours + ' %M ' + wpcd_main_js.minutes + ' %S ' + wpcd_main_js.seconds;
-            }
-            if (event.offset.totalDays > 0) {
-                format = '%-d ' + wpcd_main_js.day + '%!d ' + format;
-            }
-            if (event.offset.weeks > 0) {
-                format = '%-w ' + wpcd_main_js.week + '%!w ' + format;
-            }
-            if (event.offset.weeks == 0 && event.offset.totalDays == 0 && event.offset.hours == 0 && event.offset.minutes == 0 && event.offset.seconds == 0) {
-                jQuery(this).parent().addClass('wpcd-countdown-expired').html(wpcd_main_js.expired_text);
-            } else {
-                jQuery(this).html(event.strftime(format));
-            }
-        }).on('finish.countdown', function (event) {
-            jQuery('.wpcd-coupon-two-countdown-text').hide();
-            jQuery(this).html(wpcd_main_js.expired_text).parent().addClass('disabled');
-        });
-    });
 });
 
 jQuery(document).ready(function ($) {
@@ -376,17 +380,26 @@ jQuery(document).ready(function ($) {
      * @returns {void}
      */
     function wpcd_archive_section_small() {
-        var sw = jQuery(".wpcd_archive_section").width();
-        if (sw < 1000) {
-            jQuery(".wpcd_archive_section").addClass("wpcd_archive_section_small");
-            if (sw < 600) {
-                jQuery(".wpcd_archive_section").addClass("wpcd_archive_section_mini");
+        var wpcd_archive_section_grid = jQuery(".wpcd_archive_section_grid");
+        var sw = wpcd_archive_section_grid.width();
+        if( wpcd_archive_section_grid.length > 0 ) {
+            if (sw < 1000) {
+                jQuery(".wpcd_archive_section_grid").addClass("wpcd_archive_section_small");
+                if ( sw < 600 ) {
+                    jQuery(".wpcd_archive_section_grid").addClass("wpcd_archive_section_mini");
+                    if (sw < 400) {
+                        jQuery(".wpcd_archive_section_grid").addClass("wpcd_archive_section_mini_share");
+                    } else {
+                        jQuery(".wpcd_archive_section_grid").removeClass("wpcd_archive_section_mini_share");
+                    }
+                } else {
+                    jQuery(".wpcd_archive_section_grid").removeClass("wpcd_archive_section_mini");
+                }
             } else {
-                jQuery(".wpcd_archive_section").removeClass("wpcd_archive_section_mini");
+                jQuery(".wpcd_archive_section_grid").removeClass("wpcd_archive_section_small");
             }
-        } else {
-            jQuery(".wpcd_archive_section").removeClass("wpcd_archive_section_small");
-        }
+        } 
+        
     }
 
     wpcd_archive_section_small();
@@ -432,7 +445,7 @@ jQuery(document).ready(function ($) {
         wpcdUpdateCouponClass('.wpcd-coupon-default', 'wpcd-template-default-mobile', 'wpcd-mobile-mini', 600, 380);
         wpcdUpdateCouponClass('.wpcd-coupon-one', 'wpcd-template-one-mobile', 'wpcd-mobile-mini', 600, 380);
         wpcdUpdateCouponClass('.wpcd-coupon-two', 'wpcd-template-two-mobile', 'wpcd-mobile-mini', 600, 380);
-        wpcdUpdateCouponClass('.wpcd-coupon-three', 'wpcd-template-three-mobile', 'wpcd-mobile-mini', 600, 380);
+        wpcdUpdateCouponClass('.wpcd-coupon-three', 'wpcd-template-three-mobile', 'wpcd-mobile-mini', 400, 380);
         wpcdUpdateCouponClass('.wpcd-coupon-four', 'wpcd-template-four-mobile', 'wpcd-mobile-mini', 600, 380);
         wpcdUpdateCouponClass('.wpcd-template-five', 'wpcd-template-five-mobile', 'wpcd-mobile-mini', 600, 380);
         wpcdUpdateCouponClass('.wpcd-coupon-six', 'wpcd-template-six-mobile', 'wpcd-mobile-mini', 600, 380);
@@ -472,11 +485,25 @@ function wpcdCopyToClipboard(element) {
 function wpcdOpenCouponAffLink(objectThis, CoupenId, numCoupon) {
     var a = jQuery(objectThis);
     var oldLink = a.attr('href');
+    
+    var wpcdCategory;
+    var wpcdPageNum;
+    
+    var oldLinkArrPrepare = oldLink.replace("?", "");
+    var oldLinkArr = oldLinkArrPrepare.split('&');
+    for (var i = 0; i < oldLinkArr.length; i++) {
+        if(oldLinkArr[i].indexOf('wpcd_category=') > -1) {
+            wpcdCategory = oldLinkArr[i].split('=')[1];
+        }
+        if(oldLinkArr[i].indexOf('wpcd_page_num=') > -1) {
+            wpcdPageNum = oldLinkArr[i].split('=')[1];
+        }
+    }
 
-
-    if (window.location.href.indexOf('wpcd_coupon') > -1) {// check if there's wpcd_coupon in the url
+    if (window.location.href.indexOf('wpcd_coupon') > -1) { // check if there's wpcd_coupon in the url
         var wpcd_id = jQuery.urlParam('wpcd_coupon');
         oldLink = window.location.href.replace("wpcd_coupon=" + wpcd_id, "wpcd_coupon=" + CoupenId);
+        
         if (window.location.href.indexOf('wpcd_num_coupon') > -1) {
             var num_coupon = jQuery.urlParam('wpcd_num_coupon');
             if(numCoupon) {
@@ -485,20 +512,39 @@ function wpcdOpenCouponAffLink(objectThis, CoupenId, numCoupon) {
                 oldLink = oldLink.replace("&wpcd_num_coupon=" + num_coupon, "");
             }
             
-        }
-        else if (numCoupon) {
+        } else if (numCoupon) {
             oldLink = oldLink + "&wpcd_num_coupon=" + numCoupon;
+        } 
+        
+        if (window.location.href.indexOf('wpcd_category') > -1) {
+            var wpcd_category = jQuery.urlParam('wpcd_category');
+            if(wpcdCategory) {
+                oldLink = oldLink.replace("wpcd_category=" + wpcd_category, "wpcd_category=" + wpcdCategory);
+            } else {
+                oldLink = oldLink.replace("&wpcd_category=" + wpcd_category, "");
+            }
+            
+        } else if (wpcdCategory) {
+            oldLink = oldLink + "&wpcd_category=" + wpcdCategory;
+        } 
+        
+        if (window.location.href.indexOf('wpcd_page_num') > -1) {
+            var wpcd_page_num = jQuery.urlParam('wpcd_page_num');
+            if(wpcdPageNum) {
+                oldLink = oldLink.replace("wpcd_page_num=" + wpcd_page_num, "wpcd_page_num=" + wpcdPageNum);
+            } else {
+                oldLink = oldLink.replace("&wpcd_page_num=" + wpcd_page_num, "");
+            }
+            
+        } else if (wpcdPageNum) {
+            oldLink = oldLink + "&wpcd_page_num=" + wpcdPageNum;
         } 
 
     }
     else if (window.location.href.indexOf('?') > -1 && window.location.href.indexOf('?wpcd_coupon') === -1) {// check if there's paramater in the url   
         oldLink = window.location.href + oldLink.replace("?", "&");
-        if (numCoupon) {
-            oldLink = oldLink + "&wpcd_num_coupon=" + numCoupon;
-        }
     }
     a.attr('href', oldLink);
-
     //the affiliate link
     var theLink = a.attr("data-aff-url");
     window.open(a.attr('href'), '_blank');

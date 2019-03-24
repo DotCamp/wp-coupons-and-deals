@@ -43,6 +43,9 @@ $wpcd_coupon_image_src     = wp_get_attachment_image_src( $wpcd_coupon_image_id,
 $wpcd_show_print           = get_post_meta( $coupon_id, 'coupon_details_coupon-image-print', true );
 $template                  = new WPCD_Template_Loader();
 
+$coupon_code               = ( ! empty( $coupon_code ) ? $coupon_code : __( 'COUPONCODE', 'wpcd-coupon' ) );
+$deal_text                 = ( ! empty( $deal_text ) ? $deal_text : __( 'Claim This Deal', 'wpcd-coupon' ) );
+
 if ( is_array( $wpcd_coupon_image_src ) ) {
 	$wpcd_coupon_image_src = $wpcd_coupon_image_src[0];
 } else {

@@ -52,7 +52,7 @@ class WPCD_Import_Page_Pro {
 	 * @since 2.3.2
 	 */
 	public function load_stylesheet_script( $hook ) {
-		// wp_enqueue_style( 'wpcd-admin-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/' . WPCD_Assets::wpcd_version_correct( 'dir' ) . 'admin' . WPCD_Assets::wpcd_version_correct( 'suffix' ) . '.css', false );
+		wp_enqueue_style( 'wpcd-admin-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/' . WPCD_Assets::wpcd_version_correct( 'dir' ) . 'admin' . WPCD_Assets::wpcd_version_correct( 'suffix' ) . '.css', false );
 		wp_enqueue_script( 'wpcd-admin-js', WPCD_Plugin::instance()->plugin_assets . 'admin/js/admin.js', array(
 			'jquery',
 			'jquery-ui-datepicker',

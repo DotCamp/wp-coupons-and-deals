@@ -45,6 +45,9 @@ $wpcd_image_width          = get_post_meta( $coupon_id, 'coupon_details_coupon-i
 $wpcd_image_height         = get_post_meta( $coupon_id, 'coupon_details_coupon-image-height', true );
 $template                  = new WPCD_Template_Loader();
 
+$coupon_code               = ( ! empty( $coupon_code ) ? $coupon_code : __( 'COUPONCODE', 'wpcd-coupon' ) );
+$deal_text                 = ( ! empty( $deal_text ) ? $deal_text : __( 'Claim This Deal', 'wpcd-coupon' ) );
+
 if ( is_array( $wpcd_coupon_image_src ) ) {
 	$wpcd_coupon_image_src = $wpcd_coupon_image_src[0];
 } else {
@@ -220,7 +223,7 @@ include('header-category.php');
             						    } else {
             							    echo __( "Click Here To Get This Deal", 'wpcd-coupon' );
             						    } ?>" 
-                           href="<?php echo $link; ?>" target="_blank        ">
+                           href="<?php echo $link; ?>" target="_blank">
                             <span class="wpcd_deal_icon">
                                 <img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/deal-24.png" style="width: 100%;height: 100%;" >
                             </span><?php echo $deal_text; ?>

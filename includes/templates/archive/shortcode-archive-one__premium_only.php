@@ -57,6 +57,9 @@ $template                  = new WPCD_Template_Loader();
 $coupon_categories         = get_the_terms( $coupon_id, 'wpcd_coupon_category' );
 $coupon_categories_class   = '';
 
+$coupon_code               = ( ! empty( $coupon_code ) ? $coupon_code : __( 'COUPONCODE', 'wpcd-coupon' ) );
+$deal_text                 = ( ! empty( $deal_text ) ? $deal_text : __( 'Claim This Deal', 'wpcd-coupon' ) );
+
 if($coupon_categories && count($coupon_categories) > 0){
     foreach($coupon_categories as $category){
         $coupon_categories_class .= ' '.$category->slug;
@@ -198,7 +201,7 @@ include('header-default.php');
 					   echo $deal_hover_text;
 				   } else {
 					   echo __( "Click Here To Get This Deal", 'wpcd-coupon' );
-				   } ?>" href="<?php echo $link; ?>" target="_blank        ">
+				   } ?>" href="<?php echo $link; ?>" target="_blank">
                     <span class="wpcd_deal_icon">
                         <img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/deal-24.png" style="width: 100%;height: 100%;" >
                     </span><?php echo $deal_text; ?>

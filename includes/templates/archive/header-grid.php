@@ -5,7 +5,7 @@
 if ( $parent == 'header' || $parent == 'headerANDfooter' ):
     if ( !isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_action' ): 
         ?>
-        <section class="wpcd_archive_section wpcd_clearfix">
+        <section class="wpcd_archive_section wpcd_clearfix wpcd_archive_section_grid">
         <?php
 
             $terms = get_terms( 'wpcd_coupon_category' );
@@ -29,7 +29,7 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
                             <div class="wpcd_dropdown-content">
                                 <li>
                                     <?php 
-                                        if( ! isset( $_GET['wpcd_category'] ) || $_GET['wpcd_category'] == '' ) {
+                                        if( ! isset( $_GET['wpcd_category'] ) || $_GET['wpcd_category'] == '' || $_GET['wpcd_category'] == '' ) {
                                             $wpcd_dropdown_content = ' active';
                                         } else {
                                             $wpcd_dropdown_content = '';

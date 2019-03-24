@@ -45,7 +45,10 @@ $disable_coupon_title_link = get_option( 'wpcd_disable-coupon-title-link' );
 $wpcd_text_to_show         = get_option( 'wpcd_text-to-show' );
 $wpcd_custom_text          = get_option( 'wpcd_custom-text' );
 
-if ( $wpcd_text_to_show == 'description' ) {
+$coupon_code               = ( ! empty( $coupon_code ) ? $coupon_code : __( 'COUPONCODE', 'wpcd-coupon' ) );
+$deal_text                 = ( ! empty( $deal_text ) ? $deal_text : __( 'Claim This Deal', 'wpcd-coupon' ) );
+
+if ($wpcd_text_to_show == 'description' ) {
 	$wpcd_custom_text = $description;
 } else {
 	if ( empty( $wpcd_custom_text ) ) {
@@ -96,6 +99,19 @@ $template = new WPCD_Template_Loader();
     </div>
     <div class="wpcd-coupon-content wpcd-col-7-8">
         <div class="wpcd-coupon-header">
+            <div class="wpcd-col-3-4">
+				<?php
+					if ( 'on' === $disable_coupon_title_link ) { ?>
+						<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
+							<?php echo $title; ?>
+                		</<?php echo esc_html( $coupon_title_tag ); ?>>
+			 		<?php } else { ?>
+						<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
+							<a href="<?php echo $link; ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
+                		</<?php echo esc_html( $coupon_title_tag ); ?>>
+					<?php } 
+				?>
+            </div>
             <div class="wpcd-col-1-4">
 				<?php if ( $coupon_type == 'Coupon' ) {
 					if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) {
@@ -163,19 +179,6 @@ $template = new WPCD_Template_Loader();
                     </div>
 
 				<?php } ?>
-            </div>
-            <div class="wpcd-col-3-4">
-				<?php
-					if ( 'on' === $disable_coupon_title_link ) { ?>
-						<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
-							<?php echo $title; ?>
-                		</<?php echo esc_html( $coupon_title_tag ); ?>>
-			 		<?php } else { ?>
-						<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
-							<a href="<?php echo $link; ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
-                		</<?php echo esc_html( $coupon_title_tag ); ?>>
-					<?php } 
-				?>
             </div>
 
         </div>

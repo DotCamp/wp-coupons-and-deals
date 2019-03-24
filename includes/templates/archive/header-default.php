@@ -29,7 +29,7 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
                             <div class="wpcd_dropdown-content">
                                 <li>
                                     <?php 
-                                        if( ! isset( $_GET['wpcd_category'] ) || $_GET['wpcd_category'] == '' ) {
+                                        if( ! isset( $_GET['wpcd_category'] ) || $_GET['wpcd_category'] == 'all' || $_GET['wpcd_category'] == '' ) {
                                             $wpcd_dropdown_content = ' active';
                                         } else {
                                             $wpcd_dropdown_content = '';

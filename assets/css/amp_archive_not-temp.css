@@ -119,6 +119,14 @@
     min-height: 90px;
     /*height: calc(100% - 60px);*/
 }
+#wpcd_coupon_ul .wpcd_coupon_li_description .wpcd-coupon-description p {
+    text-align: justify;
+    margin: 0px 0px 15px;
+    font-size: inherit;
+    font-weight: 300;
+    padding: 0px;
+    line-height: inherit;
+}
 .wpcd-coupon-description {
     margin-top: 10px;
     font-size: inherit;
@@ -128,6 +136,9 @@
     margin-top: 10px;
     padding-top: 15px;
     text-align: center;
+}
+.wpcd_coupon_li_bottom.wpcd_clearfix p {
+    margin: 0px;
 }
 p.wpcd-coupon-loop-expired {
     color: red;

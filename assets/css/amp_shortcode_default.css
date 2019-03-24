@@ -77,12 +77,12 @@
     box-sizing: border-box;
 }
 
-.wpcd-coupon-description .wpcd-full-description p {
+.wpcd-coupon-default .wpcd-coupon-description p {
+    margin: 0px 0px 15px;
     font-size: inherit;
-    font-weight: inherit;
-    line-height: inherit;
-    margin: 15px auto;
+    font-weight: 400;
     padding: 0px;
+    line-height: inherit;
 }
 
 .wpcd-full-description p:before {
@@ -104,7 +104,7 @@
     padding: 5px;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 650px) {
     .wpcd-col-1-8 {
         float: left;
         width: 150px;
@@ -119,23 +119,9 @@
         padding: 5px;
         box-sizing: border-box;
     }
-    .wpcd-coupon-default .wpcd-coupon-header .wpcd-col-1-4 {
-        width: auto;
-        float: right;
-        padding: 5px;
-        box-sizing: border-box;
-    }
     .wpcd-coupon-code {
         width: 100%;
         text-align: center;
-        box-sizing: border-box;
-    }
-    .wpcd-coupon-default .wpcd-coupon-header .wpcd-col-3-4 {
-        overflow: auto;
-        float: none;
-        width: auto;
-        padding: 5px;
-        padding-left: 0px;
         box-sizing: border-box;
     }
     .wpcd-col-3-4 {
@@ -151,6 +137,11 @@
         padding: 5px;
         box-sizing: border-box;
     }
+    .wpcd-col-1-4 .wpcd-coupon-code,
+    .wpcd-col-1-4 .wpcd-coupon-expire, 
+    .wpcd-col-1-4 .wpcd-coupon-expired {
+        text-align: right;
+    }
 }
 
 @media screen and (max-width: 980px) {
@@ -160,7 +151,7 @@
     }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 649px) {
     .wpcd-coupon {
         padding: 10px;
     }
@@ -181,16 +172,15 @@
         width: 100%;
         padding: 5px;
     }
-}
-
-@media screen and (max-width: 599px) {
     .wpcd_coupon_btn_wr,
     .wpcd-coupon-code,
-    .wpcd-coupon-title,
-    .wpcd-coupon-description {
+    .wpcd-coupon-title {
         text-align: center;
     }
     .wpcd-col-1-4 {
         margin-bottom: 10px;
+    }
+    .wpcd-coupon-description {
+        text-align: justify;
     }
 }
