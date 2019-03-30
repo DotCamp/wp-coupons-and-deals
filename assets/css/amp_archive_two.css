@@ -69,6 +69,7 @@
     padding: 9px;
     margin: 0;
     box-shadow: 0px 1px 2px rgba(34, 34, 34, .2);
+    word-break: break-all;
 }
 
 .wpcd-coupon-two-header {
@@ -245,5 +246,11 @@
     .wpcd-widget.wpcd-coupon-one:after {
         content: ' ';
         border-left: 0;
+    }
+}
+
+@media screen and (max-width: 568px) and (min-width: 320px) {
+    .wpcd-coupon-two-discount-text {
+        display: none;
     }
 }

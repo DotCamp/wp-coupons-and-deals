@@ -63,22 +63,37 @@ function wpcd_import_process_php() {
 			);
 			$post_id = wp_insert_post( $args );
 			if ( ! is_wp_error( $post_id ) ) {
+                if ( ! empty( $wpcd_coupon_data->expiry_date ) ) { 
+                    $expyry_data = wpcd_datetotime( sanitize_text_field( $wpcd_coupon_data->expiry_date ) ) ?
+                                    wpcd_datetotime( sanitize_text_field( $wpcd_coupon_data->expiry_date ) ) : "";
+                }
+                if ( empty( $expyry_data ) ) $expyry_data = "";
+                if ( ! empty( $wpcd_coupon_data->expiry_time ) ) {
+                    $expiry_time = strtotime( sanitize_text_field( $wpcd_coupon_data->expiry_time ) );
+                    if ( ! empty( $expiry_time ) ) {
+                        $expiry_time = date( 'g:i a', $expiry_time );
+                    }
+                }
+                if ( empty( $expiry_time ) ) $expiry_time = "";
 				add_post_meta( $post_id, 'coupon_details_coupon-type', 'Coupon', true );
 				add_post_meta( $post_id, 'coupon_details_coupon-code-text', $wpcd_coupon_data->coupon_code, true );
 				add_post_meta( $post_id, 'coupon_details_link', $wpcd_coupon_data->link, true );
 				add_post_meta( $post_id, 'coupon_details_description', $wpcd_coupon_data->description, true );
 				add_post_meta( $post_id, 'coupon_details_discount-text', $wpcd_coupon_data->discount_text, true );
 				add_post_meta( $post_id, 'coupon_details_show-expiration', 'Show', true );
-				add_post_meta( $post_id, 'coupon_details_expire-date', $wpcd_coupon_data->expiry_date, true );
+				add_post_meta( $post_id, 'coupon_details_expire-date', $expyry_data, true );
+				add_post_meta( $post_id, 'coupon_details_expire-time', $expiry_time, true );
 				add_post_meta( $post_id, 'coupon_details_hide-coupon', $wpcd_coupon_data->hide_coupon, true );
 				add_post_meta( $post_id, 'coupon_details_coupon-template', $wpcd_coupon_data->default_coupon_template, true );     
 	
 				// Theme Color for only template Five and Six
-				$theme_color = $_POST['theme_color'];
+				$theme_color = $wpcd_coupon_data->theme_color;
 				if ( $wpcd_coupon_data->default_coupon_template == 'Template Five' ):
 					add_post_meta( $post_id, 'coupon_details_template-five-theme', $theme_color );
 				elseif( $wpcd_coupon_data->default_coupon_template == 'Template Six'):
 					add_post_meta( $post_id, 'coupon_details_template-six-theme', $theme_color );
+				elseif( $wpcd_coupon_data->default_coupon_template == 'Template Seven'):
+					add_post_meta( $post_id, 'coupon_details_template-seven-theme', $theme_color );
 				elseif( $wpcd_coupon_data->default_coupon_template == 'Template Eight'):
 					add_post_meta( $post_id, 'coupon_details_template-eight-theme', $theme_color );
 				endif;

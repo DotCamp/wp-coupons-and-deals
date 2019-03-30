@@ -377,7 +377,10 @@ class WPCD_Assets {
 
 			}
 
-		}
+		} elseif ( isset( $_GET['post_type'] ) && isset( $_GET['page'] ) && $_GET['post_type'] == 'wpcd_coupons' && $_GET['page'] == 'wpcd_coupon_import' ) {
+            wp_enqueue_style('wpcd-color-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/' . self::wpcd_version_correct( 'dir' ) . 'colorpicker' . self::wpcd_version_correct( 'suffix' ) . '.css', false);
+            wp_enqueue_script('wpcd-color-script', WPCD_Plugin::instance()->plugin_assets . 'admin/js/colorpicker.js', array('jquery'), WPCD_Plugin::PLUGIN_VERSION, true);
+        }
 
 		wp_enqueue_script( 'wpcd-admin-js', WPCD_Plugin::instance()->plugin_assets . 'admin/js/admin.js', array(
 			'jquery',

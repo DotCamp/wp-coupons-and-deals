@@ -41,7 +41,7 @@
 
 .wpcd_seven_percentOff {
     width: 80%;
-    height: 60px;
+    height: auto;
     background: #9b59b6;
     border-color: #9b59b6;
     margin: 15px auto 0px auto;
@@ -60,6 +60,7 @@
     margin-top: 24px;
     margin-bottom: 24px;
     line-height: 40px;
+    padding: 14px;
 }
 
 .wpcd_seven_percentOff:after {
@@ -73,12 +74,12 @@
     border-right: 25px solid;
     border-right-color: inherit;
     border-bottom: 30px solid transparent;
-    margin-top: 30px;
     z-index: 0;
 }
 
 .wpcd_seven_productPic amp-img {
     width: 65%;
+    max-width: 65%;
     margin: 30px 0 0 40px;
     box-shadow: 2px 2px 5px #888;
 }
@@ -235,6 +236,7 @@
     }
     .wpcd_seven_productPic amp-img {
         width: 100%;
+        max-width: 100%;
         margin: auto;
         height: auto;
     }
@@ -261,7 +263,7 @@
         line-height: 35px;
     }
     .wpcd_seven_percentOff:after {
-        top: 50%;
+        top: 100%;
         left: 60%;
     }
     .wpcd_seven_heading h1 a {
@@ -276,7 +278,7 @@
         width: 25%;
     }
     .wpcd_seven_percentOff:after {
-        top: 50%;
+        top: 100%;
         left: 89%;
     }
     .wpcd_seven_btn {
@@ -289,12 +291,11 @@
         padding-bottom: 8px;
     }
     .wpcd_seven_percentOff:after {
-        top: 50%;
+        top: 100%;
         left: auto;
         right: 17%;
     }
     .wpcd_seven_productPic amp-img {
-        max-width: 230px;
         margin-right: auto;
         margin-left: auto;
         display: block;
@@ -405,8 +406,12 @@
         margin-bottom: 0px;
     }
     .wpcd_seven_percentOff::after {
-        top: 10%;
+        top: 100%;
         left: 70%;
+        border-right: 20px solid;
+        border-right-color: currentcolor;
+        border-right-color: inherit;
+        border-bottom: 22px solid transparent;
     }
     .wpcd_seven_productPic {
         text-align: center;

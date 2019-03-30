@@ -30,6 +30,8 @@
     margin-top: 0px;
     border: 2px dashed #3a3a3a;
     padding: 7px;
+    word-break: break-all;
+    font-weight: 400;
 }
 .wpcd-template-five-pro-img {
     width: 23%;

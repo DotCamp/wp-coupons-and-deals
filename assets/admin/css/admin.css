@@ -776,6 +776,7 @@ a.wpcd-btn .wpcd_deal_icon {
     padding: 9px;
     margin: 0;
     box-shadow: 0px 1px 2px rgba(34, 34, 34, .2);
+    word-break: break-all;
 }
 
 .wpcd-coupon-two-info {
@@ -1171,6 +1172,7 @@ p.wpcd-coupon-four-expired {
     border: 2px dashed #3a3a3a;
     padding: 7px;
     word-spacing: 9999px;
+    word-break: break-all;
 }
 
 .wpcd-template-five-texts {
@@ -1386,14 +1388,15 @@ p.wpcd-coupon-four-expired {
 .wpcd-coupon-six-percent-off .wpcd-for-ribbon {
     width: 100%;
     max-width: 100px;
-    height: 200px;
+    height: auto;
     margin: 0 auto;
+    padding-bottom: 40px;
 }
 
 .wpcd-coupon-six-percent-off .wpcd-ribbon {
     width: 100%;
     max-width: 100px;
-    height: 120px;
+    min-height: 120px;
     background: #18E06E;
     margin: 0 auto;
     position: relative;
@@ -1441,10 +1444,12 @@ p.wpcd-coupon-four-expired {
     font-size: 30px;
     text-align: center;
     text-transform: uppercase;
-    padding-top: 8px;
+    padding: 8px 8px 0px;
     margin: 0px !important;
-    position: absolute;
+    position: relative;
     z-index: 2;
+    word-break: break-all;
+    word-spacing: 9999px;
 }
 
 
@@ -2636,7 +2641,7 @@ a.admin-wpcd-new-goto-button {
 
 .admin_wpcd_seven_percentOff {
     width: 80%;
-    height: 60px;
+    height: auto;
     background: #9b59b6;
     border-color: #9b59b6;
     margin: 15px auto 0px auto;
@@ -2653,6 +2658,8 @@ a.admin-wpcd-new-goto-button {
     color: #fff;
     font-weight: 700;
     text-shadow: 2px 2px 5px rgb(57, 57, 57);
+    word-break: break-all;
+    padding: 14px;
 }
 
 .admin_wpcd_seven_heading h1 a {
@@ -2670,7 +2677,6 @@ a.admin-wpcd-new-goto-button {
     content: ' ';
     width: 0;
     height: 0;
-    border-top: 30px solid transparent;
     border-right: 25px solid;
     border-right-color: inherit;
     border-bottom: 30px solid transparent;
@@ -3188,7 +3194,7 @@ a.admin-wpcd-new-goto-button {
         padding-bottom: 14px;
     }
     .admin_wpcd_seven_percentOff:after {
-        top: 50%;
+        top: 100%;
         left: 60%;
         z-index: -10;
     }
@@ -3225,7 +3231,7 @@ a.admin-wpcd-new-goto-button {
         height: 150px;
     }
     .admin_wpcd_seven_percentOff:after {
-        top: 50%;
+        top: 100%;
         left: 89%;
     }
     .admin_wpcd_seven_btn {
@@ -3243,11 +3249,11 @@ a.admin-wpcd-new-goto-button {
         line-height: 42px;
     }
     .admin_wpcd_seven_percentOff:after {
-        top: 50%;
+        top: 100%;
         left: 80%;
     }
     .admin_wpcd_seven_shortcode .admin_wpcd_seven_percentOff:after {
-        top: 50%;
+        top: 100%;
         left: auto;
         right: 15%;
     }
@@ -3667,7 +3673,7 @@ a.admin-wpcd-new-goto-button {
         padding: 5px;
     }
     .admin_wpcd_seven_percentOff:after {
-        top: 10%;
+        top: 100%;
         left: 70%;
     }
     .admin_wpcd_seven_heading h1,
