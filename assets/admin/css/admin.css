@@ -157,6 +157,32 @@
     position: relative;
 }
 
+#wpcd-table-csv {
+    padding-bottom: 50px;
+}
+
+.wpcd_import_preview_tr_hide {
+    display: none;
+}
+
+#wpcd_import_show_all_button {
+    text-align: center;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.04);
+}
+
+#wpcd_import_show_all_button a {
+    display: inline-block;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
 .wpcd_red {
     color: #ff0000;
     font-weight: 600;

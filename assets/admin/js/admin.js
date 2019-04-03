@@ -101,79 +101,103 @@ jQuery(document).ready(function ($) {
         return rows;
     }
     
+    function strip(str) {
+        str.replace(/\s+/g,' ' ) // replace long spaces with one
+           .replace(/^\s/,'')    // remove spaces at the beginning of a line
+           .replace(/\s$/,'');   // remove spaces at the end of the line
+
+        return str;
+    }
+    
+    Array.prototype.clean = function (deleteValue) {
+        for (var i = 0; i < this.length; i++) {
+            if (this[i] == deleteValue) {
+                this.splice(i, 1);
+                i--;
+            }
+        }
+        return this;
+    };
+    
+    function xmlElementChildrenEach( Parent, startIter ) {
+        if ( startIter ) {
+            this.mainString = [];
+        }
+        if( Parent.nodeType == 1 ) {
+            if( Parent.children.length > 0 ) {
+                for ( var i = 0; i < Parent.children.length; i++ ) {
+                    var child = Parent.children[i];
+                    xmlElementChildrenEach( child );
+                }
+            } else if ( Parent.childNodes.length > 0 ) {
+                for ( var i = 0; i < Parent.childNodes.length; i++ ) {
+                    var child = Parent.childNodes[i];
+                    xmlElementChildrenEach( child );
+                }
+            } else {
+                this.mainString.push("");
+            }
+        } else if ( ( Parent.nodeType == 3 || Parent.nodeType == 4 ) && Parent.data.trim() != '\n' && 
+                        Parent.data.trim() != "\n" && Parent.data.trim() != '\r' && Parent.data.trim !='\n\r' && 
+                        Parent.previousSibling === null && Parent.nextSibling === null ) {
+            this.mainString.push( Parent.data );
+        } 
+        return this.mainString;
+    }
+    
     // function for parse Xml file
     function wpcdXmlImportFileParse( data ) {
         var xmlDoc = $.parseXML( data );
         var xml = $( xmlDoc );
         var rows = [],
-            rows_header = [],
-            item,
-            header = xml.find( "header" ),
-            items = xml.find( "item" );
-            rows_header = wpcdEachItemXml( header );
-            rows = wpcdEachItemXml( items );
-
-            rows = rows_header.concat(rows);
+            rows_header = [];
+        if( xml.length  > 0 ) {
+            var documentElement = xml[0].children;
+            if(documentElement.length > 0) {
+                var couponElements = documentElement[0].children;
+                for( var i = 0; i < couponElements.length; i++ ) {
+                    if ( i == 0 ) {
+                        rows_header[i] = xmlElementChildrenEach( couponElements[i], true );
+                    } else {
+                        rows[i] = xmlElementChildrenEach( couponElements[i], true );
+                    }
+                }
+            }
+        }
+        rows = rows_header.concat(rows);
+//        rows = rows.clean("");
+//        rows = rows.clean('undefined');
+//        rows = rows.clean(null);
         return rows;
     }
     // function for parse string (analog of split js)
-    function wpcd_parseString( str ) {
-        var separator;
-        var quotes = false;
+    function wpcd_parseString( str, separator ) {
         var arr = [];
         var quote = false;
         
-        
-        if ( str != str.split('|')[0] ) {
-            separator = '|';
-        } else if ( str != str.split( ';' )[0] ) {
-            separator = ';';
-        } else {
-            separator = ',';
+        // getting of separator
+        if ( ! separator ) {
+            if ( str != str.split('|')[0] ) {
+                separator = '|';
+            } else if ( str != str.split( ';' )[0] ) {
+                separator = ';';
+            } else {
+                separator = ',';
+            } 
         }
-        
-        // Сheck for double quotes in the field
-        var quotes_dub = str.substr(0, 1);
-        if ( quotes_dub == '"' ){
-            quotes = true;
-        }
-        console.log(str);
-         // true means we're inside a quoted field
 
-        // iterate over each character, keep track of current row and column (of the returned array)
+        // iterate over each character, keep track of current column (of the returned array)
         for (var col = 0, c = 0; c < str.length; c++) {
             var cc = str[c], nc = str[c+1];        // current character, next character
             arr[col] = arr[col] || '';   // create a new column (start with empty string) if necessary
-            if ( quotes ) {
+            
                 if ( cc == '"' && quote && nc == '"' ) { arr[col] += cc; ++c; continue; }  
                 if ( cc == '"' ) { quote = !quote; continue; }
                 if ( cc == separator && !quote ) { ++col; continue; }
-                if ( cc == '\r' && nc == '\n' && !quote ) { col = 0; ++c; continue; }
-                if ( cc == '\n' && !quote ) { col = 0; continue; }
-                if ( cc == '\r' && !quote ) { col = 0; continue; }
-            } else {
-                if ( cc == separator ) { ++col; continue; }
-                if ( cc == '\r' && nc == '\n' && !quote ) { col = 0; ++c; continue; }
-                if ( cc == '\n' && !quote ) { col = 0; continue; }
-                if ( cc == '\r' && !quote ) { col = 0; continue; }
-            }
             
             arr[col] += cc;
         }
         return arr;
-    }
-    // function for check of file type
-    function wpcd_checkFileType() {
-        var regex = /^([a-zA-Z0-9()\s_\\.\-:])+(.csv)$/;
-        var regex2 = /^([a-zA-Z0-9()\s_\\.\-:])+(.xml)$/;
-
-        var is_csv = regex.test($("#wpcd_import_file").val().toLowerCase());
-        var is_xml = regex2.test($("#wpcd_import_file").val().toLowerCase());
-        if (is_csv) {
-            return 'CSV';
-        } else if (is_xml) {
-            return 'XML';
-        }
     }
     
     // Start of Import
@@ -197,7 +221,7 @@ jQuery(document).ready(function ($) {
                     var rows;
                     var data = e.target.result;
                     if( is_csv ) {
-                        rows = data.split("\n");
+                        rows = wpcd_parseString( data, "\n");
                     } else if ( is_xml ) {
                         rows = wpcdXmlImportFileParse( data );
                     }
@@ -268,9 +292,15 @@ jQuery(document).ready(function ($) {
 
                     // preparing the select ID array
                     for (i = 0; i < rows.length; i++) {
+                        if( ! rows[i] ) continue;
                         // Filter header
                         // Cells variable is where the column data can be found.
-                        cells = wpcd_parseString(rows[i]);
+                        if ( is_csv ) {
+                            cells = wpcd_parseString(rows[i]);
+                        } else if ( is_xml ) {
+                            cells = rows[i];
+                        }
+                        
 
                         if (cells.length > 1) {
                             // Column values
@@ -358,9 +388,11 @@ jQuery(document).ready(function ($) {
                         data = e.target.result;
                     var table = $("<table class=\"widefat wpcd_import_preview\" cellspacing=\"0\"></table>");
                     if ( is_csv ) {
-                        rows = data.split("\n");
+                        rows = wpcd_parseString( data, "\n");
+                        console.log(rows);
                     } else if ( is_xml ) {
                         rows = wpcdXmlImportFileParse( data );
+                        console.log(rows);
                     }
                     rows2 = rows; // same with rows 
                     var row = "";
@@ -368,17 +400,31 @@ jQuery(document).ready(function ($) {
                     var cell = "";
                     var j = 0;
                     var i = 0;
+                    var showAll = false;
                     // Row loop
                     for (i = 0; i < rows.length; i++) {
                         row = $("<tr />");
-                        cells = wpcd_parseString(rows[i]);
+                        if( i > 5 ) {
+                            row.addClass("wpcd_import_preview_tr_hide");
+                            showAll = true;
+                        }
+                        if( ! rows[i] ) continue;
+                        if ( is_csv ) {
+                            cells = wpcd_parseString(rows[i]);
+                        } else if ( is_xml ) {
+                            cells = rows[i];
+                        }
                         if (cells != "") { // Check if there are blanks  
 
                             countCol.text(i); //Removes index 0 
                             //If Header
                             if (i == 0) {
                                 row = $("<thead/>");
-                                cells = wpcd_parseString(rows[i]);
+                                if ( is_csv ) {
+                                    cells = wpcd_parseString(rows[i]);
+                                } else if ( is_xml ) {
+                                    cells = rows[i];
+                                }
                             }
                             // Column loop
                             for (j = 0; j < cells.length; j++) {
@@ -394,6 +440,20 @@ jQuery(document).ready(function ($) {
                     }
                     $("#wpcd-table-csv").html('');
                     $("#wpcd-table-csv").append(table);
+                    
+                    // Adding the "Show All" button if the number of lines is more than 5
+                    if ( showAll ) {
+                        $("#wpcd-table-csv").append('<div id="wpcd_import_show_all_button"><a>Show All</a></div>');
+                        $("#wpcd_import_show_all_button a").on( 'click', function() {
+                           $('.wpcd_import_preview_tr_hide').toggle();  
+                           if ( $( this ).text() === 'Show All' ) {
+                               $( this ).text( 'Hide' );
+                           } else {
+                               $( this ).text( 'Show All' );
+                           }
+                        });
+                    }
+                    
 
                     // Select option data
                     var wpcd_import_field_inner_wr = jQuery(".wpcd_import_field_inner_wr"); // storing selector
@@ -407,9 +467,15 @@ jQuery(document).ready(function ($) {
                     var wpcd_temp = "";
                     var wpcd_temp2 = "";
                     var wpcd_count = 0;
+                    var col_length;
                     for (i = 0; i < rows_length; i++) {
                         row = $("<tr />");
-                        col = wpcd_parseString(rows2[i]);
+                        if( ! rows2[i] ) continue;
+                        if ( is_csv ) {
+                            col = wpcd_parseString(rows2[i]);
+                        } else if ( is_xml ) {
+                            col = rows2[i];
+                        }
                         column2.push([col]);
                         col_length = col.length;
                         // If Titles on first row
