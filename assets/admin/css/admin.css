@@ -161,6 +161,10 @@
     padding-bottom: 50px;
 }
 
+#wpcd-table-csv_box-table {
+    overflow-x: auto;
+}
+
 .wpcd_import_preview_tr_hide {
     display: none;
 }
@@ -173,6 +177,12 @@
     right: 0;
     border: 1px solid #e5e5e5;
     box-shadow: 0 1px 1px rgba(0,0,0,0.04);
+    cursor: pointer;
+}
+
+#wpcd_import_show_all_button:hover {
+    border: 1px solid #c0c0c0;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.19);
 }
 
 #wpcd_import_show_all_button a {
@@ -181,7 +191,20 @@
     margin: 5px;
     cursor: pointer;
     text-decoration: none;
+    color: #006799;
 }
+
+#wpcd_import_show_all_button:hover a {
+    color: #004160;
+    font-weight: 600;
+}
+
+#wpcd_import_show_all_button.wpcd_import_hide_button {
+    position:-webkit-sticky; 
+    position:sticky; 
+    bottom:0;
+}
+
 
 .wpcd_red {
     color: #ff0000;
@@ -274,14 +297,13 @@ table.wpcd_import_preview th {
 }
 
 .wpcd_preview_table_support {
-    overflow: auto;
+/*    overflow: auto;*/
 }
 
 .wpcd_import_white_box {
     background-color: #ffffff;
     margin-top: 35px;
     padding: 20px;
-    position: relative;
 }
 
 #wpcd_import_form_wr .wpcd_import_white_box h5 {
@@ -3084,6 +3106,9 @@ a.admin-wpcd-new-goto-button {
     background: rgba(0, 0, 0, 0.25);
     border-radius: 6px;
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+    position: sticky;
+    top: 50%;
+    left: calc(50% - 200px);
 }
 
 .wpcd-pbar-progress-bar {
@@ -3096,32 +3121,32 @@ a.admin-wpcd-new-goto-button {
 }
 
 .wpcd-zero-percent {
-    width: 0%;
+    /*width: 0%;*/
     background-color: #11f2d4;
 }
 
 .wpcd-five-percent {
-    width: 5%;
+    /*width: 5%;*/
     background-color: #f63a0f;
 }
 
 .wpcd-twentyfive-percent {
-    width: 25%;
+    /*width: 25%;*/
     background-color: #f27011;
 }
 
 .wpcd-fifty-percent {
-    width: 50%;
+    /*width: 50%;*/
     background-color: #f2b01e;
 }
 
 .wpcd-seventyfive-percent {
-    width: 75%;
+    /*width: 75%;*/
     background-color: #f809d8;
 }
 
 .wpcd-onehundred-percent {
-    width: 100%;
+    /*width: 100%;*/
     background-color: #86e01e;
 }
 
@@ -3146,6 +3171,7 @@ a.admin-wpcd-new-goto-button {
 
 #wpcd-pbar-percent {
     color: white;
+    width: 1px;
 }
 
 

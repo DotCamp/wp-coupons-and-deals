@@ -76,7 +76,7 @@ if ( isset( $_POST['wpcd_category'] ) && ! empty( $_POST['wpcd_category'] ) && s
 		} else {
 			_e( 'Click Here to Show Code', 'wpcd-coupon' );
 		} ?>" data-position="top center" data-inverted="" data-aff-url="<?php echo $link; ?>"
-           onClick="return wpcdOpenCouponAffLink(this, '<?php echo $new_coupon_id; ?>')" target="_blank">
+           onClick="return wpcd_openCouponAffLink(this, '<?php echo $new_coupon_id; ?>')" target="_blank">
             <span class="code-text-wpcd" rel="nofollow"><?php echo( ! empty( $coupon_code ) ? $coupon_code : __( 'COUPONCODE', 'wpcd-coupon' ) ); ?></span>
             <span class="get-code-wpcd">
         <?php

@@ -90,7 +90,7 @@ include('header-category.php');
 ?>
 <?php else: ?>
 <!--- Template Seven start -->
-        <section class="wpcd_seven wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item <?php echo $coupon_categories_class; ?>"
+        <section class="wpcd_seven wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item"
                  wpcd-data-search="<?php echo $title;?>">
             <div class="wpcd_seven_container">
                 <div class="wpcd_seven_couponBox">

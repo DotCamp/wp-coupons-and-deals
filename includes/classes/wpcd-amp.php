@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Shows the coupons templates and css for Amp pages
  *
- * @since 2.0
+ * @since 2.7.3
  */
 class WPCD_Amp {
 
@@ -23,7 +23,7 @@ class WPCD_Amp {
 	 * This is css list for amp template.
 	 *
 	 * @var string
-	 * @since 2.7.2
+	 * @since 2.7.3
 	 */
 	private $css_list = array(
 		'archive_not_temp'		=> 'amp_archive_not-temp',
@@ -50,7 +50,7 @@ class WPCD_Amp {
 	 * This is css file pointer
 	 *
 	 * @var string
-	 * @since 2.7.2
+	 * @since 2.7.3
 	 */
 	private $css_file = 'not_temp';
 
@@ -58,7 +58,7 @@ class WPCD_Amp {
 	 * This is css code for print
 	 *
 	 * @var string
-	 * @since 2.7.2
+	 * @since 2.7.3
 	 */
 	private $styles = array();
 
@@ -66,14 +66,14 @@ class WPCD_Amp {
 	 * This is array have names of css files which was be used
 	 *
 	 * @var string
-	 * @since 2.7.2
+	 * @since 2.7.3
 	 */
 	private $used_css_files = array();
 	
 	/**
 	 * Singleton pattern, making only one instance of the class.
 	 *
-	 * @since 2.7.2
+	 * @since 2.7.3
 	 */
 	public static function instance() {
 		if ( ! isset( self::$instance ) ) {
@@ -87,7 +87,7 @@ class WPCD_Amp {
 	/**
 	 * Class construct method.
 	 *
-	 * @since 2.7.2
+	 * @since 2.7.3
 	 */
 	private function __construct() {
 		add_action( 'amp_post_template_css', array( $this,'wpcd_print_amp_styles' ) ); // AMP, Accelerated Mobile Pages
@@ -97,7 +97,7 @@ class WPCD_Amp {
 	/**
 	 * Setting parameters for choice of css file
 	 *
-	 * @since 2.7.2
+	 * @since 2.7.3
 	 */
 	public function setCss( $css_file, $is_file = true ) {
 		if ( $is_file ) {
@@ -123,7 +123,7 @@ class WPCD_Amp {
 	/**
 	 * Getting CSS for amp pages
 	 *
-	 * @since 2.7.2
+	 * @since 2.7.3
 	 */
 	public function wpcd_print_amp_styles() {
 		foreach ($this->styles as  $style) {

@@ -1,7 +1,14 @@
 <?php
- 
+/**
+ * Function for Create of Links by number page and current URL
+ * 
+ * @since 2.7.3
+ * @param string $current_url, $necessary_page_num
+ * @return string
+ */
 if( !function_exists( 'wpcd_generatePageUrl' ) ) {
     function wpcd_generatePageUrl( $current_url, $necessary_page_num ) {
+        $current_url_new = '';
         $pos1 = strpos( $current_url, '?' );
 
         if( $pos1 === false ) {
@@ -35,7 +42,13 @@ if( !function_exists( 'wpcd_generatePageUrl' ) ) {
     }
 }
 
-           
+/**
+ * Function for Create Pagination for Arhive, Category and Vendor pages
+ * 
+ * @since 2.7.3
+ * @param int $max_num_page, int $end_size, int $mid_size, bool $prev_next, bool $show_all
+ * @return string
+ */           
 if( !function_exists( 'wpcd_generatePagination' ) ) {
     function wpcd_generatePagination( $max_num_page, $end_size = 1, $mid_size = 2, $prev_next = true, $show_all = false ) {
         $pageNum=( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
@@ -44,7 +57,7 @@ if( !function_exists( 'wpcd_generatePagination' ) ) {
             return;
         }
         $current = 1;
-        if( $_GET['wpcd_page_num'] && absint( $_GET['wpcd_page_num'] ) == $_GET['wpcd_page_num'] ) $current = absint( $_GET['wpcd_page_num'] );
+        if( isset( $_GET['wpcd_page_num'] ) && ! empty( $_GET['wpcd_page_num'] ) && absint( $_GET['wpcd_page_num'] ) == $_GET['wpcd_page_num'] ) $current = absint( $_GET['wpcd_page_num'] );
         $page_links = array();
         if ( $prev_next && $current && 1 < $current ) :
             $current_minus_one = $current - 1;
@@ -81,11 +94,9 @@ if( !function_exists( 'wpcd_generatePagination' ) ) {
 /**
  * This function execute preparation of category links for archive, category and vendor menus
  *
- * @since 2.7.2
- * @param string $current_url
- * @return array
+ * @since 2.7.3
+ * @return string
  */
-
 if( ! function_exists( 'wpcd_preparationMenuLinks' ) ) {
     function wpcd_preparationMenuLinks() {
         $pageNum = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
@@ -117,7 +128,6 @@ if( ! function_exists( 'wpcd_preparationMenuLinks' ) ) {
                         $current_url_final['all'] = $current_url_exp[0];
                         $current_url_final['sin'] = $current_url_exp[0] . '?';
                     }
-
 
                 }
             } else {

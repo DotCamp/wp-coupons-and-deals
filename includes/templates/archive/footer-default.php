@@ -34,7 +34,7 @@ if ($parent == 'footer' || $parent == 'headerANDfooter'):
             }
 
             if ( isset( $_POST['search_text'] ) && ! empty( $_POST['search_text'] ) && 
-                    sanitize_text_field( $_POST['search_text'] ) === $_POST['search_text'] ) {
+                    sanitize_text_field( $_POST['search_text'] ) === trim( $_POST['search_text'] ) ) {
                 $add_args['search_text'] = sanitize_text_field( $_POST['search_text'] );
             }
 

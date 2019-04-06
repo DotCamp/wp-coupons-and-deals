@@ -54,7 +54,6 @@ if ( $wpcd_text_to_show == 'description' ) {
 }
 
 $wpcd_show_coupon_popup = ! empty( $_GET['wpcd_coupon'] ) && $_GET['wpcd_coupon'] == $coupon_id;
-echo $coupon_template;
 
 if ( isset( $_POST['wpcd_page_num'] ) && ! empty( $_POST['wpcd_page_num'] ) && absint( $_POST['wpcd_page_num'] ) == $_POST['wpcd_page_num'] ) {
     $wpcd_page_num = '&wpcd_page_num=' . absint( $_POST['wpcd_page_num'] );
@@ -90,7 +89,7 @@ if ( isset( $_POST['wpcd_category'] ) && ! empty( $_POST['wpcd_category'] ) && s
            data-position="top center"
            data-inverted=""
            data-aff-url="<?php echo $link; ?>"
-           onClick="return wpcdOpenCouponAffLink(this, '<?php echo $new_coupon_id; ?>')"
+           onClick="return wpcd_openCouponAffLink(this, '<?php echo $new_coupon_id; ?>')"
            data-clipboard-text="<?php if ( ! empty( $coupon_code ) ) {
          echo $coupon_code;
        } else {

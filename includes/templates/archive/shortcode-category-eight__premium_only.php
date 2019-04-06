@@ -100,7 +100,7 @@ include( 'header-category.php' );
 ?>
 <?php else: ?>
 <!--- Template Eight start -->
-    <div class="wpcd-new-grid-container wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item <?php echo $coupon_categories_class; ?>"
+    <div class="wpcd-new-grid-container wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item"
          wpcd-data-search="<?php echo $title; ?>">
         <div class="wpcd-new-grid-one">
             <div class="wpcd-new-discount-text">

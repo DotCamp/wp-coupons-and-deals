@@ -432,7 +432,7 @@ JS;
 	 * This function checks debug is switch on or switch off 
 	 * and then return the necessary directory or suffix if it needs ( for minimized version )
 	 * 
-	 * @since 2.7.2
+	 * @since 2.7.3
 	 * @param string $way_correct
 	 * @return string 
 	 */

@@ -308,14 +308,14 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 			/**
 			 * Include pagination functions
 			 *
-			 * @since 2.7.2
+			 * @since 2.7.3
 			 */
 			self::wpcd_pagination();
 
 			/**
 			 * Include addition functions
 			 *
-			 * @since 2.7.2
+			 * @since 2.7.3
 			 */
 			self::wpcd_additional_functions();
 
@@ -622,7 +622,7 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 		/**
 		 * This function loads the file with pagination functions
 		 *
-		 * @since 2.7.2
+		 * @since 2.7.3
 		 */
         public static function wpcd_pagination() {
 			
@@ -633,7 +633,7 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 		/**
 		 * This function loads the file with different help functions
 		 *
-		 * @since 2.7.2
+		 * @since 2.7.3
 		 */
         public static function wpcd_additional_functions() {
 			

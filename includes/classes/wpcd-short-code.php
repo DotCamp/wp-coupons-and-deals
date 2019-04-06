@@ -339,9 +339,14 @@ class WPCD_Short_Code {
                 }
 			}
 
-			if ( isset( $_POST['search_text'] ) && ! empty( $_POST['search_text'] ) && 
-                    sanitize_text_field( $_POST['search_text'] ) === $_POST['search_text'] ) {
-				$wpcd_data_search = sanitize_text_field( $_POST['search_text'] );
+			if ( isset( $_POST['search_text'] ) && ! empty( $_POST['search_text'] ) ) {
+                if ( sanitize_text_field( $_POST['search_text'] ) === trim( $_POST['search_text'] ) ) {
+                    $wpcd_data_search = sanitize_text_field( $_POST['search_text'] );
+                } else {
+                    $output = '<p>' . __( 'Sorry, no coupons/deals found.', 'wpcd-coupon' ) . '</p>';
+                    echo json_encode( $output );
+                    wp_die();
+                }
 			}
 		} else {
 			wp_enqueue_script( 'wpcd-main-js' );
