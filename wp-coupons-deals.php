@@ -2,7 +2,7 @@
 /**
  * Plugin Name: WP Coupons and Deals
  * Plugin URI: https://wpcouponsdeals.com/
- * Version: 2.7.2
+ * Version: 2.7.3.2
  * Description: Best WordPress Coupon Plugin. Generate more affiliate sales with coupon codes and deals.
  * Author: Imtiaz Rayhan
  * Author URI: http://imtiazrayhan.com/

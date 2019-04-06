@@ -15,14 +15,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <div class="wrap">
-    <h2><?php echo __( 'Import Coupons from CSV File', 'wpcd-coupon' ); ?></h2>
+    <h2><?php echo __( 'Import Coupons from CSV or XML File', 'wpcd-coupon' ); ?></h2>
     <section id="wpcd_import_form_wr">
 		<?php
 			include('import-form__premium_only.php');
 		?>
 		<!-- Wrapper set to display none -->
 		<div class="wpcd-import-wrapper">
-			<p>This is just a preview of the CSV file you uploaded. All data are not showing here.</p>
+			<p><?php echo __( 'This is just a preview of the file you uploaded. All data are not showing here.', 'wpcd-coupon'); ?></p>
 			<!-- Table -->
 			<div class="wpcd_preview_table_support">
 				<div id="wpcd-table-csv">
@@ -30,7 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</div>
 			</div>
 			<div class="wpcd_choose_fields_wr wpcd_import_white_box wpcd_clearfix">
-				<h5>Select Import Fields</h5>
+				<h5><?php echo __( 'Select Import Fields', 'wpcd-coupon' ); ?></h5>
 				<form id="wpcd_import_form_final" class="wpcd_clearfix" enctype="multipart/form-data" method="post">
 					<div class="wpcd_import_field_inner_wr wpcd_clearfix">
 						
@@ -42,7 +42,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<input type="hidden" name="theme_color" value="'.$_POST['theme_color'].'">
 							<?php wp_nonce_field( 'wpcd_nonce' ); ?>
 							<input name="wpcd_import_submit_final" value="" class="button button-primary button-large wpcd-import-btn" type="submit">
-							<span><strong>5</strong> Rows will be added! </span>
+							<span><strong>5</strong> <?php echo __( 'Coupons will be added!', 'wpcd-coupon' ); ?></span>
 						</div>
 						</div><!-- end of import notes -->
 					</div><!-- end of clearfix -->
