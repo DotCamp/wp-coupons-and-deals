@@ -174,6 +174,17 @@ class WPCD_Settings_Page_Pro {
 					'default' => 'category'
 				),
 				array(
+					'id'		  => 'archive-munu-categories',
+					'label'       => __( 'Archive Menu Categories', 'wpcd-coupon' ),
+					'description' => __( 'Choose the Type of  Navigation on Category or Vendor for Archive.', 'wpcd-coupon' ),
+					'type'	      => 'select',
+					'options'     => array(
+						'category' => __( 'Category Navigation', 'wpcd-coupon' ),
+						'vendor'   => __( 'Vendor Navigation', 'wpcd-coupon' )
+					),
+					'default' => 'category'
+				),
+				array(
 					'id'          => 'words-count',
 					'label'       => __( 'Words Count to Add More/Less Link', 'wpcd-coupon' ),
 					'description' => __( 'If coupon description is more than this count, More/Less link will be added. Default is 30 words.', 'wpcd-coupon' ),

@@ -98,7 +98,7 @@ $wpcd_coupon_template = get_post_meta($coupon_id, 'coupon_details_coupon-templat
  * header and in the bottom footer
  */
 global $parent;
-include('header-grid.php');
+include('header-grid__premium_only.php');
 ?>
     <li class="wpcd_coupon_li wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item <?php echo $coupon_categories_class; ?>"
         wpcd-data-search="<?php echo $title;?>">
@@ -250,4 +250,4 @@ include('header-grid.php');
         <?php endif; ?>
         </div>
     </li>
-<?php include('footer-grid.php'); ?>
+<?php include('footer-grid__premium_only.php'); ?>

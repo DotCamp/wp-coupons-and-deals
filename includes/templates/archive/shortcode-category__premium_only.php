@@ -81,7 +81,7 @@ if (is_array($wpcd_coupon_image_src)) {
 $wpcd_coupon_template     = get_post_meta( $coupon_id, 'coupon_details_coupon-template', true );
 
 
-include('header-category-grid.php');
+include('header-category-grid__premium_only.php');
 ?>
         <li class="wpcd_coupon_li  wpcd-coupon-id-<?php echo $coupon_id; ?>">
             <?php
@@ -233,4 +233,4 @@ include('header-category-grid.php');
                     </div>
                 </div>
         </li>
-<?php include('footer-category-grid.php'); ?>
+<?php include('footer-category-grid__premium_only.php'); ?>

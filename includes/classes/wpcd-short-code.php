@@ -305,12 +305,24 @@ class WPCD_Short_Code {
 		
 		$output = "";
 		$paged = 1;
-		$wpcd_data_category = 'all';
+		$wpcd_data_taxonomy = 'all';
 		$wpcd_data_search = '';
 		$a = shortcode_atts( array(
 			'count' => '9',
 			'temp'  => ''
 		), $atts );
+        
+        $archive_category_setting = get_option( 'wpcd_archive-munu-categories' );
+            
+        if( $archive_category_setting == 'vendor' ) {
+            $terms = get_terms( 'wpcd_coupon_vendor' );
+            $wpcd_coupon_taxonomy = WPCD_Plugin::VENDOR_TAXONOMY;
+            $wpcd_term_field_name = 'wpcd_vendor';
+        } else {
+            $terms = get_terms( 'wpcd_coupon_category' );
+            $wpcd_coupon_taxonomy = WPCD_Plugin::CUSTOM_TAXONOMY;
+            $wpcd_term_field_name = 'wpcd_category';
+        }
 
 		if ( isset( $_POST['action'] ) && $_POST['action'] == 'wpcd_coupons_category_action' ) {
 			if ( ! check_ajax_referer( 'wpcd-security-nonce', 'security' ) ) {
@@ -332,10 +344,10 @@ class WPCD_Short_Code {
 				$paged = absint( $_POST['wpcd_page_num'] );
 			}
 
-			if ( isset( $_POST['wpcd_category'] ) && ! empty( $_POST['wpcd_category'] ) && 
-                    sanitize_text_field( $_POST['wpcd_category'] ) === $_POST['wpcd_category'] ) {
-				if ( get_term_by( 'slug', sanitize_text_field( $_POST['wpcd_category'] ), WPCD_Plugin::CUSTOM_TAXONOMY ) ) {
-                    $wpcd_data_category = sanitize_text_field( $_POST['wpcd_category'] );
+			if ( isset( $_POST[$wpcd_term_field_name] ) && ! empty( $_POST[$wpcd_term_field_name] ) && 
+                    sanitize_text_field( $_POST[$wpcd_term_field_name] ) === $_POST[$wpcd_term_field_name] ) {
+				if ( get_term_by( 'slug', sanitize_text_field( $_POST[$wpcd_term_field_name] ), $wpcd_coupon_taxonomy ) ) {
+                    $wpcd_data_taxonomy = sanitize_text_field( $_POST[$wpcd_term_field_name] );
                 }
 			}
 
@@ -356,10 +368,10 @@ class WPCD_Short_Code {
 				$paged = absint( $_GET['wpcd_page_num'] );
 			}
 
-			if ( isset( $_GET['wpcd_category'] ) && ! empty( $_GET['wpcd_category'] ) && 
-                    sanitize_text_field( $_GET['wpcd_category'] ) === $_GET['wpcd_category'] ) {
-				if ( get_term_by( 'slug', sanitize_text_field( $_GET['wpcd_category'] ), WPCD_Plugin::CUSTOM_TAXONOMY ) ) {
-                    $wpcd_data_category = sanitize_text_field( $_GET['wpcd_category'] );
+			if ( isset( $_GET[$wpcd_term_field_name] ) && ! empty( $_GET[$wpcd_term_field_name] ) && 
+                    sanitize_text_field( $_GET[$wpcd_term_field_name] ) === $_GET[$wpcd_term_field_name] ) {
+				if ( get_term_by( 'slug', sanitize_text_field( $_GET[$wpcd_term_field_name] ), $wpcd_coupon_taxonomy ) ) {
+                    $wpcd_data_taxonomy = sanitize_text_field( $_GET[$wpcd_term_field_name] );
                 }
 			}
 		}
@@ -369,16 +381,16 @@ class WPCD_Short_Code {
 
 
 			
-		if ( $wpcd_data_category != 'all' &&  $wpcd_data_category != '' &&  empty( $wpcd_data_search ) ) {
+		if ( $wpcd_data_taxonomy != 'all' &&  $wpcd_data_taxonomy != '' &&  empty( $wpcd_data_search ) ) {
 			$args = array(
 				'post_type'      => 'wpcd_coupons',
 				'order'          => 'DESC',
 				'posts_per_page' => $a['count'],
 				'tax_query'      => array(
 					array(
-						'taxonomy' => 'wpcd_coupon_category',
+						'taxonomy' => $wpcd_coupon_taxonomy,
 						'field'    => 'slug',
-						'terms'    => $wpcd_data_category,
+						'terms'    => $wpcd_data_taxonomy,
 					),
 				),
 				'paged'          => $paged
@@ -521,7 +533,8 @@ class WPCD_Short_Code {
 			if ( ! WPCD_Amp::wpcd_amp_is() && (!isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_action' ) ) {
 				global $post;
 				$wpcd_data_coupon_page_url = get_page_link( $post->ID );
-				$output = '<div id="wpcd_coupon_template" wpcd-data-coupon_template="'.$temp.'" wpcd-data-coupon_items_count="'.$a["count"].'" wpcd-data-coupon_page_url="'.$wpcd_data_coupon_page_url.'" wpcd-data_category="'.$wpcd_data_category.'"></div>';
+				$output = '<div id="wpcd_coupon_template" wpcd-data-coupon_template="'.$temp.'" wpcd-data-coupon_items_count="'.$a["count"].'" '
+                        . 'wpcd-data-coupon_page_url="'.$wpcd_data_coupon_page_url.'" ' . $wpcd_coupon_taxonomy . '="'.$wpcd_data_taxonomy.'"></div>';
 			}
 			
 			// the loop.

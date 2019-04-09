@@ -735,9 +735,9 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 			<div class="wpcd-template-five-texts">
 				<h2 class="wpcd-coupon-five-title">
 					<?php echo $title; ?></h2>
-				<p class="wpcd-coupon-description">
+				<div class="wpcd-coupon-description">
 					<?php echo $description; ?>
-				</p>
+				</div>
 			</div>
 		</div>
 

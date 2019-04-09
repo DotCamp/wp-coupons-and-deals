@@ -58,7 +58,13 @@ jQuery(document).ready(function ($) {
     //     }
     // });
     var categories_pagination_set_timeout;
-    function wpcd_ajaxCouponCategoriesPagination( wpcd_page_num, action, wpcd_category, search_text ) {
+    var wpcd_js_data_tax = 'data-category';
+    if ( $('#wpcd_cat_ul .wpcd_category').attr( 'data-category' ) ) {
+        wpcd_js_data_tax = 'data-category';
+    } else if ( $('#wpcd_cat_ul .wpcd_category').attr( 'data-vendor' ) ) {
+        wpcd_js_data_tax = 'data-vendor';
+    }
+    function wpcd_ajaxCouponCategoriesPagination( wpcd_page_num, action, wpcd_js_data_tax, wpcd_coupon_taxonomy, search_text ) {
         var scrollTop = $( '#wpcd_coupon_template' ).offset().top;
         $( 'html, body' ).animate( { scrollTop: scrollTop }, 300 );
 
@@ -71,6 +77,13 @@ jQuery(document).ready(function ($) {
             var wpcd_data_category_coupons;
             var wpcd_data_vendor_coupons;
             var wpcd_data_ven_cat_id;
+            var wpcd_coupon_taxonomy_category;
+            var wpcd_coupon_taxonomy_vendor;
+            if ( wpcd_js_data_tax == 'data-category' ) {
+                var wpcd_coupon_taxonomy_category = wpcd_coupon_taxonomy;
+            } else if ( wpcd_js_data_tax == 'data-vendor' ) {
+                var wpcd_coupon_taxonomy_vendor = wpcd_coupon_taxonomy;
+            }
             var wpcd_coupon_template = $( '#wpcd_coupon_template' );
             if ( wpcd_coupon_template.length > 0 ) {
                 coupon_template = wpcd_coupon_template.attr( 'wpcd-data-coupon_template' );
@@ -97,7 +110,8 @@ jQuery(document).ready(function ($) {
                 data: {
                     action: action,
                     security: wpcd_object.security,
-                    wpcd_category: wpcd_category,
+                    wpcd_category: wpcd_coupon_taxonomy_category,
+                    wpcd_vendor: wpcd_coupon_taxonomy_vendor,
                     coupon_template: coupon_template,
                     coupon_items_count: coupon_items_count,
                     wpcd_data_coupon_page_url: wpcd_data_coupon_page_url,
@@ -122,7 +136,7 @@ jQuery(document).ready(function ($) {
                                 var search_text = href_arr['search_text'];
                                 var this_parrent = $( this ).parent( '#wpcd_coupon_pagination_wr' );
                                 var action = this_parrent.attr( 'wpcd-data-action' );
-                                wpcd_ajaxCouponCategoriesPagination( wpcd_page_num, action, wpcd_category, search_text );
+                                wpcd_ajaxCouponCategoriesPagination( wpcd_page_num, action, wpcd_js_data_tax, wpcd_coupon_taxonomy, search_text );
                             });
                             wpcd_countDownFun($);
                             $( '.masterTooltip' ).hover( function () {
@@ -142,7 +156,7 @@ jQuery(document).ready(function ($) {
                                     .css( { top: mousey, left: mousex } )
                             });
                             $.each( $( '#wpcd_cat_ul  li' ), function () {
-                                if ( $( this ).children( 'a' ).attr( 'data-category' ) == wpcd_category ) {
+                                if ( $( this ).children( 'a' ).attr( wpcd_js_data_tax ) == wpcd_coupon_taxonomy ) {
                                     $( this ).children( 'a' ).addClass( 'active' );
                                 } else {
                                     $( this ).children( 'a' ).removeClass( 'active' );
@@ -161,8 +175,9 @@ jQuery(document).ready(function ($) {
 
     $('#wpcd_cat_ul .wpcd_category').on('click', function (e) {
         e.preventDefault();
-        var wpcd_category = $(this).attr('data-category');
-        wpcd_ajaxCouponCategoriesPagination('', 'wpcd_coupons_category_action', wpcd_category);
+        var wpcd_coupon_taxonomy = $(this).attr( wpcd_js_data_tax );
+        
+        wpcd_ajaxCouponCategoriesPagination('', 'wpcd_coupons_category_action', wpcd_js_data_tax, wpcd_coupon_taxonomy);
     });
 
     $('#wpcd_coupon_pagination_wr a.page-numbers').on('click', function (e) {
@@ -170,11 +185,14 @@ jQuery(document).ready(function ($) {
         var href = $(this).attr('href');
         var href_arr = wpcd_getUrlVar(href);
         var wpcd_page_num = href_arr['wpcd_page_num'];
-        var wpcd_category = href_arr['wpcd_category'];
+        var wpcd_coupon_taxonomy = href_arr['wpcd_category'];
+        if ( ! wpcd_coupon_taxonomy ) {
+            wpcd_coupon_taxonomy = href_arr['wpcd_vendor'];
+        }
         var search_text = href_arr['search_text'];
         var this_parrent = $(this).parent('#wpcd_coupon_pagination_wr');
         var action = this_parrent.attr('wpcd-data-action');
-        wpcd_ajaxCouponCategoriesPagination(wpcd_page_num, action, wpcd_category, search_text);
+        wpcd_ajaxCouponCategoriesPagination(wpcd_page_num, action, wpcd_js_data_tax, wpcd_coupon_taxonomy, search_text);
     });
 
     let delayTimer;
@@ -192,7 +210,7 @@ jQuery(document).ready(function ($) {
             //         $(this).hide();
             //     }
             // })
-            wpcd_ajaxCouponCategoriesPagination('1', 'wpcd_coupons_category_action', 'all', search_string);
+            wpcd_ajaxCouponCategoriesPagination('1', 'wpcd_coupons_category_action', wpcd_js_data_tax, 'all', search_string);
         }, 800);
     })
 
@@ -447,8 +465,8 @@ jQuery(document).ready(function ($) {
         wpcd_updateCouponClass('.wpcd-coupon-four', 'wpcd-template-four-mobile', 'wpcd-mobile-mini', 600, 380);
         wpcd_updateCouponClass('.wpcd-template-five', 'wpcd-template-five-mobile', 'wpcd-mobile-mini', 600, 380);
         wpcd_updateCouponClass('.wpcd-coupon-six', 'wpcd-template-six-mobile', 'wpcd-mobile-mini', 600, 380);
-        wpcd_updateCouponClass('.wpcd_seven_couponBox', 'wpcd-template-seven-mobile', 'wpcd-mobile-mini', 700, 380);
-        wpcd_updateCouponClass('.wpcd-new-grid-container', 'wpcd-template-eight-mobile', 'wpcd-mobile-mini', 600, 380);
+        wpcd_updateCouponClass('.wpcd_seven_couponBox', 'wpcd-template-seven-mobile', 'wpcd-mobile-mini', 600, 380);
+        wpcd_updateCouponClass('.wpcd-new-grid-container', 'wpcd-template-eight-mobile', 'wpcd-mobile-mini', 560, 380);
     }
 
     function wpcd_updateCouponClass(class_box, class1, class2, width1, width2) {
@@ -480,18 +498,18 @@ function wpcd_copyToClipboard(element) {
     $temp.remove();
 }
 
-function wpcd_openCouponAffLink(objectThis, CoupenId, numCoupon) {
+function wpcd_openCouponAffLink(objectThis, CoupenId, wpcd_dataTaxonomy, numCoupon) {
     var a = jQuery(objectThis);
     var oldLink = a.attr('href');
     
-    var wpcdCategory;
+    var wpcd_couponTaxonomy;
     var wpcdPageNum;
     
     var oldLinkArrPrepare = oldLink.replace("?", "");
     var oldLinkArr = oldLinkArrPrepare.split('&');
     for (var i = 0; i < oldLinkArr.length; i++) {
-        if(oldLinkArr[i].indexOf('wpcd_category=') > -1) {
-            wpcdCategory = oldLinkArr[i].split('=')[1];
+        if(oldLinkArr[i].indexOf(wpcd_dataTaxonomy + '=') > -1) {
+            wpcd_couponTaxonomy = oldLinkArr[i].split('=')[1];
         }
         if(oldLinkArr[i].indexOf('wpcd_page_num=') > -1) {
             wpcdPageNum = oldLinkArr[i].split('=')[1];
@@ -514,16 +532,16 @@ function wpcd_openCouponAffLink(objectThis, CoupenId, numCoupon) {
             oldLink = oldLink + "&wpcd_num_coupon=" + numCoupon;
         } 
         
-        if (window.location.href.indexOf('wpcd_category') > -1) {
-            var wpcd_category = jQuery.wpcd_urlParam('wpcd_category');
-            if(wpcdCategory) {
-                oldLink = oldLink.replace("wpcd_category=" + wpcd_category, "wpcd_category=" + wpcdCategory);
+        if (window.location.href.indexOf(wpcd_dataTaxonomy) > -1) {
+            var wpcd_coupon_taxonomy = jQuery.wpcd_urlParam(wpcd_dataTaxonomy);
+            if( wpcd_couponTaxonomy ) {
+                oldLink = oldLink.replace(wpcd_dataTaxonomy + "=" + wpcd_coupon_taxonomy, wpcd_dataTaxonomy + "=" + wpcd_couponTaxonomy);
             } else {
-                oldLink = oldLink.replace("&wpcd_category=" + wpcd_category, "");
+                oldLink = oldLink.replace("&" + wpcd_dataTaxonomy + "=" + wpcd_coupon_taxonomy, "");
             }
             
-        } else if (wpcdCategory) {
-            oldLink = oldLink + "&wpcd_category=" + wpcdCategory;
+        } else if ( wpcd_couponTaxonomy ) {
+            oldLink = oldLink + "&" + wpcd_dataTaxonomy + "=" + wpcd_couponTaxonomy;
         } 
         
         if (window.location.href.indexOf('wpcd_page_num') > -1) {

@@ -824,7 +824,6 @@ a.wpcd-btn .wpcd_deal_icon {
     padding: 9px;
     margin: 0;
     box-shadow: 0px 1px 2px rgba(34, 34, 34, .2);
-    word-break: break-all;
 }
 
 .wpcd-coupon-two-info {
@@ -1220,8 +1219,7 @@ p.wpcd-coupon-four-expired {
     margin-top: 0px;
     border: 2px dashed #3a3a3a;
     padding: 7px;
-    word-spacing: 9999px;
-    word-break: break-all;
+    word-break: normal;
 }
 
 .wpcd-template-five-texts {
@@ -1243,6 +1241,7 @@ p.wpcd-coupon-four-expired {
     font-weight: 400;
     font-size: 16px;
     padding-top: 5px;
+    margin-top: 0px;
 }
 
 .wpcd-template-five-pro-img {
@@ -2601,6 +2600,9 @@ a.admin-wpcd-new-goto-button {
     padding: 5px;
     margin-top: 5px;
     box-shadow: 0px 1px 2px rgba(34, 34, 34, .2);
+    word-spacing: unset;
+    overflow-wrap: break-word;
+    word-break: normal;
 }
 
 .admin-wpcd-new-coupon-type {
@@ -2866,6 +2868,7 @@ a.admin-wpcd-new-goto-button {
     transition: .5s;
     transform-origin: right;
     transform: translateX(-100%) rotateY(90deg);
+    word-break: normal;
 }
 
 .admin_wpcd_seven_btn a:after {
@@ -2883,6 +2886,7 @@ a.admin-wpcd-new-goto-button {
     transition: .5s;
     transform-origin: left;
     transform: translateX(0) rotateY(0deg);
+    word-break: normal;
 }
 
 .admin_wpcd_seven_btn a:hover:before {
@@ -3314,6 +3318,8 @@ a.admin-wpcd-new-goto-button {
         padding-top: 8px;
         padding-bottom: 8px;
         line-height: 42px;
+        overflow-wrap: break-word;
+        word-break: normal;
     }
     .admin_wpcd_seven_percentOff:after {
         top: 100%;
@@ -3367,49 +3373,7 @@ a.admin-wpcd-new-goto-button {
     }
 }
 
-@media screen and (max-width: 740px) {
-    .admin_wpcd_seven_shortcode .admin_wpcd_seven_percentAndPic {
-        float: none;
-        width: 65%;
-        height: auto;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .admin_wpcd_seven_shortcode .admin_wpcd_seven_headingAndExpire {
-        width: 100%;
-        float: none;
-    }
-    .admin_wpcd_seven_shortcode .admin_wpcd_seven_heading {
-        padding-bottom: 0px;
-    }
-    .admin_wpcd_seven_shortcode .admin_wpcd_seven_new_title {
-        text-align: center;
-    }
-    .admin_wpcd_seven_shortcode .wpcd-coupon-description {
-        text-align: justify;
-    }
-    .admin_wpcd_seven_shortcode .admin_wpcd_seven_buttonSociaLikeDislike {
-        float: none;
-        width: 70%;
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 0;
-        padding-right: 0;
-        padding-bottom: 15px;
-    }
-    .admin_wpcd_seven_shortcode .admin_wpcd_seven_btn {
-        margin-top: 0px;
-        margin-bottom: 20px;
-        margin-right: 0px;
-        margin-left: 0px;
-    }
-    .admin_wpcd_seven_shortcode .admin_wpcd_seven_expire_correct_box {
-        width: 100%;
-        float: none;
-        margin-left: 0px;
-        text-align: center;
-    }
-}
+@media screen and (max-width: 740px) {}
 
 @media only screen and (max-width: 600px) {
     .wpcd-coupon-discount-text,
@@ -3467,6 +3431,47 @@ a.admin-wpcd-new-goto-button {
     .wpcd-coupon-six-img-and-btn .wpcd-coupon-button-type .coupon-code-wpcd {
         margin: auto;
     }
+    .admin_wpcd_seven_shortcode .admin_wpcd_seven_percentAndPic {
+        float: none;
+        width: 65%;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .admin_wpcd_seven_shortcode .admin_wpcd_seven_headingAndExpire {
+        width: 100%;
+        float: none;
+    }
+    .admin_wpcd_seven_shortcode .admin_wpcd_seven_heading {
+        padding-bottom: 0px;
+    }
+    .admin_wpcd_seven_shortcode .admin_wpcd_seven_new_title {
+        text-align: center;
+    }
+    .admin_wpcd_seven_shortcode .wpcd-coupon-description {
+        text-align: justify;
+    }
+    .admin_wpcd_seven_shortcode .admin_wpcd_seven_buttonSociaLikeDislike {
+        float: none;
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 15px;
+    }
+    .admin_wpcd_seven_shortcode .admin_wpcd_seven_btn {
+        margin-top: 0px;
+        margin-bottom: 20px;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    .admin_wpcd_seven_shortcode .admin_wpcd_seven_expire_correct_box {
+        width: 100%;
+        float: none;
+        margin-left: 0px;
+        text-align: center;
+    }
 }
 
 @media (max-width: 600px) {
@@ -3486,16 +3491,12 @@ a.admin-wpcd-new-goto-button {
         padding: 10px;
     }
     .wpcd-template-five-pro-img img {
-        max-height: 150px;
         width: auto;
         display: block;
         margin: auto;
     }
     .wpcd-template-five-percent-off {
         padding: 0px !important;
-    }
-    .wpcd-template-five-percent-off p {
-        font-size: 20px;
     }
     .wpcd-template-five-btn p {
         font-size: 15px;
@@ -3540,12 +3541,6 @@ a.admin-wpcd-new-goto-button {
     .wpcd-template-five-texts {
         width: 100%;
     }
-    .wpcd-template-five-pro-img {
-        width: auto;
-        max-width: 200px;
-        margin: 0 auto;
-        float: none;
-    }
     .wpcd-template-five-btn {
         width: 100%;
         margin-left: 0px;
@@ -3558,7 +3553,8 @@ a.admin-wpcd-new-goto-button {
     }
     .wpcd-template-five-percent-off,
     .wpcd-template-five-pro-img {
-        display: none;
+        width: 100%;
+        float: none;
     }
 }
 
@@ -3678,12 +3674,6 @@ a.admin-wpcd-new-goto-button {
     .wpcd-template-five-texts {
         width: 100%;
     }
-    .wpcd-template-five-pro-img {
-        width: auto;
-        max-width: 200px;
-        margin: 0 auto;
-        float: none;
-    }
     .admin-wpcd-new-grid-container {
         /* grid-template-columns: 0.5fr 3fr; */
         /*grid-template-columns: 1fr 3fr;
@@ -3781,6 +3771,9 @@ a.admin-wpcd-new-goto-button {
         margin-right: auto;
         margin-top: 22px;
     }
+    .wpcd-template-five-percent-off p {
+        font-size: 24px;
+    }
 }
 
 @media only screen and (min-width: 48em) {
@@ -3825,9 +3818,3 @@ a.admin-wpcd-new-goto-button {
 }
 
 @media only screen and (min-width: 32.5em) {}
-
-@media screen and (max-width: 568px) and (min-width: 320px) {
-    .wpcd-coupon-two-discount-text {
-        display: none;
-    }
-}

@@ -104,7 +104,7 @@ if ( $wpcd_text_to_show == 'description' ) {
  * header and in the bottom footer
  */
 global $parent;
-include('header-default.php');
+include('header-default__premium_only.php');
 ?>
 <?php if ( $coupon_type === 'Image' ): ?>
 <?php 
@@ -271,4 +271,4 @@ include('header-default.php');
     </div>
     <!--- Template Eight End -->
 <?php endif; ?>
-<?php include('footer-default.php'); ?>
+<?php include('footer-default__premium_only.php'); ?>

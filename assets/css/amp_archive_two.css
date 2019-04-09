@@ -248,9 +248,3 @@
         border-left: 0;
     }
 }
-
-@media screen and (max-width: 568px) and (min-width: 320px) {
-    .wpcd-coupon-two-discount-text {
-        display: none;
-    }
-}

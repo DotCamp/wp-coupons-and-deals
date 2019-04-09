@@ -125,7 +125,7 @@ $template = new WPCD_Template_Loader();
                             ?>
                         <?php else: ?>
                             <div class="wpcd_seven_btn">
-                                <a class="masterTooltip" 
+                                <a class="masterTooltip <?php echo $button_class; ?>" 
                                     target="_blank"
                                     href="<?php echo $link; ?>"
                                     title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
@@ -209,6 +209,9 @@ $template = new WPCD_Template_Loader();
 					</div><!-- End of class wpcd_seven_expire -->
 				</div>
 			<div class="wpcd_seven_couponBox_both"></div>
+            <script type="text/javascript">
+                var clip = new Clipboard('.<?php echo $button_class; ?>');
+            </script>
 			<div class="clearfix"></div>
 		    <?php
 		    if( !WPCD_Amp::wpcd_amp_is() ):

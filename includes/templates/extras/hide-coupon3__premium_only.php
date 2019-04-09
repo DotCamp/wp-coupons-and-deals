@@ -45,6 +45,15 @@ $wpcd_template_eight_theme  = get_post_meta( $coupon_id, 'coupon_details_templat
 
 $coupon_code               = ( ! empty( $coupon_code ) ? $coupon_code : __( 'COUPONCODE', 'wpcd-coupon' ) );
 
+$archive_category_setting = get_option( 'wpcd_archive-munu-categories' );
+if( $archive_category_setting == 'vendor' ) {
+    $wpcd_coupon_taxonomy = WPCD_Plugin::VENDOR_TAXONOMY;
+    $wpcd_term_field_name = 'wpcd_vendor';
+} else {
+    $wpcd_coupon_taxonomy = WPCD_Plugin::CUSTOM_TAXONOMY;
+    $wpcd_term_field_name = 'wpcd_category';
+}
+
 if ( $wpcd_text_to_show == 'description' ) {
 	$wpcd_custom_text = $description;
 } else {
@@ -62,12 +71,13 @@ if ( isset( $_POST['wpcd_page_num'] ) && ! empty( $_POST['wpcd_page_num'] ) && a
 } else {
     $wpcd_page_num = '';
 }
-if ( isset( $_POST['wpcd_category'] ) && ! empty( $_POST['wpcd_category'] ) && sanitize_text_field( $_POST['wpcd_category'] ) === $_POST['wpcd_category'] ) {
-    $wpcd_category = '&wpcd_category=' . sanitize_text_field( $_POST['wpcd_category'] );
-} elseif ( isset( $_GET['wpcd_category'] ) && ! empty( $_GET['wpcd_category'] ) && sanitize_text_field( $_GET['wpcd_category'] ) === $_GET['wpcd_category'] ) {
-    $wpcd_category = '&wpcd_category=' . sanitize_text_field( $_GET['wpcd_category'] );
+
+if ( isset( $_POST[$wpcd_term_field_name] ) && ! empty( $_POST[$wpcd_term_field_name] ) && sanitize_text_field( $_POST[$wpcd_term_field_name] ) === $_POST[$wpcd_term_field_name] ) {
+    $wpcd_data_taxonomy = '&' . $wpcd_term_field_name . '=' . sanitize_text_field( $_POST[$wpcd_term_field_name] );
+} elseif ( isset( $_GET[$wpcd_term_field_name] ) && ! empty( $_GET[$wpcd_term_field_name] ) && sanitize_text_field( $_GET[$wpcd_term_field_name] ) === $_GET[$wpcd_term_field_name] ) {
+    $wpcd_data_taxonomy = '&' . $wpcd_term_field_name . '=' . sanitize_text_field( $_GET[$wpcd_term_field_name] );
 } else {
-    $wpcd_category = '';
+    $wpcd_data_taxonomy = '';
 }
 
 ?>
@@ -76,7 +86,7 @@ if ( isset( $_POST['wpcd_category'] ) && ! empty( $_POST['wpcd_category'] ) && s
 
     <div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden <?php echo $button_class; ?>">
       <a data-type="code" data-coupon-id="<?php echo $new_coupon_id; ?>"
-           href="<?php echo $wpcd_show_coupon_popup ? 'javascript:void(0)' : '?wpcd_coupon=' . $new_coupon_id . $wpcd_category . $wpcd_page_num; ?>"
+           href="<?php echo $wpcd_show_coupon_popup ? 'javascript:void(0)' : '?wpcd_coupon=' . $new_coupon_id . $wpcd_data_taxonomy . $wpcd_page_num; ?>"
            target="_blank"
            class="coupon-button coupon-code-wpcd <?php echo $wpcd_show_coupon_popup ? '' : 'masterTooltip'; ?> <?php echo $button_class; ?>"
            id="coupon-button-<?php echo $new_coupon_id; ?>"
@@ -89,7 +99,7 @@ if ( isset( $_POST['wpcd_category'] ) && ! empty( $_POST['wpcd_category'] ) && s
            data-position="top center"
            data-inverted=""
            data-aff-url="<?php echo $link; ?>"
-           onClick="return wpcd_openCouponAffLink(this, '<?php echo $new_coupon_id; ?>')"
+           onClick="return wpcd_openCouponAffLink( this, '<?php echo $new_coupon_id; ?>', '<?php echo $wpcd_term_field_name;?>' )"
            data-clipboard-text="<?php if ( ! empty( $coupon_code ) ) {
          echo $coupon_code;
        } else {

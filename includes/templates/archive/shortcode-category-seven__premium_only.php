@@ -79,7 +79,7 @@ $deal_text = ( ! empty( $deal_text ) ? $deal_text : __( 'Claim This Deal', 'wpcd
 $coupon_hover_text = ( ! empty( $coupon_hover_text ) ) ? $coupon_hover_text : __( 'Click To Copy Coupon', 'wpcd-coupon' );
 $deal_hover_text = ( !empty( $deal_hover_text ) ) ? $deal_hover_text : __( 'Click Here To Get This Deal' );
 
-include('header-category.php');
+include('header-category__premium_only.php');
 ?>
 <?php if ( $coupon_type === 'Image' ): ?>
 <?php 
@@ -139,13 +139,14 @@ include('header-category.php');
                                     ?>
                                 <?php else: ?>
                                     <div class="wpcd_seven_btn">
-                                        <a class="masterTooltip" 
+                                        <a class="masterTooltip <?php echo $button_class; ?>" 
                                             href="<?php echo $link; ?>"
                                             target="_blank"
                                             title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
                                                              echo $coupon_hover_text;
                                                          }
                                                      ?>"
+                                            data-clipboard-text="<?php echo $coupon_code; ?>"
                                             data-title-ab="<?php echo $coupon_code; ?>"><?php echo $coupon_code; ?>
                                         </a>
                                     </div>
@@ -216,6 +217,9 @@ include('header-category.php');
                         </div>
                     </div>
                     <div class="wpcd_seven_couponBox_both"></div>
+                    <script type="text/javascript">
+                        var clip = new Clipboard('.<?php echo $button_class; ?>');
+                    </script>
                     <div class="clearfix"></div>
                     <?php
                     if( !WPCD_Amp::wpcd_amp_is() ):
@@ -230,4 +234,4 @@ include('header-category.php');
         </section>
 	 <!--  Template Seven End -->
     <?php endif; ?>
-<?php include('footer-category.php'); ?>
+<?php include('footer-category__premium_only.php'); ?>

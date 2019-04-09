@@ -98,7 +98,7 @@ if( !function_exists( 'wpcd_generatePagination' ) ) {
  * @return string
  */
 if( ! function_exists( 'wpcd_preparationMenuLinks' ) ) {
-    function wpcd_preparationMenuLinks() {
+    function wpcd_preparationMenuLinks( $wpcd_term_field_name ) {
         $pageNum = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
         $current_url = get_pagenum_link( $pageNum );
         $pos = strpos( $current_url, '?' );
@@ -106,15 +106,15 @@ if( ! function_exists( 'wpcd_preparationMenuLinks' ) ) {
         if( $pos !== false ) {
             $current_url_exp = explode( '?', $current_url );
             $current_url_exp[1] = html_entity_decode( $current_url_exp[1] );
-            if( strpos( $current_url_exp[1], 'wpcd_category' ) !== false || strpos( $current_url_exp[1], 'wpcd_page_num' ) !== false) {
+            if( strpos( $current_url_exp[1], $wpcd_term_field_name ) !== false || strpos( $current_url_exp[1], 'wpcd_page_num' ) !== false) {
                 $parametrs_arr = explode('&', $current_url_exp[1]);
                 if( is_array( $parametrs_arr ) && count( $parametrs_arr ) > 0 ) {
                     $parametrs_arr_new = array();
                     foreach ( $parametrs_arr as $single_par ) {
-                        if( strpos( $single_par, 'wpcd_category' ) !== false) {
+                        if( strpos( $single_par, $wpcd_term_field_name ) !== false) {
                             continue;
                         } 
-                        if ( strpos( $single_par, 'wpcd_page_num' ) !== false ) {
+                        if ( strpos( $single_par, $wpcd_term_field_name ) !== false ) {
                             continue;
                         }
                         $parametrs_arr_new[] = $single_par;

@@ -77,7 +77,7 @@ if ( $wpcd_text_to_show == 'description' ) {
 		$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wpcd-coupon' );
 	}
 }
-include('header-category.php');
+include('header-category__premium_only.php');
 ?>
 <?php if ( $coupon_type === 'Image' ): ?>
 <?php 
@@ -284,4 +284,4 @@ include('header-category.php');
 </div>
 	 <!--  Template one End -->
     <?php endif; ?>
-<?php include('footer-category.php'); ?>
+<?php include('footer-category__premium_only.php'); ?>

@@ -105,7 +105,7 @@ $deal_hover_text = ( !empty( $deal_hover_text ) ) ? $deal_hover_text : __( 'Clic
  * header and in the bottom footer
  */
 global $parent;
-include('header-default.php');
+include('header-default__premium_only.php');
 ?>
 <?php if ( $coupon_type === 'Image' ): ?>
 <?php 
@@ -661,4 +661,4 @@ include('header-default.php');
         ?>
     </div>
 <?php endif; ?>
-<?php include('footer-default.php'); ?>
+<?php include('footer-default__premium_only.php'); ?>

@@ -89,7 +89,7 @@ if ( is_array( $wpcd_coupon_image_src ) ) {
     $wpcd_coupon_image_src = '';
 }
 
-include( 'header-category.php' );
+include( 'header-category__premium_only.php' );
 ?>
 <?php if ( $coupon_type === 'Image' ): ?>
 <?php 
@@ -220,4 +220,4 @@ include( 'header-category.php' );
     </div>
     <!--- Template Eight End -->
 <?php endif; ?>
-<?php include('footer-category.php'); ?>
+<?php include('footer-category__premium_only.php'); ?>

@@ -104,7 +104,7 @@ $deal_hover_text = ( !empty( $deal_hover_text ) ) ? $deal_hover_text : __( 'Clic
  * header and in the bottom footer
  */
 global $parent;
-include('header-default.php');
+include('header-default__premium_only.php');
 ?>
 <?php if ($coupon_type === 'Image'): ?>
 <?php 
@@ -164,13 +164,14 @@ include('header-default.php');
                                 ?>
                             <?php else: ?>
                                 <div class="wpcd_seven_btn">
-                                    <a class="masterTooltip" 
+                                    <a class="masterTooltip <?php echo $button_class; ?>" 
                                         href="<?php echo $link; ?>"
                                         target="_blank"
                                         title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
                                                          echo $coupon_hover_text;
                                                      }
                                                  ?>"
+                                        data-clipboard-text="<?php echo $coupon_code; ?>"
                                         data-title-ab="<?php echo $coupon_code; ?>"><?php echo $coupon_code; ?>
                                     </a>
                                 </div>
@@ -241,6 +242,9 @@ include('header-default.php');
                     </div>
                 </div>
                 <div class="wpcd_seven_couponBox_both"></div>
+                <script type="text/javascript">
+                    var clip = new Clipboard('.<?php echo $button_class; ?>');
+                </script>
                 <div class="clearfix"></div>
                 <?php
                 if( !WPCD_Amp::wpcd_amp_is() ):
@@ -255,4 +259,4 @@ include('header-default.php');
     </section>
      <!--  Template Seven End -->
  <?php endif; ?>
- <?php include('footer-default.php'); ?>
+ <?php include('footer-default__premium_only.php'); ?>

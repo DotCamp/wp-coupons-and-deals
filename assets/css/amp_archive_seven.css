@@ -61,6 +61,8 @@
     margin-bottom: 24px;
     line-height: 40px;
     padding: 14px;
+    overflow-wrap: break-word;
+    word-break: normal;
 }
 
 .wpcd_seven_percentOff:after {
@@ -202,6 +204,7 @@
     transition: .5s;
     transform-origin: right;
     transform: translateX(-100%) rotateY(90deg);
+    word-break: normal;
 }
 
 .wpcd_seven_btn a:after {
@@ -219,6 +222,7 @@
     transition: .5s;
     transform-origin: left;
     transform: translateX(0) rotateY(0deg);
+    word-break: normal;
 }
 
 .wpcd_seven_btn a:hover:before {
@@ -315,7 +319,7 @@
 @media screen and (max-width: 767px) {
 }
 
-@media screen and (min-width: 740px) {
+@media screen and (min-width: 600px) {
     .wpcd_seven_headingAndExpire {
         width: 50%;
     }
@@ -334,7 +338,7 @@
     }
 }
 
-@media screen and (max-width: 739px) {
+@media screen and (max-width: 599px) {
     
     .wpcd_seven_expire p {
         font-size: 14px;
@@ -388,9 +392,6 @@
         width: 100%;
         float: none;
         margin-left: 0px;
-    }
-    .wpcd_seven_btn {
-        margin-right: 0px;
     }
 }
 @media screen and (max-width: 480px) {

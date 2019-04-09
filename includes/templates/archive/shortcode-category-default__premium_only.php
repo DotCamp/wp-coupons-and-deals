@@ -80,7 +80,7 @@ $deal_text = ( ! empty( $deal_text ) ? $deal_text : __( 'Claim This Deal', 'wpcd
 $coupon_hover_text = ( ! empty( $coupon_hover_text ) ) ? $coupon_hover_text : __( 'Click To Copy Coupon', 'wpcd-coupon' );
 $deal_hover_text = ( !empty( $deal_hover_text ) ) ? $deal_hover_text : __( 'Click Here To Get This Deal' );
 
-include('header-category.php');
+include('header-category__premium_only.php');
 ?>
 <?php if ( $coupon_type === 'Image' ): ?>
 <?php 
@@ -641,4 +641,4 @@ include('header-category.php');
             ?>
         </div>
 	<?php endif; ?>
-<?php include('footer-category.php'); ?>
+<?php include('footer-category__premium_only.php'); ?>
