@@ -75,6 +75,8 @@
     padding: 10px 0;
     font-size: 20px;
     margin-bottom: 10px;
+    overflow-wrap: break-word;
+    word-break: normal;
 }
 
 .wpcd-coupon-four-content .wpcd-coupon-description p {

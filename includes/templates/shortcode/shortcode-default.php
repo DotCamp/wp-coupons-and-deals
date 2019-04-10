@@ -73,7 +73,7 @@ $template = new WPCD_Template_Loader();
 <div class="wpcd-coupon wpcd-coupon-default wpcd-coupon-id-<?php echo $coupon_id; ?>">
     <div class="wpcd-col-1-8">
         <div class="wpcd-coupon-discount-text">
-			<?php echo str_replace( " ", "<br>", $discount_text ); ?>
+			<?php echo $discount_text; ?>
         </div>
 		<?php if ( $coupon_type == 'Coupon' ) { ?>
             <div class="coupon-type">

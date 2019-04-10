@@ -58,8 +58,8 @@
     position: absolute;
     position: relative;
     z-index: 2;
-    word-break: break-all;
-    word-spacing: 9999px;
+    overflow-wrap: break-word;
+    word-break: normal;
     font-weight: 400;
 }
 .wpcd-coupon-six .wpcd-ribbon .wpcd-ribbon-after {
