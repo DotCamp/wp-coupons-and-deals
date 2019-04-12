@@ -225,6 +225,7 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 			add_filter( 'wp_enqueue_scripts', array( __CLASS__, 'load_jquery' ), 1 );
 			add_action( 'wp_enqueue_scripts', array( __CLASS__, 'load_jquery' ) );
 			add_filter( 'wp_head', array( __CLASS__, 'load_jquery' ) );
+			add_action( 'wp_dashboard_setup', array( __CLASS__, 'wpcd_dashboard_add_widgets' ) );
 
 			if ( wcad_fs()->is_not_paying() && !( wcad_fs()->is_trial() ) ) {
 				add_action( 'admin_menu', array( __CLASS__, 'free_pro_trial'), 99 );
@@ -639,7 +640,21 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 			
 			include WPCD_Plugin::instance()->plugin_includes . '/functions/wpcd-addition-functions.php';
 		
-		}	
+		}
+
+		/**
+		 * Setting up dashboard widget.
+		 */
+		function wpcd_dashboard_add_widgets() {
+			wp_add_dashboard_widget( 'wpcd_dashboard_widget_news', __( 'Coupons Overview', 'wpcd-coupon' ), array ( __CLASS__, 'wpcd_dashboard_widget_news_handler' ) );
+		}
+
+		/**
+		 * Dashboard Widget.
+		 */
+		function wpcd_dashboard_widget_news_handler() {
+			include WPCD_Plugin::instance()->plugin_includes . '/templates/extras/dashboard-widget.php';
+		}
 
 	}
 
