@@ -144,7 +144,7 @@
     font-size: 15px;
 }
 
-#wpcd_import_color_parent > label::after {
+#wpcd_import_color_parent>label::after {
     content: " ";
     display: block;
     height: 5px;
@@ -382,14 +382,15 @@ table.wpcd_import_preview th {
     z-index: 100;
 }
 
-.wpcd_colorSelectors > div {
+.wpcd_colorSelectors>div {
     float: left;
 }
 
-.wpcd_colorSelectors .wp-picker-clear, 
+.wpcd_colorSelectors .wp-picker-clear,
 .wpcd_colorSelectors .wp-picker-default {
     margin-right: 6px;
 }
+
 
 /** end color pickers **/
 
@@ -3091,14 +3092,6 @@ a.admin-wpcd-new-goto-button {
 #wpcd_import_form_final .wpcd_import_field_submit span {
     padding: 1rem;
     line-height: 2.3;
-}
-
-#wpcd_import_form_final .wpcd-import-btn {
-    border-radius: 5rem;
-    background: url('../../img/wpcd-import-btn-icon16.png') no-repeat #006799 center;
-    width: 40px;
-    height: 40px;
-    border: 3px solid green;
 }
 
 .wpcd_import_field_submit span strong {

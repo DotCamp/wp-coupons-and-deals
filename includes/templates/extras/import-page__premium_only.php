@@ -41,8 +41,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<input type="hidden" name="wpcd_default_template" value="' . $_POST['wpcd_default_template'] . '">
 							<input type="hidden" name="theme_color" value="'.$_POST['theme_color'].'">
 							<?php wp_nonce_field( 'wpcd_nonce' ); ?>
-							<input name="wpcd_import_submit_final" value="" class="button button-primary button-large wpcd-import-btn" type="submit">
-							<span><strong>5</strong> <?php echo __( 'Coupons will be added!', 'wpcd-coupon' ); ?></span>
+							<input name="wpcd_import_submit_final" value="Import Coupons" class="button button-primary button-large wpcd-import-btn" type="submit">
+							<span><strong>0</strong> <?php echo __( 'Coupons will be added!', 'wpcd-coupon' ); ?></span>
+							<p style="display:none; color: red; font-size: 16px; margin-top: 20px;" id="wpcd_import_field_error"><?php echo __( 'Error: You must select a field for Coupon Title.', 'wpcd-coupon' ); ?></p>
 						</div>
 						</div><!-- end of import notes -->
 					</div><!-- end of clearfix -->

@@ -314,8 +314,9 @@ jQuery(document).ready(function ($) {
                                 if (status == 'yes') {
                                     jQuery(".wpcd_import_form_final_loader").fadeIn();
                                     wpcd_ajax_import( 'wpcd_process_import', JSON.stringify(wpcp_coupons_data) );
+                                    jQuery("#wpcd_import_field_error").hide();
                                 } else {
-                                    alert('Please Specify a field for Coupon Title');
+                                    jQuery("#wpcd_import_field_error").show();
                                 }
                                 // End of Import Loader
                             }
