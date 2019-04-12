@@ -137,10 +137,17 @@
 
 .wpcd_import_field>div {
     padding: 10px 0;
+    clear: both;
 }
 
 .wpcd_import_field>div label {
     font-size: 15px;
+}
+
+#wpcd_import_color_parent > label::after {
+    content: " ";
+    display: block;
+    height: 5px;
 }
 
 .wpcd_import_field input[name="wpcd_import_file"] {
@@ -366,23 +373,23 @@ table.wpcd_import_preview th {
 
 .wpcd_colorSelectors {
     position: relative;
-    display: inline-block;
-    margin-bottom: -15px;
-    margin-right: 5px;
-    width: 36px;
-    height: 36px;
-    background: url(../img/colorpicker_img/select.png);
+    min-height: 30px;
+    float: left;
 }
 
-.wpcd_colorSelectors div {
+.wpcd_colorSelectors .wp-picker-holder {
     position: absolute;
-    top: 3px;
-    left: 3px;
-    width: 30px;
-    height: 30px;
-    background: url(../img/colorpicker_img/select.png) center;
+    z-index: 100;
 }
 
+.wpcd_colorSelectors > div {
+    float: left;
+}
+
+.wpcd_colorSelectors .wp-picker-clear, 
+.wpcd_colorSelectors .wp-picker-default {
+    margin-right: 6px;
+}
 
 /** end color pickers **/
 
@@ -1626,7 +1633,7 @@ p.wpcd-coupon-four-expired {
     text-align: center;
     z-index: 1;
     font-size: 14px;
-    background-color: #9b59b6;
+    background-color: #18E06E;
 }
 
 .wpcd-coupon-six-img-and-btn .wpcd-coupon-button-type .coupon-code-wpcd .get-code-wpcd::before {
@@ -1652,7 +1659,7 @@ p.wpcd-coupon-four-expired {
     width: 0px;
     height: 0px;
     border-top: 45px solid transparent;
-    border-left: 35px solid #9b59b6;
+    border-left: 35px solid #18E06E;
     position: absolute;
     top: 0px;
     right: 0px;
@@ -2248,7 +2255,7 @@ h3.wpcd_coupon_li_title {
     text-align: center;
     z-index: 1;
     font-size: 14px;
-    background-color: #9b59b6;
+    background-color: #329d40;
 }
 
 .wpcd-coupon-eight .wpcd-coupon-button-type .coupon-code-wpcd .get-code-wpcd span {
@@ -2266,8 +2273,8 @@ h3.wpcd_coupon_li_title {
     width: 0px;
     height: 0px;
     border-top: 45px solid transparent;
-    border-left: 35px solid #9b59b6;
-    border-left-color: rgb(155, 89, 182);
+    border-left: 35px solid #329d40;
+    border-left-color: #329d40;
     position: absolute;
     top: 0px;
     right: 5px;

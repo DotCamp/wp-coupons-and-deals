@@ -33,7 +33,7 @@ $wpcd_coupon_templates = array(
 			</label>
 			<div id="wpcd_import_color" class="wpcd_colorSelectors">
 				<div data-color="#18e06e" style="background-color:#18e06e;"></div>
-				<input id="wpcd_import_color" name="theme_color" type="hidden" value="#18e06e"/>
+				<input id="wpcd_import_color" name="theme_color" type="text" value="#18e06e"/>
 			</div>
 		</div>
 		<div>

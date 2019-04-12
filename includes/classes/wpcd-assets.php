@@ -27,6 +27,7 @@ class WPCD_Assets {
 
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'wpcd_stylesheets' ) );
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'wpcd_scripts' ) );
+		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'wpcd_load_dashicons_front_end' ) );
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'wpcd_admin_scripts' ) );
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'wpcd_admin_stylesheets' ) );
 
@@ -277,7 +278,16 @@ class WPCD_Assets {
 		}
 
 	}
-
+    
+    /*
+     * Dashicons Connection
+     * 
+     * @since 2.7.3
+     */
+    public static function wpcd_load_dashicons_front_end() {
+        wp_enqueue_style( 'dashicons' );
+    }
+    
 	/**
 	 * Stylesheets for admin area.
 	 *
@@ -345,7 +355,7 @@ class WPCD_Assets {
 		wp_add_inline_style( 'wpcd-admin-style', $inline_style  );
 
 	}
-
+    
 	/**
 	 * Scripts for admin area.
 	 *
@@ -372,20 +382,20 @@ class WPCD_Assets {
 				//To add custom javascript code to tinymce editor at initiation 
 				add_filter( 'tiny_mce_before_init', array( __CLASS__, 'wpcd_tiny_mce' ) );
 				// color Picker
-				wp_enqueue_style('wpcd-color-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/' . self::wpcd_version_correct( 'dir' ) . 'colorpicker' . self::wpcd_version_correct( 'suffix' ) . '.css', false);
-				wp_enqueue_script('wpcd-color-script', WPCD_Plugin::instance()->plugin_assets . 'admin/js/colorpicker.js', array('jquery'), WPCD_Plugin::PLUGIN_VERSION, true);
+				wp_enqueue_script( 'wp-color-picker' );
+                wp_enqueue_style( 'wp-color-picker' );
 
 			}
 
 		} elseif ( isset( $_GET['post_type'] ) && isset( $_GET['page'] ) && $_GET['post_type'] == 'wpcd_coupons' && $_GET['page'] == 'wpcd_coupon_import' ) {
-            wp_enqueue_style('wpcd-color-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/' . self::wpcd_version_correct( 'dir' ) . 'colorpicker' . self::wpcd_version_correct( 'suffix' ) . '.css', false);
-            wp_enqueue_script('wpcd-color-script', WPCD_Plugin::instance()->plugin_assets . 'admin/js/colorpicker.js', array('jquery'), WPCD_Plugin::PLUGIN_VERSION, true);
+            wp_enqueue_script( 'wp-color-picker' );
+            wp_enqueue_style( 'wp-color-picker' );
         }
 
 		wp_enqueue_script( 'wpcd-admin-js', WPCD_Plugin::instance()->plugin_assets . 'admin/js/admin.js', array(
 			'jquery',
 			'jquery-ui-datepicker',
-			'wp-color-picker'
+            'wp-color-picker'
 		), WPCD_Plugin::PLUGIN_VERSION, false );
 
 		$ajax_data = array(

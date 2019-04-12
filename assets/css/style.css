@@ -1284,6 +1284,8 @@ p.wpcd-coupon-five-discount-text {
     height: auto;
     margin: 0 auto;
     position: relative;
+    border-color: #18E06E;
+    background-color: #18E06E;
 }
 
 
@@ -1470,7 +1472,7 @@ p.wpcd-coupon-five-discount-text {
     text-align: center;
     z-index: 1;
     font-size: 14px;
-    background-color: #9b59b6;
+    background-color: #18E06E;
 }
 
 .wpcd-coupon-six .wpcd-coupon-button-type .coupon-code-wpcd .get-code-wpcd span {
@@ -1487,8 +1489,7 @@ p.wpcd-coupon-five-discount-text {
     width: 0px;
     height: 0px;
     border-top: 40px solid transparent;
-    border-left: 30px solid #9b59b6;
-        border-left-color: rgb(155, 89, 182);
+    border-left: 30px solid #18E06E;
     position: absolute;
     top: 0px;
     right: 5px;
@@ -2072,7 +2073,7 @@ p.wpcd-coupon-loop-expired {
     text-align: center;
     z-index: 1;
     font-size: 14px;
-    background-color: #9b59b6;
+    background-color: #329d40;
 }
 .wpcd_template_eight_archive_button .coupon-code-wpcd .get-code-wpcd .square_wpcd {
     background-color: #56b151 !important;
@@ -2092,8 +2093,7 @@ p.wpcd-coupon-loop-expired {
     width: 0px;
     height: 0px;
     border-top: 45px solid transparent;
-    border-left: 35px solid #9b59b6;
-        border-left-color: rgb(155, 89, 182);
+    border-left: 35px solid #329d40;
     position: absolute;
     top: 0px;
     right: 5px;

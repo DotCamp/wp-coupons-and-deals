@@ -498,7 +498,7 @@ class WPCD_Meta_Boxes {
 					$value = empty( $db_value ) ? $wpcd_field['default'] : $db_value;
 					$input = '<div id="' . esc_attr( $wpcd_field['id'] ) . '" class="wpcd_colorSelectors">
 	                    <div data-color="' . $value . '" style="background-color:' . $value . ';"></div>
-	                    <input id="' . $wpcd_field['id'] . '" name="' . $wpcd_field['id'] . '" type="hidden" value="' . $value . '"/>
+	                    <input id="' . $wpcd_field['id'] . '" name="' . $wpcd_field['id'] . '" type="text" value="' . $value . '"/>
 	                    </div>';
 					break;
 				default:

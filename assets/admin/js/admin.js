@@ -505,23 +505,6 @@ jQuery(document).ready(function ($) {
 
     // End of Import
 
-
-    $(document).on('change', 'input[name="template-five-theme"]', function () {
-        wpcd_updateTemplateFiveTheme($(this).val());
-    });
-
-    $(document).on('change', 'input[name="template-six-theme"]', function () {
-        wpcd_updateTemplateSixTheme($(this).val());
-    });
-
-    $(document).on('change', 'input[name="template-seven-theme"]', function () {
-        wpcd_updateTemplateSevenTheme($(this).val());
-    });
-
-    $(document).on('change', 'input[name="template-eight-theme"]', function () {
-        wpcd_updateTemplateEightTheme($(this).val());
-    });
-
     //functions 
     function wpcd_couponDealChange() {
         var ctype = $('[name="coupon-type"]').val();
@@ -905,10 +888,7 @@ jQuery(document).ready(function ($) {
         });
     }
 
-});
-
 // For tabs , colorpicker and choosing of type of shortcode
-jQuery(document).ready(function ($) {
 
     /**
      * Function tabs
@@ -962,26 +942,92 @@ jQuery(document).ready(function ($) {
      */
 
     var wpcd_colorSelectors = $('.wpcd_colorSelectors');
-    if ($.isFunction($(wpcd_colorSelectors[0]).ColorPicker))
-        for ($i = 0; $i < wpcd_colorSelectors.length; $i++) {
-            $(wpcd_colorSelectors[$i]).ColorPicker({
-                onShow: function (colpkr) {
-                    $(colpkr).fadeIn(500);
-                    return false;
-                },
-                onHide: function (colpkr) {
-                    $(colpkr).fadeOut(500);
-                    return false;
-                },
-                onChange: function (hsb, hex, rgb) {
-                    $this = $('#' + this.data('targetid'));
-
-                    $this.children('div').css('backgroundColor', '#' + hex);
-                    $this.children('input').val('#' + hex);
-                    $this.children('input').trigger('change');
+    if ($.isFunction($(wpcd_colorSelectors[0]).wpColorPicker)) {
+        for (var i = 0; i < wpcd_colorSelectors.length; i++) {
+            var input = $(wpcd_colorSelectors[i]).find('input');
+            var wpcd_colorPickerOptions;
+            if ( input.length > 0 ) {
+                if ( input[0].name == 'wpcd_coupon-type-bg-color' ) {
+                    wpcd_colorPickerOptions = {
+                        defaultColor: '#56b151'
+                    };
+                }
+                if ( input[0].name == 'wpcd_coupon-type-bg-color' ) {
+                    wpcd_colorPickerOptions = {
+                        defaultColor: '#56b151'
+                    };
+                }
+                if ( input[0].name == 'wpcd_dt-border-color' ) {
+                    wpcd_colorPickerOptions = {
+                        defaultColor: '#000000'
+                    };
+                }
+                if ( input[0].name == 'wpcd_pagination-color' ) {
+                    wpcd_colorPickerOptions = {
+                        defaultColor: '#56b151'
+                    };
+                }
+                if ( input[0].name == 'wpcd_hidden-coupon-button-color' ) {
+                    wpcd_colorPickerOptions = {
+                        defaultColor: '#347BAF'
+                    };
+                }
+                if ( input[0].name == 'wpcd_copy-button-bg-color' ) {
+                    wpcd_colorPickerOptions = {
+                        defaultColor: '#56b151'
+                    };
+                }
+                if ( input[0].name == 'wpcd_coupon-popup-bg-color' ) {
+                    wpcd_colorPickerOptions = {
+                        defaultColor: '#BEFFB9'
+                    };
+                }
+                if ( input[0].name == 'template-five-theme' ) {
+                    wpcd_colorPickerOptions = {
+                        defaultColor: '#18E06E',
+                        change: function(event, ui){
+                            wpcd_updateTemplateFiveTheme( event.target.value );
+                        }
+                    };
+                }
+                if ( input[0].name == 'template-six-theme' ) {
+                    wpcd_colorPickerOptions = {
+                        defaultColor: '#18E06E',
+                        change: function(event, ui){
+                            wpcd_updateTemplateSixTheme( event.target.value );
+                        }
+                    };
+                }
+                if ( input[0].name == 'template-seven-theme' ) {
+                    wpcd_colorPickerOptions = {
+                        defaultColor: '#9b59b6',
+                        change: function(event, ui){
+                            wpcd_updateTemplateSevenTheme( event.target.value );
+                        }
+                    };
+                }
+                if ( input[0].name == 'template-eight-theme' ) {
+                    wpcd_colorPickerOptions = {
+                        defaultColor: '#329d40',
+                        change: function(event, ui){
+                            wpcd_updateTemplateEightTheme( event.target.value );
+                        }
+                    };
+                }
+            }
+            input.wpColorPicker( wpcd_colorPickerOptions );
+            
+            input.focusout( function() {
+                var val_input = $( this ).val();
+                var re1 = /^#[a-f0-9]{6}$/i;
+                var re2 = /^#[a-f0-9]{3}$/i;
+                if ( ! re1.exec( val_input ) && ! re2.exec( val_input ) ) {
+                    $( this ).val( " " );
                 }
             });
         }
+    }
+        
 
     /**
      *  color Picker for import Page
@@ -1794,8 +1840,6 @@ function wpcd_ajax_import_percent( row_count ) {
         this.coupon_count = 1;
     }
     var percent = ( ( this.coupon_count / row_count ) * 100 ).toFixed( 2 );
-    console.log(this.coupon_count);
-    console.log(percent);
     this.coupon_count++;
     return percent;
 }
