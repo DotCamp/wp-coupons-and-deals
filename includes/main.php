@@ -627,7 +627,11 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 		 */
         public static function wpcd_pagination() {
 			
-			include WPCD_Plugin::instance()->plugin_includes . '/functions/wpcd-coupon-pagination__premium_only.php';
+			if ( file_exists( WPCD_Plugin::instance()->plugin_includes . '/functions/wpcd-coupon-pagination__premium_only.php' ) ) {
+
+				include WPCD_Plugin::instance()->plugin_includes . '/functions/wpcd-coupon-pagination__premium_only.php';
+			
+			}
 		
 		}		
 

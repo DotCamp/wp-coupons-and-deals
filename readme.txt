@@ -3,7 +3,7 @@ Contributors: imtiazrayhan, mohmedelwany, wpcdplugin, ultimateblocks, wpleaders1
 Tags: coupon, coupons, deal, deals, affiliate, affiliate marketing
 Requires at least: 4.6
 Tested up to: 5.1
-Stable tag: 2.8.0
+Stable tag: 2.8.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -149,6 +149,12 @@ You can [__submit a feature request__](https://wpcouponsdeals.com/submit-new-fea
 11. Adding the widget.
 
 == Changelog ==
+
+= 2.8.1 =
+
+Release Date: April 15th, 2019
+
+* FIX: Missing file issue.
 
 = 2.8.0 = 
 
