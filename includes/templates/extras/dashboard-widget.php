@@ -87,7 +87,7 @@ $install_ub_url = \wp_nonce_url(
 <?php
 
 if ( current_user_can( "manage_options" ) ) {
-	if ( in_array( 'ultimate-blocks/ultimate-blocks.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) { ?>
+	if ( !in_array( 'ultimate-blocks/ultimate-blocks.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) { ?>
 	<div style="margin: 12px -12px 0; padding: 12px 12px 0; border-top: 1px solid #eee;">
 			<p style="margin: 0"><?php echo __( 'Recommended Plugin: ', 'wpcd-coupon' );?><b><?php echo __( 'Ultimate Blocks', 'wpcd-coupon' ); ?></b> -
 				<a href="<?php echo \esc_url( $install_ub_url ); ?>"><?php echo __( 'Install', 'wpcd-coupon' ); ?></a> |

@@ -1,9 +1,9 @@
 === WP Coupons and Deals ===
-Contributors: imtiazrayhan, mohmedelwany
+Contributors: imtiazrayhan, mohmedelwany, wpcdplugin, ultimateblocks, wpleaders1
 Tags: coupon, coupons, deal, deals, affiliate, affiliate marketing
 Requires at least: 4.6
-Tested up to: 4.9
-Stable tag: 2.7.2
+Tested up to: 5.1
+Stable tag: 2.8.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,6 +28,8 @@ Best WordPress Coupon Plugin. Generate more affiliate sales with coupon codes an
 * Coupon categories to categorize your coupons.
 * Expiration system to show coupon expiration.
 * Stylesheets and scripts are loaded conditionally for better performance.
+
+**[UPDATE] From version 2.8.0 - we have AMP support for all coupon shortcodes.**
 
 == Pro Features ==
 * Hide Coupons.
@@ -98,6 +100,12 @@ You're done!
 
 **Note: We use [__Freemius__](https://freemius.com) to collect some basic data about your usage to improve the plugin. We only collect if you allow us to. You can opt out any time to stop sharing your data with us.**
 
+## Join Us To Get Updates and Resources
+
+* [Visit WP Coupons and Deals Website](https://wpcouponsdeals.com?utm_medium=wp.org&utm_source=wordpressorg&utm_campaign=readme&utm_content=ultimateblocks)
+* [Follow Us on Twitter](https://twitter.com/WPCD_Plugin)
+* [Join Our Facebook Group](https://www.facebook.com/groups/wpcdPlugin/)
+
 == Installation ==
 
 This is one way you can install and use the plugin:
@@ -141,6 +149,39 @@ You can [__submit a feature request__](https://wpcouponsdeals.com/submit-new-fea
 11. Adding the widget.
 
 == Changelog ==
+
+= 2.8.0 = 
+
+Release Date: April 15th, 2019
+
+* ADD: AMP Support for all Coupon Shortcodes.
+* ADD: Dashboard Widget with Coupons Overview.
+* ADD: Minified CSS files for better performance.
+* ADD: WordPress Color Picker for better performance.
+* ADD: Conditional CSS loading for better performance.
+* ADD: LinkedIn share button in Social Sharing buttons.
+* FIX: Voting buttons not working for users who are not logged-in.
+* FIX: Coupon Thumbnail issue.
+* FIX: JavaScript loading issue.
+* REMOVE: Google+ button from Social Share buttons.
+* PRO - ADD: New template - Template Seven.
+* PRO - ADD: New template - Template Eight.
+* PRO - ADD: Category, Vendor and Archive Shortcode with Template Seven and Template Eight.
+* PRO - ADD: AMP Support for Single, Category, Vendor and Archive shortcode.
+* PRO - ADD: Search functionality in Archive Shortcode.
+* PRO - ADD: Loading categories in Archive shortcode without reloading the page.
+* PRO - ADD: Loading numerical pages in Archive shortcode without relooading the page.
+* PRO - ADD: Option to show Vendors instead of Categories in Archive shortcode.
+* PRO - ADD: Support for XML files in Coupon Importer.
+* PRO - ADD: Support for differnt delimiters in CSV files.
+* PRO - ADD: Progress bar in Import to show the progress of coupon importing.
+* PRO - ADD: Missing Nofollow link in Coupon Popup.
+
+= 2.7.3 =
+
+Release Date: March 1st, 2019
+
+* Security Update.
 
 = 2.7.2 =
 
