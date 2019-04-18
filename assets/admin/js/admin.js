@@ -154,8 +154,17 @@ jQuery(document).ready(function ($) {
             arr[col] = arr[col] || '';   // create a new column (start with empty string) if necessary
             
                 if ( cc == '"' && quote && nc == '"' ) { arr[col] += cc; ++c; continue; }  
-                if ( cc == '"' ) { quote = !quote; continue; }
-                if ( cc == separator && !quote ) { ++col; continue; }
+                if ( cc == '"' ) { 
+                    quote = !quote; 
+                    if ( separator == '\n' ) {
+                        arr[col] += cc;
+                    }
+                    continue; 
+                }
+                if ( cc == separator && !quote ) { 
+                    ++col; 
+                    continue; 
+                }
             
             arr[col] += cc;
         }
@@ -406,7 +415,75 @@ jQuery(document).ready(function ($) {
                     
                     // Adding the "Show All" button if the number of lines is more than 5
                     if ( showAll ) {
-                        $("#wpcd-table-csv").append('<div id="wpcd_import_show_all_button" style="margin-top:0px;"><a>Show All</a></div>');
+                        function wpcd_importScrollButtonsShow() { 
+                            var import_scroll_left_button;
+                            var import_scroll_right_button;
+                            if ( $("#wpcd_import_show_all_button").find( 'a' ).text() === 'Hide' ) {
+                                if ( $("#wpcd_import_show_all_button").width() < $( ".wpcd_import_preview" ).width() ) {
+                                    $( "#wpcd-table-box-scroll-left" ).show();
+                                    $( "#wpcd-table-box-scroll-right" ).show();
+                                    
+                                   
+                                    var width_scroll_left = 3;
+                                    $( "#wpcd-table-box-scroll-left" ).click( function(e) {
+                                        e.stopPropagation();
+                                    });
+                                    
+                                    $( "#wpcd-table-box-scroll-right" ).click( function(e) {
+                                        e.stopPropagation();
+                                    });
+                                    $( "#wpcd-table-box-scroll-right" ).mousedown( function() {
+                                        
+                                        import_scroll_left_button = setInterval( function() {
+                                            if( width_scroll_left < ( $( ".wpcd_import_preview" ).width() - $("#wpcd_import_show_all_button").width() ) ) {
+                                                $( "#wpcd-table-csv_box-table" ).scrollLeft(width_scroll_left);
+                                                width_scroll_left += 5;
+                                                console.log($( ".wpcd_import_preview" ).width() - $("#wpcd_import_show_all_button").width());
+                                                
+                                                console.log(width_scroll_left);
+                                            }
+                                            
+                                        }, 1 );
+                                    });
+                                    $( "#wpcd-table-box-scroll-right" ).mouseup( function() {
+                                        clearInterval(import_scroll_left_button);
+                                    });
+                                    
+                                    $( "#wpcd-table-box-scroll-left" ).mousedown( function() {
+                                        
+                                        import_scroll_right_button = setInterval( function() {
+                                            if( width_scroll_left > 0 ) {
+                                                $( "#wpcd-table-csv_box-table" ).scrollLeft(width_scroll_left);
+                                                width_scroll_left += -5;
+                                                console.log($( ".wpcd_import_preview" ).width() - $("#wpcd_import_show_all_button").width());
+                                                
+                                                console.log(width_scroll_left);
+                                            }
+                                            
+                                        }, 1 );
+                                    });
+                                    $( "#wpcd-table-box-scroll-left" ).mouseup( function() {
+                                        clearInterval(import_scroll_right_button);
+                                    });
+                                    
+                                } else {
+                                    $( "#wpcd-table-box-scroll-left" ).hide();
+                                    $( "#wpcd-table-box-scroll-right" ).hide();
+                                    clearInterval(import_scroll_left_button);
+                                    clearInterval(import_scroll_right_button);
+                                }
+                            } else {
+                                $( "#wpcd-table-box-scroll-left" ).hide();
+                                $( "#wpcd-table-box-scroll-right" ).hide();
+                                clearInterval(import_scroll_left_button);
+                                clearInterval(import_scroll_right_button);
+                            }
+                        }
+                        $("#wpcd-table-csv").append('<div id="wpcd_import_show_all_button" style="margin-top:0px;">\n\
+                                                        <div id="wpcd-table-box-scroll-left"><</div>\n\
+                                                            <a>Show All</a>\n\
+                                                        <div id="wpcd-table-box-scroll-right">></div>\n\
+                                                    </div>');
                         $("#wpcd_import_show_all_button").on( 'click', function(e) {
                             e.stopPropagation();
                             var margin_top;
@@ -431,6 +508,11 @@ jQuery(document).ready(function ($) {
                             } else {
                                 $( this ).find( 'a' ).text( 'Show All' );
                             }
+                            wpcd_importScrollButtonsShow();
+                        });
+                        wpcd_importScrollButtonsShow();
+                        $(window).resize(function () {
+                            wpcd_importScrollButtonsShow();
                         });
                     }
                     

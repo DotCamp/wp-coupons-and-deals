@@ -729,7 +729,7 @@ p.wpcd-coupon-three-expired {
 
 .wpcd-coupon-four {
     width: 100%;
-    padding: 5px 15px;
+    padding: 5px;
     border: 1px solid #d1d1d1;
     background: #FAFAFA;
     margin: 15px 0 15px 0px;
@@ -903,7 +903,7 @@ p.wpcd-coupon-four-expired {
     margin: 25px auto;
     clear: both;
     overflow: hidden;
-    padding: 15px;
+    padding: 15px 14px;
     box-sizing: border-box;
 }
 
@@ -1994,7 +1994,7 @@ p.wpcd-coupon-loop-expired {
     border: 2px solid #DDDDDD;
     position: relative;
     text-decoration: none;
-    min-width: 132px;
+    min-width: 122px;
 }
 
 .wpcd-new-grid-three .wpcd-coupon-button-type .coupon-code-wpcd {
@@ -2136,6 +2136,7 @@ p.wpcd-coupon-loop-expired {
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
     white-space: nowrap;
+    letter-spacing: 0.5px;
 }
 
 .wpcd-coupon-button-type .coupon-code-wpcd .get-code-wpcd:after {
@@ -3377,11 +3378,11 @@ a.wpcd-new-coupon-code:hover:before {
 }
 
 .wpcd_seven_container .wpcd-coupon-button-type .coupon-code-wpcd {
-    padding: 8px 14px;
+    padding: 8px;
     line-height: 40px;
     margin: auto;
     box-sizing: border-box;
-    margin: 10%;
+    margin: 10% 10% 10% 0%;
     display: block;
     min-width: unset;
     text-decoration: none;
@@ -3435,6 +3436,7 @@ a.wpcd-new-coupon-code:hover:before {
     right: 25px;
     overflow: hidden;
     text-align: center;
+    letter-spacing: 0.2px;
 }
 
 .wpcd_seven_container .wpcd-coupon-button-type .coupon-code-wpcd .get-code-wpcd .rectangle_wpcd {

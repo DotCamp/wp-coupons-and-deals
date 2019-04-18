@@ -391,7 +391,7 @@ jQuery(document).ready(function ($) {
 
     /**
      * function wpcd_archiveSectionSmall
-     * add class (wpcd_archiveSectionSmall) in small width
+     * add class (wpcd_archive_section_small) in small width
      * remove this class in large width
      * @returns {void}
      */
@@ -458,15 +458,15 @@ jQuery(document).ready(function ($) {
     $(window).resize(wpcd_updateCouponClassRan);
 
     function wpcd_updateCouponClassRan() {
-        wpcd_updateCouponClass('.wpcd-coupon-default', 'wpcd-template-default-mobile', 'wpcd-mobile-mini', 600, 380);
-        wpcd_updateCouponClass('.wpcd-coupon-one', 'wpcd-template-one-mobile', 'wpcd-mobile-mini', 600, 380);
-        wpcd_updateCouponClass('.wpcd-coupon-two', 'wpcd-template-two-mobile', 'wpcd-mobile-mini', 600, 380);
+        wpcd_updateCouponClass('.wpcd-coupon-default', 'wpcd-template-default-mobile', 'wpcd-mobile-mini', 510, 380);
+        wpcd_updateCouponClass('.wpcd-coupon-one', 'wpcd-template-one-mobile', 'wpcd-mobile-mini', 530, 380);
+        wpcd_updateCouponClass('.wpcd-coupon-two', 'wpcd-template-two-mobile', 'wpcd-mobile-mini', 530, 380);
         wpcd_updateCouponClass('.wpcd-coupon-three', 'wpcd-template-three-mobile', 'wpcd-mobile-mini', 400, 380);
-        wpcd_updateCouponClass('.wpcd-coupon-four', 'wpcd-template-four-mobile', 'wpcd-mobile-mini', 600, 380);
-        wpcd_updateCouponClass('.wpcd-template-five', 'wpcd-template-five-mobile', 'wpcd-mobile-mini', 600, 380);
-        wpcd_updateCouponClass('.wpcd-coupon-six', 'wpcd-template-six-mobile', 'wpcd-mobile-mini', 600, 380);
-        wpcd_updateCouponClass('.wpcd_seven_couponBox', 'wpcd-template-seven-mobile', 'wpcd-mobile-mini', 600, 380);
-        wpcd_updateCouponClass('.wpcd-new-grid-container', 'wpcd-template-eight-mobile', 'wpcd-mobile-mini', 560, 380);
+        wpcd_updateCouponClass('.wpcd-coupon-four', 'wpcd-template-four-mobile', 'wpcd-mobile-mini', 530, 380);
+        wpcd_updateCouponClass('.wpcd-template-five', 'wpcd-template-five-mobile', 'wpcd-mobile-mini', 510, 380);
+        wpcd_updateCouponClass('.wpcd-coupon-six', 'wpcd-template-six-mobile', 'wpcd-mobile-mini', 530, 380);
+        wpcd_updateCouponClass('.wpcd_seven_couponBox', 'wpcd-template-seven-mobile', 'wpcd-mobile-mini', 540, 380);
+        wpcd_updateCouponClass('.wpcd-new-grid-container', 'wpcd-template-eight-mobile', 'wpcd-mobile-mini', 500, 380);
     }
 
     function wpcd_updateCouponClass(class_box, class1, class2, width1, width2) {

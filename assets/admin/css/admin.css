@@ -170,6 +170,43 @@
 
 #wpcd-table-csv_box-table {
     overflow-x: auto;
+    position: relative;
+}
+
+#wpcd-table-box-scroll-left, 
+#wpcd-table-box-scroll-right {
+    font-size: 25px;
+    position: absolute;
+    width: 70px;
+    top: 0;
+    bottom: 0;
+    background: #a5a5a5;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0s linear 0.3s;
+    display: none;
+    line-height: 47px;
+}
+
+#wpcd-table-box-scroll-left {
+    left: 0;
+}
+
+#wpcd-table-box-scroll-right {
+    right: 0;
+}
+
+#wpcd-table-csv:hover #wpcd-table-box-scroll-left, 
+#wpcd-table-csv:hover #wpcd-table-box-scroll-right {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+}
+
+#wpcd-table-box-scroll-left:hover, 
+#wpcd-table-box-scroll-right:hover {
+    background: #80808066;
 }
 
 .wpcd_import_preview_tr_hide {
@@ -188,8 +225,7 @@
 }
 
 #wpcd_import_show_all_button:hover {
-    border: 1px solid #c0c0c0;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.19);
+    background-color: #f2f2f2;
 }
 
 #wpcd_import_show_all_button a {
