@@ -129,16 +129,19 @@ class WPCD_Short_Code {
 			if ( ! empty( $hide_expired_coupon ) || $hide_expired_coupon == "on" ) {
 				$expire_date = get_post_meta( $coupon_id, 'coupon_details_expire-date', true );
 				if ( ! empty( $expire_date ) ) {
+					if ( (string)(int)$expire_date != $expire_date ) {
+                        $expire_date =  strtotime( $expire_date );
+                    }
 					if ( $coupon_template !== 'Template Four' ) {
-						if ( strtotime( $expire_date ) < strtotime( $today ) ) {
+						if ( $expire_date < strtotime( $today ) ) {
 							continue;
 						}
 					} else {
 						$second_expire_date = get_post_meta( $coupon_id, 'coupon_details_second-expire-date', true );
 						$third_expire_date  = get_post_meta( $coupon_id, 'coupon_details_third-expire-date', true );
-						if ( strtotime( $expire_date ) < strtotime( $today ) &&
-							strtotime( $second_expire_date ) < strtotime( $today ) &&
-							strtotime( $third_expire_date ) < strtotime( $today ) ) {
+						if ( $expire_date < strtotime( $today ) &&
+							$second_expire_date < strtotime( $today ) &&
+							$third_expire_date < strtotime( $today ) ) {
 							continue;
 						}
 					}
@@ -224,8 +227,7 @@ class WPCD_Short_Code {
         		WPCD_Amp::instance()->setCss( $argcss );
         		$user_stylesheets = WPCD_Assets::wpcd_stylesheets( true, $coupon_id, $coupon_template );
         		WPCD_Amp::instance()->setCss( $user_stylesheets, false );
-        	} 
-
+        	}
 
 		}
 
@@ -291,8 +293,6 @@ class WPCD_Short_Code {
 		return ob_get_clean();
 
 	}
-
-	
 
 	/**
 	 * Shortcode for the coupon archive page.
@@ -375,11 +375,6 @@ class WPCD_Short_Code {
                 }
 			}
 		}
-
-
-
-
-
 			
 		if ( $wpcd_data_taxonomy != 'all' &&  $wpcd_data_taxonomy != '' &&  empty( $wpcd_data_search ) ) {
 			$args = array(
@@ -440,17 +435,20 @@ class WPCD_Short_Code {
 				if ( ! empty( $hide_expired_coupon ) || $hide_expired_coupon == "on" ) {
 					$expire_date = get_post_meta( $coupon_id, 'coupon_details_expire-date', true );
 					if ( ! empty( $expire_date ) ) {
+						if ( (string)(int)$expire_date != $expire_date ) {
+                        	$expire_date =  strtotime( $expire_date );
+                    	}
 						if ( $current_coupon_template !== 'Template Four' ) {
-							if ( strtotime( $expire_date ) < strtotime( $today ) ) {
+							if ( $expire_date < strtotime( $today ) ) {
 								array_push( $expired_coupons, $coupon_id );
 								continue;
 							}
 						} else {
 							$second_expire_date = get_post_meta( $coupon_id, 'coupon_details_second-expire-date', true );
 							$third_expire_date  = get_post_meta( $coupon_id, 'coupon_details_third-expire-date', true );
-							if ( strtotime( $expire_date ) < strtotime( $today ) &&
-								strtotime( $second_expire_date ) < strtotime( $today ) &&
-								strtotime( $third_expire_date ) < strtotime( $today ) ) {
+							if ( $expire_date < strtotime( $today ) &&
+								$second_expire_date < strtotime( $today ) &&
+								$third_expire_date < strtotime( $today ) ) {
 								array_push( $expired_coupons, $coupon_id );
 								continue;
 							}
@@ -766,7 +764,10 @@ class WPCD_Short_Code {
 				if ( ! empty( $hide_expired_coupon ) || $hide_expired_coupon == "on" ) {
 					$expire_date = get_post_meta( $coupon_id, 'coupon_details_expire-date', true );
 					if ( ! empty( $expire_date ) ) {
-						if ( strtotime( $expire_date ) < strtotime( $today ) ) {
+						if ( (string)(int)$expire_date != $expire_date ) {
+                        	$expire_date =  strtotime( $expire_date );
+                    	}
+						if ( $expire_date < strtotime( $today ) ) {
 							continue;
 						}
 					}

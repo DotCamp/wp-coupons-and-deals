@@ -198,7 +198,10 @@ class WPCD_Coupon_Widget extends WP_Widget {
 			if ( ! empty( $hide_expired_coupon ) || $hide_expired_coupon == "on" ) {
 				$expire_date = get_post_meta( $coupon_id, 'coupon_details_expire-date', true );
 				if ( ! empty( $expire_date ) ) {
-					if ( strtotime( $expire_date ) < strtotime( $today ) ) {
+					if ( (string)(int)$expire_date != $expire_date ) {
+                        $expire_date =  strtotime( $expire_date );
+                    }
+					if ( $expire_date < strtotime( $today ) ) {
 						continue;
 					}
 				}
