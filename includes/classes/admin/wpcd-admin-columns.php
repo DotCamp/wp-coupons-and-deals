@@ -282,10 +282,15 @@ class WPCD_Admin_Columns extends WP_List_Table {
 			case 'coupon_expire':
 				$today  = date( 'd-m-Y' );
 				$expire = get_post_meta( $post_id, 'coupon_details_expire-date', true );
+                $expireDateFormat = get_option( 'wpcd_expiry-date-format' );
+                $expireDateFormatFun = wpcd_getExpireDateFormatFun( $expireDateFormat );
 				if ( ! empty ( $expire ) ) {
-					if ( strtotime( $expire ) >= strtotime( $today ) ) {
-						echo $expire;
-					} elseif ( strtotime( $expire ) < strtotime( $today ) ) {
+                    if ( (string)(int)$expire != $expire ) {
+                        $expire =  strtotime( $expire );
+                    }
+					if ( $expire  >= strtotime( $today ) ) {
+						echo date( $expireDateFormatFun, $expire );
+					} elseif ( $expire < strtotime( $today ) ) {
 						echo __( 'Expired', 'wpcd-coupon' );
 					}
 				} else {
