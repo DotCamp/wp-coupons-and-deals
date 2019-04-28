@@ -118,6 +118,7 @@ class WPCD_Assets {
 
 			$hide_coupon_button_color = get_option( 'wpcd_hidden-coupon-button-color' );
 			$copy_button_bg_color     = get_option( 'wpcd_copy-button-bg-color' );
+            if ( ! $amp ) $copy_button_bg_color = $copy_button_bg_color . ' !important';
 			$coupon_popup_bg_color    = get_option( 'wpcd_coupon-popup-bg-color' );
 			$pagination_color         = get_option( 'wpcd_pagination-color' );
 
@@ -132,7 +133,7 @@ class WPCD_Assets {
 				}
 			
 				span.wpcd_coupon_top_copy_span{
-					background-color: {$copy_button_bg_color} !important;
+					background-color: {$copy_button_bg_color};
 				}
 			
 				.wpcd_coupon_popup_copy_code_wr {

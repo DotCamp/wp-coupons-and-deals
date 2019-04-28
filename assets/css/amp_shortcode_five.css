@@ -51,7 +51,7 @@
 .wpcd-template-five .wpcd-coupon-title {
     width: 100%;
     font-size: 21px;
-    margin: 5px 0px 10px 0px !important;
+    margin: 5px 0px 10px 0px;
 }
 .wpcd-template-five .wpcd-coupon-description {
     margin-top: 10px;

@@ -290,7 +290,15 @@ class WPCD_Short_Code {
 		$template->get_template_part( 'shortcode-code' );
 
 		// Return Variables
-		return ob_get_clean();
+		$output = ob_get_clean();
+        
+        if ( WPCD_Amp::wpcd_amp_is() ) {
+            WPCD_Amp::instance()->setCss( 'shortcode_common' );
+        }
+
+		wp_reset_postdata();
+            
+        return $output;
 
 	}
 
