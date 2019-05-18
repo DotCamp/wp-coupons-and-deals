@@ -78,7 +78,7 @@ function wpcd_import_process_php() {
 				add_post_meta( $post_id, 'coupon_details_coupon-type', 'Coupon', true );
 				add_post_meta( $post_id, 'coupon_details_coupon-code-text', $wpcd_coupon_data->coupon_code, true );
 				add_post_meta( $post_id, 'coupon_details_link', $wpcd_coupon_data->link, true );
-				add_post_meta( $post_id, 'coupon_details_description', $wpcd_coupon_data->description, true );
+				add_post_meta( $post_id, 'coupon_details_description', $wpcd_coupon_data->wpcd_description, true );
 				add_post_meta( $post_id, 'coupon_details_discount-text', $wpcd_coupon_data->discount_text, true );
 				add_post_meta( $post_id, 'coupon_details_show-expiration', 'Show', true );
 				add_post_meta( $post_id, 'coupon_details_expire-date', $expyry_data, true );

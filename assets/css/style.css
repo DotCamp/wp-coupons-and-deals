@@ -2294,6 +2294,10 @@ p.wpcd-coupon-loop-expired {
     margin-top: 20px;
 }
 
+.wpcd_coupon_popup_copy_code_wr span {
+    float: none;
+}
+
 .wpcd_coupon_popup_copy_code_span {
     color: #000000;
     display: block;

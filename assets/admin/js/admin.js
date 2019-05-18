@@ -208,7 +208,7 @@ jQuery(document).ready(function ($) {
                         coupon_code: '',
                         link: '',
                         discount_text: '',
-                        description: '',
+                        wpcd_description: '',
                         hide_coupon: '',
                         default_coupon_template: '',
                         theme_color: '',
@@ -254,7 +254,7 @@ jQuery(document).ready(function ($) {
                     wpcp_coupons_data['coupon_code']             = (cells[import_fields_data['coupon_details_coupon-code-text']]) ? cells[import_fields_data['coupon_details_coupon-code-text']].trim() : "";
                     wpcp_coupons_data['link']                    = (cells[import_fields_data['coupon_details_link']]) ? cells[import_fields_data['coupon_details_link']].trim() : "";
                     wpcp_coupons_data['discount_text']           = (cells[import_fields_data['coupon_details_discount-text']]) ? cells[import_fields_data['coupon_details_discount-text']].trim() : "";
-                    wpcp_coupons_data['description']             = (cells[import_fields_data['coupon_details_description']]) ? cells[import_fields_data['coupon_details_description']].trim() : "";
+                    wpcp_coupons_data['wpcd_description']             = (cells[import_fields_data['coupon_details_description']]) ? cells[import_fields_data['coupon_details_description']].trim() : "";
                     wpcp_coupons_data['expiry_date']             = (cells[import_fields_data['coupon_details_expire-date']]) ? cells[import_fields_data['coupon_details_expire-date']].trim() : "";
                     wpcp_coupons_data['hide_coupon']             = (cells[import_fields_data['coupon_details_hide-coupon']]) ? cells[import_fields_data['coupon_details_hide-coupon']].trim() : "";
                     wpcp_coupons_data['default_coupon_template'] = (cells[import_fields_data['coupon_details_coupon-template']]) ? cells[import_fields_data['coupon_details_coupon-template']].trim() : 
@@ -304,7 +304,7 @@ jQuery(document).ready(function ($) {
                                 wpcp_coupons_data['coupon_code']             = (cells[import_fields_data['coupon_details_coupon-code-text']]) ? cells[import_fields_data['coupon_details_coupon-code-text']].trim() : "";
                                 wpcp_coupons_data['link']                    = (cells[import_fields_data['coupon_details_link']]) ? cells[import_fields_data['coupon_details_link']].trim() : "";
                                 wpcp_coupons_data['discount_text']           = (cells[import_fields_data['coupon_details_discount-text']]) ? cells[import_fields_data['coupon_details_discount-text']].trim() : "";
-                                wpcp_coupons_data['description']             = (cells[import_fields_data['coupon_details_description']]) ? cells[import_fields_data['coupon_details_description']].trim() : "";
+                                wpcp_coupons_data['wpcd_description']        = (cells[import_fields_data['coupon_details_description']]) ? cells[import_fields_data['coupon_details_description']].trim() : "";
                                 wpcp_coupons_data['expiry_date']             = wpcd_expire_date ? wpcd_expire_date : "";
                                 wpcp_coupons_data['expiry_time']             = wpcd_expire_time ? wpcd_expire_time : "";
                                 wpcp_coupons_data['hide_coupon']             = (cells[import_fields_data['coupon_details_hide-coupon']]) ? cells[import_fields_data['coupon_details_hide-coupon']].trim() : "";
@@ -1435,13 +1435,13 @@ jQuery(document).ready(function ($) {
         });
 
         //change description dynamically (this works only with text editor)
-        $('#description').keyup(function () {
+        $('#wpcd_description').keyup(function () {
             var description = $(this).val();
             $('.wpcd-coupon-description').html(description);
         });
 
         //if the user used one of the button instead of writing the code
-        $('#description').change(function () {
+        $('#wpcd_description').change(function () {
             var description = $(this).val();
             $('.wpcd-coupon-description').html(description);
 

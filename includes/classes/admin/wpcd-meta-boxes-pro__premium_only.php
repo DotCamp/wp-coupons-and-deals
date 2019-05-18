@@ -126,7 +126,7 @@ class WPCD_Meta_Boxes_Pro {
 			),
 
 			array(
-				'id'    => 'description',
+				'id'    => 'wpcd_description',
 				'label' => __( 'Description', 'wpcd-coupon' ),
 				'type'  => 'textarea',
 				'help'  => __( 'A little description so users know what the coupon code or deal is about.', 'wpcd-coupon' )
@@ -325,7 +325,9 @@ class WPCD_Meta_Boxes_Pro {
 			$label    = '<label for="' . $wpcd_field['id'] . '">' . $wpcd_field['label'] . '</label>
             <span wpcd-data-tooltip="'.$wpcd_field['help'].'">
             <span  class="dashicons dashicons-editor-help" ></span></span>';
-			$db_value = get_post_meta( $post->ID, 'coupon_details_' . $wpcd_field['id'], true );
+            $wpcd_coupon_meta_key = 'coupon_details_' . $wpcd_field['id'];
+            if( $wpcd_field['id'] == 'wpcd_description' ) $wpcd_coupon_meta_key = 'coupon_details_description';
+			$db_value = get_post_meta( $post->ID, $wpcd_coupon_meta_key, true );
 			if ( $wpcd_field['type'] == 'expiredate' || $wpcd_field['type'] == 'temp4-expiredate' ) {
 				if ( ! empty( $db_value ) && ( (string)(int)$db_value ) == $db_value ) {
 					$db_value = date( $expireDateFormatFun, $db_value );
@@ -412,7 +414,7 @@ class WPCD_Meta_Boxes_Pro {
 					break;
 
 				case 'textarea':
-					if ( $wpcd_field['id'] == 'description' ):
+					if ( $wpcd_field['id'] == 'wpcd_description' ):
 						ob_start();
 						/**
 						* Add Editor to description field
@@ -426,9 +428,9 @@ class WPCD_Meta_Boxes_Pro {
 							'editor_height' => 150,
 							'teeny' => false,
 							'quicktags' => false,
-							'textarea_name' => "description"
+							'textarea_name' => "wpcd_description"
 						);
-						wp_editor( $db_value, 'description' ,$settings);
+						wp_editor( $db_value, 'wpcd_description' ,$settings);
 						$input = ob_get_clean();
 					else:
 						$input = sprintf(
@@ -563,6 +565,9 @@ class WPCD_Meta_Boxes_Pro {
 	 * @since 1.0
 	 */
 	public function save_post( $post_id ) {
+//        echo '<pre>';
+//        print_r($_POST);
+//        die();
 		if ( ! isset( $_POST['coupon_details_nonce'] ) ) {
 			return $post_id;
 		}
@@ -599,8 +604,11 @@ class WPCD_Meta_Boxes_Pro {
                 } 
 				if ( $wpcd_field['id'] == 'third-expire-date' ) {
                 	$_POST[ $wpcd_field['id'] ] = strtotime( sanitize_text_field( $_POST[ $wpcd_field['id'] ] ) );
-                } 
-				update_post_meta( $post_id, 'coupon_details_' . $wpcd_field['id'], $_POST[ $wpcd_field['id'] ] );
+                }
+                
+                $wpcd_coupon_meta_key = 'coupon_details_' . $wpcd_field['id'];
+                if( $wpcd_field['id'] == 'wpcd_description' ) $wpcd_coupon_meta_key = 'coupon_details_description';
+				update_post_meta( $post_id, $wpcd_coupon_meta_key, $_POST[ $wpcd_field['id'] ] );
 			} else if ( $wpcd_field['type'] === 'checkbox' ||  
                                     strpos($wpcd_field['type'],'checkbox')) {
 				update_post_meta( $post_id, 'coupon_details_' . $wpcd_field['id'], '0' );
