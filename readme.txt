@@ -3,7 +3,7 @@ Contributors: imtiazrayhan, mohmedelwany, wpcdplugin, ultimateblocks, wpleaders1
 Tags: coupon, coupons, deal, deals, affiliate, affiliate marketing
 Requires at least: 4.6
 Tested up to: 5.2
-Stable tag: 2.8.2
+Stable tag: 2.8.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -150,15 +150,10 @@ You can [__submit a feature request__](https://wpcouponsdeals.com/submit-new-fea
 
 == Changelog ==
 
-= 2.8.2 =
+= 2.8.3 =
 
-Release Date: April 28th, 2019
+Release Date: June 10th, 2019
 
-* FIX: Hide Expired Coupon Bug.
-* FIX: Expire date issue in Coupons list.
-* FIX: Import Issue.
-* FIX: AMP issue.
-* ADD: AMP Compatibilty for coupon only shortcode.
-* Tested with WordPress 5.2.
+* FIX: Issue of description not saving.
 
 Full changelog can be found here - **[WP Coupons and Deals changelog](https://wpcouponsdeals.com/changelog)**
