@@ -131,7 +131,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 	                            		?>"
                                data-clipboard-text="<?php echo $coupon_code; ?>">
                                 <span class="wpcd_coupon_icon">
-                                	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/coupon-code-24.png" style="width: 100%;height: 100%;" >
+                                	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>img/coupon-code-24.png" style="width: 100%;height: 100%;" >
                                 </span> <?php echo $coupon_code; ?>
                                 <span id="coupon_code_<?php echo $coupon_id; ?>"
                                       class="coupon_code_amp" style="display:none;"><?php echo $coupon_code; ?></span>
@@ -153,7 +153,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                             		?>"
                            data-clipboard-text="<?php echo $coupon_code; ?>">
                             <span class="wpcd_coupon_icon">
-                            	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/coupon-code-24.png" style="width: 100%;height: 100%;" >
+                            	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>img/coupon-code-24.png" style="width: 100%;height: 100%;" >
                             </span> <?php echo $coupon_code; ?>
                             <span id="coupon_code_<?php echo $coupon_id; ?>"
                                   class="coupon_code_amp" style="display:none;"><?php echo $coupon_code; ?></span>
@@ -172,7 +172,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 								    } ?>" 
 					   href="<?php echo $link; ?>" target="_blank">
                         <span class="wpcd_deal_icon">
-                        	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/deal-24.png" style="width: 100%;height: 100%;" >
+                        	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>img/deal-24.png" style="width: 100%;height: 100%;" >
                         </span><?php echo $deal_text; ?>
                     </a>
                 </div>
@@ -296,7 +296,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                         		?>"
                        data-clipboard-text="<?php echo $second_coupon_code; ?>">
                         <span class="wpcd_coupon_icon">
-                        	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/coupon-code-24.png" style="width: 100%;height: 100%;" >
+                        	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>img/coupon-code-24.png" style="width: 100%;height: 100%;" >
                         </span> <?php echo $second_coupon_code; ?>
                         <span id="coupon_code_<?php echo $coupon_id . '_' . $num_coupon; ?>"
                               class="coupon_code_amp" style="display:none;"><?php echo $coupon_code; ?></span>
@@ -318,7 +318,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                         		?>"
                        data-clipboard-text="<?php echo $second_coupon_code; ?>">
                         <span class="wpcd_coupon_icon">
-                        	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/coupon-code-24.png" style="width: 100%;height: 100%;" >
+                        	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>img/coupon-code-24.png" style="width: 100%;height: 100%;" >
                         </span> <?php echo $second_coupon_code; ?>
                         <span id="coupon_code_<?php echo $coupon_id . '_' . $num_coupon; ?>"
                                class="coupon_code_amp" style="display:none;"><?php echo $second_coupon_code; ?></span>
@@ -340,7 +340,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 								    } ?>" 
 					   href="<?php echo $second_link; ?>" target="_blank">
                         <span class="wpcd_deal_icon">
-                        	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/deal-24.png" style="width: 100%;height: 100%;" >
+                        	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>img/deal-24.png" style="width: 100%;height: 100%;" >
                         </span><?php echo $second_deal_text; ?>
                     </a>
                 </div>
@@ -460,7 +460,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                         		?>"
                        data-clipboard-text="<?php echo $third_coupon_code; ?>">
                         <span class="wpcd_coupon_icon">
-                        	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/coupon-code-24.png" style="width: 100%;height: 100%;" >
+                        	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>img/coupon-code-24.png" style="width: 100%;height: 100%;" >
                         </span> <?php echo $third_coupon_code; ?>
                         <span id="coupon_code_<?php echo $coupon_id . '_' . $num_coupon; ?>"
                               class="coupon_code_amp" style="display:none;"><?php echo $third_coupon_code; ?></span>
@@ -482,7 +482,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                         		?>"
                        data-clipboard-text="<?php echo $third_coupon_code; ?>">
                         <span class="wpcd_coupon_icon">
-                        	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/coupon-code-24.png" style="width: 100%;height: 100%;" >
+                        	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>img/coupon-code-24.png" style="width: 100%;height: 100%;" >
                         </span> <?php echo $third_coupon_code; ?>
                         <span id="coupon_code_<?php echo $coupon_id . '_' . $num_coupon; ?>"
                               class="coupon_code_amp" style="display:none;"><?php echo $third_coupon_code; ?></span>
@@ -504,7 +504,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 							    } ?>" 
 					   href="<?php echo $third_link; ?>" target="_blank">
                         <span class="wpcd_deal_icon">
-                        	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/deal-24.png" style="width: 100%;height: 100%;" >
+                        	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>img/deal-24.png" style="width: 100%;height: 100%;" >
                         </span><?php echo $third_deal_text; ?>
                     </a>
                 </div>

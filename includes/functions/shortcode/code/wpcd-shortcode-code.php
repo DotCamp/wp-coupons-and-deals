@@ -63,7 +63,7 @@ function wpcd_shortcode_code() {
 					   ?>" href="<?php echo $link; ?>" target="_blank"
                        data-clipboard-text="<?php echo $coupon_code; ?>">
                         <span class="wpcd_coupon_icon">
-                            <img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/coupon-code-24.png" style="width: 100%;height: 100%;" >
+                            <img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>img/coupon-code-24.png" style="width: 100%;height: 100%;" >
                         </span> <?php echo $coupon_code; ?>
                         <span id="coupon_code_<?php echo $coupon_id; ?>"
                               style="display:none;"><?php echo $coupon_code; ?></span>
@@ -88,7 +88,7 @@ function wpcd_shortcode_code() {
 				   ?>" href="<?php echo $link; ?>" target="_blank"
                    data-clipboard-text="<?php echo $coupon_code; ?>">
                     <span class="wpcd_coupon_icon">
-                        <img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/coupon-code-24.png" style="width: 100%;height: 100%;" >
+                        <img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>img/coupon-code-24.png" style="width: 100%;height: 100%;" >
                     </span> <?php echo $coupon_code; ?>
                     <span id="coupon_code_<?php echo $coupon_id; ?>"
                           style="display:none;"><?php echo $coupon_code; ?></span>
@@ -110,7 +110,7 @@ function wpcd_shortcode_code() {
 			   }
 			   ?>" href="<?php echo $link; ?>" target="_blank">
                 <span class="wpcd_deal_icon">
-                    <img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>/img/deal-24.png" style="width: 100%;height: 100%;" >
+                    <img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>img/deal-24.png" style="width: 100%;height: 100%;" >
                 </span><?php echo $deal_text; ?>
             </a>
         </div>

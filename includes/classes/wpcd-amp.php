@@ -107,7 +107,7 @@ class WPCD_Amp {
 			if( array_key_exists( $this->css_list[$this->css_file], $this->styles ) ) {
 				return;
 			}
-			$wpcd_asset_embed = $this->wpcd_asset_embed( WPCD_Plugin::instance()->plugin_assets . '/css/' . WPCD_Assets::wpcd_version_correct( 'dir' ) . $this->css_list[$this->css_file] . WPCD_Assets::wpcd_version_correct( 'suffix' ) . '.css' );
+			$wpcd_asset_embed = $this->wpcd_asset_embed( WPCD_Plugin::instance()->plugin_assets . 'css/' . WPCD_Assets::wpcd_version_correct( 'dir' ) . $this->css_list[$this->css_file] . WPCD_Assets::wpcd_version_correct( 'suffix' ) . '.css' );
 			$this->styles[$this->css_list[$this->css_file]] = $wpcd_asset_embed;
 		} else {
 			if( array_key_exists( 'user_stylesheets', $this->styles ) ) {
