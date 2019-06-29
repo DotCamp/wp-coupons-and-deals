@@ -649,14 +649,14 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 		/**
 		 * Setting up dashboard widget.
 		 */
-		function wpcd_dashboard_add_widgets() {
+		public static function wpcd_dashboard_add_widgets() {
 			wp_add_dashboard_widget( 'wpcd_dashboard_widget_news', __( 'Coupons Overview', 'wpcd-coupon' ), array ( __CLASS__, 'wpcd_dashboard_widget_news_handler' ) );
 		}
 
 		/**
 		 * Dashboard Widget.
 		 */
-		function wpcd_dashboard_widget_news_handler() {
+		public static function wpcd_dashboard_widget_news_handler() {
 			include WPCD_Plugin::instance()->plugin_includes . '/templates/extras/dashboard-widget.php';
 		}
 
