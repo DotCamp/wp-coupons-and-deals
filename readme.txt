@@ -3,7 +3,7 @@ Contributors: imtiazrayhan, mohmedelwany, wpcdplugin, ultimateblocks, wpleaders1
 Tags: coupon, coupons, deal, deals, affiliate, affiliate marketing
 Requires at least: 4.6
 Tested up to: 5.2
-Stable tag: 2.8.3
+Stable tag: 2.8.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -150,10 +150,11 @@ You can [__submit a feature request__](https://wpcouponsdeals.com/submit-new-fea
 
 == Changelog ==
 
-= 2.8.3 =
+= 2.8.4 =
 
-Release Date: June 10th, 2019
+Release Date: July 2nd, 2019
 
-* FIX: Issue of description not saving.
+* FIX: Deprecation Error.
+* UPDATE: Freemius SDK to 2.3.0.
 
 Full changelog can be found here - **[WP Coupons and Deals changelog](https://wpcouponsdeals.com/changelog)**
