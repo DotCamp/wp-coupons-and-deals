@@ -457,7 +457,7 @@ JS;
         	$correct['suffix'] = '';
         }
 
-        return array_key_exists($way_correct, $correct) ? $correct[$way_correct] : '';
+        return array_key_exists( $way_correct, $correct ) ? $correct[$way_correct] : '';
         
     }
 }

@@ -32,8 +32,8 @@ class WPCD_AJAX {
         if ( ! check_ajax_referer( 'wpcd-security-nonce', 'security' ) ) {
             wp_die();
         }
-        $coupon_id = intval($_POST['coupon_id']);
-        $meta = esc_sql($_POST['meta']);
+        $coupon_id = intval( $_POST['coupon_id'] );
+        $meta = esc_sql( $_POST['meta'] );
 
         //Get the ip address of the client
         if ( !empty( $_SERVER['HTTP_CLIENT_IP'] ) ) {
@@ -54,7 +54,7 @@ class WPCD_AJAX {
             //Get voted IPs in the selected meta
             $IPs = array_filter( explode( ",", get_post_meta( $coupon_id, $meta, true ) ) );
             //Get voted IPs in the other meta
-            $other_IPs = array_filter(explode( ",", get_post_meta( $coupon_id, $other_meta, true ) ) );
+            $other_IPs = array_filter( explode( ",", get_post_meta( $coupon_id, $other_meta, true ) ) );
 
             //Combine them to get all voted Ip
             $all_voted_IPs = array_merge( $IPs, $other_IPs );
@@ -81,10 +81,9 @@ class WPCD_AJAX {
             $up_votes = ( $meta == '_up' ) ? $IPs : $other_IPs;
                        
             // Return the percent of success
-                $percent = ceil( count( $up_votes ) / count( $all_voted_IPs ) * 100 );
+            $percent = ceil( count( $up_votes ) / count( $all_voted_IPs ) * 100 );
             echo "{$percent}% Success";
             
-
         } else {
             echo "Failed";
         }

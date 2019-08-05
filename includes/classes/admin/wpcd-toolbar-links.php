@@ -21,7 +21,9 @@ class WPCD_Toolbar_Links {
 	 */
 	public function __construct() {
 
-		add_action( 'admin_bar_menu', array( $this, 'wpcd_toolbar_quick_menu' ), 333 );
+		if ( current_user_can( 'manage_options' ) ) {
+			add_action( 'admin_bar_menu', array( $this, 'wpcd_toolbar_quick_menu' ), 333 );
+		}
 
 	}
 
@@ -100,6 +102,15 @@ class WPCD_Toolbar_Links {
 		if ( wcad_fs()->is_not_paying() ) {
 			$wp_admin_bar->add_node( $args );
 		}
+
+		$import_args = array(
+			'id'      => 'wpcd_toolbar_import',
+			'title'   => __( 'Import Coupons', 'wpcd-coupon' ),
+			'href'    => admin_url() . 'edit.php?post_type=wpcd_coupons&page=wpcd_coupon_import',
+			'parent'  => 'wpcd_toolbar'
+		);
+
+		$wp_admin_bar->add_node( $import_args );
 
 	}
 

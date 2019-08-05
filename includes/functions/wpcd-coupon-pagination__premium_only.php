@@ -81,7 +81,7 @@ if( !function_exists( 'wpcd_generatePagination' ) ) {
         if ( $prev_next && $current && $current < $max_num_page ) :
             
             $current_plus_one = $current + 1;
-            $page_links[] = '<a class="next page-numbers" href="' . esc_url( wpcd_generatePageUrl($current_url, $current_plus_one) ) . '">Next »</a>';
+            $page_links[] = '<a class="next page-numbers" href="' . esc_url( wpcd_generatePageUrl( $current_url, $current_plus_one ) ) . '">Next »</a>';
         endif;
 
         if( is_array( $page_links ) && count( $page_links ) > 0 ) {

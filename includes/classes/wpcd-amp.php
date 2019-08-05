@@ -126,7 +126,7 @@ class WPCD_Amp {
 	 * @since 2.7.3
 	 */
 	public function wpcd_print_amp_styles() {
-		foreach ($this->styles as  $style) {
+		foreach ( $this->styles as  $style ) {
 			echo $style;
 		}
 	}
