@@ -2,6 +2,9 @@
 /*
  * Coupon Type Image
  */
+
+$linkTarget = get_option("wpcd_coupon-link-target");
+$target = ($linkTarget == "on") ? "_self" : "_blank" ;
 ?>
 <div class="wpcd-coupon-image-wrapper">
 <?php if( !WPCD_Amp::wpcd_amp_is() ): ?>
@@ -47,7 +50,7 @@
 <?php endif; ?>
     <div class="wpcd-coupon-image"
          style="width: <?php echo $wpcd_image_width; ?>; height: <?php echo $wpcd_image_height; ?>">
-        <a href="<?php echo $link; ?>" target="_blank">
+        <a href="<?php echo $link; ?>" target="<?php echo $target; ?>">
             <img src="<?php echo $wpcd_coupon_image_src; ?>"
                  alt="<?php _e('Coupon image not uploaded', 'wpcd-coupon'); ?>">
             <?php 

@@ -35,6 +35,9 @@ $hide_coupon               = get_post_meta( $coupon_id, 'coupon_details_hide-cou
 $wpcd_text_to_show         = get_option( 'wpcd_text-to-show' );
 $wpcd_custom_text          = get_option( 'wpcd_custom-text' );
 
+$linkTarget = get_option("wpcd_coupon-link-target");
+$target = ($linkTarget == "on") ? "_self" : "_blank" ;
+
 if ( $wpcd_text_to_show == 'description' ) {
 	$wpcd_custom_text = $description;
 } else {
@@ -76,7 +79,7 @@ $expire_date_format = date( "m/d/Y", strtotime( $expire_date ) );
                 	</<?php echo esc_html( $coupon_title_tag ); ?>>
 			 	<?php } else { ?>
 					<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
-						<a href="<?php echo $link; ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
+						<a href="<?php echo $link; ?>" target="<?php echo $target; ?>" rel="nofollow"><?php echo $title; ?></a>
                 	</<?php echo esc_html( $coupon_title_tag ); ?>>
 				<?php } 
 			?>
@@ -177,7 +180,7 @@ $expire_date_format = date( "m/d/Y", strtotime( $expire_date ) );
 						   } else {
 							   echo __( "Click Here To Get This Deal", 'wpcd-coupon' );
 						   }
-						   ?>" href="<?php echo $link; ?>" target="_blank">
+						   ?>" href="<?php echo $link; ?>" target="<?php echo $target; ?>">
                             <span class="wpcd_deal_icon"></span><?php echo $deal_text; ?>
                         </a>
                     </div>

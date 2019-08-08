@@ -55,6 +55,8 @@ $disable_menu             = get_option( 'wpcd_disable-menu-archive-code' );
 $template                 = new WPCD_Template_Loader();
 $coupon_categories        = get_the_terms( $coupon_id, 'wpcd_coupon_category' );
 $coupon_categories_class  = '';
+$linkTarget = get_option("wpcd_coupon-link-target");
+$target = ($linkTarget == "on") ? "_self" : "_blank" ;
 
 if($coupon_categories && count($coupon_categories) > 0){
     foreach($coupon_categories as $category){
@@ -222,7 +224,7 @@ include('header-default__premium_only.php');
         </<?php echo esc_html( $coupon_title_tag ); ?>> <?php
         } else { ?>
         <<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-new-title">
-        <a href="<?php echo esc_url( $link ); ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
+        <a href="<?php echo esc_url( $link ); ?>" target="<?php echo $target; ?>" rel="nofollow"><?php echo $title; ?></a>
     </<?php echo esc_html( $coupon_title_tag ); ?>> <?php
 }
     ?>
@@ -251,7 +253,7 @@ include('header-default__premium_only.php');
                 </a>
             <?php endif; ?>
         <?php endif; ?>
-        <a class="wpcd-new-goto-button masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank" title="<?php echo $deal_hover_text; ?>" >
+        <a class="wpcd-new-goto-button masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="<?php echo $target; ?>" title="<?php echo $deal_hover_text; ?>" >
            <?php echo $deal_text; ?>
         </a>
     </div><!-- End of grid-three -->

@@ -62,6 +62,9 @@ $deal_text           = ( ! empty( $deal_text ) ? $deal_text : __( 'Claim This De
 $coupon_hover_text   = ( ! empty( $coupon_hover_text ) ) ? $coupon_hover_text : __( 'Click To Copy Coupon', 'wpcd-coupon' );
 $deal_hover_text     = ( !empty( $deal_hover_text ) ) ? $deal_hover_text : __( 'Click Here To Get This Deal' );
 
+$linkTarget = get_option("wpcd_coupon-link-target");
+$target = ($linkTarget == "on") ? "_self" : "_blank" ;
+
 if ( $wpcd_text_to_show == 'description' ) {
 	$wpcd_custom_text = $description;
 } else {
@@ -104,7 +107,7 @@ $template = new WPCD_Template_Loader();
 						</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
 					} else { ?>
 						<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-new-title">
-							<a href="<?php echo esc_url( $link ); ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
+							<a href="<?php echo esc_url( $link ); ?>" target="<?php echo $target; ?>" rel="nofollow"><?php echo $title; ?></a>
 						</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
 					}?>
                     <div class="wpcd-coupon-description">
@@ -150,7 +153,7 @@ $template = new WPCD_Template_Loader();
                     <div class="wpcd_seven_buttonSociaLikeDislike">
                         <div class="wpcd_seven_btn">
                             <a class="masterTooltip"
-                                target="_blank"
+                                target="<?php echo $target; ?>"
                                 href="<?php echo $link; ?>"
                                 title="<?php echo $deal_hover_text; ?>"
                                 data-clipboard-text="<?php echo $deal_text; ?>"

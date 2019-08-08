@@ -48,6 +48,9 @@ $wpcd_custom_text          = get_option( 'wpcd_custom-text' );
 $coupon_code               = ( ! empty( $coupon_code ) ? $coupon_code : __( 'COUPONCODE', 'wpcd-coupon' ) );
 $deal_text                 = ( ! empty( $deal_text ) ? $deal_text : __( 'Claim This Deal', 'wpcd-coupon' ) );
 
+$linkTarget = get_option("wpcd_coupon-link-target");
+$target = ($linkTarget == "on") ? "_self" : "_blank" ;
+
 if ($wpcd_text_to_show == 'description' ) {
 	$wpcd_custom_text = $description;
 } else {
@@ -107,7 +110,7 @@ $template = new WPCD_Template_Loader();
                 		</<?php echo esc_html( $coupon_title_tag ); ?>>
 			 		<?php } else { ?>
 						<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
-							<a href="<?php echo $link; ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
+							<a href="<?php echo $link; ?>" target="<?php echo $target; ?>" rel="nofollow"><?php echo $title; ?></a>
                 		</<?php echo esc_html( $coupon_title_tag ); ?>>
 					<?php } 
 				?>
@@ -171,7 +174,7 @@ $template = new WPCD_Template_Loader();
 							   echo $deal_hover_text;
 						   } else {
 							   echo __( "Click Here To Get This Deal", 'wpcd-coupon' );
-						   } ?>" href="<?php echo $link; ?>" target="_blank">
+						   } ?>" href="<?php echo $link; ?>" target="<?php echo $target; ?>">
                             <span class="wpcd_deal_icon">
                             	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>img/deal-24.png" style="width: 100%;height: 100%;" >
                             </span><?php echo $deal_text; ?>

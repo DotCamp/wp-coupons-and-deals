@@ -45,6 +45,9 @@ $wpcd_text_to_show         = get_option( 'wpcd_text-to-show' );
 $wpcd_custom_text          = get_option( 'wpcd_custom-text' );
 $wpcd_dummy_coupon_img     = WPCD_Plugin::instance()->plugin_assets . 'img/coupon-200x200.png';
 
+$linkTarget = get_option("wpcd_coupon-link-target");
+$target = ($linkTarget == "on") ? "_self" : "_blank" ;
+
 if ( $wpcd_text_to_show == 'description' ) {
 	$wpcd_custom_text = $description;
 } else {
@@ -88,7 +91,7 @@ wp_enqueue_script( 'wpcd-clipboardjs' );
                 	</<?php echo esc_html( $coupon_title_tag ); ?>>
 			 	<?php } else { ?>
 					<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
-						<a href="<?php echo $link; ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
+						<a href="<?php echo $link; ?>" target="<?php echo $target; ?>" rel="nofollow"><?php echo $title; ?></a>
                 	</<?php echo esc_html( $coupon_title_tag ); ?>>
 				<?php } 
 			?>
@@ -164,7 +167,7 @@ wp_enqueue_script( 'wpcd-clipboardjs' );
 			<?php endif; ?>
 		<?php elseif ( $coupon_type == 'Deal' ): ?>
             <div class="wpcd-deal-code">
-                <a class="wpcd-template-five-btn masterTooltip" href="<?php echo $link; ?>" target="_blank"
+                <a class="wpcd-template-five-btn masterTooltip" href="<?php echo $link; ?>" target="<?php echo $target; ?>"
                    title="<?php echo __( 'Click Here To Get this deal', 'wpcd-coupon' ); ?>"
                    data-clipboard-text="<?php if ( ! empty( $deal_text ) ) {
 					   echo $deal_text;

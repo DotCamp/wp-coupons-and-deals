@@ -43,6 +43,9 @@ $wpcd_dummy_coupong_img    = WPCD_Plugin::instance()->plugin_assets . 'assets/im
 $wpcd_text_to_show         = get_option( 'wpcd_text-to-show' );
 $wpcd_custom_text          = get_option( 'wpcd_custom-text' );
 
+$linkTarget = get_option("wpcd_coupon-link-target");
+$target = ($linkTarget == "on") ? "_self" : "_blank" ;
+
 if ( $wpcd_text_to_show == 'description' ) {
 	$wpcd_custom_text = $description;
 } else {
@@ -92,7 +95,7 @@ $template = new WPCD_Template_Loader();
                 	</<?php echo esc_html( $coupon_title_tag ); ?>>
 			 	<?php } else { ?>
 					<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
-						<a href="<?php echo $link; ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
+						<a href="<?php echo $link; ?>" target="<?php echo $target; ?>" rel="nofollow"><?php echo $title; ?></a>
                 	</<?php echo esc_html( $coupon_title_tag ); ?>>
 				<?php } 
 			?>
@@ -184,7 +187,7 @@ $template = new WPCD_Template_Loader();
 					<?php endif; ?>
 				<?php elseif ( $coupon_type === 'Deal' ): ?>
                     <div class="wpcd-deal-code wpcd-btn-wrap">
-                        <a class="wpcd-template-six-btn masterTooltip" rel="nofollow" target="_blank" href="<?php echo $link; ?>"
+                        <a class="wpcd-template-six-btn masterTooltip" rel="nofollow" target="<?php echo $target; ?>" href="<?php echo $link; ?>"
                            title="<?php echo __( 'Click Here To Get this deal', 'wpcd-coupon' ); ?>"
                            data-clipboard-text="<?php if ( ! empty( $deal_text ) ) {
                             							    echo $deal_text;

@@ -24,6 +24,10 @@ $wpcd_link             = get_post_meta( $coupon_id, 'coupon_details_link', true 
 $wpcd_show_print       = get_post_meta( $coupon_id, 'coupon_details_coupon-image-print', true );
 $wpcd_image_width      = get_post_meta( $coupon_id, 'coupon_details_coupon-image-width', true );
 $wpcd_image_height     = get_post_meta( $coupon_id, 'coupon_details_coupon-image-height', true );
+
+$linkTarget = get_option("wpcd_coupon-link-target");
+$target = ($linkTarget == "on") ? "_self" : "_blank" ;
+
 if ( is_array( $wpcd_coupon_image_src ) ) {
 	$wpcd_coupon_image_src = $wpcd_coupon_image_src[0];
 } else {
@@ -70,7 +74,7 @@ if ( is_array( $wpcd_coupon_image_src ) ) {
 <?php endif; ?>
     <div class="wpcd-coupon-image"
          style="width: <?php echo $wpcd_image_width; ?>; height: <?php echo $wpcd_image_height; ?>">
-        <a href="<?php echo $wpcd_link; ?>" target="_blank">
+        <a href="<?php echo $wpcd_link; ?>" target="<?php echo $target; ?>">
             <img class="wpcd_coupon_img" src="<?php echo $wpcd_coupon_image_src; ?>"
                  alt="<?php _e( 'Coupon image not uploaded', 'wpcd-coupon' ); ?>">
             <?php 

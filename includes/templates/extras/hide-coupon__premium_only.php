@@ -39,6 +39,9 @@ $new_coupon_id         = $coupon_id;
 $wpcd_coupon_template  = get_post_meta( $coupon_id, 'coupon_details_coupon-template', true );
 $wpcd_coupon_thumbnail = $featured_img_url;
 
+$linkTarget = get_option("wpcd_coupon-link-target");
+$target = ($linkTarget == "on") ? "_self" : "_blank" ;
+
 $archive_category_setting = get_option( 'wpcd_archive-munu-categories' );
 if( $archive_category_setting == 'vendor' ) {
     $wpcd_coupon_taxonomy = WPCD_Plugin::VENDOR_TAXONOMY;
@@ -155,7 +158,7 @@ if ( isset( $_POST[$wpcd_term_field_name] ) && ! empty( $_POST[$wpcd_term_field_
                     });
                 </script>
 	            <?php if ( $wpcd_enable_goto_button === 'on' ) { ?>
-                    <a target="_blank" rel="nofollow" class="wpcd_popup-go-link" href="<?php echo $link; ?>">
+                    <a target="<?php echo $target; ?>" rel="nofollow" class="wpcd_popup-go-link" href="<?php echo $link; ?>">
 			            <?php
 
 			            if ( ! empty( $wpcd_custom_goto ) ) {

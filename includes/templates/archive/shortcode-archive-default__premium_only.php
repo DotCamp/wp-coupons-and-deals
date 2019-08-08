@@ -56,6 +56,8 @@ $disable_menu             = get_option( 'wpcd_disable-menu-archive-code' );
 $template                 = new WPCD_Template_Loader();
 $coupon_categories        = get_the_terms( $coupon_id, 'wpcd_coupon_category' );
 $coupon_categories_class  = '';
+$linkTarget = get_option("wpcd_coupon-link-target");
+$target = ($linkTarget == "on") ? "_self" : "_blank" ;
 
 if($coupon_categories && count($coupon_categories) > 0){
     foreach($coupon_categories as $category){
@@ -140,7 +142,7 @@ include('header-default__premium_only.php');
                 		</<?php echo esc_html( $coupon_title_tag ); ?>>
 			 		<?php } else { ?>
 						<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
-							<a href="<?php echo $link; ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
+							<a href="<?php echo $link; ?>" target="<?php echo $target; ?>" rel="nofollow"><?php echo $title; ?></a>
                 		</<?php echo esc_html( $coupon_title_tag ); ?>>
 					<?php } 
 				?>
@@ -220,7 +222,7 @@ include('header-default__premium_only.php');
 				<?php endif; ?>
 			<?php elseif ( $coupon_type == 'Deal' ): ?>
                 <div class="wpcd-deal-code">
-                    <a class="wpcd-template-five-btn masterTooltip" href="<?php echo $link; ?>" target="_blank"
+                    <a class="wpcd-template-five-btn masterTooltip" href="<?php echo $link; ?>" target="<?php echo $target; ?>"
                        title="<?php echo __( 'Click Here To Get this deal', 'wpcd-coupon' ); ?>"
                        data-clipboard-text="<?php if ( ! empty( $deal_text ) ) {
 						   echo $deal_text;
@@ -284,7 +286,7 @@ include('header-default__premium_only.php');
                 		</<?php echo esc_html( $coupon_title_tag ); ?>>
 			 		<?php } else { ?>
 						<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
-							<a href="<?php echo $link; ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
+							<a href="<?php echo $link; ?>" target="<?php echo $target; ?>" rel="nofollow"><?php echo $title; ?></a>
                 		</<?php echo esc_html( $coupon_title_tag ); ?>>
 					<?php } 
 				?>
@@ -410,7 +412,7 @@ include('header-default__premium_only.php');
 						<?php endif; ?>
 					<?php elseif ( $coupon_type === 'Deal' ): ?>
                         <div class="wpcd-deal-code wpcd-btn-wrap">
-                            <a class="wpcd-template-six-btn masterTooltip" target="_blank" href="<?php echo $link; ?>"
+                            <a class="wpcd-template-six-btn masterTooltip" target="<?php echo $target; ?>" href="<?php echo $link; ?>"
                                title="<?php echo __( 'Click Here To Get this deal', 'wpcd-coupon' ); ?>"
                                data-clipboard-text="<?php if ( ! empty( $deal_text ) ) {
 								   echo $deal_text;
@@ -482,7 +484,7 @@ include('header-default__premium_only.php');
                 		</<?php echo esc_html( $coupon_title_tag ); ?>>
 			 		<?php } else { ?>
 						<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
-							<a href="<?php echo $link; ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
+							<a href="<?php echo $link; ?>" target="<?php echo $target; ?>" rel="nofollow"><?php echo $title; ?></a>
                 		</<?php echo esc_html( $coupon_title_tag ); ?>>
 					<?php } 
 				?>
@@ -543,7 +545,7 @@ include('header-default__premium_only.php');
 								   echo $deal_hover_text;
 							   } else {
 								   echo __( "Click Here To Get This Deal", 'wpcd-coupon' );
-							   } ?>" href="<?php echo $link; ?>" target="_blank">
+							   } ?>" href="<?php echo $link; ?>" target="<?php echo $target; ?>">
                                 <span class="wpcd_deal_icon">
                                     <img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>img/deal-24.png" style="width: 100%;height: 100%;" >
                                 </span><?php echo $deal_text; ?>

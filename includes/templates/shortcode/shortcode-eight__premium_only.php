@@ -59,6 +59,9 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 
 $wpcd_template_eight_theme  = get_post_meta( $coupon_id, 'coupon_details_template-eight-theme', true );
 
+$linkTarget = get_option("wpcd_coupon-link-target");
+$target = ($linkTarget == "on") ? "_self" : "_blank" ;
+
 if ( $wpcd_text_to_show == 'description' ) {
 	$wpcd_custom_text = $description;
 } else {
@@ -124,7 +127,7 @@ $template = new WPCD_Template_Loader();
 			</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
 		} else { ?>
 			<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-new-title">
-				<a href="<?php echo esc_url( $link ); ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
+				<a href="<?php echo esc_url( $link ); ?>" target="<?php echo $target; ?>" rel="nofollow"><?php echo $title; ?></a>
 			</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
 		}
 	   ?>
@@ -161,7 +164,7 @@ $template = new WPCD_Template_Loader();
 				</a>
 			<?php endif; ?>
 		<?php endif; ?>
-		<a class="wpcd-new-goto-button masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank" title="<?php echo $deal_hover_text; ?>" style="background-color: <?php echo $wpcd_template_eight_theme; ?>">
+		<a class="wpcd-new-goto-button masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="<?php echo $target; ?>" title="<?php echo $deal_hover_text; ?>" style="background-color: <?php echo $wpcd_template_eight_theme; ?>">
 		   <?php echo $deal_text; ?>
 		</a>
 	</div><!-- End of grid-three -->

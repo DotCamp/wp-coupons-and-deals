@@ -49,6 +49,9 @@ $deal_text                 = ( ! empty( $deal_text ) ? $deal_text : __( 'Claim T
 $second_deal_text          = ( ! empty( $second_deal_text ) ? $second_deal_text : __( 'Claim This Deal', 'wpcd-coupon' ) );
 $third_deal_text           = ( ! empty( $third_deal_text ) ? $third_deal_text : __( 'Claim This Deal', 'wpcd-coupon' ) );
 
+$linkTarget = get_option("wpcd_coupon-link-target");
+$target = ($linkTarget == "on") ? "_self" : "_blank" ;
+
 if ( $wpcd_text_to_show == 'description' ) {
 	$wpcd_custom_text = $description;
 } else {
@@ -92,7 +95,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                 	</<?php echo esc_html( $coupon_title_tag ); ?>>
 			 	<?php } else { ?>
 					<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
-						<a href="<?php echo $link; ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
+						<a href="<?php echo $link; ?>" target="<?php echo $target; ?>" rel="nofollow"><?php echo $title; ?></a>
                 	</<?php echo esc_html( $coupon_title_tag ); ?>>
 				<?php } 
 			?>
@@ -170,7 +173,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 								    } else {
 									    echo __( "Click Here To Get This Deal", 'wpcd-coupon' );
 								    } ?>" 
-					   href="<?php echo $link; ?>" target="_blank">
+					   href="<?php echo $link; ?>" target="<?php echo $target; ?>">
                         <span class="wpcd_deal_icon">
                         	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>img/deal-24.png" style="width: 100%;height: 100%;" >
                         </span><?php echo $deal_text; ?>
@@ -338,7 +341,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 								    } else {
 									   echo __( "Click Here To Get This Deal", 'wpcd-coupon' );
 								    } ?>" 
-					   href="<?php echo $second_link; ?>" target="_blank">
+					   href="<?php echo $second_link; ?>" target="<?php echo $target; ?>">
                         <span class="wpcd_deal_icon">
                         	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>img/deal-24.png" style="width: 100%;height: 100%;" >
                         </span><?php echo $second_deal_text; ?>
@@ -502,7 +505,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 							    } else {
 								    echo __( "Click Here To Get This Deal", 'wpcd-coupon' );
 							    } ?>" 
-					   href="<?php echo $third_link; ?>" target="_blank">
+					   href="<?php echo $third_link; ?>" target="<?php echo $target; ?>">
                         <span class="wpcd_deal_icon">
                         	<img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>img/deal-24.png" style="width: 100%;height: 100%;" >
                         </span><?php echo $third_deal_text; ?>

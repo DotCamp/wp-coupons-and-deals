@@ -54,6 +54,9 @@ $expire_date_format        = date( "m/d/Y", strtotime( $expire_date ) );
 $template                  = new WPCD_Template_Loader();
 $button_class              = 'wpcd-btn-' . $coupon_id;
 
+$linkTarget = get_option("wpcd_coupon-link-target");
+$target = ($linkTarget == "on") ? "_self" : "_blank" ;
+
 $dt_coupon_type_name       = ( !empty( $dt_coupon_type_name ) ) ? $dt_coupon_type_name : __( 'Coupon', 'wpcd-coupon' );
 $dt_deal_type_name         = ( !empty( $dt_deal_type_name ) ) ? $dt_deal_type_name : __( 'Deal', 'wpcd-coupon' );
 $expire_text               = ( !empty( $expire_text ) ) ? $expire_text : __( 'Expires On: ', 'wpcd-coupon' );
@@ -170,7 +173,7 @@ include( 'header-category__premium_only.php' );
                 </<?php echo esc_html($coupon_title_tag); ?>> <?php
             } else { ?>
                 <<?php echo esc_html($coupon_title_tag); ?> class="wpcd-new-title">
-                    <a href="<?php echo esc_url($link); ?>" target="_blank" rel="nofollow">
+                    <a href="<?php echo esc_url($link); ?>" target="<?php echo $target; ?>" rel="nofollow">
                         <?php echo $title; ?>
                     </a>
                 </<?php echo esc_html( $coupon_title_tag ); ?>>
@@ -200,7 +203,7 @@ include( 'header-category__premium_only.php' );
                 </a>
             <?php endif; ?>
         <?php endif; ?>
-        <a class="wpcd-new-goto-button masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank" title="<?php echo $deal_hover_text; ?>" >
+        <a class="wpcd-new-goto-button masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="<?php echo $target; ?>" title="<?php echo $deal_hover_text; ?>" >
            <?php echo $deal_text; ?>
         </a>
     </div><!-- End of grid-three -->

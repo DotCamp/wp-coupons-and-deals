@@ -56,6 +56,8 @@ $disable_menu              = get_option('wpcd_disable-menu-archive-code');
 $template                  = new WPCD_Template_Loader();
 $coupon_categories         = get_the_terms($coupon_id, 'wpcd_coupon_category');
 $coupon_categories_class   = '';
+$linkTarget = get_option("wpcd_coupon-link-target");
+$target = ($linkTarget == "on") ? "_self" : "_blank" ;
 
 if ($coupon_categories && count($coupon_categories) > 0) {
     foreach ($coupon_categories as $category) {
@@ -125,7 +127,7 @@ include('header-default__premium_only.php');
 
                     <div class="wpcd_seven_productPic">
                         <?php if ($coupon_thumbnail): ?>
-                            <a href="<?php echo $link; ?>" target="_blank">
+                            <a href="<?php echo $link; ?>" target="<?php echo $target; ?>">
                                 <img src="<?php echo $coupon_thumbnail; ?>"
                                 alt="<?php _e('Coupon image not uploaded', 'wpcd-coupon'); ?>" alt="Product-pic">
                             </a>
@@ -141,7 +143,7 @@ include('header-default__premium_only.php');
                             </<?php echo esc_html( $coupon_title_tag ); ?>> <?php
                         } else { ?>
                             <<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-new-title">
-                                <a href="<?php echo esc_url( $link ); ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
+                                <a href="<?php echo esc_url( $link ); ?>" target="<?php echo $target; ?>" rel="nofollow"><?php echo $title; ?></a>
                             </<?php echo esc_html( $coupon_title_tag ); ?>> <?php
                         }?>
                         <div class="wpcd-coupon-description">
@@ -185,7 +187,7 @@ include('header-default__premium_only.php');
                             <div class="wpcd_seven_btn">
                                 <a class="masterTooltip" 
                                     href="<?php echo $link; ?>"
-                                    target="_blank"
+                                    target="<?php echo $target; ?>"
                                     title="<?php echo $deal_hover_text; ?>"
                                     data-title-ab="<?php echo $deal_text; ?>"><?php echo $deal_text; ?>
                                 </a>
