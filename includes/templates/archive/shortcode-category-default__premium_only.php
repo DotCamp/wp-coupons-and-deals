@@ -14,6 +14,7 @@ $title                     = get_the_title();
 $link                      = get_post_meta( $coupon_id, 'coupon_details_link', true );
 $coupon_code               = get_post_meta( $coupon_id, 'coupon_details_coupon-code-text', true );
 $coupon_thumbnail          = wpcd_coupon_thumbnail_img( $coupon_id );
+$link_thumbnail            = get_option('wpcd_coupon-link-featured-img'); 
 $discount_text             = get_post_meta( $coupon_id, 'coupon_details_discount-text', true );
 $coupon_type               = get_post_meta( $coupon_id, 'coupon_details_coupon-type', true );
 $description               = get_post_meta( $coupon_id, 'coupon_details_description', true );
@@ -106,8 +107,13 @@ include('header-category__premium_only.php');
                     </p>
                 </div>
                 <div class="wpcd-template-five-pro-img">
-                    <img src="<?php echo $coupon_thumbnail; ?>"
-                         alt="image">
+                    <?php
+                        if ($link_thumbnail == "on"):
+                            echo "<a href='{$link}' target='{$target}'><img src='{$coupon_thumbnail}' alt='Coupon'></a>";
+                        else:
+                            echo "<img src='{$coupon_thumbnail}' alt='Coupon'>";
+                        endif;
+                     ?>
                 </div>
 
                 <div class="wpcd-template-five-texts">
@@ -361,7 +367,13 @@ include('header-category__premium_only.php');
                 </div>
                 <div class="wpcd-coupon-six-img-and-btn">
                     <div class="item-img">
-                        <img src="<?php echo $coupon_thumbnail; ?>" alt="Coupon">
+                        <?php
+                            if ($link_thumbnail == "on"):
+                                echo "<a href='{$link}' target='{$target}'><img src='{$coupon_thumbnail}' alt='Coupon'></a>";
+                            else:
+                                echo "<img src='{$coupon_thumbnail}' alt='Coupon'>";
+                            endif;
+                         ?>
                     </div>
                     <div>
 						<?php if ( $coupon_type === 'Coupon' ): ?>

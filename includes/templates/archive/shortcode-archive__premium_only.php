@@ -24,6 +24,7 @@ $title                     = get_the_title();
 $link                      = get_post_meta($coupon_id, 'coupon_details_link', true);
 $coupon_code               = get_post_meta($coupon_id, 'coupon_details_coupon-code-text', true);
 $coupon_thumbnail          = wpcd_coupon_thumbnail_img( $coupon_id );
+$link_thumbnail            = get_option('wpcd_coupon-link-featured-img'); 
 $discount_text             = get_post_meta($coupon_id, 'coupon_details_discount-text', true);
 $coupon_type               = get_post_meta($coupon_id, 'coupon_details_coupon-type', true);
 $description               = get_post_meta($coupon_id, 'coupon_details_description', true);
@@ -111,6 +112,13 @@ include('header-grid__premium_only.php');
             <div class="wpcd_coupon_li_top_wr"
              style="background-image:url('<?php echo esc_url($coupon_thumbnail); ?>')">
             <?php if( WPCD_Amp::wpcd_amp_is() ) { ?>
+                <?php
+                if ($link_thumbnail == "on"):
+                    echo "<a href='{$link}' target='{$target}'><img class='wpcd_archive_coupon_feature_image' src='$coupon_thumbnail' style='width: 100%;height: 100%;' ></a>";
+                else:
+                    echo "<img class='wpcd_archive_coupon_feature_image' src='$coupon_thumbnail' style='width: 100%;height: 100%;' >";
+                endif;
+                ?>
                 <img class="wpcd_archive_coupon_feature_image" src="<?php echo esc_url($coupon_thumbnail); ?>" style="width: 100%;height: 100%;" >
             <?php } ?>
              </div>

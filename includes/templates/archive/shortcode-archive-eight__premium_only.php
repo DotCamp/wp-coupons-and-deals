@@ -24,6 +24,7 @@ $title                    = get_the_title();
 $link                     = get_post_meta( $coupon_id, 'coupon_details_link', true );
 $coupon_code              = get_post_meta( $coupon_id, 'coupon_details_coupon-code-text', true );
 $coupon_thumbnail         = wpcd_coupon_thumbnail_img( $coupon_id );
+$link_thumbnail           = get_option('wpcd_coupon-link-featured-img'); 
 $discount_text            = get_post_meta( $coupon_id, 'coupon_details_discount-text', true );
 $coupon_type              = get_post_meta( $coupon_id, 'coupon_details_coupon-type', true );
 $description              = get_post_meta( $coupon_id, 'coupon_details_description', true );

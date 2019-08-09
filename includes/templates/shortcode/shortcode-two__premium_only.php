@@ -12,6 +12,7 @@ global $coupon_id;
 $title                     = get_the_title();
 $description               = get_post_meta( $coupon_id, 'coupon_details_description', true );
 $coupon_thumbnail          = wpcd_coupon_thumbnail_img( $coupon_id );
+$link_thumbnail            = get_option('wpcd_coupon-link-featured-img'); 
 $coupon_type               = get_post_meta( $coupon_id, 'coupon_details_coupon-type', true );
 $discount_text             = get_post_meta( $coupon_id, 'coupon_details_discount-text', true );
 $link                      = get_post_meta( $coupon_id, 'coupon_details_link', true );
@@ -70,7 +71,13 @@ $template = new WPCD_Template_Loader();
 <div class="wpcd-coupon-two wpcd-coupon-id-<?php echo $coupon_id; ?>">
     <div class="wpcd-col-two-1-4">
         <figure>
-            <img class="wpcd-coupon-two-img" src="<?php echo $coupon_thumbnail; ?>">
+            <?php
+                if ($link_thumbnail == "on"):
+                    echo "<a href='{$link}' target='{$target}'><img class='wpcd-coupon-two-img' src='{$coupon_thumbnail}' alt='Coupon'></a>";
+                else:
+                    echo "<img class='wpcd-coupon-two-img' src='{$coupon_thumbnail}' alt='Coupon'>";
+                endif;
+            ?>
         </figure>
         <div class="wpcd-coupon-two-discount-text">
 			<?php echo $discount_text; ?>

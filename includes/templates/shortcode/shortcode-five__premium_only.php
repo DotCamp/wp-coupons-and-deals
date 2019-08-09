@@ -41,6 +41,7 @@ $expireDateFormat          = get_option( 'wpcd_expiry-date-format' );
 $hide_coupon               = get_post_meta( $coupon_id, 'coupon_details_hide-coupon', true );
 $wpcd_template_five_theme  = get_post_meta( $coupon_id, 'coupon_details_template-five-theme', true );
 $coupon_thumbnail     	   = wpcd_coupon_thumbnail_img($coupon_id);
+$link_thumbnail            = get_option('wpcd_coupon-link-featured-img'); 
 $wpcd_text_to_show         = get_option( 'wpcd_text-to-show' );
 $wpcd_custom_text          = get_option( 'wpcd_custom-text' );
 $wpcd_dummy_coupon_img     = WPCD_Plugin::instance()->plugin_assets . 'img/coupon-200x200.png';
@@ -81,7 +82,13 @@ $template = new WPCD_Template_Loader();
             </p>
         </div>
         <div class="wpcd-template-five-pro-img">
-            <img src="<?php echo $coupon_thumbnail ;?>" alt="Coupon">
+            <?php
+                if ($link_thumbnail == "on"):
+                    echo "<a href='{$link}' target='{$target}'><img src='{$coupon_thumbnail}' alt='Coupon'></a>";
+                else:
+                    echo "<img src='{$coupon_thumbnail}' alt='Coupon'>";
+                endif;
+            ?>
         </div>
 
         <div class="wpcd-template-five-texts">

@@ -15,6 +15,7 @@ $title                     = get_the_title();
 $link                      = get_post_meta( $coupon_id, 'coupon_details_link', true );
 $coupon_code               = get_post_meta( $coupon_id, 'coupon_details_coupon-code-text', true );
 $coupon_thumbnail          = wpcd_coupon_thumbnail_img( $coupon_id );
+$link_thumbnail            = get_option('wpcd_coupon-link-featured-img'); 
 $discount_text             = get_post_meta( $coupon_id, 'coupon_details_discount-text', true );
 $coupon_type               = get_post_meta( $coupon_id, 'coupon_details_coupon-type', true );
 $description               = get_post_meta( $coupon_id, 'coupon_details_description', true );
@@ -94,7 +95,13 @@ include('header-category__premium_only.php');
 <div class="wpcd-coupon-one wpcd-coupon-id-<?php echo $coupon_id; ?>">
     <div class="wpcd-col-one-1-8">
         <figure>
-            <img class="wpcd-coupon-one-img" src="<?php echo $coupon_thumbnail; ?>">
+            <?php
+                if ($link_thumbnail == "on"):
+                    echo "<a href='{$link}' target='{$target}'><img src='{$coupon_thumbnail}' alt='Coupon'></a>";
+                else:
+                    echo "<img src='{$coupon_thumbnail}' alt='Coupon'>";
+                endif;
+            ?>
         </figure>
     </div>
     <div class="wpcd-col-one-7-8">

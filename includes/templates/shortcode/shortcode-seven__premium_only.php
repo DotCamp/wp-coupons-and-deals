@@ -21,6 +21,7 @@ global $coupon_id;
 $title                     = get_the_title();
 $description               = get_post_meta( $coupon_id, 'coupon_details_description', true );
 $coupon_thumbnail          = wpcd_coupon_thumbnail_img( $coupon_id );
+$link_thumbnail            = get_option('wpcd_coupon-link-featured-img'); 
 $discount_text             = get_post_meta( $coupon_id, 'coupon_details_discount-text', true );
 $coupon_type               = get_post_meta( $coupon_id, 'coupon_details_coupon-type', true );
 $link                      = get_post_meta( $coupon_id, 'coupon_details_link', true );
@@ -94,8 +95,13 @@ $template = new WPCD_Template_Loader();
 					<p><?php echo $discount_text; ?></p>
 				</div>
 				<div class="wpcd_seven_productPic">
-					<!-- <img src="http://rdironworks.com/wp-content/uploads/2017/12/dummy-200x200.png" alt="Product-pic"> -->
-					<img src="<?php echo $coupon_thumbnail; ?>" alt="Coupon">
+                                     <?php
+                                        if ($link_thumbnail == "on"):
+                                            echo "<a href='{$link}' target='{$target}'><img src='{$coupon_thumbnail}' alt='Coupon'></a>";
+                                        else:
+                                            echo "<img src='{$coupon_thumbnail}' alt='Coupon'>";
+                                        endif;
+                                     ?>
 				</div>
 			</div>
 			<div class="wpcd_seven_headingAndExpire">

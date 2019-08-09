@@ -279,6 +279,13 @@ class WPCD_Settings_Page_Pro {
                                         'description' => __( 'Enable it will open the link in current tab', 'wpcd-coupon' ),
                                         'type' => 'checkbox',
                                         'default' => ''
+                                ),
+                                array (
+                                        'id' => 'coupon-link-featured-img',
+                                        'label' => __( 'Link the featured Image', 'wpcd-coupon' ),
+                                        'description' => __( 'Enable it will Link the featured Image to affiliate link', 'wpcd-coupon' ),
+                                        'type'  => 'checkbox',
+                                        'default' => ''
                                 )
 			),
 			array(
