@@ -9,6 +9,9 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
         <?php
             
             $archive_category_setting = get_option( 'wpcd_archive-munu-categories' );
+            if( !($all_coupon_text = get_option( 'wpcd_all-coupon-text')) ){
+                $all_coupon_text = __( 'All Coupons', 'wpcd-coupon' );
+            }
             
             if( $archive_category_setting == 'vendor' ) {
                 $terms = get_terms( 'wpcd_coupon_vendor' );
@@ -49,7 +52,7 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
                                         }
                                     ?>
                                     <a class="wpcd_category<?php echo $wpcd_dropdown_content; ?>" <?php echo $wpcd_js_data_tax_name; ?>="all" href="<?php echo $current_url_final_all; ?>">
-                                        <?php echo __( 'All Coupons', 'wpcd-coupon' ); ?>
+                                        <?php echo $all_coupon_text; ?>
                                     </a>
                                 </li>
                                 <?php foreach ( $terms as $term ): 

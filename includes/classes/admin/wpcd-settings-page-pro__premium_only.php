@@ -286,6 +286,14 @@ class WPCD_Settings_Page_Pro {
                                         'description' => __( 'Enable it will Link the featured Image to affiliate link', 'wpcd-coupon' ),
                                         'type'  => 'checkbox',
                                         'default' => ''
+                                ),
+                                array (
+                                        'id' => 'all-coupon-text',
+                                        'label' => __( 'All Coupons (text)', 'wpcd-coupon' ),
+                                        'description' => __( '"All Coupons" text in Archive Shortcode to display all coupons.', 'wpcd-coupon' ),
+                                        'type'  => 'text',
+                                        'placeholder' => __('default : All Coupons','wpcd-coupon'),
+                                        'default' => ''
                                 )
 			),
 			array(
