@@ -109,6 +109,10 @@ include('header-grid__premium_only.php');
         <?php
         if ($hide_featured_image != 'on') {
         if (!empty($coupon_thumbnail)) { ?>
+        <?php 
+        if ($link_thumbnail == "on"): 
+            echo "<a href='{$link}' target='{$target}'>";
+        endif; ?>
             <div class="wpcd_coupon_li_top_wr"
              style="background-image:url('<?php echo esc_url($coupon_thumbnail); ?>')">
             <?php if( WPCD_Amp::wpcd_amp_is() ) { ?>
@@ -122,6 +126,12 @@ include('header-grid__premium_only.php');
                 <img class="wpcd_archive_coupon_feature_image" src="<?php echo esc_url($coupon_thumbnail); ?>" style="width: 100%;height: 100%;" >
             <?php } ?>
              </div>
+        <?php 
+        if ($link_thumbnail == "on"): 
+            echo "</a>";
+        endif; 
+        ?>
+        
         <?php } else { ?>
             <div class="wpcd_coupon_li_top_wr"></div>
         <?php } ?>
