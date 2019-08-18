@@ -153,7 +153,7 @@ wp_enqueue_script( 'wpcd-clipboardjs' );
 			<?php else: ?>
                 <div class="wpcd-coupon-code">
                     <a class="wpcd-template-five-btn masterTooltip <?php echo $button_class; ?>"
-                       href="<?php echo $link; ?>" target="_blank"
+                       href="<?php echo $link; ?>" target="<?php echo $target; ?>"
                        title="<?php echo __( 'Click Here To Copy Coupon', 'wpcd-coupon' ); ?>"
                        data-clipboard-text="<?php if ( ! empty( $coupon_code ) ) {
 						   echo $coupon_code;

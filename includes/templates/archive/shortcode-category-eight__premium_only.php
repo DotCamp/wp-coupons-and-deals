@@ -194,7 +194,7 @@ include( 'header-category__premium_only.php' );
                 $template->get_template_part( 'hide-coupon3__premium_only' );
                 ?>
             <?php else: ?>
-                <a class="wpcd-new-coupon-code <?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank" data-clipboard-text="<?php echo $coupon_code; ?>" 
+                <a class="wpcd-new-coupon-code <?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="<?php echo $target; ?>" data-clipboard-text="<?php echo $coupon_code; ?>" 
                 title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
                                  echo $coupon_hover_text;
                              }

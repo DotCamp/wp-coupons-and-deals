@@ -252,7 +252,14 @@ class WPCD_Settings_Page {
 					'description' => __( 'Enable Social Share buttons in Coupons', 'wpcd-coupon' ),
 					'type' => 'checkbox',
 					'default' => ''
-				)
+				),
+                                array (
+                                        'id' => 'coupon-link-target',
+                                        'label' => __( 'Link Target( current or new tab)', 'wpcd-coupon' ),
+                                        'description' => __( 'Enable it will open the link in current tab', 'wpcd-coupon' ),
+                                        'type' => 'checkbox',
+                                        'default' => ''
+                                )
 			),
 			array(
 				array(

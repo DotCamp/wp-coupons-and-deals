@@ -135,7 +135,7 @@ $template = new WPCD_Template_Loader();
                         <?php else: ?>
                             <div class="wpcd_seven_btn">
                                 <a class="masterTooltip <?php echo $button_class; ?>" 
-                                    target="_blank"
+                                    target="<?php echo $target; ?>"
                                     href="<?php echo $link; ?>"
                                     title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
                                                      if ( ! empty( $coupon_hover_text ) ) {

@@ -125,7 +125,7 @@ $template = new WPCD_Template_Loader();
                             <div class="wpcd-coupon-code">
                                 <a rel="nofollow" href="<?php echo $link; ?>"
                                    class="<?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip wpcd-btn wpcd-coupon-button"
-                                   target="_blank"
+                                   target="<?php echo $target; ?>"
                                    title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
 			                                   		if ( ! empty( $coupon_hover_text ) ) {
 													    echo $coupon_hover_text;
@@ -147,7 +147,7 @@ $template = new WPCD_Template_Loader();
                         <div class="wpcd-coupon-code">
                             <a rel="nofollow" href="<?php echo $link; ?>"
                                class="<?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip wpcd-btn wpcd-coupon-button"
-                               target="_blank"
+                               target="<?php echo $target; ?>"
                                title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
 		                                   		if ( ! empty( $coupon_hover_text ) ) {
 												    echo $coupon_hover_text;

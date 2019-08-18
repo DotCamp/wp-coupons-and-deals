@@ -215,7 +215,7 @@ include('header-category__premium_only.php');
                         <div class="wpcd-coupon-code">
                             <a rel="nofollow" href="<?php echo $link; ?>"
                                class="<?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip wpcd-btn wpcd-coupon-button"
-                               target="_blank" href="<?php echo $link; ?>"
+                               target="<?php echo $target; ?>" href="<?php echo $link; ?>"
                                title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
                                                 if ( ! empty( $coupon_hover_text ) ) {
                                                     echo $coupon_hover_text;
@@ -237,7 +237,7 @@ include('header-category__premium_only.php');
                     <div class="wpcd-coupon-code">
                         <a rel="nofollow" href="<?php echo $link; ?>"
                            class="<?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip wpcd-btn wpcd-coupon-button"
-                           target="_blank" href="<?php echo $link; ?>"
+                           target="<?php echo $target; ?>" href="<?php echo $link; ?>"
                            title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
                                             if ( ! empty( $coupon_hover_text ) ) {
                                                 echo $coupon_hover_text;

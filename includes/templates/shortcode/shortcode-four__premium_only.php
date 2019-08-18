@@ -123,7 +123,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                         <div class="wpcd-coupon-code">
                             <a rel="nofollow"
                                class="<?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip wpcd-btn wpcd-coupon-button"
-                               target="_blank" href="<?php echo $link; ?>"
+                               target="<?php echo $target; ?>" href="<?php echo $link; ?>"
                                title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
 		                                   		if ( ! empty( $coupon_hover_text ) ) {
 												    echo $coupon_hover_text;
@@ -145,7 +145,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                     <div class="wpcd-coupon-code">
                         <a rel="nofollow"
                            class="<?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip wpcd-btn wpcd-coupon-button"
-                           target="_blank" href="<?php echo $link; ?>"
+                           target="<?php echo $target; ?>" href="<?php echo $link; ?>"
                            title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
 	                                   		if ( ! empty( $coupon_hover_text ) ) {
 											    echo $coupon_hover_text;
@@ -288,7 +288,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                 <div class="wpcd-coupon-code">
                     <a rel="nofollow"
                        class="<?php echo 'wpcd-btn-' . $coupon_id . '_' . $num_coupon; ?> masterTooltip wpcd-btn wpcd-coupon-button"
-                       target="_blank" href="<?php echo $second_link; ?>"
+                       target="<?php echo $target; ?>" href="<?php echo $second_link; ?>"
                        title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
                                    		if ( ! empty( $coupon_hover_text ) ) {
 										    echo $coupon_hover_text;
@@ -310,7 +310,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                 <div class="wpcd-coupon-code">
                     <a rel="nofollow"
                        class="<?php echo 'wpcd-btn-' . $coupon_id . '_' . $num_coupon; ?> masterTooltip wpcd-btn wpcd-coupon-button"
-                       target="_blank" href="<?php echo $second_link; ?>"
+                       target="<?php echo $target; ?>" href="<?php echo $second_link; ?>"
                        title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
                                    		if ( ! empty( $coupon_hover_text ) ) {
 										    echo $coupon_hover_text;
@@ -452,7 +452,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                 		<div class="wpcd-coupon-code">
                     	<a rel="nofollow"
                        class="<?php echo 'wpcd-btn-' . $coupon_id . '_' . $num_coupon; ?> masterTooltip wpcd-btn wpcd-coupon-button"
-                       target="_blank" href="<?php echo $third_link; ?>"
+                       target="<?php echo $target; ?>" href="<?php echo $third_link; ?>"
                        title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
                                    		if ( ! empty( $coupon_hover_text ) ) {
 										    echo $coupon_hover_text;
@@ -474,7 +474,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                 <div class="wpcd-coupon-code">
                     <a rel="nofollow"
                        class="<?php echo 'wpcd-btn-' . $coupon_id . '_' . $num_coupon; ?> masterTooltip wpcd-btn wpcd-coupon-button"
-                       target="_blank" href="<?php echo $third_link; ?>"
+                       target="<?php echo $target; ?>" href="<?php echo $third_link; ?>"
                        title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
                                    		if ( ! empty( $coupon_hover_text ) ) {
 										    echo $coupon_hover_text;

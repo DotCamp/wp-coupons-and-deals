@@ -154,7 +154,7 @@ include('header-category__premium_only.php');
                                     <div class="wpcd_seven_btn">
                                         <a class="masterTooltip <?php echo $button_class; ?>" 
                                             href="<?php echo $link; ?>"
-                                            target="_blank"
+                                            target="<?php echo $target; ?>"
                                             title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
                                                              echo $coupon_hover_text;
                                                          }

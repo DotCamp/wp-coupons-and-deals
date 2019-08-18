@@ -162,7 +162,7 @@ $template = new WPCD_Template_Loader();
 			<?php else: ?>
                 <div class="wpcd-coupon-code">
                     <a class="wpcd-template-five-btn masterTooltip <?php echo $button_class; ?>"
-                       href="<?php echo $link; ?>" target="_blank" rel="nofollow"
+                       href="<?php echo $link; ?>" target="<?php echo $target; ?>" rel="nofollow"
                        title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
                                    		if ( ! empty( $coupon_hover_text ) ) {
 										    echo $coupon_hover_text;

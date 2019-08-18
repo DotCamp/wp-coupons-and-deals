@@ -171,7 +171,7 @@ if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
 							   echo $coupon_hover_text;
 						   } else {
 							   echo __( "Click To Copy Coupon", 'wpcd-coupon' );
-						   } ?>" href="<?php echo $link; ?>" target="_blank"
+						   } ?>" href="<?php echo $link; ?>" target="<?php echo $target; ?>"
                            data-clipboard-text="<?php echo $coupon_code; ?>">
                             <span class="wpcd_coupon_icon"></span> <?php echo $coupon_code; ?>
                             <span id="coupon_code_<?php echo $coupon_id; ?>"
@@ -190,7 +190,7 @@ if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
 							   echo $coupon_hover_text;
 						   } else {
 							   echo __( "Click To Copy Coupon", 'wpcd-coupon' );
-						   } ?>" href="<?php echo $link; ?>" target="_blank"
+						   } ?>" href="<?php echo $link; ?>" target="<?php echo $target; ?>"
                            data-clipboard-text="<?php echo $coupon_code; ?>">
                             <span class="wpcd_coupon_icon"></span> <?php echo $coupon_code; ?>
                             <span id="coupon_code_<?php echo $coupon_id; ?>"

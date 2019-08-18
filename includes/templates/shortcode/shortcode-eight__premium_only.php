@@ -149,7 +149,7 @@ $template = new WPCD_Template_Loader();
 			<?php else: ?>
 				<a class="wpcd-new-coupon-code <?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip" 
 				   rel="nofollow" href="<?php echo esc_url( $link ); ?>" 
-				   target="_blank" 
+				   target="<?php echo $target; ?>" 
 				   data-clipboard-text="<?php echo $coupon_code; ?>" 
 				   title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
                                     if ( ! empty( $coupon_hover_text ) ) {

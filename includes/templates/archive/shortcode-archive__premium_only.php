@@ -173,7 +173,7 @@ include('header-grid__premium_only.php');
                                             }
                                         }
                                     ?>"
-                           target="_blank"
+                           target="<?php echo $target; ?>"
                            data-clipboard-text="<?php echo $coupon_code; ?>">
                             <span class="wpcd_coupon_icon">
                                 <img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>img/coupon-code-24.png" style="width: 100%;height: 100%;" >

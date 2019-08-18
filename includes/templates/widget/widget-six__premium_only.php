@@ -173,7 +173,7 @@ $expire_date_format = date( "m/d/Y", strtotime( $expire_date ) );
 						?>
 					<?php else: ?>
                         <div class="wpcd-coupon-code wpcd-btn-wrap">
-                            <a class="wpcd-template-six-btn masterTooltip <?php echo $button_class; ?>" target="_blank"
+                            <a class="wpcd-template-six-btn masterTooltip <?php echo $button_class; ?>" target="<?php echo $target; ?>"
                                href="<?php echo $link; ?>"
                                title="<?php echo __( 'Click Here To Copy Coupon', 'wpcd-coupon' ); ?>"
                                data-clipboard-text="<?php if ( ! empty( $coupon_code ) ) {

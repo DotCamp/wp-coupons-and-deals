@@ -211,7 +211,7 @@ include('header-default__premium_only.php');
 				<?php else: ?>
                     <div class="wpcd-coupon-code">
                         <a class="wpcd-template-five-btn masterTooltip <?php echo $button_class; ?>"
-                           href="<?php echo $link; ?>" target="_blank"
+                           href="<?php echo $link; ?>" target="<?php echo $target; ?>"
                            title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
                                             echo $coupon_hover_text;
                                         }
@@ -407,7 +407,7 @@ include('header-default__premium_only.php');
 						<?php else: ?>
                             <div class="wpcd-coupon-code wpcd-btn-wrap">
                                 <a class="wpcd-template-six-btn masterTooltip <?php echo $button_class; ?>"
-                                   target="_blank" href="<?php echo $link; ?>"
+                                   target="<?php echo $target; ?>" href="<?php echo $link; ?>"
                                    title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
                                                     echo $coupon_hover_text;
                                                 }
@@ -515,7 +515,7 @@ include('header-default__premium_only.php');
                                                     echo $coupon_hover_text;
                                                 }
                                             ?>" 
-                                   href="<?php echo $link; ?>" target="_blank"
+                                   href="<?php echo $link; ?>" target="<?php echo $target; ?>"
                                    data-clipboard-text="<?php echo $coupon_code; ?>">
                                     <span class="wpcd_coupon_icon">
                                         <img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>img/coupon-code-24.png" style="width: 100%;height: 100%;" >
@@ -533,7 +533,7 @@ include('header-default__premium_only.php');
                                                 echo $coupon_hover_text;
                                             }
                                         ?>" 
-                               href="<?php echo $link; ?>" target="_blank"
+                               href="<?php echo $link; ?>" target="<?php echo $target; ?>"
                                data-clipboard-text="<?php echo $coupon_code; ?>">
                                 <span class="wpcd_coupon_icon">
                                     <img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>img/coupon-code-24.png" style="width: 100%;height: 100%;" >
