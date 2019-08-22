@@ -150,11 +150,13 @@ You can [__submit a feature request__](https://wpcouponsdeals.com/submit-new-fea
 
 == Changelog ==
 
-= 2.8.4 =
+= 2.8.5 =
 
-Release Date: July 2nd, 2019
+Release Date: August 22nd, 2019
 
-* FIX: Deprecation Error.
-* UPDATE: Freemius SDK to 2.3.0.
+* NEW: Option to Choose Link Target for Affiliate Links.
+* NEW: Option to Link Featured Image to Affiliate Link.
+* PRO: NEW: Option to Change "All Coupons" Text in Archive Shortcode.
+* FIX: Showing Admin bar Menu to Admin only.
 
 Full changelog can be found here - **[WP Coupons and Deals changelog](https://wpcouponsdeals.com/changelog)**
