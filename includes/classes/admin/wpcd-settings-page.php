@@ -253,13 +253,6 @@ class WPCD_Settings_Page {
 					'type' => 'checkbox',
 					'default' => ''
 				),
-                                array (
-                                        'id' => 'coupon-link-target',
-                                        'label' => __( 'Link Target( current or new tab)', 'wpcd-coupon' ),
-                                        'description' => __( 'Enable it will open the link in current tab', 'wpcd-coupon' ),
-                                        'type' => 'checkbox',
-                                        'default' => ''
-                                )
 			),
 			array(
 				array(
@@ -319,6 +312,13 @@ class WPCD_Settings_Page {
 				)
 			),
 			array(
+				array (
+					'id' => 'coupon-link-target',
+					'label' => __( 'Affiliate Link in Current Tab', 'wpcd-coupon' ),
+					'description' => __( 'Enabling it will open the affiliate link in current tab. By default it opens in a new tab.', 'wpcd-coupon' ),
+					'type' => 'checkbox',
+					'default' => ''
+				),
 				array(
 					'id'          => 'disable-coupon-title-link',
 					'label'       => __( 'Disable Link in Coupon Title', 'wpcd-coupon' ),

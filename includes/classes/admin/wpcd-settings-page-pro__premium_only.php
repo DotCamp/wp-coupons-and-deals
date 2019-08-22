@@ -273,28 +273,6 @@ class WPCD_Settings_Page_Pro {
 					'type' => 'checkbox',
 					'default' => ''
 				),
-                                array (
-                                        'id' => 'coupon-link-target',
-                                        'label' => __( 'Link Target( current or new tab)', 'wpcd-coupon' ),
-                                        'description' => __( 'Enable it will open the link in current tab', 'wpcd-coupon' ),
-                                        'type' => 'checkbox',
-                                        'default' => ''
-                                ),
-                                array (
-                                        'id' => 'coupon-link-featured-img',
-                                        'label' => __( 'Link the featured Image', 'wpcd-coupon' ),
-                                        'description' => __( 'Enable it will Link the featured Image to affiliate link', 'wpcd-coupon' ),
-                                        'type'  => 'checkbox',
-                                        'default' => ''
-                                ),
-                                array (
-                                        'id' => 'all-coupon-text',
-                                        'label' => __( 'All Coupons (text)', 'wpcd-coupon' ),
-                                        'description' => __( '"All Coupons" text in Archive Shortcode to display all coupons.', 'wpcd-coupon' ),
-                                        'type'  => 'text',
-                                        'placeholder' => __('default : All Coupons','wpcd-coupon'),
-                                        'default' => ''
-                                )
 			),
 			array(
 				array(
@@ -452,6 +430,20 @@ class WPCD_Settings_Page_Pro {
 				),
 			),
 			array(
+				array (
+					'id' => 'coupon-link-target',
+					'label' => __( 'Affiliate Link in Current Tab', 'wpcd-coupon' ),
+					'description' => __( 'Enabling it will open the affiliate link in current tab. By default it opens in a new tab.', 'wpcd-coupon' ),
+					'type' => 'checkbox',
+					'default' => ''
+				),
+				array (
+					'id' => 'coupon-link-featured-img',
+					'label' => __( 'Link the Featured Image', 'wpcd-coupon' ),
+					'description' => __( 'Enabling it will link the featured image to affiliate link. By default only the image is shown, it is not linked.', 'wpcd-coupon' ),
+					'type'  => 'checkbox',
+					'default' => ''
+				),
 				array(
 					'id'          => 'disable-coupon-title-link',
 					'label'       => __( 'Disable Link in Coupon Title', 'wpcd-coupon' ),
@@ -488,6 +480,14 @@ class WPCD_Settings_Page_Pro {
 					'type'		  => 'text',
 					'default'	  => __( 'Deal', 'wpcd-coupon' ),
 					'placeholder' => __( 'Deal', 'wpcd-coupon' )
+				),
+				array (
+					'id' => 'all-coupon-text',
+					'label' => __( 'All Coupons Text', 'wpcd-coupon' ),
+					'description' => __( '"All Coupons" text in Archive Shortcode Navigation menu. Deafult is - All Coupons', 'wpcd-coupon' ),
+					'type'  => 'text',
+					'placeholder' => __('All Coupons','wpcd-coupon'),
+					'default' => ''
 				),
 			),
 		);
