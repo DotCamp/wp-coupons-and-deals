@@ -109,9 +109,9 @@ include('header-category__premium_only.php');
                 <div class="wpcd-template-five-pro-img">
                     <?php
                         if ($link_thumbnail == "on"):
-                            echo "<a href='{$link}' target='{$target}'><img src='{$coupon_thumbnail}' alt='Coupon'></a>";
+                            echo "<a href='{$link}' rel='nofollow' target='{$target}'><img src='{$coupon_thumbnail}' alt='{$title}'></a>";
                         else:
-                            echo "<img src='{$coupon_thumbnail}' alt='Coupon'>";
+                            echo "<img src='{$coupon_thumbnail}' alt='{$title}'>";
                         endif;
                      ?>
                 </div>

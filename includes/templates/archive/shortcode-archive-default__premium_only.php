@@ -133,9 +133,9 @@ include('header-default__premium_only.php');
             <div class="wpcd-template-five-pro-img">
                 <?php 
                 if ($link_thumbnail == "on"):
-                    echo "<a href='{$link}' target='{$target}'><img src='{$coupon_thumbnail}' alt='image'></a>";
+                    echo "<a href='{$link}' target='{$target}'><img src='{$coupon_thumbnail}' alt='{$title}'></a>";
                 else:
-                    echo "<img src='{$coupon_thumbnail}' alt='image'>";
+                    echo "<img src='{$coupon_thumbnail}' alt='{$title}'>";
                 endif;
                 ?>
             </div>
@@ -210,7 +210,7 @@ include('header-default__premium_only.php');
 					?>
 				<?php else: ?>
                     <div class="wpcd-coupon-code">
-                        <a class="wpcd-template-five-btn masterTooltip <?php echo $button_class; ?>"
+                        <a class="wpcd-template-five-btn masterTooltip rel="nofollow" <?php echo $button_class; ?>"
                            href="<?php echo $link; ?>" target="<?php echo $target; ?>"
                            title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
                                             echo $coupon_hover_text;
@@ -228,7 +228,7 @@ include('header-default__premium_only.php');
 				<?php endif; ?>
 			<?php elseif ( $coupon_type == 'Deal' ): ?>
                 <div class="wpcd-deal-code">
-                    <a class="wpcd-template-five-btn masterTooltip" href="<?php echo $link; ?>" target="<?php echo $target; ?>"
+                    <a class="wpcd-template-five-btn masterTooltip" rel="nofollow" href="<?php echo $link; ?>" target="<?php echo $target; ?>"
                        title="<?php echo __( 'Click Here To Get this deal', 'wpcd-coupon' ); ?>"
                        data-clipboard-text="<?php if ( ! empty( $deal_text ) ) {
 						   echo $deal_text;
@@ -392,9 +392,9 @@ include('header-default__premium_only.php');
                 <div class="item-img">
                     <?php 
                     if ($link_thumbnail == "on"):
-                        echo "<a href='{$link}' target='{$target}'><img src='{$coupon_thumbnail}' alt='Coupon'></a>";
+                        echo "<a href='{$link}' target='{$target}'><img src='{$coupon_thumbnail}' alt='{$title}'></a>";
                     else:
-                        echo "<img src='{$coupon_thumbnail}' alt='Coupon'>";
+                        echo "<img src='{$coupon_thumbnail}' alt='{$title}'>";
                     endif;
                     ?>
                 </div>
@@ -406,7 +406,7 @@ include('header-default__premium_only.php');
 							?>
 						<?php else: ?>
                             <div class="wpcd-coupon-code wpcd-btn-wrap">
-                                <a class="wpcd-template-six-btn masterTooltip <?php echo $button_class; ?>"
+                                <a class="wpcd-template-six-btn masterTooltip rel="nofollow" <?php echo $button_class; ?>"
                                    target="<?php echo $target; ?>" href="<?php echo $link; ?>"
                                    title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
                                                     echo $coupon_hover_text;
@@ -423,7 +423,7 @@ include('header-default__premium_only.php');
 						<?php endif; ?>
 					<?php elseif ( $coupon_type === 'Deal' ): ?>
                         <div class="wpcd-deal-code wpcd-btn-wrap">
-                            <a class="wpcd-template-six-btn masterTooltip" target="<?php echo $target; ?>" href="<?php echo $link; ?>"
+                            <a class="wpcd-template-six-btn masterTooltip" rel="nofollow" target="<?php echo $target; ?>" href="<?php echo $link; ?>"
                                title="<?php echo __( 'Click Here To Get this deal', 'wpcd-coupon' ); ?>"
                                data-clipboard-text="<?php if ( ! empty( $deal_text ) ) {
 								   echo $deal_text;

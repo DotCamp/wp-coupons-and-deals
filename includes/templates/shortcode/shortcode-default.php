@@ -169,7 +169,7 @@ $template = new WPCD_Template_Loader();
 
 				} elseif ( $coupon_type == 'Deal' ) { ?>
                     <div class="wpcd-coupon-code">
-                        <a class="<?php echo 'wpcd-btn-' . $coupon_id; ?> wpcd-btn masterTooltip wpcd-deal-button"
+                        <a rel="nofollow" class="<?php echo 'wpcd-btn-' . $coupon_id; ?> wpcd-btn masterTooltip wpcd-deal-button"
                            title="<?php if ( ! empty( $deal_hover_text ) ) {
 							   echo $deal_hover_text;
 						   } else {

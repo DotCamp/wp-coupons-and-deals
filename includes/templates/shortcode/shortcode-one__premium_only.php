@@ -69,9 +69,9 @@ $template = new WPCD_Template_Loader();
         <figure>
             <?php
                 if ($link_thumbnail == "on"):
-                    echo "<a href='{$link}' target='{$target}'><img class='wpcd-coupon-one-img' src='{$coupon_thumbnail}' alt='Coupon'></a>";
+                    echo "<a href='{$link}' rel='nofollow' target='{$target}'><img class='wpcd-coupon-one-img' src='{$coupon_thumbnail}' alt='{$title}'></a>";
                 else:
-                    echo "<img class='wpcd-coupon-one-img' src='{$coupon_thumbnail}' alt='Coupon'>";
+                    echo "<img class='wpcd-coupon-one-img' src='{$coupon_thumbnail}' alt='{$title}'>";
                 endif;
             ?>
         </figure>

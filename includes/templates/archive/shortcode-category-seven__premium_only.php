@@ -105,20 +105,14 @@ include('header-category__premium_only.php');
                         </div>
 
                         <div class="wpcd_seven_productPic">
-                            <?php if($coupon_thumbnail): ?>
-                            
-                            <?php
-                                if ($link_thumbnail == "on"):
-                                    echo "<a href='{$link}' target='{$target}'><img src='{$coupon_thumbnail}' alt='Coupon'></a>";
-                                else:
-                                    echo "<img src='{$coupon_thumbnail}' alt='Coupon'>";
-                                endif;
-                            ?>
-                                <!--<a href="<?php echo $link; ?>" target="<?php echo $target; ?>">
-                                    <img src="<?php echo $coupon_thumbnail; ?>"
-                                         alt="<?php _e( 'Coupon image not uploaded', 'wpcd-coupon' ); ?>" alt="Product-pic">
-                                </a>-->
-                            <?php endif; ?>
+                            <?php 
+                                if($coupon_thumbnail):
+                                    if ($link_thumbnail == "on"):
+                                        echo "<a href='{$link}' rel='nofollow' target='{$target}'><img src='{$coupon_thumbnail}' alt='{$title}'></a>";
+                                    else:
+                                        echo "<img src='{$coupon_thumbnail}' alt='{$title}'>";
+                                    endif;
+                                endif; ?>
                         </div>
                     </div>
                     <div class="wpcd_seven_headingAndExpire">
@@ -152,7 +146,8 @@ include('header-category__premium_only.php');
                                     ?>
                                 <?php else: ?>
                                     <div class="wpcd_seven_btn">
-                                        <a class="masterTooltip <?php echo $button_class; ?>" 
+                                        <a  rel="nofollow" 
+                                            class="masterTooltip <?php echo $button_class; ?>" 
                                             href="<?php echo $link; ?>"
                                             target="<?php echo $target; ?>"
                                             title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
@@ -171,7 +166,8 @@ include('header-category__premium_only.php');
                         <?php if (!empty($deal_text)) : ?>
                             <div class="wpcd_seven_buttonSociaLikeDislike">
                                 <div class="wpcd_seven_btn">
-                                    <a class="masterTooltip" 
+                                    <a  rel="nofollow"
+                                        class="masterTooltip" 
                                         href="<?php echo $link; ?>"
                                         target="<?php echo $target; ?>"
                                         title="<?php echo $deal_hover_text; ?>"

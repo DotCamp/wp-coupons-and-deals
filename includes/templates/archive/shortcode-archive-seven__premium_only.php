@@ -130,9 +130,9 @@ include('header-default__premium_only.php');
                         <?php
                         if($coupon_thumbnail){
                             if ($link_thumbnail == "on"):
-                                echo "<a href='{$link}' target='{$target}'><img src='{$coupon_thumbnail}' alt='Coupon'></a>";
+                                echo "<a href='{$link}' rel='nofollow' target='{$target}'><img src='{$coupon_thumbnail}' alt='{$title}'></a>";
                             else:
-                                echo "<img src='{$coupon_thumbnail}' alt='Coupon'>";
+                                echo "<img src='{$coupon_thumbnail}' alt='{$title}'>";
                             endif;
                         }
                         ?>
@@ -170,7 +170,7 @@ include('header-default__premium_only.php');
                                 ?>
                             <?php else: ?>
                                 <div class="wpcd_seven_btn">
-                                    <a class="masterTooltip <?php echo $button_class; ?>" 
+                                    <a  rel="nofollow" class="masterTooltip <?php echo $button_class; ?>" 
                                         href="<?php echo $link; ?>"
                                         target="<?php echo $target; ?>"
                                         title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
@@ -189,7 +189,8 @@ include('header-default__premium_only.php');
                     <?php if (!empty($deal_text)) : ?>
                         <div class="wpcd_seven_buttonSociaLikeDislike">
                             <div class="wpcd_seven_btn">
-                                <a class="masterTooltip" 
+                                <a class="masterTooltip"
+                                    href="nofollow"
                                     href="<?php echo $link; ?>"
                                     target="<?php echo $target; ?>"
                                     title="<?php echo $deal_hover_text; ?>"

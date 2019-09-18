@@ -247,9 +247,6 @@
     margin-top: 10px;
 }
 
-
-/** tabs style **/
-
 div.tabs {
     position: relative;
     display: block;
@@ -323,10 +320,6 @@ button.tab.active {
 table.wpcd_import_preview th {
     font-size: 13px;
     font-weight: 600;
-}
-
-.wpcd_preview_table_support {
-    /*    overflow: auto;*/
 }
 
 .wpcd_import_white_box {
@@ -2222,10 +2215,6 @@ h3.wpcd_coupon_li_title {
     overflow: hidden;
 }
 
-.wpcd-coupon-eight .wpcd-coupon-button-type .coupon-code-wpcd .get-code-wpcd:after {
-    /*display: none;*/
-}
-
 .wpcd-coupon-eight .wpcd-coupon-button-type .coupon-code-wpcd .get-code-wpcd:before {
     content: "";
     position: absolute;
@@ -2815,10 +2804,6 @@ a.admin-wpcd-new-goto-button {
     font-size: 22px !important;
     font-weight: bolder !important;
     padding: 0px !important;
-}
-
-.admin_wpcd_seven_heading p:nth-child(2) {
-    /*    display: none;*/
 }
 
 .admin_wpcd_seven_expire {
@@ -3558,7 +3543,6 @@ a.admin-wpcd-new-goto-button {
     .wpcd-template-five .wpcd-coupon-button-type .coupon-code-wpcd .get-code-wpcd span {
         line-height: 35px;
     }
-    .wpcd-template-five .wpcd-coupon-button-type .coupon-code-wpcd {}
     .wpcd-template-five .wpcd-coupon-description {
         text-align: center;
     }
@@ -3847,5 +3831,3 @@ a.admin-wpcd-new-goto-button {
         text-align: right;
     }
 }
-
-@media only screen and (min-width: 32.5em) {}

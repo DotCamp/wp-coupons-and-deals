@@ -95,13 +95,13 @@ $template = new WPCD_Template_Loader();
 					<p><?php echo $discount_text; ?></p>
 				</div>
 				<div class="wpcd_seven_productPic">
-                                     <?php
-                                        if ($link_thumbnail == "on"):
-                                            echo "<a href='{$link}' target='{$target}'><img src='{$coupon_thumbnail}' alt='Coupon'></a>";
-                                        else:
-                                            echo "<img src='{$coupon_thumbnail}' alt='Coupon'>";
-                                        endif;
-                                     ?>
+                    <?php
+                       	if ($link_thumbnail == "on"):
+                            echo "<a href='{$link}' rel='nofollow' target='{$target}'><img src='{$coupon_thumbnail}' alt='{$title}'></a>";
+                        else:
+                            echo "<img src='{$coupon_thumbnail}' alt='{$title}'>";
+                        endif;
+                    ?>
 				</div>
 			</div>
 			<div class="wpcd_seven_headingAndExpire">
@@ -158,7 +158,7 @@ $template = new WPCD_Template_Loader();
                 <?php if ($coupon_type == 'Deal') : ?>
                     <div class="wpcd_seven_buttonSociaLikeDislike">
                         <div class="wpcd_seven_btn">
-                            <a class="masterTooltip"
+                            <a class="masterTooltip" rel="nofollow"
                                 target="<?php echo $target; ?>"
                                 href="<?php echo $link; ?>"
                                 title="<?php echo $deal_hover_text; ?>"
