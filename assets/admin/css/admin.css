@@ -1,16 +1,3 @@
-#TB_title {
-    background: #347BAF;
-    border-bottom: 1px solid #ddd;
-    height: 36px;
-}
-
-#TB_ajaxWindowTitle {
-    margin: 2px;
-    color: #fff;
-    text-align: center;
-    font-size: 20px;
-}
-
 .wpcd_shortcode_insert-bt,
 .wpcd_shortcode_insert {
     padding: 15px;
@@ -173,7 +160,7 @@
     position: relative;
 }
 
-#wpcd-table-box-scroll-left, 
+#wpcd-table-box-scroll-left,
 #wpcd-table-box-scroll-right {
     font-size: 25px;
     position: absolute;
@@ -197,14 +184,14 @@
     right: 0;
 }
 
-#wpcd-table-csv:hover #wpcd-table-box-scroll-left, 
+#wpcd-table-csv:hover #wpcd-table-box-scroll-left,
 #wpcd-table-csv:hover #wpcd-table-box-scroll-right {
     opacity: 1;
     visibility: visible;
     transition-delay: 0s;
 }
 
-#wpcd-table-box-scroll-left:hover, 
+#wpcd-table-box-scroll-left:hover,
 #wpcd-table-box-scroll-right:hover {
     background: #80808066;
 }
