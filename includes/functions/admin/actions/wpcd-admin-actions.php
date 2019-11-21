@@ -10,9 +10,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0
  */
-$path = trailingslashit( dirname( plugin_dir_path( __FILE__ ) ) );
+ $path = trailingslashit( dirname( plugin_dir_path( __FILE__ ) ) );
 
-/**
+ /**
  * Requiring necessary files to add necessary actions.
  *
  * @since 1.0
@@ -33,11 +33,9 @@ add_action( 'wpcd_help_info_div', 'wpcd_help_info', 10, 2 );
 add_action( 'wpcd_widget_help_info_display', 'wpcd_widget_help_info', 10, 2 );
 add_action( 'wpcd_shortcode_insert_button_div', 'wpcd_shortcode_insert_button', 10, 2 );
 
-
 function wpcd_post_thumbnail_fallback( $content, $post_id, $thumbnail_id = '' ) {
 	global $post_type;
 	$script_help = '<script>wpcd_featured_img_func();</script>';
-
 	return $content . $script_help;
 }
 
@@ -47,13 +45,19 @@ add_filter( 'admin_post_thumbnail_html', 'wpcd_post_thumbnail_fallback', 10, 3 )
 add_action('wp_ajax_wpcd_process_import', 'wpcd_import_process_php');
 
 function wpcd_import_process_php() {
-	$wpcd_coupon_templates = array('Template One', 'Template Two', 'Template Three', 'Template Four', 'Template Five', 'Template Six', 'Template Seven', 'Template Eight');
-	$wpcd_coupon_data = json_decode(stripslashes($_POST['post_var']));
+    $params = json_decode( file_get_contents( 'php://input' ) );
+    
+	$wpcd_coupon_templates = array( 'Template One', 'Template Two', 
+                                    'Template Three', 'Template Four', 
+                                    'Template Five', 'Template Six', 
+                                    'Template Seven', 'Template Eight' );
+	$wpcd_coupon_data = json_decode( stripslashes( $params->post_var ) );
+    
+    $nonce_ajax = stripslashes( $params->nonce_ajax );
 	// wp_send_json($wpcd_coupon_data);
-	if (!check_ajax_referer( 'wpcd-script-nonce', 'nonce_ajax' )){
+	if( ! wp_verify_nonce( $nonce_ajax, 'wpcd-script-nonce' ) ) {
 		wp_die();
-	}
-	else {
+	} else {
 		if ( $wpcd_coupon_data->title != '' ) {
 			$args = array(
 				'post_type'    => 'wpcd_coupons',
@@ -103,14 +107,15 @@ function wpcd_import_process_php() {
 				if ( $wpcd_coupon_data->vendor != '' && $wpcd_coupon_data->vendor != ' ' ) {
 					wp_set_object_terms( $post_id, $wpcd_coupon_data->vendor, 'wpcd_coupon_vendor' );
 				}	
-			}else {
+			} else {
 				wp_send_json($post_id->get_error_message() . __( ' | On Line Number1', 'wpcd-coupon' ) . $wpcd_coupon_data->coupon_count . '<br />');
 			}
 	
 		} else {
 			wp_send_json(__( 'Error | On Line Number 2', 'wpcd-coupon' ) . $wpcd_coupon_data->coupon_count . '<br />');
 		}
-		wp_send_json($wpcd_coupon_data); // sends all the data back to js
+        $wpcd_coupon_data->success = 'success';
+		wp_send_json( $wpcd_coupon_data ); // sends all the data back to js
 	}
 	
 } // End of wpcd_import_process_php

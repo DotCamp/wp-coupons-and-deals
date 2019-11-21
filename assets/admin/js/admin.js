@@ -1860,69 +1860,118 @@ function wpcd_checkDuplicateField(field_key) {
 }
 
 function wpcd_ajax_import(action, tosent) {
+    // store search to prevent searching the element. 
+    let wpcd_temp5 = JSON.parse(tosent),
+        wpcd_percent_element = document.querySelector('#wpcd-pbar-percent'),
+        wpcd_percent_element_span = document.querySelector('#wpcd-pbar-percent span'),
+        wpcd_row_count = document.querySelector('.wpcd_import_field_submit span strong').innerHTML,
+        wpcd_green = document.querySelector('.wrap .wpcd_green'); // Storing search element
+    // (tosent!=null) ? (data.post_var = tosent) : (data.post_var = null);
+
+    let http = new XMLHttpRequest(),
+        url = wpcd_ajax_script_import.ajaxurl + '?action=' + action;
+
     var data = {
         action: action,
         nonce_ajax: wpcd_ajax_script_import.nonce,
         post_var: tosent
     };
-    // store search to prevent searching the element. 
-    var wpcd_temp5 = JSON.parse(tosent);
-    var wpcd_percent_element = jQuery('#wpcd-pbar-percent');
-    var wpcd_percent_element_span = jQuery('#wpcd-pbar-percent span');
-    var wpcd_row_count = jQuery('.wpcd_import_field_submit span strong').text();
-    var wpcd_green = jQuery('.wrap .wpcd_green'); // Storing search element
-    // (tosent!=null) ? (data.post_var = tosent) : (data.post_var = null);
-    var jqxhr = $.post(wpcd_ajax_script_import.ajaxurl, data, function (response, status) {
-        jqxhr.success(function () {
-            // Check if success to move the progressbar.
-            if (status) {
-                // Calculate percent
-                var percent = wpcd_ajax_import_percent( wpcd_temp5.row_count );
-                // Remove the console log on production for checking only
-                wpcd_percent_element_span.text(percent + "%");
-                wpcd_percent_element.css( 'width', percent + "%" );
-                if (percent >= 5) {
-                    wpcd_percent_element.removeClass('wpcd-zero-percent');
-                    wpcd_percent_element.addClass('wpcd-twentyfive-percent');
+    data = JSON.stringify(data);
 
-                }
-                if (percent >= 25) {
-                    wpcd_percent_element.removeClass('wpcd-twentyfive-percent');
-                    wpcd_percent_element.addClass('wpcd-fifty-percent');
-                }
-                if (percent >= 50) {
-                    wpcd_percent_element.removeClass('wpcd-fifty-percent');
-                    wpcd_percent_element.addClass('wpcd-seventyfive-percent');
-                }
-                if (percent >= 75) {
-                    wpcd_percent_element.removeClass('wpcd-seventyfive-percent');
-                    wpcd_percent_element.addClass('wpcd-onehundred-percent');
-                }
-                if (percent == 100) {
-                    jQuery(".wpcd_import_notes").show();
-                    setTimeout( function() {
-                        jQuery(".wpcd_import_form_final_loader").fadeOut();
-                        jQuery('.wpcd-import-wrapper').hide();
-                        jQuery('#wpcd_import_form').hide();
-                    }, 1000 );
+    http.open('POST', url, true);
+    http.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 
-                    // Showing the green div element after import success.
-                    jQuery(wpcd_green).show();
-                    // Replacing the info for the Coupons added. 
-                    jQuery('.wrap .wpcd_green span').text(function () {
-                        return jQuery(this).text().replace("0 Coupons added.", wpcd_row_count + " Coupons added.");
-                    });
+    http.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            let data = JSON.parse(http.responseText);
+            if (data && typeof data === 'object' && data.success) {
+                wpcd_ajax_import_success_count(true);
+            }
+            // Calculate percent
+            var percent = wpcd_ajax_import_percent(wpcd_temp5.row_count);
+            // Remove the console log on production for checking only
+            wpcd_percent_element_span.innerHTML = percent + '%';
+            wpcd_percent_element.style.width = percent + '%';
+            if (percent >= 5 && percent < 25) {
+                wpcd_percent_element.classList.remove('wpcd-zero-percent');
+                wpcd_percent_element.classList.add('wpcd-twentyfive-percent');
+
+            }
+            if (percent >= 25 && percent < 50) {
+                wpcd_percent_element.classList.remove('wpcd-twentyfive-percent');
+                wpcd_percent_element.classList.add('wpcd-fifty-percent');
+            }
+            if (percent >= 50 && percent < 75) {
+                wpcd_percent_element.classList.remove('wpcd-fifty-percent');
+                wpcd_percent_element.classList.add('wpcd-seventyfive-percent');
+            }
+            if (percent >= 75 && percent < 100) {
+                wpcd_percent_element.classList.remove('wpcd-seventyfive-percent');
+                wpcd_percent_element.classList.add('wpcd-onehundred-percent');
+            }
+            if (percent == 100) {
+                let wpcdImportNotes = document.querySelector('.wpcd_import_notes');
+                if (wpcdImportNotes) {
+                    wpcdImportNotes.style.display = 'block';
+                }
+                setTimeout(function () {
+                    let wpcdImportFormFinalLoader = document.querySelector('.wpcd_import_form_final_loader');
+                    if (wpcdImportFormFinalLoader) {
+                        wpcdImportFormFinalLoader.style.display = 'none';
+                    }
+                    let wpcdImportWrapper = document.querySelector('.wpcd-import-wrapper');
+                    if (wpcdImportWrapper) {
+                        wpcdImportWrapper.style.display = 'none';
+                    }
+                    let wpcdImportForm = document.querySelector('#wpcd_import_form');
+                    if (wpcdImportForm) {
+                        wpcdImportForm.style.display = 'none';
+                    }
+                }, 1000);
+
+                // Showing the green div element after import success.
+                if (wpcd_green) {
+                    wpcd_green.style.display = 'block';
+                }
+                // Replacing the info for the Coupons added. 
+                let span = document.querySelector('.wrap .wpcd_green span');
+                if (span) {
+                    let successCount = wpcd_ajax_import_success_count(true, true);
+                    let replaceText = '';
+                    if (successCount == wpcd_row_count) {
+                        replaceText = wpcd_row_count + ' Coupons added.';
+                    } else {
+                        let unsuccessCount = wpcd_row_count - successCount;
+                        replaceText = successCount + ' Coupons added, ' + unsuccessCount + 'Coupons have not been added.';
+                    }
+                    span.innerHTML = span.innerHTML.replace('0 Coupons added.', replaceText);
                 }
             }
-        });
-    });
+        }
+    }
+
+    http.send(data);
 }
 
-function wpcd_ajax_import_percent( row_count ) {
-    if ( this.coupon_count === undefined ) {
+function wpcd_ajax_import_percent(row_count) {
+    if (this.coupon_count === undefined) {
         this.coupon_count = 1;
     }
-    var percent = ( ( this.coupon_count / row_count ) * 100 ).toFixed( 2 );
+    var percent = ((this.coupon_count / row_count) * 100).toFixed(2);
     this.coupon_count++;
     return percent;
+}
+
+function wpcd_ajax_import_success_count(success, returnData) {
+    if (!returnData) {
+        if (success && this.successCount === undefined) {
+            this.successCount = 1;
+        } else if (success) {
+            this.successCount++
+        }
+    }
+
+    if (success && returnData) {
+        return this.successCount;
+    }
 }
