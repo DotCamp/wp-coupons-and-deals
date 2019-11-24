@@ -3,7 +3,7 @@
 <phpunit
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
-        bootstrap="./vendor/autoload.php"
+        bootstrap="./tests/php/includes/test_autoload.php"
         cacheResult="false"
         verbose="true"
         testdox="true"
@@ -11,7 +11,7 @@
     <testsuites>
         <testsuite name="wpcd-coupons-and-deals">
             <directory>
-                tests
+                tests/php
             </directory>
         </testsuite>
     </testsuites>

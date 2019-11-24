@@ -4,7 +4,7 @@
  * Exception class for global caller
  * Class WPCD_Global_Error
  */
-class WPCD_Global_Error extends Exception {
+class WPCD_Global_Error extends BadMethodCallException {
 	/**
 	 * original error object
 	 * @var Error
@@ -16,13 +16,10 @@ class WPCD_Global_Error extends Exception {
 	 *
 	 * @param $error
 	 */
-	public function __construct(Error $error) {
-		$short_file =basename($error->file);
-
-		$message = "[$short_file, line {$error->line}, col {$error->column}] {$error->getMessage()}";
-
-		$this->error = $error;
-
+	public function __construct(string $message) {
+		$this->error = $this->getErrorObject();
+		$short_file =basename($this->getFile());
+		$message = "[$short_file, line {$this->getLine()}] $message";
 		parent::__construct($message);
 	}
 

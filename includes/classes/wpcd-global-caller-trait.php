@@ -1,11 +1,9 @@
 <?php
-require __DIR__ . '/wpcd-global-caller.php';
-
 /**
  * trait object for easy implementing global caller to classes
  * Trait GlobalCaller
  */
-trait GlobalCaller {
+trait WPCD_Global_Caller_Trait {
 
 	/**
 	 * stored global caller object

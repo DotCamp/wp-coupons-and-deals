@@ -1,7 +1,5 @@
 <?php
 
-require __DIR__ . '/wpcd-global-error.php';
-
 /**
  * proxy class for WordPress global function caller
  * Class WPCD_Global_Caller
@@ -44,7 +42,7 @@ class WPCD_Global_Caller {
 		try {
 			return \call_user_func_array( $name, $arguments );
 		} catch ( Exception $e ) {
-			throw new WPCD_Global_Error( $e, "function $name does not exist" );
+			throw new WPCD_Global_Error( "function '$name' does not exist in global scope" );
 		}
 	}
 }
