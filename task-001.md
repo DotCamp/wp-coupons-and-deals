@@ -23,12 +23,14 @@ seperating the task into three main subject
     > testing never ends, keep this segment unchecked
     - [x] tests autoload should use project autoload
     - wrote test specific autoload for project files that works in pair with vendor autoloads
-- [ ] short code class
-    - [ ] necessary sub classes
+- [x] short code class
+    - [x] necessary sub classes
 - [ ] front-end form display
     - [x] extract form fields from already defined `add new coupon` form meta box
-    - [ ] `vuejs` integration
+    - [x] modern front-end compiler (`webpack`)
+        - [x] `vuejs` integration
     - [ ] WYSIWYG coupon display
+    - [ ] responsive field display based on `coupon types`
     - [ ] form style
-        - [ ] for development, use `tailwindcss`
+        - [x] for development, use `tailwindcss`
         - [ ] experiment with a admin side settings page for various form style options to give out of the box and customizable form display

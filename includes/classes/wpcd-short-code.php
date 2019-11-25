@@ -32,10 +32,10 @@ class WPCD_Short_Code {
 		add_shortcode( 'wpcd_code', array( __CLASS__, 'wpcd_coupon_code' ) );
 
 
-	// TODO [task-001][erdembircan] form-shortcode entry point
-		$form_shortcode = new WPCD_Short_Code_Base( 'wpcd_form', function () {
-			return 'registered';
-		} );
+		// TODO [task-001][erdembircan] form-shortcode entry point
+		$form_shortcode = new WPCD_Form_Shortcode( 'wpcd_form' );
+		$form_shortcode->add();
+
 
 		if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) {
 			add_shortcode( 'wpcd_coupons', array( __CLASS__, 'wpcd_coupons_archive_func__premium_only' ) );

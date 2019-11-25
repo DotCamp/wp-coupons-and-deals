@@ -1,30 +1,62 @@
 {
-    "name": "wp-coupons-and-deals",
-    "version": "2.8.7",
-    "description": "Best WordPress Coupon Plugin",
-    "scripts": {
-        "pot": "wp-pot --src '**/*.php' --dest-file 'languages/wpcd-coupon.pot' --package 'wpcd_coupon' --domain 'wpcd-coupon' --last-translator 'Imtiaz Rayhan <irayhan.asif@gmail.com>' --team 'WP Coupons and Deals <irayhan.asif@gmail.com>' --bug-report 'https://wpcouponsdeals/contact-us/'"
+  "name": "wp-coupons-and-deals",
+  "version": "2.8.7",
+  "description": "Best WordPress Coupon Plugin",
+  "scripts": {
+    "pot": "wp-pot --src '**/*.php' --dest-file 'languages/wpcd-coupon.pot' --package 'wpcd_coupon' --domain 'wpcd-coupon' --last-translator 'Imtiaz Rayhan <irayhan.asif@gmail.com>' --team 'WP Coupons and Deals <irayhan.asif@gmail.com>' --bug-report 'https://wpcouponsdeals/contact-us/'",
+    "dev:build": "cross-env NODE_ENV=production webpack --watch",
+    "prod:build": "cross-env NODE_ENV=production webpack",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imtiazrayhan/wp-coupons-and-deals.git"
+  },
+  "author": "Imtiaz Rayhan",
+  "license": "GPLv2 or later",
+  "bugs": {
+    "url": "https://github.com/imtiazrayhan/wp-coupons-and-deals/issues"
+  },
+  "homepage": "https://github.com/imtiazrayhan/wp-coupons-and-deals/",
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@vue/test-utils": "^1.0.0-beta.29",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^24.9.0",
+    "babel-loader": "^8.0.6",
+    "babel-preset-env": "^1.7.0",
+    "cross-env": "^6.0.3",
+    "css-loader": "^3.2.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-notify": "^3.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sort": "^2.0.0",
+    "gulp-wp-pot": "^2.0.4",
+    "jest": "^24.9.0",
+    "vue": "^2.6.10",
+    "vue-jest": "^3.0.5",
+    "vue-loader": "^15.7.2",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "npm": "^6.9.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "vue",
+      "json"
+    ],
+    "transform": {
+      "^.+\\.(vue)$": "vue-jest",
+      "^.+\\.(js)$": "babel-jest"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/imtiazrayhan/wp-coupons-and-deals.git"
-    },
-    "author": "Imtiaz Rayhan",
-    "license": "GPLv2 or later",
-    "bugs": {
-        "url": "https://github.com/imtiazrayhan/wp-coupons-and-deals/issues"
-    },
-    "homepage": "https://github.com/imtiazrayhan/wp-coupons-and-deals/",
-    "devDependencies": {
-        "gulp": "^3.9.1",
-        "gulp-clean-css": "^4.0.0",
-        "gulp-notify": "^3.0.0",
-        "gulp-rename": "^1.4.0",
-        "gulp-replace": "^1.0.0",
-        "gulp-sort": "^2.0.0",
-        "gulp-wp-pot": "^2.0.4"
-    },
-    "dependencies": {
-        "npm": "^6.9.0"
-    }
+    "testRegex": "(/tests/js/.*|(\\.|/)(test|spec))\\.jsx?$"
+  }
 }
