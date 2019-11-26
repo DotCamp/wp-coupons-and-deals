@@ -16,21 +16,23 @@ seperating the task into three main subject
 
  - shortcode implementation
  - front-end form display
- - embedding coupons at other sites
+ - ~~embedding coupons at other sites~~
  
  ## todo
 - [ ] tests
     > testing never ends, keep this segment unchecked
-    - [x] tests autoload should use project autoload
-    - wrote test specific autoload for project files that works in pair with vendor autoloads
+    - [x] tests' autoload should use project autoload
+        - wrote a test specific autoload for project files that works in pair with vendor autoloads
 - [x] short code class
     - [x] necessary sub classes
 - [ ] front-end form display
     - [x] extract form fields from already defined `add new coupon` form meta box
     - [x] modern front-end compiler (`webpack`)
         - [x] `vuejs` integration
+    - [x] responsive field display based on `coupon types` and other dynamic fields
     - [ ] WYSIWYG coupon display
-    - [ ] responsive field display based on `coupon types`
     - [ ] form style
         - [x] for development, use `tailwindcss`
-        - [ ] experiment with a admin side settings page for various form style options to give out of the box and customizable form display
+        - [ ] ~~experiment with a admin side settings page for various form style options to give out of the box and customizable form display~~
+            - giving that kind of customization option for form display may hurt some front-ends, instead users should override the form style according to the look and feel of their site. will give logical class names for form elements so that they can be customized by end user with their **own** stylesheets.
+            - will gonna style the form in a more material style way so out of the box, it will gonna look more native with any site 
