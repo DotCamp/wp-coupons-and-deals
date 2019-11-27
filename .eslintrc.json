@@ -1,0 +1,40 @@
+{
+  "extends": [
+    "airbnb-base",
+    "prettier",
+    "plugin:vue/essential"
+  ],
+  "plugins": [
+    "import",
+    "prettier",
+    "vue"
+  ],
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "./webpack.config.js"
+      }
+    }
+  },
+  "env": {
+    "browser": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "parser": "babel-eslint"
+  },
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "trailingComma": "es5",
+        "printWidth": 120,
+        "singleQuote": true
+      }
+    ],
+    "array-callback-return": "off"
+  },
+  "globals": {
+    "formShortcodeFields": true
+  }
+}
