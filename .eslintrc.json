@@ -35,6 +35,7 @@
     "array-callback-return": "off"
   },
   "globals": {
-    "formShortcodeFields": true
+    "formShortcodeFields": true,
+    "couponPreview": true
   }
 }

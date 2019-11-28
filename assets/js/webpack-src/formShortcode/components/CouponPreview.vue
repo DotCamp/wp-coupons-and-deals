@@ -1,11 +1,35 @@
 <template>
-  <div
-    class="italic flex items-center justify-center text-gray-500 font-mono w-full bg-gray-200 mb-16 shadow border-4 border-dashed border-gray-400 h-40 text-md"
-  >
-    <div>
-      <div>Coupon Code: {{ store['coupon-code-text'] }}</div>
-      <div>Show expiration date: {{ store['show-expiration'] }}</div>
-      <div>Hide coupon: {{ store['hide-coupon'] }}</div>
-    </div>
+  <div class="bg-gray-200 w-full">
+    <div id="preview_wrap" v-html="preview"></div>
   </div>
 </template>
+<script>
+/* eslint-disable no-return-assign,no-param-reassign */
+
+export default {
+  data() {
+    return {
+      preview: couponPreview,
+    };
+  },
+  mounted() {
+    // TODO [task-001][erdembircan] remove for production, must have wrote a better parser to differentiate different templates
+    const previewElements = Array.from(document.querySelectorAll('.wpcd-coupon-preview'));
+    previewElements.map(el => (el.style.display = 'none'));
+
+    // TODO [task-001][erdembircan] remove for production, must have wrote a better parser to differentiate different templates
+    document.querySelector('#preview_wrap > p').style.display = 'none';
+
+    // TODO [task-001][erdembircan] remove for production and be sure you overridden any 'button' style
+    Array.from(document.querySelector('#preview_wrap').querySelectorAll('button')).map(
+      el => (el.style.display = 'none')
+    );
+
+    // TODO [task-001][erdembircan] remove for production, must have wrote a better parser to differentiate different templates
+    document.querySelector('.admin_wpcd_seven').style.display = 'none';
+
+    // TODO [task-001][erdembircan] remove for production, must have wrote a better parser to differentiate different templates
+    document.querySelector('.wpcd-coupon-default').style.display = '';
+  },
+};
+</script>

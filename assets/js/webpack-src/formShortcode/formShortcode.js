@@ -4,6 +4,7 @@ import App from './components/Form';
 import FormLabel from './components/FormLabel';
 import Store from './plugins/Store';
 import StoreData from './functions/storeData';
+import dependencyGraph from './data/dependencyGraph';
 
 // fragment activation
 Vue.use(Plugin);
@@ -12,15 +13,9 @@ Vue.use(Plugin);
 let storeData = StoreData.putSelectionDefaults(formShortcodeFields, { select: 'options' });
 
 // extra defaults for some fields
-const extraDefaults = { 'coupon-code-text': 1234567890 };
+const extraDefaults = { 'coupon-code-text': 1234567890, 'coupon-template': 'Default' };
 
-storeData = { ...extraDefaults, ...storeData };
-
-const dependencyGraph = {
-  'second-coupon-code-text': {
-    'coupon-template': ['Template Two'],
-  },
-};
+storeData = { ...storeData, ...extraDefaults };
 
 // injecting dependency fields
 StoreData.putDepends(formShortcodeFields, dependencyGraph);

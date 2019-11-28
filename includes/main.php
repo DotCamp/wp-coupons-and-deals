@@ -528,7 +528,7 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 			 *
 			 * @since 2.0
 			 */
-			new WPCD_Preview_Metabox();
+			(new WPCD_Preview_Metabox())->add_meta_boxes();
 
 			/**
 			 * This adds the add coupon button to the post and

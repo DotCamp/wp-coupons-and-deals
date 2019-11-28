@@ -27,7 +27,6 @@ export default {
       showSampleField: false,
       couponType: this.fields.filter(f => f.id === 'coupon-type')[0],
       currentType: 'Coupon',
-      currentTemplate: 'Default',
     };
   },
   computed: {
@@ -61,11 +60,15 @@ export default {
         'link',
         'coupon-code-text',
         'discount-text',
-        'wpcd-description',
+        'wpcd_description',
         'show-expiration',
         'expire-date',
+        'expire-time',
+        'show-expiration',
         'hide-coupon',
         'coupon-template',
+        'never-expire-check',
+        /.*-theme$/,
       ];
       const couponFields = filterFields(this.fields, couponFilters);
 

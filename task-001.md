@@ -34,7 +34,9 @@ seperating the task into three main subject
         - [x] add a better template change module for changing different template types for better performance
         - [ ] full filter array for all the dependent fields (do it off-clock since we will just gonna write down each visible/hidden field id depending on template/other fields)
     - [ ] WYSIWYG coupon display
-        - [ ] have to write a parser for different coupon templates that has defined in the server code to reflect the same coupon look and feel in frontend & to reflect any changes that has done or any new template added
+        - [ ] ~~have to write a parser for different coupon templates that has defined in the server code to reflect the same coupon look and feel in frontend & to reflect any changes that has done or any new template added~~
+            - [x]since the relation of coupon preview and its styles are inlined heavily inside server side php code, will gonna use that classes to extract the necessary values to reflect that data
+                - [ ] extracting that may have caused some volatile admin data to leak to front-end. have to check the code line by line to avoid such scenario
     - [ ] form style
         - [x] for development, use `tailwindcss`
         - [ ] ~~experiment with a admin side settings page for various form style options to give out of the box and customizable form display~~
