@@ -14,6 +14,12 @@ const dependencyGraph = {
   'second-coupon-code-text': {
     'coupon-template': ['Template Four'],
   },
+  'second-deal-button-text': {
+    'coupon-template': ['Template Four'],
+  },
+  'third-deal-button-text': {
+    'coupon-template': ['Template Four'],
+  },
   'second-link': {
     'coupon-template': ['Template Four'],
   },
@@ -48,7 +54,7 @@ const dependencyGraph = {
     'coupon-template': ['Template Eight'],
   },
   'deal-button-text': {
-    'coupon-template': ['Template Eight'],
+    'coupon-template': ['Template Eight', 'Default'],
   },
 };
 

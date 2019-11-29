@@ -1,6 +1,6 @@
 <template>
   <fragment>
-    <tr v-show="getDependencyGraph(f)" v-for="f in fieldsdata" :key="f.id">
+    <tr class="form-shortcode-row" v-show="getDependencyGraph(f)" v-for="f in fieldsdata" :key="f.id">
       <td>
         <form-label :id="f.id" :helpmessage="f.help">
           {{ f.label }}
@@ -27,7 +27,7 @@ export default {
       filterdata: {
         select: ['select'],
         button: 'coupon-image-row',
-        text: ['text', /.*(buttontext)/],
+        text: ['text', /.*(buttontext)/, /.+(dealtext)/],
         textarea: 'textarea',
         colorpicker: 'colorpicker',
         date: 'expiredate',

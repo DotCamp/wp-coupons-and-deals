@@ -1,0 +1,32 @@
+.wpcd-btn {
+    /*overriding any theme button color*/
+    background: #fafafa !important;
+}
+
+.form-shortcode-row {
+    animation: fs-fade-in .5s ease-out;
+}
+
+@keyframes fs-fade-in {
+    from {
+        opacity: 0%;
+    }
+    to {
+        opacity: 100%;
+    }
+}
+
+
+.form-shortcode-preview-enter-active, .form-shortcode-preview-leave-active {
+    transition: all .3s ease-out;
+}
+
+.form-shortcode-preview-enter, .form-shortcode-preview-leave-to {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.form-shortcode-preview-enter-to, .form-shortcode-preview-leave {
+    transform: translateX(0);
+    opacity: 1;
+}

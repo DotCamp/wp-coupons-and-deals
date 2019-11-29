@@ -1,35 +1,30 @@
 <template>
-  <div class="bg-gray-200 w-full">
-    <div id="preview_wrap" v-html="preview"></div>
+  <div class="w-full overflow-x-hidden bg-gray-100 mb-4 border-t-4 border-l-4 rounded border shadow-lg">
+    <div class="text-sm">{{ store }}</div>
+    <transition name="form-shortcode-preview" appear mode="out-in">
+      <component class="p-4" :is="store['coupon-template'].replace(' ', '')" :html="currentTemplate"></component>
+    </transition>
+    <div class="text-sm italic p-4 text-justify">
+      <span class="font-bold">Note: </span>This is just to show how the coupon will look. Click to copy functionality,
+      showing hidden coupon will not work here, but it will work on posts, pages where you put the shortcode.
+    </div>
   </div>
 </template>
 <script>
-/* eslint-disable no-return-assign,no-param-reassign */
+import Default from './templates/Default';
+import TemplateOne from './templates/TemplateOne';
 
 export default {
   data() {
     return {
-      preview: couponPreview,
+      previews: couponPreview,
     };
   },
-  mounted() {
-    // TODO [task-001][erdembircan] remove for production, must have wrote a better parser to differentiate different templates
-    const previewElements = Array.from(document.querySelectorAll('.wpcd-coupon-preview'));
-    previewElements.map(el => (el.style.display = 'none'));
-
-    // TODO [task-001][erdembircan] remove for production, must have wrote a better parser to differentiate different templates
-    document.querySelector('#preview_wrap > p').style.display = 'none';
-
-    // TODO [task-001][erdembircan] remove for production and be sure you overridden any 'button' style
-    Array.from(document.querySelector('#preview_wrap').querySelectorAll('button')).map(
-      el => (el.style.display = 'none')
-    );
-
-    // TODO [task-001][erdembircan] remove for production, must have wrote a better parser to differentiate different templates
-    document.querySelector('.admin_wpcd_seven').style.display = 'none';
-
-    // TODO [task-001][erdembircan] remove for production, must have wrote a better parser to differentiate different templates
-    document.querySelector('.wpcd-coupon-default').style.display = '';
+  components: { Default, TemplateOne },
+  computed: {
+    currentTemplate() {
+      return this.previews[this.store['coupon-template']];
+    },
   },
 };
 </script>

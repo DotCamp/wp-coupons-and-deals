@@ -1,12 +1,15 @@
 <template>
   <div class="text-gray-700">
     <coupon-preview></coupon-preview>
-    <div class="flex items-center flex-col bg-gray-100 border-t-4 border-l-4 shadow-lg rounded p-4">
+    <div
+      class="overflow-scroll flex items-center flex-col bg-gray-100 border-t-4 border-l-4 shadow-lg rounded p-4"
+      style="height: 500px"
+    >
       <div class="text-4xl font-bold bg-gray-200 p-2 rounded shadow">Coupon Submit Form</div>
       <dev-box></dev-box>
-      <form>
+      <form id="form-shortcode-form-wrapper">
         <table class="border-collapse border-2 border-dashed w-full">
-          <coupon-type v-model="currentType" :typedata="couponType"></coupon-type>
+          <coupon-type v-model="store['coupon-type']" :typedata="couponType"></coupon-type>
           <tr is="CouponTypeForm" :fieldsdata="parsedFields"></tr>
         </table>
       </form>
@@ -26,7 +29,6 @@ export default {
     return {
       showSampleField: false,
       couponType: this.fields.filter(f => f.id === 'coupon-type')[0],
-      currentType: 'Coupon',
     };
   },
   computed: {
@@ -72,13 +74,29 @@ export default {
       ];
       const couponFields = filterFields(this.fields, couponFilters);
 
+      // Deal type fields
+      const dealFilters = [
+        'link',
+        'deal-button-text',
+        'discount-text',
+        'wpcd_description',
+        'show-expiration',
+        'expire-date',
+        'expire-time',
+        'show-expiration',
+        'coupon-template',
+        'never-expire-check',
+        /.*-theme$/,
+      ];
+      const dealFields = filterFields(this.fields, dealFilters);
+
       const finalFields = {
         Image: imageFields,
         Coupon: couponFields,
-        Deal: couponFields,
+        Deal: dealFields,
       };
 
-      return finalFields[this.currentType];
+      return finalFields[this.store['coupon-type']];
     },
   },
 };

@@ -20,6 +20,20 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 
 		ob_end_clean();
 
+		// splitting the html file into our templates
+		$split_html = $this->splitHtml( $coupon_preview, '<!-- :split Preview -->', '<!-- End of :split Preview -->',
+			[
+				'Default',
+				'Template One',
+				'Template Two',
+				'Template Three',
+				'Template Four',
+				'Template Five',
+				'Template Six',
+				'Template Seven',
+				'Template Eight',
+			] );
+
 
 		// including the necessary js files for front end display
 		$pure_path      = '/js/formShortcode.bundle.js';
@@ -28,7 +42,7 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 		$version        = filemtime( $asset_dir_path );
 
 		$this->_c()->add_action( 'wp_enqueue_scripts',
-			function () use ( $asset_uri_path, $version, $fields, $coupon_preview ) {
+			function () use ( $asset_uri_path, $version, $fields , $split_html ) {
 
 				//only enqueue necessary files if current post have the short-code
 				if ( $this->haveShortcode() ) {
@@ -40,11 +54,32 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 					// send fields as a localized script to front end
 					$this->_c()->wp_localize_script( 'form_shortcode_script', 'formShortcodeFields', $fields );
 
-					$this->_c()->wp_localize_script( 'form_shortcode_script', 'couponPreview', $coupon_preview );
+					$this->_c()->wp_localize_script( 'form_shortcode_script', 'couponPreview', $split_html );
 				}
 			} );
 
 		parent::add();
+	}
+
+	/**
+	 * @param $data string raw data to be searched for
+	 * @param $split_clause_start string starting split clause
+	 * @param $split_clause_end string ending split clause
+	 * @param $split_array array array of clauses that will be replaced in ':split' variables in start/end parameters
+	 *
+	 * @return array array of found matches
+	 */
+	public function splitHtml( $data, $split_clause_start, $split_clause_end, $split_array ) {
+		$result = [];
+		foreach ( $split_array as $split ) {
+			$temp = [];
+			$start     = str_replace( ':split', $split, $split_clause_start );
+			$end       = str_replace( ':split', $split, $split_clause_end );
+			preg_match( "/$start(.+)$end/s", $data, $temp );
+			$result[$split]  = $temp[1];
+		}
+
+		return $result;
 	}
 
 	public function logic( $attrs ) {

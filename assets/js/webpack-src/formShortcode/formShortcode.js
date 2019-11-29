@@ -5,6 +5,8 @@ import FormLabel from './components/FormLabel';
 import Store from './plugins/Store';
 import StoreData from './functions/storeData';
 import dependencyGraph from './data/dependencyGraph';
+// eslint-disable-next-line no-unused-vars
+import styles from './assets/css/formShortcode.css';
 
 // fragment activation
 Vue.use(Plugin);
@@ -13,7 +15,7 @@ Vue.use(Plugin);
 let storeData = StoreData.putSelectionDefaults(formShortcodeFields, { select: 'options' });
 
 // extra defaults for some fields
-const extraDefaults = { 'coupon-code-text': 1234567890, 'coupon-template': 'Default' };
+const extraDefaults = { };
 
 storeData = { ...storeData, ...extraDefaults };
 
