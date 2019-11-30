@@ -36,6 +36,7 @@
   },
   "globals": {
     "formShortcodeFields": true,
+    "formShortcodeExtras": true,
     "couponPreview": true
   }
 }

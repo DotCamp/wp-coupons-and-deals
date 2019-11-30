@@ -29,7 +29,12 @@ export default {
      * @param handler function a function that returns boolen (true for show, false for hide)
      */
     toggle(e, handler) {
-      this.wrapper.querySelector(e).style.display = handler() ? '' : 'none';
+      // this.wrapper.querySelector(e).style.display = handler() ? '' : 'none';
+      if (handler()) {
+        this.wrapper.querySelector(e).classList.remove('hidden');
+      } else {
+        this.wrapper.querySelector(e).classList.add('hidden');
+      }
     },
 
     /**
@@ -42,15 +47,55 @@ export default {
         }
       });
     },
+
     /**
      * bind keys in data.fieldPairs to values of preview object class/id
+     * values of the keys can be
+     * string : that element's text content will be changed
+     * array : all of the elements' text content will be changed
+     * objects inside array : object has this keys:
+     *                        -element : element to search for
+     *                        - format: is a function with a value argument to further
+     *                        customize the string to be put in text content
+     *                        -append: is a boolean to append instead of changing
+     *                        the text content
      */
     bindValues() {
       Object.keys(this.values).map(f => {
         if (Object.prototype.hasOwnProperty.call(this.values, f)) {
-          if (this.store[f]) {
-            this.wrapper.querySelector(this.values[f]).textContent = this.store[f];
-          }
+          let value;
+          let append = false;
+          let format = s => s;
+          const parent = Array.isArray(this.values[f]) ? this.values[f] : [this.values[f]];
+
+          parent.map(p => {
+            if (typeof p === 'object') {
+              value = p.element;
+              append = p.append || false;
+              format =
+                p.format ||
+                function(s) {
+                  return s;
+                };
+            } else {
+              value = p;
+            }
+            if (this.store[f]) {
+              if (Array.isArray(value)) {
+                value.map(v => {
+                  if (append) {
+                    this.wrapper.querySelector(v).textContent += format(this.store[f]);
+                  } else {
+                    this.wrapper.querySelector(v).textContent = format(this.store[f]);
+                  }
+                });
+              } else if (append) {
+                this.wrapper.querySelector(value).textContent += format(this.store[f]);
+              } else {
+                this.wrapper.querySelector(value).textContent = format(this.store[f]);
+              }
+            }
+          });
         }
       });
     },

@@ -5,7 +5,7 @@
     style="top: 50%"
   >
     <div class="m-2 text-sm p-2 bg-gray-200 border border-gray" v-if="showSampleField">
-      <span class="font-bold">Fields: </span>{{ preview.Default }}
+      <span class="font-bold">Fields: </span>{{ preview }}
     </div>
     <button @click="showSampleField = !showSampleField" class="text-sm p-2 text-white">
       {{ showSampleField ? 'hide' : 'show' }} Dev Box
@@ -17,7 +17,7 @@ export default {
   data() {
     return {
       showSampleField: false,
-      preview: couponPreview,
+      preview: formShortcodeFields
     };
   },
   computed: {

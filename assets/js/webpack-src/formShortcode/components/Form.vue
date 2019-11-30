@@ -7,11 +7,14 @@
     >
       <div class="text-4xl font-bold bg-gray-200 p-2 rounded shadow">Coupon Submit Form</div>
       <dev-box></dev-box>
-      <form id="form-shortcode-form-wrapper">
+      <form id="form-shortcode-form-wrapper" method="post">
         <table class="border-collapse border-2 border-dashed w-full">
           <coupon-type v-model="store['coupon-type']" :typedata="couponType"></coupon-type>
+          <coupon-title helpmessage="enter coupon title" id="coupon-title" label="Coupon Title"></coupon-title>
           <tr is="CouponTypeForm" :fieldsdata="parsedFields"></tr>
         </table>
+
+        <input type="submit" value="Submit" @click.prevent="submitForm" />
       </form>
     </div>
   </div>
@@ -20,16 +23,22 @@
 import CouponType from './CouponType';
 import CouponTypeForm from './CouponTypeForm';
 import CouponPreview from './CouponPreview';
+import CouponTitle from './CouponTitle';
 import DevBox from './DevBox';
 
 export default {
   props: ['fields'],
-  components: { CouponType, CouponTypeForm, CouponPreview, DevBox },
+  components: { CouponTitle, CouponType, CouponTypeForm, CouponPreview, DevBox },
   data() {
     return {
       showSampleField: false,
       couponType: this.fields.filter(f => f.id === 'coupon-type')[0],
     };
+  },
+  methods: {
+    submitForm() {
+      console.log('submitting form');
+    },
   },
   computed: {
     parsedFields() {
@@ -37,7 +46,7 @@ export default {
        * function to filter fields according to supplied filters
        *
        * will be using this function to differentiate fields based on coupon type
-       * each coupon type will gonna display the fields that is return from this function
+       * each coupon type will gonna display the fields that is returned from this function
        * @param main array main data object to be filtered
        * @param filters array filter array with string and regex values
        * @returns {*} array filtered array of fields
@@ -61,6 +70,7 @@ export default {
       const couponFilters = [
         'link',
         'coupon-code-text',
+        'deal-button-text',
         'discount-text',
         'wpcd_description',
         'show-expiration',

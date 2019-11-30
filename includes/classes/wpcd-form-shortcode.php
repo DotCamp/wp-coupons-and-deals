@@ -41,8 +41,16 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 		$asset_dir_path = WPCD_Plugin::instance()->plugin_dir_path . '/assets' . $pure_path;
 		$version        = filemtime( $asset_dir_path );
 
+		// including necesssary translation strings
+		$extras          = new stdClass();
+		$extras->strings = [];
+
+		$extras->strings['expire_text']  = $this->_c()->get_option( 'wpcd_expire-text', 'Expires on: ');
+		$extras->strings['expired_text'] = $this->_c()->get_option( 'wpcd_expired-text','Expired on: '  );
+
+
 		$this->_c()->add_action( 'wp_enqueue_scripts',
-			function () use ( $asset_uri_path, $version, $fields , $split_html ) {
+			function () use ( $extras, $asset_uri_path, $version, $fields, $split_html ) {
 
 				//only enqueue necessary files if current post have the short-code
 				if ( $this->haveShortcode() ) {
@@ -55,6 +63,8 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 					$this->_c()->wp_localize_script( 'form_shortcode_script', 'formShortcodeFields', $fields );
 
 					$this->_c()->wp_localize_script( 'form_shortcode_script', 'couponPreview', $split_html );
+
+					$this->_c()->wp_localize_script( 'form_shortcode_script', 'formShortcodeExtras', $extras );
 				}
 			} );
 
@@ -72,11 +82,11 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 	public function splitHtml( $data, $split_clause_start, $split_clause_end, $split_array ) {
 		$result = [];
 		foreach ( $split_array as $split ) {
-			$temp = [];
-			$start     = str_replace( ':split', $split, $split_clause_start );
-			$end       = str_replace( ':split', $split, $split_clause_end );
+			$temp  = [];
+			$start = str_replace( ':split', $split, $split_clause_start );
+			$end   = str_replace( ':split', $split, $split_clause_end );
 			preg_match( "/$start(.+)$end/s", $data, $temp );
-			$result[$split]  = $temp[1];
+			$result[ $split ] = $temp[1];
 		}
 
 		return $result;

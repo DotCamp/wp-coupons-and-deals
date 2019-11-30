@@ -1,6 +1,6 @@
 # [task-001]
 
-> We need a shortcode that will show a coupon submission form on the frontend so that admins can let other users add coupons to their site. The form will include all the fields that's available in the dashboard while adding a coupon. While adding a new coupon, some of the fields are hidden and shown conditionally. We will have to include those too. We will also have to make sure we follow security guidelines while creating, saving the form data.
+> We need a short-code that will show a coupon submission form on the frontend so that admins can let other users add coupons to their site. The form will include all the fields that's available in the dashboard while adding a coupon. While adding a new coupon, some of the fields are hidden and shown conditionally. We will have to include those too. We will also have to make sure we follow security guidelines while creating, saving the form data.
 
 
 ## goals
@@ -11,10 +11,10 @@
 - documentation
     - document everything for future developers
  
-## roadmap
-seperating the task into three main subject
+## road-map
+separating the task into three main subject
 
- - shortcode implementation
+ - short-code implementation
  - front-end form display
  - ~~embedding coupons at other sites~~
  
@@ -22,7 +22,7 @@ seperating the task into three main subject
 - [ ] tests
     > testing never ends, keep this segment unchecked
     - [x] tests' autoload should use project autoload
-        - wrote a test specific autoload for project files that works in pair with vendor autoloads
+        - wrote a test specific autoload for project files that works in pair with vendor autoload
     - > disabled front-end tests for now since `jest` is giving problems with the latest `@babel/core`, and I don't want to downgrade the most recent/secure version, will look for a solution later. for now `console.log` is my best friend
 - [x] short code class
     - [x] necessary sub classes
@@ -30,13 +30,15 @@ seperating the task into three main subject
     - [x] extract form fields from already defined `add new coupon` form meta box
     - [x] modern front-end compiler (`webpack`)
         - [x] `vuejs` integration
-    - [ ] responsive field display based on `coupon types` and other dynamic fields
+    - [x] responsive field display based on `coupon types` and other dynamic fields
         - [x] add a better template change module for changing different template types for better performance
-        - [ ] full filter array for all the dependent fields (do it off-clock since we will just gonna write down each visible/hidden field id depending on template/other fields)
+        - [x] full filter array for all the dependent fields (do it off-clock since we will just gonna write down each visible/hidden field id depending on template/other fields)
     - [ ] WYSIWYG coupon display
         - [ ] ~~have to write a parser for different coupon templates that has defined in the server code to reflect the same coupon look and feel in frontend & to reflect any changes that has done or any new template added~~
-            - [x]since the relation of coupon preview and its styles are inlined heavily inside server side php code, will gonna use that classes to extract the necessary values to reflect that data
+            - [x]since the relation of coupon preview and its styles are inline server side php code, will gonna use that classes to extract the necessary values to reflect that data
                 - [ ] extracting that may have caused some volatile admin data to leak to front-end. have to check the code line by line to avoid such scenario
+         - [ ] template specific `model` bindings
+            - > will gonna give us more flexibility if we treat each template separately instead of rendering them in batch. also will be better for front-end performance
     - [ ] form style
         - [x] for development, use `tailwindcss`
         - [ ] ~~experiment with a admin side settings page for various form style options to give out of the box and customizable form display~~

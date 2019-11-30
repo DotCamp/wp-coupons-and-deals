@@ -15,15 +15,12 @@ Vue.use(Plugin);
 let storeData = StoreData.putSelectionDefaults(formShortcodeFields, { select: 'options' });
 
 // extra defaults for some fields
-const extraDefaults = { };
+const extraDefaults = {};
 
 storeData = { ...storeData, ...extraDefaults };
 
-// injecting dependency fields
-StoreData.putDepends(formShortcodeFields, dependencyGraph);
-
 // singleton store plugin activation
-Vue.use(Store, { store: storeData });
+Vue.use(Store, { store: storeData, extras: formShortcodeExtras });
 
 // main Vue instance
 new Vue({

@@ -15,6 +15,7 @@
 <script>
 import FormLabel from './FormLabel';
 import InputSelector from './InputSelector';
+import dependencyGraph from '../data/dependencyGraph';
 
 export default {
   components: { FormLabel, InputSelector },
@@ -48,10 +49,11 @@ export default {
      * @returns {boolean} to show/or not to show
      */
     getDependencyGraph(field) {
-      if (field.depend) {
+      function evaluateObject(depObj) {
+        const BreakException = {};
         let result = false;
-        Object.keys(field.depend).map(f => {
-          const depArray = field.depend[f];
+        Object.keys(depObj).map(f => {
+          const depArray = depObj[f];
           try {
             depArray.forEach(d => {
               const hide = d[0] === '!';
@@ -59,10 +61,12 @@ export default {
               if (hide) {
                 rest = d.slice(1);
               } else rest = d;
-              if (this.store[f] === rest) {
+              if (rest === '*') {
+                result = !hide;
+              } else if (this.store[f] === rest) {
                 result = !hide;
                 // throw a dummy exception to break out of 'forEach' loop
-                throw Exception('break');
+                throw BreakException;
                 // even though we didn't find a match the possibility of a '!' operator
                 // force us to also write a else clause to maybe show the element
               } else if (hide) {
@@ -70,12 +74,26 @@ export default {
               }
             });
           } catch (e) {
-            // do nothing
+            if (e !== BreakException) {
+              throw e;
+            }
           }
         });
         return result;
       }
-      return true;
+
+      // if (field.depend) {
+      //   return evaluateObject.call(this, field.depend);
+      // }
+      const currentType = this.store['coupon-type'];
+      if (!dependencyGraph[currentType]) {
+        return true;
+      }
+      const graph = dependencyGraph[currentType];
+      if (!graph[field.id]) {
+        return true;
+      }
+      return evaluateObject.call(this, graph[field.id]);
     },
   },
 };

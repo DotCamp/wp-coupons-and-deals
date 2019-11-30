@@ -9,6 +9,7 @@ function install(Vue, options) {
     data() {
       return {
         store: options.store,
+        extras: options.extras,
       };
     },
   });

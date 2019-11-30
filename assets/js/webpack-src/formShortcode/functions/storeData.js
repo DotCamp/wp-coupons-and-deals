@@ -21,26 +21,4 @@ function putSelectionDefaults(data, pairs) {
   return tempObj;
 }
 
-/**
- * put depend fields to original data sent from the server
- * some of the fields are only visible to certain field values like templates etc.
- * with this function we will be injecting depend fields to the original data so
- * our form can parse this field to decide whether to show that field or not depending
- * on the values it depends on
- * @param data array data array
- * @param pairs array key-value pairs for depend property
- */
-function putDepends(data, pairs) {
-  return data.map(d => {
-    Object.keys(pairs).map(p => {
-      if (Object.prototype.hasOwnProperty.call(pairs, p)) {
-        if (d.id === p) {
-          // eslint-disable-next-line no-param-reassign
-          d.depend = pairs[p];
-        }
-      }
-    });
-  });
-}
-
-export default { putSelectionDefaults, putDepends };
+export default { putSelectionDefaults };
