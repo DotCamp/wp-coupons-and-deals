@@ -11,7 +11,7 @@ abstract class WPCD_Short_Code_Base {
 	 * short-code name
 	 * @var string
 	 */
-	private $name;
+	protected $name;
 
 	/**
 	 * WPCD_Short_Code_Base constructor.
@@ -27,7 +27,9 @@ abstract class WPCD_Short_Code_Base {
 	 * function to bind short-code to WordPress
 	 */
 	public function add() {
+		// add shortcode to WordPress hook
 		$this->_c()->add_shortcode( $this->name, array( $this, 'logic' ) );
+
 	}
 
 	/**

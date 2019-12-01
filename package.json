@@ -50,6 +50,7 @@
   "dependencies": {
     "npm": "^6.9.0",
     "vue": "^2.6.10",
-    "vue-fragment": "^1.5.1"
+    "vue-fragment": "^1.5.1",
+    "vue-resource": "^1.5.1"
   }
 }

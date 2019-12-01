@@ -7,14 +7,14 @@
     >
       <div class="text-4xl font-bold bg-gray-200 p-2 rounded shadow">Coupon Submit Form</div>
       <dev-box></dev-box>
-      <form id="form-shortcode-form-wrapper" method="post">
+      <form id="form-shortcode-form-wrapper" @submit.prevent="submitForm" method="post">
         <table class="border-collapse border-2 border-dashed w-full">
           <coupon-type v-model="store['coupon-type']" :typedata="couponType"></coupon-type>
           <coupon-title helpmessage="enter coupon title" id="coupon-title" label="Coupon Title"></coupon-title>
           <tr is="CouponTypeForm" :fieldsdata="parsedFields"></tr>
         </table>
 
-        <input type="submit" value="Submit" @click.prevent="submitForm" />
+        <input type="submit" value="Submit" />
       </form>
     </div>
   </div>
@@ -37,7 +37,10 @@ export default {
   },
   methods: {
     submitForm() {
-      console.log('submitting form');
+      return this.resource
+        .save({ action: 'wpcd_form' })
+        .then(resp => resp.json())
+        .then(j => console.log(j));
     },
   },
   computed: {

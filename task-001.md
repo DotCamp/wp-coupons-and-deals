@@ -26,6 +26,7 @@ separating the task into three main subject
     - > disabled front-end tests for now since `jest` is giving problems with the latest `@babel/core`, and I don't want to downgrade the most recent/secure version, will look for a solution later. for now `console.log` is my best friend
 - [x] short code class
     - [x] necessary sub classes
+- [ ] 'ajax' bindings of the form for backend processing
 - [ ] front-end form display
     - [x] extract form fields from already defined `add new coupon` form meta box
     - [x] modern front-end compiler (`webpack`)

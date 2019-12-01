@@ -48,6 +48,9 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 		$extras->strings['expire_text']  = $this->_c()->get_option( 'wpcd_expire-text', 'Expires on: ');
 		$extras->strings['expired_text'] = $this->_c()->get_option( 'wpcd_expired-text','Expired on: '  );
 
+		$http_type = isset($_SERVER['https'])?'https':'http';
+		$extras->ajax_url  = admin_url('admin-ajax.php', $http_type);
+
 
 		$this->_c()->add_action( 'wp_enqueue_scripts',
 			function () use ( $extras, $asset_uri_path, $version, $fields, $split_html ) {
@@ -64,9 +67,16 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 
 					$this->_c()->wp_localize_script( 'form_shortcode_script', 'couponPreview', $split_html );
 
-					$this->_c()->wp_localize_script( 'form_shortcode_script', 'formShortcodeExtras', $extras );
+					$this->_c()->wp_localize_script( 'form_shortcode_script', 'formShortcodeExtras', (array)$extras );
 				}
 			} );
+
+		// add ajax to WordPress hook
+		$ajax_hook_nopriv = new WPCD_Formshortcode_Ajax($this->name, false);
+		$ajax_hook_nopriv->add();
+
+		$ajax_hook_priv = new WPCD_Formshortcode_Ajax($this->name, true);
+		$ajax_hook_priv->add();
 
 		parent::add();
 	}
