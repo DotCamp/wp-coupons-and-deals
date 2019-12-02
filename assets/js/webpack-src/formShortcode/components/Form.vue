@@ -6,7 +6,6 @@
       style="height: 500px"
     >
       <div class="text-4xl font-bold bg-gray-200 p-2 rounded shadow">Coupon Submit Form</div>
-      <dev-box></dev-box>
       <form id="form-shortcode-form-wrapper" @submit.prevent="submitForm" method="post">
         <table class="border-collapse border-2 border-dashed w-full">
           <coupon-type v-model="store['coupon-type']" :typedata="couponType"></coupon-type>
@@ -14,7 +13,7 @@
           <tr is="CouponTypeForm" :fieldsdata="parsedFields"></tr>
         </table>
 
-        <input type="submit" value="Submit" />
+        <submit-component :message="submitMessage"></submit-component>
       </form>
     </div>
   </div>
@@ -24,23 +23,45 @@ import CouponType from './CouponType';
 import CouponTypeForm from './CouponTypeForm';
 import CouponPreview from './CouponPreview';
 import CouponTitle from './CouponTitle';
-import DevBox from './DevBox';
+import SubmitComponent from './SubmitComponent';
 
 export default {
   props: ['fields'],
-  components: { CouponTitle, CouponType, CouponTypeForm, CouponPreview, DevBox },
+  components: { CouponTitle, CouponType, CouponTypeForm, CouponPreview, SubmitComponent },
   data() {
     return {
       showSampleField: false,
       couponType: this.fields.filter(f => f.id === 'coupon-type')[0],
+      submitMessage: '',
     };
   },
   methods: {
     submitForm() {
-      return this.resource
-        .save({ action: 'wpcd_form' })
-        .then(resp => resp.json())
-        .then(j => console.log(j));
+      this.app.submit.fetching = true;
+      // TODO [task-001][erdembircan] get rid of timeout at production
+      setTimeout(() => {
+        try {
+          this.resource
+            .save({ action: 'wpcd_form', data: this.store })
+            .then(resp => resp.json())
+            .then(j => {
+              if (j.error) {
+                throw new Error(j.error);
+              }
+              this.app.submit.isSuccess = true;
+              this.submitMessage = `coupon id: ${j.data.id}`;
+            })
+            .catch(e => {
+              this.app.submit.isSuccess = false;
+              this.submitMessage = e.message;
+            });
+        } catch (e) {
+          this.app.submit.isSuccess = false;
+          this.submitMessage = e;
+        } finally {
+          this.app.submit.fetching = false;
+        }
+      }, 3000);
     },
   },
   computed: {

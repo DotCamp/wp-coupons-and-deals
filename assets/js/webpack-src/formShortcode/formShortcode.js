@@ -26,12 +26,22 @@ Vue.mixin({
 // applying some defaults to singleton store that actually defined in server sent data
 let storeData = StoreData.putSelectionDefaults(formShortcodeFields, { select: 'options' });
 
+// TODO [task-001][erdembircan] change to empty for production
 // extra defaults for some fields
-const extraDefaults = {};
+const extraDefaults = { 'coupon-template' : 'Template Two'};
 storeData = { ...storeData, ...extraDefaults };
 
 // singleton store plugin activation
-Vue.use(Store, { store: storeData, extras: formShortcodeExtras });
+Vue.use(Store, {
+  store: storeData,
+  extras: formShortcodeExtras,
+  app: {
+    submit: {
+      fetching: false,
+      isSuccess: true,
+    },
+  },
+});
 
 // main Vue instance
 new Vue({

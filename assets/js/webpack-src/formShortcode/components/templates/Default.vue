@@ -10,6 +10,8 @@ export default {
         'discount-text': '.wpcd-coupon-discount-text',
         'coupon-title': '.wpcd-coupon-title',
         'coupon-type': '.coupon-type',
+        'coupon-code-text': '.coupon-code-button',
+        'deal-button-text': '.deal-code-button',
         'expire-date': [
           {
             element: '.with-expiration1 > .wpcd-coupon-expire',

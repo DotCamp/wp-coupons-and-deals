@@ -13,6 +13,7 @@
 <script>
 import Default from './templates/Default';
 import TemplateOne from './templates/TemplateOne';
+import TemplateTwo from './templates/TemplateTwo';
 
 export default {
   data() {
@@ -20,7 +21,7 @@ export default {
       previews: couponPreview,
     };
   },
-  components: { Default, TemplateOne },
+  components: { Default, TemplateOne, TemplateTwo },
   computed: {
     currentTemplate() {
       return this.previews[this.store['coupon-template']];

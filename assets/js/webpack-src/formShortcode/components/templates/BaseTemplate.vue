@@ -56,7 +56,8 @@ export default {
      * objects inside array : object has this keys:
      *                        -element : element to search for
      *                        - format: is a function with a value argument to further
-     *                        customize the string to be put in text content
+     *                        customize the string to be put in text content, takes value
+     *                        and element as arguments
      *                        -append: is a boolean to append instead of changing
      *                        the text content
      */
@@ -74,25 +75,26 @@ export default {
               append = p.append || false;
               format =
                 p.format ||
-                function(s) {
+                function callback(s) {
                   return s;
                 };
             } else {
               value = p;
             }
+            const el = document.querySelector(value);
             if (this.store[f]) {
               if (Array.isArray(value)) {
                 value.map(v => {
                   if (append) {
-                    this.wrapper.querySelector(v).textContent += format(this.store[f]);
+                    this.wrapper.querySelector(v).textContent += format(this.store[f], el);
                   } else {
-                    this.wrapper.querySelector(v).textContent = format(this.store[f]);
+                    this.wrapper.querySelector(v).textContent = format(this.store[f], el);
                   }
                 });
               } else if (append) {
-                this.wrapper.querySelector(value).textContent += format(this.store[f]);
+                this.wrapper.querySelector(value).textContent += format(this.store[f], el);
               } else {
-                this.wrapper.querySelector(value).textContent = format(this.store[f]);
+                this.wrapper.querySelector(value).textContent = format(this.store[f], el);
               }
             }
           });

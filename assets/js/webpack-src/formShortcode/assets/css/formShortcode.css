@@ -3,6 +3,36 @@
     background: #fafafa !important;
 }
 
+input:disabled {
+    background-color: gray;
+    cursor: default;
+}
+
+.wait-block {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    border: #dcd7ca dashed 2px;
+    animation: beat .5s ease-out alternate infinite;
+}
+
+.wait-block-wrapper > .wait-block:nth-child(even) {
+    animation-delay: .3s
+}
+
+@keyframes beat {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1.0);
+    }
+
+}
+
 .form-shortcode-row {
     animation: fs-fade-in .5s ease-out;
 }
