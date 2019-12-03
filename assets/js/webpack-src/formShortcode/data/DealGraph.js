@@ -48,10 +48,10 @@ const dealGraph = {
     'coupon-template': ['Template Eight'],
   },
   'second-deal-button-text': {
-    'coupon-template': ['!*'],
+    'coupon-template': ['Template Four'],
   },
   'third-deal-button-text': {
-    'coupon-template': ['!*'],
+    'coupon-template': ['Template Four'],
   },
 };
 

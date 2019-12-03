@@ -28,7 +28,7 @@ let storeData = StoreData.putSelectionDefaults(formShortcodeFields, { select: 'o
 
 // TODO [task-001][erdembircan] change to empty for production
 // extra defaults for some fields
-const extraDefaults = { 'coupon-template' : 'Template Two'};
+const extraDefaults = { 'coupon-template': 'Template Two', 'coupon-type': 'Deal' };
 storeData = { ...storeData, ...extraDefaults };
 
 // singleton store plugin activation

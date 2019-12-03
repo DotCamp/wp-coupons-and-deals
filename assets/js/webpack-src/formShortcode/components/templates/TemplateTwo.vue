@@ -1,8 +1,39 @@
 <script>
 import BaseTemplate from './BaseTemplate';
+import EzTime from '../../functions/EzTime';
 
 export default {
-  extends: BaseTemplate,
+  components: { BaseTemplate },
+  mixins: [BaseTemplate],
+  watch: {
+    countdownMS(n) {
+      const el = document.querySelector('.expires-on');
+      const expired = n <= 0;
+      if (expired) {
+        el.classList.add('wpcd-countdown-expired');
+        el.classList.remove('wpcd-coupon-two-countdown');
+      } else {
+        el.classList.add('wpcd-coupon-two-countdown');
+        el.classList.remove('wpcd-countdown-expired');
+      }
+
+      const offerExpired = this.extras.strings.offer_expired_text;
+      const expirePart = this.extras.strings.expire_text;
+      const timeTranslations = {
+        second: [this.extras.strings.second, this.extras.strings.seconds],
+        minute: [this.extras.strings.minute, this.extras.strings.minutes],
+        hour: [this.extras.strings.hour, this.extras.strings.hours],
+        day: [this.extras.strings.day, this.extras.strings.days],
+        week: [this.extras.strings.week, this.extras.strings.weeks],
+        month: [this.extras.strings.month, this.extras.strings.months],
+        year: [this.extras.strings.year, this.extras.strings.years],
+      };
+      const timeString = new EzTime(n, timeTranslations);
+      const humanReadableTimeString = `${timeString}`;
+
+      el.textContent = `${expirePart}${expired ? offerExpired : ''}${expired ? '' : humanReadableTimeString}`;
+    },
+  },
   mounted() {
     const expiresOn = document.querySelector('.expires-on');
     expiresOn.style = '';
@@ -10,6 +41,7 @@ export default {
   },
   data() {
     return {
+      countdownMS: 0,
       values: {
         'coupon-title': '.wpcd-coupon-title',
         'coupon-code-text': '.coupon-code-button',
@@ -19,19 +51,22 @@ export default {
         'expire-date': [
           {
             element: '.expires-on',
-            format: (value, el) => {
-              const expired = Date.now() > new Date(this.store['expire-date']);
-              if (expired) {
-                el.classList.add('wpcd-countdown-expired');
-                el.classList.remove('wpcd-coupon-two-countdown');
-              } else {
-                el.classList.add('wpcd-coupon-two-countdown');
-                el.classList.remove('wpcd-countdown-expired');
-              }
+            format: () => {
+              this.countdownMS =
+                new Date(`${this.store['expire-date']} ${this.store['expire-time'] || ''}`) - Date.now();
 
-              return `${this.extras.strings.expire_text}${expired ? this.extras.strings.offer_expired_text : ''}${
-                expired ? '' : value
-              }`;
+              this.countDown();
+            },
+          },
+        ],
+        'expire-time': [
+          {
+            element: '.expires-on',
+            format: () => {
+              this.countdownMS =
+                new Date(`${this.store['expire-date']} ${this.store['expire-time'] || ''}`) - Date.now();
+
+              this.countDown();
             },
           },
         ],
@@ -45,6 +80,16 @@ export default {
           this.store['never-expire-check'] === false || this.store['never-expire-check'] === undefined,
       },
     };
+  },
+  methods: {
+    countDown() {
+      const vm = this;
+      clearInterval(this.intervalid);
+
+      this.intervalid = setInterval(function() {
+        vm.countdownMS -= 1000;
+      }, 1000);
+    },
   },
 };
 </script>

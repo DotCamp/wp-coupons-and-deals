@@ -31,7 +31,7 @@ export default {
         '.wpcd-coupon-hidden': () => this.store['hide-coupon'] === 'Yes' && this.store['coupon-type'] !== 'Deal',
         '.wpcd-deal-code': () => this.store['coupon-type'] === 'Deal',
         '.without-expiration1': () =>
-          this.store['show-expiration'] === 'Hide' || this.store['expire-date'] === undefined,
+          this.store['show-expiration'] !== 'Hide' && this.store['expire-date'] === undefined,
         '.with-expiration1': () => this.store['expire-date'] !== undefined && this.store['show-expiration'] === 'Show',
         '.with-expiration1 > .wpcd-coupon-one-expired': () =>
           this.store['expire-date'] !== undefined && Date.now() > new Date(this.store['expire-date']),

@@ -1,6 +1,6 @@
 <template>
   <div class="text-gray-700">
-    <coupon-preview></coupon-preview>
+    <coupon-preview />
     <div
       class="overflow-scroll flex items-center flex-col bg-gray-100 border-t-4 border-l-4 shadow-lg rounded p-4"
       style="height: 500px"
@@ -8,12 +8,12 @@
       <div class="text-4xl font-bold bg-gray-200 p-2 rounded shadow">Coupon Submit Form</div>
       <form id="form-shortcode-form-wrapper" @submit.prevent="submitForm" method="post">
         <table class="border-collapse border-2 border-dashed w-full">
-          <coupon-type v-model="store['coupon-type']" :typedata="couponType"></coupon-type>
-          <coupon-title helpmessage="enter coupon title" id="coupon-title" label="Coupon Title"></coupon-title>
-          <tr is="CouponTypeForm" :fieldsdata="parsedFields"></tr>
+          <coupon-type v-model="store['coupon-type']" :typedata="couponType" />
+          <coupon-title helpmessage="enter coupon title" id="coupon-title" label="Coupon Title" />
+          <tr is="CouponTypeForm" :fieldsdata="parsedFields" />
         </table>
 
-        <submit-component :message="submitMessage"></submit-component>
+        <submit-component :message="submitMessage" />
       </form>
     </div>
   </div>

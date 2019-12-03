@@ -48,11 +48,32 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 		$extras          = new stdClass();
 		$extras->strings = [];
 
-		$extras->strings['expire_text']        = $this->_c()->get_option( 'wpcd_expire-text', 'Expires on: ' );
-		$extras->strings['expired_text']       = $this->_c()->get_option( 'wpcd_expired-text', 'Expired on: ' );
-		$extras->strings['offer_expired_text'] = __( 'This offer has expired!', WPCD_Plugin::TEXT_DOMAIN );
+		$extras->strings['expire_text']  = $this->_c()->get_option( 'wpcd_expire-text', 'Expires on: ' );
+		$extras->strings['expired_text'] = $this->_c()->get_option( 'wpcd_expired-text', 'Expired on: ' );
 
-		$protocol        = isset( $_SERVER['https'] ) ? 'https' : 'http';
+		$batch_translations = [
+			'offer_expired_text' => 'This offer has expired!',
+			'second'             => 'second',
+			'seconds'            => 'seconds',
+			'minute'             => 'minute',
+			'minutes'             => 'minutes',
+			'hour'               => 'hour',
+			'hours'               => 'hours',
+			'day'                => 'day',
+			'days'                => 'days',
+			'week'               => 'week',
+			'weeks'               => 'weeks',
+			'month'              => 'month',
+			'months'              => 'months',
+			'year'               => 'year',
+			'years'               => 'years',
+		];
+
+		$extras->strings = array_merge( $extras->strings,
+			$this->get_batch_translations( $batch_translations, WPCD_Plugin::TEXT_DOMAIN ) );
+
+
+		$protocol         = isset( $_SERVER['https'] ) ? 'https' : 'http';
 		$extras->ajax_url = admin_url( 'admin-ajax.php', $protocol );
 
 
@@ -110,5 +131,21 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 
 		return "
 <div id='form_shortcode'></div>";
+	}
+
+	/**
+	 * get translation values in batch
+	 * @param $key_array array keys for returned array keys/ values for translation keys
+	 * @param $text_domain string text domain name
+	 *
+	 * @return array array of fetched translation values
+	 */
+	private function get_batch_translations( $key_array, $text_domain ) {
+		$temp_array = [];
+		foreach ( $key_array as $key => $value ) {
+			$temp_array[ $key ] = __( $value, $text_domain );
+		}
+
+		return $temp_array;
 	}
 }

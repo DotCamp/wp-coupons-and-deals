@@ -1,5 +1,5 @@
 import couponGraph from './CouponGraph';
-import dealGraph from "./DealGraph";
+import dealGraph from './DealGraph';
 
 const dependencyGraph = {
   Coupon: couponGraph,

@@ -21,9 +21,11 @@ const couponGraph = {
     'coupon-template': ['Template Four'],
   },
   'second-expire-date': {
+    'show-expiration': ['Show'],
     'coupon-template': ['Template Four'],
   },
   'third-expire-date': {
+    'show-expiration': ['Show'],
     'coupon-template': ['Template Four'],
   },
   'third-discount-text': {

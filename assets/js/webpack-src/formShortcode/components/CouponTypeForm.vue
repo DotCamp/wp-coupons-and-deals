@@ -50,36 +50,34 @@ export default {
      */
     getDependencyGraph(field) {
       function evaluateObject(depObj) {
-        const BreakException = {};
-        let result = false;
-        Object.keys(depObj).map(f => {
-          const depArray = depObj[f];
-          try {
-            depArray.forEach(d => {
-              const hide = d[0] === '!';
-              let rest;
-              if (hide) {
-                rest = d.slice(1);
-              } else rest = d;
-              if (rest === '*') {
-                result = !hide;
-              } else if (this.store[f] === rest) {
-                result = !hide;
-                // throw a dummy exception to break out of 'forEach' loop
-                throw BreakException;
-                // even though we didn't find a match the possibility of a '!' operator
-                // force us to also write a else clause to maybe show the element
-              } else if (hide) {
-                result = true;
-              }
-            });
-          } catch (e) {
-            if (e !== BreakException) {
-              throw e;
-            }
-          }
-        });
-        return result;
+        return Object.keys(depObj)
+          .map(f => {
+            const depArray = depObj[f];
+
+            return depArray
+              .map(d => {
+                const hide = d[0] === '!';
+                let rest;
+                if (hide) {
+                  rest = d.slice(1);
+                } else rest = d;
+                if (rest === '*') {
+                  return !hide;
+                }
+                if (this.store[f] === rest) {
+                  return !hide;
+                  // throw a dummy exception to break out of 'forEach' loop
+                  // even though we didn't find a match the possibility of a '!' operator
+                  // force us to also write a else clause to maybe show the element
+                }
+                if (hide) {
+                  return true;
+                }
+                return false;
+              })
+              .some(d => d === true);
+          })
+          .every(o => o === true);
       }
 
       // if (field.depend) {

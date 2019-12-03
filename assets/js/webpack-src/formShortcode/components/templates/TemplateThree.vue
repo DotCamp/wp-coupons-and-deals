@@ -6,21 +6,19 @@ export default {
   data() {
     return {
       values: {
-        wpcd_description: '.wpcd-coupon-description',
-        'discount-text': '.wpcd-coupon-discount-text',
-        'coupon-title': '.wpcd-coupon-title',
-        'coupon-type': '.coupon-type',
+        'coupon-title': '.wpcd-coupon-three-title',
         'coupon-code-text': '.coupon-code-button',
+        wpcd_description: '.wpcd-coupon-description',
         'deal-button-text': '.deal-code-button',
         'expire-date': [
           {
-            element: '.with-expiration1 > .wpcd-coupon-expire',
+            element: '.wpcd-coupon-three-expire-text',
             format: value => {
               return `${this.extras.strings.expire_text}${value}`;
             },
           },
           {
-            element: '.with-expiration1 > .wpcd-coupon-expired',
+            element: '.wpcd-coupon-three-expired',
             format: value => {
               return `${this.extras.strings.expired_text}${value}`;
             },
@@ -31,12 +29,13 @@ export default {
         '.wpcd-coupon-code': () => this.store['hide-coupon'] === 'No' && this.store['coupon-type'] !== 'Deal',
         '.wpcd-coupon-hidden': () => this.store['hide-coupon'] === 'Yes' && this.store['coupon-type'] !== 'Deal',
         '.wpcd-deal-code': () => this.store['coupon-type'] === 'Deal',
+        '.wpcd-coupon-three-info-left': () => this.store['show-expiration'] === 'Show',
         '.without-expiration1': () =>
-          this.store['show-expiration'] !== 'Hide' && this.store['expire-date'] === undefined,
+          this.store['show-expiration'] === 'Hide' || this.store['expire-date'] === undefined,
         '.with-expiration1': () => this.store['expire-date'] !== undefined && this.store['show-expiration'] === 'Show',
-        '.with-expiration1 > .wpcd-coupon-expired': () =>
+        '.wpcd-coupon-three-expired': () =>
           this.store['expire-date'] !== undefined && Date.now() > new Date(this.store['expire-date']),
-        '.with-expiration1 > .wpcd-coupon-expire': () =>
+        '.with-expiration1 > .wpcd-coupon-three-expire': () =>
           this.store['expire-date'] !== undefined && Date.now() < new Date(this.store['expire-date']),
       },
     };

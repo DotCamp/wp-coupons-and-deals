@@ -10,6 +10,7 @@ export default {
     },
   },
   mounted() {
+    this.beforeParentMount();
     this.bindValues();
     this.toggles();
   },
@@ -23,6 +24,9 @@ export default {
     },
   },
   methods: {
+    // hook to call before mounting parent template
+    // override for DOM manipulations etc
+    beforeParentMount() {},
     /**
      * toggle visibility of a element
      * @param e string element class/id name
@@ -67,12 +71,14 @@ export default {
           let value;
           let append = false;
           let format = s => s;
+          let dataObject = this.store;
           const parent = Array.isArray(this.values[f]) ? this.values[f] : [this.values[f]];
 
           parent.map(p => {
             if (typeof p === 'object') {
               value = p.element;
               append = p.append || false;
+              dataObject = p.dataObject || dataObject;
               format =
                 p.format ||
                 function callback(s) {
@@ -82,19 +88,19 @@ export default {
               value = p;
             }
             const el = document.querySelector(value);
-            if (this.store[f]) {
+            if (dataObject[f]) {
               if (Array.isArray(value)) {
                 value.map(v => {
                   if (append) {
-                    this.wrapper.querySelector(v).textContent += format(this.store[f], el);
+                    this.wrapper.querySelector(v).textContent += format(dataObject[f], el);
                   } else {
-                    this.wrapper.querySelector(v).textContent = format(this.store[f], el);
+                    this.wrapper.querySelector(v).textContent = format(dataObject[f], el);
                   }
                 });
               } else if (append) {
-                this.wrapper.querySelector(value).textContent += format(this.store[f], el);
+                this.wrapper.querySelector(value).textContent += format(dataObject[f], el);
               } else {
-                this.wrapper.querySelector(value).textContent = format(this.store[f], el);
+                this.wrapper.querySelector(value).textContent = format(dataObject[f], el);
               }
             }
           });
