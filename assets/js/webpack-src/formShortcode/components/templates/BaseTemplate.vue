@@ -88,19 +88,22 @@ export default {
               value = p;
             }
             const el = document.querySelector(value);
-            if (dataObject[f]) {
-              if (Array.isArray(value)) {
-                value.map(v => {
-                  if (append) {
-                    this.wrapper.querySelector(v).textContent += format(dataObject[f], el);
-                  } else {
-                    this.wrapper.querySelector(v).textContent = format(dataObject[f], el);
-                  }
-                });
-              } else if (append) {
-                this.wrapper.querySelector(value).textContent += format(dataObject[f], el);
-              } else {
-                this.wrapper.querySelector(value).textContent = format(dataObject[f], el);
+            const callbackResult = format(dataObject[f], el);
+            if (callbackResult) {
+              if (dataObject[f]) {
+                if (Array.isArray(value)) {
+                  value.map(v => {
+                    if (append) {
+                      this.wrapper.querySelector(v).textContent += callbackResult;
+                    } else {
+                      this.wrapper.querySelector(v).textContent = callbackResult;
+                    }
+                  });
+                } else if (append) {
+                  this.wrapper.querySelector(value).textContent += callbackResult;
+                } else {
+                  this.wrapper.querySelector(value).textContent = callbackResult;
+                }
               }
             }
           });

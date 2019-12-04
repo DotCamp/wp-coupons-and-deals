@@ -27,7 +27,7 @@ const config = {
       },
       {
         test: /.+\.(css)$/,
-        loader: ['vue-style-loader', 'css-loader'],
+        loader: ['vue-style-loader', { loader: 'css-loader', options: { importLoaders: 1 } }, 'postcss-loader'],
       },
     ],
   },

@@ -39,10 +39,15 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 
 
 // including the necessary js files for front end display
-		$pure_path      = '/js/formShortcode.bundle.js';
-		$asset_uri_path = WPCD_Plugin::instance()->plugin_assets . $pure_path;
-		$asset_dir_path = WPCD_Plugin::instance()->plugin_dir_path . '/assets' . $pure_path;
-		$version        = filemtime( $asset_dir_path );
+		$js_pure_path      = '/js/formShortcode.bundle.js';
+		$js_asset_uri_path = WPCD_Plugin::instance()->plugin_assets . $js_pure_path;
+		$js_asset_dir_path = WPCD_Plugin::instance()->plugin_dir_path . '/assets' . $js_pure_path;
+		$js_version        = filemtime( $js_asset_dir_path );
+
+		$css_pure_path      = '/admin/css/dist/admin.min.css';
+		$css_asset_uri_path = WPCD_Plugin::instance()->plugin_assets . $css_pure_path;
+		$css_asset_dir_path = WPCD_Plugin::instance()->plugin_dir_path . '/assets' . $css_pure_path;
+		$css_version        = filemtime( $css_asset_dir_path );
 
 // including necesssary translation strings
 		$extras          = new stdClass();
@@ -56,17 +61,17 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 			'second'             => 'second',
 			'seconds'            => 'seconds',
 			'minute'             => 'minute',
-			'minutes'             => 'minutes',
+			'minutes'            => 'minutes',
 			'hour'               => 'hour',
-			'hours'               => 'hours',
+			'hours'              => 'hours',
 			'day'                => 'day',
-			'days'                => 'days',
+			'days'               => 'days',
 			'week'               => 'week',
-			'weeks'               => 'weeks',
+			'weeks'              => 'weeks',
 			'month'              => 'month',
-			'months'              => 'months',
+			'months'             => 'months',
 			'year'               => 'year',
-			'years'               => 'years',
+			'years'              => 'years',
 		];
 
 		$extras->strings = array_merge( $extras->strings,
@@ -78,14 +83,23 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 
 
 		$this->_c()->add_action( 'wp_enqueue_scripts',
-			function () use ( $extras, $asset_uri_path, $version, $fields, $split_html ) {
+			function () use (
+				$css_version,
+				$css_asset_uri_path,
+				$extras,
+				$js_asset_uri_path,
+				$js_version,
+				$fields,
+				$split_html
+			) {
 
 //only enqueue necessary files if current post have the short-code
 				if ( $this->haveShortcode() ) {
-					$this->_c()->wp_enqueue_script( 'form_shortcode_script', $asset_uri_path, array(), $version, true );
+					$this->_c()->wp_enqueue_script( 'form_shortcode_script', $js_asset_uri_path, array(), $js_version,
+						true );
 
-					$this->_c()->wp_enqueue_style( 'form_shortcode_style',
-						'https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css' );
+					$this->_c()->wp_enqueue_style( 'form_shortcode_style', $css_asset_uri_path, array(), $css_version );
+
 
 // send fields as a localized script to front end
 					$this->_c()->wp_localize_script( 'form_shortcode_script', 'formShortcodeFields', $fields );
@@ -135,6 +149,7 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 
 	/**
 	 * get translation values in batch
+	 *
 	 * @param $key_array array keys for returned array keys/ values for translation keys
 	 * @param $text_domain string text domain name
 	 *

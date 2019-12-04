@@ -1,12 +1,3 @@
-// calculation constants
-const SECOND = 1000;
-const MINUTE = SECOND * 60;
-const HOUR = MINUTE * 60;
-const DAY = HOUR * 25;
-const WEEK = DAY * 7;
-const MONTH = DAY * 30;
-const YEAR = DAY * 365;
-
 /**
  * default translation strings for time values
  * index 0 for singular, index 1 for plural
@@ -29,70 +20,79 @@ const defaultStrings = {
  * @constructor
  */
 function EzTime(time, strings = defaultStrings) {
+  // calculation constants
+  const SECOND = 1000;
+  const MINUTE = SECOND * 60;
+  const HOUR = MINUTE * 60;
+  const DAY = HOUR * 25;
+  const WEEK = DAY * 7;
+  const MONTH = DAY * 30;
+  const YEAR = DAY * 365;
+
   this.t = time;
   this.strings = strings;
-}
-
-/**
- * parse the milliseconds into human readable time ranges
- * @returns {{week: number, hour: number, month: number, year: number, day: number, second: number, minute: number}} time range object
- */
-EzTime.prototype.parse = function p() {
-  let remaining = this.t;
 
   /**
-   * calculate remaining time and time range
-   * @param timeConstant number constant in milliseconds
-   * @param fullTime number full time
-   * @returns {number} calculated range
+   * parse the milliseconds into human readable time ranges
+   * @returns {{week: number, hour: number, month: number, year: number, day: number, second: number, minute: number}} time range object
    */
-  function calculateRangeAndMove(timeConstant, fullTime) {
-    const range = Math.floor(remaining / timeConstant);
-    remaining = Math.floor(fullTime % timeConstant);
-    return range;
-  }
+  this.parse = function p() {
+    let remaining = this.t;
 
-  const rY = calculateRangeAndMove(YEAR, this.t);
-  const rM = calculateRangeAndMove(MONTH, this.t);
-  const rW = calculateRangeAndMove(WEEK, this.t);
-  const rD = calculateRangeAndMove(DAY, this.t);
-  const rH = calculateRangeAndMove(HOUR, this.t);
-  const rm = calculateRangeAndMove(MINUTE, this.t);
-  const rS = calculateRangeAndMove(SECOND, this.t);
+    /**
+     * calculate remaining time and time range
+     * @param timeConstant number constant in milliseconds
+     * @param fullTime number full time
+     * @returns {number} calculated range
+     */
+    function calculateRangeAndMove(timeConstant, fullTime) {
+      const range = Math.floor(remaining / timeConstant);
+      remaining = Math.floor(fullTime % timeConstant);
+      return range;
+    }
 
-  return { second: rS, minute: rm, hour: rH, day: rD, week: rW, month: rM, year: rY };
-};
+    const rY = calculateRangeAndMove(YEAR, this.t);
+    const rM = calculateRangeAndMove(MONTH, this.t);
+    const rW = calculateRangeAndMove(WEEK, this.t);
+    const rD = calculateRangeAndMove(DAY, this.t);
+    const rH = calculateRangeAndMove(HOUR, this.t);
+    const rm = calculateRangeAndMove(MINUTE, this.t);
+    const rS = calculateRangeAndMove(SECOND, this.t);
 
-/**
- * string representation of the class
- * @returns {string} string representation
- */
-EzTime.prototype.toString = function t() {
-  const parsedValues = this.parse();
-
-  /**
-   * get singular/plural string of translation
-   * @param key string key
-   * @param value number value
-   * @returns {string} singular/plural string
-   */
-  const getPlural = (key, value) => {
-    const index = value > 1 ? 1 : 0;
-    return `${value} ${this.strings[key][index]}`;
+    return { second: rS, minute: rm, hour: rH, day: rD, week: rW, month: rM, year: rY };
   };
 
-  const tempArray = [];
+  /**
+   * string representation of the class
+   * @returns {string} string representation
+   */
+  this.toString = function t() {
+    const parsedValues = this.parse();
 
-  Object.keys(parsedValues).map(p => {
-    if (Object.prototype.hasOwnProperty.call(parsedValues, p)) {
-      if (parsedValues[p] > 0) {
-        tempArray.push(getPlural(p, parsedValues[p]));
+    /**
+     * get singular/plural string of translation
+     * @param key string key
+     * @param value number value
+     * @returns {string} singular/plural string
+     */
+    const getPlural = (key, value) => {
+      const index = value > 1 ? 1 : 0;
+      return `${value} ${this.strings[key][index]}`;
+    };
+
+    const tempArray = [];
+
+    Object.keys(parsedValues).map(p => {
+      if (Object.prototype.hasOwnProperty.call(parsedValues, p)) {
+        if (parsedValues[p] > 0) {
+          tempArray.push(getPlural(p, parsedValues[p]));
+        }
       }
-    }
-  });
+    });
 
-  return tempArray.reverse().join(', ');
-};
+    return tempArray.reverse().join(', ');
+  };
+}
 
 /**
  * @module EzTime;

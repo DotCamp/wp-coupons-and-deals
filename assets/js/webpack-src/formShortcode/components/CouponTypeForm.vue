@@ -53,29 +53,37 @@ export default {
         return Object.keys(depObj)
           .map(f => {
             const depArray = depObj[f];
-
-            return depArray
-              .map(d => {
-                const hide = d[0] === '!';
-                let rest;
-                if (hide) {
-                  rest = d.slice(1);
-                } else rest = d;
-                if (rest === '*') {
-                  return !hide;
-                }
-                if (this.store[f] === rest) {
-                  return !hide;
-                  // throw a dummy exception to break out of 'forEach' loop
-                  // even though we didn't find a match the possibility of a '!' operator
-                  // force us to also write a else clause to maybe show the element
-                }
-                if (hide) {
-                  return true;
-                }
-                return false;
-              })
-              .some(d => d === true);
+            const BreakError = {};
+            let tempResult = false;
+            try {
+              return depArray
+                .map(d => {
+                  const hide = d[0] === '!';
+                  let rest;
+                  if (hide) {
+                    rest = d.slice(1);
+                  } else rest = d;
+                  if (rest === '*') {
+                    return !hide;
+                  }
+                  if (this.store[f] === rest) {
+                    tempResult = !hide;
+                    // throw an error to break out of iteration
+                    throw BreakError;
+                    // return !hide;
+                  }
+                  if (hide) {
+                    return true;
+                  }
+                  return false;
+                })
+                .some(d => d === true);
+            } catch (e) {
+              if (e === BreakError) {
+                return tempResult;
+              }
+              throw e;
+            }
           })
           .every(o => o === true);
       }

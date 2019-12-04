@@ -1,6 +1,6 @@
 const dealGraph = {
   'show-expiration': {
-    'coupon-template': ['!Template Two', '!Template Seven'],
+    'coupon-template': ['!Template Two', '!Template Six', '!Template Seven'],
   },
   'expire-date': {
     'show-expiration': ['Show'],

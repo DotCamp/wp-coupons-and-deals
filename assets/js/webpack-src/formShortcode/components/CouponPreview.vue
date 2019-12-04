@@ -16,6 +16,10 @@ import TemplateOne from './templates/TemplateOne';
 import TemplateTwo from './templates/TemplateTwo';
 import TemplateThree from './templates/TemplateThree';
 import TemplateFour from './templates/TemplateFour';
+import TemplateFive from './templates/TemplateFive';
+import TemplateSix from './templates/TemplateSix';
+import TemplateSeven from './templates/TemplateSeven';
+import TemplateEight from './templates/TemplateEight';
 
 export default {
   data() {
@@ -23,7 +27,17 @@ export default {
       previews: couponPreview,
     };
   },
-  components: { Default, TemplateOne, TemplateTwo, TemplateThree, TemplateFour },
+  components: {
+    Default,
+    TemplateOne,
+    TemplateTwo,
+    TemplateThree,
+    TemplateFour,
+    TemplateFive,
+    TemplateSix,
+    TemplateSeven,
+    TemplateEight,
+  },
   computed: {
     currentTemplate() {
       // overriding 'show-expiration' so 'Expiration Date' will not be hidden at template changes

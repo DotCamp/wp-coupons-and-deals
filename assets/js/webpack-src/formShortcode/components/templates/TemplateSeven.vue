@@ -1,9 +1,16 @@
 <script>
+/* eslint-disable no-param-reassign */
+
 import BaseTemplate from './BaseTemplate';
 import EzTime from '../../functions/EzTime';
 
 export default {
   mixins: [BaseTemplate],
+  mounted() {
+    const expiresOn = document.querySelector('.expires-on');
+    expiresOn.style = '';
+    expiresOn.classList.add('hidden');
+  },
   watch: {
     countdownMS(n) {
       const el = document.querySelector('.expires-on');
@@ -33,20 +40,68 @@ export default {
       el.textContent = `${expirePart}${expired ? offerExpired : ''}${expired ? '' : humanReadableTimeString}`;
     },
   },
-  mounted() {
-    const expiresOn = document.querySelector('.expires-on');
-    expiresOn.style = '';
-    expiresOn.classList.add('hidden');
-  },
   data() {
     return {
       countdownMS: 0,
       values: {
-        'coupon-title': '.wpcd-coupon-title',
-        'coupon-code-text': '.coupon-code-button',
-        'discount-text': '.wpcd-coupon-two-discount-text',
+        'coupon-title': '.admin_wpcd_seven_new_title',
+        'coupon-code-text': [
+          {
+            element: '.coupon-code-button',
+            format: (value, el) => {
+              if (value !== undefined) el.dataset.titleAb = value;
+            },
+          },
+        ],
+        'deal-button-text': [
+          {
+            element: '.deal-code-button',
+            format: (value, el) => {
+              if (value !== undefined) el.dataset.titleAb = value;
+            },
+          },
+        ],
+        'discount-text': '.admin_wpcd_seven_percentOff p',
         wpcd_description: '.wpcd-coupon-description',
-        'deal-button-text': '.deal-code-button',
+        'hide-coupon': [
+          {
+            element: '.wpcd-coupon-hidden',
+            format: (value, el) => {
+              el.style.display = value === 'Yes' ? 'block' : 'none';
+            },
+          },
+        ],
+        'template-seven-theme': [
+          {
+            element: '.admin_wpcd_seven_percentOff',
+            format: (value, el) => {
+              el.style.backgroundColor = value;
+              el.style.borderColor = value;
+            },
+          },
+          {
+            element: '.admin_wpcd_seven_couponBox',
+            format: (value, el) => {
+              el.style.borderColor = value;
+            },
+          },
+          {
+            element: '.wpcd-coupon-code .coupon-code-button',
+            format: (value, el) => {
+              el.style.borderColor = value;
+              el.style.color = value;
+              el.style.backgroundColor = value;
+            },
+          },
+          {
+            element: '.wpcd-deal-code .deal-code-button',
+            format: (value, el) => {
+              el.style.borderColor = value;
+              el.style.color = value;
+              el.style.backgroundColor = value;
+            },
+          },
+        ],
         'expire-date': [
           {
             element: '.expires-on',
@@ -72,7 +127,6 @@ export default {
       },
       toggleVisibility: {
         '.wpcd-coupon-code': () => this.store['hide-coupon'] === 'No' && this.store['coupon-type'] !== 'Deal',
-        '.wpcd-coupon-hidden': () => this.store['hide-coupon'] === 'Yes' && this.store['coupon-type'] !== 'Deal',
         '.wpcd-deal-code': () => this.store['coupon-type'] === 'Deal',
         '.never-expire': () => this.store['never-expire-check'] === true || this.store['expire-date'] === undefined,
         '.expires-on': () =>
