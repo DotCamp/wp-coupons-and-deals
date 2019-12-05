@@ -42,14 +42,14 @@ export default {
       setTimeout(() => {
         try {
           this.resource
-            .save({ action: 'wpcd_form', data: this.store })
+            .save({ action: 'wpcd_form', data: this.store, nonce: this.extras.nonce })
             .then(resp => resp.json())
             .then(j => {
               if (j.error) {
                 throw new Error(j.error);
               }
               this.app.submit.isSuccess = true;
-              this.submitMessage = `coupon id: ${j.data.id}`;
+              this.submitMessage = `Coupon created with id: ${j.data.id}`;
             })
             .catch(e => {
               this.app.submit.isSuccess = false;

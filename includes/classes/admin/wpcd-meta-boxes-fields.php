@@ -1,6 +1,5 @@
 <?php
 
-// TODO [task-001][erdembircan] will use this class to make sure same fields are reflected to front-end display
 
 /**
  * field values for meta boxes fields

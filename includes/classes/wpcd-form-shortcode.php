@@ -80,6 +80,7 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 
 		$protocol         = isset( $_SERVER['https'] ) ? 'https' : 'http';
 		$extras->ajax_url = admin_url( 'admin-ajax.php', $protocol );
+		$extras->nonce    = wp_create_nonce( 'wpcd_shortcode_form' );
 
 
 		$this->_c()->add_action( 'wp_enqueue_scripts',

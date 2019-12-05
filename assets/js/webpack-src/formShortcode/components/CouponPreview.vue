@@ -2,7 +2,8 @@
   <div class="w-full overflow-x-hidden bg-gray-100 mb-4 border-t-4 border-l-4 rounded border shadow-lg">
     <div class="text-sm">{{ store }}</div>
     <transition name="form-shortcode-preview" appear mode="out-in">
-      <component class="px-4" :is="store['coupon-template'].replace(' ', '')" :html="currentTemplate" />
+      <image-template v-if="store['coupon-type'] === 'Image'" />
+      <component v-else class="px-4" :is="store['coupon-template'].replace(' ', '')" :html="currentTemplate" />
     </transition>
     <div class="bg-white rounded border text-sm italic px-2 m-2 text-justify">
       <span class="font-bold">Note: </span>This is just to show how the coupon will look. Click to copy functionality,
@@ -20,6 +21,7 @@ import TemplateFive from './templates/TemplateFive';
 import TemplateSix from './templates/TemplateSix';
 import TemplateSeven from './templates/TemplateSeven';
 import TemplateEight from './templates/TemplateEight';
+import ImageTemplate from './templates/ImageTemplate';
 
 export default {
   data() {
@@ -37,8 +39,12 @@ export default {
     TemplateSix,
     TemplateSeven,
     TemplateEight,
+    ImageTemplate,
   },
   computed: {
+    currentFile() {
+      return this.store['coupon-template'].replace(' ', '');
+    },
     currentTemplate() {
       // overriding 'show-expiration' so 'Expiration Date' will not be hidden at template changes
       // eslint-disable-next-line vue/no-side-effects-in-computed-properties

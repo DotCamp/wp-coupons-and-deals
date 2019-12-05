@@ -32,7 +32,7 @@ class WPCD_Short_Code {
 		add_shortcode( 'wpcd_code', array( __CLASS__, 'wpcd_coupon_code' ) );
 
 
-		// TODO [task-001][erdembircan] form-shortcode entry point
+		// form short-code entry point
 		$form_shortcode = new WPCD_Form_Shortcode( 'wpcd_form' );
 		$form_shortcode->add();
 

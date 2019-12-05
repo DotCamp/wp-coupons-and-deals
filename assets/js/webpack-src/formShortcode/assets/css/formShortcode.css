@@ -3,6 +3,10 @@
     background: #fafafa !important;
 }
 
+.w-full-important {
+    width: 100% !important
+}
+
 input:disabled {
     background-color: gray;
     cursor: default;
@@ -60,6 +64,12 @@ input:disabled {
     transform: translateX(0);
     opacity: 1;
 }
+
+.checkerboard {
+    background: url("data:image/svg+xml;utf8, <svg viewBox= '0 0 2 2' xmlns= 'http://www.w3.org/2000/svg' > <rect width= '1' x= '0' y= '0' height= '1' fill= 'rgba(203,213,224,1)' /> <rect x= '1' y = '0' width= '1' height= '1' fill= 'rgba(237,242,247,1)' /> <rect width= '1' x= '0' y= '1' height= '1' fill= 'rgba(237,242,247,1)' /> <rect width= '1' x= '1' y= '1' height= '1' fill= 'rgba(203,213,224,1)' /> </svg> ") repeat;
+    background-size: 40px 40px;
+}
+
 
 @tailwind base;
 @tailwind components;
