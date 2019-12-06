@@ -74,9 +74,9 @@ export default {
         '.wpcd-coupon-code': () => this.store['hide-coupon'] === 'No' && this.store['coupon-type'] !== 'Deal',
         '.wpcd-coupon-hidden': () => this.store['hide-coupon'] === 'Yes' && this.store['coupon-type'] !== 'Deal',
         '.wpcd-deal-code': () => this.store['coupon-type'] === 'Deal',
-        '.never-expire': () => this.store['never-expire-check'] === true || this.store['expire-date'] === undefined,
+        '.never-expire': () => this.store['never-expire-check'] === 'on' || this.store['expire-date'] === undefined,
         '.expires-on': () =>
-          this.store['never-expire-check'] === false || this.store['never-expire-check'] === undefined,
+          this.store['never-expire-check'] === 0 || this.store['never-expire-check'] === undefined,
       },
     };
   },

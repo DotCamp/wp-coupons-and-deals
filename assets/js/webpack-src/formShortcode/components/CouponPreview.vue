@@ -1,6 +1,5 @@
 <template>
   <div class="w-full overflow-x-hidden bg-gray-100 mb-4 border-t-4 border-l-4 rounded border shadow-lg">
-    <div class="text-sm">{{ store }}</div>
     <transition name="form-shortcode-preview" appear mode="out-in">
       <image-template v-if="store['coupon-type'] === 'Image'" />
       <component v-else class="px-4" :is="store['coupon-template'].replace(' ', '')" :html="currentTemplate" />

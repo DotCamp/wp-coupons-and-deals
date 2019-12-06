@@ -29,6 +29,10 @@ const config = {
         test: /.+\.(css)$/,
         loader: ['vue-style-loader', { loader: 'css-loader', options: { importLoaders: 1 } }, 'postcss-loader'],
       },
+      {
+        test: /.+\.(svg|png)$/,
+        loader: 'url-loader',
+      },
     ],
   },
   plugins: [new VueLoaderPlugin()],

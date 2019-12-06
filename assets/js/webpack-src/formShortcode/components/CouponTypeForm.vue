@@ -7,7 +7,7 @@
         </form-label>
       </td>
       <td>
-        <input-selector :filterdata="filterdata" :data="f" :id="f.id" :name="f.name"></input-selector>
+        <input-selector :filterdata="filterdata" :data="f" :id="f.id" :name="f.name" />
       </td>
     </tr>
   </fragment>
@@ -27,7 +27,7 @@ export default {
       // this values will be fed to 'InputSelector' to decide which element type to render
       filterdata: {
         select: ['select'],
-        button: 'coupon-image-row',
+        file: 'coupon-image-row',
         text: ['text', /.*(buttontext)/, /.+(dealtext)/],
         textarea: 'textarea',
         colorpicker: 'colorpicker',

@@ -72,6 +72,8 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 			'months'             => 'months',
 			'year'               => 'year',
 			'years'              => 'years',
+			'submit'             => 'Submit',
+			'select_an_image'    => 'Select an image',
 		];
 
 		$extras->strings = array_merge( $extras->strings,

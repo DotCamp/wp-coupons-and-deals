@@ -33,12 +33,18 @@ export default {
      * @param handler function a function that returns boolen (true for show, false for hide)
      */
     toggle(e, handler) {
-      // this.wrapper.querySelector(e).style.display = handler() ? '' : 'none';
-      if (handler()) {
-        this.wrapper.querySelector(e).classList.remove('hidden');
-      } else {
-        this.wrapper.querySelector(e).classList.add('hidden');
-      }
+      const element = this.wrapper.querySelector(e);
+      const handlerResult = handler();
+      if (element.classList.contains('hidden')) {
+        if (handlerResult) {
+          this.wrapper.querySelector(e).classList.remove('hidden');
+        }
+      } else this.wrapper.querySelector(e).style.display = handler() ? 'block' : 'none';
+      // if (handler()) {
+      //   this.wrapper.querySelector(e).classList.remove('hidden');
+      // } else {
+      //   this.wrapper.querySelector(e).classList.add('hidden');
+      // }
     },
 
     /**

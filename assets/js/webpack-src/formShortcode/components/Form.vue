@@ -5,7 +5,12 @@
       class="overflow-scroll flex items-center flex-col bg-gray-100 border-t-4 border-l-4 shadow-lg rounded p-4"
       style="height: 500px"
     >
-      <div class="text-4xl font-bold bg-gray-200 p-2 rounded shadow">Coupon Submit Form</div>
+      <div class="text-4xl font-bold bg-gray-200 p-2 rounded shadow flex items-center flex-col">
+        <img :src="logo" style="border: none" class="text-center" />
+        <div>
+          WP Coupons and Deals
+        </div>
+      </div>
       <form id="form-shortcode-form-wrapper" @submit.prevent="submitForm" method="post">
         <table class="border-collapse border-2 border-dashed w-full">
           <coupon-type v-model="store['coupon-type']" :typedata="couponType" />
@@ -24,6 +29,7 @@ import CouponTypeForm from './CouponTypeForm';
 import CouponPreview from './CouponPreview';
 import CouponTitle from './CouponTitle';
 import SubmitComponent from './SubmitComponent';
+import logo from '../assets/image/icon-128x128.png';
 
 export default {
   props: ['fields'],
@@ -33,6 +39,7 @@ export default {
       showSampleField: false,
       couponType: this.fields.filter(f => f.id === 'coupon-type')[0],
       submitMessage: '',
+      logo,
     };
   },
   methods: {
@@ -41,9 +48,24 @@ export default {
       // TODO [task-001][erdembircan] get rid of timeout at production
       setTimeout(() => {
         try {
+          const formData = new FormData();
+          const data = { ...this.store, ...{ action: 'wpcd_form', nonce: this.extras.nonce } };
+
+          Object.keys(data).map(k => {
+            if (Object.prototype.hasOwnProperty.call(data, k)) {
+              formData.set(k, data[k]);
+            }
+          });
+
           this.resource
-            .save({ action: 'wpcd_form', data: this.store, nonce: this.extras.nonce })
-            .then(resp => resp.json())
+            .save(formData)
+            .then(
+              resp => resp.json(),
+              resp => {
+                this.app.submit.isSuccess = false;
+                this.submitMessage = resp.message;
+              }
+            )
             .then(j => {
               if (j.error) {
                 throw new Error(j.error);

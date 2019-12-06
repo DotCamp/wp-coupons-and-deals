@@ -2,13 +2,9 @@
   <div>
     <div
       @click="redirectClick"
-      class="border border-gray-200 cursor-pointer"
-      :style="{ backgroundColor: value, width: '200px', height: '50px' }"
-    >
-      <div class="px-2 border border-l-4 bg-gray-200 float-right" style="height: 100%;">
-        Select Color
-      </div>
-    </div>
+      class="border-4 border-gray-200 cursor-pointer"
+      :style="{ backgroundColor: value, height: '50px' }"
+    ></div>
     <input
       ref="realColorPicker"
       :value="value"
