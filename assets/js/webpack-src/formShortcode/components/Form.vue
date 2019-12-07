@@ -1,18 +1,14 @@
 <template>
   <div class="text-gray-700">
-    <coupon-preview />
-    <div
-      class="overflow-scroll flex items-center flex-col bg-gray-100 border-t-4 border-l-4 shadow-lg rounded p-4"
-      style="height: 500px"
-    >
-      <div class="text-4xl font-bold bg-gray-200 p-2 rounded shadow flex items-center flex-col">
-        <img :src="logo" style="border: none" class="text-center" />
+    <div class="flex flex-col bg-gray-100 border-t-4 border-l-4 shadow-lg rounded p-4">
+      <div class="border-2 sweet-border border-dashed text-4xl font-bold p-2 rounded flex items-center flex-col mb-4">
+        <img :src="logo" style="border: none" class="text-center coupons-logo" />
         <div>
           WP Coupons and Deals
         </div>
       </div>
       <form id="form-shortcode-form-wrapper" @submit.prevent="submitForm" method="post">
-        <table class="border-collapse border-2 border-dashed w-full">
+        <table class="border-collapse sweet-border border-2 border-dashed w-full form-shortcode-table">
           <coupon-type v-model="store['coupon-type']" :typedata="couponType" />
           <coupon-title helpmessage="enter coupon title" id="coupon-title" label="Coupon Title" />
           <tr is="CouponTypeForm" :fieldsdata="parsedFields" />
@@ -20,7 +16,9 @@
 
         <submit-component :message="submitMessage" />
       </form>
+      <terms-component :taxonomies="extras.terms" />
     </div>
+    <coupon-preview class="mt-4" />
   </div>
 </template>
 <script>
@@ -29,11 +27,12 @@ import CouponTypeForm from './CouponTypeForm';
 import CouponPreview from './CouponPreview';
 import CouponTitle from './CouponTitle';
 import SubmitComponent from './SubmitComponent';
+import TermsComponent from './TermsComponent';
 import logo from '../assets/image/icon-128x128.png';
 
 export default {
   props: ['fields'],
-  components: { CouponTitle, CouponType, CouponTypeForm, CouponPreview, SubmitComponent },
+  components: { TermsComponent, CouponTitle, CouponType, CouponTypeForm, CouponPreview, SubmitComponent },
   data() {
     return {
       showSampleField: false,
@@ -56,6 +55,17 @@ export default {
               formData.set(k, data[k]);
             }
           });
+
+          // inject terms object to FormData
+          if (this.app.terms) {
+            Object.keys(this.app.terms).map(k => {
+              if (Object.prototype.hasOwnProperty.call(this.app.terms, k)) {
+                this.app.terms[k].map(d => {
+                  formData.append(`terms[${k}][]`, d);
+                });
+              }
+            });
+          }
 
           this.resource
             .save(formData)

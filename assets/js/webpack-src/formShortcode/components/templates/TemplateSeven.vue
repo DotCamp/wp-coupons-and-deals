@@ -101,6 +101,18 @@ export default {
               el.style.backgroundColor = value;
             },
           },
+          {
+            element: '.square_wpcd',
+            format: (value, el) => {
+              el.style.backgroundColor = value;
+            },
+          },
+          {
+            element: '.rectangle_wpcd',
+            format: (value, el) => {
+              el.style.borderLeftColor = value;
+            },
+          },
         ],
         'expire-date': [
           {
@@ -129,8 +141,7 @@ export default {
         '.wpcd-coupon-code': () => this.store['hide-coupon'] === 'No' && this.store['coupon-type'] !== 'Deal',
         '.wpcd-deal-code': () => this.store['coupon-type'] === 'Deal',
         '.never-expire': () => this.store['never-expire-check'] === 'on' || this.store['expire-date'] === undefined,
-        '.expires-on': () =>
-          this.store['never-expire-check'] === 0 || this.store['never-expire-check'] === undefined,
+        '.expires-on': () => this.store['never-expire-check'] === 0 || this.store['never-expire-check'] === undefined,
       },
     };
   },

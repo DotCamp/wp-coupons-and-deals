@@ -221,6 +221,13 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 			add_action( 'init', array( __CLASS__, 'loadClasses' ), 10 );
 			add_action( 'init', array( __CLASS__, 'custom_taxonomy_register' ) );
 			add_action( 'init', array( __CLASS__, 'custom_post_type_register' ) );
+
+			// form short-code registration
+			// since our form short-code needs custom taxonomies, need to que it afterwards taxonomy registration, apart from other short-codes
+			add_action('init', function(){
+				(new WPCD_Form_Shortcode('wpcd_form'))->add();
+			}, 30);
+
 			add_action( 'widgets_init', array( __CLASS__, 'wpcd_widget_register' ), 20 );
 			add_filter( 'wp_enqueue_scripts', array( __CLASS__, 'load_jquery' ), 1 );
 			add_action( 'wp_enqueue_scripts', array( __CLASS__, 'load_jquery' ) );

@@ -24,6 +24,14 @@ input:disabled {
     animation-delay: .3s
 }
 
+.sweet-border {
+    border-color: #dcd7ca;
+}
+
+.sweet-border tr, th, td {
+    border-color: #dcd7ca;
+}
+
 @keyframes beat {
     0% {
         transform: scale(0);
@@ -68,6 +76,29 @@ input:disabled {
 .checkerboard {
     background: url("data:image/svg+xml;utf8, <svg viewBox= '0 0 2 2' xmlns= 'http://www.w3.org/2000/svg' > <rect width= '1' x= '0' y= '0' height= '1' fill= 'rgba(203,213,224,1)' /> <rect x= '1' y = '0' width= '1' height= '1' fill= 'rgba(237,242,247,1)' /> <rect width= '1' x= '0' y= '1' height= '1' fill= 'rgba(237,242,247,1)' /> <rect width= '1' x= '1' y= '1' height= '1' fill= 'rgba(203,213,224,1)' /> </svg> ") repeat;
     background-size: 40px 40px;
+}
+
+.form-shortcode-table tr{
+    transition: all .2s ease-out;
+}
+
+.form-shortcode-table tr:hover {
+    background-color: #edf2f7;
+}
+
+.coupons-logo{
+    transform-origin: 50% 10%;
+    animation: swing 5s ease-in-out alternate infinite;
+}
+
+@keyframes swing {
+    from {
+        transform: rotateZ(-15deg);
+    }
+    to {
+        transform: rotateZ(15deg);
+    }
+
 }
 
 

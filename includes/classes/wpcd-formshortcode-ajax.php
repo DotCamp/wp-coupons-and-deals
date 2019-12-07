@@ -32,17 +32,29 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 
 			$meta_input = $this->batchMetaInput( 'coupon_details_', $sanitized_fields );
 
+			$terms = get_terms( WPCD_Plugin::CUSTOM_TAXONOMY, [ 'hide_empty' => false ] );
+
+			$tax_input = isset( $_POST['terms'] ) ? $_POST['terms'] : [];
+
+
 			// inserting new post based on submitted form fields
 			$operation_result = $this->_c()->wp_insert_post( [
 				'post_title'  => $sanitized_fields['coupon-title'],
 				'post_type'   => WPCD_Plugin::CUSTOM_POST_TYPE,
 				'post_status' => 'publish',
-				'meta_input'  => $meta_input
+				'meta_input'  => $meta_input,
 			] );
+
 
 			if ( $this->_c()->is_wp_error( $operation_result ) ) {
 				$this->add_error_to_response( $response, $operation_result->get_error_message() );
 			} else {
+				// taxonomy input
+				$tax_input = isset( $_POST['terms'] ) ? $_POST['terms'] : [];
+				foreach ( $tax_input as $tax_name => $term ) {
+					$this->_c()->wp_set_object_terms( $operation_result, $term, $tax_name );
+				}
+
 				$response['data'] = [ 'id' => $operation_result ];
 
 				$coupon_image_field = 'coupon-image-input';

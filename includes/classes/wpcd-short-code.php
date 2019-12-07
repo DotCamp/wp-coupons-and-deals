@@ -32,11 +32,6 @@ class WPCD_Short_Code {
 		add_shortcode( 'wpcd_code', array( __CLASS__, 'wpcd_coupon_code' ) );
 
 
-		// form short-code entry point
-		$form_shortcode = new WPCD_Form_Shortcode( 'wpcd_form' );
-		$form_shortcode->add();
-
-
 		if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) {
 			add_shortcode( 'wpcd_coupons', array( __CLASS__, 'wpcd_coupons_archive_func__premium_only' ) );
 			add_shortcode( 'wpcd_coupons_loop', array( __CLASS__, 'wpcd_coupons_loop_func__premium_only' ) );
