@@ -15,6 +15,15 @@ Vue.use(VueResource);
 Vue.http.options.emulateJSON = true;
 Vue.http.options.emulateHTTP = true;
 
+Vue.filter('cap', val => {
+  return val
+    .split(' ')
+    .map(v => {
+      return v[0].toUpperCase() + v.slice(1);
+    })
+    .join(' ');
+});
+
 Vue.mixin({
   computed: {
     resource() {

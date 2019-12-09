@@ -1,15 +1,6 @@
 <template>
-  <div class="bg-white mt-4 mb-4 shadow">
-    <div
-      @click="showTerms = !showTerms"
-      class="wpcd-form-shortcode-generic-transition hover:bg-gray-200 cursor-pointer text-2xl font-bold border border-l-0 border-r-0 border-b-2 p-2"
-    >
-      {{ heading }}
-      <div class="wpcd-form-shortcode-toggle-button h-4 float-right" :aria-expanded="JSON.stringify(showTerms)">
-        <span class="wpcd-form-shortcode-toggle-indicator"></span>
-      </div>
-    </div>
-    <div v-show="showTerms" class="p-2 form-shortcode-row" :key="forceUpdateKey">
+  <hide-box :heading="heading">
+    <div :key="forceUpdateKey">
       <term v-for="term in hierarchicalTerms" :term="term" :key="term.name" @change="pushTerms" />
       <term-insert
         :heading="heading"
@@ -19,15 +10,16 @@
         @createNewTerm="insertNewTerm"
       />
     </div>
-  </div>
+  </hide-box>
 </template>
 <script>
 import Term from './Term';
 import TermInsert from './TermInsert';
+import HideBox from './HideBox';
 
 export default {
   props: ['heading', 'terms', 'taxname'],
-  components: { Term, TermInsert },
+  components: { HideBox, Term, TermInsert },
   data() {
     return {
       checkedTerms: [],

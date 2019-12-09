@@ -55,7 +55,7 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 
 					foreach ( $new_terms as $tax_name => $tax_array ) {
 						foreach ( $tax_array as $term ) {
-							$this->_c()->wp_insert_term( $term['name'],$tax_name,[ 'parent' => $term[ parent ] ] );
+							$this->_c()->wp_insert_term( $term['name'], $tax_name, [ 'parent' => $term[ parent ] ] );
 						}
 					}
 				}
@@ -68,45 +68,59 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 
 				$response['data'] = [ 'id' => $operation_result ];
 
-				$coupon_image_field = 'coupon-image-input';
-				if ( isset( $_FILES[ $coupon_image_field ] ) ) {
+				// @deprecated implemented the native way of uploading/selecting image media
+//				$coupon_image_field = 'coupon-image-input';
+//				if ( isset( $_FILES[ $coupon_image_field ] ) ) {
+//
+//					$response['data'] = [ 'id' => $operation_result ];
+////					 file upload process
+//					$upload_result = $this->_c()->wp_handle_upload( $_FILES['coupon-image-input'],
+//						[ 'test_form' => false ] );
+//					if ( $upload_result['error'] ) {
+//						$this->add_error_to_response( $response, $upload_result['error'] );
+//						$this->_c()->wp_delete_post( $operation_result );
+//					} else {
+//
+//						// attachment process for uploaded file
+//						$parent_id      = $operation_result;
+//						$file_path      = $upload_result['file'];
+//						$upload_dir     = $this->_c()->wp_upload_dir();
+//						$file_base_name = basename( $file_path );
+//
+//						$file_type          = $this->_c()->wp_check_filetype( $file_base_name );
+//						$attachment_options = [
+//							'guid'           => $upload_dir . '/' . $file_base_name,
+//							'post_mime_type' => $file_type['type'],
+//							'post_title'     => preg_replace( '/\.[^.]+$/', '', $file_base_name ),
+//							'post_content'   => '',
+//							'post_status'    => 'inherit',
+//						];
+//
+//						$attachment_id = $this->_c()->wp_insert_attachment( $attachment_options, $file_path,
+//							$parent_id );
+//
+//						require_once( ABSPATH . 'wp-admin/includes/file.php' );
+//
+//						$attachment_meta_data = $this->_c()->wp_generate_attachment_metadata( $attachment_id,
+//							$file_path );
+//						$this->_c()->wp_update_attachment_metadata( $attachment_id, $attachment_meta_data );
+//
+//						$this->_c()->update_post_meta( $operation_result, 'coupon_details_coupon-image-input',
+//							$attachment_id );
+//					}
+//				}
 
-					$response['data'] = [ 'id' => $operation_result ];
-					// file upload process
-					$upload_result = $this->_c()->wp_handle_upload( $_FILES['coupon-image-input'],
-						[ 'test_form' => false ] );
-					if ( $upload_result['error'] ) {
-						$this->add_error_to_response( $response, $upload_result['error'] );
-						$this->_c()->wp_delete_post( $operation_result );
-					} else {
+				// image attachment process
+				if ( isset( $_POST['coupon-attachment-id'] ) ) {
 
-						// attachment process for uploaded file
-						$parent_id      = $operation_result;
-						$file_path      = $upload_result['file'];
-						$upload_dir     = $this->_c()->wp_upload_dir();
-						$file_base_name = basename( $file_path );
+					$this->_c()->update_post_meta( $operation_result, 'coupon_details_coupon-image-input',
+						sanitize_text_field( $_POST['coupon-attachment-id'] ) );
+				}
 
-						$file_type          = $this->_c()->wp_check_filetype( $file_base_name );
-						$attachment_options = [
-							'guid'           => $upload_dir . '/' . $file_base_name,
-							'post_mime_type' => $file_type['type'],
-							'post_title'     => preg_replace( '/\.[^.]+$/', '', $file_base_name ),
-							'post_content'   => '',
-							'post_status'    => 'inherit',
-						];
-
-						$attachment_id = $this->_c()->wp_insert_attachment( $attachment_options, $file_path,
-							$parent_id );
-
-						require_once( ABSPATH . 'wp-admin/includes/file.php' );
-
-						$attachment_meta_data = $this->_c()->wp_generate_attachment_metadata( $attachment_id,
-							$file_path );
-						$this->_c()->wp_update_attachment_metadata( $attachment_id, $attachment_meta_data );
-
-						$this->_c()->update_post_meta( $operation_result, 'coupon_details_coupon-image-input',
-							$attachment_id );
-					}
+				// featured image process
+				if ( isset( $_POST['featured_id'] ) ) {
+					$featured_id = sanitize_text_field( $_POST['featured_id'] );
+					$this->_c()->set_post_thumbnail( $operation_result, $featured_id );
 				}
 			}
 		} else {

@@ -2,12 +2,13 @@
   <select v-model="store[data.id]" v-if="isElementType('select')">
     <option v-for="option in data.options" :key="option">{{ option }}</option>
   </select>
-  <input
-    class="bg-gray-400 p-2 cursor-pointer border-b-2 border-r-2 border-gray-500"
-    v-else-if="isElementType('file')"
-    @change="$set(store, data.id, $event.target.files[0])"
-    type="file"
-  />
+  <!--  <input-->
+  <!--    class="bg-gray-400 p-2 cursor-pointer border-b-2 border-r-2 border-gray-500"-->
+  <!--    v-else-if="isElementType('file')"-->
+  <!--    @change="$set(store, data.id, $event.target.files[0])"-->
+  <!--    type="file"-->
+  <!--  />-->
+  <file-input :preview_id="data.id" v-else-if="isElementType('file')">{{ extras.strings.select_an_image }}</file-input>
   <textarea v-model="store[data.id]" v-else-if="isElementType('textarea')" rows="5" cols="30" />
   <input v-model="store[data.id]" v-else-if="isElementType('text')" />
   <input v-model="store[data.id]" v-else-if="isElementType('date')" type="date" />
@@ -22,10 +23,11 @@
 </template>
 <script>
 import ColorPicker from './ColorPicker';
+import FileInput from './FileInput';
 
 export default {
   props: ['filterdata', 'data'],
-  components: { ColorPicker },
+  components: { ColorPicker, FileInput },
   methods: {
     checkboxCheck(e) {
       this.store[this.data.id] = e.target.checked ? 'on' : 0;

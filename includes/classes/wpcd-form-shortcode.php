@@ -80,7 +80,10 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 				'years'              => 'years',
 				'submit'             => 'Submit',
 				'select_an_image'    => 'Select an image',
-				'Add'                => 'Add'
+				'Add'                => 'Add',
+				'set_featured_image' => "Set a featured image",
+				'featured_image' => "featured image",
+				'use_image' => "use this image"
 			];
 
 			$extras->strings = array_merge( $extras->strings,
@@ -106,6 +109,8 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 
 					//only enqueue necessary files if current post have the short-code
 					if ( $this->haveShortcode() ) {
+						$this->_c()->wp_enqueue_media();
+
 						$this->_c()->wp_enqueue_script( 'form_shortcode_script', $js_asset_uri_path, array(),
 							$js_version,
 							true );

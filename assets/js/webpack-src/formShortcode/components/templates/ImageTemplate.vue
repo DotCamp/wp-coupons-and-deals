@@ -1,12 +1,13 @@
 <template>
   <div class="checkerboard" style="height: 200px">
     <img
-      @error="imageError"
+      @error="showImage = false"
+      @load="showImage = true"
       class="object-contain w-full"
       style="height: 200px"
-      v-if="showImage"
+      v-show="showImage"
       ref="previewImage"
-      :src="imageSrc"
+      :src="store['coupon-image-input'] || ''"
       alt="image source"
     />
     <div v-if="!showImage" class="flex flex-col w-full h-full items-center justify-center">
@@ -19,31 +20,8 @@
 export default {
   data() {
     return {
-      imageSrc: '',
       showImage: true,
     };
-  },
-  methods: {
-    imageError() {
-      this.showImage = false;
-    },
-  },
-  watch: {
-    store: {
-      handler() {
-        if (this.store['coupon-image-input']) {
-          const reader = new FileReader();
-          reader.addEventListener('load', () => {
-            const imageData = reader.result;
-            this.showImage = true;
-            this.imageSrc = imageData;
-          });
-
-          reader.readAsDataURL(this.store['coupon-image-input']);
-        }
-      },
-      deep: true,
-    },
   },
 };
 </script>

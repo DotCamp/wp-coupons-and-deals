@@ -17,6 +17,7 @@
         <submit-component :message="submitMessage" />
       </form>
       <terms-component :taxonomies="extras.terms" />
+      <featured-image/>
     </div>
     <coupon-preview class="mt-4" />
   </div>
@@ -28,11 +29,20 @@ import CouponPreview from './CouponPreview';
 import CouponTitle from './CouponTitle';
 import SubmitComponent from './SubmitComponent';
 import TermsComponent from './TermsComponent';
+import FeaturedImage from './FeaturedImage';
 import logo from '../assets/image/icon-128x128.png';
 
 export default {
   props: ['fields'],
-  components: { TermsComponent, CouponTitle, CouponType, CouponTypeForm, CouponPreview, SubmitComponent },
+  components: {
+    FeaturedImage,
+    TermsComponent,
+    CouponTitle,
+    CouponType,
+    CouponTypeForm,
+    CouponPreview,
+    SubmitComponent,
+  },
   data() {
     return {
       showSampleField: false,

@@ -37,6 +37,7 @@
   "globals": {
     "formShortcodeFields": true,
     "formShortcodeExtras": true,
-    "couponPreview": true
+    "couponPreview": true,
+    "wp": true
   }
 }

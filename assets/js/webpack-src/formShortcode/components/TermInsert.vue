@@ -1,7 +1,7 @@
 <template>
   <div class="text-2xl font-bold">
     <a @click="opened = !opened" class="cursor-pointer underline text-green-500"
-      >{{ opened ? '-' : '+' }} Add New {{ heading }}</a
+      >{{ opened ? '-' : '+' }} Add New {{ heading }}</a>
     <div class="p-2" v-if="opened">
       <div>
         <input v-model.trim="newTermName" class="border-green-500 border rounded" />
