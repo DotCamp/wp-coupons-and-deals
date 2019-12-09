@@ -78,6 +78,10 @@ input:disabled {
     background-size: 40px 40px;
 }
 
+.wpcd-form-shortcode-generic-transition {
+    transition: all .2s ease-out
+}
+
 .form-shortcode-table tr{
     transition: all .2s ease-out;
 }
@@ -101,6 +105,19 @@ input:disabled {
 
 }
 
+.wpcd-form-shortcode-toggle-indicator {
+    color:gray;
+    font-size: 2rem;
+    font-family: "dashicons"
+}
+
+.wpcd-form-shortcode-toggle-button[aria-expanded="false"] .wpcd-form-shortcode-toggle-indicator:before{
+    content:'\f142'
+}
+
+.wpcd-form-shortcode-toggle-button[aria-expanded="true"] .wpcd-form-shortcode-toggle-indicator:before{
+    content:'\f140'
+}
 
 @tailwind base;
 @tailwind components;

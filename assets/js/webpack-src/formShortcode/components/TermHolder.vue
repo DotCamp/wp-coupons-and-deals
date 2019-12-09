@@ -1,47 +1,39 @@
 <template>
   <div class="bg-white mt-4 mb-4 shadow">
-    <div class="text-2xl font-bold border border-l-0 border-r-0 border-b-2 p-2">{{ heading }}</div>
-    <div class="p-2">
-      <!--      <div v-for="term in terms" :key="term.name" :style="{ paddingLeft: term.parent !== 0 ? '2rem' : '' }">-->
-      <!--        <input type="checkbox" :value="term.name" v-model="checkedTerms" />-->
-      <!--        <label-->
-      <!--          class="px-1 rounded"-->
-      <!--          :style="{ backgroundColor: isChecked(term.name) ? 'green' : '', color: isChecked(term.name) ? 'white' : '' }"-->
-      <!--          >{{ term.name }}</label-->
-      <!--        >-->
-      <!--      </div>-->
-      <term v-for="term in hierarchicalTerms" :term="term" :key="term.name" @change="pushTerms" />
-    </div>
-    <div class="text-2xl font-bold">
-      <a @click="onTermInsert = !onTermInsert" class="cursor-pointer underline text-green-500"
-        >+ Add New {{ heading }}</a
-      >
-      <div class="p-2" v-if="onTermInsert">
-        <div>
-          <input v-model="newTermName" class="border-green-500 border rounded" />
-        </div>
-        <div class="my-2">
-          <select>
-            <option selected disabled>Parent {{ heading }}</option>
-            <option v-for="term in terms" :key="term.name" :value="term.name">{{ term.name }}</option>
-          </select>
-        </div>
-        <a class="p-1 my-2 border-green-500 rounded border-2">{{ extras.strings.Add }}</a>
+    <div
+      @click="showTerms = !showTerms"
+      class="wpcd-form-shortcode-generic-transition hover:bg-gray-200 cursor-pointer text-2xl font-bold border border-l-0 border-r-0 border-b-2 p-2"
+    >
+      {{ heading }}
+      <div class="wpcd-form-shortcode-toggle-button h-4 float-right" :aria-expanded="JSON.stringify(showTerms)">
+        <span class="wpcd-form-shortcode-toggle-indicator"></span>
       </div>
+    </div>
+    <div v-show="showTerms" class="p-2 form-shortcode-row" :key="forceUpdateKey">
+      <term v-for="term in hierarchicalTerms" :term="term" :key="term.name" @change="pushTerms" />
+      <term-insert
+        :heading="heading"
+        :terms="hierarchicalTerms"
+        :raw="extras.terms"
+        :taxname="taxname"
+        @createNewTerm="insertNewTerm"
+      />
     </div>
   </div>
 </template>
 <script>
 import Term from './Term';
+import TermInsert from './TermInsert';
 
 export default {
   props: ['heading', 'terms', 'taxname'],
-  components: { Term },
+  components: { Term, TermInsert },
   data() {
     return {
       checkedTerms: [],
-      onTermInsert: false,
       newTermName: '',
+      forceUpdateKey: 0,
+      showTerms: false,
     };
   },
   watch: {
@@ -53,6 +45,19 @@ export default {
     this.sortTerms();
   },
   methods: {
+    insertNewTerm(termObj) {
+      if (!this.app.newTerms) {
+        this.app.newTerms = {};
+      }
+
+      if (!this.app.newTerms[this.taxname]) {
+        this.app.newTerms[this.taxname] = [];
+      }
+
+      this.app.newTerms[this.taxname].push(termObj);
+      this.terms.push(termObj);
+      this.sortTerms();
+    },
     pushTerms(val) {
       const index = this.checkedTerms.indexOf(val);
       if (index >= 0) {
@@ -70,7 +75,7 @@ export default {
       });
 
       const vm = this;
-      this.terms.map(function recurs(f, i) {
+      this.terms.map(f => {
         if (f.parent !== 0) {
           const parentId = f.parent;
           vm.terms.map(l => {
@@ -84,9 +89,11 @@ export default {
   },
   computed: {
     hierarchicalTerms() {
-      return this.terms.filter(t => {
+      this.forceUpdateKey++;
+      const filtered = this.terms.filter(t => {
         return t.parent === 0;
       });
+      return { ...filtered };
     },
   },
 };

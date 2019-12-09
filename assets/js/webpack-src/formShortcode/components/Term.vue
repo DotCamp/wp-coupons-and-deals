@@ -2,11 +2,10 @@
   <div>
     <input :checked="checked" ref="checkbox" type="checkbox" :value="term.name" @change="onChange" />
     <label
-      class="px-1 rounded"
+      class="px-1 rounded wpcd-form-shortcode-generic-transition"
       :style="{
         backgroundColor: isChecked() ? 'green' : '',
         color: isChecked() ? 'white' : '',
-        transition: 'all .3s ease-out',
       }"
       >{{ term.name }}</label
     >

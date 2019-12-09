@@ -56,6 +56,12 @@ export default {
             }
           });
 
+          // inject new terms to FormData
+          const { newTerms } = this.app;
+          if (newTerms) {
+            formData.set('new_terms', JSON.stringify(newTerms));
+          }
+
           // inject terms object to FormData
           if (this.app.terms) {
             Object.keys(this.app.terms).map(k => {

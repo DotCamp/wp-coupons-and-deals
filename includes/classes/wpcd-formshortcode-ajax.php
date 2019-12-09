@@ -9,6 +9,7 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 	public function logic() {
 		// TODO [task-001][erdembircan] implement full post fields
 
+
 		$response = [];
 		if ( filter_var( $this->_c()->check_ajax_referer( 'wpcd_shortcode_form', 'nonce', false ),
 			FILTER_VALIDATE_BOOLEAN ) ) {
@@ -49,6 +50,16 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 			if ( $this->_c()->is_wp_error( $operation_result ) ) {
 				$this->add_error_to_response( $response, $operation_result->get_error_message() );
 			} else {
+				if ( isset( $_POST['new_terms'] ) ) {
+					$new_terms = json_decode( stripslashes( $_POST['new_terms'] ), true );
+
+					foreach ( $new_terms as $tax_name => $tax_array ) {
+						foreach ( $tax_array as $term ) {
+							$this->_c()->wp_insert_term( $term['name'],$tax_name,[ 'parent' => $term[ parent ] ] );
+						}
+					}
+				}
+
 				// taxonomy input
 				$tax_input = isset( $_POST['terms'] ) ? $_POST['terms'] : [];
 				foreach ( $tax_input as $tax_name => $term ) {
