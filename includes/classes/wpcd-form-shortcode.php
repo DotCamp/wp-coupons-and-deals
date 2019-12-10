@@ -8,7 +8,7 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 
 	public function add() {
 		// pro license check
-		if ( $this->isProLicensed() ) {
+		if ( $this->isProLicensed() && $this->isUserAllowed() ) {
 			// extract form fields
 			$fields = WPCD_Meta_Boxes_Fields_Pro__Premium_Only::getFields();
 
@@ -82,8 +82,8 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 				'select_an_image'    => 'Select an image',
 				'Add'                => 'Add',
 				'set_featured_image' => "Set a featured image",
-				'featured_image' => "featured image",
-				'use_image' => "use this image"
+				'featured_image'     => "featured image",
+				'use_image'          => "use this image"
 			];
 
 			$extras->strings = array_merge( $extras->strings,
@@ -238,5 +238,22 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 	 */
 	private function isProLicensed() {
 		return $this->_c()->wcad_fs()->is_plan__premium_only( 'pro' );
+	}
+
+	/**
+	 * check if the current user is allowed to submit coupons from frontend
+	 * @return bool result
+	 */
+	private function isUserAllowed() {
+		$current_user = $this->_c()->wp_get_current_user();
+		$current_role = isset( $current_user->roles[0] ) ? $current_user->roles[0] : '';
+
+		$allowed_roles = $this->_c()->get_option( 'wpcd_form-shortcode-allowed-roles' , ['administrator'] );
+
+		if ( $allowed_roles === '' ) {
+			$allowed_roles = [ 'administrator' ];
+		}
+
+		return in_array( $current_role, $allowed_roles );
 	}
 }

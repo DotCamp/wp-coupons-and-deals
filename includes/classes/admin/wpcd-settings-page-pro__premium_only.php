@@ -80,7 +80,7 @@ class WPCD_Settings_Page_Pro {
 	/**
 	 * Add settings link to plugin list table.
 	 *
-	 * @param  array $links Existing links
+	 * @param array $links Existing links
 	 *
 	 * @return array        Modified links
 	 * @since 1.0
@@ -91,7 +91,8 @@ class WPCD_Settings_Page_Pro {
 			$plugin = 'wp-coupons-deals/wp-coupons-deals.php';
 		}
 		if ( $file == $plugin ) {
-			$settings_link = '<a href="edit.php?post_type=wpcd_coupons&page=wpcd_coupon_settings">' . __( 'Settings', 'wpcd-coupon' ) . '</a>';
+			$settings_link = '<a href="edit.php?post_type=wpcd_coupons&page=wpcd_coupon_settings">' . __( 'Settings',
+					'wpcd-coupon' ) . '</a>';
 			array_unshift( $links, $settings_link );
 		}
 
@@ -125,7 +126,8 @@ class WPCD_Settings_Page_Pro {
 			array(
 				'id'          => 'general',
 				'title'       => __( 'Coupon Settings', 'wpcd-coupon' ),
-				'description' => __( 'These are some general coupon settings. You can use the default settings or set your own ones.', 'wpcd-coupon' )
+				'description' => __( 'These are some general coupon settings. You can use the default settings or set your own ones.',
+					'wpcd-coupon' )
 			),
 			array(
 				'id'          => 'design',
@@ -133,8 +135,8 @@ class WPCD_Settings_Page_Pro {
 				'description' => __( 'Design Settings for coupon templates and other elements.', 'wpcd-coupon' )
 			),
 			array(
-				'id' => 'voting',
-				'title' => __( 'Voting Settings', 'wpcd-coupon' ),
+				'id'          => 'voting',
+				'title'       => __( 'Voting Settings', 'wpcd-coupon' ),
 				'description' => __( 'Configure Voting Settings for Your Coupons.', 'wpcd-coupon' )
 			),
 			array(
@@ -150,7 +152,14 @@ class WPCD_Settings_Page_Pro {
 			array(
 				'id'          => 'settings-extra',
 				'title'       => __( 'Extras', 'wpcd-coupon' ),
-				'description' => __( 'These are some extra settings. You can use the default settings or set your own ones.', 'wpcd-coupon' )
+				'description' => __( 'These are some extra settings. You can use the default settings or set your own ones.',
+					'wpcd-coupon' )
+			),
+
+			array(
+				'id'          => 'form-shortcode-settings',
+				'title'       => __( 'Form Shortcode', 'wpcd-coupon' ),
+				'description' => __( 'Form shortcode settings', 'wpcd-coupon' )
 			)
 		);
 
@@ -163,31 +172,34 @@ class WPCD_Settings_Page_Pro {
 		$settings['tabs_content'] = array(
 			array(
 				array(
-					'id'		  => 'featured-image',
+					'id'          => 'featured-image',
 					'label'       => __( 'Featured Image', 'wpcd-coupon' ),
-					'description' => __( 'If there\'s no featured image selected, choose whether to use Category Image or Vendor Image as the featured image.', 'wpcd-coupon' ),
-					'type'	      => 'select',
+					'description' => __( 'If there\'s no featured image selected, choose whether to use Category Image or Vendor Image as the featured image.',
+						'wpcd-coupon' ),
+					'type'        => 'select',
 					'options'     => array(
 						'category' => __( 'Category Image', 'wpcd-coupon' ),
 						'vendor'   => __( 'Vendor Image', 'wpcd-coupon' )
 					),
-					'default' => 'category'
+					'default'     => 'category'
 				),
 				array(
-					'id'		  => 'archive-munu-categories',
+					'id'          => 'archive-munu-categories',
 					'label'       => __( 'Archive Menu Categories', 'wpcd-coupon' ),
-					'description' => __( 'Choose the Type of  Navigation on Category or Vendor for Archive.', 'wpcd-coupon' ),
-					'type'	      => 'select',
+					'description' => __( 'Choose the Type of  Navigation on Category or Vendor for Archive.',
+						'wpcd-coupon' ),
+					'type'        => 'select',
 					'options'     => array(
 						'category' => __( 'Category Navigation', 'wpcd-coupon' ),
 						'vendor'   => __( 'Vendor Navigation', 'wpcd-coupon' )
 					),
-					'default' => 'category'
+					'default'     => 'category'
 				),
 				array(
 					'id'          => 'words-count',
 					'label'       => __( 'Words Count to Add More/Less Link', 'wpcd-coupon' ),
-					'description' => __( 'If coupon description is more than this count, More/Less link will be added. Default is 30 words.', 'wpcd-coupon' ),
+					'description' => __( 'If coupon description is more than this count, More/Less link will be added. Default is 30 words.',
+						'wpcd-coupon' ),
 					'type'        => 'number',
 					'default'     => 30,
 					'placeholder' => 30,
@@ -211,7 +223,8 @@ class WPCD_Settings_Page_Pro {
 				array(
 					'id'          => 'expire-text',
 					'label'       => __( 'Expire Text', 'wpcd-coupon' ),
-					'description' => __( 'Text to show before expire date. Default is \'Expires on:\' ', 'wpcd-coupon' ),
+					'description' => __( 'Text to show before expire date. Default is \'Expires on:\' ',
+						'wpcd-coupon' ),
 					'type'        => 'text',
 					'default'     => '',
 					'placeholder' => __( 'Expires on:', 'wpcd-coupon' )
@@ -219,7 +232,8 @@ class WPCD_Settings_Page_Pro {
 				array(
 					'id'          => 'expired-text',
 					'label'       => __( 'Expired Text', 'wpcd-coupon' ),
-					'description' => __( 'Text to show before expired date. Default is \'Expired on:\' ', 'wpcd-coupon' ),
+					'description' => __( 'Text to show before expired date. Default is \'Expired on:\' ',
+						'wpcd-coupon' ),
 					'type'        => 'text',
 					'default'     => '',
 					'placeholder' => __( 'Expired on:', 'wpcd-coupon' )
@@ -227,7 +241,8 @@ class WPCD_Settings_Page_Pro {
 				array(
 					'id'          => 'no-expiry-message',
 					'label'       => __( 'No Expiration Text', 'wpcd-coupon' ),
-					'description' => __( 'Text to show if coupon or deal never expires. Default is \'Doesn\'t expire\'.', 'wpcd-coupon' ),
+					'description' => __( 'Text to show if coupon or deal never expires. Default is \'Doesn\'t expire\'.',
+						'wpcd-coupon' ),
 					'type'        => 'text',
 					'default'     => '',
 					'placeholder' => __( 'Doesn\'t Expire', 'wpcd-coupon' )
@@ -267,11 +282,11 @@ class WPCD_Settings_Page_Pro {
 					'default'     => 'h1',
 				),
 				array(
-					'id' => 'coupon-social-share',
-					'label' => __( 'Social Share Buttons', 'wpcd-coupon' ),
+					'id'          => 'coupon-social-share',
+					'label'       => __( 'Social Share Buttons', 'wpcd-coupon' ),
 					'description' => __( 'Enable Social Share Buttons in Coupons', 'wpcd-coupon' ),
-					'type' => 'checkbox',
-					'default' => ''
+					'type'        => 'checkbox',
+					'default'     => ''
 				),
 			),
 			array(
@@ -313,49 +328,50 @@ class WPCD_Settings_Page_Pro {
 				array(
 					'id'          => 'coupon-popup-bg-color',
 					'label'       => __( 'Coupon Code Color', 'wpcd-coupon' ),
-					'description' => __( 'Background color of the coupon code in the Pop up. Pop up is shown when users click to show code.', 'wpcd-coupon' ),
+					'description' => __( 'Background color of the coupon code in the Pop up. Pop up is shown when users click to show code.',
+						'wpcd-coupon' ),
 					'type'        => 'colorpicker',
 					'default'     => '#BEFFB9'
 				),
 				array(
-					'id' 		  => 'custom-css',
-					'label'	      => __( 'Custom CSS', 'wpcd-coupon' ),
+					'id'          => 'custom-css',
+					'label'       => __( 'Custom CSS', 'wpcd-coupon' ),
 					'description' => __( 'Add any custom CSS you want here.', 'wpcd-coupon' ),
-					'type'		  => 'textarea',
-					'default' 	  => '',
+					'type'        => 'textarea',
+					'default'     => '',
 					'placeholder' => ''
 				)
 			),
 			array(
 				array(
-					'id' => 'coupon-vote-system',
-					'label' => __( 'Vote Buttons', 'wpcd-coupon' ),
+					'id'          => 'coupon-vote-system',
+					'label'       => __( 'Vote Buttons', 'wpcd-coupon' ),
 					'description' => __( 'Enable Voting Buttons in Coupons', 'wpcd-coupon' ),
-					'type' => 'checkbox',
-					'default' => ''
+					'type'        => 'checkbox',
+					'default'     => ''
 				),
 				array(
-					'id' => 'coupon-vote-success',
-					'label' => __( 'Voting Success Message', 'wpcd-coupon' ),
+					'id'          => 'coupon-vote-success',
+					'label'       => __( 'Voting Success Message', 'wpcd-coupon' ),
 					'description' => __( 'Message to Show After User has Voted Successfully', 'wpcd-coupon' ),
-					'type' => 'text',
-					'default' => '',
+					'type'        => 'text',
+					'default'     => '',
 					'placeholder' => __( 'You have voted successfully!', 'wpcd-coupon' )
 				),
 				array(
-					'id' => 'coupon-vote-fail',
-					'label' => __( 'Voting Failed Message', 'wpcd-coupon' ),
+					'id'          => 'coupon-vote-fail',
+					'label'       => __( 'Voting Failed Message', 'wpcd-coupon' ),
 					'description' => __( 'Message to Show If Voting Fails', 'wpcd-coupon' ),
-					'type' => 'text',
-					'default' => '',
+					'type'        => 'text',
+					'default'     => '',
 					'placeholder' => __( 'Voting Failed!', 'wpcd-coupon' )
 				),
 				array(
-					'id' => 'coupon-vote-already',
-					'label' => __( 'Already Voted Message', 'wpcd-coupon' ),
+					'id'          => 'coupon-vote-already',
+					'label'       => __( 'Already Voted Message', 'wpcd-coupon' ),
 					'description' => __( 'Message to Show If User has Voted Already', 'wpcd-coupon' ),
-					'type' => 'text',
-					'default' => '',
+					'type'        => 'text',
+					'default'     => '',
 					'placeholder' => __( 'You have voted already!', 'wpcd-coupon' )
 				)
 			),
@@ -363,7 +379,8 @@ class WPCD_Settings_Page_Pro {
 				array(
 					'id'          => 'hidden-coupon-text',
 					'label'       => __( 'Hidden Coupon Text', 'wpcd-coupon' ),
-					'description' => __( 'Text to show when coupon is hidden. Default is \'Show Code\' ', 'wpcd-coupon' ),
+					'description' => __( 'Text to show when coupon is hidden. Default is \'Show Code\' ',
+						'wpcd-coupon' ),
 					'type'        => 'text',
 					'default'     => '',
 					'placeholder' => __( 'Show Code', 'wpcd-coupon' ),
@@ -371,7 +388,8 @@ class WPCD_Settings_Page_Pro {
 				array(
 					'id'          => 'hidden-coupon-hover-text',
 					'label'       => __( 'Hidden Coupon Hover Text', 'wpcd-coupon' ),
-					'description' => __( 'Text to show when user hovers on the hidden coupon. Default is \'Click Here to Show Code\'', 'wpcd-coupon' ),
+					'description' => __( 'Text to show when user hovers on the hidden coupon. Default is \'Click Here to Show Code\'',
+						'wpcd-coupon' ),
 					'type'        => 'text',
 					'default'     => '',
 					'placeholder' => __( 'Click Here to Show Code', 'wpcd-coupon' ),
@@ -381,7 +399,8 @@ class WPCD_Settings_Page_Pro {
 				array(
 					'id'          => 'copy-button-text',
 					'label'       => __( 'Copy Button Text', 'wpcd-coupon' ),
-					'description' => __( 'Text to show in Copy button when pop up is shown. Default is \'Copy\'.', 'wpcd-coupon' ),
+					'description' => __( 'Text to show in Copy button when pop up is shown. Default is \'Copy\'.',
+						'wpcd-coupon' ),
 					'type'        => 'text',
 					'default'     => '',
 					'placeholder' => __( 'Copy', 'wpcd-coupon' ),
@@ -397,7 +416,8 @@ class WPCD_Settings_Page_Pro {
 				array(
 					'id'          => 'text-to-show',
 					'label'       => __( 'Text to Show Below Coupon Code', 'wpcd-coupon' ),
-					'description' => __( 'Select what to show below the coupon code in Pop-up. Default is Description.', 'wpcd-coupon' ),
+					'description' => __( 'Select what to show below the coupon code in Pop-up. Default is Description.',
+						'wpcd-coupon' ),
 					'type'        => 'select',
 					'options'     => array(
 						'description' => 'Description',
@@ -408,7 +428,8 @@ class WPCD_Settings_Page_Pro {
 				array(
 					'id'          => 'custom-text',
 					'label'       => __( 'Custom Text', 'wpcd-coupon' ),
-					'description' => __( 'Custom text to show below the coupon code. Default is \'Click on Copy to Copy the Coupon Code.\' ', 'wpcd-coupon' ),
+					'description' => __( 'Custom text to show below the coupon code. Default is \'Click on Copy to Copy the Coupon Code.\' ',
+						'wpcd-coupon' ),
 					'type'        => 'text',
 					'default'     => '',
 					'placeholder' => __( 'Click on Copy to Copy the Coupon Code.', 'wpcd-coupon' ),
@@ -430,24 +451,27 @@ class WPCD_Settings_Page_Pro {
 				),
 			),
 			array(
-				array (
-					'id' => 'coupon-link-target',
-					'label' => __( 'Affiliate Link in Current Tab', 'wpcd-coupon' ),
-					'description' => __( 'Enabling it will open the affiliate link in current tab. By default it opens in a new tab.', 'wpcd-coupon' ),
-					'type' => 'checkbox',
-					'default' => ''
+				array(
+					'id'          => 'coupon-link-target',
+					'label'       => __( 'Affiliate Link in Current Tab', 'wpcd-coupon' ),
+					'description' => __( 'Enabling it will open the affiliate link in current tab. By default it opens in a new tab.',
+						'wpcd-coupon' ),
+					'type'        => 'checkbox',
+					'default'     => ''
 				),
-				array (
-					'id' => 'coupon-link-featured-img',
-					'label' => __( 'Link the Featured Image', 'wpcd-coupon' ),
-					'description' => __( 'Enabling it will link the featured image to affiliate link. By default only the image is shown, it is not linked.', 'wpcd-coupon' ),
-					'type'  => 'checkbox',
-					'default' => ''
+				array(
+					'id'          => 'coupon-link-featured-img',
+					'label'       => __( 'Link the Featured Image', 'wpcd-coupon' ),
+					'description' => __( 'Enabling it will link the featured image to affiliate link. By default only the image is shown, it is not linked.',
+						'wpcd-coupon' ),
+					'type'        => 'checkbox',
+					'default'     => ''
 				),
 				array(
 					'id'          => 'disable-coupon-title-link',
 					'label'       => __( 'Disable Link in Coupon Title', 'wpcd-coupon' ),
-					'description' => __( 'Disable the coupon title link. By default it\'s linked to the link/affiliate link you put when you create a coupon.', 'wpcd-coupon' ),
+					'description' => __( 'Disable the coupon title link. By default it\'s linked to the link/affiliate link you put when you create a coupon.',
+						'wpcd-coupon' ),
 					'type'        => 'checkbox',
 					'default'     => '',
 				),
@@ -461,35 +485,49 @@ class WPCD_Settings_Page_Pro {
 				array(
 					'id'          => 'hide-archive-thumbnail',
 					'label'       => __( 'Hide Featured Image', 'wpcd-coupon' ),
-					'description' => __( 'Hide the featured image in Default Grid Style of Category and Archive Shortcode.', 'wpcd-coupon' ),
+					'description' => __( 'Hide the featured image in Default Grid Style of Category and Archive Shortcode.',
+						'wpcd-coupon' ),
 					'type'        => 'checkbox',
 					'default'     => '',
 				),
 				array(
-					'id' 		  => 'dt-coupon-type-text',
+					'id'          => 'dt-coupon-type-text',
 					'label'       => __( 'Coupon Type Name', 'wpcd-coupon' ),
-					'description' => __( 'Text to Show for Coupon Type Name in Default Template. Default is - Coupon.', 'wpcd-coupon' ),
-					'type'		  => 'text',
-					'default'	  => __( 'Coupon', 'wpcd-coupon' ),
+					'description' => __( 'Text to Show for Coupon Type Name in Default Template. Default is - Coupon.',
+						'wpcd-coupon' ),
+					'type'        => 'text',
+					'default'     => __( 'Coupon', 'wpcd-coupon' ),
 					'placeholder' => __( 'Coupon', 'wpcd-coupon' )
 				),
 				array(
-					'id' 		  => 'dt-deal-type-text',
+					'id'          => 'dt-deal-type-text',
 					'label'       => __( 'Deal Type Name', 'wpcd-coupon' ),
-					'description' => __( 'Text to Show for Deal Type Name in Default Template. Default is - Deal.', 'wpcd-coupon' ),
-					'type'		  => 'text',
-					'default'	  => __( 'Deal', 'wpcd-coupon' ),
+					'description' => __( 'Text to Show for Deal Type Name in Default Template. Default is - Deal.',
+						'wpcd-coupon' ),
+					'type'        => 'text',
+					'default'     => __( 'Deal', 'wpcd-coupon' ),
 					'placeholder' => __( 'Deal', 'wpcd-coupon' )
 				),
-				array (
-					'id' => 'all-coupon-text',
-					'label' => __( 'All Coupons Text', 'wpcd-coupon' ),
-					'description' => __( '"All Coupons" text in Archive Shortcode Navigation menu. Deafult is - All Coupons', 'wpcd-coupon' ),
-					'type'  => 'text',
-					'placeholder' => __('All Coupons','wpcd-coupon'),
-					'default' => ''
+				array(
+					'id'          => 'all-coupon-text',
+					'label'       => __( 'All Coupons Text', 'wpcd-coupon' ),
+					'description' => __( '"All Coupons" text in Archive Shortcode Navigation menu. Deafult is - All Coupons',
+						'wpcd-coupon' ),
+					'type'        => 'text',
+					'placeholder' => __( 'All Coupons', 'wpcd-coupon' ),
+					'default'     => ''
 				),
 			),
+			array(
+				array(
+					'id'          => 'form-shortcode-allowed-roles',
+					'label'       => __( 'Allowed User Roles', 'wpcd-coupon' ),
+					'description' => __( 'Allowed user roles to submit coupons from form shortcode', 'wpcd-coupon' ),
+					'type'        => 'checkbox_multi',
+					'options'     => wp_roles()->role_names,
+					'default'     => [ 'administrator' ],
+				)
+			)
 		);
 
 		$settings = apply_filters( 'wpcd_coupon_settings_fields', $settings );
@@ -533,11 +571,13 @@ class WPCD_Settings_Page_Pro {
 		if ( $hook != $settings_page ) {
 			return;
 		} else {
-			wp_enqueue_style( 'wpcd-admin-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/' . WPCD_Assets::wpcd_version_correct( 'dir' ) . 'admin' . WPCD_Assets::wpcd_version_correct( 'suffix' ) . '.css', false );
+			wp_enqueue_style( 'wpcd-admin-style',
+				WPCD_Plugin::instance()->plugin_assets . 'admin/css/' . WPCD_Assets::wpcd_version_correct( 'dir' ) . 'admin' . WPCD_Assets::wpcd_version_correct( 'suffix' ) . '.css',
+				false );
 
 			// color Picker
 			wp_enqueue_script( 'wp-color-picker' );
-            wp_enqueue_style( 'wp-color-picker' );
+			wp_enqueue_style( 'wp-color-picker' );
 		}
 	}
 
@@ -626,7 +666,7 @@ class WPCD_Settings_Page_Pro {
 	/**
 	 * Generate HTML for displaying fields.
 	 *
-	 * @param  array $args Field data
+	 * @param array $args Field data
 	 *
 	 * @return void
 	 * @since 1.0
@@ -686,7 +726,9 @@ class WPCD_Settings_Page_Pro {
 					if ( in_array( $k, $data ) ) {
 						$checked = true;
 					}
-					$output .= '<label for="' . esc_attr( $field['id'] . '_' . $k ) . '"><input type="checkbox" ' . checked( $checked, true, false ) . ' name="' . esc_attr( $option_name ) . '[]" value="' . esc_attr( $k ) . '" id="' . esc_attr( $field['id'] . '_' . $k ) . '" /> ' . $v . '</label> ';
+					$output .= '<label for="' . esc_attr( $field['id'] . '_' . $k ) . '"><input type="checkbox" ' . checked( $checked,
+							true,
+							false ) . ' name="' . esc_attr( $option_name ) . '[]" value="' . esc_attr( $k ) . '" id="' . esc_attr( $field['id'] . '_' . $k ) . '" /> ' . $v . '</label> ';
 				}
 				break;
 
@@ -696,7 +738,9 @@ class WPCD_Settings_Page_Pro {
 					if ( $k == $data ) {
 						$checked = true;
 					}
-					$output .= '<label for="' . esc_attr( $field['id'] . '_' . $k ) . '"><input type="radio" ' . checked( $checked, true, false ) . ' name="' . esc_attr( $option_name ) . '" value="' . esc_attr( $k ) . '" id="' . esc_attr( $field['id'] . '_' . $k ) . '" /> ' . $v . '</label> ';
+					$output .= '<label for="' . esc_attr( $field['id'] . '_' . $k ) . '"><input type="radio" ' . checked( $checked,
+							true,
+							false ) . ' name="' . esc_attr( $option_name ) . '" value="' . esc_attr( $k ) . '" id="' . esc_attr( $field['id'] . '_' . $k ) . '" /> ' . $v . '</label> ';
 				}
 				break;
 
@@ -707,7 +751,8 @@ class WPCD_Settings_Page_Pro {
 					if ( $k == $data ) {
 						$selected = true;
 					}
-					$output .= '<option ' . selected( $selected, true, false ) . ' value="' . esc_attr( $k ) . '">' . $v . '</option>';
+					$output .= '<option ' . selected( $selected, true,
+							false ) . ' value="' . esc_attr( $k ) . '">' . $v . '</option>';
 				}
 				$output .= '</select> ';
 				break;
@@ -719,7 +764,8 @@ class WPCD_Settings_Page_Pro {
 					if ( in_array( $k, $data ) ) {
 						$selected = true;
 					}
-					$output .= '<option ' . selected( $selected, true, false ) . ' value="' . esc_attr( $k ) . '" />' . $v . '</label> ';
+					$output .= '<option ' . selected( $selected, true,
+							false ) . ' value="' . esc_attr( $k ) . '" />' . $v . '</label> ';
 				}
 				$output .= '</select> ';
 				break;
@@ -744,7 +790,7 @@ class WPCD_Settings_Page_Pro {
 	/**
 	 * Validate individual settings field.
 	 *
-	 * @param  string $data Inputted value
+	 * @param string $data Inputted value
 	 *
 	 * @return string       Validated value
 	 * @since 1.0
@@ -780,7 +826,8 @@ class WPCD_Settings_Page_Pro {
 		do_settings_sections( 'wpcd_settings' );
 		$output .= ob_get_clean();
 		$output .= '<p class="submit">' . "\n";
-		$output .= '<input name="Submit" type="submit" class="button-primary" value="' . esc_attr( __( 'Save Settings', 'wpcd-coupon' ) ) . '" />' . "\n";
+		$output .= '<input name="Submit" type="submit" class="button-primary" value="' . esc_attr( __( 'Save Settings',
+				'wpcd-coupon' ) ) . '" />' . "\n";
 		$output .= '</p>' . "\n";
 		$output .= '</form>' . "\n";
 		$output .= '</div>';
