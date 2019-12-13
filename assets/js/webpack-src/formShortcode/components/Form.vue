@@ -1,25 +1,24 @@
 <template>
-  <div class="text-gray-700">
-    <div class="flex flex-col bg-gray-100 border-t-4 border-l-4 shadow-lg rounded p-4">
-      <div class="border-2 sweet-border border-dashed text-4xl font-bold p-2 rounded flex items-center flex-col mb-4">
-        <img :src="logo" style="border: none" class="text-center coupons-logo" />
-        <div>
-          WP Coupons and Deals
-        </div>
-      </div>
-      <form id="form-shortcode-form-wrapper" @submit.prevent="submitForm" method="post">
-        <table class="border-collapse sweet-border border-2 border-dashed w-full form-shortcode-table">
+  <div class="wpcd-fs-w-full-important">
+    <div class="wpcd-fs-flex wpcd-fs-flex-col">
+      <!--      <div class="border-2 sweet-border border-dashed text-4xl font-bold p-2 rounded flex items-center flex-col mb-4">-->
+      <!--        <img :src="logo" style="border: none" class="text-center coupons-logo" />-->
+      <!--        <div>-->
+      <!--          WP Coupons and Deals-->
+      <!--        </div>-->
+      <!--      </div>-->
+      <form id="form-shortcode-form-wrapper" @submit.prevent="" method="post">
+        <table class="wpcd-fs-table">
           <coupon-type v-model="store['coupon-type']" :typedata="couponType" />
           <coupon-title helpmessage="enter coupon title" id="coupon-title" label="Coupon Title" />
           <tr is="CouponTypeForm" :fieldsdata="parsedFields" />
         </table>
-
-        <submit-component :message="submitMessage" />
       </form>
       <terms-component :taxonomies="extras.terms" />
-      <featured-image/>
+      <featured-image />
+      <submit-component :message="submitMessage" @submit="submitForm" />
     </div>
-    <coupon-preview class="mt-4" />
+    <coupon-preview />
   </div>
 </template>
 <script>

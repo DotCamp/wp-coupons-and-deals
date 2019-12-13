@@ -2,7 +2,7 @@
   <div>
     <input :checked="checked" ref="checkbox" type="checkbox" :value="term.name" @change="onChange" />
     <label
-      class="px-1 rounded wpcd-form-shortcode-generic-transition"
+      class="wpcd-fs-p-1 wpcd-fs-rounded wpcd-form-shortcode-generic-transition"
       :style="{
         backgroundColor: isChecked() ? 'green' : '',
         color: isChecked() ? 'white' : '',

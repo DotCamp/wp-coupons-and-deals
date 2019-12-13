@@ -83,7 +83,8 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 				'Add'                => 'Add',
 				'set_featured_image' => "Set a featured image",
 				'featured_image'     => "featured image",
-				'use_image'          => "use this image"
+				'use_image'          => "use this image",
+				'enter_title'          => "enter your coupon title"
 			];
 
 			$extras->strings = array_merge( $extras->strings,

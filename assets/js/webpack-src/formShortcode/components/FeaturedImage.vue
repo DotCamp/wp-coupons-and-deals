@@ -1,20 +1,24 @@
 <template>
   <hide-box :heading="extras.strings.featured_image | cap">
-    <div class="text-2xl font-bold">
-      <a v-if="!imageVisible" @click.prevent="open = true" class="cursor-pointer text-green-500 underline"
+    <div>
+      <a v-if="!imageVisible" @click.prevent="open = true" class="wpcd-fs-pointer wpcd-fs-bold"
         >+{{ extras.strings.set_featured_image | cap }}</a
       >
-      <img
-        v-show="imageVisible"
-        @error="imageVisible = false"
-        @load="imageVisible = true"
-        :src="imageUrl"
-        alt="featured image preview"
-        style=" width:20rem"
-      />
-      <a v-if="imageVisible" @click="close" class="cursor-pointer text-red-500 underline"
-        >-{{ 'Remove featured image' | cap }}</a
-      >
+      <div>
+        <img
+          v-show="imageVisible"
+          @error="imageVisible = false"
+          @load="imageVisible = true"
+          :src="imageUrl"
+          alt="featured image preview"
+          style=" width:100px"
+        />
+      </div>
+      <div>
+        <a v-if="imageVisible" @click="close" class="wpcd-fs-pointer wpcd-fs-bold wpcd-fs-text-red-500"
+          >-{{ 'Remove featured image' | cap }}</a
+        >
+      </div>
       <word-press-media :open="open" :media-props="wpAttributes" @selection="getAttachment" />
     </div>
   </hide-box>

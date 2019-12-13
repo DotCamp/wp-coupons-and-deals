@@ -1,8 +1,5 @@
 <template>
-  <span
-    :title="message"
-    class="ml-4 bg-gray-400 rounded-full px-3 float-right text-white hover:bg-white hover:text-gray-400"
-  >
+  <span :title="message" class="wpcd-fs-helpbox wpcd-form-shortcode-generic-transition">
     <slot></slot>
   </span>
 </template>

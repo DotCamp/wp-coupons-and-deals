@@ -1,15 +1,15 @@
 <template>
-  <div class="bg-white mt-4 mb-4 shadow">
+  <div class="wpcd-fs-hide-box">
     <div
       @click="showChild = !showChild"
-      class="wpcd-form-shortcode-generic-transition hover:bg-gray-200 cursor-pointer text-2xl font-bold border border-l-0 border-r-0 border-b-2 p-2"
+      class="wpcd-form-shortcode-generic-transition wpcd-fs-hide-box-header wpcd-fs-flex wpcd-fs-items-center wpcd-fs-space-between wpcd-fs-p-2"
     >
       {{ heading }}
-      <div class="wpcd-form-shortcode-toggle-button h-4 float-right" :aria-expanded="JSON.stringify(showChild)">
-        <span class="wpcd-form-shortcode-toggle-indicator" />
+      <div class="wpcd-fs-toggle-button" :aria-expanded="JSON.stringify(showChild)">
+        <span class="wpcd-fs-toggle-indicator" />
       </div>
     </div>
-    <div v-show="showChild" class="p-2 form-shortcode-row">
+    <div v-show="showChild" class="wpcd-fs-p-2 wpcd-fs-basic-fade">
       <slot />
     </div>
   </div>

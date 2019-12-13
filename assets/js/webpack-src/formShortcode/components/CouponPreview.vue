@@ -1,12 +1,13 @@
 <template>
-  <div class="w-full overflow-x-hidden bg-gray-100 mb-4 border-t-4 border-l-4 rounded border shadow-lg">
+  <div class="wpcd-fs-mt-4 wpcd-preview-wrapper wpcd-fs-shadow wpcd-fs-border">
     <transition name="form-shortcode-preview" appear mode="out-in">
       <image-template v-if="store['coupon-type'] === 'Image'" />
-      <component v-else class="px-4" :is="store['coupon-template'].replace(' ', '')" :html="currentTemplate" />
+      <component v-else class="wpcd-fs-px-4" :is="store['coupon-template'].replace(' ', '')" :html="currentTemplate" />
     </transition>
-    <div class="bg-white rounded border text-sm italic px-2 m-2 text-justify">
-      <span class="font-bold">Note: </span>This is just to show how the coupon will look. Click to copy functionality,
-      showing hidden coupon will not work here, but it will work on posts, pages where you put the shortcode.
+    <div class="wpcd-fs-note wpcd-fs-rounded wpcd-fs-border">
+      <span class="wpcd-fs-bold">Note: </span>This is just to show how the coupon will look. Click to copy
+      functionality, showing hidden coupon will not work here, but it will work on posts, pages where you put the
+      shortcode.
     </div>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <label :for="id">
+  <label style="word-break: keep-all" :for="id">
     <slot></slot>
     <help-box v-if="helpmessage" :message="helpmessage">?</help-box>
   </label>

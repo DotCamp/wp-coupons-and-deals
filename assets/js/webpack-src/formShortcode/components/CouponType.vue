@@ -1,6 +1,6 @@
 <template>
   <tr>
-    <td>
+    <td style="width: 30%">
       <form-label :helpmessage="typedata.help" :id="typedata.id">
         {{ typedata.label }}
       </form-label>

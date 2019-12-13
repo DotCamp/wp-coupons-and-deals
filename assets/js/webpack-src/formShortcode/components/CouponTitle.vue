@@ -6,7 +6,7 @@
       </form-label>
     </td>
     <td>
-      <input v-model="store['coupon-title']" :id="id" />
+      <input :placeholder="extras.strings.enter_title" v-model="store['coupon-title']" :id="id" type="text" class="wpcd-fs-w-full-important"/>
     </td>
   </tr>
 </template>

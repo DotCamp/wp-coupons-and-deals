@@ -1,6 +1,6 @@
 <template>
   <fragment>
-    <tr class="form-shortcode-row" v-show="getDependencyGraph(f)" v-for="f in fieldsdata" :key="f.id">
+    <tr class="wpcd-fs-basic-fade" v-show="getDependencyGraph(f)" v-for="f in fieldsdata" :key="f.id">
       <td>
         <form-label :id="f.id" :helpmessage="f.help">
           {{ f.label }}

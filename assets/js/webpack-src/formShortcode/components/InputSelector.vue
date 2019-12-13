@@ -2,17 +2,11 @@
   <select v-model="store[data.id]" v-if="isElementType('select')">
     <option v-for="option in data.options" :key="option">{{ option }}</option>
   </select>
-  <!--  <input-->
-  <!--    class="bg-gray-400 p-2 cursor-pointer border-b-2 border-r-2 border-gray-500"-->
-  <!--    v-else-if="isElementType('file')"-->
-  <!--    @change="$set(store, data.id, $event.target.files[0])"-->
-  <!--    type="file"-->
-  <!--  />-->
-  <file-input :preview_id="data.id" v-else-if="isElementType('file')">{{ extras.strings.select_an_image }}</file-input>
+  <file-input :preview_id="data.id" v-else-if="isElementType('file')" :text="extras.strings.select_an_image" />
   <textarea v-model="store[data.id]" v-else-if="isElementType('textarea')" rows="5" cols="30" />
-  <input v-model="store[data.id]" v-else-if="isElementType('text')" />
-  <input v-model="store[data.id]" v-else-if="isElementType('date')" type="date" />
-  <input v-model="store[data.id]" v-else-if="isElementType('time')" type="time" class="w-full-important" />
+  <input v-model="store[data.id]" v-else-if="isElementType('text')" type="text" class="wpcd-fs-w-full-important" />
+  <input v-model="store[data.id]" v-else-if="isElementType('date')" type="date" class="wpcd-fs-w-full-important" />
+  <input v-model="store[data.id]" v-else-if="isElementType('time')" type="time" class="wpcd-fs-w-full-important" />
   <color-picker v-model="store[data.id]" v-else-if="isElementType('colorpicker')" />
   <input
     v-model="store[data.id]"

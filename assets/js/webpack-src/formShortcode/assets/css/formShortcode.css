@@ -1,36 +1,214 @@
-.wpcd-btn {
-    /*overriding any theme button color*/
-    background: #fafafa !important;
+:root {
+    --wpcd-fs-gray-100: #f7fafc;
+    --wpcd-fs-gray-200: #edf2f7;
+    --wpcd-fs-gray-400: #cbd5e0;
+    --wpcd-fs-green-500: #48bb78;
+    --wpcd-fs-red-500: #f56565;
+    --wpcd-fs-1: 0.25rem;
+    --wpcd-fs-2: calc(2 * var(--wpcd-fs-1));
+    --wpcd-fs-3: calc(3 * var(--wpcd-fs-1));
+    --wpcd-fs-4: calc(4 * var(--wpcd-fs-1))
 }
 
-.w-full-important {
+.wpcd-fs-table {
+    border-collapse: collapse !important;
+    border: none !important;
+}
+
+
+.wpcd-fs-table tr, td {
+    border: none !important;
+}
+
+.wpcd-fs-table td {
+    padding-bottom: 3rem !important;
+}
+
+.wpcd-fs-table td label {
+    font-weight: bold;
+}
+
+.wpcd-fs-w-full-important {
     width: 100% !important
 }
 
-input:disabled {
-    background-color: gray;
-    cursor: default;
+.wpcd-fs-h-full-important {
+    height: 100% !important
 }
 
-.wait-block {
+.wpcd-fs-flex {
+    display: flex;
+}
+
+.wpcd-fs-flex-col {
+    flex-direction: column;
+}
+
+.wpcd-fs-items-center {
+    align-items: center;
+}
+
+.wpcd-fs-space-between {
+    justify-content: space-between;
+}
+
+.wpcd-fs-justify-center {
+    justify-content: center
+}
+
+.wpcd-fs-helpbox {
+    background-color: var(--wpcd-fs-gray-400);
+    border-radius: 100%;
+    padding: 0 var(--wpcd-fs-3) 0 var(--wpcd-fs-3);
+    float: right;
+    color: white;
+    border: .5px solid var(--wpcd-fs-gray-400)
+}
+
+.wpcd-fs-helpbox:hover {
+    background-color: white;
+    color: var(--wpcd-fs-gray-400);
+}
+
+.wpcd-fs-wait-block {
     display: inline-block;
-    width: 2rem;
-    height: 2rem;
+    width: 1rem;
+    height: 1rem;
     border: #dcd7ca dashed 2px;
     animation: beat .5s ease-out alternate infinite;
 }
 
-.wait-block-wrapper > .wait-block:nth-child(even) {
-    animation-delay: .3s
+.wpcd-fs-wait-block-wrapper {
+    display: inline-block;
+    padding: 0 1rem 0 1rem;
 }
 
-.sweet-border {
-    border-color: #dcd7ca;
+.wpcd-fs-wait-block-wrapper > .wpcd-fs-wait-block:nth-child(even) {
+    animation-delay: .3s;
 }
 
-.sweet-border tr, th, td {
-    border-color: #dcd7ca;
+.wpcd-success-message-box {
+    background-color: white;
+    border-left: var(--wpcd-fs-1) solid var(--wpcd-fs-green-500);
+    color: var(--wpcd-fs-green-500);
+    padding: var(--wpcd-fs-3)
 }
+
+.wpcd-error-message-box {
+    background-color: white;
+    border-left: var(--wpcd-fs-1) solid var(--wpcd-fs-red-500);
+    color: var(--wpcd-fs-red-500);
+    padding: var(--wpcd-fs-3)
+}
+
+.wpcd-fs-basic-fade {
+    animation: fs-fade-in .5s ease-out;
+}
+
+.wpcd-fs-term-holder {
+    width: 50%;
+    float: left;
+}
+
+.wpcd-fs-float-right {
+    float: right;
+}
+
+.wpcd-fs-hide-box {
+    background-color: white;
+    margin: var(--wpcd-fs-4) 0 var(--wpcd-fs-4) 0;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.wpcd-fs-shadow {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.wpcd-fs-hide-box-header {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.wpcd-fs-hide-box-header:hover {
+    background-color: var(--wpcd-fs-gray-200)
+}
+
+.wpcd-fs-p-1 {
+    padding: var(--wpcd-fs-1)
+}
+
+.wpcd-fs-p-2 {
+    padding: var(--wpcd-fs-2)
+}
+
+.wpcd-fs-p-4 {
+    padding: var(--wpcd-fs-4)
+}
+
+.wpcd-fs-border {
+    border: 1px solid var(--wpcd-fs-gray-400)
+}
+
+.wpcd-fs-bg-white {
+    background-color: white;
+}
+
+.wpcd-fs-px-4 {
+    padding-left: var(--wpcd-fs-4);
+    padding-right: var(--wpcd-fs-4)
+}
+
+.wpcd-fs-rounded {
+    border-radius: var(--wpcd-fs-1);
+}
+
+.wpcd-fs-pointer {
+    cursor: pointer;
+}
+
+.wpcd-fs-bold {
+    font-weight: bold;
+}
+
+.wpcd-fs-my-2 {
+    margin-top: var(--wpcd-fs-2);
+    margin-bottom: var(--wpcd-fs-2);
+}
+
+.wpcd-fs-mt-4 {
+    margin-top: 4rem;
+}
+
+.wpcd-fs-text-red-500 {
+    color: var(--wpcd-fs-red-500) !important;
+}
+
+.wpcd-preview-wrapper {
+    overflow-x: hidden;
+    background-color: var(--wpcd-fs-gray-100);
+    width: 100% !important;
+    margin-bottom: var(--wpcd-fs-4)
+}
+
+.wpcd-fs-note {
+    background-color: white;
+    font-size: .875rem;
+    font-style: italic;
+    padding-right: var(--wpcd-fs-2);
+    padding-left: var(--wpcd-fs-2);
+    margin: var(--wpcd-fs-2);
+    text-align: justify;
+}
+
+.wpcd-fs-image-template {
+    object-fit: contain;
+}
+
+
+.form-shortcode-row {
+    animation: fs-fade-in .5s ease-out;
+}
+
 
 @keyframes beat {
     0% {
@@ -45,9 +223,6 @@ input:disabled {
 
 }
 
-.form-shortcode-row {
-    animation: fs-fade-in .5s ease-out;
-}
 
 @keyframes fs-fade-in {
     from {
@@ -82,15 +257,8 @@ input:disabled {
     transition: all .2s ease-out
 }
 
-.form-shortcode-table tr{
-    transition: all .2s ease-out;
-}
 
-.form-shortcode-table tr:hover {
-    background-color: #edf2f7;
-}
-
-.coupons-logo{
+.coupons-logo {
     transform-origin: 50% 10%;
     animation: swing 5s ease-in-out alternate infinite;
 }
@@ -105,20 +273,17 @@ input:disabled {
 
 }
 
-.wpcd-form-shortcode-toggle-indicator {
-    color:gray;
+.wpcd-fs-toggle-indicator {
+    color: gray;
     font-size: 2rem;
     font-family: "dashicons"
 }
 
-.wpcd-form-shortcode-toggle-button[aria-expanded="false"] .wpcd-form-shortcode-toggle-indicator:before{
-    content:'\f142'
+.wpcd-fs-toggle-button[aria-expanded="false"] .wpcd-fs-toggle-indicator:before {
+    content: '\f142'
 }
 
-.wpcd-form-shortcode-toggle-button[aria-expanded="true"] .wpcd-form-shortcode-toggle-indicator:before{
-    content:'\f140'
+.wpcd-fs-toggle-button[aria-expanded="true"] .wpcd-fs-toggle-indicator:before {
+    content: '\f140'
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;

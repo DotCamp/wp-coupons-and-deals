@@ -3,15 +3,20 @@
     <img
       @error="showImage = false"
       @load="showImage = true"
-      class="object-contain w-full"
+      class="wpcd-fs-image-template wpcd-fs-w-full-important"
       style="height: 200px"
       v-show="showImage"
       ref="previewImage"
       :src="store['coupon-image-input'] || ''"
       alt="image source"
     />
-    <div v-if="!showImage" class="flex flex-col w-full h-full items-center justify-center">
-      <div class="text-gray-600 bg-white p-4 rounded border shadow">{{ extras.strings['select_an_image'] }}</div>
+    <div
+      v-if="!showImage"
+      class="wpcd-fs-flex wpcd-fs-flex-col wpcd-fs-items-center wpcd-fs-justify-center wpcd-fs-w-full-important wpcd-fs-h-full-important"
+    >
+      <div class="wpcd-fs-shadow wpcd-fs-rounded wpcd-fs-bg-white wpcd-fs-p-4  wpcd-fs-border">
+        {{ extras.strings['select_an_image'] }}
+      </div>
     </div>
   </div>
 </template>
