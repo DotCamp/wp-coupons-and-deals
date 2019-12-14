@@ -116,6 +116,11 @@ class WPCD_Settings_Page_Pro {
 	 * @since 1.0
 	 */
 	private function settings_fields() {
+		global $wp_post_statuses;
+		$post_statuses = [];
+		foreach ($wp_post_statuses as $key=>$val){
+			$post_statuses[$key]=$key;
+		}
 
 		/**
 		 * Tabs setting.
@@ -526,6 +531,15 @@ class WPCD_Settings_Page_Pro {
 					'type'        => 'checkbox_multi',
 					'options'     => wp_roles()->role_names,
 					'default'     => [ 'administrator' ],
+				),
+				array(
+					'id'          => 'form-shortcode-coupon-status',
+					'label'       => __( 'Coupon status', 'wpcd-coupon' ),
+					'description' => __( 'Status of user submitted coupons, default is "publish"',
+						'wpcd-coupon' ),
+					'type'        => 'select',
+					'options'     => $post_statuses,
+					'default'     => 'publish'
 				)
 			)
 		);

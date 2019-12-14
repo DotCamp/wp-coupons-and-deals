@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import { Plugin } from 'vue-fragment';
 import VueResource from 'vue-resource';
-import App from './components/Form';
+import App from './components/App';
 import FormLabel from './components/FormLabel';
 import Store from './plugins/Store';
 import StoreData from './functions/storeData';
@@ -16,12 +16,15 @@ Vue.http.options.emulateJSON = true;
 Vue.http.options.emulateHTTP = true;
 
 Vue.filter('cap', val => {
-  return val
-    .split(' ')
-    .map(v => {
-      return v[0].toUpperCase() + v.slice(1);
-    })
-    .join(' ');
+  if (val) {
+    return val
+      .split(' ')
+      .map(v => {
+        return v[0].toUpperCase() + v.slice(1);
+      })
+      .join(' ');
+  }
+  return '';
 });
 
 Vue.mixin({
@@ -61,6 +64,7 @@ new Vue({
   components: { App, FormLabel },
   data: {
     fields: formShortcodeFields,
+    coupons: user_coupons,
   },
-  template: "<app :fields='fields'></app>",
+  template: "<app :fields='fields' :coupons='coupons'></app>",
 }).$mount('#form_shortcode');

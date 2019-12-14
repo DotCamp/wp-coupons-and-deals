@@ -3,6 +3,7 @@
     --wpcd-fs-gray-200: #edf2f7;
     --wpcd-fs-gray-400: #cbd5e0;
     --wpcd-fs-green-500: #48bb78;
+    --wpcd-fs-blue-500: #4299e1;
     --wpcd-fs-red-500: #f56565;
     --wpcd-fs-1: 0.25rem;
     --wpcd-fs-2: calc(2 * var(--wpcd-fs-1));
@@ -18,6 +19,15 @@
 
 .wpcd-fs-table tr, td {
     border: none !important;
+}
+
+.wpcd-fs-table th {
+    border-left: none !important;
+    border-right: none !important;
+}
+
+.wpcd-fs-zebra-table tr:nth-child(even){
+    background-color: var(--wpcd-fs-gray-100);
 }
 
 .wpcd-fs-table td {
@@ -183,6 +193,14 @@
     color: var(--wpcd-fs-red-500) !important;
 }
 
+.wpcd-fs-text-blue-500 {
+    color: var(--wpcd-fs-blue-500) !important;
+}
+
+.wpcd-fs-no-underline {
+    text-decoration: none;
+}
+
 .wpcd-preview-wrapper {
     overflow-x: hidden;
     background-color: var(--wpcd-fs-gray-100);
@@ -192,12 +210,15 @@
 
 .wpcd-fs-note {
     background-color: white;
-    font-size: .875rem;
     font-style: italic;
     padding-right: var(--wpcd-fs-2);
     padding-left: var(--wpcd-fs-2);
     margin: var(--wpcd-fs-2);
     text-align: justify;
+}
+
+.wpcd-fs-text-sm {
+    font-size: .875rem
 }
 
 .wpcd-fs-image-template {

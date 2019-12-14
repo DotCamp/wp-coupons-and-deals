@@ -4,7 +4,7 @@
       <image-template v-if="store['coupon-type'] === 'Image'" />
       <component v-else class="wpcd-fs-px-4" :is="store['coupon-template'].replace(' ', '')" :html="currentTemplate" />
     </transition>
-    <div class="wpcd-fs-note wpcd-fs-rounded wpcd-fs-border">
+    <div class="wpcd-fs-text-sm wpcd-fs-note wpcd-fs-rounded wpcd-fs-border">
       <span class="wpcd-fs-bold">Note: </span>This is just to show how the coupon will look. Click to copy
       functionality, showing hidden coupon will not work here, but it will work on posts, pages where you put the
       shortcode.

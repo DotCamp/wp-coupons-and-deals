@@ -33,16 +33,16 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 
 			$meta_input = $this->batchMetaInput( 'coupon_details_', $sanitized_fields );
 
-			$terms = get_terms( WPCD_Plugin::CUSTOM_TAXONOMY, [ 'hide_empty' => false ] );
+//			$terms = get_terms( WPCD_Plugin::CUSTOM_TAXONOMY, [ 'hide_empty' => false ] );
+//			$tax_input = isset( $_POST['terms'] ) ? $_POST['terms'] : [];
 
-			$tax_input = isset( $_POST['terms'] ) ? $_POST['terms'] : [];
-
+			$post_status = get_option('wpcd_form-shortcode-coupon-status', 'publish');
 
 			// inserting new post based on submitted form fields
 			$operation_result = $this->_c()->wp_insert_post( [
 				'post_title'  => $sanitized_fields['coupon-title'],
 				'post_type'   => WPCD_Plugin::CUSTOM_POST_TYPE,
-				'post_status' => 'publish',
+				'post_status' => $post_status,
 				'meta_input'  => $meta_input,
 			] );
 

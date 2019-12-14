@@ -84,7 +84,13 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 				'set_featured_image' => "Set a featured image",
 				'featured_image'     => "featured image",
 				'use_image'          => "use this image",
-				'enter_title'          => "enter your coupon title"
+				'enter_title'        => "enter your coupon title",
+				'coupon_title'       => "coupon title",
+				'coupon_type'        => "coupon type",
+				'your_coupons'       => "your coupons",
+				'add_new'            => "add new",
+				'back_to_coupons'    => "back to coupons",
+				'add_a_coupon'       => "add a coupon",
 			];
 
 			$extras->strings = array_merge( $extras->strings,
@@ -96,9 +102,27 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 			$extras->nonce    = wp_create_nonce( 'wpcd_shortcode_form' );
 
 
+			// retrieve current users' posts with their meta values
+			$current_user         = wp_get_current_user();
+			$current_user_coupons = get_posts( [
+					'author'      => $current_user->ID,
+					'post_type'   => WPCD_Plugin::CUSTOM_POST_TYPE,
+					'post_status' => [ 'publish', 'pending', 'draft' ]
+				]
+			);
+
+			foreach ( $current_user_coupons as $p ) {
+
+				$id           = $p->ID;
+				$post_meta    = get_post_meta( $id );
+				$p->post_meta = $post_meta;
+			}
+
+
 			// enqueue scripts/styles step
 			$this->_c()->add_action( 'wp_enqueue_scripts',
 				function () use (
+					$current_user_coupons,
 					$css_version,
 					$css_asset_uri_path,
 					$extras,
@@ -124,6 +148,9 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 						$this->_c()->wp_localize_script( 'form_shortcode_script', 'formShortcodeFields', $fields );
 
 						$this->_c()->wp_localize_script( 'form_shortcode_script', 'couponPreview', $split_html );
+
+						$this->_c()->wp_localize_script( 'form_shortcode_script', 'user_coupons',
+							$current_user_coupons );
 
 						$this->_c()->wp_localize_script( 'form_shortcode_script', 'formShortcodeExtras',
 							(array) $extras );
@@ -249,7 +276,7 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 		$current_user = $this->_c()->wp_get_current_user();
 		$current_role = isset( $current_user->roles[0] ) ? $current_user->roles[0] : '';
 
-		$allowed_roles = $this->_c()->get_option( 'wpcd_form-shortcode-allowed-roles' , ['administrator'] );
+		$allowed_roles = $this->_c()->get_option( 'wpcd_form-shortcode-allowed-roles', [ 'administrator' ] );
 
 		if ( $allowed_roles === '' ) {
 			$allowed_roles = [ 'administrator' ];
