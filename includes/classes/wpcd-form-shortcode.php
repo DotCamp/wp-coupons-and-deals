@@ -99,22 +99,25 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 
 			$protocol         = isset( $_SERVER['https'] ) ? 'https' : 'http';
 			$extras->ajax_url = admin_url( 'admin-ajax.php', $protocol );
+			$extras->form_action = $this->name;
+			$extras->coupons_action = $this->name . '_coupons';
 			$extras->nonce    = wp_create_nonce( 'wpcd_shortcode_form' );
 
 
 			// retrieve current users' posts with their meta values
-			$current_user         = wp_get_current_user();
-			$current_user_coupons = get_posts( [
-					'author'      => $current_user->ID,
-					'post_type'   => WPCD_Plugin::CUSTOM_POST_TYPE,
-					'post_status' => [ 'publish', 'pending', 'draft' ]
+			$current_user         = $this->_c()->wp_get_current_user();
+			$current_user_coupons = $this->_c()->get_posts( [
+					'author'         => $current_user->ID,
+					'post_type'      => WPCD_Plugin::CUSTOM_POST_TYPE,
+					'post_status'    => [ 'publish', 'pending', 'draft' ],
+					'posts_per_page' => '-1'
 				]
 			);
 
 			foreach ( $current_user_coupons as $p ) {
 
 				$id           = $p->ID;
-				$post_meta    = get_post_meta( $id );
+				$post_meta    = $this->_c()->get_post_meta( $id );
 				$p->post_meta = $post_meta;
 			}
 
@@ -160,10 +163,13 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 			// add ajax to WordPress hook
 			$ajax_hook_nopriv = new WPCD_Formshortcode_Ajax( $this->name, false );
 			$ajax_hook_nopriv->add();
-
 			$ajax_hook_priv = new WPCD_Formshortcode_Ajax( $this->name, true );
 			$ajax_hook_priv->add();
 
+			$ajax_hook_coupons_nopriv = new WPCD_Formshortcode_Coupons_Ajax( $this->name . '_coupons', false );
+			$ajax_hook_coupons_nopriv->add();
+			$ajax_hook_coupons_priv = new WPCD_Formshortcode_Coupons_Ajax( $this->name . '_coupons', true );
+			$ajax_hook_coupons_priv->add();
 		}
 
 		parent::add();

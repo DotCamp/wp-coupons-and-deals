@@ -27,10 +27,32 @@ export default {
   components: { CouponForm, UserCoupons },
   data() {
     return {
-      current: 'UserCoupons',
+      current: '',
+      defaultTag: 'UserCoupons',
+      tabQueryKey: 'wpcd_fs_tab',
+      paginationQueryKey: 'wpcd_fs_p',
+      currentPagination: 0,
+    };
+  },
+  watch: {
+    current(n) {
+      const tempUrl = new URL(window.location.href);
+      tempUrl.searchParams.set(this.tabQueryKey, n);
+      window.history.pushState('', '', tempUrl.toString());
+    },
+  },
+  created() {
+    this.assignTab(window.location.href, this.defaultTag);
+    window.onpopstate = e => {
+      this.assignTab(e.target.location.href, this.defaultTag);
     };
   },
   methods: {
+    assignTab(url, defaultTab) {
+      const urlObj = new URL(url);
+
+      this.current = urlObj.searchParams.get(this.tabQueryKey) || defaultTab;
+    },
     switchComponent(c) {
       this.current = c;
     },

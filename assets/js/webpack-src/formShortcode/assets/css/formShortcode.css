@@ -16,7 +16,6 @@
     border: none !important;
 }
 
-
 .wpcd-fs-table tr, td {
     border: none !important;
 }
@@ -225,6 +224,23 @@
     object-fit: contain;
 }
 
+.wpcd-fs-current-pagination{
+    display: inline-block;
+    padding: 0 .5rem 0 .5rem;
+    background-color: white;
+    border: 2px solid var(--wpcd-fs-gray-400)
+}
+
+.wpcd-fs-no-coupons{
+    width: 100%;
+    height: 200px;
+    background-color: var(--wpcd-fs-gray-200)
+}
+
+.wpcd-fs-no-text{
+    font-style: italic;
+    color: var(--wpcd-fs-gray-400)
+}
 
 .form-shortcode-row {
     animation: fs-fade-in .5s ease-out;

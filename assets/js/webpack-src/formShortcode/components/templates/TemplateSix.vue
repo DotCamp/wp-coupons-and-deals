@@ -147,8 +147,7 @@ export default {
         '.wpcd-deal-code': () => this.store['coupon-type'] === 'Deal',
         '.exp': () => this.store['show-expiration'] === 'Show',
         '.never-expire': () => this.store['never-expire-check'] === 'on' || this.store['expire-date'] === undefined,
-        '.expires-on': () =>
-          this.store['never-expire-check'] === 0 || this.store['never-expire-check'] === undefined,
+        '.expires-on': () => this.store['never-expire-check'] === 0 || this.store['never-expire-check'] === undefined,
       },
     };
   },

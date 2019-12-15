@@ -1,8 +1,12 @@
 <template>
-  <tr @mouseover="mouseOver(true)" @mouseout="mouseOver(false)">
+  <tr
+    class="wpcd-form-shortcode-generic-transition wpcd-fs-basic-fade"
+    @mouseover="mouseOver(true)"
+    @mouseout="mouseOver(false)"
+  >
     <td>
       <div class="wpcd-fs-bold">
-        <span class="wpcd-fs-text-blue-500">{{ post_title }}</span>
+        <span class="wpcd-fs-text-blue-500 wpcd-fs-pointer">{{ post_title }}</span>
         <span>{{ post_status === 'publish' ? '' : ('| ' + post_status) | cap }} </span>
       </div>
       <div :style="{ visibility: hover ? 'visible' : 'hidden' }" class="wpcd-fs-text-sm">

@@ -7,8 +7,6 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 	 * @inheritDoc
 	 */
 	public function logic() {
-		// TODO [task-001][erdembircan] implement full post fields
-
 
 		$response = [];
 		if ( filter_var( $this->_c()->check_ajax_referer( 'wpcd_shortcode_form', 'nonce', false ),

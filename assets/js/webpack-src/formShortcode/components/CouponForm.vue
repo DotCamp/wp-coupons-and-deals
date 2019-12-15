@@ -1,8 +1,8 @@
 <template>
   <div class="wpcd-fs-w-full-important">
-    <a @click.prevent="$emit('switch', 'UserCoupons')" class="wpcd-fs-pointer">
-      ⬅️ {{ extras.strings.back_to_coupons | cap }}...</a
-    >
+    <button @click.prevent="$emit('switch', 'UserCoupons')" class="wpcd-fs-pointer">
+      {{ extras.strings.back_to_coupons | cap }}
+    </button>
     <div class="wpcd-fs-flex wpcd-fs-flex-col">
       <!--      <div class="border-2 sweet-border border-dashed text-4xl font-bold p-2 rounded flex items-center flex-col mb-4">-->
       <!--        <img :src="logo" style="border: none" class="text-center coupons-logo" />-->
@@ -60,7 +60,7 @@ export default {
       setTimeout(() => {
         try {
           const formData = new FormData();
-          const data = { ...this.store, ...{ action: 'wpcd_form', nonce: this.extras.nonce } };
+          const data = { ...this.store, ...{ action: this.extras.form_action, nonce: this.extras.nonce } };
 
           Object.keys(data).map(k => {
             if (Object.prototype.hasOwnProperty.call(data, k)) {

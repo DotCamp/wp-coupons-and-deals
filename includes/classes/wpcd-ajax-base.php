@@ -1,9 +1,10 @@
 <?php
+
 /**
  * base class for hooking into WordPress ajax hooks
  * Class WPCD_Ajax_Base
  */
-abstract class WPCD_Ajax_Base  {
+abstract class WPCD_Ajax_Base {
 	use WPCD_Global_Caller_Trait;
 
 	/**
@@ -11,6 +12,7 @@ abstract class WPCD_Ajax_Base  {
 	 * @var string
 	 */
 	public $ajax_call_name;
+	public $response;
 
 	/**
 	 * WPCD_Ajax_Base constructor.
@@ -18,18 +20,38 @@ abstract class WPCD_Ajax_Base  {
 	 * @param string $ajax_call_name name of ajax hook
 	 * @param bool $private nopriv
 	 */
-	public function __construct( $ajax_call_name , $private = false ) {
-		$privPart = $private === true? '_' : '_nopriv_';
+	public function __construct( $ajax_call_name, $private = false ) {
+		$privPart             = $private === true ? '_' : '_nopriv_';
 		$this->ajax_call_name = 'wp_ajax' . $privPart . $ajax_call_name;
+		$this->response       = [];
 	}
 
 	/**
 	 * add ajax to WordPress hook
 	 * call this method inside WordPress init hook
 	 */
-	public function add(){
-		$this->_c()->add_action($this->ajax_call_name, array($this, 'logic'));
+	public function add() {
+		$this->_c()->add_action( $this->ajax_call_name, array( $this, 'logic' ) );
 	}
+
+	/**
+	 * set error to response object
+	 * @param string $message error message
+	 */
+	public function setError( $message ) {
+		$this->response['error'] = $message;
+	}
+
+	/**
+	 * set key/value pairs to response object
+	 * @param string $key key
+	 * @param string $value value
+	 */
+	public function setData($key, $value){
+
+		$this->response[$key] = $value;
+	}
+
 
 	/**
 	 * main logic for processing incoming ajax request

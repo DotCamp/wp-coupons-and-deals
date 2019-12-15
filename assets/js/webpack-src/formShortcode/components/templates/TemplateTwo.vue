@@ -75,8 +75,7 @@ export default {
         '.wpcd-coupon-hidden': () => this.store['hide-coupon'] === 'Yes' && this.store['coupon-type'] !== 'Deal',
         '.wpcd-deal-code': () => this.store['coupon-type'] === 'Deal',
         '.never-expire': () => this.store['never-expire-check'] === 'on' || this.store['expire-date'] === undefined,
-        '.expires-on': () =>
-          this.store['never-expire-check'] === 0 || this.store['never-expire-check'] === undefined,
+        '.expires-on': () => this.store['never-expire-check'] === 0 || this.store['never-expire-check'] === undefined,
       },
     };
   },
