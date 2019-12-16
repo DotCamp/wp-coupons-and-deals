@@ -10,18 +10,18 @@
       >{{ term.name }}</label
     >
     <div v-if="term.child && term.child.length > 0" style="margin-left: 2rem">
-      <term v-for="t in term.child" :key="t.name" :term="t" @change="$listeners.change" />
+      <term v-for="t in term.child" :key="t.name" :term="t" @change="$listeners.change" :terms="terms" />
     </div>
   </div>
 </template>
 <script>
 export default {
   inheritAttrs: false,
-  props: ['term'],
+  props: ['term', 'terms'],
   name: 'term',
   data() {
     return {
-      checked: false,
+      checked: this.terms.includes(this.term.name),
     };
   },
   methods: {

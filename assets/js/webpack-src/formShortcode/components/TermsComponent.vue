@@ -5,6 +5,7 @@
       heading="Coupon Categories"
       taxname="wpcd_coupon_category"
       :terms="taxonomies['wpcd_coupon_category']"
+      :termsChecked="store.terms? store.terms['wpcd_coupon_category'] || [] : []"
       @termsChanged="updateTerms"
     />
     <term-holder
@@ -12,6 +13,7 @@
       heading="Coupon Vendors"
       taxname="wpcd_coupon_vendor"
       :terms="taxonomies['wpcd_coupon_vendor']"
+      :termsChecked="store.terms? store.terms['wpcd_coupon_vendor'] || [] : []"
       @termsChanged="updateTerms"
     />
   </div>
@@ -30,7 +32,7 @@ export default {
   methods: {
     updateTerms(taxName, terms) {
       this.allTerms[taxName] = terms;
-      this.app.terms = this.allTerms;
+      this.store.terms = this.allTerms;
     },
   },
 };

@@ -104,28 +104,28 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 			$extras->nonce    = wp_create_nonce( 'wpcd_shortcode_form' );
 
 
+			// @deprecated using a ajax endpoint for this functionality now
 			// retrieve current users' posts with their meta values
-			$current_user         = $this->_c()->wp_get_current_user();
-			$current_user_coupons = $this->_c()->get_posts( [
-					'author'         => $current_user->ID,
-					'post_type'      => WPCD_Plugin::CUSTOM_POST_TYPE,
-					'post_status'    => [ 'publish', 'pending', 'draft' ],
-					'posts_per_page' => '-1'
-				]
-			);
-
-			foreach ( $current_user_coupons as $p ) {
-
-				$id           = $p->ID;
-				$post_meta    = $this->_c()->get_post_meta( $id );
-				$p->post_meta = $post_meta;
-			}
+//			$current_user         = $this->_c()->wp_get_current_user();
+//			$current_user_coupons = $this->_c()->get_posts( [
+//					'author'         => $current_user->ID,
+//					'post_type'      => WPCD_Plugin::CUSTOM_POST_TYPE,
+//					'post_status'    => [ 'publish', 'pending', 'draft' ],
+//					'posts_per_page' => '-1'
+//				]
+//			);
+//
+//			foreach ( $current_user_coupons as $p ) {
+//
+//				$id           = $p->ID;
+//				$post_meta    = $this->_c()->get_post_meta( $id );
+//				$p->post_meta = $post_meta;
+//			}
 
 
 			// enqueue scripts/styles step
 			$this->_c()->add_action( 'wp_enqueue_scripts',
 				function () use (
-					$current_user_coupons,
 					$css_version,
 					$css_asset_uri_path,
 					$extras,
@@ -148,14 +148,11 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 
 
 						// send fields as a localized script to front end
-						$this->_c()->wp_localize_script( 'form_shortcode_script', 'formShortcodeFields', $fields );
+						$this->_c()->wp_localize_script( 'form_shortcode_script', 'wpcd_fs_fields', $fields );
 
 						$this->_c()->wp_localize_script( 'form_shortcode_script', 'couponPreview', $split_html );
 
-						$this->_c()->wp_localize_script( 'form_shortcode_script', 'user_coupons',
-							$current_user_coupons );
-
-						$this->_c()->wp_localize_script( 'form_shortcode_script', 'formShortcodeExtras',
+						$this->_c()->wp_localize_script( 'form_shortcode_script', 'wpcd_fs_extras',
 							(array) $extras );
 					}
 				} );

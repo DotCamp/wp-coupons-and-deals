@@ -8,14 +8,7 @@
         {{ extras.strings.add_new }}
       </button>
     </div>
-    <component
-      @switch="switchComponent"
-      :is="current"
-      :fields="fields"
-      :coupons="coupons"
-      meta_suffix="coupon_details_"
-      meta_key="post_meta"
-    />
+    <component @switch="switchComponent" :is="current" :fields="fields" />
   </div>
 </template>
 <script>
@@ -57,6 +50,7 @@ export default {
       this.current = c;
     },
     addNew() {
+      this.resetStore();
       this.current = 'CouponForm';
     },
   },

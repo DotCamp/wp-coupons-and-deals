@@ -36,6 +36,7 @@ abstract class WPCD_Ajax_Base {
 
 	/**
 	 * set error to response object
+	 *
 	 * @param string $message error message
 	 */
 	public function setError( $message ) {
@@ -44,12 +45,39 @@ abstract class WPCD_Ajax_Base {
 
 	/**
 	 * set key/value pairs to response object
+	 *
 	 * @param string $key key
 	 * @param string $value value
 	 */
-	public function setData($key, $value){
+	public function setData( $key, $value ) {
 
-		$this->response[$key] = $value;
+		$this->response[ $key ] = $value;
+	}
+
+	/**
+	 * get response array
+	 * @return array response array
+	 */
+	public function getResponse() {
+		return $this->response;
+	}
+
+
+	/**
+	 * get response as json encoded string
+	 *
+	 * @param bool $echo echo response
+	 *
+	 * @return false|string|void
+	 */
+	public function getResponseJSON( $echo = false ) {
+		if ( $echo ) {
+			echo json_encode( $this->getResponse() );
+
+			return;
+		} else {
+			return json_encode( $this->getResponse() );
+		}
 	}
 
 

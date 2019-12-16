@@ -35,8 +35,8 @@
     "array-callback-return": "off"
   },
   "globals": {
-    "formShortcodeFields": true,
-    "formShortcodeExtras": true,
+    "wpcd_fs_fields": true,
+    "wpcd_fs_extras": true,
     "couponPreview": true,
     "wp": true
   }

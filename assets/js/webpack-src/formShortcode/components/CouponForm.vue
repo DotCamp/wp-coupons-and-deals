@@ -75,10 +75,10 @@ export default {
           }
 
           // inject terms object to FormData
-          if (this.app.terms) {
-            Object.keys(this.app.terms).map(k => {
-              if (Object.prototype.hasOwnProperty.call(this.app.terms, k)) {
-                this.app.terms[k].map(d => {
+          if (this.store.terms) {
+            Object.keys(this.store.terms).map(k => {
+              if (Object.prototype.hasOwnProperty.call(this.store.terms, k)) {
+                this.store.terms[k].map(d => {
                   formData.append(`terms[${k}][]`, d);
                 });
               }

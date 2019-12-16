@@ -18,8 +18,12 @@ export default {
   data() {
     return {
       pagCurrent: this.current,
-      pagMax: Math.ceil(this.max / this.itemperpage),
     };
+  },
+  computed: {
+    pagMax() {
+      return Math.ceil(this.max / this.itemperpage);
+    },
   },
   methods: {
     updatePag(a) {

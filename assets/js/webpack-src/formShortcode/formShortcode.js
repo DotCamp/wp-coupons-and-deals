@@ -36,7 +36,7 @@ Vue.mixin({
 });
 
 // applying some defaults to singleton store that actually defined in server sent data
-let storeData = StoreData.putSelectionDefaults(formShortcodeFields, { select: 'options' });
+let storeData = StoreData.putSelectionDefaults(wpcd_fs_fields, { select: 'options' });
 
 // extra defaults for some fields
 const extraDefaults = {
@@ -50,7 +50,7 @@ storeData = { ...storeData, ...extraDefaults };
 // singleton store plugin activation
 Vue.use(Store, {
   store: storeData,
-  extras: formShortcodeExtras,
+  extras: wpcd_fs_extras,
   app: {
     submit: {
       fetching: false,
@@ -59,12 +59,19 @@ Vue.use(Store, {
   },
 });
 
+// eslint-disable-next-line camelcase
+wpcd_fs_extras = undefined;
+
+// eslint-disable-next-line camelcase
+const formShortcodeFields = [...wpcd_fs_fields];
+// eslint-disable-next-line camelcase
+wpcd_fs_fields = undefined;
+
 // main Vue instance
 new Vue({
   components: { App, FormLabel },
   data: {
     fields: formShortcodeFields,
-    coupons: user_coupons,
   },
-  template: "<app :fields='fields' :coupons='coupons'></app>",
+  template: "<app :fields='fields'></app>",
 }).$mount('#form_shortcode');

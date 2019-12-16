@@ -6,11 +6,11 @@
   >
     <td>
       <div class="wpcd-fs-bold">
-        <span class="wpcd-fs-text-blue-500 wpcd-fs-pointer">{{ post_title }}</span>
+        <span @click="$emit('edit', ID)" class="wpcd-fs-text-blue-500 wpcd-fs-pointer">{{ post_title }}</span>
         <span>{{ post_status === 'publish' ? '' : ('| ' + post_status) | cap }} </span>
       </div>
       <div :style="{ visibility: hover ? 'visible' : 'hidden' }" class="wpcd-fs-text-sm">
-        <a class="wpcd-fs-pointer wpcd-fs-text-blue-500">Edit</a> |
+        <a class="wpcd-fs-pointer wpcd-fs-text-blue-500" @click="$emit('edit', ID)">Edit</a> |
         <a class="wpcd-fs-pointer wpcd-fs-text-red-500">Thrash</a>
       </div>
     </td>

@@ -1,11 +1,7 @@
 <template>
   <div class="wpcd-fs-flex wpcd-fs-items-center">
     <input class="button" ref="submitButton" type="submit" :value="extras.strings.submit" @click="$emit('submit')" />
-    <div v-if="app.submit.fetching" class="wpcd-fs-wait-block-wrapper">
-      <div class="wpcd-fs-wait-block"></div>
-      <div class="wpcd-fs-wait-block"></div>
-      <div class="wpcd-fs-wait-block"></div>
-    </div>
+    <wait-block v-if="isFetching" />
     <div
       v-if="!app.submit.fetching && app.submit.isSuccess && message !== ''"
       class="wpcd-success-message-box wpcd-fs-basic-fade"
@@ -18,8 +14,11 @@
   </div>
 </template>
 <script>
+import WaitBlock from './WaitBlock';
+
 export default {
   props: ['message'],
+  components: { WaitBlock },
   watch: {
     app: {
       handler(n) {
