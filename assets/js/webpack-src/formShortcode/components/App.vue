@@ -1,7 +1,18 @@
 <template>
   <div>
+    <div
+      title="Best WordPress Coupon Plugin For Bloggers and Affiliate Marketers."
+      class="wpcd-fs-logo-wrapper wpcd-fs-flex wpcd-fs-flex-col wpcd-fs-justify-center wpcd-fs-items-center"
+    >
+      <img :src="logo" style="border: none" class="wpcd-fs-coupons-logo" />
+      <h3 style="margin:5px">
+        <a href="https://wpcouponsdeals.com/" target="_blank">
+          WP Coupons and Deals
+        </a>
+      </h3>
+    </div>
     <div>
-      <h2>
+      <h2 style="margin-top: 2px">
         {{ heading | cap }}
       </h2>
       <button class="wpcd-fs-float-right" v-show="current !== 'CouponForm'" @click="addNew">
@@ -14,6 +25,7 @@
 <script>
 import CouponForm from './CouponForm';
 import UserCoupons from './UserCoupons';
+import logo from '../assets/image/icon-128x128.png';
 
 export default {
   props: ['fields', 'coupons'],
@@ -25,6 +37,7 @@ export default {
       tabQueryKey: 'wpcd_fs_tab',
       paginationQueryKey: 'wpcd_fs_p',
       currentPagination: 0,
+      logo,
     };
   },
   watch: {
@@ -60,7 +73,7 @@ export default {
 
       switch (this.current) {
         case 'CouponForm':
-          stringKey = 'add_a_coupon';
+          stringKey = this.store.ID ? 'edit' : 'add_a_coupon';
           break;
         case 'UserCoupons':
           stringKey = 'your_coupons';

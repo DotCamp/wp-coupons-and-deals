@@ -49,6 +49,7 @@ class WPCD_Formshortcode_Coupons_Ajax extends WPCD_Ajax_Base {
 
 
 		if ( (int) $coupon_author === $user_id ) {
+			// coupon meta fetch
 			$post_meta = $this->_c()->get_post_meta( $coupon_id );
 			$coupon    = array_merge( $coupon, $post_meta );
 
@@ -61,19 +62,35 @@ class WPCD_Formshortcode_Coupons_Ajax extends WPCD_Ajax_Base {
 				}
 			}
 
+			// coupon taxonomy fetch
 			$custom_taxonomy = wp_get_post_terms( $coupon_id, WPCD_Plugin::CUSTOM_TAXONOMY );
 			$vendor_taxonomy = wp_get_post_terms( $coupon_id, WPCD_Plugin::VENDOR_TAXONOMY );
 
-			$coupon['terms'][WPCD_Plugin::CUSTOM_TAXONOMY] = $this->filter_tax( $custom_taxonomy, 'name' );
-			$coupon['terms'][WPCD_Plugin::VENDOR_TAXONOMY] = $this->filter_tax( $vendor_taxonomy, 'name' );
+			$coupon['terms'][ WPCD_Plugin::CUSTOM_TAXONOMY ] = $this->filter_tax( $custom_taxonomy, 'name' );
+			$coupon['terms'][ WPCD_Plugin::VENDOR_TAXONOMY ] = $this->filter_tax( $vendor_taxonomy, 'name' );
 
+			// coupon thumbnail url fetch
+			$coupon['featured_url'] = $this->_c()->get_the_post_thumbnail_url( $coupon_id );
 
+			// coupon attachment image url fetch
+			$coupon_attachment_id      = $coupon['coupon-image-input'];
+			$coupon['coupon-image-input'] = wp_get_attachment_image_url($coupon_attachment_id );
+
+			// setting coupon data
 			$this->setData( 'data', $coupon );
 		} else {
 			$this->setError( __( 'You are not authorized to fetch this coupon', WPCD_Plugin::TEXT_DOMAIN ) );
 		}
 	}
 
+	/**
+	 * filter the taxonomy array so that only 'name' fields of the terms will be returned
+	 *
+	 * @param array $tax_array source array
+	 * @param string $key key
+	 *
+	 * @return array filtered array
+	 */
 	private function filter_tax( $tax_array, $key ) {
 		$temp_array = [];
 		foreach ( $tax_array as $tax ) {

@@ -306,8 +306,11 @@
     transition: all .2s ease-out
 }
 
+.wpcd-fs-logo-wrapper {
+    /*background-color: var(--wpcd-fs-gray-100);*/
+}
 
-.coupons-logo {
+.wpcd-fs-coupons-logo {
     transform-origin: 50% 10%;
     animation: swing 5s ease-in-out alternate infinite;
 }

@@ -84,10 +84,18 @@ export default {
           coupons: 'single',
           coupon_id: id,
         })
-        .then(resp => resp.json())
+        .then(
+          resp => resp.json(),
+          () => {
+            this.stopFetching();
+          }
+        )
         .then(r => {
           this.stopFetching();
           return r.data;
+        })
+        .catch(() => {
+          this.stopFetching();
         });
     },
     editCoupon(id) {

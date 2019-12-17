@@ -4,12 +4,6 @@
       {{ extras.strings.back_to_coupons | cap }}
     </button>
     <div class="wpcd-fs-flex wpcd-fs-flex-col">
-      <!--      <div class="border-2 sweet-border border-dashed text-4xl font-bold p-2 rounded flex items-center flex-col mb-4">-->
-      <!--        <img :src="logo" style="border: none" class="text-center coupons-logo" />-->
-      <!--        <div>-->
-      <!--          WP Coupons and Deals-->
-      <!--        </div>-->
-      <!--      </div>-->
       <form id="form-shortcode-form-wrapper" @submit.prevent="" method="post">
         <table class="wpcd-fs-table">
           <coupon-type v-model="store['coupon-type']" :typedata="couponType" />
@@ -18,7 +12,7 @@
         </table>
       </form>
       <terms-component :taxonomies="extras.terms" />
-      <featured-image />
+      <featured-image :featured-url="store.featured_url" />
       <submit-component :message="submitMessage" @submit="submitForm" />
     </div>
     <coupon-preview />
@@ -56,62 +50,65 @@ export default {
   methods: {
     submitForm() {
       this.app.submit.fetching = true;
-      // TODO [task-001][erdembircan] get rid of timeout at production
-      setTimeout(() => {
-        try {
-          const formData = new FormData();
-          const data = { ...this.store, ...{ action: this.extras.form_action, nonce: this.extras.nonce } };
+      try {
+        const formData = new FormData();
+        const data = { ...this.store, ...{ action: this.extras.form_action, nonce: this.extras.nonce } };
 
-          Object.keys(data).map(k => {
-            if (Object.prototype.hasOwnProperty.call(data, k)) {
-              formData.set(k, data[k]);
-            }
-          });
-
-          // inject new terms to FormData
-          const { newTerms } = this.app;
-          if (newTerms) {
-            formData.set('new_terms', JSON.stringify(newTerms));
+        Object.keys(data).map(k => {
+          if (Object.prototype.hasOwnProperty.call(data, k)) {
+            formData.set(k, data[k]);
           }
+        });
 
-          // inject terms object to FormData
-          if (this.store.terms) {
-            Object.keys(this.store.terms).map(k => {
-              if (Object.prototype.hasOwnProperty.call(this.store.terms, k)) {
-                this.store.terms[k].map(d => {
+        // inject new terms to FormData
+        const { newTerms } = this.app;
+        if (newTerms) {
+          formData.set('new_terms', JSON.stringify(newTerms));
+        }
+
+        // inject terms object to FormData
+        if (this.store.terms) {
+          Object.keys(this.store.terms).map(k => {
+            if (Object.prototype.hasOwnProperty.call(this.store.terms, k)) {
+              const currentTermGroup = this.store.terms[k];
+              // adding term group a empty data to force it to clear all of its term data in the event of deselecting all of the terms in a tax group
+              if (currentTermGroup.length === 0) {
+                formData.append(`terms[${k}][]`, '');
+              } else {
+                currentTermGroup.map(d => {
                   formData.append(`terms[${k}][]`, d);
                 });
               }
-            });
-          }
-
-          this.resource
-            .save(formData)
-            .then(
-              resp => resp.json(),
-              resp => {
-                this.app.submit.isSuccess = false;
-                this.submitMessage = resp.message;
-              }
-            )
-            .then(j => {
-              if (j.error) {
-                throw new Error(j.error);
-              }
-              this.app.submit.isSuccess = true;
-              this.submitMessage = `Coupon created with id: ${j.data.id}`;
-            })
-            .catch(e => {
-              this.app.submit.isSuccess = false;
-              this.submitMessage = e.message;
-            });
-        } catch (e) {
-          this.app.submit.isSuccess = false;
-          this.submitMessage = e;
-        } finally {
-          this.app.submit.fetching = false;
+            }
+          });
         }
-      }, 3000);
+
+        this.resource
+          .save(formData)
+          .then(
+            resp => resp.json(),
+            resp => {
+              this.app.submit.isSuccess = false;
+              this.submitMessage = resp.message;
+            }
+          )
+          .then(j => {
+            if (j.error) {
+              throw new Error(j.error);
+            }
+            this.app.submit.isSuccess = true;
+            this.submitMessage = `${j.message || ''} | id: ${j.id}`;
+          })
+          .catch(e => {
+            this.app.submit.isSuccess = false;
+            this.submitMessage = e.message;
+          });
+      } catch (e) {
+        this.app.submit.isSuccess = false;
+        this.submitMessage = e;
+      } finally {
+        this.app.submit.fetching = false;
+      }
     },
   },
   computed: {

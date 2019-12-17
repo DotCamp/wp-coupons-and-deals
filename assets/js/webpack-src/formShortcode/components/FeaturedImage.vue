@@ -1,5 +1,5 @@
 <template>
-  <hide-box :heading="extras.strings.featured_image | cap">
+  <hide-box :force-show="imageVisible" :heading="extras.strings.featured_image | cap">
     <div>
       <a v-if="!imageVisible" @click.prevent="open = true" class="wpcd-fs-pointer wpcd-fs-bold"
         >+{{ extras.strings.set_featured_image | cap }}</a
@@ -29,10 +29,11 @@ import WordPressMedia from './WordPressMedia';
 
 export default {
   components: { HideBox, WordPressMedia },
+  props: ['featuredUrl'],
   data() {
     return {
-      imageUrl: '',
-      imageVisible: true,
+      imageUrl: this.featuredUrl,
+      imageVisible: false,
       wpAttributes: {},
       open: false,
     };
@@ -58,7 +59,7 @@ export default {
     close() {
       this.imageUrl = '';
       this.imageVisible = false;
-      this.setFeaturedId(undefined);
+      this.setFeaturedId('remove');
     },
   },
 };

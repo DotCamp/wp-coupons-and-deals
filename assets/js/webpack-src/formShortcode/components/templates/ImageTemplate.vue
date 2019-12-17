@@ -7,8 +7,9 @@
       style="height: 200px"
       v-show="showImage"
       ref="previewImage"
-      :src="store['coupon-image-input'] || ''"
+      :src="store['coupon-image-input']"
       alt="image source"
+      :key="refreshKey"
     />
     <div
       v-if="!showImage"
@@ -25,8 +26,17 @@
 export default {
   data() {
     return {
-      showImage: true,
+      showImage: false,
+      refreshKey: 0,
     };
+  },
+  watch: {
+    store: {
+      handler() {
+        this.refreshKey += 1;
+      },
+      deep: true,
+    },
   },
 };
 </script>

@@ -89,6 +89,7 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 				'coupon_type'        => "coupon type",
 				'your_coupons'       => "your coupons",
 				'add_new'            => "add new",
+				'edit'            => "edit your coupon",
 				'back_to_coupons'    => "back to coupons",
 				'add_a_coupon'       => "add a coupon",
 			];

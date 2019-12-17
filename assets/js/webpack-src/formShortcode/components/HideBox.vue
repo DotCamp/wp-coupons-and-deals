@@ -16,11 +16,16 @@
 </template>
 <script>
 export default {
-  props: ['heading'],
+  props: ['heading', 'forceShow'],
   data() {
     return {
       showChild: false,
     };
+  },
+  watch: {
+    forceShow(n) {
+      this.showChild = n;
+    },
   },
 };
 </script>
