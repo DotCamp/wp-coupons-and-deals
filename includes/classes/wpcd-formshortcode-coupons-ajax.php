@@ -10,18 +10,28 @@ class WPCD_Formshortcode_Coupons_Ajax extends WPCD_Ajax_Base {
 			FILTER_VALIDATE_BOOLEAN ) ) {
 			if ( isset( $_GET['coupons'] ) ) {
 				$coupons_query = sanitize_text_field( $_GET['coupons'] );
-				$user_id       = $this->_c()->wp_get_current_user()->ID;
 
 				switch ( $coupons_query ) {
+					case 'thrash':
+						if ( isset( $_GET['coupon_id'] ) ) {
+							$coupon_id = sanitize_text_field( $_GET['coupon_id'] );
+							$this->thrash_a_coupon( $coupon_id );
+						} else {
+							$this->setError( __( 'Bad request, check request and try again',
+								WPCD_Plugin::TEXT_DOMAIN ) );
+						}
+						break;
 					case 'single':
 						if ( isset( $_GET['coupon_id'] ) ) {
 							$coupon_id = sanitize_text_field( $_GET['coupon_id'] );
-							$this->get_a_coupon( $coupon_id, $user_id );
+							$this->get_a_coupon( $coupon_id );
 						} else {
-							$this->setError( __( 'Bad request, check request and try again' ) );
+							$this->setError( __( 'Bad request, check request and try again',
+								WPCD_Plugin::TEXT_DOMAIN ) );
 						}
 						break;
 					default:
+						$user_id = $this->_c()->wp_get_current_user()->ID;
 						$this->get_all_user_coupons( $user_id );
 						break;
 				}
@@ -37,18 +47,50 @@ class WPCD_Formshortcode_Coupons_Ajax extends WPCD_Ajax_Base {
 	}
 
 	/**
+	 * thrash current user's coupon
+	 *
+	 * @param int $coupon_id coupon id
+	 */
+	private function thrash_a_coupon( $coupon_id ) {
+		$is_thrash_enabled = get_option('wpcd_form-shortcode-enable-thrash', '') === 'on';
+		if ( $this->is_current_user_original_author( $coupon_id ) && $is_thrash_enabled ) {
+			$result = $this->_c()->wp_delete_post( $coupon_id );
+			if ( $result ) {
+				$this->setData( 'message', __( 'Coupon deleted', WPCD_Plugin::TEXT_DOMAIN ) );
+				$this->setData( 'id', $coupon_id );
+			} else {
+				$this->setError( __( 'An error occured, try again later', WPCD_Plugin::TEXT_DOMAIN ) );
+			}
+		} else {
+			$this->setError( __( 'You are not authorized to fetch coupons, refresh page and try again',
+				WPCD_Plugin::TEXT_DOMAIN ) );
+		}
+	}
+
+	/**
+	 * check if current user is the original author of the given post
+	 *
+	 * @param int $post_id post id
+	 *
+	 * @return bool current user is original author or not
+	 */
+	private function is_current_user_original_author( $post_id ) {
+		$current_user = $this->_c()->wp_get_current_user()->ID;
+		$post_author  = $this->_c()->get_post( $post_id )->post_author;
+
+		return $current_user == $post_author;
+	}
+
+	/**
 	 * fetch a single coupon
 	 *
 	 * @param int $coupon_id coupon post id
-	 * @param int $user_id user id
 	 */
-	private function get_a_coupon( $coupon_id, $user_id ) {
-		$coupon        = [];
-		$coupon['ID']  = $coupon_id;
-		$coupon_author = $this->_c()->get_post( $coupon_id )->post_author;
+	private function get_a_coupon( $coupon_id ) {
+		$coupon       = [];
+		$coupon['ID'] = $coupon_id;
 
-
-		if ( (int) $coupon_author === $user_id ) {
+		if ( $this->is_current_user_original_author( $coupon_id ) ) {
 			// coupon meta fetch
 			$post_meta = $this->_c()->get_post_meta( $coupon_id );
 			$coupon    = array_merge( $coupon, $post_meta );
@@ -73,8 +115,8 @@ class WPCD_Formshortcode_Coupons_Ajax extends WPCD_Ajax_Base {
 			$coupon['featured_url'] = $this->_c()->get_the_post_thumbnail_url( $coupon_id );
 
 			// coupon attachment image url fetch
-			$coupon_attachment_id      = $coupon['coupon-image-input'];
-			$coupon['coupon-image-input'] = wp_get_attachment_image_url($coupon_attachment_id );
+			$coupon_attachment_id         = $coupon['coupon-image-input'];
+			$coupon['coupon-image-input'] = wp_get_attachment_image_url( $coupon_attachment_id );
 
 			// setting coupon data
 			$this->setData( 'data', $coupon );
@@ -119,4 +161,5 @@ from $wpdb->posts as posts inner JOIN $wpdb->postmeta as meta  on posts.ID = met
 
 		$this->setData( 'data', $results );
 	}
+
 }

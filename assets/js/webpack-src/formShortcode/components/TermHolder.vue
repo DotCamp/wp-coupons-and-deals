@@ -64,6 +64,7 @@ export default {
     },
     sortTerms() {
       this.terms.map(t => {
+        // eslint-disable-next-line no-param-reassign
         t.child = [];
       });
 
@@ -82,7 +83,8 @@ export default {
   },
   computed: {
     hierarchicalTerms() {
-      this.forceUpdateKey++;
+      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+      this.forceUpdateKey += 1;
       const filtered = this.terms.filter(t => {
         return t.parent === 0;
       });

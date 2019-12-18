@@ -3,9 +3,9 @@
     <div>
       <table class="wpcd-fs-w-full-important wpcd-fs-table wpcd-fs-zebra-table" style="margin-bottom: 0">
         <tr>
-          <th>{{ extras.strings.coupon_title | cap }}</th>
-          <th>{{ extras.strings.coupon_type | cap }}</th>
-          <th>ID</th>
+          <column-sort :heading="extras.strings.coupon_title" col-name="coupon_title" @sort="sort" />
+          <column-sort :heading="extras.strings.coupon_type" col-name="coupon_type" @sort="sort" />
+          <column-sort heading="ID" col-name="ID" @sort="sort" />
         </tr>
         <user-coupon-row
           v-for="c in currentPageCoupons"
@@ -15,6 +15,7 @@
           :coupon_type="c['coupon_type']"
           :ID="c['ID']"
           @edit="editCoupon"
+          @thrash="deleteCoupon"
         />
       </table>
 
@@ -42,9 +43,10 @@
 import UserCouponRow from './UserCouponRow';
 import Pagination from './Pagination';
 import WaitBlock from './WaitBlock';
+import ColumnSort from './ColumnSort';
 
 export default {
-  components: { UserCouponRow, Pagination, WaitBlock },
+  components: { UserCouponRow, Pagination, WaitBlock, ColumnSort },
   data() {
     return {
       current: 1,
@@ -53,12 +55,21 @@ export default {
     };
   },
   mounted() {
-    this.getAllUserCoupons();
+    this.getAllUserCoupons().then(() => {
+      this.sort('ID', 'DESC');
+    });
   },
   methods: {
+    sort(colName, sortOrder) {
+      this.getAllUserCoupons().then(() => {
+        this.coupons.sort((a, b) => {
+          return (a[colName] > b[colName] ? 1 : -1) * (sortOrder === 'ASC' ? -1 : 1);
+        });
+      });
+    },
     getAllUserCoupons() {
       this.startFetching();
-      this.resource
+      return this.resource
         .get({
           action: this.extras.coupons_action,
           nonce: this.extras.nonce,
@@ -66,12 +77,7 @@ export default {
         })
         .then(resp => resp.json())
         .then(r => {
-          // this.coupons = r.data;
-          this.$set(
-            this,
-            'coupons',
-            r.data.sort((a, b) => b.ID - a.ID)
-          );
+          this.$set(this, 'coupons', r.data);
           this.stopFetching();
         });
     },
@@ -93,6 +99,31 @@ export default {
         .then(r => {
           this.stopFetching();
           return r.data;
+        })
+        .catch(() => {
+          this.stopFetching();
+        });
+    },
+    deleteCoupon(id) {
+      this.startFetching();
+      return this.resource
+        .get({
+          action: this.extras.coupons_action,
+          nonce: this.extras.nonce,
+          coupons: 'thrash',
+          coupon_id: id,
+        })
+        .then(
+          resp => resp.json(),
+          () => {
+            this.stopFetching();
+          }
+        )
+        .then(r => {
+          this.stopFetching();
+          if (!r.error) {
+            this.getAllUserCoupons();
+          }
         })
         .catch(() => {
           this.stopFetching();

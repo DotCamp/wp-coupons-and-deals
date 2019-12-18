@@ -142,6 +142,9 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 			add_option( 'wpcd_review_notify', 'no' );
 			add_option( 'wpcd_popup-goto-link', 'on' );
 
+			// Adds the option to enable users to delete their coupons
+			add_option( 'wpcd_form-shortcode-enable-thrash', 'on' );
+
 			/**
 			 * Loading the class here to avoid errors.
 			 *

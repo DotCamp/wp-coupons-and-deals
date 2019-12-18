@@ -32,12 +32,14 @@
         "singleQuote": true
       }
     ],
-    "array-callback-return": "off"
+    "array-callback-return": "off",
+    "vue/no-parsing-error": "off"
   },
   "globals": {
     "wpcd_fs_fields": true,
     "wpcd_fs_extras": true,
     "couponPreview": true,
-    "wp": true
+    "wp": true,
+    "tinyMCE": true
   }
 }

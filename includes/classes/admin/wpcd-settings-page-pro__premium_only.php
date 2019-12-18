@@ -540,7 +540,15 @@ class WPCD_Settings_Page_Pro {
 					'type'        => 'select',
 					'options'     => $post_statuses,
 					'default'     => 'publish'
-				)
+				),
+				array(
+					'id'          => 'form-shortcode-enable-thrash',
+					'label'       => __( 'Enable Coupon Delete', 'wpcd-coupon' ),
+					'description' => __( 'Give the users ability to delete their own coupons',
+						'wpcd-coupon' ),
+					'type'        => 'checkbox',
+					'default'     => '',
+				),
 			)
 		);
 

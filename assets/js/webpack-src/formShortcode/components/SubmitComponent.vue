@@ -1,6 +1,6 @@
 <template>
   <div class="wpcd-fs-flex wpcd-fs-items-center">
-    <input class="button" ref="submitButton" type="submit" :value="extras.strings.submit" @click="$emit('submit')" />
+    <input class="button" ref="submitButton" type="submit" :value="extras.strings[store.ID?'update':'submit']" @click="$emit('submit')" />
     <wait-block v-if="isFetching" />
     <div
       v-if="!app.submit.fetching && app.submit.isSuccess && message !== ''"

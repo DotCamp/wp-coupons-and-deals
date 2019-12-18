@@ -48,7 +48,7 @@ export default {
     currentTemplate() {
       // overriding 'show-expiration' so 'Expiration Date' will not be hidden at template changes
       // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-      this.store['show-expiration'] = 'Show';
+      // this.store['show-expiration'] = 'Show';
 
       return this.previews[this.store['coupon-template']];
     },

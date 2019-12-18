@@ -4,7 +4,14 @@
   </select>
   <file-input :preview_id="data.id" v-else-if="isElementType('file')" :text="extras.strings.select_an_image" />
   <textarea v-model="store[data.id]" v-else-if="isElementType('textarea')" rows="5" cols="30" />
-  <input v-model="store[data.id]" v-else-if="isElementType('text')" type="text" class="wpcd-fs-w-full-important" />
+  <!--  <tiny-editor :storebind="data.id" v-else-if="isElementType('textarea')" />-->
+  <input
+    v-model="store[data.id]"
+    v-else-if="isElementType('text')"
+    type="text"
+    class="wpcd-fs-w-full-important"
+    :placeholder="data.placeholder"
+  />
   <input v-model="store[data.id]" v-else-if="isElementType('date')" type="date" class="wpcd-fs-w-full-important" />
   <input v-model="store[data.id]" v-else-if="isElementType('time')" type="time" class="wpcd-fs-w-full-important" />
   <color-picker v-model="store[data.id]" v-else-if="isElementType('colorpicker')" />
@@ -18,10 +25,11 @@
 <script>
 import ColorPicker from './ColorPicker';
 import FileInput from './FileInput';
+import TinyEditor from './TinyEditor';
 
 export default {
   props: ['filterdata', 'data'],
-  components: { ColorPicker, FileInput },
+  components: { ColorPicker, TinyEditor, FileInput },
   methods: {
     checkboxCheck(e) {
       this.store[this.data.id] = e.target.checked ? 'on' : 0;

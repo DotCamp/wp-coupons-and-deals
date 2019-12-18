@@ -89,20 +89,22 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 				'coupon_type'        => "coupon type",
 				'your_coupons'       => "your coupons",
 				'add_new'            => "add new",
-				'edit'            => "edit your coupon",
+				'edit'               => "edit your coupon",
 				'back_to_coupons'    => "back to coupons",
 				'add_a_coupon'       => "add a coupon",
+				'update'       => "update",
 			];
 
 			$extras->strings = array_merge( $extras->strings,
 				$this->get_batch_translations( $batch_translations, WPCD_Plugin::TEXT_DOMAIN ) );
 
 
-			$protocol         = isset( $_SERVER['https'] ) ? 'https' : 'http';
-			$extras->ajax_url = admin_url( 'admin-ajax.php', $protocol );
-			$extras->form_action = $this->name;
+			$protocol               = isset( $_SERVER['https'] ) ? 'https' : 'http';
+			$extras->ajax_url       = admin_url( 'admin-ajax.php', $protocol );
+			$extras->form_action    = $this->name;
 			$extras->coupons_action = $this->name . '_coupons';
-			$extras->nonce    = wp_create_nonce( 'wpcd_shortcode_form' );
+			$extras->nonce          = $this->_c()->wp_create_nonce( 'wpcd_shortcode_form' );
+			$extras->thrash_enable  = get_option( 'wpcd_form-shortcode-enable-thrash', '' );
 
 
 			// @deprecated using a ajax endpoint for this functionality now
@@ -139,6 +141,7 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 					//only enqueue necessary files if current post have the short-code
 					if ( $this->haveShortcode() ) {
 						$this->_c()->wp_enqueue_media();
+						$this->_c()->wp_enqueue_editor();
 
 						$this->_c()->wp_enqueue_script( 'form_shortcode_script', $js_asset_uri_path, array(),
 							$js_version,
