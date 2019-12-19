@@ -5,6 +5,8 @@
         <tr>
           <column-sort :heading="extras.strings.coupon_title" col-name="coupon_title" @sort="sort" />
           <column-sort :heading="extras.strings.coupon_type" col-name="coupon_type" @sort="sort" />
+          <column-sort heading="Category" col-name="terms['category']" @sort="sort" />
+          <column-sort heading="Vendor" col-name="terms['vendor']" @sort="sort" />
           <column-sort heading="ID" col-name="ID" @sort="sort" />
         </tr>
         <user-coupon-row
@@ -13,6 +15,7 @@
           :post_title="c['post_title']"
           :post_status="c['post_status']"
           :coupon_type="c['coupon_type']"
+          :terms="c['terms']"
           :ID="c['ID']"
           @edit="editCoupon"
           @thrash="deleteCoupon"
@@ -63,7 +66,7 @@ export default {
     sort(colName, sortOrder) {
       this.getAllUserCoupons().then(() => {
         this.coupons.sort((a, b) => {
-          return (a[colName] > b[colName] ? 1 : -1) * (sortOrder === 'ASC' ? -1 : 1);
+          return (a[colName] > b[colName] ? 1 : -1) * (sortOrder === 'ASC' ? 1 : -1);
         });
       });
     },
@@ -132,7 +135,13 @@ export default {
     editCoupon(id) {
       this.getCoupon(id).then(r => {
         this.resetStore();
-        Object.assign(this.store, r);
+        // Object.assign(this.store, r);
+        Object.keys(r).map(key => {
+          if (Object.prototype.hasOwnProperty.call(r, key)) {
+            this.$set(this.store, key, r[key]);
+          }
+        });
+
         this.$emit('switch', 'CouponForm');
       });
     },

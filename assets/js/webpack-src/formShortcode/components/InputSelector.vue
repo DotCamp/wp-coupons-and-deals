@@ -2,9 +2,13 @@
   <select v-model="store[data.id]" v-if="isElementType('select')">
     <option v-for="option in data.options" :key="option">{{ option }}</option>
   </select>
-  <file-input :preview_id="data.id" v-else-if="isElementType('file')" :text="extras.strings.select_an_image" />
-  <textarea v-model="store[data.id]" v-else-if="isElementType('textarea')" rows="5" cols="30" />
-  <!--  <tiny-editor :storebind="data.id" v-else-if="isElementType('textarea')" />-->
+  <file-input
+    preview_id="coupon-image-input-url"
+    v-else-if="isElementType('file')"
+    :text="extras.strings.select_an_image"
+  />
+  <!--  <textarea v-model="store[data.id]" v-else-if="isElementType('textarea')" rows="5" cols="30" />-->
+  <tiny-editor :storebind="data.id" v-else-if="isElementType('textarea')" />
   <input
     v-model="store[data.id]"
     v-else-if="isElementType('text')"

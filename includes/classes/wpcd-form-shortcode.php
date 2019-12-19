@@ -92,7 +92,7 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 				'edit'               => "edit your coupon",
 				'back_to_coupons'    => "back to coupons",
 				'add_a_coupon'       => "add a coupon",
-				'update'       => "update",
+				'update'             => "update",
 			];
 
 			$extras->strings = array_merge( $extras->strings,
@@ -141,9 +141,9 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 					//only enqueue necessary files if current post have the short-code
 					if ( $this->haveShortcode() ) {
 						$this->_c()->wp_enqueue_media();
-						$this->_c()->wp_enqueue_editor();
 
-						$this->_c()->wp_enqueue_script( 'form_shortcode_script', $js_asset_uri_path, array(),
+						$this->_c()->wp_enqueue_script( 'form_shortcode_script', $js_asset_uri_path,
+							array( 'wp-tinymce' ),
 							$js_version,
 							true );
 
@@ -159,7 +159,7 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 						$this->_c()->wp_localize_script( 'form_shortcode_script', 'wpcd_fs_extras',
 							(array) $extras );
 					}
-				} );
+				}, );
 
 			// add ajax to WordPress hook
 			$ajax_hook_nopriv = new WPCD_Formshortcode_Ajax( $this->name, false );

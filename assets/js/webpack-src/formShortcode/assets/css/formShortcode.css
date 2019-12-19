@@ -2,6 +2,7 @@
     --wpcd-fs-gray-100: #f7fafc;
     --wpcd-fs-gray-200: #edf2f7;
     --wpcd-fs-gray-400: #cbd5e0;
+    --wpcd-fs-gray-700: #4a5568;
     --wpcd-fs-green-500: #48bb78;
     --wpcd-fs-blue-500: #4299e1;
     --wpcd-fs-red-500: #f56565;
@@ -14,6 +15,7 @@
 .wpcd-fs-table {
     border-collapse: collapse !important;
     border: none !important;
+    overflow: visible !important;
 }
 
 .wpcd-fs-table tr, td {
@@ -71,7 +73,7 @@
     padding: 0 var(--wpcd-fs-3) 0 var(--wpcd-fs-3);
     float: right;
     color: white;
-    border: .5px solid var(--wpcd-fs-gray-400)
+    border: .5px solid var(--wpcd-fs-gray-400);
 }
 
 .wpcd-fs-helpbox:hover {
@@ -81,10 +83,10 @@
 
 .wpcd-fs-wait-block {
     display: inline-block;
-    width: 2rem;
-    height: 2rem;
+    width: 20px;
+    height: 20px;
     margin: 0 2px 0 2px;
-    border: white dashed 2px;
+    background-color: var(--wpcd-fs-blue-500);
     animation: beat .5s ease-out alternate infinite;
 }
 
@@ -254,10 +256,58 @@
     left: 0;
 }
 
+.wpcd-fs-tooltip {
+    position: absolute;
+    max-width: 50%;
+    color: var(--wpcd-fs-gray-700);
+    background-color: var(--wpcd-fs-gray-100);
+    padding:5px 10px;
+    padding-bottom: 10px;
+    border: 1px solid var(--wpcd-fs-gray-400);
+    transform: translateX(-50%) translateY(calc(-100% - 10px));
+    border-radius: 4px;
+    /*animation: beatAbsolute .2s ease-out;*/
+    box-shadow: 0px -2px 10px 1px rgba(0,0,0,.05);
+    /*font-size: var(--wpcd-fs-3);*/
+}
+
+.wpcd-fs-tooltip-pointer{
+    background-color: var(--wpcd-fs-gray-100);
+    border: 1px solid var(--wpcd-fs-gray-400);
+    border-top: 0px;
+    border-left: 0px;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: calc(50% - 6px);
+    bottom: -10px;
+    transform: rotate(45deg);
+}
+
+.wpcd-fs-popup-enter-active{
+    animation: beatAbsolute .2s ease-out;
+}
+
+.wpcd-fs-popup-leave-active{
+    animation: beatAbsolute .2s ease-in reverse;
+}
+
 .form-shortcode-row {
     animation: fs-fade-in .5s ease-out;
 }
 
+@keyframes beatAbsolute {
+    0% {
+        transform: translateX(-50%) translateY(calc(-100% - 10px)) scale(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(calc(-100% - 10px)) scale(1.2);
+    }
+    100% {
+        transform: translateX(-50%) translateY(calc(-100% - 10px)) scale(1.0);
+    }
+
+}
 
 @keyframes beat {
     0% {

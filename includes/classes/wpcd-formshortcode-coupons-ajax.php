@@ -52,7 +52,7 @@ class WPCD_Formshortcode_Coupons_Ajax extends WPCD_Ajax_Base {
 	 * @param int $coupon_id coupon id
 	 */
 	private function thrash_a_coupon( $coupon_id ) {
-		$is_thrash_enabled = get_option('wpcd_form-shortcode-enable-thrash', '') === 'on';
+		$is_thrash_enabled = get_option( 'wpcd_form-shortcode-enable-thrash', '' ) === 'on';
 		if ( $this->is_current_user_original_author( $coupon_id ) && $is_thrash_enabled ) {
 			$result = $this->_c()->wp_delete_post( $coupon_id );
 			if ( $result ) {
@@ -116,7 +116,10 @@ class WPCD_Formshortcode_Coupons_Ajax extends WPCD_Ajax_Base {
 
 			// coupon attachment image url fetch
 			$coupon_attachment_id         = $coupon['coupon-image-input'];
-			$coupon['coupon-image-input'] = wp_get_attachment_image_url( $coupon_attachment_id );
+			$coupon['coupon-image-input-url'] = wp_get_attachment_image_url( $coupon_attachment_id );
+
+			$coupon['wpcd_description'] = $coupon['description'];
+			unset($coupon['description']);
 
 			// setting coupon data
 			$this->setData( 'data', $coupon );
@@ -158,6 +161,13 @@ from $wpdb->posts as posts inner JOIN $wpdb->postmeta as meta  on posts.ID = met
 			WPCD_Plugin::CUSTOM_POST_TYPE, $user_id );
 
 		$results = $wpdb->get_results( $query );
+
+		foreach ( $results as $r ) {
+			$terms = [];
+			$terms['category']    = wp_get_post_terms( $r->ID, WPCD_Plugin::CUSTOM_TAXONOMY);
+			$terms['vendor']    = wp_get_post_terms( $r->ID, WPCD_Plugin::VENDOR_TAXONOMY);
+			$r->terms = $terms;
+		}
 
 		$this->setData( 'data', $results );
 	}

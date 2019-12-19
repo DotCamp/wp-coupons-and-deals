@@ -7,7 +7,7 @@
       style="height: 200px"
       v-show="showImage"
       ref="previewImage"
-      :src="store['coupon-image-input']"
+      :src="store['coupon-image-input-url']"
       alt="image source"
       :key="refreshKey"
     />

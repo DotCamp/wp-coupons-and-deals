@@ -20,12 +20,18 @@
     <td>
       {{ coupon_type }}
     </td>
+    <td>
+      {{ renderTerms('category') }}
+    </td>
+    <td>
+      {{ renderTerms('vendor') }}
+    </td>
     <td>{{ ID }}</td>
   </tr>
 </template>
 <script>
 export default {
-  props: ['post_title', 'post_status', 'coupon_type', 'ID'],
+  props: ['post_title', 'post_status', 'coupon_type', 'ID', 'terms'],
   data() {
     return {
       hover: false,
@@ -34,6 +40,17 @@ export default {
   methods: {
     mouseOver(status) {
       this.hover = status;
+    },
+    renderTerms(name) {
+      if (this.terms[name].length > 0) {
+        const tempArray = [];
+        this.terms[name].map(t => {
+          tempArray.push(t.name);
+        });
+
+        return tempArray.join(', ');
+      }
+      return '---';
     },
   },
 };

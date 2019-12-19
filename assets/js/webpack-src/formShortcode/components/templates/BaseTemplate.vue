@@ -78,6 +78,7 @@ export default {
           let append = false;
           let format = s => s;
           let dataObject = this.store;
+          let attr = 'innerHTML';
           const parent = Array.isArray(this.values[f]) ? this.values[f] : [this.values[f]];
 
           parent.map(p => {
@@ -85,6 +86,7 @@ export default {
               value = p.element;
               append = p.append || false;
               dataObject = p.dataObject || dataObject;
+              attr = p.attr || attr;
               format =
                 p.format ||
                 function callback(s) {
@@ -100,15 +102,15 @@ export default {
                 if (Array.isArray(value)) {
                   value.map(v => {
                     if (append) {
-                      this.wrapper.querySelector(v).textContent += callbackResult;
+                      this.wrapper.querySelector(v)[attr] += callbackResult;
                     } else {
-                      this.wrapper.querySelector(v).textContent = callbackResult;
+                      this.wrapper.querySelector(v)[attr] = callbackResult;
                     }
                   });
                 } else if (append) {
-                  this.wrapper.querySelector(value).textContent += callbackResult;
+                  this.wrapper.querySelector(value)[attr] += callbackResult;
                 } else {
-                  this.wrapper.querySelector(value).textContent = callbackResult;
+                  this.wrapper.querySelector(value)[attr] = callbackResult;
                 }
               }
             }

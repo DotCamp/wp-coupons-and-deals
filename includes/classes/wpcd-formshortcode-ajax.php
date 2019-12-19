@@ -52,6 +52,9 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 				if ( strpos( $key, 'link' ) !== false ) {
 					$rule = 'esc_url';
 				}
+				if ( $key === 'wpcd_description' ) {
+					$rule = 'wp_kses_post';
+				}
 				$rules[ $key ] = $rule;
 			}
 			$sanitized_fields = WPCD_Sanitizer::sanitize( $data, $rules );
@@ -122,6 +125,9 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 			$rule = 'sanitize_text_field';
 			if ( strpos( $key, 'link' ) !== false ) {
 				$rule = 'esc_url';
+			}
+			if ( $key === 'wpcd_description' ) {
+				$rule = 'wp_kses_post';
 			}
 			$rules[ $key ] = $rule;
 		}
