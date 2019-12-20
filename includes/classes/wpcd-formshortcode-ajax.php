@@ -90,6 +90,8 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 					$this->_c()->wp_set_object_terms( $operation_result, $term, $tax_name );
 				}
 
+				$this->setData( 'terms', WPCD_Form_Shortcode::getCouponTerms() );
+
 
 				// image attachment process
 				if ( isset( $_POST['coupon-attachment-id'] ) ) {
@@ -148,7 +150,6 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 			'meta_input'  => $meta_input,
 		] );
 
-
 		if ( $this->_c()->is_wp_error( $operation_result ) ) {
 			$this->setError( $operation_result->get_error_message() );
 		} else {
@@ -168,50 +169,11 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 				$this->_c()->wp_set_object_terms( $operation_result, $term, $tax_name );
 			}
 
+			$this->setData( 'terms', WPCD_Form_Shortcode::getCouponTerms() );
+
 			$this->setData( 'id', $operation_result );
 			$this->setData( 'message', __( 'coupon created', WPCD_Plugin::TEXT_DOMAIN ) );
 
-			// @deprecated implemented the native way of uploading/selecting image media
-//				$coupon_image_field = 'coupon-image-input';
-//				if ( isset( $_FILES[ $coupon_image_field ] ) ) {
-//
-//					$response['data'] = [ 'id' => $operation_result ];
-////					 file upload process
-//					$upload_result = $this->_c()->wp_handle_upload( $_FILES['coupon-image-input'],
-//						[ 'test_form' => false ] );
-//					if ( $upload_result['error'] ) {
-//						$this->add_error_to_response( $response, $upload_result['error'] );
-//						$this->_c()->wp_delete_post( $operation_result );
-//					} else {
-//
-//						// attachment process for uploaded file
-//						$parent_id      = $operation_result;
-//						$file_path      = $upload_result['file'];
-//						$upload_dir     = $this->_c()->wp_upload_dir();
-//						$file_base_name = basename( $file_path );
-//
-//						$file_type          = $this->_c()->wp_check_filetype( $file_base_name );
-//						$attachment_options = [
-//							'guid'           => $upload_dir . '/' . $file_base_name,
-//							'post_mime_type' => $file_type['type'],
-//							'post_title'     => preg_replace( '/\.[^.]+$/', '', $file_base_name ),
-//							'post_content'   => '',
-//							'post_status'    => 'inherit',
-//						];
-//
-//						$attachment_id = $this->_c()->wp_insert_attachment( $attachment_options, $file_path,
-//							$parent_id );
-//
-//						require_once( ABSPATH . 'wp-admin/includes/file.php' );
-//
-//						$attachment_meta_data = $this->_c()->wp_generate_attachment_metadata( $attachment_id,
-//							$file_path );
-//						$this->_c()->wp_update_attachment_metadata( $attachment_id, $attachment_meta_data );
-//
-//						$this->_c()->update_post_meta( $operation_result, 'coupon_details_coupon-image-input',
-//							$attachment_id );
-//					}
-//				}
 
 			// image attachment process
 			if ( isset( $_POST['coupon-attachment-id'] ) ) {

@@ -94,6 +94,13 @@ function EzTime(time, strings = defaultStrings) {
   };
 }
 
+EzTime.appendZero = function appendZero(val) {
+  if (val < 10 && val.toString().length === 1) {
+    return `0${val}`;
+  }
+  return val;
+};
+
 /**
  * @module EzTime;
  */

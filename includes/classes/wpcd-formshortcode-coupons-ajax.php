@@ -119,6 +119,7 @@ class WPCD_Formshortcode_Coupons_Ajax extends WPCD_Ajax_Base {
 			$coupon['coupon-image-input-url'] = wp_get_attachment_image_url( $coupon_attachment_id );
 
 			$coupon['wpcd_description'] = $coupon['description'];
+			$coupon['coupon-title'] = get_the_title($coupon_id);
 			unset($coupon['description']);
 
 			// setting coupon data

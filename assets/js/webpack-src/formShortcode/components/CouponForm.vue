@@ -61,7 +61,7 @@ export default {
         });
 
         // inject new terms to FormData
-        const { newTerms } = this.app;
+        const { newTerms } = this.store;
         if (newTerms) {
           formData.set('new_terms', JSON.stringify(newTerms));
         }
@@ -97,6 +97,7 @@ export default {
               throw new Error(j.error);
             }
             this.app.submit.isSuccess = true;
+            this.$set(this.extras, 'terms', j.terms);
             this.submitMessage = `${j.message || ''} | id: ${j.id}`;
           })
           .catch(e => {

@@ -39,15 +39,15 @@ export default {
   },
   methods: {
     insertNewTerm(termObj) {
-      if (!this.app.newTerms) {
-        this.app.newTerms = {};
+      if (!this.store.newTerms) {
+        this.store.newTerms = {};
       }
 
-      if (!this.app.newTerms[this.taxname]) {
-        this.app.newTerms[this.taxname] = [];
+      if (!this.store.newTerms[this.taxname]) {
+        this.store.newTerms[this.taxname] = [];
       }
 
-      this.app.newTerms[this.taxname].push(termObj);
+      this.store.newTerms[this.taxname].push(termObj);
       this.terms.push(termObj);
       this.sortTerms();
     },
@@ -85,6 +85,7 @@ export default {
     hierarchicalTerms() {
       // eslint-disable-next-line vue/no-side-effects-in-computed-properties
       this.forceUpdateKey += 1;
+      this.sortTerms();
       const filtered = this.terms.filter(t => {
         return t.parent === 0;
       });

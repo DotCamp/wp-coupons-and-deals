@@ -60,7 +60,7 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 			$extras->strings['expired_text'] = $this->_c()->get_option( 'wpcd_expired-text', 'Expired on: ' );
 
 			// custom taxonomy terms
-			$extras->terms = $this->getCouponTerms();
+			$extras->terms = static::getCouponTerms();
 
 			$batch_translations = [
 				'offer_expired_text' => 'This offer has expired!',
@@ -105,26 +105,6 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 			$extras->coupons_action = $this->name . '_coupons';
 			$extras->nonce          = $this->_c()->wp_create_nonce( 'wpcd_shortcode_form' );
 			$extras->thrash_enable  = get_option( 'wpcd_form-shortcode-enable-thrash', '' );
-
-
-			// @deprecated using a ajax endpoint for this functionality now
-			// retrieve current users' posts with their meta values
-//			$current_user         = $this->_c()->wp_get_current_user();
-//			$current_user_coupons = $this->_c()->get_posts( [
-//					'author'         => $current_user->ID,
-//					'post_type'      => WPCD_Plugin::CUSTOM_POST_TYPE,
-//					'post_status'    => [ 'publish', 'pending', 'draft' ],
-//					'posts_per_page' => '-1'
-//				]
-//			);
-//
-//			foreach ( $current_user_coupons as $p ) {
-//
-//				$id           = $p->ID;
-//				$post_meta    = $this->_c()->get_post_meta( $id );
-//				$p->post_meta = $post_meta;
-//			}
-
 
 			// enqueue scripts/styles step
 			$this->_c()->add_action( 'wp_enqueue_scripts',
@@ -211,7 +191,7 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 	 * retrieve defined terms for custom coupon type taxonomies
 	 * @return array terms array
 	 */
-	private function getCouponTerms() {
+	public static function getCouponTerms() {
 		$terms_filters = [ 'count', 'name', 'parent', 'term_id' ];
 
 
@@ -220,8 +200,8 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 		$vendor_categories = get_terms( [ WPCD_Plugin::VENDOR_TAXONOMY ],
 			[ 'hide_empty' => false, 'orderby' => 'term_id', 'order' => 'ASC' ] );
 
-		$coupon_categories = $this->filter_keys( $coupon_categories, $terms_filters );
-		$vendor_categories = $this->filter_keys( $vendor_categories, $terms_filters );
+		$coupon_categories = WPCD_Form_Shortcode::filter_keys( $coupon_categories, $terms_filters );
+		$vendor_categories = WPCD_Form_Shortcode::filter_keys( $vendor_categories, $terms_filters );
 
 		return [
 			WPCD_Plugin::CUSTOM_TAXONOMY => $coupon_categories,
@@ -237,7 +217,7 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 	 *
 	 * @return array filtered array
 	 */
-	private function filter_keys( $array, $filters ) {
+	public static function filter_keys( $array, $filters ) {
 		$temp_array = [];
 		foreach ( $array as $term ) {
 			$filtered_terms = array_filter( (array) $term, function ( $k ) use ( $filters ) {
