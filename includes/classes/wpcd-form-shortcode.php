@@ -141,7 +141,7 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 						$this->_c()->wp_localize_script( 'form_shortcode_script', 'wpcd_fs_extras',
 							(array) $extras );
 					}
-				}, );
+				} );
 
 			// add ajax to WordPress hook
 			$ajax_hook_nopriv = new WPCD_Formshortcode_Ajax( $this->name, false );
