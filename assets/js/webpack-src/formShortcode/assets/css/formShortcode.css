@@ -264,11 +264,9 @@
     padding:5px 10px;
     padding-bottom: 10px;
     border: 1px solid var(--wpcd-fs-gray-400);
-    transform: translateX(-50%) translateY(calc(-100% - 10px));
+    transform:  translateY(-100%);
     border-radius: 4px;
-    /*animation: beatAbsolute .2s ease-out;*/
     box-shadow: 0px -2px 10px 1px rgba(0,0,0,.05);
-    /*font-size: var(--wpcd-fs-3);*/
 }
 
 .wpcd-fs-tooltip-pointer{
@@ -279,7 +277,7 @@
     position: absolute;
     width: 20px;
     height: 20px;
-    left: calc(50% - 6px);
+    left: calc(50% - 8px);
     bottom: -10px;
     transform: rotate(45deg);
 }
@@ -298,13 +296,13 @@
 
 @keyframes beatAbsolute {
     0% {
-        transform: translateX(-50%) translateY(calc(-100% - 10px)) scale(0);
+        transform: translateY(-100%) scale(0);
     }
     50% {
-        transform: translateX(-50%) translateY(calc(-100% - 10px)) scale(1.2);
+        transform:  translateY(-100%) scale(1.2);
     }
     100% {
-        transform: translateX(-50%) translateY(calc(-100% - 10px)) scale(1.0);
+        transform: translateY(-100%) scale(1.0);
     }
 
 }

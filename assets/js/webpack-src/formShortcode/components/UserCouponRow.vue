@@ -26,12 +26,18 @@
     <td>
       {{ renderTerms('vendor') }}
     </td>
-    <td>{{ ID }}</td>
+    <!--    <td>{{ ID }}</td>-->
+    <td>
+      <shortcode-copy :id="shortcode.replace(':id', ID)" />
+    </td>
   </tr>
 </template>
 <script>
+import ShortcodeCopy from './ShortcodeCopy';
+
 export default {
-  props: ['post_title', 'post_status', 'coupon_type', 'ID', 'terms'],
+  props: ['post_title', 'post_status', 'coupon_type', 'ID', 'terms', 'shortcode'],
+  components: { ShortcodeCopy },
   data() {
     return {
       hover: false,

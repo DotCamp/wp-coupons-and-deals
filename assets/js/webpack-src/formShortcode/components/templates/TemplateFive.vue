@@ -67,13 +67,13 @@ export default {
           {
             element: '.with-expiration1   .wpcd-coupon-five-expire-text',
             format: value => {
-              return `${this.extras.strings.expire_text}${value}`;
+              return `${this.extras.strings.expire_text}${this.decodeDate(value)}`;
             },
           },
           {
             element: '.with-expiration1   .wpcd-coupon-five-expired',
             format: value => {
-              return `${this.extras.strings.expired_text}${value}`;
+              return `${this.extras.strings.expired_text}${this.decodeDate(value)}`;
             },
           },
         ],
@@ -87,9 +87,9 @@ export default {
           this.store['show-expiration'] !== 'Hide' && this.store['expire-date'] === undefined,
         '.with-expiration1': () => this.store['expire-date'] !== undefined && this.store['show-expiration'] === 'Show',
         '.with-expiration1   .wpcd-coupon-five-expired': () =>
-          this.store['expire-date'] !== undefined && Date.now() > new Date(this.store['expire-date']),
+          this.store['expire-date'] !== undefined && Date.now() > this.toMilliSeconds(this.store['expire-date']),
         '.with-expiration1   .wpcd-coupon-five-expire': () =>
-          this.store['expire-date'] !== undefined && Date.now() < new Date(this.store['expire-date']),
+          this.store['expire-date'] !== undefined && Date.now() < this.toMilliSeconds(this.store['expire-date']),
       },
     };
   },

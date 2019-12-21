@@ -29,13 +29,13 @@ export default {
           {
             element: '.with-expiration1  .wpcd-coupon-four-expire-text',
             format: value => {
-              return `${this.extras.strings.expire_text}${value}`;
+              return `${this.extras.strings.expire_text}${this.decodeDate(value)}`;
             },
           },
           {
             element: '.with-expiration1  .wpcd-coupon-four-expired',
             format: value => {
-              return `${this.extras.strings.expired_text}${value}`;
+              return `${this.extras.strings.expired_text}${this.decodeDate(value)}`;
             },
           },
         ],
@@ -43,13 +43,13 @@ export default {
           {
             element: '.with-expiration-4-2  .wpcd-coupon-four-expire-text',
             format: value => {
-              return `${this.extras.strings.expire_text}${value}`;
+              return `${this.extras.strings.expire_text}${this.decodeDate(value)}`;
             },
           },
           {
             element: '.with-expiration-4-2  .wpcd-coupon-four-expired',
             format: value => {
-              return `${this.extras.strings.expired_text}${value}`;
+              return `${this.extras.strings.expired_text}${this.decodeDate(value)}`;
             },
           },
         ],
@@ -57,13 +57,13 @@ export default {
           {
             element: '.with-expiration-4-3  .wpcd-coupon-four-expire-text',
             format: value => {
-              return `${this.extras.strings.expire_text}${value}`;
+              return `${this.extras.strings.expire_text}${this.decodeDate(value)}`;
             },
           },
           {
             element: '.with-expiration-4-3  .wpcd-coupon-four-expired',
             format: value => {
-              return `${this.extras.strings.expired_text}${value}`;
+              return `${this.extras.strings.expired_text}${this.decodeDate(value)}`;
             },
           },
         ],
@@ -94,17 +94,21 @@ export default {
         '.with-expiration-4-3': () =>
           this.store['third-expire-date'] !== undefined && this.store['show-expiration'] === 'Show',
         '.with-expiration1  .wpcd-coupon-four-expired': () =>
-          this.store['expire-date'] !== undefined && Date.now() > new Date(this.store['expire-date']),
+          this.store['expire-date'] !== undefined && Date.now() > this.toMilliSeconds(this.store['expire-date']),
         '.with-expiration1  .wpcd-coupon-four-expire': () =>
-          this.store['expire-date'] !== undefined && Date.now() < new Date(this.store['expire-date']),
+          this.store['expire-date'] !== undefined && Date.now() < this.toMilliSeconds(this.store['expire-date']),
         '.with-expiration-4-2  .wpcd-coupon-four-expired': () =>
-          this.store['second-expire-date'] !== undefined && Date.now() > new Date(this.store['second-expire-date']),
+          this.store['second-expire-date'] !== undefined &&
+          Date.now() > this.toMilliSeconds(this.store['second-expire-date']),
         '.with-expiration-4-2 .wpcd-coupon-four-expire': () =>
-          this.store['second-expire-date'] !== undefined && Date.now() < new Date(this.store['second-expire-date']),
+          this.store['second-expire-date'] !== undefined &&
+          Date.now() < this.toMilliSeconds(this.store['second-expire-date']),
         '.with-expiration-4-3  .wpcd-coupon-four-expired': () =>
-          this.store['third-expire-date'] !== undefined && Date.now() > new Date(this.store['third-expire-date']),
+          this.store['third-expire-date'] !== undefined &&
+          Date.now() > this.toMilliSeconds(this.store['third-expire-date']),
         '.with-expiration-4-3 .wpcd-coupon-four-expire': () =>
-          this.store['third-expire-date'] !== undefined && Date.now() < new Date(this.store['third-expire-date']),
+          this.store['third-expire-date'] !== undefined &&
+          Date.now() < this.toMilliSeconds(this.store['third-expire-date']),
       },
     };
   },

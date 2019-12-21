@@ -3,19 +3,17 @@
     ref="tooltipWrapper"
     @mouseover="show = true"
     @mouseout="show = false"
-    class="wpcd-fs-helpbox wpcd-form-shortcode-generic-transition wpcd-fs-pointer"
+    class="wpcd-fs-flex wpcd-fs-justify-center wpcd-fs-items-center wpcd-fs-h-full-important wpcd-fs-helpbox wpcd-form-shortcode-generic-transition wpcd-fs-pointer"
   >
-    <transition name="wpcd-fs-popup">
-      <div v-show="show" class="wpcd-fs-tooltip wpcd-fs-flex wpcd-fs-justify-center">
-        {{ message }}
-        <span class="wpcd-fs-tooltip-pointer" />
-      </div>
-    </transition>
+    <popup :message="message" :show="show" />
     <slot />
   </span>
 </template>
 <script>
+import Popup from './Popup';
+
 export default {
+  components: { Popup },
   props: ['message'],
   data() {
     return {

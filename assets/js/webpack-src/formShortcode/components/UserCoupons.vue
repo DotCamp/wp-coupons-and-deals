@@ -7,7 +7,8 @@
           <column-sort :heading="extras.strings.coupon_type" col-name="coupon_type" @sort="sort" />
           <column-sort heading="Category" col-name="terms['category']" @sort="sort" />
           <column-sort heading="Vendor" col-name="terms['vendor']" @sort="sort" />
-          <column-sort heading="ID" col-name="ID" @sort="sort" />
+          <!--          <column-sort heading="ID" col-name="ID" @sort="sort" />-->
+          <th>Shortcode</th>
         </tr>
         <user-coupon-row
           v-for="c in currentPageCoupons"
@@ -17,6 +18,7 @@
           :coupon_type="c['coupon_type']"
           :terms="c['terms']"
           :ID="c['ID']"
+          :shortcode="extras.shortcode"
           @edit="editCoupon"
           @thrash="deleteCoupon"
         />

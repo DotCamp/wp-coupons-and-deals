@@ -34,9 +34,10 @@ export default {
     },
   },
   mounted() {
-    const expiresOn = document.querySelector('.expires-on');
-    expiresOn.style = '';
-    expiresOn.classList.add('hidden');
+    // const expiresOn = document.querySelector('.expires-on');
+    // expiresOn.style = '';
+    // expiresOn.classList.add('hidden');
+    this.prepareCountdown();
   },
   data() {
     return {
@@ -51,10 +52,7 @@ export default {
           {
             element: '.expires-on',
             format: () => {
-              this.countdownMS =
-                new Date(`${this.store['expire-date']} ${this.store['expire-time'] || ''}`) - Date.now();
-
-              this.countDown();
+              this.prepareCountdown();
             },
           },
         ],
@@ -62,10 +60,7 @@ export default {
           {
             element: '.expires-on',
             format: () => {
-              this.countdownMS =
-                new Date(`${this.store['expire-date']} ${this.store['expire-time'] || ''}`) - Date.now();
-
-              this.countDown();
+              this.prepareCountdown();
             },
           },
         ],
@@ -75,11 +70,18 @@ export default {
         '.wpcd-coupon-hidden': () => this.store['hide-coupon'] === 'Yes' && this.store['coupon-type'] !== 'Deal',
         '.wpcd-deal-code': () => this.store['coupon-type'] === 'Deal',
         '.never-expire': () => this.store['never-expire-check'] === 'on' || this.store['expire-date'] === undefined,
-        '.expires-on': () => this.store['never-expire-check'] === 0 || this.store['never-expire-check'] === undefined,
+        '.expires-on': () =>
+          Number.parseInt(this.store['never-expire-check'], 10) === 0 || this.store['never-expire-check'] === undefined,
       },
     };
   },
   methods: {
+    prepareCountdown() {
+      this.countdownMS =
+        this.toMilliSeconds(this.store['expire-date']) + this.decodeTime(this.store['expire-time']) - Date.now();
+
+      this.countDown();
+    },
     countDown() {
       const vm = this;
       clearInterval(this.intervalid);

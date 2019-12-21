@@ -2,7 +2,7 @@
   <input :value="parseTime" @change="updateTime" type="time" />
 </template>
 <script>
-import EzTime from '../functions/EzTime';
+import { appendZero } from '../functions/EzTime';
 
 export default {
   props: ['value'],
@@ -14,12 +14,13 @@ export default {
     parseTime() {
       if (this.value) {
         const [time, pos] = this.value.split(' ');
+        // eslint-disable-next-line prefer-const
         let [hour, min] = time.split(':').map(t => Number.parseInt(t, 10));
 
         if (pos === 'pm') {
           hour += 12;
         }
-        return `${EzTime.appendZero(hour)}:${EzTime.appendZero(min)}`;
+        return `${appendZero(hour)}:${appendZero(min)}`;
       }
 
       return '';

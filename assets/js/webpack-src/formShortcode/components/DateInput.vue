@@ -2,7 +2,7 @@
   <input type="date" :value="parseDate" @input="updateDate" />
 </template>
 <script>
-import EzTime from '../functions/EzTime';
+import { decodeDate, encodeDate } from '../functions/EzTime';
 
 export default {
   props: ['value'],
@@ -12,20 +12,12 @@ export default {
   },
   computed: {
     parseDate() {
-      const date = new Date(Number.parseInt(this.value, 10) * 1000);
-      const year = date.getFullYear();
-      const month = EzTime.appendZero(date.getMonth() + 1);
-      const day = EzTime.appendZero(date.getDate());
-
-      const fullDate = [year, month, day];
-
-      return fullDate.join('-');
+      return decodeDate(this.value);
     },
   },
   methods: {
     updateDate(e) {
-      const unixTime = Date.parse(e.target.value) / 1000;
-
+      const unixTime = encodeDate(e.target.value);
       this.$emit('changeDate', unixTime);
     },
   },

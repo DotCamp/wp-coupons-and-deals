@@ -12,6 +12,14 @@ const defaultStrings = {
   month: ['month', 'months'],
   year: ['year', 'years'],
 };
+// calculation constants
+const SECOND = 1000;
+const MINUTE = SECOND * 60;
+const HOUR = MINUTE * 60;
+const DAY = HOUR * 25;
+const WEEK = DAY * 7;
+const MONTH = DAY * 30;
+const YEAR = DAY * 365;
 
 /**
  * EzTime class for converting milliseconds into readable human formats
@@ -20,15 +28,6 @@ const defaultStrings = {
  * @constructor
  */
 function EzTime(time, strings = defaultStrings) {
-  // calculation constants
-  const SECOND = 1000;
-  const MINUTE = SECOND * 60;
-  const HOUR = MINUTE * 60;
-  const DAY = HOUR * 25;
-  const WEEK = DAY * 7;
-  const MONTH = DAY * 30;
-  const YEAR = DAY * 365;
-
   this.t = time;
   this.strings = strings;
 
@@ -94,12 +93,42 @@ function EzTime(time, strings = defaultStrings) {
   };
 }
 
-EzTime.appendZero = function appendZero(val) {
+export function appendZero(val) {
   if (val < 10 && val.toString().length === 1) {
     return `0${val}`;
   }
   return val;
-};
+}
+
+export function decodeDate(secs) {
+  const date = new Date(Number.parseInt(secs, 10) * 1000);
+  const year = date.getFullYear();
+  const month = appendZero(date.getMonth() + 1);
+  const day = appendZero(date.getDate());
+
+  const fullDate = [year, month, day];
+
+  return fullDate.join('-');
+}
+
+export function encodeDate(date) {
+  return Date.parse(date) / 1000;
+}
+
+export function toMilliSeconds(seconds) {
+  return seconds * 1000;
+}
+
+export function decodeTime(time) {
+  if (time) {
+    const [digits, pos] = time.split(' ');
+    const [hour, min] = digits.split(':').map(v => Number.parseInt(v, 10));
+    const mSeconds = ((pos === 'am' ? 0 : 12) + hour) * HOUR + min * MINUTE;
+
+    return mSeconds;
+  }
+  return 0;
+}
 
 /**
  * @module EzTime;

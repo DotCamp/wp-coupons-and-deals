@@ -7,7 +7,6 @@
     v-else-if="isElementType('file')"
     :text="extras.strings.select_an_image"
   />
-  <!--  <textarea v-model="store[data.id]" v-else-if="isElementType('textarea')" rows="5" cols="30" />-->
   <tiny-editor :storebind="data.id" v-else-if="isElementType('textarea')" />
   <input
     v-model="store[data.id]"
@@ -16,24 +15,22 @@
     class="wpcd-fs-w-full-important"
     :placeholder="data.placeholder"
   />
-  <input v-model="store[data.id]" v-else-if="isElementType('date')" type="date" class="wpcd-fs-w-full-important" />
-  <input v-model="store[data.id]" v-else-if="isElementType('time')" type="time" class="wpcd-fs-w-full-important" />
+  <date-input v-model="store[data.id]" v-else-if="isElementType('date')" class="wpcd-fs-w-full-important" />
+  <time-input v-model="store[data.id]" v-else-if="isElementType('time')" class="wpcd-fs-w-full-important" />
   <color-picker v-model="store[data.id]" v-else-if="isElementType('colorpicker')" />
-  <input
-    v-model="store[data.id]"
-    v-else-if="isElementType('checkbox')"
-    @change.prevent="checkboxCheck"
-    type="checkbox"
-  />
+  <check-box v-model="store[data.id]" v-else-if="isElementType('checkbox')" @change.prevent="checkboxCheck" />
 </template>
 <script>
 import ColorPicker from './ColorPicker';
 import FileInput from './FileInput';
 import TinyEditor from './TinyEditor';
+import DateInput from './DateInput';
+import CheckBox from './CheckBox';
+import TimeInput from './TimeInput';
 
 export default {
   props: ['filterdata', 'data'],
-  components: { ColorPicker, TinyEditor, FileInput },
+  components: { TimeInput, CheckBox, DateInput, ColorPicker, TinyEditor, FileInput },
   methods: {
     checkboxCheck(e) {
       this.store[this.data.id] = e.target.checked ? 'on' : 0;

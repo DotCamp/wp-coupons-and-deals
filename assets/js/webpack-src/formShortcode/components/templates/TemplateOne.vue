@@ -1,5 +1,6 @@
 <script>
 import BaseTemplate from './BaseTemplate';
+import { decodeDate, toMilliSeconds } from '../../functions/EzTime';
 
 export default {
   extends: BaseTemplate,
@@ -15,13 +16,13 @@ export default {
           {
             element: '.with-expiration1 > .wpcd-coupon-one-expire',
             format: value => {
-              return `${this.extras.strings.expire_text}${value}`;
+              return `${this.extras.strings.expire_text}${decodeDate(value)}`;
             },
           },
           {
             element: '.with-expiration1 > .wpcd-coupon-one-expired',
             format: value => {
-              return `${this.extras.strings.expired_text}${value}`;
+              return `${this.extras.strings.expired_text}${decodeDate(value)}`;
             },
           },
         ],
@@ -34,9 +35,9 @@ export default {
           this.store['show-expiration'] !== 'Hide' && this.store['expire-date'] === undefined,
         '.with-expiration1': () => this.store['expire-date'] !== undefined && this.store['show-expiration'] === 'Show',
         '.with-expiration1 > .wpcd-coupon-one-expired': () =>
-          this.store['expire-date'] !== undefined && Date.now() > new Date(this.store['expire-date']),
+          this.store['expire-date'] !== undefined && Date.now() > toMilliSeconds(this.store['expire-date']),
         '.with-expiration1 > .wpcd-coupon-one-expire': () =>
-          this.store['expire-date'] !== undefined && Date.now() < new Date(this.store['expire-date']),
+          this.store['expire-date'] !== undefined && Date.now() < toMilliSeconds(this.store['expire-date']),
       },
     };
   },

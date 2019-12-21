@@ -2,6 +2,8 @@
   <div ref="preview-wrapper" v-html="html"></div>
 </template>
 <script>
+import { decodeDate, toMilliSeconds, decodeTime } from '../../functions/EzTime';
+
 export default {
   props: ['html'],
   computed: {
@@ -24,6 +26,15 @@ export default {
     },
   },
   methods: {
+    decodeTime(timeString) {
+      return decodeTime(timeString);
+    },
+    decodeDate(secs) {
+      return decodeDate(secs);
+    },
+    toMilliSeconds(secs) {
+      return toMilliSeconds(secs);
+    },
     // hook to call before mounting parent template
     // override for DOM manipulations etc
     beforeParentMount() {},
