@@ -26,7 +26,7 @@
     <td>
       {{ renderTerms('vendor') }}
     </td>
-    <!--    <td>{{ ID }}</td>-->
+    <td>{{ localizedExpire | cap }}</td>
     <td>
       <shortcode-copy :id="shortcode.replace(':id', ID)" />
     </td>
@@ -34,14 +34,26 @@
 </template>
 <script>
 import ShortcodeCopy from './ShortcodeCopy';
+import { toMilliSeconds } from '../functions/EzTime';
 
 export default {
-  props: ['post_title', 'post_status', 'coupon_type', 'ID', 'terms', 'shortcode'],
+  props: ['post_title', 'post_status', 'coupon_type', 'ID', 'terms', 'shortcode', 'expire'],
   components: { ShortcodeCopy },
   data() {
     return {
       hover: false,
     };
+  },
+  computed: {
+    localizedExpire() {
+      if (this.expire !== null) {
+        const expireDate = new Date(toMilliSeconds(this.expire));
+        const expired = expireDate < Date.now();
+
+        return expired ? this.extras.strings.expired : new Intl.DateTimeFormat().format(expireDate);
+      }
+      return this.extras.strings.no_expire;
+    },
   },
   methods: {
     mouseOver(status) {

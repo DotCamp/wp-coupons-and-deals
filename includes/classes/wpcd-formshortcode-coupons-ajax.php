@@ -115,12 +115,12 @@ class WPCD_Formshortcode_Coupons_Ajax extends WPCD_Ajax_Base {
 			$coupon['featured_url'] = $this->_c()->get_the_post_thumbnail_url( $coupon_id );
 
 			// coupon attachment image url fetch
-			$coupon_attachment_id         = $coupon['coupon-image-input'];
+			$coupon_attachment_id             = $coupon['coupon-image-input'];
 			$coupon['coupon-image-input-url'] = wp_get_attachment_image_url( $coupon_attachment_id );
 
 			$coupon['wpcd_description'] = $coupon['description'];
-			$coupon['coupon-title'] = get_the_title($coupon_id);
-			unset($coupon['description']);
+			$coupon['coupon-title']     = get_the_title( $coupon_id );
+			unset( $coupon['description'] );
 
 			// setting coupon data
 			$this->setData( 'data', $coupon );
@@ -156,18 +156,20 @@ class WPCD_Formshortcode_Coupons_Ajax extends WPCD_Ajax_Base {
 		global $wpdb;
 
 		$query = $wpdb->prepare( "SELECT ID, post_status, post_title, 
-       MAX(CASE WHEN (meta.meta_key= 'coupon_details_coupon-type') THEN meta.meta_value ELSE NULL END) as coupon_type ,
-       MAX(CASE WHEN (meta.meta_key= 'coupon_details_coupon-title') THEN meta.meta_value ELSE NULL END) as coupon_title 
-from $wpdb->posts as posts inner JOIN $wpdb->postmeta as meta  on posts.ID = meta.post_id where posts.post_type = %s and posts.post_status in ('publish', 'draft', 'pending') and meta.meta_key in ('coupon_details_coupon-type', 'coupon_details_coupon-title') and posts.post_author=%d group by posts.ID",
+       MAX(CASE WHEN (meta.meta_key= 'coupon_details_coupon-type') THEN meta.meta_value ELSE NULL END) as coupon_type,
+       MAX(CASE WHEN (meta.meta_key= 'coupon_details_coupon-title') THEN meta.meta_value ELSE NULL END) as coupon_title,
+       MAX(CASE WHEN (meta.meta_key= 'coupon_details_expire-date') THEN meta.meta_value ELSE NULL END) as expire_date 
+from $wpdb->posts as posts inner JOIN $wpdb->postmeta as meta  on posts.ID = meta.post_id where posts.post_type = %s and posts.post_status in ('publish', 'draft', 'pending') and meta.meta_key in ('coupon_details_coupon-type', 'coupon_details_coupon-title', 'coupon_details_expire-date') and posts.post_author=%d group by posts.ID",
 			WPCD_Plugin::CUSTOM_POST_TYPE, $user_id );
 
 		$results = $wpdb->get_results( $query );
 
 		foreach ( $results as $r ) {
 			$terms = [];
-			$terms['category']    = wp_get_post_terms( $r->ID, WPCD_Plugin::CUSTOM_TAXONOMY);
-			$terms['vendor']    = wp_get_post_terms( $r->ID, WPCD_Plugin::VENDOR_TAXONOMY);
-			$r->terms = $terms;
+			// tax insert
+			$terms['category'] = wp_get_post_terms( $r->ID, WPCD_Plugin::CUSTOM_TAXONOMY );
+			$terms['vendor']   = wp_get_post_terms( $r->ID, WPCD_Plugin::VENDOR_TAXONOMY );
+			$r->terms          = $terms;
 		}
 
 		$this->setData( 'data', $results );

@@ -93,7 +93,10 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 				'back_to_coupons'    => "back to coupons",
 				'add_a_coupon'       => "add a coupon",
 				'update'             => "update",
-				'shortcode_copy'             => "shortcode copied",
+				'shortcode_copy'     => "shortcode copied",
+				'expired'            => "expired",
+				'no_expire'          => "doesn't expire",
+				'expires_on'          => "expires on",
 			];
 
 			$extras->strings = array_merge( $extras->strings,
@@ -106,7 +109,7 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 			$extras->coupons_action = $this->name . '_coupons';
 			$extras->nonce          = $this->_c()->wp_create_nonce( 'wpcd_shortcode_form' );
 			$extras->thrash_enable  = get_option( 'wpcd_form-shortcode-enable-thrash', '' );
-			$extras->shortcode  = '[wpcd_coupon id=:id]';
+			$extras->shortcode      = '[wpcd_coupon id=:id]';
 
 			// enqueue scripts/styles step
 			$this->_c()->add_action( 'wp_enqueue_scripts',

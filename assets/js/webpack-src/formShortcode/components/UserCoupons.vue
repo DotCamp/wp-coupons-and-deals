@@ -7,7 +7,7 @@
           <column-sort :heading="extras.strings.coupon_type" col-name="coupon_type" @sort="sort" />
           <column-sort heading="Category" col-name="terms['category']" @sort="sort" />
           <column-sort heading="Vendor" col-name="terms['vendor']" @sort="sort" />
-          <!--          <column-sort heading="ID" col-name="ID" @sort="sort" />-->
+          <column-sort :heading="extras.strings.expires_on" col-name="expire_date" @sort="sort" />
           <th>Shortcode</th>
         </tr>
         <user-coupon-row
@@ -19,6 +19,7 @@
           :terms="c['terms']"
           :ID="c['ID']"
           :shortcode="extras.shortcode"
+          :expire="c['expire_date']"
           @edit="editCoupon"
           @thrash="deleteCoupon"
         />
