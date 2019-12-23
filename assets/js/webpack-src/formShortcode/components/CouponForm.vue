@@ -8,14 +8,17 @@
         <table class="wpcd-fs-table">
           <coupon-type v-model="store['coupon-type']" :typedata="couponType" />
           <coupon-title helpmessage="enter coupon title" id="coupon-title" label="Coupon Title" />
-          <tr is="CouponTypeForm" :fieldsdata="parsedFields" />
+          <tr is="CouponTypeForm" :fieldsdata="filterParsedFields(f => f.id !== 'coupon-template')" />
         </table>
       </form>
       <terms-component :taxonomies="extras.terms" />
       <featured-image :featured-url="store.featured_url" />
       <submit-component :message="submitMessage" @submit="submitForm" />
     </div>
-    <coupon-preview />
+    <div class="wpcd-fs-mt-4">
+      <template-selector :templates="filterParsedFields(f => f.id === 'coupon-template')[0]" />
+      <coupon-preview />
+    </div>
   </div>
 </template>
 <script>
@@ -26,6 +29,7 @@ import CouponTitle from './CouponTitle';
 import SubmitComponent from './SubmitComponent';
 import TermsComponent from './TermsComponent';
 import FeaturedImage from './FeaturedImage';
+import TemplateSelector from './TemplateSelector';
 import logo from '../assets/image/icon-128x128.png';
 
 export default {
@@ -37,6 +41,7 @@ export default {
     CouponType,
     CouponTypeForm,
     CouponPreview,
+    TemplateSelector,
     SubmitComponent,
   },
   data() {
@@ -48,71 +53,9 @@ export default {
     };
   },
   methods: {
-    submitForm() {
-      this.app.submit.fetching = true;
-      try {
-        const formData = new FormData();
-        const data = { ...this.store, ...{ action: this.extras.form_action, nonce: this.extras.nonce } };
-
-        Object.keys(data).map(k => {
-          if (Object.prototype.hasOwnProperty.call(data, k)) {
-            formData.set(k, data[k]);
-          }
-        });
-
-        // inject new terms to FormData
-        const { newTerms } = this.store;
-        if (newTerms) {
-          formData.set('new_terms', JSON.stringify(newTerms));
-        }
-
-        // inject terms object to FormData
-        if (this.store.terms) {
-          Object.keys(this.store.terms).map(k => {
-            if (Object.prototype.hasOwnProperty.call(this.store.terms, k)) {
-              const currentTermGroup = this.store.terms[k];
-              // adding term group a empty data to force it to clear all of its term data in the event of deselecting all of the terms in a tax group
-              if (currentTermGroup.length === 0) {
-                formData.append(`terms[${k}][]`, '');
-              } else {
-                currentTermGroup.map(d => {
-                  formData.append(`terms[${k}][]`, d);
-                });
-              }
-            }
-          });
-        }
-
-        this.resource
-          .save(formData)
-          .then(
-            resp => resp.json(),
-            resp => {
-              this.app.submit.isSuccess = false;
-              this.submitMessage = resp.message;
-            }
-          )
-          .then(j => {
-            if (j.error) {
-              throw new Error(j.error);
-            }
-            this.app.submit.isSuccess = true;
-            this.$set(this.extras, 'terms', j.terms);
-            this.submitMessage = `${j.message || ''} | id: ${j.id}`;
-          })
-          .catch(e => {
-            this.app.submit.isSuccess = false;
-            this.submitMessage = e.message;
-          });
-      } catch (e) {
-        this.app.submit.isSuccess = false;
-        this.submitMessage = e;
-      } finally {
-        this.app.submit.fetching = false;
-      }
+    filterParsedFields(filterCall) {
+      return this.parsedFields().filter(filterCall);
     },
-  },
-  computed: {
     parsedFields() {
       /**
        * function to filter fields according to supplied filters
@@ -180,6 +123,70 @@ export default {
 
       return finalFields[this.store['coupon-type']];
     },
+    submitForm() {
+      this.app.submit.fetching = true;
+      try {
+        const formData = new FormData();
+        const data = { ...this.store, ...{ action: this.extras.form_action, nonce: this.extras.nonce } };
+
+        Object.keys(data).map(k => {
+          if (Object.prototype.hasOwnProperty.call(data, k)) {
+            formData.set(k, data[k]);
+          }
+        });
+
+        // inject new terms to FormData
+        const { newTerms } = this.store;
+        if (newTerms) {
+          formData.set('new_terms', JSON.stringify(newTerms));
+        }
+
+        // inject terms object to FormData
+        if (this.store.terms) {
+          Object.keys(this.store.terms).map(k => {
+            if (Object.prototype.hasOwnProperty.call(this.store.terms, k)) {
+              const currentTermGroup = this.store.terms[k];
+              // adding term group a empty data to force it to clear all of its term data in the event of deselecting all of the terms in a tax group
+              if (currentTermGroup.length === 0) {
+                formData.append(`terms[${k}][]`, '');
+              } else {
+                currentTermGroup.map(d => {
+                  formData.append(`terms[${k}][]`, d);
+                });
+              }
+            }
+          });
+        }
+
+        this.resource
+          .save(formData)
+          .then(
+            resp => resp.json(),
+            resp => {
+              this.app.submit.isSuccess = false;
+              this.submitMessage = resp.message;
+            }
+          )
+          .then(j => {
+            if (j.error) {
+              throw new Error(j.error);
+            }
+            this.app.submit.isSuccess = true;
+            this.$set(this.extras, 'terms', j.terms);
+            this.submitMessage = `${j.message || ''} | id: ${j.id}`;
+          })
+          .catch(e => {
+            this.app.submit.isSuccess = false;
+            this.submitMessage = e.message;
+          });
+      } catch (e) {
+        this.app.submit.isSuccess = false;
+        this.submitMessage = e;
+      } finally {
+        this.app.submit.fetching = false;
+      }
+    },
   },
+  computed: {},
 };
 </script>

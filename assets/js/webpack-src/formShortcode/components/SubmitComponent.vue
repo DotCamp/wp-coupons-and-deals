@@ -1,5 +1,5 @@
 <template>
-  <div class="wpcd-fs-flex wpcd-fs-items-center">
+  <div class="wpcd-fs-flex wpcd-fs-items-center wpcd-fs-mt-2">
     <input
       class="button"
       ref="submitButton"

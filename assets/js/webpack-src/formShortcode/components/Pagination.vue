@@ -1,10 +1,14 @@
 <template>
   <div v-if="pagMax != 1 && pagMax > 0" class="wpcd-fs-float-right">
-    <button v-show="min != pagCurrent" @click.prevent="updatePag(-1)"><<</button>
+    <button :disabled="min == pagCurrent" @click.prevent="updatePag(-1)">
+      <span class="dashicons dashicons-arrow-left" />
+    </button>
     <div class="wpcd-fs-current-pagination">
       {{ pagCurrent }}
     </div>
-    <button v-show="pagCurrent != pagMax" @click.prevent="updatePag(1)">>></button>
+    <button :disabled="pagCurrent == pagMax" @click.prevent="updatePag(1)">
+      <span class="dashicons dashicons-arrow-right" />
+    </button>
   </div>
 </template>
 <script>

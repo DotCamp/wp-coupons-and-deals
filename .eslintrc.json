@@ -32,8 +32,7 @@
         "singleQuote": true
       }
     ],
-    "array-callback-return": "off",
-    "vue/no-parsing-error": "off"
+    "array-callback-return": "off"
   },
   "globals": {
     "wpcd_fs_fields": true,

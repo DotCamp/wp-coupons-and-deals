@@ -118,7 +118,7 @@
 }
 
 .wpcd-fs-term-holder {
-    width: 50%;
+    width: calc(50% - 4px);
     float: left;
 }
 
@@ -126,10 +126,30 @@
     float: right;
 }
 
+.wpcd-fs-overflow-hidden{
+    overflow: hidden;
+}
+
+.wpcd-fs-relative{
+    position: relative;
+}
+
+.wpcd-fs-hide-box-wrapper {
+    margin:  0 4px 4px 0;
+    padding: 0 .5rem .5rem .5rem
+}
+
+.wpcd-fs-drawer-container {
+    z-index: 50;
+    width: 96%;
+    margin: 0 auto
+}
+
 .wpcd-fs-hide-box {
     background-color: white;
-    margin: var(--wpcd-fs-4) 0 var(--wpcd-fs-4) 0;
+    /*margin:  0 var(--wpcd-fs-4) 0 var(--wpcd-fs-4);*/
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 5px;
 }
 
 .wpcd-fs-shadow {
@@ -139,6 +159,9 @@
 .wpcd-fs-hide-box-header {
     cursor: pointer;
     font-weight: bold;
+    border-bottom: 1px solid var(--wpcd-fs-gray-200);
+    border-top: 1px solid var(--wpcd-fs-gray-200);
+    margin-bottom: 0px;
 }
 
 .wpcd-fs-hide-box-header:hover {
@@ -187,8 +210,28 @@
     margin-bottom: var(--wpcd-fs-2);
 }
 
+.wpcd-fs-mx-4{
+   margin: 0 4rem;
+}
+
+.wpcd-fs-mt-0 {
+    margin-top: 0px;
+}
+
+.wpcd-fs-mt-1 {
+    margin-top: 1rem;
+}
+
+.wpcd-fs-mt-2 {
+    margin-top: 2rem;
+}
+
 .wpcd-fs-mt-4 {
     margin-top: 4rem;
+}
+
+.wpcd-fs-m-2{
+    margin: 2rem;
 }
 
 .wpcd-fs-text-red-500 {
@@ -290,8 +333,20 @@
     animation: beatAbsolute .2s ease-in reverse;
 }
 
+.wpcd-fs-flex-margin-4{
+    border: var(--wpcd-fs-4) solid transparent;
+}
+
 .form-shortcode-row {
     animation: fs-fade-in .5s ease-out;
+}
+
+.wpcd-fs-drawer-enter-active {
+    animation: drawer .3s ease-out;
+}
+
+.wpcd-fs-drawer-leave-active {
+    animation: drawer .3s ease-in reverse;
 }
 
 @keyframes beatAbsolute {
@@ -318,6 +373,15 @@
         transform: scale(1.0);
     }
 
+}
+
+@keyframes drawer {
+    0% {
+        transform: translateY(-100%);
+    }
+    100%{
+        transform: translateY();
+    }
 }
 
 
@@ -375,7 +439,7 @@
 
 .wpcd-fs-toggle-indicator {
     color: gray;
-    font-size: 2rem;
+    /*font-size: 2rem;*/
     font-family: "dashicons"
 }
 
@@ -387,3 +451,7 @@
     content: '\f140'
 }
 
+/*fallback for themes that don't have disabled css style*/
+button[disabled]{
+    opacity: .2;
+}

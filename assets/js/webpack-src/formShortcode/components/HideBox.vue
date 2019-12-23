@@ -1,17 +1,21 @@
 <template>
-  <div class="wpcd-fs-hide-box">
-    <div
-      @click="showChild = !showChild"
-      class="wpcd-form-shortcode-generic-transition wpcd-fs-hide-box-header wpcd-fs-flex wpcd-fs-items-center wpcd-fs-space-between wpcd-fs-p-2"
-    >
-      {{ heading }}
-      <div class="wpcd-fs-toggle-button" :aria-expanded="JSON.stringify(showChild)">
-        <span class="wpcd-fs-toggle-indicator" />
+  <div class="wpcd-fs-overflow-hidden wpcd-fs-hide-box-wrapper">
+    <div class="wpcd-fs-hide-box wpcd-fs-relative" style="z-index: 100">
+      <div
+        @click="showChild = !showChild"
+        class="wpcd-form-shortcode-generic-transition wpcd-fs-hide-box-header wpcd-fs-flex wpcd-fs-items-center wpcd-fs-space-between wpcd-fs-p-2"
+      >
+        {{ heading }}
+        <div class="wpcd-fs-toggle-button" :aria-expanded="JSON.stringify(showChild)">
+          <span class="wpcd-fs-toggle-indicator" />
+        </div>
       </div>
     </div>
-    <div v-show="showChild" class="wpcd-fs-p-2 wpcd-fs-basic-fade">
-      <slot />
-    </div>
+    <transition name="wpcd-fs-drawer">
+      <div v-show="showChild" class="wpcd-fs-p-2 wpcd-fs-hide-box wpcd-fs-relative wpcd-fs-drawer-container">
+        <slot />
+      </div>
+    </transition>
   </div>
 </template>
 <script>

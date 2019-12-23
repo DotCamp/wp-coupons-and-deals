@@ -1,5 +1,5 @@
 <template>
-  <div class="wpcd-fs-mt-4 wpcd-preview-wrapper wpcd-fs-shadow wpcd-fs-border">
+  <div class="wpcd-fs-mt-1 wpcd-preview-wrapper wpcd-fs-shadow wpcd-fs-border">
     <transition name="form-shortcode-preview" appear mode="out-in">
       <image-template v-if="store['coupon-type'] === 'Image'" />
       <component v-else class="wpcd-fs-px-4" :is="store['coupon-template'].replace(' ', '')" :html="currentTemplate" />
