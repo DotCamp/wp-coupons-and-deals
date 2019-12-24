@@ -5,7 +5,7 @@
         @click="showChild = !showChild"
         class="wpcd-form-shortcode-generic-transition wpcd-fs-hide-box-header wpcd-fs-flex wpcd-fs-items-center wpcd-fs-space-between wpcd-fs-p-2"
       >
-        {{ heading }}
+        {{ heading | cap }}
         <div class="wpcd-fs-toggle-button" :aria-expanded="JSON.stringify(showChild)">
           <span class="wpcd-fs-toggle-indicator" />
         </div>
@@ -23,7 +23,7 @@ export default {
   props: ['heading', 'forceShow'],
   data() {
     return {
-      showChild: false,
+      showChild: this.forceShow || false,
     };
   },
   watch: {

@@ -3,14 +3,8 @@
     <button @click.prevent="$emit('switch', 'UserCoupons')" class="wpcd-fs-pointer">
       {{ extras.strings.back_to_coupons | cap }}
     </button>
-    <div class="wpcd-fs-flex wpcd-fs-flex-col">
-      <form id="form-shortcode-form-wrapper" @submit.prevent="" method="post">
-        <table class="wpcd-fs-table">
-          <coupon-type v-model="store['coupon-type']" :typedata="couponType" />
-          <coupon-title helpmessage="enter coupon title" id="coupon-title" label="Coupon Title" />
-          <tr is="CouponTypeForm" :fieldsdata="filterParsedFields(f => f.id !== 'coupon-template')" />
-        </table>
-      </form>
+    <div class="wpcd-fs-flex wpcd-fs-flex-col wpcd-fs-mt-2">
+      <options-component :fields="filterParsedFields(f => f.id !== 'coupon-template')" :coupon-type-data="couponType" />
       <terms-component :taxonomies="extras.terms" />
       <featured-image :featured-url="store.featured_url" />
       <submit-component :message="submitMessage" @submit="submitForm" />
@@ -22,24 +16,20 @@
   </div>
 </template>
 <script>
-import CouponType from './CouponType';
-import CouponTypeForm from './CouponTypeForm';
 import CouponPreview from './CouponPreview';
-import CouponTitle from './CouponTitle';
 import SubmitComponent from './SubmitComponent';
 import TermsComponent from './TermsComponent';
 import FeaturedImage from './FeaturedImage';
 import TemplateSelector from './TemplateSelector';
+import OptionsComponent from './OptionsComponent';
 import logo from '../assets/image/icon-128x128.png';
 
 export default {
   props: ['fields'],
   components: {
+    OptionsComponent,
     FeaturedImage,
     TermsComponent,
-    CouponTitle,
-    CouponType,
-    CouponTypeForm,
     CouponPreview,
     TemplateSelector,
     SubmitComponent,

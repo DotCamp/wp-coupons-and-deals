@@ -74,7 +74,10 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 			} else {
 				$this->setData( 'id', $operation_result );
 				$this->setData( 'message', __( 'coupon updated', WPCD_Plugin::TEXT_DOMAIN ) );
-				if ( isset( $_POST['new_terms'] ) ) {
+
+				// new term creation
+				if ( isset( $_POST['new_terms'] ) && get_option( 'wpcd_form-shortcode-enable-new-terms',
+						'' ) === 'on' ) {
 					$new_terms = json_decode( stripslashes( $_POST['new_terms'] ), true );
 
 					foreach ( $new_terms as $tax_name => $tax_array ) {
@@ -153,7 +156,9 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 		if ( $this->_c()->is_wp_error( $operation_result ) ) {
 			$this->setError( $operation_result->get_error_message() );
 		} else {
-			if ( isset( $_POST['new_terms'] ) ) {
+
+			// new term creation
+			if ( isset( $_POST['new_terms'] ) && get_option( 'wpcd_form-shortcode-enable-new-terms', '' ) === 'on' ) {
 				$new_terms = json_decode( stripslashes( $_POST['new_terms'] ), true );
 
 				foreach ( $new_terms as $tax_name => $tax_array ) {

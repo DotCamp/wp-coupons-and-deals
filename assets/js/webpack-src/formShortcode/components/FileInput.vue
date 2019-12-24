@@ -1,7 +1,7 @@
 <template>
   <div>
     <input type="submit" @click.prevent="open = true" :value="text" />
-    <word-press-media @selection="imageSelected" :open="open"></word-press-media>
+    <word-press-media @selection="imageSelected" @closed="open = false" :open="open" />
   </div>
 </template>
 <script>

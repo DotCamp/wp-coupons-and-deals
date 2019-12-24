@@ -27,6 +27,10 @@ export default {
             this.$emit('selection', attachment);
           });
 
+          this.frame.on('close', () => {
+            this.$emit('closed');
+          });
+
           this.frame.open();
         }
       }

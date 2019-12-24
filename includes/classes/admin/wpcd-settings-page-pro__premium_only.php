@@ -542,9 +542,26 @@ class WPCD_Settings_Page_Pro {
 					'default'     => 'publish'
 				),
 				array(
+					'id'          => 'form-shortcode-split-form',
+					'label'       => __( 'Split form', 'wpcd-coupon' ),
+					'description' => __( 'Split form into smaller segments or show all fields',
+						'wpcd-coupon' ),
+					'type'        => 'select',
+					'options'     => array('full' => 'full', 'split' => 'split'),
+					'default'     => 'full'
+				),
+				array(
 					'id'          => 'form-shortcode-enable-thrash',
 					'label'       => __( 'Enable Coupon Delete', 'wpcd-coupon' ),
-					'description' => __( 'Give the users ability to delete their own coupons',
+					'description' => __( 'Give the users the ability to delete their own coupons',
+						'wpcd-coupon' ),
+					'type'        => 'checkbox',
+					'default'     => '',
+				),
+				array(
+					'id'          => 'form-shortcode-enable-new-terms',
+					'label'       => __( 'Enable New Term Creation', 'wpcd-coupon' ),
+					'description' => __( 'Give the users the ability to create new terms',
 						'wpcd-coupon' ),
 					'type'        => 'checkbox',
 					'default'     => '',

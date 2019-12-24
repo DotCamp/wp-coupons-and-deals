@@ -145,6 +145,9 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 			// Adds the option to enable users to delete their coupons
 			add_option( 'wpcd_form-shortcode-enable-thrash', 'on' );
 
+			// Adds the options to enable splitting the form into smaller segments
+			add_option('wpcd_form-shortcode-split-form', 'publish');
+
 			/**
 			 * Loading the class here to avoid errors.
 			 *

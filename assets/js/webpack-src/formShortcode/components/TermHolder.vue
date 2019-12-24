@@ -3,6 +3,7 @@
     <div :key="forceUpdateKey">
       <term v-for="term in hierarchicalTerms" :term="term" :key="term.name" @change="pushTerms" :terms="checkedTerms" />
       <term-insert
+        v-if="termInsert"
         :heading="heading"
         :terms="hierarchicalTerms"
         :raw="extras.terms"
@@ -18,7 +19,7 @@ import TermInsert from './TermInsert';
 import HideBox from './HideBox';
 
 export default {
-  props: ['heading', 'terms', 'taxname', 'termsChecked'],
+  props: ['heading', 'terms', 'taxname', 'termsChecked', 'termInsert'],
   components: { HideBox, Term, TermInsert },
   data() {
     return {
