@@ -548,7 +548,7 @@ class WPCD_Settings_Page_Pro {
 						'wpcd-coupon' ),
 					'type'        => 'select',
 					'options'     => array('full' => 'full', 'split' => 'split'),
-					'default'     => 'full'
+					'default'     => 'split'
 				),
 				array(
 					'id'          => 'form-shortcode-enable-thrash',

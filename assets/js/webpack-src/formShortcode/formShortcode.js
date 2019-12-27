@@ -27,6 +27,13 @@ Vue.filter('cap', val => {
   return '';
 });
 
+Vue.filter('truncate', (val, l, suffix) => {
+  if (val.length > l) {
+    return val.slice(0, l) + (suffix || '...');
+  }
+  return val;
+});
+
 Vue.mixin({
   computed: {
     resource() {

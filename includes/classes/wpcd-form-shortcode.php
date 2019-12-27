@@ -100,6 +100,8 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 				'options'            => 'options',
 				'basic_options'      => "basic options",
 				'advanced_options'   => "advanced options",
+				'search'             => "search",
+				'nothing'            => "nothing found",
 			];
 
 			$extras->strings = array_merge( $extras->strings,
@@ -113,8 +115,8 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 			$extras->nonce          = $this->_c()->wp_create_nonce( 'wpcd_shortcode_form' );
 			$extras->thrash_enable  = get_option( 'wpcd_form-shortcode-enable-thrash', '' );
 			$extras->shortcode      = '[wpcd_coupon id=:id]';
-			$extras->split_form     = get_option( 'wpcd_form-shortcode-split-form', 'full' );
-			$extras->new_terms     = get_option( 'wpcd_form-shortcode-enable-new-terms', '' );
+			$extras->split_form     = get_option( 'wpcd_form-shortcode-split-form', 'split' );
+			$extras->new_terms      = get_option( 'wpcd_form-shortcode-enable-new-terms', '' );
 
 			// enqueue scripts/styles step
 			$this->_c()->add_action( 'wp_enqueue_scripts',

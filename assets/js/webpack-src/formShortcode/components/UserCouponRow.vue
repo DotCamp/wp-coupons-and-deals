@@ -20,11 +20,11 @@
     <td>
       {{ coupon_type }}
     </td>
-    <td>
-      {{ renderTerms('category') }}
+    <td :title="renderTerms('category')">
+      {{ renderTerms('category') | truncate(10) }}
     </td>
-    <td>
-      {{ renderTerms('vendor') }}
+    <td :title="renderTerms('vendor')">
+      {{ renderTerms('vendor') | truncate(10) }}
     </td>
     <td>{{ localizedExpire | cap }}</td>
     <td>

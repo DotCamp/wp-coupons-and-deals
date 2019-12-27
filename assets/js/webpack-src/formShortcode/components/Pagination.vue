@@ -1,5 +1,5 @@
 <template>
-  <div v-if="pagMax != 1 && pagMax > 0" class="wpcd-fs-float-right">
+  <div v-if="pagMax != 1 && pagMax > 0">
     <button :disabled="min == pagCurrent" @click.prevent="updatePag(-1)">
       <span class="dashicons dashicons-arrow-left" />
     </button>
@@ -23,6 +23,11 @@ export default {
     return {
       pagCurrent: this.current,
     };
+  },
+  watch: {
+    current(n) {
+      this.pagCurrent = n;
+    },
   },
   computed: {
     pagMax() {

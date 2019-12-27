@@ -9,7 +9,7 @@
       }"
       >{{ term.name }}</label
     >
-    <div v-if="term.child && term.child.length > 0" style="margin-left: 2rem">
+    <div v-if="recursive && term.child && term.child.length > 0" style="margin-left: 2rem">
       <term v-for="t in term.child" :key="t.name" :term="t" @change="$listeners.change" :terms="terms" />
     </div>
   </div>
@@ -17,7 +17,7 @@
 <script>
 export default {
   inheritAttrs: false,
-  props: ['term', 'terms'],
+  props: ['term', 'terms', 'recursive'],
   name: 'term',
   data() {
     return {

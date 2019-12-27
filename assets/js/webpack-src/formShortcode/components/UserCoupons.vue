@@ -42,7 +42,13 @@
         </div>
       </div>
     </div>
-    <pagination v-model="current" :max="coupons.length" min="1" :itemperpage="itemsPerPage" />
+    <pagination
+      class="wpcd-fs-float-right"
+      v-model="current"
+      :max="coupons.length"
+      min="1"
+      :itemperpage="itemsPerPage"
+    />
   </div>
 </template>
 <script>

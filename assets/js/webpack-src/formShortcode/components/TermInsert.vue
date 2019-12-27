@@ -3,7 +3,7 @@
     <a @click="opened = !opened" class="wpcd-fs-pointer wpcd-fs-bold">{{ opened ? '-' : '+' }} Add New {{ heading }}</a>
     <div class="wpcd-fs-p-2 wpcd-form-shortcode-generic-transition wpcd-fs-basic-fade" v-if="opened">
       <div>
-        <input v-model.trim="newTermName" class="wpcd-fs-rounded" />
+        <input v-model.trim="newTermName" class="wpcd-fs-rounded wpcd-fs-w-full-important" />
       </div>
       <div class="wpcd-fs-my-2">
         <select v-model="selection">
