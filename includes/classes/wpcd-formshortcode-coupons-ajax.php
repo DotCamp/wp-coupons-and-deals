@@ -108,8 +108,8 @@ class WPCD_Formshortcode_Coupons_Ajax extends WPCD_Ajax_Base {
 			$custom_taxonomy = wp_get_post_terms( $coupon_id, WPCD_Plugin::CUSTOM_TAXONOMY );
 			$vendor_taxonomy = wp_get_post_terms( $coupon_id, WPCD_Plugin::VENDOR_TAXONOMY );
 
-			$coupon['terms'][ WPCD_Plugin::CUSTOM_TAXONOMY ] = $this->filter_tax( $custom_taxonomy, 'name' );
-			$coupon['terms'][ WPCD_Plugin::VENDOR_TAXONOMY ] = $this->filter_tax( $vendor_taxonomy, 'name' );
+			$coupon['terms'][ WPCD_Plugin::CUSTOM_TAXONOMY ] = $this->filter_tax( $custom_taxonomy, 'term_id' );
+			$coupon['terms'][ WPCD_Plugin::VENDOR_TAXONOMY ] = $this->filter_tax( $vendor_taxonomy, 'term_id' );
 
 			// coupon thumbnail url fetch
 			$coupon['featured_url'] = $this->_c()->get_the_post_thumbnail_url( $coupon_id );
@@ -157,9 +157,8 @@ class WPCD_Formshortcode_Coupons_Ajax extends WPCD_Ajax_Base {
 
 		$query = $wpdb->prepare( "SELECT ID, post_status, post_title, 
        MAX(CASE WHEN (meta.meta_key= 'coupon_details_coupon-type') THEN meta.meta_value ELSE NULL END) as coupon_type,
-       MAX(CASE WHEN (meta.meta_key= 'coupon_details_coupon-title') THEN meta.meta_value ELSE NULL END) as coupon_title,
-       MAX(CASE WHEN (meta.meta_key= 'coupon_details_expire-date') THEN meta.meta_value ELSE NULL END) as expire_date 
-from $wpdb->posts as posts inner JOIN $wpdb->postmeta as meta  on posts.ID = meta.post_id where posts.post_type = %s and posts.post_status in ('publish', 'draft', 'pending') and meta.meta_key in ('coupon_details_coupon-type', 'coupon_details_coupon-title', 'coupon_details_expire-date') and posts.post_author=%d group by posts.ID",
+       MAX(CASE WHEN (meta.meta_key= 'coupon_details_coupon-title') THEN meta.meta_value ELSE NULL END) as coupon_title," . "       MAX(CASE WHEN (meta.meta_key= 'coupon_details_expire-date') THEN meta.meta_value ELSE NULL END) as expire_date 
+from " . $wpdb->posts . " as posts inner JOIN " . $wpdb->postmeta . " as meta  on posts.ID = meta.post_id where posts.post_type = %s and posts.post_status in ('publish', 'draft', 'pending') and meta.meta_key in ('coupon_details_coupon-type', 'coupon_details_coupon-title', 'coupon_details_expire-date') and posts.post_author=%d group by posts.ID",
 			WPCD_Plugin::CUSTOM_POST_TYPE, $user_id );
 
 		$results = $wpdb->get_results( $query );

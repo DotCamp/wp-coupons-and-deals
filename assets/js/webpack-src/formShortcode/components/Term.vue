@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input :checked="checked" ref="checkbox" type="checkbox" :value="term.name" @change="onChange" />
+    <input :checked="checked" ref="checkbox" type="checkbox" :value="term.term_id" @change="onChange" />
     <label
       class="wpcd-fs-p-1 wpcd-fs-rounded wpcd-form-shortcode-generic-transition"
       :style="{
@@ -10,7 +10,14 @@
       >{{ term.name }}</label
     >
     <div v-if="recursive && term.child && term.child.length > 0" style="margin-left: 2rem">
-      <term v-for="t in term.child" :key="t.name" :term="t" @change="$listeners.change" :terms="terms" />
+      <term
+        :recursive="true"
+        v-for="t in term.child"
+        :key="t.term_id"
+        :term="t"
+        @change="$listeners.change"
+        :terms="terms"
+      />
     </div>
   </div>
 </template>
@@ -21,7 +28,7 @@ export default {
   name: 'term',
   data() {
     return {
-      checked: this.terms.includes(this.term.name),
+      checked: this.terms.includes(this.term.term_id),
     };
   },
   methods: {

@@ -38,14 +38,18 @@ export default {
   methods: {
     insert() {
       if (this.checkAddConditions) {
-        this.$emit('createNewTerm', { name: this.newTermName, parent: parseInt(this.selection, 10) });
+        this.$emit('createNewTerm', { name: this.newTermName, parent: parseInt(this.selection, 10), child: [] });
         this.opened = false;
       }
     },
   },
   computed: {
     checkAddConditions() {
-      const haveSameName = this.raw[this.taxname].filter(t => t.name === this.newTermName).length > 0;
+      // const haveSameName = this.raw[this.taxname].filter(t => t.name === this.newTermName).length > 0;
+
+      const haveSameName = this.raw[this.taxname]
+        .filter(t => t.parent === parseInt(this.selection, 10))
+        .some(c => c.name === this.newTermName);
 
       return this.newTermName !== '' && !haveSameName;
     },

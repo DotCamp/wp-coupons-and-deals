@@ -10,7 +10,9 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 
 		if ( filter_var( $this->_c()->check_ajax_referer( 'wpcd_shortcode_form', 'nonce', false ),
 			FILTER_VALIDATE_BOOLEAN ) ) {
-			if ( isset( $_POST['ID'] ) ) {
+			if ( isset( $_POST['new_term'] ) ) {
+				$this->create_term();
+			} elseif ( isset( $_POST['ID'] ) ) {
 				$this->update_coupon();
 			} else {
 				$this->insert_coupon();
@@ -25,6 +27,21 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 		$this->getResponseJSON( true );
 
 		die();
+	}
+
+	/**
+	 * batch add/update post taxonomies
+	 *
+	 * @param int $post_id post id
+	 * @param string $post_field $_POST field name to check for terms
+	 */
+	private function insertTerms( $post_id, $post_field ) {
+		$tax_input = isset( $_POST[ $post_field ] ) ? $_POST[ $post_field ] : [];
+		foreach ( $tax_input as $tax_name => $term ) {
+			$term = array_map( 'intval', $term );
+
+			wp_set_object_terms( $post_id, $term, $tax_name );
+		}
 	}
 
 	private function update_coupon() {
@@ -75,23 +92,8 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 				$this->setData( 'id', $operation_result );
 				$this->setData( 'message', __( 'coupon updated', WPCD_Plugin::TEXT_DOMAIN ) );
 
-				// new term creation
-				if ( isset( $_POST['new_terms'] ) && get_option( 'wpcd_form-shortcode-enable-new-terms',
-						'' ) === 'on' ) {
-					$new_terms = json_decode( stripslashes( $_POST['new_terms'] ), true );
-
-					foreach ( $new_terms as $tax_name => $tax_array ) {
-						foreach ( $tax_array as $term ) {
-							$this->_c()->wp_insert_term( $term['name'], $tax_name, [ 'parent' => $term[ parent ] ] );
-						}
-					}
-				}
-
-//				// taxonomy input
-				$tax_input = isset( $_POST['terms'] ) ? $_POST['terms'] : [];
-				foreach ( $tax_input as $tax_name => $term ) {
-					$this->_c()->wp_set_object_terms( $operation_result, $term, $tax_name );
-				}
+				// taxonomy input
+				$this->insertTerms( $operation_result, 'terms' );
 
 				$this->setData( 'terms', WPCD_Form_Shortcode::getCouponTerms() );
 
@@ -157,22 +159,8 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 			$this->setError( $operation_result->get_error_message() );
 		} else {
 
-			// new term creation
-			if ( isset( $_POST['new_terms'] ) && get_option( 'wpcd_form-shortcode-enable-new-terms', '' ) === 'on' ) {
-				$new_terms = json_decode( stripslashes( $_POST['new_terms'] ), true );
-
-				foreach ( $new_terms as $tax_name => $tax_array ) {
-					foreach ( $tax_array as $term ) {
-						$this->_c()->wp_insert_term( $term['name'], $tax_name, [ 'parent' => $term[ parent ] ] );
-					}
-				}
-			}
-
-			// taxonomy input
-			$tax_input = isset( $_POST['terms'] ) ? $_POST['terms'] : [];
-			foreach ( $tax_input as $tax_name => $term ) {
-				$this->_c()->wp_set_object_terms( $operation_result, $term, $tax_name );
-			}
+			//taxonomy input
+			$this->insertTerms( $operation_result, 'terms' );
 
 			$this->setData( 'terms', WPCD_Form_Shortcode::getCouponTerms() );
 
@@ -215,5 +203,20 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 		}
 
 		return $temp_array;
+	}
+
+	/**
+	 * create new terms
+	 */
+	private function create_term() {
+		if ( isset( $_POST['new_term'] ) && get_option( 'wpcd_form-shortcode-enable-new-terms', '' ) === 'on' ) {
+			$new_term = json_decode( stripslashes( $_POST['new_term'] ), true );
+
+			foreach ( $new_term as $tax_name => $tax ) {
+				wp_insert_term( $tax['name'], $tax_name, [ 'parent' => $tax['parent'] ] );
+			}
+
+			$this->setData( 'terms', WPCD_Form_Shortcode::getCouponTerms() );
+		}
 	}
 }

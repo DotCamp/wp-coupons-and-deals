@@ -125,12 +125,6 @@ export default {
           }
         });
 
-        // inject new terms to FormData
-        const { newTerms } = this.store;
-        if (newTerms) {
-          formData.set('new_terms', JSON.stringify(newTerms));
-        }
-
         // inject terms object to FormData
         if (this.store.terms) {
           Object.keys(this.store.terms).map(k => {
@@ -162,7 +156,13 @@ export default {
               throw new Error(j.error);
             }
             this.app.submit.isSuccess = true;
-            this.$set(this.extras, 'terms', j.terms);
+            Object.keys(j.terms).map(key => {
+              if (Object.prototype.hasOwnProperty.call(j.terms, key)) {
+                this.extras.terms[key] = j.terms[key];
+              }
+            });
+
+            // this.$set(this.extras, 'terms', j.terms);
             this.submitMessage = `${j.message || ''} | id: ${j.id}`;
           })
           .catch(e => {

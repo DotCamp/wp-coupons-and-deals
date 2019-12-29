@@ -134,6 +134,10 @@
     overflow: hidden;
 }
 
+.wpcd-fs-overflow-auto {
+    overflow: auto;
+}
+
 .wpcd-fs-relative {
     position: relative;
 }
@@ -369,6 +373,10 @@
 .wpcd-fs-no-terms {
     background: var(--wpcd-fs-gray-200);
     height: 100px !important;
+}
+
+.wpcd-fs-max-h-200{
+    max-height: 200px;
 }
 
 @keyframes beatAbsolute {
