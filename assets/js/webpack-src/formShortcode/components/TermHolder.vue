@@ -2,6 +2,7 @@
   <hide-box :heading="heading">
     <div :key="forceUpdateKey">
       <input type="text" v-model="searchTerm" :placeholder="extras.strings.search" class="wpcd-fs-w-full-important" />
+
       <!--     no search term display -->
       <ul
         v-show="isSearchEmpty && maxLengthCheck"
@@ -38,6 +39,7 @@
         @createNewTerm="insertNewTerm"
         class="wpcd-fs-mt-1"
       />
+      <fetch-block :show="fetching" />
     </div>
   </hide-box>
 </template>
@@ -45,10 +47,11 @@
 import Term from './Term';
 import TermInsert from './TermInsert';
 import HideBox from './HideBox';
+import FetchBlock from './FetchBlock';
 
 export default {
   props: ['itemsPerPage', 'heading', 'sTerms', 'taxname', 'termsChecked', 'termInsert'],
-  components: { HideBox, Term, TermInsert },
+  components: { FetchBlock, HideBox, Term, TermInsert },
   data() {
     return {
       checkedTerms: [],
@@ -58,6 +61,7 @@ export default {
       searchTerm: '',
       maxLength: 0,
       terms: this.sTerms,
+      fetching: false,
     };
   },
   watch: {
@@ -119,6 +123,7 @@ export default {
       formData.set('nonce', this.extras.nonce);
       formData.set('action', this.extras.form_action);
 
+      this.fetching = true;
       this.resource
         .save(formData)
         .then(
@@ -129,6 +134,13 @@ export default {
         .then(j => {
           this.terms = j.terms[this.taxname];
           this.extras.terms[this.taxname] = j.terms[this.taxname];
+        })
+        .catch(e => {
+          // eslint-disable-next-line no-console
+          console.log(e);
+        })
+        .finally(() => {
+          this.fetching = false;
         });
     },
     pushTerms(val) {

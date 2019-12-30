@@ -44,6 +44,9 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 		}
 	}
 
+	/**
+	 * update a coupon
+	 */
 	private function update_coupon() {
 		$ID = $_POST['ID'];
 
@@ -78,7 +81,7 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 
 			$meta_input = $this->batchMetaInput( 'coupon_details_', $sanitized_fields );
 
-			// inserting new post based on submitted form fields
+			// updating post based on submitted form fields
 			$operation_result = $this->_c()->wp_update_post( [
 				'ID'         => $ID,
 				'post_title' => $sanitized_fields['coupon-title'],
@@ -94,30 +97,20 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 
 				// taxonomy input
 				$this->insertTerms( $operation_result, 'terms' );
-
 				$this->setData( 'terms', WPCD_Form_Shortcode::getCouponTerms() );
 
-
 				// image attachment process
-				if ( isset( $_POST['coupon-attachment-id'] ) ) {
-
-					$this->_c()->update_post_meta( $operation_result, 'coupon_details_coupon-image-input',
-						sanitize_text_field( $_POST['coupon-attachment-id'] ) );
-				}
+				$this->image_attachment_process( $operation_result );
 
 				// featured image process
-				if ( isset( $_POST['featured_id'] ) ) {
-					$featured_id = sanitize_text_field( $_POST['featured_id'] );
-					if ( $featured_id === 'remove' ) {
-						delete_post_thumbnail( $operation_result );
-					} else {
-						$this->_c()->set_post_thumbnail( $operation_result, $featured_id );
-					}
-				}
+				$this->featured_image_process( $operation_result );
 			}
 		}
 	}
 
+	/**
+	 * create and insert a new coupon
+	 */
 	private function insert_coupon() {
 		$data = $_POST;
 
@@ -142,9 +135,6 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 
 		$meta_input = $this->batchMetaInput( 'coupon_details_', $sanitized_fields );
 
-//			$terms = get_terms( WPCD_Plugin::CUSTOM_TAXONOMY, [ 'hide_empty' => false ] );
-//			$tax_input = isset( $_POST['terms'] ) ? $_POST['terms'] : [];
-
 		$post_status = get_option( 'wpcd_form-shortcode-coupon-status', 'publish' );
 
 		// inserting new post based on submitted form fields
@@ -161,7 +151,6 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 
 			//taxonomy input
 			$this->insertTerms( $operation_result, 'terms' );
-
 			$this->setData( 'terms', WPCD_Form_Shortcode::getCouponTerms() );
 
 			$this->setData( 'id', $operation_result );
@@ -169,17 +158,10 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 
 
 			// image attachment process
-			if ( isset( $_POST['coupon-attachment-id'] ) ) {
-
-				$this->_c()->update_post_meta( $operation_result, 'coupon_details_coupon-image-input',
-					sanitize_text_field( $_POST['coupon-attachment-id'] ) );
-			}
+			$this->image_attachment_process( $operation_result );
 
 			// featured image process
-			if ( isset( $_POST['featured_id'] ) ) {
-				$featured_id = sanitize_text_field( $_POST['featured_id'] );
-				$this->_c()->set_post_thumbnail( $operation_result, $featured_id );
-			}
+			$this->featured_image_process( $operation_result );
 		}
 	}
 
@@ -218,5 +200,34 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 
 			$this->setData( 'terms', WPCD_Form_Shortcode::getCouponTerms() );
 		}
+	}
+
+	/**
+	 * featured image process
+	 *
+	 * @param int $id post id
+	 */
+	private function featured_image_process( $id ) {
+		if ( isset( $_POST['featured_id'] ) ) {
+			$featured_id = sanitize_text_field( $_POST['featured_id'] );
+			if ( $featured_id === 'remove' ) {
+				delete_post_thumbnail( $id );
+			} else {
+				$this->_c()->set_post_thumbnail( $id, $featured_id );
+			}
+		}
+	}
+
+	/**
+	 * image attachment process
+	 *
+	 * @param int $id post id
+	 */
+	private function image_attachment_process( $id ) {
+		if ( isset( $_POST['coupon-attachment-id'] ) ) {
+			$this->_c()->update_post_meta( $id, 'coupon_details_coupon-image-input',
+				sanitize_text_field( $_POST['coupon-attachment-id'] ) );
+		}
+
 	}
 }
