@@ -15,11 +15,11 @@
       <h2 style="margin-top: 2px">
         {{ heading | cap }}
       </h2>
-      <button class="wpcd-fs-float-right" v-show="current !== 'CouponForm'" @click="addNew">
-        {{ extras.strings.add_new }}
-      </button>
+      <!--      <button class="wpcd-fs-float-right" v-show="current !== 'CouponForm'" @click="addNew">-->
+      <!--        {{ extras.strings.add_new }}-->
+      <!--      </button>-->
     </div>
-    <component @switch="switchComponent" :is="current" :fields="fields" />
+    <component @switch="switchComponent" :is="current" :fields="fields" @addNew="addNew" />
   </div>
 </template>
 <script>

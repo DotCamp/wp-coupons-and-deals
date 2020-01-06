@@ -22,9 +22,11 @@ import TermsComponent from './TermsComponent';
 import FeaturedImage from './FeaturedImage';
 import TemplateSelector from './TemplateSelector';
 import OptionsComponent from './OptionsComponent';
+import MessageMixin from './mixins/MessageMixin';
 import logo from '../assets/image/icon-128x128.png';
 
 export default {
+  mixins: [MessageMixin],
   props: ['fields'],
   components: {
     OptionsComponent,
@@ -166,7 +168,8 @@ export default {
             });
 
             // this.$set(this.extras, 'terms', j.terms);
-            this.submitMessage = `${j.message || ''} | id: ${j.id}`;
+            // this.submitMessage = `${j.message || ''} | id: ${j.id}`;
+            this.setMessage(`${j.message || ''} | id: ${j.id}`);
           })
           .catch(e => {
             this.app.submit.isSuccess = false;

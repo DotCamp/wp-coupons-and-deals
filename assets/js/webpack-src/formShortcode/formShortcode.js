@@ -63,6 +63,11 @@ Vue.use(Store, {
       fetching: false,
       isSuccess: true,
     },
+    message: {
+      text: '',
+      type: 'normal',
+      time: 0,
+    },
   },
 });
 

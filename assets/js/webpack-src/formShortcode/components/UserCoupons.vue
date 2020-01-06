@@ -1,6 +1,10 @@
 <template>
   <div class="wpcd-form-shortcode-generic-transition wpcd-fs-basic-fade">
+    <message></message>
     <div>
+      <button class="wpcd-fs-float-right" v-show="current !== 'CouponForm'" @click="$emit('addNew')">
+        {{ extras.strings.add_new }}
+      </button>
       <table class="wpcd-fs-w-full-important wpcd-fs-table wpcd-fs-zebra-table" style="margin-bottom: 0">
         <tr>
           <column-sort :heading="extras.strings.coupon_title" col-name="coupon_title" @sort="sort" />
@@ -56,9 +60,10 @@ import UserCouponRow from './UserCouponRow';
 import Pagination from './Pagination';
 import WaitBlock from './WaitBlock';
 import ColumnSort from './ColumnSort';
+import Message from './Message';
 
 export default {
-  components: { UserCouponRow, Pagination, WaitBlock, ColumnSort },
+  components: { Message, UserCouponRow, Pagination, WaitBlock, ColumnSort },
   data() {
     return {
       current: 1,
