@@ -61,10 +61,14 @@ export default {
     },
     switchComponent(c) {
       this.current = c;
+      this.scrollToTop();
     },
     addNew() {
       this.resetStore();
       this.current = 'CouponForm';
+    },
+    scrollToTop() {
+      window.scrollTo(0, 0);
     },
   },
   computed: {

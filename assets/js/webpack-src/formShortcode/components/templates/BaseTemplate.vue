@@ -5,6 +5,30 @@
 import { decodeDate, toMilliSeconds, decodeTime } from '../../functions/EzTime';
 
 export default {
+  data() {
+    return {
+      values: {
+        featured_url: [
+          {
+            element: '.wpcd-get-fetured-img',
+            format: (value, el) => {
+              if (value && el) {
+                el.src = value;
+              }
+            },
+          },
+          {
+            element: 'img[alt="Coupon"]',
+            format: (value, el) => {
+              if (value && el) {
+                el.src = value;
+              }
+            },
+          },
+        ],
+      },
+    };
+  },
   props: ['html'],
   computed: {
     wrapper() {

@@ -117,7 +117,10 @@ export default {
       this.app.submit.fetching = true;
       try {
         const formData = new FormData();
-        const data = { ...this.store, ...{ action: this.extras.options.form_action, nonce: this.extras.options.nonce } };
+        const data = {
+          ...this.store,
+          ...{ action: this.extras.options.form_action, nonce: this.extras.options.nonce },
+        };
 
         Object.keys(data).map(k => {
           if (Object.prototype.hasOwnProperty.call(data, k)) {
@@ -174,6 +177,7 @@ export default {
         this.submitMessage = e;
       } finally {
         this.app.submit.fetching = false;
+        this.$emit('switch', 'UserCoupons');
       }
     },
   },

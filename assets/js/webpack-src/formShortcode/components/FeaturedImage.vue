@@ -50,6 +50,7 @@ export default {
   methods: {
     getAttachment(attachment) {
       this.imageUrl = attachment.url;
+      this.$set(this.store, 'featured_url', this.imageUrl);
       this.setFeaturedId(attachment.id);
       this.open = false;
     },
@@ -57,6 +58,8 @@ export default {
       this.store.featured_id = id;
     },
     close() {
+      const defaultUrl = this.extras.options.default_featured_url;
+      this.store.featured_url = defaultUrl;
       this.imageUrl = '';
       this.imageVisible = false;
       this.setFeaturedId('remove');

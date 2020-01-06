@@ -118,6 +118,7 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 			$extras->options['shortcode']      = '[wpcd_coupon id=:id]';
 			$extras->options['split_form']     = get_option( 'wpcd_form-shortcode-split-form', 'split' );
 			$extras->options['new_terms']      = get_option( 'wpcd_form-shortcode-enable-new-terms', '' );
+			$extras->options['default_featured_url']= WPCD_Plugin::instance()->plugin_assets . 'img/coupon-200x200.png';
 
 			// enqueue scripts/styles step
 			$this->_c()->add_action( 'wp_enqueue_scripts',
