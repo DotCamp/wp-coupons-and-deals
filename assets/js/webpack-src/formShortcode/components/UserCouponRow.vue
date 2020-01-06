@@ -11,7 +11,7 @@
       </div>
       <div :style="{ visibility: hover ? 'visible' : 'hidden' }" class="wpcd-fs-text-sm">
         <a class="wpcd-fs-pointer wpcd-fs-text-blue-500" @click="$emit('edit', ID)">Edit</a>
-        <span v-if="extras.thrash_enable === 'on'">
+        <span v-if="extras.options.thrash_enable === 'on'">
           |
           <a class="wpcd-fs-pointer wpcd-fs-text-red-500" @click="$emit('thrash', ID)">Thrash</a>
         </span>

@@ -117,7 +117,7 @@ export default {
       this.app.submit.fetching = true;
       try {
         const formData = new FormData();
-        const data = { ...this.store, ...{ action: this.extras.form_action, nonce: this.extras.nonce } };
+        const data = { ...this.store, ...{ action: this.extras.options.form_action, nonce: this.extras.options.nonce } };
 
         Object.keys(data).map(k => {
           if (Object.prototype.hasOwnProperty.call(data, k)) {

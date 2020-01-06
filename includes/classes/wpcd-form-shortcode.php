@@ -107,16 +107,17 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 			$extras->strings = array_merge( $extras->strings,
 				$this->get_batch_translations( $batch_translations, WPCD_Plugin::TEXT_DOMAIN ) );
 
+			$extras->options = [];
 
-			$protocol               = isset( $_SERVER['https'] ) ? 'https' : 'http';
-			$extras->ajax_url       = admin_url( 'admin-ajax.php', $protocol );
-			$extras->form_action    = $this->name;
-			$extras->coupons_action = $this->name . '_coupons';
-			$extras->nonce          = $this->_c()->wp_create_nonce( 'wpcd_shortcode_form' );
-			$extras->thrash_enable  = get_option( 'wpcd_form-shortcode-enable-thrash', '' );
-			$extras->shortcode      = '[wpcd_coupon id=:id]';
-			$extras->split_form     = get_option( 'wpcd_form-shortcode-split-form', 'split' );
-			$extras->new_terms      = get_option( 'wpcd_form-shortcode-enable-new-terms', '' );
+			$protocol                          = isset( $_SERVER['https'] ) ? 'https' : 'http';
+			$extras->options['ajax_url']       = admin_url( 'admin-ajax.php', $protocol );
+			$extras->options['form_action']    = $this->name;
+			$extras->options['coupons_action'] = $this->name . '_coupons';
+			$extras->options['nonce']          = $this->_c()->wp_create_nonce( 'wpcd_shortcode_form' );
+			$extras->options['thrash_enable']  = get_option( 'wpcd_form-shortcode-enable-thrash', '' );
+			$extras->options['shortcode']      = '[wpcd_coupon id=:id]';
+			$extras->options['split_form']     = get_option( 'wpcd_form-shortcode-split-form', 'split' );
+			$extras->options['new_terms']      = get_option( 'wpcd_form-shortcode-enable-new-terms', '' );
 
 			// enqueue scripts/styles step
 			$this->_c()->add_action( 'wp_enqueue_scripts',

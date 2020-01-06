@@ -14,12 +14,12 @@ class WPCD_Meta_Boxes_Fields_Pro__Premium_Only {
 		return
 			array(
 				array(
-					'id'      => 'coupon-type',
-					'label'   => __( 'Coupon Type', 'wpcd-coupon' ),
-					'type'    => 'select',
-					'help'    => __( 'Coupon Type. Coupon will display a coupon code which will be copied when user clicks on it. Deal will display a link to get the deal instead of coupon code.',
+					'id'         => 'coupon-type',
+					'label'      => __( 'Coupon Type', 'wpcd-coupon' ),
+					'type'       => 'select',
+					'help'       => __( 'Coupon Type. Coupon will display a coupon code which will be copied when user clicks on it. Deal will display a link to get the deal instead of coupon code.',
 						'wpcd-coupon' ),
-					'options' => array(
+					'options'    => array(
 						'Coupon',
 						'Deal',
 						'Image'
@@ -27,97 +27,115 @@ class WPCD_Meta_Boxes_Fields_Pro__Premium_Only {
 					'complexity' => 'basic'
 				),
 				array(
-					'id'    => 'coupon-code-text',
-					'label' => __( 'Coupon Code', 'wpcd-coupon' ),
-					'type'  => 'buttontext',
-					'help'  => __( 'Put your coupon code here. This will be copied when user clicks on it.',
+					'id'         => 'coupon-code-text',
+					'label'      => __( 'Coupon Code', 'wpcd-coupon' ),
+					'type'       => 'buttontext',
+					'help'       => __( 'Put your coupon code here. This will be copied when user clicks on it.',
 						'wpcd-coupon' ),
 					'complexity' => 'basic'
 				),
 				array(
-					'id'    => 'second-coupon-code-text',
-					'label' => __( 'Second Coupon Code', 'wpcd-coupon' ),
-					'type'  => 'temp4-buttontext',
-					'help'  => __( 'Put your coupon code here. This will be copied when user clicks on it.',
+					'id'         => 'second-coupon-code-text',
+					'label'      => __( 'Second Coupon Code', 'wpcd-coupon' ),
+					'type'       => 'temp4-buttontext',
+					'help'       => __( 'Put your coupon code here. This will be copied when user clicks on it.',
 						'wpcd-coupon' ),
 					'complexity' => 'basic'
 				),
 				array(
-					'id'    => 'third-coupon-code-text',
-					'label' => __( 'Third Coupon Code', 'wpcd-coupon' ),
-					'type'  => 'temp4-buttontext',
-					'help'  => __( 'Put your coupon code here. This will be copied when user clicks on it.',
+					'id'         => 'third-coupon-code-text',
+					'label'      => __( 'Third Coupon Code', 'wpcd-coupon' ),
+					'type'       => 'temp4-buttontext',
+					'help'       => __( 'Put your coupon code here. This will be copied when user clicks on it.',
 						'wpcd-coupon' )
-					, 'complexity' => 'basic'
+				,
+					'complexity' => 'basic'
 				),
 				array(
-					'id'    => 'deal-button-text',
-					'label' => __( 'Deal Button Text', 'wpcd-coupon' ),
-					'type'  => 'dealtext',
-					'help'  => __( 'Deal button text. Put something like Get this Deal.', 'wpcd-coupon' )
-				, 'complexity' => 'basic'
+					'id'         => 'deal-button-text',
+					'label'      => __( 'Deal Button Text', 'wpcd-coupon' ),
+					'type'       => 'dealtext',
+					'help'       => __( 'Deal button text. Put something like Get this Deal.', 'wpcd-coupon' )
+				,
+					'complexity' => 'basic'
 				),
 				array(
-					'id'    => 'second-deal-button-text',
-					'label' => __( 'Second Deal Button Text', 'wpcd-coupon' ),
-					'type'  => 'temp4-dealtext',
-					'help'  => __( 'Deal button text. Put something like Get this Deal.', 'wpcd-coupon' )
-				, 'complexity' => 'basic'
+					'id'         => 'second-deal-button-text',
+					'label'      => __( 'Second Deal Button Text', 'wpcd-coupon' ),
+					'type'       => 'temp4-dealtext',
+					'help'       => __( 'Deal button text. Put something like Get this Deal.', 'wpcd-coupon' )
+				,
+					'complexity' => 'basic'
 				),
 				array(
-					'id'    => 'third-deal-button-text',
-					'label' => __( 'Third Deal Button Text', 'wpcd-coupon' ),
-					'type'  => 'temp4-dealtext',
-					'help'  => __( 'Deal button text. Put something like Get this Deal.', 'wpcd-coupon' )
-				, 'complexity' => 'basic'
+					'id'         => 'third-deal-button-text',
+					'label'      => __( 'Third Deal Button Text', 'wpcd-coupon' ),
+					'type'       => 'temp4-dealtext',
+					'help'       => __( 'Deal button text. Put something like Get this Deal.', 'wpcd-coupon' )
+				,
+					'complexity' => 'basic'
 				),
 				array(
-					'id'    => 'link',
-					'label' => __( 'Link', 'wpcd-coupon' ),
-					'type'  => 'text',
-					'help'  => __( 'Link to be opened when clicked on coupon code. You can use your affiliate links.',
+					'id'         => 'link',
+					'label'      => __( 'Link', 'wpcd-coupon' ),
+					'type'       => 'text',
+					'help'       => __( 'Link to be opened when clicked on coupon code. You can use your affiliate links.',
 						'wpcd-coupon' )
+				,
+					'complexity' => 'basic'
 				),
 				array(
-					'id'    => 'second-link',
-					'label' => __( 'Second Link', 'wpcd-coupon' ),
-					'type'  => 'temp4-text',
-					'help'  => __( 'Link to be opened when clicked on coupon code. You can use your affiliate links.',
+					'id'         => 'second-link',
+					'label'      => __( 'Second Link', 'wpcd-coupon' ),
+					'type'       => 'temp4-text',
+					'help'       => __( 'Link to be opened when clicked on coupon code. You can use your affiliate links.',
 						'wpcd-coupon' )
+				,
+					'complexity' => 'basic'
 				),
 				array(
-					'id'    => 'third-link',
-					'label' => __( 'Third Link', 'wpcd-coupon' ),
-					'type'  => 'temp4-text',
-					'help'  => __( 'Link to be opened when clicked on coupon code. You can use your affiliate links.',
+					'id'         => 'third-link',
+					'label'      => __( 'Third Link', 'wpcd-coupon' ),
+					'type'       => 'temp4-text',
+					'help'       => __( 'Link to be opened when clicked on coupon code. You can use your affiliate links.',
 						'wpcd-coupon' )
+				,
+					'complexity' => 'basic'
 				),
 				array(
-					'id'    => 'discount-text',
-					'label' => __( 'Discount Amount/Text', 'wpcd-coupon' ),
-					'type'  => 'text',
-					'help'  => __( 'Discount amount or text to be shown. Example: 60% Off.', 'wpcd-coupon' )
+					'id'         => 'discount-text',
+					'label'      => __( 'Discount Amount/Text', 'wpcd-coupon' ),
+					'type'       => 'text',
+					'help'       => __( 'Discount amount or text to be shown. Example: 60% Off.', 'wpcd-coupon' )
+				,
+					'complexity' => 'basic'
 
 				),
 				array(
-					'id'    => 'second-discount-text',
-					'label' => __( 'Discount Amount/Text (Second Code)', 'wpcd-coupon' ),
-					'type'  => 'temp4-text',
-					'help'  => __( 'Discount amount or text to be shown. Example: 60% Off.', 'wpcd-coupon' )
+					'id'         => 'second-discount-text',
+					'label'      => __( 'Discount Amount/Text (Second Code)', 'wpcd-coupon' ),
+					'type'       => 'temp4-text',
+					'help'       => __( 'Discount amount or text to be shown. Example: 60% Off.', 'wpcd-coupon' )
+				,
+					'complexity' => 'basic'
 				),
 				array(
-					'id'    => 'third-discount-text',
-					'label' => __( 'Discount Amount/Text (Third Code)', 'wpcd-coupon' ),
-					'type'  => 'temp4-text',
-					'help'  => __( 'Discount amount or text to be shown. Example: 60% Off.', 'wpcd-coupon' )
+					'id'         => 'third-discount-text',
+					'label'      => __( 'Discount Amount/Text (Third Code)', 'wpcd-coupon' ),
+					'type'       => 'temp4-text',
+					'help'       => __( 'Discount amount or text to be shown. Example: 60% Off.', 'wpcd-coupon' )
+				,
+					'complexity' => 'basic'
 				),
 
 				array(
-					'id'    => 'wpcd_description',
-					'label' => __( 'Description', 'wpcd-coupon' ),
-					'type'  => 'textarea',
-					'help'  => __( 'A little description so users know what the coupon code or deal is about.',
+					'id'         => 'wpcd_description',
+					'label'      => __( 'Description', 'wpcd-coupon' ),
+					'type'       => 'textarea',
+					'help'       => __( 'A little description so users know what the coupon code or deal is about.',
 						'wpcd-coupon' )
+				,
+					'complexity' => 'basic'
 				),
 				array(
 					'id'      => 'show-expiration',
@@ -130,28 +148,31 @@ class WPCD_Meta_Boxes_Fields_Pro__Premium_Only {
 					)
 				),
 				array(
-					'id'    => 'expire-date',
-					'label' => __( 'Expiration Date', 'wpcd-coupon' ),
-					'type'  => 'expiredate',
-					'help'  => __( 'Choose a date this coupon will expire. If you leave this blank, shortcode will show the message Doesn\'t expire.',
+					'id'         => 'expire-date',
+					'label'      => __( 'Expiration Date', 'wpcd-coupon' ),
+					'type'       => 'expiredate',
+					'help'       => __( 'Choose a date this coupon will expire. If you leave this blank, shortcode will show the message Doesn\'t expire.',
 						'wpcd-coupon' )
-				, 'complexity'=>'basic'
+				,
+					'complexity' => 'basic'
 				),
 				array(
-					'id'    => 'second-expire-date',
-					'label' => __( 'Expiration Date (Second Coupon)', 'wpcd-coupon' ),
-					'type'  => 'temp4-expiredate',
-					'help'  => __( 'Choose a date this coupon will expire. If you leave this blank, shortcode will show the message Doesn\'t expire.',
+					'id'         => 'second-expire-date',
+					'label'      => __( 'Expiration Date (Second Coupon)', 'wpcd-coupon' ),
+					'type'       => 'temp4-expiredate',
+					'help'       => __( 'Choose a date this coupon will expire. If you leave this blank, shortcode will show the message Doesn\'t expire.',
 						'wpcd-coupon' )
-				, 'complexity'=>'basic'
+				,
+					'complexity' => 'basic'
 				),
 				array(
-					'id'    => 'third-expire-date',
-					'label' => __( 'Expiration Date (Third Coupon)', 'wpcd-coupon' ),
-					'type'  => 'temp4-expiredate',
-					'help'  => __( 'Choose a date this coupon will expire. If you leave this blank, shortcode will show the message Doesn\'t expire.',
+					'id'         => 'third-expire-date',
+					'label'      => __( 'Expiration Date (Third Coupon)', 'wpcd-coupon' ),
+					'type'       => 'temp4-expiredate',
+					'help'       => __( 'Choose a date this coupon will expire. If you leave this blank, shortcode will show the message Doesn\'t expire.',
 						'wpcd-coupon' )
-				, 'complexity'=>'basic'
+				,
+					'complexity' => 'basic'
 				),
 				array(
 					'id'    => 'expire-time',
@@ -225,12 +246,12 @@ class WPCD_Meta_Boxes_Fields_Pro__Premium_Only {
 					)
 				),
 				array(
-					'id'       => 'coupon-image-input',
-					'label'    => __( 'Coupon Image', 'wpcd-coupon' ),
-					'type'     => 'coupon-image-row',
-					'help'     => __( 'Choose your coupon image', 'wpcd-coupon' ),
-					'tr_class' => 'coupon-image-field',
-					'help'     => '',
+					'id'         => 'coupon-image-input',
+					'label'      => __( 'Coupon Image', 'wpcd-coupon' ),
+					'type'       => 'coupon-image-row',
+					'help'       => __( 'Choose your coupon image', 'wpcd-coupon' ),
+					'tr_class'   => 'coupon-image-field',
+					'help'       => '',
 					'complexity' => 'basic'
 				),
 				array(

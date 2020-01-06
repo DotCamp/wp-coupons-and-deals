@@ -2,7 +2,7 @@
   <div id="form-shortcode-form-wrapper">
     <option-holder
       :filter="f => true"
-      v-if="extras.split_form === 'full'"
+      v-if="extras.options.split_form === 'full'"
       :name="extras.strings.options"
       :show="true"
       :options-fields="fields"
@@ -14,7 +14,7 @@
       </template>
     </option-holder>
 
-    <div v-else-if="extras.split_form === 'split'">
+    <div v-else-if="extras.options.split_form === 'split'">
       <option-holder
         :filter="f => f.complexity === 'basic'"
         :name="extras.strings.basic_options"

@@ -18,7 +18,7 @@
           :coupon_type="c['coupon_type']"
           :terms="c['terms']"
           :ID="c['ID']"
-          :shortcode="extras.shortcode"
+          :shortcode="extras.options.shortcode"
           :expire="c['expire_date']"
           @edit="editCoupon"
           @thrash="deleteCoupon"
@@ -83,8 +83,8 @@ export default {
       this.startFetching();
       return this.resource
         .get({
-          action: this.extras.coupons_action,
-          nonce: this.extras.nonce,
+          action: this.extras.options.coupons_action,
+          nonce: this.extras.options.nonce,
           coupons: 'all',
         })
         .then(resp => resp.json())
@@ -97,8 +97,8 @@ export default {
       this.startFetching();
       return this.resource
         .get({
-          action: this.extras.coupons_action,
-          nonce: this.extras.nonce,
+          action: this.extras.options.coupons_action,
+          nonce: this.extras.options.nonce,
           coupons: 'single',
           coupon_id: id,
         })
@@ -120,8 +120,8 @@ export default {
       this.startFetching();
       return this.resource
         .get({
-          action: this.extras.coupons_action,
-          nonce: this.extras.nonce,
+          action: this.extras.options.coupons_action,
+          nonce: this.extras.options.nonce,
           coupons: 'thrash',
           coupon_id: id,
         })

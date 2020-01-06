@@ -120,8 +120,8 @@ export default {
       const formData = new FormData();
 
       formData.set('new_term', term);
-      formData.set('nonce', this.extras.nonce);
-      formData.set('action', this.extras.form_action);
+      formData.set('nonce', this.extras.options.nonce);
+      formData.set('action', this.extras.options.form_action);
 
       this.fetching = true;
       this.resource

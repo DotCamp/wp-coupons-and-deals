@@ -37,7 +37,7 @@ Vue.filter('truncate', (val, l, suffix) => {
 Vue.mixin({
   computed: {
     resource() {
-      return this.$resource(this.extras.ajax_url);
+      return this.$resource(this.extras.options.ajax_url);
     },
   },
 });

@@ -7,7 +7,7 @@
       :sTerms="taxonomies['wpcd_coupon_category']"
       :termsChecked="store.terms ? store.terms['wpcd_coupon_category'] || [] : []"
       @termsChanged="updateTerms"
-      :term-insert="extras.new_terms === 'on'"
+      :term-insert="extras.options.new_terms === 'on'"
       items-per-page="10"
     />
     <term-holder
@@ -17,7 +17,7 @@
       :sTerms="taxonomies['wpcd_coupon_vendor']"
       :termsChecked="store.terms ? store.terms['wpcd_coupon_vendor'] || [] : []"
       @termsChanged="updateTerms"
-      :term-insert="extras.new_terms === 'on'"
+      :term-insert="extras.options.new_terms === 'on'"
       items-per-page="10"
     />
   </div>
