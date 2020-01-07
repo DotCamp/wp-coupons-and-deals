@@ -7,6 +7,8 @@
     --wpcd-fs-green-500: #48bb78;
     --wpcd-fs-blue-500: #4299e1;
     --wpcd-fs-red-500: #f56565;
+    /*--wpcd-fs-yellow-200: #fefcbf;*/
+    --wpcd-fs-yellow-500: #f6e05e;
     --wpcd-fs-dark-100: rgba(0, 0, 0, .05);
     --wpcd-fs-dark-200: rgba(0, 0, 0, .1);
     --wpcd-fs-1: 0.25rem;
@@ -349,6 +351,22 @@
     width: 100%;
     height: 200px;
     background-color: var(--wpcd-fs-gray-200)
+}
+
+.wpcd-fs-tr-highlight {
+    animation: wpcd-fs-highlight 1s ease-out alternate infinite;
+}
+
+@keyframes wpcd-fs-highlight {
+    from {
+        outline: 1px solid var(--wpcd-fs-yellow-500);
+        transform: scale(1.0);
+    }
+    to {
+        outline: 5px solid var(--wpcd-fs-yellow-500);
+        transform: scale(1.05);
+    }
+
 }
 
 .wpcd-fs-no-text {

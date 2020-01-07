@@ -27,10 +27,11 @@ import TemplateSelector from './TemplateSelector';
 import OptionsComponent from './OptionsComponent';
 import MessageMixin from './mixins/MessageMixin';
 import Message from './Message';
+import HighlightMixin from './mixins/HighlightMixin';
 import logo from '../assets/image/icon-128x128.png';
 
 export default {
-  mixins: [MessageMixin],
+  mixins: [MessageMixin, HighlightMixin],
   props: ['fields'],
   components: {
     Message,
@@ -172,6 +173,7 @@ export default {
             });
 
             this.setMessage(`${j.message || ''} | id: ${j.id}`);
+            this.highlightId = j.id;
             this.$emit('switch', 'UserCoupons');
           })
           .catch(e => {

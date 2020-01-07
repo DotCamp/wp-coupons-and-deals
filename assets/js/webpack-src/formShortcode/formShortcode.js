@@ -68,6 +68,9 @@ Vue.use(Store, {
       type: 'normal',
       time: 0,
     },
+    latest: {
+      id: '',
+    },
   },
 });
 

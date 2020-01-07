@@ -1,6 +1,7 @@
 <template>
   <tr
     class="wpcd-form-shortcode-generic-transition wpcd-fs-basic-fade"
+    :class="isHighlighted"
     @mouseover="mouseOver(true)"
     @mouseout="mouseOver(false)"
   >
@@ -35,8 +36,10 @@
 <script>
 import ShortcodeCopy from './ShortcodeCopy';
 import { toMilliSeconds } from '../functions/EzTime';
+import HighlightMixin from './mixins/HighlightMixin';
 
 export default {
+  mixins: [HighlightMixin],
   props: ['post_title', 'post_status', 'coupon_type', 'ID', 'terms', 'shortcode', 'expire'],
   components: { ShortcodeCopy },
   data() {
@@ -54,10 +57,19 @@ export default {
       }
       return this.extras.strings.no_expire;
     },
+    isHighlighted() {
+      const isIt = Number.parseInt(this.ID, 10) === Number.parseInt(this.highlightId, 10);
+      if (isIt) {
+        this.resetHighlight();
+      }
+      return isIt ? [this.highlightClass] : '';
+    },
   },
   methods: {
     mouseOver(status) {
       this.hover = status;
+      // reset highlight styles on hover
+      this.highlightClass = '';
     },
     renderTerms(name) {
       if (this.terms[name].length > 0) {
