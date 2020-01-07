@@ -1,10 +1,10 @@
 <template>
   <div class="wpcd-form-shortcode-generic-transition wpcd-fs-basic-fade">
-    <message></message>
-    <div>
-      <button class="wpcd-fs-float-right" v-show="current !== 'CouponForm'" @click="$emit('addNew')">
-        {{ extras.strings.add_new }}
-      </button>
+    <message type="all" />
+    <button v-show="current !== 'CouponForm'" @click="$emit('addNew')">
+      {{ extras.strings.add_new }}
+    </button>
+    <div class="wpcd-fs-mt-2 wpcd-fs-dynamic-border wpcd-fs-dynamic-bg wpcd-fs-p-4 wpcd-fs-rounded wpcd-fs-shadow">
       <table class="wpcd-fs-w-full-important wpcd-fs-table wpcd-fs-zebra-table" style="margin-bottom: 0">
         <tr>
           <column-sort :heading="extras.strings.coupon_title" col-name="coupon_title" @sort="sort" />
@@ -61,8 +61,10 @@ import Pagination from './Pagination';
 import WaitBlock from './WaitBlock';
 import ColumnSort from './ColumnSort';
 import Message from './Message';
+import MessageMixin from './mixins/MessageMixin';
 
 export default {
+  mixins: [MessageMixin],
   components: { Message, UserCouponRow, Pagination, WaitBlock, ColumnSort },
   data() {
     return {
@@ -92,9 +94,22 @@ export default {
           nonce: this.extras.options.nonce,
           coupons: 'all',
         })
-        .then(resp => resp.json())
+        .then(
+          resp => resp.json(),
+          resp => {
+            this.setMessage(resp.message, this.messageTypes.error);
+          }
+        )
         .then(r => {
+          if (r.error) {
+            throw new Error(r.error);
+          }
           this.$set(this, 'coupons', r.data);
+        })
+        .catch(e => {
+          this.setMessage(e.message, this.messageTypes.error);
+        })
+        .finally(() => {
           this.stopFetching();
         });
     },
@@ -109,15 +124,20 @@ export default {
         })
         .then(
           resp => resp.json(),
-          () => {
-            this.stopFetching();
+          resp => {
+            this.setMessage(resp.message, this.messageTypes.error);
           }
         )
         .then(r => {
-          this.stopFetching();
+          if (r.error) {
+            throw new Error(r.error);
+          }
           return r.data;
         })
-        .catch(() => {
+        .catch(e => {
+          this.setMessage(e.message, this.messageTypes.error);
+        })
+        .finally(() => {
           this.stopFetching();
         });
     },
@@ -132,17 +152,21 @@ export default {
         })
         .then(
           resp => resp.json(),
-          () => {
-            this.stopFetching();
+          resp => {
+            this.setMessage(resp.message, this.messageTypes.error);
           }
         )
         .then(r => {
-          this.stopFetching();
-          if (!r.error) {
-            this.getAllUserCoupons();
+          if (r.error) {
+            throw new Error(r.error);
           }
+          this.setMessage(`${r.message} | id:${r.id}`);
+          this.getAllUserCoupons();
         })
-        .catch(() => {
+        .catch(e => {
+          this.setMessage(e.message, this.messageTypes.error);
+        })
+        .finally(() => {
           this.stopFetching();
         });
     },

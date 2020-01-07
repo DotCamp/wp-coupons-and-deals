@@ -7,11 +7,17 @@
     --wpcd-fs-green-500: #48bb78;
     --wpcd-fs-blue-500: #4299e1;
     --wpcd-fs-red-500: #f56565;
+    --wpcd-fs-dark-100: rgba(0, 0, 0, .05);
+    --wpcd-fs-dark-200: rgba(0, 0, 0, .1);
     --wpcd-fs-1: 0.25rem;
     --wpcd-fs-2: calc(2 * var(--wpcd-fs-1));
     --wpcd-fs-3: calc(3 * var(--wpcd-fs-1));
     --wpcd-fs-4: calc(4 * var(--wpcd-fs-1));
     --wpcd-fs-indexer-w: 20px;
+}
+
+.wpcd-fs-dynamic-bg {
+    background-color: var(--wpcd-fs-dark-100);
 }
 
 .wpcd-fs-table {
@@ -194,6 +200,10 @@
     border: 1px solid var(--wpcd-fs-gray-400)
 }
 
+.wpcd-fs-dynamic-border {
+    border: 1px solid var(--wpcd-fs-dark-200)
+}
+
 .wpcd-fs-bg-white {
     background-color: white;
 }
@@ -227,7 +237,20 @@
 
 .wpcd-fs-message-holder {
     margin-left: calc(var(--wpcd-fs-indexer-w) + var(--wpcd-fs-4));
+    margin-right: calc(var(--wpcd-fs-indexer-w) + var(--wpcd-fs-4));
 }
+
+.wpcd-fs-message-close-btn {
+    background-color: transparent !important;
+    transform: translateX(-150%);
+}
+
+.wpcd-fs-message-close-btn::before {
+    content: "\f153";
+    font-family: dashicons;
+    font-size: 30px;
+}
+
 
 .wpcd-fs-inline-block {
     display: inline-block;
@@ -294,7 +317,6 @@
 
 .wpcd-preview-wrapper {
     overflow-x: hidden;
-    background-color: var(--wpcd-fs-gray-100);
     width: 100% !important;
     margin-bottom: var(--wpcd-fs-4)
 }

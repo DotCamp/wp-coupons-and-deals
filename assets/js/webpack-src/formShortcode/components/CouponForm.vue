@@ -3,11 +3,14 @@
     <button @click.prevent="$emit('switch', 'UserCoupons')" class="wpcd-fs-pointer">
       {{ extras.strings.back_to_coupons | cap }}
     </button>
-    <div class="wpcd-fs-flex wpcd-fs-flex-col wpcd-fs-mt-2">
+    <div
+      class="wpcd-fs-flex wpcd-fs-flex-col wpcd-fs-mt-2 wpcd-fs-dynamic-border wpcd-fs-dynamic-bg wpcd-fs-p-4 wpcd-fs-rounded wpcd-fs-shadow"
+    >
       <options-component :fields="filterParsedFields(f => f.id !== 'coupon-template')" :coupon-type-data="couponType" />
       <terms-component :taxonomies="extras.terms" />
       <featured-image :featured-url="store.featured_url" />
       <submit-component :message="submitMessage" @submit="submitForm" />
+      <message type="error" />
     </div>
     <div class="wpcd-fs-mt-4">
       <template-selector :templates="filterParsedFields(f => f.id === 'coupon-template')[0]" />
@@ -23,12 +26,14 @@ import FeaturedImage from './FeaturedImage';
 import TemplateSelector from './TemplateSelector';
 import OptionsComponent from './OptionsComponent';
 import MessageMixin from './mixins/MessageMixin';
+import Message from './Message';
 import logo from '../assets/image/icon-128x128.png';
 
 export default {
   mixins: [MessageMixin],
   props: ['fields'],
   components: {
+    Message,
     OptionsComponent,
     FeaturedImage,
     TermsComponent,
@@ -152,8 +157,7 @@ export default {
           .then(
             resp => resp.json(),
             resp => {
-              this.app.submit.isSuccess = false;
-              this.submitMessage = resp.message;
+              this.setMessage(resp.message, this.messageTypes.error);
             }
           )
           .then(j => {
@@ -167,20 +171,16 @@ export default {
               }
             });
 
-            // this.$set(this.extras, 'terms', j.terms);
-            // this.submitMessage = `${j.message || ''} | id: ${j.id}`;
             this.setMessage(`${j.message || ''} | id: ${j.id}`);
+            this.$emit('switch', 'UserCoupons');
           })
           .catch(e => {
-            this.app.submit.isSuccess = false;
-            this.submitMessage = e.message;
+            this.setMessage(e.message, this.messageTypes.error);
           });
       } catch (e) {
-        this.app.submit.isSuccess = false;
-        this.submitMessage = e;
+        this.setMessage(e.message, this.messageTypes.error);
       } finally {
         this.app.submit.fetching = false;
-        this.$emit('switch', 'UserCoupons');
       }
     },
   },

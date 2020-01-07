@@ -1,6 +1,7 @@
 <template>
   <div>
     <div
+      id="scrollMarker"
       title="Best WordPress Coupon Plugin For Bloggers and Affiliate Marketers."
       class="wpcd-fs-logo-wrapper wpcd-fs-flex wpcd-fs-flex-col wpcd-fs-justify-center wpcd-fs-items-center"
     >
@@ -25,9 +26,11 @@
 <script>
 import CouponForm from './CouponForm';
 import UserCoupons from './UserCoupons';
+import ScrollMixin from './mixins/ScrollMixin';
 import logo from '../assets/image/icon-128x128.png';
 
 export default {
+  mixins: [ScrollMixin],
   props: ['fields', 'coupons'],
   components: { CouponForm, UserCoupons },
   data() {
@@ -61,14 +64,11 @@ export default {
     },
     switchComponent(c) {
       this.current = c;
-      this.scrollToTop();
+      this.scrollTo('scrollMarker');
     },
     addNew() {
       this.resetStore();
-      this.current = 'CouponForm';
-    },
-    scrollToTop() {
-      window.scrollTo(0, 0);
+      this.switchComponent('CouponForm');
     },
   },
   computed: {

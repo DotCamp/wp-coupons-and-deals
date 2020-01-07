@@ -158,7 +158,7 @@ class WPCD_Formshortcode_Coupons_Ajax extends WPCD_Ajax_Base {
 		$query = $wpdb->prepare( "SELECT ID, post_status, post_title, 
        MAX(CASE WHEN (meta.meta_key= 'coupon_details_coupon-type') THEN meta.meta_value ELSE NULL END) as coupon_type,
        MAX(CASE WHEN (meta.meta_key= 'coupon_details_coupon-title') THEN meta.meta_value ELSE NULL END) as coupon_title," . "       MAX(CASE WHEN (meta.meta_key= 'coupon_details_expire-date') THEN meta.meta_value ELSE NULL END) as expire_date 
-from " . $wpdb->posts . " as posts inner JOIN " . $wpdb->postmeta . " as meta  on posts.ID = meta.post_id where posts.post_type = %s and posts.post_status in ('publish', 'draft', 'pending') and meta.meta_key in ('coupon_details_coupon-type', 'coupon_details_coupon-title', 'coupon_details_expire-date') and posts.post_author=%d group by posts.ID",
+from " . $wpdb->posts . " as posts inner JOIN " . $wpdb->postmeta . " as meta  on posts.ID = meta.post_id where posts.post_type = %s and posts.post_status in ('publish', 'draft', 'pending') and meta.meta_key in ('coupon_details_coupon-type', 'coupon_details_coupon-title', 'coupon_details_expire-date') and posts.post_author=%d group by posts.ID ORDER BY ID DESC",
 			WPCD_Plugin::CUSTOM_POST_TYPE, $user_id );
 
 		$results = $wpdb->get_results( $query );

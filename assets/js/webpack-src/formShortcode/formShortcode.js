@@ -64,7 +64,7 @@ Vue.use(Store, {
       isSuccess: true,
     },
     message: {
-      text: '',
+      text: 'just a template text',
       type: 'normal',
       time: 0,
     },

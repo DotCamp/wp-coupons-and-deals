@@ -13,6 +13,7 @@ export default {
             element: '.wpcd-get-fetured-img',
             format: (value, el) => {
               if (value && el) {
+                // eslint-disable-next-line no-param-reassign
                 el.src = value;
               }
             },
@@ -21,6 +22,7 @@ export default {
             element: 'img[alt="Coupon"]',
             format: (value, el) => {
               if (value && el) {
+                // eslint-disable-next-line no-param-reassign
                 el.src = value;
               }
             },
