@@ -62,9 +62,10 @@ import WaitBlock from './WaitBlock';
 import ColumnSort from './ColumnSort';
 import Message from './Message';
 import MessageMixin from './mixins/MessageMixin';
+import HighlightMixin from './mixins/HighlightMixin';
 
 export default {
-  mixins: [MessageMixin],
+  mixins: [MessageMixin, HighlightMixin],
   components: { Message, UserCouponRow, Pagination, WaitBlock, ColumnSort },
   data() {
     return {
@@ -76,9 +77,28 @@ export default {
   mounted() {
     this.getAllUserCoupons().then(() => {
       this.sort('ID', 'DESC');
+      this.findPageNumber(this.app.latest.id);
     });
   },
   methods: {
+    findPageNumber(id) {
+      let index = -1;
+      this.coupons.map((c, i) => {
+        const parsedID = Number.parseInt(c.ID, 10);
+
+        if (parsedID === id) {
+          index = i;
+        }
+      });
+
+      // id not found, exit
+      if (index < 0) {
+        return;
+      }
+
+      // calculate the position of index in current pagination system
+      this.current = Math.floor(index / this.itemsPerPage) + 1;
+    },
     sort(colName, sortOrder) {
       this.getAllUserCoupons().then(() => {
         this.coupons.sort((a, b) => {
@@ -189,6 +209,10 @@ export default {
       const startIndex = (this.current - 1) * this.itemsPerPage;
       return this.coupons.slice(startIndex, startIndex + this.itemsPerPage);
     },
+  },
+  beforeDestroy() {
+    // reset highlight data
+    this.resetHighlight();
   },
 };
 </script>

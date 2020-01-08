@@ -5,7 +5,6 @@
       title="Best WordPress Coupon Plugin For Bloggers and Affiliate Marketers."
       class="wpcd-fs-logo-wrapper wpcd-fs-flex wpcd-fs-flex-col wpcd-fs-justify-center wpcd-fs-items-center"
     >
-      <img :src="logo" style="border: none" class="wpcd-fs-coupons-logo" />
       <h3 style="margin:5px">
         <a href="https://wpcouponsdeals.com/" target="_blank">
           WP Coupons and Deals
@@ -27,7 +26,6 @@
 import CouponForm from './CouponForm';
 import UserCoupons from './UserCoupons';
 import ScrollMixin from './mixins/ScrollMixin';
-import logo from '../assets/image/icon-128x128.png';
 
 export default {
   mixins: [ScrollMixin],
@@ -40,7 +38,6 @@ export default {
       tabQueryKey: 'wpcd_fs_tab',
       paginationQueryKey: 'wpcd_fs_p',
       currentPagination: 0,
-      logo,
     };
   },
   watch: {

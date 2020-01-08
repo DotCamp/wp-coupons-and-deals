@@ -59,9 +59,6 @@ export default {
     },
     isHighlighted() {
       const isIt = Number.parseInt(this.ID, 10) === Number.parseInt(this.highlightId, 10);
-      if (isIt) {
-        this.resetHighlight();
-      }
       return isIt ? [this.highlightClass] : '';
     },
   },
