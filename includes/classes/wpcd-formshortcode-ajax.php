@@ -10,12 +10,19 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 
 		if ( filter_var( $this->_c()->check_ajax_referer( 'wpcd_shortcode_form', 'nonce', false ),
 			FILTER_VALIDATE_BOOLEAN ) ) {
-			if ( isset( $_POST['new_term'] ) ) {
-				$this->create_term();
-			} elseif ( isset( $_POST['ID'] ) ) {
-				$this->update_coupon();
+			if ( ! $this->checkAllowedTemplates( $_POST['coupon-template'] ) ) {
+				$this->setError(
+					__( 'You are not authorized to use this template',
+						WPCD_Plugin::TEXT_DOMAIN ) );
+
 			} else {
-				$this->insert_coupon();
+				if ( isset( $_POST['new_term'] ) ) {
+					$this->create_term();
+				} elseif ( isset( $_POST['ID'] ) ) {
+					$this->update_coupon();
+				} else {
+					$this->insert_coupon();
+				}
 			}
 		} else {
 			// nonce error response
@@ -41,6 +48,22 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 			$term = array_map( 'intval', $term );
 
 			wp_set_object_terms( $post_id, $term, $tax_name );
+		}
+	}
+
+	/**
+	 * check setting gated default template against sent post field
+	 *
+	 * @param string $postedTemplate template name to be checked agains
+	 *
+	 * @return bool true for allowed
+	 */
+	private function checkAllowedTemplates( $postedTemplate ) {
+		$allowed_template = get_option( 'wpcd_form-shortcode-default-template', 'all' );
+		if ( $allowed_template === 'all' ) {
+			return true;
+		} else {
+			return $postedTemplate === $allowed_template;
 		}
 	}
 

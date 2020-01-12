@@ -118,8 +118,16 @@ class WPCD_Settings_Page_Pro {
 	private function settings_fields() {
 		global $wp_post_statuses;
 		$post_statuses = [];
-		foreach ($wp_post_statuses as $key=>$val){
-			$post_statuses[$key]=$key;
+		foreach ( $wp_post_statuses as $key => $val ) {
+			$post_statuses[ $key ] = $key;
+		}
+
+		// currently available template names
+		$template_names       = WPCD_Form_Shortcode::getAvailableTemplateNames( WPCD_Meta_Boxes_Fields_Pro__Premium_Only::getFields() );
+		$template_names_keyed = [];
+		$template_names_keyed['all'] = 'all';
+		foreach ( $template_names as $name ) {
+			$template_names_keyed[ $name ] = $name;
 		}
 
 		/**
@@ -547,7 +555,7 @@ class WPCD_Settings_Page_Pro {
 					'description' => __( 'Split form into smaller segments or show all fields',
 						'wpcd-coupon' ),
 					'type'        => 'select',
-					'options'     => array('full' => 'full', 'split' => 'split'),
+					'options'     => array( 'full' => 'full', 'split' => 'split' ),
 					'default'     => 'split'
 				),
 				array(
@@ -565,6 +573,15 @@ class WPCD_Settings_Page_Pro {
 						'wpcd-coupon' ),
 					'type'        => 'checkbox',
 					'default'     => '',
+				),
+				array(
+					'id'          => 'form-shortcode-default-template',
+					'label'       => __( 'Default Template', 'wpcd-coupon' ),
+					'description' => __( 'Default template for users to use. Select "all" to enable selection from available templates',
+						'wpcd-coupon' ),
+					'type'        => 'select',
+					'options'     => $template_names_keyed,
+					'default'     => 'all'
 				),
 			)
 		);

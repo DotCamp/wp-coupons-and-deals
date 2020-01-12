@@ -25,20 +25,11 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 			// removing any script tag from the previews
 			$coupon_preview = preg_replace( '#<script(.*?)>(.*?)</script>#is', '', $coupon_preview );
 
+			$template_names = static::getAvailableTemplateNames( $fields );
 			// splitting the html file into our templates
 			$split_html = $this->splitHtml( $coupon_preview, '<!-- :split Preview -->',
-				'<!-- End of :split Preview -->',
-				[
-					'Default',
-					'Template One',
-					'Template Two',
-					'Template Three',
-					'Template Four',
-					'Template Five',
-					'Template Six',
-					'Template Seven',
-					'Template Eight',
-				] );
+				'<!-- End of :split Preview -->', $template_names
+			);
 
 
 			// including the necessary js files for front end display
@@ -109,16 +100,17 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 
 			$extras->options = [];
 
-			$protocol                          = isset( $_SERVER['https'] ) ? 'https' : 'http';
-			$extras->options['ajax_url']       = admin_url( 'admin-ajax.php', $protocol );
-			$extras->options['form_action']    = $this->name;
-			$extras->options['coupons_action'] = $this->name . '_coupons';
-			$extras->options['nonce']          = $this->_c()->wp_create_nonce( 'wpcd_shortcode_form' );
-			$extras->options['thrash_enable']  = get_option( 'wpcd_form-shortcode-enable-thrash', '' );
-			$extras->options['shortcode']      = '[wpcd_coupon id=:id]';
-			$extras->options['split_form']     = get_option( 'wpcd_form-shortcode-split-form', 'split' );
-			$extras->options['new_terms']      = get_option( 'wpcd_form-shortcode-enable-new-terms', '' );
-			$extras->options['default_featured_url']= WPCD_Plugin::instance()->plugin_assets . 'img/coupon-200x200.png';
+			$protocol                                = isset( $_SERVER['https'] ) ? 'https' : 'http';
+			$extras->options['ajax_url']             = admin_url( 'admin-ajax.php', $protocol );
+			$extras->options['form_action']          = $this->name;
+			$extras->options['coupons_action']       = $this->name . '_coupons';
+			$extras->options['nonce']                = $this->_c()->wp_create_nonce( 'wpcd_shortcode_form' );
+			$extras->options['thrash_enable']        = get_option( 'wpcd_form-shortcode-enable-thrash', '' );
+			$extras->options['shortcode']            = '[wpcd_coupon id=:id]';
+			$extras->options['split_form']           = get_option( 'wpcd_form-shortcode-split-form', 'split' );
+			$extras->options['new_terms']            = get_option( 'wpcd_form-shortcode-enable-new-terms', '' );
+			$extras->options['default_featured_url'] = WPCD_Plugin::instance()->plugin_assets . 'img/coupon-200x200.png';
+			$extras->options['default_template']     = get_option( 'wpcd_form-shortcode-default-template', 'all' );
 
 			// enqueue scripts/styles step
 			$this->_c()->add_action( 'wp_enqueue_scripts',
@@ -284,5 +276,24 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 		}
 
 		return in_array( $current_role, $allowed_roles );
+	}
+
+	/**
+	 * get available template names from current meta box fields
+	 *
+	 * @param array $meta_array array of meta fields to be searched
+	 *
+	 * @return array template names array
+	 */
+	public static function getAvailableTemplateNames( $meta_array ) {
+		$template_meta_field = [];
+
+		foreach ( $meta_array as $m ) {
+			if ( $m['id'] === 'coupon-template' ) {
+				$template_meta_field = $m;
+			}
+		}
+
+		return $template_meta_field['options'];
 	}
 }

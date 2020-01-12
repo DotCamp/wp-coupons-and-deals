@@ -13,6 +13,7 @@
         :data="templates"
         :id="templates.id"
         :name="templates.name"
+        :disabled="forceDisable"
       />
       <button :disabled="buttonAvailable(nextDirection)" @click="slideTemplates(nextDirection)">
         <span class="dashicons dashicons-arrow-right" />
@@ -25,7 +26,7 @@ import InputSelector from './InputSelector';
 
 export default {
   components: { InputSelector },
-  props: ['templates'],
+  props: ['templates', 'forceDisable'],
   data() {
     return {
       nextDirection: 1,
@@ -39,6 +40,9 @@ export default {
       return index + direction;
     },
     buttonAvailable(direction) {
+      if (this.forceDisable) {
+        return true;
+      }
       const dynamicIndex = this.calculateDynamicIndex(direction);
       return dynamicIndex === this.templates.options.length || dynamicIndex < 0;
     },

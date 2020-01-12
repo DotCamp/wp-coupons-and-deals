@@ -13,7 +13,10 @@
       <message type="error" />
     </div>
     <div class="wpcd-fs-mt-4">
-      <template-selector :templates="filterParsedFields(f => f.id === 'coupon-template')[0]" />
+      <template-selector
+        :force-disable="!templateSelectionAvailable"
+        :templates="filterParsedFields(f => f.id === 'coupon-template')[0]"
+      />
       <coupon-preview />
     </div>
   </div>
@@ -50,7 +53,18 @@ export default {
       logo,
     };
   },
+  mounted() {
+    this.forceTemplate();
+  },
   methods: {
+    forceTemplate() {
+      if (!this.store.ID) {
+        const currentTemplate = this.extras.options.default_template;
+        if (currentTemplate !== 'all') {
+          this.store['coupon-template'] = this.extras.options.default_template;
+        }
+      }
+    },
     filterParsedFields(filterCall) {
       return this.parsedFields().filter(filterCall);
     },
@@ -186,6 +200,10 @@ export default {
       }
     },
   },
-  computed: {},
+  computed: {
+    templateSelectionAvailable() {
+      return this.extras.options.default_template === 'all';
+    },
+  },
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <th @mouseover="show = true" @mouseout="show = false" @click="colClick" class="wpcd-fs-pointer">
+  <th @mouseover="show = true" @mouseout="show = false" @click="colClick" class="wpcd-form-shortcode-generic-transition wpcd-fs-table-header wpcd-fs-pointer">
     {{ heading | cap }}
     <span
       :aria-expanded="JSON.stringify(expanded)"

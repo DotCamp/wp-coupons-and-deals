@@ -69,6 +69,11 @@
     flex-direction: column;
 }
 
+
+.wpcd-fs-table-header:hover {
+    background-color: var(--wpcd-fs-dark-100);
+}
+
 .wpcd-fs-items-center {
     align-items: center;
 }
