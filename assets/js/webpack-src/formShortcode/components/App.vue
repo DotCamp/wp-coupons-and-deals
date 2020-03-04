@@ -1,23 +1,9 @@
 <template>
   <div>
-    <div
-      id="scrollMarker"
-      title="Best WordPress Coupon Plugin For Bloggers and Affiliate Marketers."
-      class="wpcd-fs-logo-wrapper wpcd-fs-flex wpcd-fs-flex-col wpcd-fs-justify-center wpcd-fs-items-center"
-    >
-      <h3 style="margin:5px">
-        <a href="https://wpcouponsdeals.com/" target="_blank">
-          WP Coupons and Deals
-        </a>
-      </h3>
-    </div>
     <div>
       <h2 style="margin-top: 2px">
         {{ heading | cap }}
       </h2>
-      <!--      <button class="wpcd-fs-float-right" v-show="current !== 'CouponForm'" @click="addNew">-->
-      <!--        {{ extras.strings.add_new }}-->
-      <!--      </button>-->
     </div>
     <component @switch="switchComponent" :is="current" :fields="fields" @addNew="addNew" />
   </div>
