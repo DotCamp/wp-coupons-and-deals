@@ -18,12 +18,10 @@ class WPCD_Preview_Metabox {
 	private $fields = array();
 
 	/**
-	 * Class construct method.
-	 *
-	 * @since 2.0
+	 * add meta box support for the application
 	 */
-	public function __construct() {
-		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
+	public function add_meta_boxes() {
+		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes_callback' ) );
 	}
 
 	/**
@@ -31,7 +29,7 @@ class WPCD_Preview_Metabox {
 	 *
 	 * @since 2.0
 	 */
-	public function add_meta_boxes() {
+	public function add_meta_boxes_callback() {
 
 		foreach ( $this->screens as $screen ) {
 			add_meta_box(

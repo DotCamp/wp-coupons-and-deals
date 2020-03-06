@@ -142,6 +142,12 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 			add_option( 'wpcd_review_notify', 'no' );
 			add_option( 'wpcd_popup-goto-link', 'on' );
 
+			// Adds the option to enable users to delete their coupons
+			add_option( 'wpcd_form-shortcode-enable-thrash', 'on' );
+
+			// Adds the options to enable splitting the form into smaller segments
+			add_option('wpcd_form-shortcode-split-form', 'split');
+
 			/**
 			 * Loading the class here to avoid errors.
 			 *
@@ -221,6 +227,13 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 			add_action( 'init', array( __CLASS__, 'loadClasses' ), 10 );
 			add_action( 'init', array( __CLASS__, 'custom_taxonomy_register' ) );
 			add_action( 'init', array( __CLASS__, 'custom_post_type_register' ) );
+
+			// form short-code registration
+			// since our form short-code needs custom taxonomies, need to que it afterwards taxonomy registration, apart from other short-codes
+			add_action('init', function(){
+				(new WPCD_Form_Shortcode('wpcd_form'))->add();
+			}, 30);
+
 			add_action( 'widgets_init', array( __CLASS__, 'wpcd_widget_register' ), 20 );
 			add_filter( 'wp_enqueue_scripts', array( __CLASS__, 'load_jquery' ), 1 );
 			add_action( 'wp_enqueue_scripts', array( __CLASS__, 'load_jquery' ) );
@@ -528,7 +541,7 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 			 *
 			 * @since 2.0
 			 */
-			new WPCD_Preview_Metabox();
+			(new WPCD_Preview_Metabox())->add_meta_boxes();
 
 			/**
 			 * This adds the add coupon button to the post and

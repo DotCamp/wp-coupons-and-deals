@@ -1,0 +1,12 @@
+{
+    "name": "imtiaz_rayhan/wp-coupons-and-deals",
+    "description": "currently this composer file is only for testing purposes and no production libraries included",
+    "type": "project",
+    "scripts": {
+        "test": "phpunit"
+    },
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^8.4"
+    }
+}

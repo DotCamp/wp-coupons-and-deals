@@ -219,7 +219,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 			</div>
 		</div>
 	</div>
-</div><!-- End of Default Template Preview -->
+</div><!-- End of Default Preview -->
 
 <!-- Template One Preview -->
 <div class="wpcd-coupon-preview wpcd-coupon-one">
