@@ -185,9 +185,7 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 
 	public function logic( $attrs ) {
 		$pro_licensed_html = "<div id='form_shortcode'></div>";
-		$not_licensed_html = "<div style='background-color: white; padding: 1rem; border-radius: 1rem;'>" . __( 'You need pro license to use this feature.',
-				WPCD_Plugin::TEXT_DOMAIN ) . " <a href='https://wpcouponsdeals.com/' style='color:green'>" . __( 'Get one today!!!',
-				WPCD_Plugin::TEXT_DOMAIN ) . "</a></div>";
+		$not_licensed_html = " ";
 
 		// pro license check
 		return $this->isProLicensed() ? $pro_licensed_html : $not_licensed_html;

@@ -1,9 +1,9 @@
 === WordPress Coupon Plugin - WP Coupons and Deals ===
-Contributors: imtiazrayhan, mohmedelwany, wpcdplugin, ultimateblocks, wpleaders1
+Contributors: wpcdplugin, imtiazrayhan, istiakrayhan, mohmedelwany, ultimateblocks, wptb, wpleaders1
 Tags: coupon, coupons, deal, deals, affiliate, affiliate marketing
 Requires at least: 4.6
-Tested up to: 5.3
-Stable tag: 2.8.8
+Tested up to: 5.4
+Stable tag: 3.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 

@@ -535,15 +535,15 @@ class WPCD_Settings_Page_Pro {
 				array(
 					'id'          => 'form-shortcode-allowed-roles',
 					'label'       => __( 'Allowed User Roles', 'wpcd-coupon' ),
-					'description' => __( 'Allowed user roles to submit coupons from form shortcode', 'wpcd-coupon' ),
+					'description' => __( 'Allowed user roles to submit coupons using the form.', 'wpcd-coupon' ),
 					'type'        => 'checkbox_multi',
 					'options'     => wp_roles()->role_names,
 					'default'     => [ 'administrator' ],
 				),
 				array(
 					'id'          => 'form-shortcode-coupon-status',
-					'label'       => __( 'Coupon status', 'wpcd-coupon' ),
-					'description' => __( 'Status of user submitted coupons, default is "publish"',
+					'label'       => __( 'Coupon Status', 'wpcd-coupon' ),
+					'description' => __( 'Status of user submitted coupons, default is "publish".',
 						'wpcd-coupon' ),
 					'type'        => 'select',
 					'options'     => $post_statuses,
@@ -551,8 +551,8 @@ class WPCD_Settings_Page_Pro {
 				),
 				array(
 					'id'          => 'form-shortcode-split-form',
-					'label'       => __( 'Split form', 'wpcd-coupon' ),
-					'description' => __( 'Split form into smaller segments or show all fields',
+					'label'       => __( 'Split Form', 'wpcd-coupon' ),
+					'description' => __( 'Split the form into smaller segments or show all fields.',
 						'wpcd-coupon' ),
 					'type'        => 'select',
 					'options'     => array( 'full' => 'full', 'split' => 'split' ),
@@ -561,7 +561,7 @@ class WPCD_Settings_Page_Pro {
 				array(
 					'id'          => 'form-shortcode-enable-thrash',
 					'label'       => __( 'Enable Coupon Delete', 'wpcd-coupon' ),
-					'description' => __( 'Give the users the ability to delete their own coupons',
+					'description' => __( 'Give the users the ability to delete their own coupons.',
 						'wpcd-coupon' ),
 					'type'        => 'checkbox',
 					'default'     => '',
@@ -569,7 +569,7 @@ class WPCD_Settings_Page_Pro {
 				array(
 					'id'          => 'form-shortcode-enable-new-terms',
 					'label'       => __( 'Enable New Term Creation', 'wpcd-coupon' ),
-					'description' => __( 'Give the users the ability to create new terms',
+					'description' => __( 'Give the users the ability to create new terms (Categories & Vendors).',
 						'wpcd-coupon' ),
 					'type'        => 'checkbox',
 					'default'     => '',
@@ -577,7 +577,7 @@ class WPCD_Settings_Page_Pro {
 				array(
 					'id'          => 'form-shortcode-default-template',
 					'label'       => __( 'Default Template', 'wpcd-coupon' ),
-					'description' => __( 'Default template for users to use. Select "all" to enable selection from available templates',
+					'description' => __( 'Default template for users to use. Select "all" to enable selection from available templates.',
 						'wpcd-coupon' ),
 					'type'        => 'select',
 					'options'     => $template_names_keyed,
