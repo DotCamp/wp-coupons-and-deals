@@ -101,7 +101,8 @@ class WPCD_Form_Shortcode_Pro extends WPCD_Short_Code_Base {
 			$extras->options = [];
 
 			$protocol                                = isset( $_SERVER['https'] ) ? 'https' : 'http';
-			$extras->options['ajax_url']             = admin_url( 'admin-ajax.php', $protocol );
+
+			$extras->options['ajax_url']             = admin_url( 'admin-ajax.php');
 			$extras->options['form_action']          = $this->name;
 			$extras->options['coupons_action']       = $this->name . '_coupons';
 			$extras->options['nonce']                = $this->_c()->wp_create_nonce( 'wpcd_shortcode_form' );
