@@ -1,6 +1,6 @@
 <?php
 
-class WPCD_Formshortcode_Coupons_Ajax extends WPCD_Ajax_Base {
+class WPCD_Formshortcode_Coupons_Ajax_Pro extends WPCD_Ajax_Base {
 
 	/**
 	 * @inheritDoc

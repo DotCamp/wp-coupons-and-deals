@@ -123,7 +123,7 @@ class WPCD_Settings_Page_Pro {
 		}
 
 		// currently available template names
-		$template_names       = WPCD_Form_Shortcode::getAvailableTemplateNames( WPCD_Meta_Boxes_Fields_Pro__Premium_Only::getFields() );
+		$template_names       = WPCD_Form_Shortcode_Pro::getAvailableTemplateNames( WPCD_Meta_Boxes_Fields_Pro__Premium_Only::getFields() );
 		$template_names_keyed = [];
 		$template_names_keyed['all'] = 'all';
 		foreach ( $template_names as $name ) {

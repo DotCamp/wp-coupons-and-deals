@@ -4,7 +4,7 @@
  * front end coupon submit short-code
  * Class WPCD_Form_Shortcode
  */
-class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
+class WPCD_Form_Shortcode_Pro extends WPCD_Short_Code_Base {
 
 	public function add() {
 		// pro license check
@@ -148,14 +148,14 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 				} );
 
 			// add ajax to WordPress hook
-			$ajax_hook_nopriv = new WPCD_Formshortcode_Ajax( $this->name, false );
+			$ajax_hook_nopriv = new WPCD_Formshortcode_Ajax_Pro( $this->name, false );
 			$ajax_hook_nopriv->add();
-			$ajax_hook_priv = new WPCD_Formshortcode_Ajax( $this->name, true );
+			$ajax_hook_priv = new WPCD_Formshortcode_Ajax_Pro( $this->name, true );
 			$ajax_hook_priv->add();
 
-			$ajax_hook_coupons_nopriv = new WPCD_Formshortcode_Coupons_Ajax( $this->name . '_coupons', false );
+			$ajax_hook_coupons_nopriv = new WPCD_Formshortcode_Coupons_Ajax_Pro( $this->name . '_coupons', false );
 			$ajax_hook_coupons_nopriv->add();
-			$ajax_hook_coupons_priv = new WPCD_Formshortcode_Coupons_Ajax( $this->name . '_coupons', true );
+			$ajax_hook_coupons_priv = new WPCD_Formshortcode_Coupons_Ajax_Pro( $this->name . '_coupons', true );
 			$ajax_hook_coupons_priv->add();
 		}
 
@@ -204,8 +204,8 @@ class WPCD_Form_Shortcode extends WPCD_Short_Code_Base {
 		$vendor_categories = get_terms( [ WPCD_Plugin::VENDOR_TAXONOMY ],
 			[ 'hide_empty' => false, 'orderby' => 'term_id', 'order' => 'ASC' ] );
 
-		$coupon_categories = WPCD_Form_Shortcode::filter_keys( $coupon_categories, $terms_filters );
-		$vendor_categories = WPCD_Form_Shortcode::filter_keys( $vendor_categories, $terms_filters );
+		$coupon_categories = WPCD_Form_Shortcode_Pro::filter_keys( $coupon_categories, $terms_filters );
+		$vendor_categories = WPCD_Form_Shortcode_Pro::filter_keys( $vendor_categories, $terms_filters );
 
 		return [
 			WPCD_Plugin::CUSTOM_TAXONOMY => $coupon_categories,

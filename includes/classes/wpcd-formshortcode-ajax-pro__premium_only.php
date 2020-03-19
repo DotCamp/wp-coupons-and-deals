@@ -1,6 +1,6 @@
 <?php
 
-class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
+class WPCD_Formshortcode_Ajax_Pro extends WPCD_Ajax_Base {
 
 
 	/**
@@ -120,7 +120,7 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 
 				// taxonomy input
 				$this->insertTerms( $operation_result, 'terms' );
-				$this->setData( 'terms', WPCD_Form_Shortcode::getCouponTerms() );
+				$this->setData( 'terms', WPCD_Form_Shortcode_Pro::getCouponTerms() );
 
 				// image attachment process
 				$this->image_attachment_process( $operation_result );
@@ -174,7 +174,7 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 
 			//taxonomy input
 			$this->insertTerms( $operation_result, 'terms' );
-			$this->setData( 'terms', WPCD_Form_Shortcode::getCouponTerms() );
+			$this->setData( 'terms', WPCD_Form_Shortcode_Pro::getCouponTerms() );
 
 			$this->setData( 'id', $operation_result );
 			$this->setData( 'message', __( 'coupon created', WPCD_Plugin::TEXT_DOMAIN ) );
@@ -221,7 +221,7 @@ class WPCD_Formshortcode_Ajax extends WPCD_Ajax_Base {
 				wp_insert_term( $tax['name'], $tax_name, [ 'parent' => $tax['parent'] ] );
 			}
 
-			$this->setData( 'terms', WPCD_Form_Shortcode::getCouponTerms() );
+			$this->setData( 'terms', WPCD_Form_Shortcode_Pro::getCouponTerms() );
 		}
 	}
 

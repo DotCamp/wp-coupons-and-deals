@@ -230,9 +230,11 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 
 			// form short-code registration
 			// since our form short-code needs custom taxonomies, need to que it afterwards taxonomy registration, apart from other short-codes
-			add_action('init', function(){
-				(new WPCD_Form_Shortcode('wpcd_form'))->add();
-			}, 30);
+			if(wcad_fs()->is_plan__premium_only('pro')){
+				add_action('init', function(){
+					(new WPCD_Form_Shortcode_Pro('wpcd_form'))->add();
+				}, 30);
+			}
 
 			add_action( 'widgets_init', array( __CLASS__, 'wpcd_widget_register' ), 20 );
 			add_filter( 'wp_enqueue_scripts', array( __CLASS__, 'load_jquery' ), 1 );

@@ -5,7 +5,7 @@ use PHPUnit\Framework\TestCase;
 class WPCD_Form_ShortcodeTest extends TestCase {
 
 	function testShouldExtendShortCodeBase() {
-		$temp_shortcode = new WPCD_Form_Shortcode( 'wpcd_form' );
+		$temp_shortcode = new WPCD_Form_Shortcode_Pro( 'wpcd_form' );
 		$this->assertInstanceOf( 'WPCD_Short_Code_Base', $temp_shortcode );
 	}
 
@@ -18,7 +18,7 @@ class WPCD_Form_ShortcodeTest extends TestCase {
 			]
 		);
 
-		$reflection_class = new ReflectionClass( WPCD_Form_Shortcode::class );
+		$reflection_class = new ReflectionClass( WPCD_Form_Shortcode_Pro::class );
 		$pri_method       = $reflection_class->getMethod( 'getAvailableTemplateNames' );
 		$pri_method->setAccessible( true );
 

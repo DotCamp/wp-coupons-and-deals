@@ -53,7 +53,14 @@ class TestAutoloader {
 			return;
 		}
 
-		$file_name = str_replace( '_', '-', strtolower( $class ) ) . '.php';
+		$file_base = str_replace( '_', '-', strtolower( $class ) );
+
+		if(filter_var(preg_match('/^.+(-pro)$/', $file_base),FILTER_VALIDATE_BOOLEAN)){
+			$file_name = $file_base . '__premium_only.php';
+
+		}else{
+			$file_name = $file_base . '.php';
+		}
 
 		$normal_path = __DIR__ . $this->relative . 'includes/classes/' . $file_name;
 		$admin_path  = __DIR__ . $this->relative . 'includes/classes/admin/' . $file_name;
