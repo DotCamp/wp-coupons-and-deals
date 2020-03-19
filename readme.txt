@@ -3,7 +3,7 @@ Contributors: wpcdplugin, imtiazrayhan, istiakrayhan, mohmedelwany, ultimatebloc
 Tags: coupon, coupons, deal, deals, affiliate, affiliate marketing
 Requires at least: 4.6
 Tested up to: 5.4
-Stable tag: 3.0.0
+Stable tag: 3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,7 @@ Best WordPress Coupon Plugin. Generate more affiliate sales with coupon codes an
 * Show Coupons of specific Category.
 * Show Coupons of specific Vendor.
 * Coupons Archive Page.
+* Frontend Coupon Submission.
 
 **You can upgrade to Pro Version from your dashboard.** [__More Info and Demo of Pro Version__](https://wpcouponsdeals.com)
 
@@ -150,7 +151,13 @@ You can [__submit a feature request__](https://wpcouponsdeals.com/submit-new-fea
 
 == Changelog ==
 
-== Changelog ==
+= 3.0.0 =
+
+* WordPress 5.4 Compatibility Test.
+* UPDATE: Language File.
+* FIX: Minor CSS issues.
+* FIX: PHP Errors.
+* PRO: NEW: Frontend Submission Form Shortcode.
 
 = 2.8.8 =
 
