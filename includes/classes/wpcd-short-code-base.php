@@ -19,7 +19,7 @@ abstract class WPCD_Short_Code_Base {
 	 * [source-code note] short-codes are called in
 	 * a function as a callback to WP init hook
 	 */
-	public function __construct( string $name ) {
+	public function __construct( $name ) {
 		$this->name = $name;
 	}
 

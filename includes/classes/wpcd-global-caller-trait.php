@@ -32,7 +32,7 @@ trait WPCD_Global_Caller_Trait {
 	 *
 	 * @param WPCD_Global_Caller $wpc
 	 */
-	public function setCaller( WPCD_Global_Caller $wpc ) {
+	public function setCaller( $wpc ) {
 		$this->caller = $wpc;
 	}
 }
