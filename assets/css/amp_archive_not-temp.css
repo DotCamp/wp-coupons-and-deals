@@ -107,9 +107,6 @@
     vertical-align: text-top;
     width: 24px;
 }
-.coupon_code_amp {
-    display: none;
-}
 .wpcd_coupon_li_inner {
     padding: 15px;
     height: calc(100% - 188px);

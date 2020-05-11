@@ -3,7 +3,7 @@ const rename = require('gulp-rename')
 const cleanCSS = require('gulp-clean-css')
 const replace = require('gulp-replace')
 
-gulp.task('css-minify', function () {
+gulp.task('css-minify', async function () {
     gulp.
         src('./assets/css/*.css')
         .pipe(replace('../', '../../'))
@@ -12,7 +12,7 @@ gulp.task('css-minify', function () {
         .pipe(gulp.dest('./assets/css/dist/'))
 });
 
-gulp.task('admin-css-minify', function () {
+gulp.task('admin-css-minify', async function () {
     gulp.
         src('./assets/admin/css/*.css')
         .pipe(replace('../', '../../'))

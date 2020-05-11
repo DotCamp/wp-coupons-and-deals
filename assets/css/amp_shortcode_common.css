@@ -48,9 +48,6 @@ a.wpcd-btn .wpcd_coupon_icon, a.wpcd-btn .wpcd_deal_icon {
     vertical-align: text-top;
     width: 24px;
 }
-.coupon_code_amp {
-    display: none;
-}
 .wpcd-coupon-expired {
     color: red;
     text-align: center;
