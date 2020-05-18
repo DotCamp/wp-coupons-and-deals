@@ -195,6 +195,15 @@ class WPCD_Assets {
 
 	}
 
+    /**
+     * Get URL of a frontend CSS file
+     *
+     * @since 3.0.3
+     */
+    public static function wpcd_frontend_css_url_get() {
+        return WPCD_Plugin::instance()->plugin_assets . 'css/' . self::wpcd_version_correct( 'dir' ) . 'style' . self::wpcd_version_correct( 'suffix' ) . '.css';
+    }
+
 	/**
 	 * Scripts for the coupon shortcode.
 	 *

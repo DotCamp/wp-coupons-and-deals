@@ -17,7 +17,9 @@ $coupon_code               = get_post_meta( $coupon_id, 'coupon_details_coupon-c
 $discount_text             = get_post_meta( $coupon_id, 'coupon_details_discount-text', true );
 $coupon_type               = get_post_meta( $coupon_id, 'coupon_details_coupon-type', true );
 $description               = get_post_meta( $coupon_id, 'coupon_details_description', true );
+$coupon_print_show         = get_post_meta( $coupon_id, 'coupon_details_coupon-print', true );
 $deal_text                 = get_post_meta( $coupon_id, 'coupon_details_deal-button-text', true );
+$deal_print_show           = get_post_meta( $coupon_id, 'coupon_details_deal-print', true );
 $show_expiration           = get_post_meta( $coupon_id, 'coupon_details_show-expiration', true );
 $expire_date               = get_post_meta( $coupon_id, 'coupon_details_expire-date', true );
 $expireDateFormat          = get_option( 'wpcd_expiry-date-format' );
@@ -102,9 +104,19 @@ include( 'header-category__premium_only.php' );
     } 
 ?>
 <?php else: ?>
+<?php
+$wpcd_uniq_attr = '';
+$wpcd_uniq_attr_data = '';
+if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
+    ( ( $coupon_type == 'Coupon' && $coupon_print_show == 'Yes' ) ||
+        ( $coupon_type == 'Deal' && $deal_print_show == 'Yes' ) ) ) {
+    $wpcd_uniq_attr = wpcd_uniq_attr( 10 );
+    $wpcd_uniq_attr_data = 'data-unic-attr="' . $wpcd_uniq_attr . '"';
+}
+?>
 <!--- Template Eight start -->
     <div class="wpcd-new-grid-container wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item"
-         wpcd-data-search="<?php echo $title; ?>">
+         wpcd-data-search="<?php echo $title; ?>" <?php echo $wpcd_uniq_attr_data;?>>
         <div class="wpcd-new-grid-one">
             <div class="wpcd-new-discount-text">
                 <?php echo $discount_text; ?>
@@ -222,5 +234,12 @@ include( 'header-category__premium_only.php' );
     <?php endif; ?>
     </div>
     <!--- Template Eight End -->
+    <?php
+    if( ! WPCD_Amp::wpcd_amp_is() &&
+        ( ( $coupon_type == 'Coupon' && $coupon_print_show == 'Yes' ) ||
+            ( $coupon_type == 'Deal' && $deal_print_show == 'Yes' ) ) ) {
+        wpcd_coupon_print_link( $wpcd_uniq_attr );
+    }
+    ?>
 <?php endif; ?>
 <?php include('footer-category__premium_only.php'); ?>

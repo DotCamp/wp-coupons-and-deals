@@ -178,11 +178,16 @@ class WPCD_Meta_Boxes_Pro {
 						$wpcd_field['id'],
 						$wpcd_field['id']
 					);
+                    $value = empty( $db_value ) ? $wpcd_field['default'] : $db_value;
 					foreach ( $wpcd_field['options'] as $key => $value ) {
 						$field_value = ! is_numeric( $key ) ? $key : $value;
 						$input       .= sprintf(
 							'<option %s value="%s">%s</option>',
-							$db_value === $field_value ? 'selected' : '',
+                            empty( $db_value )
+                                ?
+                                $wpcd_field['default'] === $field_value ? 'selected' : ''
+                                :
+                                $db_value === $field_value ? 'selected' : '',
 							$field_value,
 							$value
 						);

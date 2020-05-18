@@ -596,6 +596,9 @@ jQuery(document).ready(function ($) {
         $('.coupon-image-field').addClass('hide');
         $('.only-coupon-code').removeClass('hide');
 
+        let couponField = $( '.coupon-field' );
+        let dealField = $( '.deal-field' );
+
         if (ctype === couponTypes.COUPON) {
 
             all_deal_text.hide();
@@ -607,6 +610,8 @@ jQuery(document).ready(function ($) {
                 deal_text.show();
             }
             hide_coupon_parent.show();
+            dealField.hide();
+            couponField.show();
 
         } else if (ctype === couponTypes.DEAL) {
 
@@ -620,6 +625,9 @@ jQuery(document).ready(function ($) {
             hide_coupon.val('No');
             coupon_not_hidden.show();
             coupon_hidden.hide();
+
+            couponField.hide();
+            dealField.show();
 
         } else if (ctype === couponTypes.IMAGE) {
             $('.only-coupon-code').addClass('hide');

@@ -57,3 +57,32 @@ if ( ! function_exists( 'wpcd_datetotime' ) ) {
         return $strtotime;
     }
 }
+if( ! function_exists( 'wpcd_coupon_print_link' ) ) {
+    function wpcd_coupon_print_link( $coupon_unic_attr ) {
+        if( ! $coupon_unic_attr ) return '';
+
+        $out = '<div style="text-align:center">';
+        $wpcd_frontend_style_url = WPCD_Assets::wpcd_frontend_css_url_get();
+        $out .= '<a class="coupon-print-link" style="cursor: pointer" 
+            onclick="wpcd_printCoupon( \'' . $coupon_unic_attr . '\', \'' . $wpcd_frontend_style_url . '\' )">' .
+            __( "Click To Print", "wpcd-coupon" ) .
+            '</a>';
+        $out .= '</div>';
+
+        echo $out;
+    }
+}
+
+// generation uniq string
+if( ! function_exists( 'wpcd_uniq_attr' ) ) {
+    function wpcd_uniq_attr( $length = 10 ) {
+        if ( function_exists( 'random_bytes' ) ) {
+            $bytes = random_bytes( ceil( $length / 2 ) );
+        } elseif ( function_exists( 'openssl_random_pseudo_bytes' ) ) {
+            $bytes = openssl_random_pseudo_bytes( ceil( $length / 2 ) );
+        } else {
+            return false;
+        }
+        return substr( bin2hex( $bytes ), 0, $length );
+    }
+}

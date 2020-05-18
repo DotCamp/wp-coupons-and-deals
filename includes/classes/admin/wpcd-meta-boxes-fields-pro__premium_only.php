@@ -245,6 +245,30 @@ class WPCD_Meta_Boxes_Fields_Pro__Premium_Only {
 						'Template Eight',
 					)
 				),
+                array(
+                    'id'       => 'coupon-print',
+                    'label'    => __( 'Show Coupon Print link', 'wpcd-coupon' ),
+                    'type'     => 'select',
+                    'tr_class' => 'coupon-field',
+                    'options'  => array(
+                        'Yes',
+                        'No'
+                    ),
+                    'help'     => '',
+                    'default'  => 'No'
+                ),
+                array(
+                    'id'       => 'deal-print',
+                    'label'    => __( 'Show Deal Print link', 'wpcd-coupon' ),
+                    'type'     => 'select',
+                    'tr_class' => 'deal-field',
+                    'options'  => array(
+                        'Yes',
+                        'No'
+                    ),
+                    'help'     => '',
+                    'default'  => 'No'
+                ),
 				array(
 					'id'         => 'coupon-image-input',
 					'label'      => __( 'Coupon Image', 'wpcd-coupon' ),

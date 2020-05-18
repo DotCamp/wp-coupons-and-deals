@@ -17,7 +17,9 @@ $third_link                = get_post_meta( $coupon_id, 'coupon_details_third-li
 $coupon_code               = get_post_meta( $coupon_id, 'coupon_details_coupon-code-text', true );
 $second_coupon_code        = get_post_meta( $coupon_id, 'coupon_details_second-coupon-code-text', true );
 $third_coupon_code         = get_post_meta( $coupon_id, 'coupon_details_third-coupon-code-text', true );
+$coupon_print_show         = get_post_meta( $coupon_id, 'coupon_details_coupon-print', true );
 $deal_text                 = get_post_meta( $coupon_id, 'coupon_details_deal-button-text', true );
+$deal_print_show           = get_post_meta( $coupon_id, 'coupon_details_deal-print', true );
 $second_deal_text          = get_post_meta( $coupon_id, 'coupon_details_second-deal-button-text', true );
 $third_deal_text           = get_post_meta( $coupon_id, 'coupon_details_third-deal-button-text', true );
 $coupon_hover_text         = get_option( 'wpcd_coupon-hover-text' );
@@ -81,11 +83,20 @@ if ( ! empty( $third_expire_date ) && (string)(int)$third_expire_date == $third_
 }
 
 $template = new WPCD_Template_Loader();
+
+$wpcd_uniq_attr = '';
+$wpcd_uniq_attr_data = '';
+if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
+    ( ( $coupon_type == 'Coupon' && $coupon_print_show == 'Yes' ) ||
+        ( $coupon_type == 'Deal' && $deal_print_show == 'Yes' ) ) ) {
+    $wpcd_uniq_attr = wpcd_uniq_attr( 10 );
+    $wpcd_uniq_attr_data = 'data-unic-attr="' . $wpcd_uniq_attr . '"';
+}
 /*
 I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one in hide-coupon file.
 */
 ?>
-<div class="wpcd-coupon-four">
+<div class="wpcd-coupon-four wpcd-coupon-id-<?php echo $coupon_id; ?>" <?php echo $wpcd_uniq_attr_data;?>>
     <div class="wpcd-coupon-four-content">
 		<div class="wpcd-coupon-four-title">
 			<?php
@@ -610,3 +621,11 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 	endif;
     ?>
 </div>
+
+<?php
+if( ! WPCD_Amp::wpcd_amp_is() &&
+    ( ( $coupon_type == 'Coupon' && $coupon_print_show == 'Yes' ) ||
+        ( $coupon_type == 'Deal' && $deal_print_show == 'Yes' ) ) ) {
+    wpcd_coupon_print_link( $wpcd_uniq_attr );
+}
+?>

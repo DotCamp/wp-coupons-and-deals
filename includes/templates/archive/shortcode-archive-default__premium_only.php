@@ -28,7 +28,9 @@ $link_thumbnail           = get_option('wpcd_coupon-link-featured-img');
 $discount_text            = get_post_meta( $coupon_id, 'coupon_details_discount-text', true );
 $coupon_type              = get_post_meta( $coupon_id, 'coupon_details_coupon-type', true );
 $description              = get_post_meta( $coupon_id, 'coupon_details_description', true );
+$coupon_print_show        = get_post_meta( $coupon_id, 'coupon_details_coupon-print', true );
 $deal_text                = get_post_meta( $coupon_id, 'coupon_details_deal-button-text', true );
+$deal_print_show          = get_post_meta( $coupon_id, 'coupon_details_deal-print', true );
 $coupon_hover_text        = get_option( 'wpcd_coupon-hover-text' );
 $deal_hover_text          = get_option( 'wpcd_deal-hover-text' );
 $button_class             = 'wpcd-btn-' . $coupon_id;
@@ -110,6 +112,16 @@ $deal_hover_text = ( !empty( $deal_hover_text ) ) ? $deal_hover_text : __( 'Clic
 global $parent;
 include('header-default__premium_only.php');
 ?>
+<?php
+$wpcd_uniq_attr = '';
+$wpcd_uniq_attr_data = '';
+if( $coupon_type !== 'Image' && function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
+    ( ( $coupon_type == 'Coupon' && $coupon_print_show == 'Yes' ) ||
+        ( $coupon_type == 'Deal' && $deal_print_show == 'Yes' ) ) ) {
+    $wpcd_uniq_attr = wpcd_uniq_attr( 10 );
+    $wpcd_uniq_attr_data = 'data-unic-attr="' . $wpcd_uniq_attr . '"';
+}
+?>
 <?php if ( $coupon_type === 'Image' ): ?>
 <?php 
     include('coupon_type__image.php'); 
@@ -119,7 +131,7 @@ include('header-default__premium_only.php');
 ?>
 <?php elseif ( $wpcd_coupon_template === 'Template Five' ): ?>
     <!--Template Five -->
-    <div class="wpcd-template-five" style="border-color: <?php echo $wpcd_template_five_theme; ?>">
+    <div class="wpcd-template-five wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item" style="border-color: <?php echo $wpcd_template_five_theme; ?>" <?php echo $wpcd_uniq_attr_data;?>>
         <div class="wpcd-template-five-holder">
             <div class="wpcd-template-five-percent-off">
                 <p class="wpcd-coupon-five-discount-text">
@@ -264,7 +276,7 @@ include('header-default__premium_only.php');
     </div>
 <?php elseif ( $wpcd_coupon_template === 'Template Six' ): ?>
     <!-- Template Six -->
-    <div class="wpcd-coupon-six" style="border-color: <?php echo $wpcd_template_six_theme; ?>">
+    <div class="wpcd-coupon-six wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item" style="border-color: <?php echo $wpcd_template_six_theme; ?>" <?php echo $wpcd_uniq_attr_data;?>>
         <div class="wpcd-coupon-six-holder">
             <div class="wpcd-coupon-six-percent-off">
                 <div class="wpcd-for-ribbon">
@@ -457,7 +469,7 @@ include('header-default__premium_only.php');
         ?>
     </div>
 <?php else: ?>
-    <div class="wpcd-coupon wpcd-coupon-default wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item <?php echo $coupon_categories_class; ?>"
+    <div class="wpcd-coupon wpcd-coupon-default wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item <?php echo $coupon_categories_class; ?> <?php echo $wpcd_uniq_attr_data;?>"
          wpcd-data-search="<?php echo $title;?>">
         <div class="wpcd-col-1-8">
             <div class="wpcd-coupon-discount-text">
@@ -674,4 +686,12 @@ include('header-default__premium_only.php');
         ?>
     </div>
 <?php endif; ?>
+
+<?php
+if( ! WPCD_Amp::wpcd_amp_is() &&
+    ( ( $coupon_type == 'Coupon' && $coupon_print_show == 'Yes' ) ||
+        ( $coupon_type == 'Deal' && $deal_print_show == 'Yes' ) ) ) {
+    wpcd_coupon_print_link( $wpcd_uniq_attr );
+}
+?>
 <?php include('footer-default__premium_only.php'); ?>

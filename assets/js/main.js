@@ -485,10 +485,42 @@ jQuery(document).ready(function ($) {
     }
 
     wpcd_updateCouponClassRan();
-
-    
 });
 
+/* <fs_premium_only> */
+// function to print a coupon
+function wpcd_printCoupon ( printingElemDataUnic, cssHref ) {
+    if ( ! printingElemDataUnic || ! cssHref ) return;
+
+    let printingElem = document.querySelector( '[data-unic-attr="' + printingElemDataUnic + '"]' );
+    if( ! printingElem ) return;
+
+    if( ! Boolean( window.chrome ) ) {
+        let winWidth = printingElem.offsetWidth ? printingElem.offsetWidth : '800';
+        let winHeight = printingElem.offsetHeight ? printingElem.offsetHeight : '640';
+        let win = window.open( '','','left=50,top=50,width=' + winWidth + ',height=' + winHeight + ',toolbar=0,scrollbars=1,status=0' );
+
+        let printingCSS = '<link rel="stylesheet" href="' + cssHref + '" type="text/css" />';
+        let wpcdStyleInlineCss = '';
+        if( head = document.head ) wpcdStyleInlineCss = head.querySelector( '#wpcd-style-inline-css' );
+        wpcdStyleInlineCss.innerHTML = wpcdStyleInlineCss.innerHTML + '@media print {*{-moz-color-adjust: exact;}}';
+        win.document.write( printingCSS );
+        win.document.write( wpcdStyleInlineCss.outerHTML );
+        win.document.write( printingElem.outerHTML );
+
+        setTimeout( function () {
+            win.print();
+            win.close();
+        }, 500 );
+    } else {
+        document.body.innerHTML = printingElem.outerHTML;
+        setTimeout( function () {
+            window.print();
+            window.location.reload( true );
+        }, 500 );
+    }
+}
+/* </fs_premium_only> */
 
 function wpcd_copyToClipboard(element) {
     var $temp = jQuery("<input>");

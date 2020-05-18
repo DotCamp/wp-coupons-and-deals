@@ -28,7 +28,9 @@ $link_thumbnail            = get_option('wpcd_coupon-link-featured-img');
 $discount_text             = get_post_meta($coupon_id, 'coupon_details_discount-text', true);
 $coupon_type               = get_post_meta($coupon_id, 'coupon_details_coupon-type', true);
 $description               = get_post_meta($coupon_id, 'coupon_details_description', true);
-$deal_text                 = get_post_meta($coupon_id, 'coupon_details_deal-button-text', true);
+$coupon_print_show         = get_post_meta( $coupon_id, 'coupon_details_coupon-print', true );
+$deal_text                 = get_post_meta( $coupon_id, 'coupon_details_deal-button-text', true );
+$deal_print_show           = get_post_meta( $coupon_id, 'coupon_details_deal-print', true );
 $coupon_hover_text         = get_option('wpcd_coupon-hover-text');
 $deal_hover_text           = get_option('wpcd_deal-hover-text');
 $button_class              = 'wpcd-btn-' . $coupon_id;
@@ -104,8 +106,19 @@ $wpcd_coupon_template = get_post_meta($coupon_id, 'coupon_details_coupon-templat
 global $parent;
 include('header-grid__premium_only.php');
 ?>
-    <li class="wpcd_coupon_li wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item <?php echo $coupon_categories_class; ?>"
-        wpcd-data-search="<?php echo $title;?>">
+<?php
+$wpcd_uniq_attr = '';
+$wpcd_uniq_attr_data = '';
+if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
+    ( ( $coupon_type == 'Coupon' && $coupon_print_show == 'Yes' ) ||
+        ( $coupon_type == 'Deal' && $deal_print_show == 'Yes' ) ) ) {
+    $wpcd_uniq_attr = wpcd_uniq_attr( 10 );
+    $wpcd_uniq_attr_data = 'data-unic-attr="' . $wpcd_uniq_attr . '"';
+}
+?>
+
+<li class="wpcd_coupon_li">
+    <div class="wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item <?php echo $coupon_categories_class; ?>" wpcd-data-search="<?php echo $title; ?>" <?php echo $wpcd_uniq_attr_data; ?>>
         <?php
         if ($hide_featured_image != 'on') {
         if (!empty($coupon_thumbnail)) { ?>
@@ -271,5 +284,13 @@ include('header-grid__premium_only.php');
             </div>
         <?php endif; ?>
         </div>
-    </li>
+    </div>
+    <?php
+    if( ! WPCD_Amp::wpcd_amp_is() &&
+        ( ( $coupon_type == 'Coupon' && $coupon_print_show == 'Yes' ) ||
+            ( $coupon_type == 'Deal' && $deal_print_show == 'Yes' ) ) ) {
+        wpcd_coupon_print_link( $wpcd_uniq_attr );
+    }
+    ?>
+</li>
 <?php include('footer-grid__premium_only.php'); ?>
