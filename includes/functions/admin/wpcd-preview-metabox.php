@@ -225,7 +225,9 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 <div class="wpcd-coupon-preview wpcd-coupon-one">
 	<div class="wpcd-col-one-1-8">
 		<figure>
-			<img class="wpcd-coupon-one-img wpcd-get-fetured-img" src="<?php echo $coupon_thumbnail; ?>">
+			<img class="wpcd-coupon-one-img wpcd-get-fetured-img"
+                 data-src="<?php echo $coupon_thumbnail_not_featured; ?>"
+                 src="<?php echo $coupon_thumbnail; ?>">
 		</figure>
 	</div>
 	<div class="wpcd-col-one-7-8">
@@ -303,7 +305,9 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 <div class="wpcd-coupon-preview wpcd-coupon-two">
 	<div class="wpcd-col-two-1-4">
 			<figure>
-				<img class="wpcd-coupon-two-img wpcd-get-fetured-img" src="<?php echo $coupon_thumbnail; ?>">
+				<img class="wpcd-coupon-two-img wpcd-get-fetured-img"
+                     data-src="<?php echo $coupon_thumbnail_not_featured; ?>"
+                     src="<?php echo $coupon_thumbnail; ?>">
 			</figure>
 		<div class="wpcd-coupon-two-discount-text">
 			<?php echo $discount_text; ?>

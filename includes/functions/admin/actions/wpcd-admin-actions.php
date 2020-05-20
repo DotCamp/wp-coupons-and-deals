@@ -33,14 +33,6 @@ add_action( 'wpcd_help_info_div', 'wpcd_help_info', 10, 2 );
 add_action( 'wpcd_widget_help_info_display', 'wpcd_widget_help_info', 10, 2 );
 add_action( 'wpcd_shortcode_insert_button_div', 'wpcd_shortcode_insert_button', 10, 2 );
 
-function wpcd_post_thumbnail_fallback( $content, $post_id, $thumbnail_id = '' ) {
-	global $post_type;
-	$script_help = '<script>wpcd_featured_img_func();</script>';
-	return $content . $script_help;
-}
-
-add_filter( 'admin_post_thumbnail_html', 'wpcd_post_thumbnail_fallback', 10, 3 );
-
 // Import CSV using Ajax to function call.
 add_action('wp_ajax_wpcd_process_import', 'wpcd_import_process_php');
 

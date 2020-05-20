@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function wpcd_coupon_thumbnail_img( $coupon_id, $not_featured = false ) {
 	$coupon = get_post( $coupon_id );
-	$coupon_img = WPCD_Plugin::instance()->plugin_dir_uri . 'assets/img/coupon-200x200.png';;
+	$coupon_img = WPCD_Plugin::instance()->plugin_dir_uri . 'assets/img/coupon-200x200.png';
 	
 	if( ! $not_featured && $coupon && has_post_thumbnail( $coupon ) ) {
 		return get_the_post_thumbnail_url( $coupon_id );

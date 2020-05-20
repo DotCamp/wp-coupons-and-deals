@@ -17,9 +17,8 @@ $third_link                = get_post_meta( $coupon_id, 'coupon_details_third-li
 $coupon_code               = get_post_meta( $coupon_id, 'coupon_details_coupon-code-text', true );
 $second_coupon_code        = get_post_meta( $coupon_id, 'coupon_details_second-coupon-code-text', true );
 $third_coupon_code         = get_post_meta( $coupon_id, 'coupon_details_third-coupon-code-text', true );
-$coupon_print_show         = get_post_meta( $coupon_id, 'coupon_details_coupon-print', true );
+$show_print_links          = get_option( 'wpcd_coupon-print-link' );
 $deal_text                 = get_post_meta( $coupon_id, 'coupon_details_deal-button-text', true );
-$deal_print_show           = get_post_meta( $coupon_id, 'coupon_details_deal-print', true );
 $second_deal_text          = get_post_meta( $coupon_id, 'coupon_details_second-deal-button-text', true );
 $third_deal_text           = get_post_meta( $coupon_id, 'coupon_details_third-deal-button-text', true );
 $coupon_hover_text         = get_option( 'wpcd_coupon-hover-text' );
@@ -87,8 +86,7 @@ $template = new WPCD_Template_Loader();
 $wpcd_uniq_attr = '';
 $wpcd_uniq_attr_data = '';
 if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
-    ( ( $coupon_type == 'Coupon' && $coupon_print_show == 'Yes' ) ||
-        ( $coupon_type == 'Deal' && $deal_print_show == 'Yes' ) ) ) {
+    ! empty( $show_print_links ) && $show_print_links == 'on' ) {
     $wpcd_uniq_attr = wpcd_uniq_attr( 10 );
     $wpcd_uniq_attr_data = 'data-unic-attr="' . $wpcd_uniq_attr . '"';
 }
@@ -623,9 +621,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 </div>
 
 <?php
-if( ! WPCD_Amp::wpcd_amp_is() &&
-    ( ( $coupon_type == 'Coupon' && $coupon_print_show == 'Yes' ) ||
-        ( $coupon_type == 'Deal' && $deal_print_show == 'Yes' ) ) ) {
-    wpcd_coupon_print_link( $wpcd_uniq_attr );
-}
+    if( ! WPCD_Amp::wpcd_amp_is() && ! empty( $show_print_links ) && $show_print_links == 'on') {
+        wpcd_coupon_print_link( $wpcd_uniq_attr );
+    }
 ?>

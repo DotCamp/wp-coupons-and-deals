@@ -301,6 +301,13 @@ class WPCD_Settings_Page_Pro {
 					'type'        => 'checkbox',
 					'default'     => ''
 				),
+                array(
+                    'id'          => 'coupon-print-link',
+                    'label'       => __( 'Show Print Links', 'wpcd-coupon' ),
+                    'description' => __( 'Enable Print Links for Coupons, Deals and Images', 'wpcd-coupon' ),
+                    'type'        => 'checkbox',
+                    'default'     => ''
+                ),
 			),
 			array(
 				array(

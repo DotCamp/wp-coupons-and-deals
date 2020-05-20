@@ -91,11 +91,23 @@ if ( is_array( $wpcd_coupon_image_src ) ) {
                onclick="wpcd_print_coupon_img('<?php echo $wpcd_coupon_image_src; ?>')"><?php _e( 'Click To Print', 'wpcd-coupon' ); ?></a>
         </div>
         <script>
-            function wpcd_print_coupon_img(url) {
-                if (!url) return;
-                var win = window.open("");
-                win.document.write('<img style="max-width:100%" src="' + url + '" onload="window.print();window.close()" />');
-                win.focus()
+            function wpcd_print_coupon_img( url ) {
+                if ( ! url ) return;
+
+                if( ! Boolean( window.chrome ) ) {
+                    let win = window.open( "" );
+
+                    setTimeout( function () {
+                        win.document.write( '<img style="max-width:100%" src="' + url + '" onload="window.print();window.close()" />' );
+                        win.focus();
+                    }, 500 );
+                } else {
+                    document.body.innerHTML = '<img style="max-width:100%" src="' + url + '" />';
+                    setTimeout( function () {
+                        window.print();
+                        window.location.reload( true );
+                    }, 500 );
+                }
             }
         </script>
 	<?php endif; ?>

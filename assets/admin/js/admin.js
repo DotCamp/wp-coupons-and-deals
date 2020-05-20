@@ -70,12 +70,24 @@ jQuery(document).ready(function ($) {
     wp.media.featuredImage.frame().on('select', function () {
         var frame = wp.media.featuredImage.frame();
         var attachment = frame.state().get('selection').first().toJSON();
-        $('.wpcd-template-five-pro-img')
+
+        $( '.wpcd-coupon-one figure img' )
+            .attr( 'src', attachment.url );
+
+        $( '.wpcd-coupon-two figure img' )
+            .attr( 'src', attachment.url );
+
+        $( '.wpcd-template-five-pro-img' )
             .children('img')
             .attr('src', attachment.url);
-        $('.wpcd-coupon-six-img-and-btn')
-            .find('img')
-            .attr('src', attachment.url);
+        $( '.wpcd-coupon-six-img-and-btn' )
+            .find( 'img' )
+            .attr( 'src', attachment.url );
+
+        $( '.admin_wpcd_seven_productPic' )
+            .find( 'img' )
+            .attr( 'src', attachment.url );
+
         //on featured image remove
         setTimeout(function () {
             wpcd_removeFeaturedImage();
@@ -83,7 +95,18 @@ jQuery(document).ready(function ($) {
     });
 
     wpcd_removeFeaturedImage();
-    
+
+    // media frame open when click on coupon's image
+    function clickCouponImageMediaFrameOpen() {
+        wp.media.featuredImage.frame().open();
+    }
+
+    $( '.wpcd-coupon-one figure img' ).on( 'click', clickCouponImageMediaFrameOpen );
+    $( '.wpcd-coupon-two figure img' ).on( 'click', clickCouponImageMediaFrameOpen );
+    $( '.wpcd-template-five-pro-img img' ).on( 'click', clickCouponImageMediaFrameOpen );
+    $( '.wpcd-coupon-six-img-and-btn img' ).on( 'click', clickCouponImageMediaFrameOpen );
+    $( '.admin_wpcd_seven_productPic img' ).on( 'click', clickCouponImageMediaFrameOpen );
+
     function wpcd_xmlElementChildrenEach( Parent, startIter ) {
         if ( startIter ) {
             this.mainString = [];
@@ -102,14 +125,14 @@ jQuery(document).ready(function ($) {
             } else {
                 this.mainString.push("");
             }
-        } else if ( ( Parent.nodeType == 3 || Parent.nodeType == 4 ) && Parent.data.trim() != '\n' && 
-                        Parent.data.trim() != "\n" && Parent.data.trim() != '\r' && Parent.data.trim !='\n\r' && 
+        } else if ( ( Parent.nodeType == 3 || Parent.nodeType == 4 ) && Parent.data.trim() != '\n' &&
+                        Parent.data.trim() != "\n" && Parent.data.trim() != '\r' && Parent.data.trim !='\n\r' &&
                         Parent.previousSibling === null && Parent.nextSibling === null ) {
             this.mainString.push( Parent.data );
-        } 
+        }
         return this.mainString;
     }
-    
+
     // function for parse Xml file
     function wpcd_xmlImportFileParse( data ) {
         var xmlDoc = $.parseXML( data );
@@ -136,7 +159,7 @@ jQuery(document).ready(function ($) {
     function wpcd_parseString( str, separator ) {
         var arr = [];
         var quote = false;
-        
+
         // getting of separator
         if ( ! separator ) {
             if ( str != str.split('|')[0] ) {
@@ -145,32 +168,32 @@ jQuery(document).ready(function ($) {
                 separator = ';';
             } else {
                 separator = ',';
-            } 
+            }
         }
 
         // iterate over each character, keep track of current column (of the returned array)
         for (var col = 0, c = 0; c < str.length; c++) {
             var cc = str[c], nc = str[c+1];        // current character, next character
             arr[col] = arr[col] || '';   // create a new column (start with empty string) if necessary
-            
-                if ( cc == '"' && quote && nc == '"' ) { arr[col] += cc; ++c; continue; }  
-                if ( cc == '"' ) { 
-                    quote = !quote; 
+
+                if ( cc == '"' && quote && nc == '"' ) { arr[col] += cc; ++c; continue; }
+                if ( cc == '"' ) {
+                    quote = !quote;
                     if ( separator == '\n' ) {
                         arr[col] += cc;
                     }
-                    continue; 
+                    continue;
                 }
-                if ( cc == separator && !quote ) { 
-                    ++col; 
-                    continue; 
+                if ( cc == separator && !quote ) {
+                    ++col;
+                    continue;
                 }
-            
+
             arr[col] += cc;
         }
         return arr;
     }
-    
+
     // Start of Import
     jQuery("#wpcd_import_form").submit(function () {
         jQuery(".wpcd_import_form_loader").fadeIn();
@@ -178,8 +201,8 @@ jQuery(document).ready(function ($) {
 
     jQuery(".wpcd-import-btn").on("click", function (e) {
         e.preventDefault();
-        
-        
+
+
         var regex = /^([a-zA-Z0-9()\s_\\.\-:])+(.csv)$/;
         var regex2 = /^([a-zA-Z0-9()\s_\\.\-:])+(.xml)$/;
 
@@ -245,7 +268,7 @@ jQuery(document).ready(function ($) {
                         select_potions_value_flip.forEach( function( elem, key ) {
                             if( ! key in import_fields_data ) {
                                 import_fields_data[key] = select_options_value_empty.shift();
-                            } 
+                            }
                         });
                     }
                     wpcp_coupons_data['category']                = (cells[import_fields_data['coupon_category']]) ? cells[import_fields_data['coupon_category']].trim() : "";
@@ -257,7 +280,7 @@ jQuery(document).ready(function ($) {
                     wpcp_coupons_data['wpcd_description']             = (cells[import_fields_data['coupon_details_description']]) ? cells[import_fields_data['coupon_details_description']].trim() : "";
                     wpcp_coupons_data['expiry_date']             = (cells[import_fields_data['coupon_details_expire-date']]) ? cells[import_fields_data['coupon_details_expire-date']].trim() : "";
                     wpcp_coupons_data['hide_coupon']             = (cells[import_fields_data['coupon_details_hide-coupon']]) ? cells[import_fields_data['coupon_details_hide-coupon']].trim() : "";
-                    wpcp_coupons_data['default_coupon_template'] = (cells[import_fields_data['coupon_details_coupon-template']]) ? cells[import_fields_data['coupon_details_coupon-template']].trim() : 
+                    wpcp_coupons_data['default_coupon_template'] = (cells[import_fields_data['coupon_details_coupon-template']]) ? cells[import_fields_data['coupon_details_coupon-template']].trim() :
                             select_temp_import ? select_temp_import : "";
                     wpcp_coupons_data['theme_color']             = theme_color ? theme_color : "";
 
@@ -271,7 +294,7 @@ jQuery(document).ready(function ($) {
                         } else if ( is_xml ) {
                             cells = rows[i];
                         }
-                        
+
 
                         if (cells.length > 1) {
                             // Column values
@@ -282,10 +305,10 @@ jQuery(document).ready(function ($) {
                             }
                             else {
                                 var wpcd_number_characters_date = jQuery('#wpcd_number_characters_date').val();
-                                var wpcd_expire_date = cells[import_fields_data['coupon_details_expire-date']] ? 
+                                var wpcd_expire_date = cells[import_fields_data['coupon_details_expire-date']] ?
                                 cells[import_fields_data['coupon_details_expire-date']] : "";
                                 var wpcd_expire_time = "";
-                                
+
                                 if ( wpcd_expire_date ) {
                                     if( wpcd_expire_date != wpcd_expire_date.split(' ')[0] ) {
                                         wpcd_expire_time = wpcd_expire_date.split(' ')[1];
@@ -293,11 +316,11 @@ jQuery(document).ready(function ($) {
                                     } else if ( wpcd_expire_date != wpcd_expire_date.split('T')[0] ) {
                                         wpcd_expire_time = wpcd_expire_date.split('T')[1];
                                         wpcd_expire_date = wpcd_expire_date.split('T')[0];
-                                    } 
+                                    }
                                     wpcd_expire_date = wpcd_expire_date.substr( 0, 10 );
                                 }
-                                
-                                
+
+
                                 wpcp_coupons_data['category']                = (cells[import_fields_data['coupon_category']]) ? cells[import_fields_data['coupon_category']].trim() : "";
                                 wpcp_coupons_data['vendor']                  = (cells[import_fields_data['coupon_vendor']]) ? cells[import_fields_data['coupon_vendor']].trim() : "";
                                 wpcp_coupons_data['title']                   = (cells[import_fields_data['coupon_title']]) ? cells[import_fields_data['coupon_title']].trim() : "";
@@ -308,10 +331,10 @@ jQuery(document).ready(function ($) {
                                 wpcp_coupons_data['expiry_date']             = wpcd_expire_date ? wpcd_expire_date : "";
                                 wpcp_coupons_data['expiry_time']             = wpcd_expire_time ? wpcd_expire_time : "";
                                 wpcp_coupons_data['hide_coupon']             = (cells[import_fields_data['coupon_details_hide-coupon']]) ? cells[import_fields_data['coupon_details_hide-coupon']].trim() : "";
-                                wpcp_coupons_data['default_coupon_template'] = (cells[import_fields_data['coupon_details_coupon-template']]) ? cells[import_fields_data['coupon_details_coupon-template']].trim() : 
+                                wpcp_coupons_data['default_coupon_template'] = (cells[import_fields_data['coupon_details_coupon-template']]) ? cells[import_fields_data['coupon_details_coupon-template']].trim() :
                                         select_temp_import ? select_temp_import : "";
                                 wpcp_coupons_data['coupon_count']            = i;
-                                
+
                                 // Import Loader
                                 var status = 'no';
                                 jQuery(".wpcd_import_field_select").each(function () {
@@ -347,7 +370,7 @@ jQuery(document).ready(function ($) {
 
         var regex = /^([a-zA-Z0-9()\s_\\.\-:])+(.csv)$/;
         var regex2 = /^([a-zA-Z0-9()\s_\\.\-:])+(.xml)$/;
-        
+
         // jQuery('.wpcd_choose_fields_wr').show();
         var countCol = jQuery(".wpcd_import_field span strong"); // Storing selector to prevent call redundancy
         var array_temp = ""; // Storing object data
@@ -357,7 +380,7 @@ jQuery(document).ready(function ($) {
             if (typeof (FileReader) != "undefined") {
                 var reader = new FileReader();
                 reader.onload = function (e) {
-                    var rows = [], 
+                    var rows = [],
                         rows2 = [],
                         data = e.target.result;
                     var table = $("<table class=\"widefat wpcd_import_preview\" cellspacing=\"0\"></table>");
@@ -366,7 +389,7 @@ jQuery(document).ready(function ($) {
                     } else if ( is_xml ) {
                         rows = wpcd_xmlImportFileParse( data );
                     }
-                    rows2 = rows; // same with rows 
+                    rows2 = rows; // same with rows
                     var row = "";
                     var cells = "";
                     var cell = "";
@@ -386,9 +409,9 @@ jQuery(document).ready(function ($) {
                         } else if ( is_xml ) {
                             cells = rows[i];
                         }
-                        if (cells != "") { // Check if there are blanks  
+                        if (cells != "") { // Check if there are blanks
 
-                            countCol.text(i); //Removes index 0 
+                            countCol.text(i); //Removes index 0
                             //If Header
                             if (i == 0) {
                                 row = $("<thead/>");
@@ -412,60 +435,60 @@ jQuery(document).ready(function ($) {
                     }
                     $("#wpcd-table-csv").html('<div id="wpcd-table-csv_box-table"></div>');
                     $("#wpcd-table-csv_box-table").append(table);
-                    
+
                     // Adding the "Show All" button if the number of lines is more than 5
                     if ( showAll ) {
-                        function wpcd_importScrollButtonsShow() { 
+                        function wpcd_importScrollButtonsShow() {
                             var import_scroll_left_button;
                             var import_scroll_right_button;
                             if ( $("#wpcd_import_show_all_button").find( 'a' ).text() === 'Hide' ) {
                                 if ( $("#wpcd_import_show_all_button").width() < $( ".wpcd_import_preview" ).width() ) {
                                     $( "#wpcd-table-box-scroll-left" ).show();
                                     $( "#wpcd-table-box-scroll-right" ).show();
-                                    
-                                   
+
+
                                     var width_scroll_left = 3;
                                     $( "#wpcd-table-box-scroll-left" ).click( function(e) {
                                         e.stopPropagation();
                                     });
-                                    
+
                                     $( "#wpcd-table-box-scroll-right" ).click( function(e) {
                                         e.stopPropagation();
                                     });
                                     $( "#wpcd-table-box-scroll-right" ).mousedown( function() {
-                                        
+
                                         import_scroll_left_button = setInterval( function() {
                                             if( width_scroll_left < ( $( ".wpcd_import_preview" ).width() - $("#wpcd_import_show_all_button").width() ) ) {
                                                 $( "#wpcd-table-csv_box-table" ).scrollLeft(width_scroll_left);
                                                 width_scroll_left += 5;
                                                 console.log($( ".wpcd_import_preview" ).width() - $("#wpcd_import_show_all_button").width());
-                                                
+
                                                 console.log(width_scroll_left);
                                             }
-                                            
+
                                         }, 1 );
                                     });
                                     $( "#wpcd-table-box-scroll-right" ).mouseup( function() {
                                         clearInterval(import_scroll_left_button);
                                     });
-                                    
+
                                     $( "#wpcd-table-box-scroll-left" ).mousedown( function() {
-                                        
+
                                         import_scroll_right_button = setInterval( function() {
                                             if( width_scroll_left > 0 ) {
                                                 $( "#wpcd-table-csv_box-table" ).scrollLeft(width_scroll_left);
                                                 width_scroll_left += -5;
                                                 console.log($( ".wpcd_import_preview" ).width() - $("#wpcd_import_show_all_button").width());
-                                                
+
                                                 console.log(width_scroll_left);
                                             }
-                                            
+
                                         }, 1 );
                                     });
                                     $( "#wpcd-table-box-scroll-left" ).mouseup( function() {
                                         clearInterval(import_scroll_right_button);
                                     });
-                                    
+
                                 } else {
                                     $( "#wpcd-table-box-scroll-left" ).hide();
                                     $( "#wpcd-table-box-scroll-right" ).hide();
@@ -487,7 +510,7 @@ jQuery(document).ready(function ($) {
                         $("#wpcd_import_show_all_button").on( 'click', function(e) {
                             e.stopPropagation();
                             var margin_top;
-                            $('.wpcd_import_preview_tr_hide').toggle();  
+                            $('.wpcd_import_preview_tr_hide').toggle();
                             if ( $( '#wpcd_import_show_all_button' ).hasClass( 'wpcd_import_hide_button' ) ) {
                                 $( '#wpcd_import_show_all_button' ).removeClass( 'wpcd_import_hide_button' );
                                 $( '#wpcd_import_show_all_button' ).css( 'margin-top', 0 );
@@ -515,12 +538,12 @@ jQuery(document).ready(function ($) {
                             wpcd_importScrollButtonsShow();
                         });
                     }
-                    
+
 
                     // Select option data
                     var wpcd_import_field_inner_wr = jQuery(".wpcd_import_field_inner_wr"); // storing selector
                     var rows_length = rows2.length; // to prevent calling length forever
-                    jQuery("#wpfooter").detach(); // removes the WP footer at the bottom 
+                    jQuery("#wpfooter").detach(); // removes the WP footer at the bottom
                     var column2 = [];
 
                     var col = null;
@@ -588,7 +611,7 @@ jQuery(document).ready(function ($) {
 
     // End of Import
 
-    //functions 
+    //functions
     function wpcd_couponDealChange() {
         var ctype = $('[name="coupon-type"]').val();
 
@@ -596,11 +619,7 @@ jQuery(document).ready(function ($) {
         $('.coupon-image-field').addClass('hide');
         $('.only-coupon-code').removeClass('hide');
 
-        let couponField = $( '.coupon-field' );
-        let dealField = $( '.deal-field' );
-
         if (ctype === couponTypes.COUPON) {
-
             all_deal_text.hide();
             if (coupon_template.val() === templates.FOUR)
                 all_button_text.show();
@@ -610,11 +629,7 @@ jQuery(document).ready(function ($) {
                 deal_text.show();
             }
             hide_coupon_parent.show();
-            dealField.hide();
-            couponField.show();
-
         } else if (ctype === couponTypes.DEAL) {
-
             all_button_text.hide();
             if (coupon_template.val() === templates.FOUR)
                 all_deal_text.show();
@@ -625,16 +640,11 @@ jQuery(document).ready(function ($) {
             hide_coupon.val('No');
             coupon_not_hidden.show();
             coupon_hidden.hide();
-
-            couponField.hide();
-            dealField.show();
-
         } else if (ctype === couponTypes.IMAGE) {
             $('.only-coupon-code').addClass('hide');
             $('#coupon-type').closest('tr').nextAll().addClass('hide');
             $('.coupon-image-field').removeClass('hide');
             $('#text').removeClass('hide');
-
         }
     }
 
@@ -823,7 +833,7 @@ jQuery(document).ready(function ($) {
                 $('b.never-expire').hide();
             }
         }
-        
+
 
     }
 
@@ -866,7 +876,7 @@ jQuery(document).ready(function ($) {
             .find( '.coupon-code-button' )
             .css( 'border-color', color )
             .css( 'color', color );
-    
+
         couponSix
             .find( '.deal-code-button' )
             .css( 'border-color', color )
@@ -942,9 +952,9 @@ jQuery(document).ready(function ($) {
 
         couponEight
             .find( '.admin-wpcd-new-coupon-code' )
-            .hover( function(){ 
+            .hover( function(){
                 $( this ).css( "border-color", color );
-            }, function(){   
+            }, function(){
                 $( this ).css( "border-color", "#cdcdcd" );
             });
 
@@ -955,7 +965,18 @@ jQuery(document).ready(function ($) {
 
     function wpcd_removeFeaturedImage() {
         $('#remove-post-thumbnail').on('click', function () {
-            var dummySrc = $('.wpcd-template-five-pro-img')
+
+            let dummySrc = $('.wpcd-coupon-one figure img')
+                .data('src');
+            $('.wpcd-coupon-one figure img')
+                .attr('src', dummySrc);
+
+            dummySrc = $('.wpcd-coupon-two figure img')
+                .data('src');
+            $('.wpcd-coupon-two figure img')
+                .attr('src', dummySrc);
+
+            dummySrc = $('.wpcd-template-five-pro-img')
                 .children('img')
                 .data('src');
             $('.wpcd-template-five-pro-img')
@@ -1107,7 +1128,7 @@ jQuery(document).ready(function ($) {
                 }
             }
             input.wpColorPicker( wpcd_colorPickerOptions );
-            
+
             input.focusout( function() {
                 var val_input = $( this ).val();
                 var re1 = /^#[a-f0-9]{6}$/i;
@@ -1118,7 +1139,7 @@ jQuery(document).ready(function ($) {
             });
         }
     }
-        
+
 
     /**
      *  color Picker for import Page
@@ -1130,7 +1151,7 @@ jQuery(document).ready(function ($) {
 
             // Template Five and Six has color picker
             if (selected_theme == 'Template Five' ||
-                selected_theme == 'Template Six' || 
+                selected_theme == 'Template Six' ||
                 selected_theme == 'Template Seven' ||
                 selected_theme == 'Template Eight' ) {
                 $('#wpcd_import_color_parent').show();
@@ -1528,7 +1549,7 @@ jQuery(document).ready(function ($) {
                 .text(deal_code_text)
         });
 
-        // template seven coupon code button 
+        // template seven coupon code button
         $('#coupon-code-text').keyup(function () {
             var wpcd_seven_btn = $(this).val();
             $('#wpcd-coupon-code-seven').attr('title', wpcd_seven_btn);
@@ -1746,7 +1767,7 @@ jQuery(function ($) {
     $('[id$=expire-date]').on('change', function () {
         var val = $(this).val();
         var withExpireBlock, withoutExpireBlock, withExpireBlock267 = '', withoutExpireBlock267 = '';
-        
+
 
         if ($(this).attr('id').search('third') !== -1) {
             withExpireBlock = couponPreview.find('.with-expiration-4-3');
@@ -1768,7 +1789,7 @@ jQuery(function ($) {
                 withExpireBlock267.show();
                 withoutExpireBlock267.hide();
             }
-            
+
         } else {
             withExpireBlock.addClass('hidden');
             withoutExpireBlock.removeClass('hidden');
@@ -1776,7 +1797,7 @@ jQuery(function ($) {
                 withExpireBlock267.hide();
                 withoutExpireBlock267.show();
             }
-            
+
         }
     });
 
@@ -1798,7 +1819,7 @@ jQuery(function ($) {
                 var dateTextSplit = dateText.split('/');
                 dateTextCompare = dateTextSplit[2] + '-' + dateTextSplit[0] + '-' + dateTextSplit[1];
             }
-            
+
             var input_date = Date.parse(dateTextCompare + 'T' + '00:00:00');
             var isExpired = input_date < today;
             var expireBlock, expiredBlock;
@@ -1845,18 +1866,6 @@ jQuery(function ($) {
     });
 });
 
-function wpcd_featured_img_func() {
-    var imgSrc = jQuery("#set-post-thumbnail img").attr("src");
-    var imgDef = jQuery(".wpcd-default-img").attr("default-img");
-    if (typeof imgDef !== "undefined") {
-        if (typeof imgSrc !== "undefined") {
-            jQuery(".wpcd-get-fetured-img").attr("src", imgSrc);
-        } else {
-            jQuery(".wpcd-get-fetured-img").attr("src", imgDef);
-        }
-    }
-}
-
 function wpcd_checkDuplicateField(field_key) {
     var data = jQuery("#wpcd_import_select_" + field_key).val();
     jQuery(".wpcd_import_field_select").not(document.getElementById("wpcd_import_select_" + field_key)).each(function () {
@@ -1868,7 +1877,7 @@ function wpcd_checkDuplicateField(field_key) {
 }
 
 function wpcd_ajax_import(action, tosent) {
-    // store search to prevent searching the element. 
+    // store search to prevent searching the element.
     let wpcd_temp5 = JSON.parse(tosent),
         wpcd_percent_element = document.querySelector('#wpcd-pbar-percent'),
         wpcd_percent_element_span = document.querySelector('#wpcd-pbar-percent span'),
@@ -1941,7 +1950,7 @@ function wpcd_ajax_import(action, tosent) {
                 if (wpcd_green) {
                     wpcd_green.style.display = 'block';
                 }
-                // Replacing the info for the Coupons added. 
+                // Replacing the info for the Coupons added.
                 let span = document.querySelector('.wrap .wpcd_green span');
                 if (span) {
                     let successCount = wpcd_ajax_import_success_count(true, true);

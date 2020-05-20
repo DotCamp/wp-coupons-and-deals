@@ -29,9 +29,8 @@ $link_thumbnail            = get_option('wpcd_coupon-link-featured-img');
 $discount_text             = get_post_meta( $coupon_id, 'coupon_details_discount-text', true );
 $coupon_type               = get_post_meta( $coupon_id, 'coupon_details_coupon-type', true );
 $description               = get_post_meta( $coupon_id, 'coupon_details_description', true );
-$coupon_print_show         = get_post_meta( $coupon_id, 'coupon_details_coupon-print', true );
+$show_print_links          = get_option( 'wpcd_coupon-print-link' );
 $deal_text                 = get_post_meta( $coupon_id, 'coupon_details_deal-button-text', true );
-$deal_print_show           = get_post_meta( $coupon_id, 'coupon_details_deal-print', true );
 $coupon_hover_text         = get_option( 'wpcd_coupon-hover-text' );
 $deal_hover_text           = get_option( 'wpcd_deal-hover-text' );
 $button_class              = 'wpcd-btn-' . $coupon_id;
@@ -121,14 +120,13 @@ include('header-default__premium_only.php');
 ?>
 <?php else: ?>
 <?php
-$wpcd_uniq_attr = '';
-$wpcd_uniq_attr_data = '';
-if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
-    ( ( $coupon_type == 'Coupon' && $coupon_print_show == 'Yes' ) ||
-        ( $coupon_type == 'Deal' && $deal_print_show == 'Yes' ) ) ) {
-    $wpcd_uniq_attr = wpcd_uniq_attr( 10 );
-    $wpcd_uniq_attr_data = 'data-unic-attr="' . $wpcd_uniq_attr . '"';
-}
+    $wpcd_uniq_attr = '';
+    $wpcd_uniq_attr_data = '';
+    if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
+        ! empty( $show_print_links ) && $show_print_links == 'on' ) {
+        $wpcd_uniq_attr = wpcd_uniq_attr( 10 );
+        $wpcd_uniq_attr_data = 'data-unic-attr="' . $wpcd_uniq_attr . '"';
+    }
 ?>
 <!--- Template three start -->
 <div class="wpcd-coupon-three wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item <?php echo $coupon_categories_class; ?>"
@@ -329,11 +327,9 @@ if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
 </div>
 
 <?php
-if( ! WPCD_Amp::wpcd_amp_is() &&
-    ( ( $coupon_type == 'Coupon' && $coupon_print_show == 'Yes' ) ||
-        ( $coupon_type == 'Deal' && $deal_print_show == 'Yes' ) ) ) {
-    wpcd_coupon_print_link( $wpcd_uniq_attr );
-}
+    if( ! WPCD_Amp::wpcd_amp_is() && ! empty( $show_print_links ) && $show_print_links == 'on') {
+        wpcd_coupon_print_link( $wpcd_uniq_attr );
+    }
 ?>
 
 <!--  Template three End -->

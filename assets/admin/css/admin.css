@@ -3000,6 +3000,14 @@ a.admin-wpcd-new-goto-button {
 
 /* End of Template Seven*/
 
+.wpcd-coupon-one figure img,
+.wpcd-coupon-two figure img,
+.wpcd-template-five-pro-img img,
+.wpcd-coupon-six-img-and-btn img,
+.admin_wpcd_seven_productPic img {
+    cursor: pointer;
+}
+
 
 /* helper classes */
 

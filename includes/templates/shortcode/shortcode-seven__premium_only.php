@@ -26,9 +26,8 @@ $discount_text             = get_post_meta( $coupon_id, 'coupon_details_discount
 $coupon_type               = get_post_meta( $coupon_id, 'coupon_details_coupon-type', true );
 $link                      = get_post_meta( $coupon_id, 'coupon_details_link', true );
 $coupon_code               = get_post_meta( $coupon_id, 'coupon_details_coupon-code-text', true );
-$coupon_print_show         = get_post_meta( $coupon_id, 'coupon_details_coupon-print', true );
+$show_print_links          = get_option( 'wpcd_coupon-print-link' );
 $deal_text                 = get_post_meta( $coupon_id, 'coupon_details_deal-button-text', true );
-$deal_print_show           = get_post_meta( $coupon_id, 'coupon_details_deal-print', true );
 $coupon_hover_text         = get_option( 'wpcd_coupon-hover-text' );
 $deal_hover_text           = get_option( 'wpcd_deal-hover-text' );
 $button_class              = 'wpcd-btn-' . $coupon_id;
@@ -91,8 +90,7 @@ $template = new WPCD_Template_Loader();
 $wpcd_uniq_attr = '';
 $wpcd_uniq_attr_data = '';
 if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
-    ( ( $coupon_type == 'Coupon' && $coupon_print_show == 'Yes' ) ||
-        ( $coupon_type == 'Deal' && $deal_print_show == 'Yes' ) ) ) {
+    ! empty( $show_print_links ) && $show_print_links == 'on' ) {
     $wpcd_uniq_attr = wpcd_uniq_attr( 10 );
     $wpcd_uniq_attr_data = 'data-unic-attr="' . $wpcd_uniq_attr . '"';
 }
@@ -245,9 +243,7 @@ if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
 </section>
 
 <?php
-if( ! WPCD_Amp::wpcd_amp_is() &&
-    ( ( $coupon_type == 'Coupon' && $coupon_print_show == 'Yes' ) ||
-        ( $coupon_type == 'Deal' && $deal_print_show == 'Yes' ) ) ) {
-    wpcd_coupon_print_link( $wpcd_uniq_attr );
-}
+    if( ! WPCD_Amp::wpcd_amp_is() && ! empty( $show_print_links ) && $show_print_links == 'on') {
+        wpcd_coupon_print_link( $wpcd_uniq_attr );
+    }
 ?>
