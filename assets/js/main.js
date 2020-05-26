@@ -173,12 +173,47 @@ jQuery(document).ready(function ($) {
 
     };
 
-    $('#wpcd_cat_ul .wpcd_category').on('click', function (e) {
-        e.preventDefault();
-        var wpcd_coupon_taxonomy = $(this).attr( wpcd_js_data_tax );
-        
-        wpcd_ajaxCouponCategoriesPagination('', 'wpcd_coupons_category_action', wpcd_js_data_tax, wpcd_coupon_taxonomy);
-    });
+    // function for generation event
+    function wpcdDocumentEventGenerate( eventName, element, details ) {
+        if( eventName && element ) {
+            if( ! details ) {
+                details = true;
+            }
+            let event = new CustomEvent( eventName, { detail: details, bubbles: true } );
+            element.dispatchEvent( event );
+        }
+    }
+
+    let wpcdCatUl = document.querySelector( '#wpcd_cat_ul' );
+    if( wpcdCatUl ) {
+        let wpcdDropdownContent = wpcdCatUl.querySelector( '.wpcd_dropdown-content' );
+        let wpcdDropbtn = wpcdCatUl.querySelector( '.wpcd_dropbtn' );
+        if( wpcdDropdownContent ) {
+            wpcdCatUl.addEventListener( 'mouseenter', function() {
+                wpcdDropdownContent.style.display = 'block';
+            }, false );
+
+            wpcdCatUl.addEventListener( 'mouseleave', function() {
+                wpcdDropdownContent.style.display = 'none';
+            }, false );
+
+            if( wpcdDropbtn && wpcdDropbtn.style.display !== 'none' ) {
+                wpcdDropbtn.addEventListener( 'click', function () {
+                    wpcdDropdownContent.style.display = 'block';
+                }, false );
+            }
+        }
+
+        $( '#wpcd_cat_ul .wpcd_category' ).on('click', function (e) {
+            e.preventDefault();
+
+            wpcdDocumentEventGenerate( 'mouseleave', wpcdCatUl );
+
+            var wpcd_coupon_taxonomy = $(this).attr( wpcd_js_data_tax );
+
+            wpcd_ajaxCouponCategoriesPagination('', 'wpcd_coupons_category_action', wpcd_js_data_tax, wpcd_coupon_taxonomy);
+        });
+    }
 
     $('#wpcd_coupon_pagination_wr a.page-numbers').on('click', function (e) {
         e.preventDefault();
