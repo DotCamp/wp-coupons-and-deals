@@ -220,7 +220,7 @@ if( $coupon_type !== 'Image' && function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Am
 					?>
 				<?php else: ?>
                     <div class="wpcd-coupon-code">
-                        <a class="wpcd-template-five-btn masterTooltip rel="nofollow" <?php echo $button_class; ?>"
+                        <a class="wpcd-template-five-btn masterTooltip <?php echo $button_class; ?>" rel="nofollow"
                            href="<?php echo $link; ?>" target="<?php echo $target; ?>"
                            title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
                                             echo $coupon_hover_text;

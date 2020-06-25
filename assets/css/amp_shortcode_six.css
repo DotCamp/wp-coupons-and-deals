@@ -207,7 +207,7 @@
         margin: 0;
         padding: 10px;
     }
-    .wpcd-template-six-btn {
+    .wpcd-btn-wrap .wpcd-template-six-btn {
         max-width: 170px;
         min-width: auto;
         display: block;
