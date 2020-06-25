@@ -147,13 +147,7 @@ class WPCD_Settings_Page {
 				'title'       => __( 'Knowledge Base', 'wpcd-coupon' ),
 				'description' => __( 'These are some general settings. You can use the default settings or set your own ones.', 'wpcd-coupon' ),
 				'href'        => 'https://wpcouponsdeals.com/knowledgebase/'
-			),
-			array(
-				'id'          => 'link',
-				'title'       => __( 'Request a Feature', 'wpcd-coupon' ),
-				'description' => __( 'Submit a feature request', 'wpcd-coupon' ),
-				'href'        => 'https://wpcouponsdeals.com/submit-new-feature-request/'
-			),
+			)
 		);
 
 		/**

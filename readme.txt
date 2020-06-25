@@ -81,6 +81,8 @@ Now you can also show only the coupon code instead of the full coupon with detai
 
 Image coupons are just images. You can upload image of a coupon and give users the option to print the coupon.
 
+[](http://coderisk.com/wp/plugin/wp-coupons-and-deals/RIPS-rvl4OVYuaz)
+
 == How To Use ==
 
 After you have installed the plugin, you can see 'Coupons' with a little scissor on your admin dashboard menu.
