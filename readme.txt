@@ -3,7 +3,7 @@ Contributors: wpcdplugin, imtiazrayhan, istiakrayhan, mohmedelwany, ultimatebloc
 Tags: coupon, coupons, deal, deals, affiliate, affiliate marketing
 Requires at least: 4.6
 Tested up to: 5.4
-Stable tag: 3.0.2
+Stable tag: 3.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -152,6 +152,14 @@ You can [__submit a feature request__](https://wpcouponsdeals.com/submit-new-fea
 11. Adding the widget.
 
 == Changelog ==
+
+= 3.0.3 =
+
+* NEW: Click on Featured Image to Change While Adding/Editing a Coupon.
+* FIX: Coupon Code Added Multiple Times in Soure Code.
+* PRO: NEW: Print Functionality for All Coupons (BETA).
+* PRO: FIX: Dropdown menu in Mobile for Archive Shortcode.
+* PRO: FIX: Button Alignment in AMP for Template Six.  
 
 = 3.0.2 =
 
