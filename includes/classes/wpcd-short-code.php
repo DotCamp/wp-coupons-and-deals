@@ -323,7 +323,8 @@ class WPCD_Short_Code {
 		$wpcd_data_search   = '';
 		$a                  = shortcode_atts( array(
 			'count' => '9',
-			'temp'  => ''
+			'temp'  => '',
+			'sortby' => 'newest'
 		), $atts );
 
 		$archive_category_setting = get_option( 'wpcd_archive-munu-categories' );
@@ -432,10 +433,15 @@ class WPCD_Short_Code {
 				)
 			);
 		}
+		
+		if ( !empty( $a['sortby']) && $a['sortby'] == 'oldest' ) {
+			$args['order'] = 'ASC';
+		}
 
 		// exclude expired coupons if hide expired coupon setting is enabled.
 		$expired_coupons = array();
 		$the_query       = new WP_Query( $args );
+		// var_dump($the_query);
 		if ( $the_query->have_posts() ) {
 			$today               = date( 'd-m-Y' );
 			$hide_expired_coupon = get_option( 'wpcd_hide-expired-coupon' );
