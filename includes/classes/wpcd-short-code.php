@@ -324,7 +324,8 @@ class WPCD_Short_Code {
 		$a                  = shortcode_atts( array(
 			'count' => '9',
 			'temp'  => '',
-			'sortby' => 'newest'
+			'sortby' => 'newest',
+			'exclude' => ''
 		), $atts );
 
 		$archive_category_setting = get_option( 'wpcd_archive-munu-categories' );
@@ -438,6 +439,16 @@ class WPCD_Short_Code {
 			$args['order'] = 'ASC';
 		}
 
+		$exclude_categories = [];
+		if ( !empty( $a['exclude']) && $a['exclude'] != '' ) {			
+			$exploded = explode(',', $a['exclude']);
+			foreach($exploded as $item) {
+				if (is_numeric($item)) {
+					array_push($exclude_categories, $item);
+				}
+			}
+		}
+		
 		// exclude expired coupons if hide expired coupon setting is enabled.
 		$expired_coupons = array();
 		$the_query       = new WP_Query( $args );
@@ -478,6 +489,34 @@ class WPCD_Short_Code {
 						}
 					}
 				}
+
+				$coupon_category = get_the_terms( $coupon_id, 'wpcd_coupon_category' );
+				$coupon_vendor = get_the_terms( $coupon_id, 'wpcd_coupon_vendor' );
+				
+				$cat_ids = [];
+				$vend_ids = [];
+				foreach ( $coupon_category as $c_category ) {
+					$cat_ids[] = $c_category->term_id;
+				}
+
+				foreach ( $coupon_vendor as $c_vend ) {
+					$vend_ids[] = $c_vend->term_id;
+				}
+
+				$cat_ids = array_merge($cat_ids, $vend_ids);
+				
+				if (count($cat_ids)) {
+					$existed = false;
+					foreach($cat_ids as $cid) {
+						if (in_array($cid, $exclude_categories)) {
+							$existed = true;
+							break;
+						}
+					}
+					if ($existed && !in_array($coupon_id, $expired_coupons)) {
+						array_push($expired_coupons, $coupon_id);
+					}
+				}
 			}
 			wp_reset_postdata();
 		}
@@ -485,6 +524,7 @@ class WPCD_Short_Code {
 		if ( count( $expired_coupons ) > 0 ) {
 			$args['post__not_in'] = $expired_coupons;
 		}
+
 		$the_query = new WP_Query( $args );
 
 		if ( $the_query->have_posts() ) :
