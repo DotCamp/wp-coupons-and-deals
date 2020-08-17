@@ -235,7 +235,7 @@ include('header-default__premium_only.php');
         </<?php echo esc_html( $coupon_title_tag ); ?>> <?php
         } else { ?>
                 <<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-new-title">
-                <a href="<?php echo esc_url( $link ); ?>" target="<?php echo $target; ?>" rel="nofollow"><?php echo $title; ?></a>
+                <a class="wpcd-coupon-click-link" data-id="<?php echo $coupon_id; ?>" href="<?php echo esc_url( $link ); ?>" target="<?php echo $target; ?>" rel="nofollow"><?php echo $title; ?></a>
             </<?php echo esc_html( $coupon_title_tag ); ?>> <?php
         }
     ?>
@@ -255,9 +255,10 @@ include('header-default__premium_only.php');
                 $template->get_template_part( 'hide-coupon3__premium_only' );
                 ?>
             <?php else: ?>
-                <a class="wpcd-new-coupon-code <?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" 
-                   target="<?php echo $target; ?>" data-clipboard-text="<?php echo $coupon_code; ?>" 
-                title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
+                <a class="wpcd-new-coupon-code wpcd-coupon-click-link <?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" 
+                    data-id="<?php echo $coupon_id; ?>"
+                    target="<?php echo $target; ?>" data-clipboard-text="<?php echo $coupon_code; ?>" 
+                    title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
                                  echo $coupon_hover_text;
                              }
                          ?>">
@@ -265,7 +266,7 @@ include('header-default__premium_only.php');
                 </a>
             <?php endif; ?>
         <?php endif; ?>
-        <a class="wpcd-new-goto-button masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="<?php echo $target; ?>" title="<?php echo $deal_hover_text; ?>" >
+        <a class="wpcd-new-goto-button masterTooltip wpcd-coupon-click-link" data-id="<?php echo $coupon_id; ?>" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="<?php echo $target; ?>" title="<?php echo $deal_hover_text; ?>" >
            <?php echo $deal_text; ?>
         </a>
     </div><!-- End of grid-three -->

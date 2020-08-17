@@ -45,6 +45,9 @@ class WPCD_Short_Code {
 				array( __CLASS__, 'wpcd_coupons_loop_func__premium_only' ) );
 			add_action( 'wp_ajax_nopriv_wpcd_coupons_cat_vend_action',
 				array( __CLASS__, 'wpcd_coupons_loop_func__premium_only' ) );
+
+			add_action( 'wp_ajax_wpcd_coupon_clicked_action',
+				array( __CLASS__, 'wpcd_coupon_clicked_action_func__premium_only' ) );
 		}
 
 	}
@@ -598,12 +601,24 @@ class WPCD_Short_Code {
 				                             . 'wpcd-data-coupon_page_url="' . $wpcd_data_coupon_page_url . '" ' . $wpcd_coupon_taxonomy . '="' . $wpcd_data_taxonomy . '"></div>';
 			}
 
+			// check enable statistics
+			$enable_stats = get_option('wpcd_enable-stats-count');
 			// the loop.
 			while ( $the_query->have_posts() ) : $the_query->the_post();
 
 				global $coupon_id;
 				$coupon_id = get_the_ID();
 				$parent    = "";
+
+				if (! empty( $enable_stats ) && $enable_stats == 'on') {
+					$view_count = get_post_meta( $coupon_id, 'coupon_view_count', true );
+					if (empty($view_count) || !is_numeric($view_count)) {
+						$view_count = 1;
+					} else {
+						$view_count = intval($view_count) + 1;
+					}
+					update_post_meta($coupon_id, 'coupon_view_count', $view_count);
+				}
 
 				// check to print header or footer.
 				if ( $i == 1 && $num_posts !== 1 ) {
@@ -858,4 +873,27 @@ class WPCD_Short_Code {
 
 	}
 
+	/**
+	 * Coupon loop shortcode to specific posts or posts from a category.
+	 *
+	 * @param $atts
+	 *
+	 * @return string
+	 */
+	public static function wpcd_coupon_clicked_action_func__premium_only( $atts ) {
+		$coupon_id = $_POST['coupon_id'];
+		if (isset($coupon_id) && is_numeric($coupon_id)) {
+			$coupon_id = intval($coupon_id);
+			$click_count = get_post_meta( $coupon_id, 'coupon_click_count', true );
+			if (empty($click_count) || !is_numeric($click_count)) {
+				$click_count = 1;
+			} else {
+				$click_count = intval($click_count) + 1;
+			}
+			update_post_meta($coupon_id, 'coupon_click_count', $click_count);
+			echo "success";
+		} else {
+			echo 'wrong coupon id';
+		}
+	}
 }

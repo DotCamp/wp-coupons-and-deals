@@ -147,6 +147,14 @@ class WPCD_Admin_Columns extends WP_List_Table {
 		$wpcd_columns['coupon_shortcode'] = __( 'Shortcodes', 'wpcd-coupon' );
 		$wpcd_columns['coupon_expire']    = __( 'Expires', 'wpcd-coupon' );
 
+		if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) {
+			$enable_stats = get_option('wpcd_enable-stats-count');
+			if (! empty( $enable_stats ) && $enable_stats == 'on') {
+				$wpcd_columns['coupon_view_count']    = __( 'Viewed Count', 'wpcd-coupon' );
+				$wpcd_columns['coupon_click_count']    = __( 'Clicked Count', 'wpcd-coupon' );
+			}
+		}
+
 		/**
 		 *
 		 * This filters the columns headers.
@@ -297,7 +305,14 @@ class WPCD_Admin_Columns extends WP_List_Table {
 					echo __( "Doesn't Expire", 'wpcd-coupon' );
 				}
 				break;
-
+			case 'coupon_view_count':
+				$view_count = get_post_meta( $post_id, 'coupon_view_count', true );				
+				echo (isset($view_count) && is_numeric($view_count))? $view_count: 0;
+				break;
+			case 'coupon_click_count':
+				$click_count = get_post_meta( $post_id, 'coupon_click_count', true );
+				echo (isset($click_count) && is_numeric($click_count))? $click_count: 0;
+				break;
 		}
 
 		/**
