@@ -434,6 +434,7 @@ class WPCD_Short_Code {
 			);
 		}
 		
+		// sortby attribute - available options - newest(default), oldest, expire-first, expire-last
 		if ( !empty( $a['sortby'])) {
 			if ($a['sortby'] == 'oldest' ) {
 				$args['order'] = 'ASC';
