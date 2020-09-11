@@ -434,8 +434,19 @@ class WPCD_Short_Code {
 			);
 		}
 		
-		if ( !empty( $a['sortby']) && $a['sortby'] == 'oldest' ) {
-			$args['order'] = 'ASC';
+		// sortby attribute - available options - newest(default), oldest, expire-first, expire-last
+		if ( !empty( $a['sortby'])) {
+			if ($a['sortby'] == 'oldest' ) {
+				$args['order'] = 'ASC';
+			} else if ($a['sortby'] == 'expire-first') {
+				$args['order'] = 'ASC';
+				$args['orderby'] = 'meta_value';
+				$args['meta_key'] = 'coupon_details_expire-date';
+			} else if ($a['sortby'] == 'expire-last') {
+				$args['order'] = 'DESC';
+				$args['orderby'] = 'meta_value';				
+				$args['meta_key'] = 'coupon_details_expire-date';
+			}
 		}
 
 		// exclude expired coupons if hide expired coupon setting is enabled.
