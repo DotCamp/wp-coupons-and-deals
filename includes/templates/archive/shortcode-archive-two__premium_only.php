@@ -134,7 +134,7 @@ include('header-default__premium_only.php');
         <figure>
             <?php
             if ($link_thumbnail == "on"):
-                echo "<a href='{$link}' rel='nofollow' target='{$target}'><img class='wpcd-coupon-two-img' src='{$coupon_thumbnail}' alt='{$title}'></a>";
+                echo "<a class='wpcd-coupon-click-link' data-id='{$coupon_id}' href='{$link}' rel='nofollow' target='{$target}'><img class='wpcd-coupon-two-img' src='{$coupon_thumbnail}' alt='{$title}'></a>";
             else:
                 echo "<img class='wpcd-coupon-two-img' src='{$coupon_thumbnail}' alt='{$title}'>";
             endif;
@@ -154,7 +154,7 @@ include('header-default__premium_only.php');
                 	</<?php echo esc_html( $coupon_title_tag ); ?>>
 			 	<?php } else { ?>
 					<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
-						<a href="<?php echo $link; ?>" target="<?php echo $target; ?>" rel="nofollow"><?php echo $title; ?></a>
+						<a class="wpcd-coupon-click-link" data-id="<?php echo $coupon_id; ?>" href="<?php echo $link; ?>" target="<?php echo $target; ?>" rel="nofollow"><?php echo $title; ?></a>
                 	</<?php echo esc_html( $coupon_title_tag ); ?>>
 				<?php } 
 			?>
@@ -217,7 +217,8 @@ include('header-default__premium_only.php');
 						} else { ?>
                             <div class="wpcd-coupon-code">
                                 <a rel="nofollow" href="<?php echo $link; ?>"
-                                   class="<?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip wpcd-btn wpcd-coupon-button"
+                                   class="<?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip wpcd-btn wpcd-coupon-button wpcd-coupon-click-link"
+                                   data-id="<?php echo $coupon_id; ?>"
                                    target="<?php echo $target; ?>" href="<?php echo $link; ?>"
                                    title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
                                                     if ( ! empty( $coupon_hover_text ) ) {
@@ -239,7 +240,8 @@ include('header-default__premium_only.php');
 					} else { ?>
                         <div class="wpcd-coupon-code">
                             <a rel="nofollow" href="<?php echo $link; ?>"
-                               class="<?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip wpcd-btn wpcd-coupon-button"
+                               class="<?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip wpcd-btn wpcd-coupon-button wpcd-coupon-click-link"
+                               data-id="<?php echo $coupon_id; ?>"
                                target="<?php echo $target; ?>" href="<?php echo $link; ?>"
                                title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
                                                 if ( ! empty( $coupon_hover_text ) ) {
@@ -261,7 +263,8 @@ include('header-default__premium_only.php');
 				} elseif ( $coupon_type == 'Deal' ) { ?>
                     <div class="wpcd-coupon-code">
                         <a rel="nofollow"
-                           class="<?php echo 'wpcd-btn-' . $coupon_id; ?> wpcd-btn masterTooltip wpcd-deal-button"
+                           class="<?php echo 'wpcd-btn-' . $coupon_id; ?> wpcd-btn masterTooltip wpcd-deal-button wpcd-coupon-click-link"
+                           data-id="<?php echo $coupon_id; ?>"
                            title="<?php if ( ! empty( $deal_hover_text ) ) {
 							   echo $deal_hover_text;
 						   } else {

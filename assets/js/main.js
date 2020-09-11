@@ -326,6 +326,23 @@ jQuery(document).ready(function ($) {
         });
     }
     wpcd_countDownFun();
+
+    function wpcd_couponCountingFun() {
+        $('.wpcd-coupon-click-link').click(function (e) {
+            var $this = $(this),
+                coupon_id = $this.data('id');
+    
+            var data = {
+                'action': 'wpcd_coupon_clicked_action',
+                'security': wpcd_object.security,
+                'coupon_id': coupon_id,
+            };
+            jQuery.post(wpcd_object.ajaxurl, data, function (response) {
+                console.log('response', response)
+            });
+        });        
+    }
+    wpcd_couponCountingFun();
 });
 
 jQuery(document).ready(function ($) {
@@ -634,4 +651,6 @@ function wpcd_openCouponAffLink(objectThis, CoupenId, wpcd_dataTaxonomy, numCoup
     window.location = theLink;
     return false;
 }
+
+
 

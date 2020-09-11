@@ -537,6 +537,14 @@ class WPCD_Settings_Page_Pro {
 					'placeholder' => __( 'All Coupons', 'wpcd-coupon' ),
 					'default'     => ''
 				),
+				array(
+					'id'          => 'enable-stats-count',
+					'label'       => __( 'Enable Statistics', 'wpcd-coupon' ),
+					'description' => __( 'Enable stats count of clicking and viewing the coupon',
+						'wpcd-coupon' ),
+					'type'        => 'checkbox',
+					'default'     => ''
+				),
 			),
 			array(
 				array(
