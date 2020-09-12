@@ -680,7 +680,8 @@ class WPCD_Short_Code {
 			'id'    => '',
 			'cat'   => '',
 			'vend'  => '',
-			'temp'  => ''
+			'temp'  => '',
+			'sortby' => 'newest'
 		), $atts );
 
 		if ( isset( $_POST['action'] ) && $_POST['action'] == 'wpcd_coupons_cat_vend_action' ) {
@@ -812,6 +813,21 @@ class WPCD_Short_Code {
 					'compare' => '!='
 				)
 			);
+		}
+
+		// sortby attribute - available options - newest(default), oldest, expire-first, expire-last
+		if ( !empty( $a['sortby'])) {
+			if ($a['sortby'] == 'oldest' ) {
+				$args['order'] = 'ASC';
+			} else if ($a['sortby'] == 'expire-first') {
+				$args['order'] = 'ASC';
+				$args['orderby'] = 'meta_value';
+				$args['meta_key'] = 'coupon_details_expire-date';
+			} else if ($a['sortby'] == 'expire-last') {
+				$args['order'] = 'DESC';
+				$args['orderby'] = 'meta_value';				
+				$args['meta_key'] = 'coupon_details_expire-date';
+			}
 		}
 
 		$the_query = new WP_Query( $args );
