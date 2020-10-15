@@ -24,7 +24,7 @@ $title                     = get_the_title();
 $link                      = get_post_meta($coupon_id, 'coupon_details_link', true);
 $coupon_code               = get_post_meta($coupon_id, 'coupon_details_coupon-code-text', true);
 $coupon_thumbnail          = wpcd_coupon_thumbnail_img( $coupon_id );
-$link_thumbnail            = get_option('wpcd_coupon-link-featured-img'); 
+$link_thumbnail            = get_option('wpcd_coupon-link-featured-img');
 $discount_text             = get_post_meta($coupon_id, 'coupon_details_discount-text', true);
 $coupon_type               = get_post_meta($coupon_id, 'coupon_details_coupon-type', true);
 $description               = get_post_meta($coupon_id, 'coupon_details_description', true);
@@ -120,8 +120,8 @@ include('header-grid__premium_only.php');
         <?php
         if ($hide_featured_image != 'on') {
         if (!empty($coupon_thumbnail)) { ?>
-        <?php 
-        if ($link_thumbnail == "on"): 
+        <?php
+        if ($link_thumbnail == "on"):
             echo "<a class='wpcd-coupon-click-link' href='{$link}' target='{$target}'>";
         endif; ?>
             <div class="wpcd_coupon_li_top_wr"
@@ -134,15 +134,14 @@ include('header-grid__premium_only.php');
                     echo "<img class='wpcd_archive_coupon_feature_image' src='{$coupon_thumbnail}' alt='{$title}' style='width: 100%;height: 100%;' >";
                 endif;
                 ?>
-                <img alt='<?php echo $title; ?>' class="wpcd_archive_coupon_feature_image" src="<?php echo esc_url($coupon_thumbnail); ?>" style="width: 100%;height: 100%;" >
             <?php } ?>
              </div>
-        <?php 
-        if ($link_thumbnail == "on"): 
+        <?php
+        if ($link_thumbnail == "on"):
             echo "</a>";
-        endif; 
+        endif;
         ?>
-        
+
         <?php } else { ?>
             <div class="wpcd_coupon_li_top_wr"></div>
         <?php } ?>
