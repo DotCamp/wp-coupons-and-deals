@@ -43,7 +43,7 @@ class WPCD_Assets {
 			wp_enqueue_style( 'wpcd-style', WPCD_Plugin::instance()->plugin_assets . 'css/' . self::wpcd_version_correct( 'dir' ) . 'style' . self::wpcd_version_correct( 'suffix' ) . '.css', false, WPCD_Plugin::PLUGIN_VERSION );
 		}
 
-		$custom_css = get_option( 'wpcd_custom-css' ); 
+		$custom_css = get_option( 'wpcd_custom-css' );
 
 		$coupon_type_color = get_option( 'wpcd_coupon-type-bg-color' );
 		$coupon_border_color = get_option( 'wpcd_dt-border-color' );
@@ -54,7 +54,7 @@ class WPCD_Assets {
 		}
 
 		if ( $hide_featured_image === 'on' ) {
-			
+
 			$custom_style = "
 
 				#wpcd_coupon_ul li.wpcd_coupon_li {
@@ -79,7 +79,7 @@ class WPCD_Assets {
 			} else {
 				$output_for_amp .= $custom_style;
 			}
-			
+
 		}
 
 		$inline_style = "
@@ -185,7 +185,7 @@ class WPCD_Assets {
 					$output_for_amp .= $coupon_theme_color;
 				}
 			}
-			
+
 
 		}
 
@@ -216,17 +216,17 @@ class WPCD_Assets {
 
 		wp_enqueue_script( 'wpcd-main-js' );
 		wp_enqueue_script( 'wpcd-clipboardjs' );
-                
+
         //To make sure that "ajax_url" is defined in main.js
-        wp_localize_script( 
-        	'wpcd-main-js', 
-        	'wpcd_object', 
+        wp_localize_script(
+        	'wpcd-main-js',
+        	'wpcd_object',
         	[
 			  	'ajaxurl'  => admin_url( 'admin-ajax.php' ),
 			  	'security'  => wp_create_nonce( 'wpcd-security-nonce' ),
-			] 
+			]
 		);
-		
+
         $word_count = get_option( 'wpcd_words-count' );
 		if ( empty( $word_count ) ) {
 			$word_count = 30;
@@ -288,16 +288,16 @@ class WPCD_Assets {
 		}
 
 	}
-    
+
     /*
      * Dashicons Connection
-     * 
+     *
      * @since 2.7.3
      */
     public static function wpcd_load_dashicons_front_end() {
         wp_enqueue_style( 'dashicons' );
     }
-    
+
 	/**
 	 * Stylesheets for admin area.
 	 *
@@ -365,7 +365,7 @@ class WPCD_Assets {
 		wp_add_inline_style( 'wpcd-admin-style', $inline_style  );
 
 	}
-    
+
 	/**
 	 * Scripts for admin area.
 	 *
@@ -389,7 +389,7 @@ class WPCD_Assets {
 				wp_enqueue_script( 'jquery-ui-datepicker' );
 				wp_enqueue_script( 'wpcd-jquery-ui-timepicker', WPCD_Plugin::instance()->plugin_assets . 'admin/js/jquery-ui-timepicker.js', array( 'jquery' ), WPCD_Plugin::PLUGIN_VERSION, false );
 				wp_enqueue_script( 'wpcd-countdown-js', WPCD_Plugin::instance()->plugin_assets . 'js/jquery.countdown.min.js', false, WPCD_Plugin::PLUGIN_VERSION, false );
-				//To add custom javascript code to tinymce editor at initiation 
+				//To add custom javascript code to tinymce editor at initiation
 				add_filter( 'tiny_mce_before_init', array( __CLASS__, 'wpcd_tiny_mce' ) );
 				// color Picker
 				wp_enqueue_script( 'wp-color-picker' );
@@ -413,7 +413,7 @@ class WPCD_Assets {
 			'nonce' => wp_create_nonce( 'wpcd-script-nonce' ),
 		);
 
-		wp_localize_script( 'wpcd-admin-js', 'wpcd_ajax_script_import', $ajax_data );	
+		wp_localize_script( 'wpcd-admin-js', 'wpcd_ajax_script_import', $ajax_data );
 	}
     /**
      * to add custom javascript code tinymce Editor at initiation
@@ -423,10 +423,10 @@ class WPCD_Assets {
      * @return array
      */
     public static function wpcd_tiny_mce( $initArray ) {
-            
+
         /*
          * change description dynamically in live preview
-         * 
+         *
          * VERY IMPORTANT: don't change the spaces in this code !!!!
          * @since 2.6.2
          */
@@ -436,11 +436,11 @@ class WPCD_Assets {
 [function(ed) {
         ed.on('KeyUp', function (e) {
             var description = tinyMCE.activeEditor.getContent();
-            $('.wpcd-coupon-description').html(description);
+            jQuery('.wpcd-coupon-description').html(description);
         });
         ed.on('Change', function (e) {
             var description = tinyMCE.activeEditor.getContent();
-            $('.wpcd-coupon-description').html(description);
+            jQuery('.wpcd-coupon-description').html(description);
         });            
     
 }][0]
@@ -449,16 +449,16 @@ JS;
     }
 
     /**
-	 * This function checks debug is switch on or switch off 
+	 * This function checks debug is switch on or switch off
 	 * and then return the necessary directory or suffix if it needs ( for minimized version )
-	 * 
+	 *
 	 * @since 2.7.3
 	 * @param string $way_correct
-	 * @return string 
+	 * @return string
 	 */
     public static function wpcd_version_correct( $way_correct ) {
         $correct = array(
-        	'dir'   => 'dist/', 
+        	'dir'   => 'dist/',
         	'suffix' => '.min',
         );
         if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
@@ -467,6 +467,6 @@ JS;
         }
 
         return array_key_exists( $way_correct, $correct ) ? $correct[$way_correct] : '';
-        
+
     }
 }

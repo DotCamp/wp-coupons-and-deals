@@ -155,14 +155,14 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 			</div>
 			<div class="wpcd-col-1-4">
 				<div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden">
-					<a  data-type="code" 
-						data-coupon-id="<?php echo $post_id; ?>" 
+					<a  data-type="code"
+						data-coupon-id="<?php echo $post_id; ?>"
 						href=""
-					   	class="coupon-button coupon-code-wpcd masterTooltip" 
+					   	class="coupon-button coupon-code-wpcd masterTooltip"
 						id="coupon-button-<?php echo $post_id; ?>"
-					   	title="<?php echo $hidden_coupon_hover_text; ?>" 
-						data-position="top center" 
-						data-inverted="" 
+					   	title="<?php echo $hidden_coupon_hover_text; ?>"
+						data-position="top center"
+						data-inverted=""
 						data-aff-url="<?php echo $link; ?>">
 						<span class="code-text-wpcd" rel="nofollow">
 							<?php echo $coupon_code; ?>
@@ -174,18 +174,18 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 				</div>
 				<div class="wpcd-coupon-not-hidden">
 					<div class="wpcd-coupon-code">
-						<button 
+						<button
 							class="wpcd-btn masterTooltip wpcd-coupon-button"
 							title="<?php echo $coupon_hover_text; ?>"
 							data-clipboard-text="<?php echo $coupon_code; ?>">
-							<span class="wpcd_coupon_icon"></span> 
+							<span class="wpcd_coupon_icon"></span>
 							<span class="coupon-code-button">
 								<?php echo $coupon_code; ?>
 							</span>
 						</button>
 					</div>
 					<div class="wpcd-deal-code">
-						<button 
+						<button
 							class="wpcd-btn masterTooltip wpcd-deal-button"
 							title="<?php echo $deal_hover_text; ?>"
 							data-clipboard-text="<?php echo $deal_text; ?>">
@@ -244,14 +244,14 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 			<?php echo $discount_text; ?>
 		</div>
 		<div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden">
-			<a 	data-type="code" 
-				data-coupon-id="<?php echo $post_id; ?>" 
+			<a 	data-type="code"
+				data-coupon-id="<?php echo $post_id; ?>"
 				href=""
-			   	class="coupon-button coupon-code-wpcd masterTooltip" 
+			   	class="coupon-button coupon-code-wpcd masterTooltip"
 				id="coupon-button-<?php echo $post_id; ?>"
-			   	title="<?php echo $hidden_coupon_hover_text; ?>" 
-				data-position="top center" 
-				data-inverted="" 
+			   	title="<?php echo $hidden_coupon_hover_text; ?>"
+				data-position="top center"
+				data-inverted=""
 				data-aff-url="<?php echo $link; ?>">
 				<span class="code-text-wpcd" rel="nofollow">
 					<?php echo $coupon_code; ?>
@@ -263,18 +263,18 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 		</div>
 		<div class="wpcd-coupon-not-hidden">
 			<div class="wpcd-coupon-code">
-				<button 
+				<button
 					class="wpcd-btn masterTooltip wpcd-coupon-button"
 					title="<?php echo $coupon_hover_text; ?>"
 					data-clipboard-text="<?php echo $coupon_code;?>">
-					<span class="wpcd_coupon_icon"></span> 
+					<span class="wpcd_coupon_icon"></span>
 					<span class="coupon-code-button"
 						><?php echo $coupon_code; ?>
 					</span>
 				</button>
 			</div>
 			<div class="wpcd-deal-code">
-				<button 
+				<button
 					class="wpcd-btn masterTooltip wpcd-deal-button"
 					title="<?php echo $deal_hover_text; ?>"
 					data-clipboard-text="<?php echo $deal_text; ?>">
@@ -374,15 +374,15 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 			</div>
 			<div class="wpcd-coupon-two-coupon">
 				<div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden">
-					<a 
-						data-type="code" 
-						data-coupon-id="<?php echo $post_id; ?>" 
+					<a
+						data-type="code"
+						data-coupon-id="<?php echo $post_id; ?>"
 						href=""
-						class="coupon-button coupon-code-wpcd masterTooltip" 
+						class="coupon-button coupon-code-wpcd masterTooltip"
 						id="coupon-button-<?php echo $post_id; ?>"
-						title="<?php echo $hidden_coupon_hover_text; ?>" 
-						data-position="top center" 
-						data-inverted="" 
+						title="<?php echo $hidden_coupon_hover_text; ?>"
+						data-position="top center"
+						data-inverted=""
 						data-aff-url="<?php echo $link; ?>">
 						<span class="code-text-wpcd" rel="nofollow">
 							<?php echo $coupon_code; ?>
@@ -394,18 +394,18 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 				</div>
 				<div class="wpcd-coupon-not-hidden">
 					<div class="wpcd-coupon-code">
-						<button 
+						<button
 							class="wpcd-btn masterTooltip wpcd-coupon-button"
 							title="<?php echo $coupon_hover_text; ?>"
 							data-clipboard-text="<?php echo $coupon_code; ?>">
-							<span class="wpcd_coupon_icon"></span> 
+							<span class="wpcd_coupon_icon"></span>
 							<span class="coupon-code-button">
 								<?php echo $coupon_code; ?>
 							</span>
 						</button>
 					</div>
 					<div class="wpcd-deal-code">
-						<button 
+						<button
 							class="wpcd-btn masterTooltip wpcd-deal-button"
 							title="<?php echo $deal_hover_text; ?>"
 							data-clipboard-text="<?php echo $deal_text; ?>">
@@ -457,15 +457,15 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 		</div>
 		<div class="wpcd-coupon-three-coupon">
 			<div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden">
-				<a 
-					data-type="code" 
-					data-coupon-id="<?php echo $post_id; ?>" 
+				<a
+					data-type="code"
+					data-coupon-id="<?php echo $post_id; ?>"
 					href=""
-					class="coupon-button coupon-code-wpcd masterTooltip" 
+					class="coupon-button coupon-code-wpcd masterTooltip"
 					id="coupon-button-<?php echo $post_id; ?>"
-					title="<?php echo $hidden_coupon_hover_text; ?>" 
-					data-position="top center" 
-					data-inverted="" 
+					title="<?php echo $hidden_coupon_hover_text; ?>"
+					data-position="top center"
+					data-inverted=""
 					data-aff-url="<?php echo $link; ?>">
 					<span class="code-text-wpcd" rel="nofollow">
 						<?php echo $coupon_code; ?>
@@ -477,18 +477,18 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 			</div>
 			<div class="wpcd-coupon-not-hidden">
 				<div class="wpcd-coupon-code">
-					<button 
+					<button
 						class="wpcd-btn masterTooltip wpcd-coupon-button"
 						title="<?php echo __( 'Click Here To Copy Coupon', 'wpcd-coupon' ); ?>"
 						data-clipboard-text="<?php echo $coupon_code; ?>">
-						<span class="wpcd_coupon_icon"></span> 
+						<span class="wpcd_coupon_icon"></span>
 						<span class="coupon-code-button">
 							<?php echo $coupon_code; ?>
 						</span>
 					</button>
 				</div>
 				<div class="wpcd-deal-code">
-					<button 
+					<button
 						class="wpcd-btn masterTooltip wpcd-deal-button"
 						title="<?php echo $deal_hover_text; ?>"
 						data-clipboard-text="<?php echo $deal_text; ?>">
@@ -521,15 +521,15 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 				<?php echo $discount_text; ?>
 			</div>
 			<div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden">
-				<a 
+				<a
 					data-type="code"
 					data-coupon-id="<?php echo $post_id; ?>"
 					href=""
 					class="coupon-button coupon-code-wpcd masterTooltip"
 					id="coupon-button-<?php echo $post_id; ?>"
-					title="<?php echo $hidden_coupon_hover_text; ?>" 
-					data-position="top center" 
-					data-inverted="" 
+					title="<?php echo $hidden_coupon_hover_text; ?>"
+					data-position="top center"
+					data-inverted=""
 					data-aff-url="<?php echo $link; ?>">
 					<span class="code-text-wpcd" rel="nofollow">
 						<?php echo $coupon_code; ?>
@@ -541,18 +541,18 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 			</div>
 			<div class="wpcd-coupon-not-hidden">
 				<div class="wpcd-coupon-code">
-					<button 
+					<button
 						class="wpcd-btn masterTooltip wpcd-coupon-button"
 						title="<?php echo $coupon_hover_text; ?>"
 						data-clipboard-text="<?php echo $coupon_code; ?>">
-						<span class="wpcd_coupon_icon"></span> 
+						<span class="wpcd_coupon_icon"></span>
 						<span class="coupon-code-button">
 							<?php echo $coupon_code; ?>
 						</span>
 					</button>
 				</div>
 				<div class="wpcd-deal-code">
-					<button 
+					<button
 						class="wpcd-btn masterTooltip wpcd-deal-button"
 						title="<?php echo $deal_hover_text; ?>"
 						data-clipboard-text="<?php echo $deal_text; ?>">
@@ -589,15 +589,15 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 		<div class="wpcd-coupon-four-coupon">
 			<div class="wpcd-four-discount-text"><?php echo $second_discount_text; ?></div>
 			<div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden">
-				<a 
-					data-type="code" 
-					data-coupon-id="<?php echo $post_id; ?>" 
+				<a
+					data-type="code"
+					data-coupon-id="<?php echo $post_id; ?>"
 					href=""
-					class="coupon-button coupon-code-wpcd masterTooltip" 
+					class="coupon-button coupon-code-wpcd masterTooltip"
 					id="coupon-button-<?php echo $post_id; ?>"
-					title="<?php echo $hidden_coupon_hover_text; ?>" 
-					data-position="top center" 
-					data-inverted="" 
+					title="<?php echo $hidden_coupon_hover_text; ?>"
+					data-position="top center"
+					data-inverted=""
 					data-aff-url="<?php echo $link; ?>">
 					<span class="code-text-wpcd" rel="nofollow">
 						<?php echo $second_coupon_code; ?>
@@ -609,7 +609,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 			</div>
 			<div class="wpcd-coupon-not-hidden">
 				<div class="wpcd-coupon-code">
-					<button 
+					<button
 						class="wpcd-btn masterTooltip wpcd-coupon-button"
 						title="<?php echo $coupon_hover_text; ?>"
 						data-clipboard-text="<?php echo $second_coupon_code; ?>">
@@ -620,7 +620,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 					</button>
 				</div>
 				<div class="wpcd-deal-code">
-					<button 
+					<button
 						class="wpcd-btn masterTooltip wpcd-deal-button"
 						title="<?php echo $deal_hover_text; ?>"
 						data-clipboard-text="<?php echo $second_deal_text; ?>">
@@ -657,7 +657,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 		<div class="wpcd-coupon-four-coupon">
 			<div class="wpcd-four-discount-text"><?php echo $third_discount_text; ?></div>
 			<div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden">
-				<a 
+				<a
 					data-type="code"
 					data-coupon-id="<?php echo $post_id; ?>"
 					href=""
@@ -665,7 +665,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 					id="coupon-button-<?php echo $post_id; ?>"
 					title="<?php echo $hidden_coupon_hover_text; ?>"
 					data-position="top center"
-					data-inverted="" 
+					data-inverted=""
 					data-aff-url="<?php echo $link; ?>">
 					<span class="code-text-wpcd" rel="nofollow">
 						<?php echo $third_coupon_code; ?>
@@ -677,7 +677,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 			</div>
 			<div class="wpcd-coupon-not-hidden">
 				<div class="wpcd-coupon-code">
-					<button 
+					<button
 						class="wpcd-btn masterTooltip wpcd-coupon-button"
 						title="<?php echo $coupon_hover_text; ?>"
 						data-clipboard-text="<?php echo $third_coupon_code; ?>">
@@ -688,7 +688,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 					</button>
 				</div>
 				<div class="wpcd-deal-code">
-					<button 
+					<button
 						class="wpcd-btn masterTooltip wpcd-deal-button"
 						title="<?php echo $deal_hover_text; ?>"
 						data-clipboard-text="<?php echo $third_deal_text; ?>">
@@ -767,7 +767,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 				</div>
 			</div>
 			<div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden">
-				<a 
+				<a
 					data-type="code"
 					data-coupon-id="<?php echo $post_id; ?>"
 					href=""
@@ -791,7 +791,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 			</div>
 			<div class="wpcd-coupon-not-hidden">
 				<div class="wpcd-coupon-code">
-					<a 
+					<a
 						class="wpcd-template-five-btn masterTooltip"
 						href="#"
 					   	title="<?php echo $coupon_hover_text; ?>"
@@ -803,7 +803,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 					</a>
 				</div>
 				<div class="wpcd-deal-code">
-					<a 
+					<a
 						class="wpcd-template-five-btn masterTooltip"
 						href="#"
 					   	title="<?php echo $deal_hover_text; ?>"
@@ -839,9 +839,9 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 				<h2 class="wpcd-coupon-six-title">
 					<?php echo $title; ?>
 				</h2>
-				<p class="wpcd-coupon-description">
+				<div class="wpcd-coupon-description">
 					<?php echo $description; ?>
-				</p>
+				</div>
 			</div>
 			<div class="exp" style="border-color: <?php echo $wpcd_template_six_theme; ?>">
 				<p>
@@ -903,7 +903,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 			</div>
 			<div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden">
 				<div class="wpcd-btn-wrap">
-					<a 
+					<a
 						data-type="code"
 						data-coupon-id="<?php echo $post_id; ?>"
 						href=""
@@ -929,7 +929,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 			</div>
 			<div class="wpcd-coupon-not-hidden">
 				<div class="wpcd-coupon-code wpcd-btn-wrap">
-					<a 
+					<a
 						class="wpcd-template-six-btn masterTooltip"
 						href="#"
 					   	title="<?php echo $coupon_hover_text; ?>"
@@ -941,7 +941,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 					</a>
 				</div>
 				<div class="wpcd-deal-code wpcd-btn-wrap">
-					<a 
+					<a
 						class="wpcd-template-six-btn masterTooltip"
 						href="#"
 					   	title="<?php echo $deal_hover_text; ?>"
@@ -982,11 +982,11 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 					<p>
 						<?php echo '<div class="wpcd-coupon-description">' . $description . '</div>';?>
 					</p>
-				</div>		
+				</div>
 			</div>
 			<div class="admin_wpcd_seven_buttonSociaLikeDislike">
 				<div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden">
-					<a 
+					<a
 						data-type="code"
 						data-coupon-id="<?php echo $post_id; ?>"
 						href=""
@@ -1015,7 +1015,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 		                    	href="#"
 			                    title="<?php echo $coupon_hover_text; ?>"
 								data-clipboard-text="<?php echo $coupon_code; ?>"
-			                    data-title-ab="<?php echo $coupon_code; ?>" 
+			                    data-title-ab="<?php echo $coupon_code; ?>"
 			                    style="background-color: <?php echo $wpcd_template_seven_theme; ?>; border-color: <?php echo $wpcd_template_seven_theme; ?>; color: <?php echo $wpcd_template_seven_theme; ?>;"><?php echo $coupon_code; ?>
 		                    </a>
 		                </div>
@@ -1033,7 +1033,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 				</div>
 			</div>
 
-		
+
 				<div class="admin_wpcd_seven_expire_correct_box">
 					<div class="admin_wpcd_seven_expire" style="border-color:">
 						<p>
@@ -1136,7 +1136,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 			<<?php echo esc_html( $coupon_title_tag ); ?> class="admin-wpcd-new-title wpcd-coupon-title">
 				<?php echo $title; ?>
 			</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
-			
+
 		}
 	   ?>
 		<div class="wpcd-coupon-description">
@@ -1145,7 +1145,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 	</div> <!-- End of grid-two -->
 	<div class="admin-wpcd-new-grid-three">
 		<div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden">
-			<a 
+			<a
 				data-type="code"
 				data-coupon-id="<?php echo $post_id; ?>"
 				href=""
@@ -1174,7 +1174,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 				</a>
 			</div>
 		</div>
-		
+
 		<a class="admin-wpcd-new-goto-button masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank" title="<?php echo $deal_hover_text; ?>" style="background-color: <?php echo $wpcd_template_eight_theme; ?>">
 		   <?php echo $deal_text; ?>
 		</a>
