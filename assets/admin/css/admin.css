@@ -1196,7 +1196,7 @@ p.wpcd-coupon-four-expired {
 }
 
 
-/* Shortcode Template five coupon 
+/* Shortcode Template five coupon
 ----------------------------------*/
 
 .wpcd-template-five * {
@@ -1430,14 +1430,12 @@ p.wpcd-coupon-four-expired {
 }
 
 .wpcd-coupon-six {
-    max-width: 760px;
     width: 100%;
     border: 2px solid #18E06E;
     margin: 0 auto;
     margin-bottom: 5px;
     clear: both;
     overflow: hidden;
-    padding-bottom: 15px;
 }
 
 .wpcd-coupon-six-holder {
@@ -1448,6 +1446,7 @@ p.wpcd-coupon-four-expired {
     margin: 0 auto;
     float: left;
     position: relative;
+    display: flex;
 }
 
 .wpcd-coupon-six-title {
@@ -1460,8 +1459,8 @@ p.wpcd-coupon-four-expired {
 /*percent off start*/
 
 .wpcd-coupon-six-percent-off {
-    width: 13%;
-    float: left;
+    max-width: 100px;
+    flex: 1;
 }
 
 
@@ -1471,8 +1470,8 @@ p.wpcd-coupon-four-expired {
     width: 100%;
     max-width: 100px;
     height: auto;
-    margin: 0 auto;
     padding-bottom: 40px;
+    padding-left: 10px;
 }
 
 .wpcd-coupon-six-percent-off .wpcd-ribbon {
@@ -1538,11 +1537,8 @@ p.wpcd-coupon-four-expired {
 /*ribbon design end*/
 
 .wpcd-coupon-six-texts {
-    width: 55%;
-    margin: 0 1.5%;
-    box-sizing: border-box;
-    overflow: hidden;
-    float: left;
+    flex: 6;
+    padding: 0px 10px 0px 15px;
 }
 
 .wpcd-coupon-six-texts .texts {
@@ -1562,16 +1558,14 @@ p.wpcd-coupon-four-expired {
 }
 
 .wpcd-coupon-six-img-and-btn {
-    width: 27%;
-    float: right;
-    padding: 0px 8px;
+    padding: 10px;
+    flex: 2;
 }
 
 .wpcd-coupon-six-img-and-btn .item-img {
     height: 115px;
     clear: both;
     max-width: 150px;
-    margin-top: 15px;
     text-align: center;
     max-width: 96%;
     margin-left: auto;
@@ -1705,6 +1699,10 @@ p.wpcd-coupon-four-expired {
 
 .wpcd-template-six-mobile.wpcd-coupon-six {
     height: auto;
+}
+
+.wpcd-template-six-mobile .wpcd-coupon-six-holder {
+    display: block;
 }
 
 .wpcd-template-six-mobile .wpcd-coupon-six-percent-off {
@@ -3402,6 +3400,9 @@ a.admin-wpcd-new-goto-button {
     }
     .wpcd-coupon-six {
         height: auto;
+    }
+    .wpcd-coupon-six-holder {
+        display: block;
     }
     .wpcd-coupon-six-title {
         text-align: center;

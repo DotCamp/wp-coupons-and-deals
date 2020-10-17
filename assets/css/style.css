@@ -1220,13 +1220,11 @@ p.wpcd-coupon-four-expired {
 }
 
 .wpcd-coupon-six {
-    max-width: 760px;
     width: 100%;
     border: 2px solid #18E06E;
     margin: 25px auto;
     clear: both;
     overflow: hidden;
-    padding-bottom: 15px;
 }
 
 .wpcd-coupon-six .wpcd-coupon-description {
@@ -1241,6 +1239,7 @@ p.wpcd-coupon-four-expired {
     margin: 0 auto;
     float: left;
     position: relative;
+    display: flex;
 }
 
 .wpcd-coupon-six-title {
@@ -1256,9 +1255,8 @@ p.wpcd-coupon-four-expired {
 -------------------------------------------------------------- */
 
 .wpcd-coupon-six-percent-off {
-    width: 14%;
-    float: left;
-    margin-right: 6px;
+    max-width: 100px;
+    flex: 1;
 }
 
 
@@ -1269,8 +1267,8 @@ p.wpcd-coupon-four-expired {
     width: 100%;
     max-width: 100px;
     height: auto;
-    margin: 0 auto;
     padding-bottom: 40px;
+    padding-left: 10px;
 }
 
 .wpcd-coupon-six-percent-off .wpcd-ribbon {
@@ -1342,14 +1340,9 @@ p.wpcd-coupon-four-expired {
 
 /* Ribbon Design End
 -------------------------------------------------------------- */
-
 .wpcd-coupon-six-texts {
-    width: 54%;
-    margin: 0 1.5%;
-    box-sizing: border-box;
-    overflow: hidden;
-    float: left;
-    padding: 0 5px 0 10px;
+    flex: 6;
+    padding: 0px 10px 0px 15px;
 }
 
 .wpcd-coupon-six-texts .texts {
@@ -1369,15 +1362,13 @@ p.wpcd-coupon-four-expired {
 }
 
 .wpcd-coupon-six-img-and-btn {
-    width: 27%;
-    float: right;
-    padding: 0px 8px;
+    padding: 10px;
+    flex: 2;
 }
 
 .wpcd-coupon-six-img-and-btn .item-img {
     height: 115px;
     clear: both;
-    margin-top: 15px;
     text-align: center;
     max-width: 96%;
     margin-left: auto;
@@ -1516,6 +1507,10 @@ p.wpcd-coupon-four-expired {
 
 .wpcd-template-six-mobile.wpcd-coupon-six {
     height: auto;
+}
+
+.wpcd-template-six-mobile .wpcd-coupon-six-holder {
+    display: block;
 }
 
 .wpcd-template-six-mobile .wpcd-coupon-six-percent-off {
@@ -1970,7 +1965,7 @@ p.wpcd-coupon-loop-expired {
 }
 
 
-/* Coupon Button Hidden 
+/* Coupon Button Hidden
 -----------------------------------*/
 
 .wpcd-coupon-button-type .coupon-code-wpcd {
@@ -2174,7 +2169,7 @@ p.wpcd-coupon-loop-expired {
 }
 
 
-/* Wpcd Coupon Design 
+/* Wpcd Coupon Design
 -----------------------------------*/
 
 .wpcd_coupon_popup_wr {
@@ -3932,6 +3927,9 @@ a.wpcd-new-coupon-code:hover:before {
 @media only screen and (max-width: 600px) {
     .wpcd-coupon-six {
         height: auto;
+    }
+    .wpcd-coupon-six-holder {
+        display: block;
     }
     .wpcd-coupon-six-title {
         text-align: center;
