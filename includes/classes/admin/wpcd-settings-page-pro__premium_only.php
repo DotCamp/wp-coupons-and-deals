@@ -906,8 +906,6 @@ class WPCD_Settings_Page_Pro {
 
 		ob_start();
 
-		include WPCD_Plugin::instance()->plugin_includes . 'functions/admin/wpcd-settings-page-extra.php';
-
 		$output .= ob_get_clean();
 
 		echo $output;
