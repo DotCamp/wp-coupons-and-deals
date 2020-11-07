@@ -48,6 +48,8 @@ class WPCD_Short_Code {
 
 			add_action( 'wp_ajax_wpcd_coupon_clicked_action',
 				array( __CLASS__, 'wpcd_coupon_clicked_action_func__premium_only' ) );
+			add_action( 'wp_ajax_nopriv_wpcd_coupon_clicked_action',
+				array( __CLASS__, 'wpcd_coupon_clicked_action_func__premium_only' ) );
 		}
 
 	}
@@ -103,6 +105,8 @@ class WPCD_Short_Code {
 		$today               = date( 'd-m-Y' );
 		$hide_expired_coupon = get_option( 'wpcd_hide-expired-coupon' );
 
+		$enable_stats = get_option('wpcd_enable-stats-count');
+
 		while ( $wpcd_coupon->have_posts() ) {
 
 			$wpcd_coupon->the_post();
@@ -115,6 +119,16 @@ class WPCD_Short_Code {
 			$expire_date     = get_post_meta( $coupon_id, 'coupon_details_expire-date', true );
 			$coupon_template = get_post_meta( $coupon_id, 'coupon_details_coupon-template', true );
 			$coupon_type     = get_post_meta( $coupon_id, 'coupon_details_coupon-type', true );
+
+			if (! empty( $enable_stats ) && $enable_stats == 'on') {
+				$view_count = get_post_meta( $coupon_id, 'coupon_view_count', true );
+				if (empty($view_count) || !is_numeric($view_count)) {
+					$view_count = 1;
+				} else {
+					$view_count = intval($view_count) + 1;
+				}
+				update_post_meta($coupon_id, 'coupon_view_count', $view_count);
+			}
 
 			if ( $coupon_type === 'Image' ) {
 
@@ -854,10 +868,14 @@ class WPCD_Short_Code {
 			$today               = date( 'd-m-Y' );
 			$hide_expired_coupon = get_option( 'wpcd_hide-expired-coupon' );
 
-			while ( $the_query->have_posts() ) : $the_query->the_post();
-				global $coupon_id;
-				$parent = "";
+			$enable_stats = get_option('wpcd_enable-stats-count');
 
+			while ( $the_query->have_posts() ) : $the_query->the_post();
+
+				global $coupon_id;
+				$coupon_id = get_the_ID();
+				$parent = "";
+				
 				// check to print header or footer.
 				if ( $i == 1 && $num_posts !== 1 ) {
 					$parent = 'header';
@@ -868,7 +886,7 @@ class WPCD_Short_Code {
 				}
 
 				$template  = new WPCD_Template_Loader();
-				$coupon_id = get_the_ID();
+				
 
 				//Hide expired coupon feature (default is Not to hide)
 				if ( ! empty( $hide_expired_coupon ) || $hide_expired_coupon == "on" ) {
@@ -881,6 +899,16 @@ class WPCD_Short_Code {
 							continue;
 						}
 					}
+				}
+
+				if (!empty( $enable_stats ) && $enable_stats == 'on') {
+					$view_count = get_post_meta( $coupon_id, 'coupon_view_count', true );
+					if ( empty($view_count) || !is_numeric($view_count) ) {
+						$view_count = 1;
+					} else {
+						$view_count = intval($view_count) + 1;
+					}
+					update_post_meta($coupon_id, 'coupon_view_count', $view_count);
 				}
 
 				ob_start();
