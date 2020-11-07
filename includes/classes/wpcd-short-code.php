@@ -509,14 +509,19 @@ class WPCD_Short_Code {
 				
 				$cat_ids = [];
 				$vend_ids = [];
-				foreach ( $coupon_category as $c_category ) {
-					$cat_ids[] = $c_category->term_id;
-				}
 
-				foreach ( $coupon_vendor as $c_vend ) {
-					$vend_ids[] = $c_vend->term_id;
+				if ( is_array( $coupon_category ) ) {
+					foreach ( $coupon_category as $c_category ) {
+						$cat_ids[] = $c_category->term_id;
+					}
 				}
-
+				
+				if ( is_array( $coupon_vendor ) ) {
+					foreach ( $coupon_vendor as $c_vend ) {
+						$vend_ids[] = $c_vend->term_id;
+					}
+				}
+				
 				$cat_ids = array_merge($cat_ids, $vend_ids);
 				
 				if (count($cat_ids)) {
