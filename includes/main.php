@@ -191,9 +191,6 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 				return;
 			}
 
-			// Delets the option to check if user is notified for review.
-			delete_option( 'wpcd_review_notify' );
-
 			/**
 			 * Clear the permalinks to remove our post type's rules.
 			 *

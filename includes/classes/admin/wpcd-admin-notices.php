@@ -38,7 +38,7 @@ class WPCD_Admin_Notices {
 		$coupon_count  = wp_count_posts( 'wpcd_coupons' );
 		$coupon_number = $coupon_count->publish;
 
-		if ( $coupon_number >= 10 && get_option( 'wpcd_review_notify' ) == "no" ) {
+		if ( $coupon_number >= 5 && get_option( 'wpcd_review_notify' ) == "no" ) {
 			?>
             <div class="wpcd-review-notice notice notice-info">
                 <p style="font-size: 14px;">
