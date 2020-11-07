@@ -442,11 +442,11 @@ class WPCD_Short_Code {
 		if ( !empty( $a['sortby'])) {
 			if ($a['sortby'] == 'oldest' ) {
 				$args['order'] = 'ASC';
-			} else if ($a['sortby'] == 'expire-first') {
+			} else if ($a['sortby'] == 'expired-first') {
 				$args['order'] = 'ASC';
 				$args['orderby'] = 'meta_value';
 				$args['meta_key'] = 'coupon_details_expire-date';
-			} else if ($a['sortby'] == 'expire-last') {
+			} else if ($a['sortby'] == 'expired-last') {
 				$args['order'] = 'DESC';
 				$args['orderby'] = 'meta_value';				
 				$args['meta_key'] = 'coupon_details_expire-date';
