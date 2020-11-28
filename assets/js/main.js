@@ -73,6 +73,8 @@ jQuery(document).ready(function ($) {
         categories_pagination_set_timeout = setTimeout( function () {
             var coupon_template;
             var coupon_items_count;
+            var coupon_sortby;
+            var coupon_exclude_cat;
             var wpcd_data_coupon_page_url;
             var wpcd_data_category_coupons;
             var wpcd_data_vendor_coupons;
@@ -88,6 +90,8 @@ jQuery(document).ready(function ($) {
             if ( wpcd_coupon_template.length > 0 ) {
                 coupon_template = wpcd_coupon_template.attr( 'wpcd-data-coupon_template' );
                 coupon_items_count = wpcd_coupon_template.attr( 'wpcd-data-coupon_items_count' );
+                coupon_sortby = wpcd_coupon_template.attr( 'wpcd-data-coupon_sortby' );
+                coupon_exclude_cat = wpcd_coupon_template.attr( 'wpcd-data-coupon_exclude_cat' );
                 wpcd_data_coupon_page_url = wpcd_coupon_template.attr( 'wpcd-data-coupon_page_url' );
                 wpcd_data_category_coupons = wpcd_coupon_template.attr( 'wpcd-data_category_coupons' );
                 wpcd_data_vendor_coupons = wpcd_coupon_template.attr( 'wpcd-data_vendor_coupons' );
@@ -114,6 +118,8 @@ jQuery(document).ready(function ($) {
                     wpcd_vendor: wpcd_coupon_taxonomy_vendor,
                     coupon_template: coupon_template,
                     coupon_items_count: coupon_items_count,
+                    coupon_sortby: coupon_sortby,
+                    coupon_exclude_cat: coupon_exclude_cat,
                     wpcd_data_coupon_page_url: wpcd_data_coupon_page_url,
                     wpcd_data_category_coupons: wpcd_data_category_coupons,
                     wpcd_data_vendor_coupons: wpcd_data_vendor_coupons,

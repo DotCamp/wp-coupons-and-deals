@@ -83,3 +83,49 @@ WPCD_Plugin::init();
 register_activation_hook( __FILE__, array( 'WPCD_Plugin', 'wpcd_activate' ) );
 register_deactivation_hook( __FILE__, array( 'WPCD_Plugin', 'wpcd_deactivate' ) );
 
+
+/**
+ * convert all expire_dates in timestamp format
+ */
+add_action( 'upgrader_process_complete', 'wpcd_expire_date_convert_run', 10, 2 );
+function wpcd_expire_date_convert_run( $instance, $extras ) {
+    if(
+        'plugin' !== $extras[ 'type' ] ||
+        'update' !== $extras[ 'action' ] ||
+        plugin_basename( __FILE__ ) !== $extras[ 'plugin' ]
+    ) {
+        return;
+    }
+    wpcd_expire_date_convert();
+}
+
+function wpcd_expire_date_convert() {
+    if( get_option('wpcd_expire_date_converted' ) ) return;
+
+    global $wpdb;
+    $coupons_id = $wpdb->get_results("SELECT id FROM $wpdb->posts WHERE post_type = 'wpcd_coupons'", ARRAY_A);
+
+    if($coupons_id && is_array($coupons_id)) {
+        foreach ($coupons_id as $id) {
+            if($id && is_array($id) && array_key_exists( 'id', $id )) {
+                $coupon_id = $id['id'];
+
+                expire_data_convert($coupon_id, 'coupon_details_expire-date');
+                expire_data_convert($coupon_id, 'coupon_details_second-expire-date');
+                expire_data_convert($coupon_id, 'coupon_details_third-expire-date');
+            }
+        }
+    }
+
+    function expire_data_convert($coupon_id, $meta_name) {
+        $expire_date = get_post_meta( $coupon_id, $meta_name, true );
+
+        if ( ! empty($expire_date) && (string) (int) $expire_date != $expire_date ) {
+            $expire_date = strtotime( $expire_date );
+
+            update_post_meta( $coupon_id, $meta_name, $expire_date );
+        }
+    }
+
+    add_option('wpcd_expire_date_converted', '1');
+}
