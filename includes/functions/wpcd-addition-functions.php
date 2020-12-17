@@ -86,3 +86,19 @@ if( ! function_exists( 'wpcd_uniq_attr' ) ) {
         return substr( bin2hex( $bytes ), 0, $length );
     }
 }
+
+if( ! function_exists( 'infinite_scroll_in_archive' ) ) {
+
+    /**
+     * check option's activity infinite scroll in archive
+     * @return bool
+     */
+    function infinite_scroll_in_archive() {
+        $infinite_scroll_in_archive = get_option( 'wpcd_infinite-scroll-in-archive' );
+        if ( !empty( $infinite_scroll_in_archive ) && $infinite_scroll_in_archive == 'on' ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}

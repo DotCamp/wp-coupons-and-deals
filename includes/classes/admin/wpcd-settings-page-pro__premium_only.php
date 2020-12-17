@@ -208,6 +208,13 @@ class WPCD_Settings_Page_Pro {
 					),
 					'default'     => 'category'
 				),
+                array(
+                    'id'          => 'infinite-scroll-in-archive',
+                    'label'       => __( 'Infinite Scroll in Archive.', 'wpcd-coupon' ),
+                    'type'        => 'checkbox',
+                    'description' => __( 'Set infinite scroll instead of pagination', 'wpcd-coupon' ),
+                    'default'     => ''
+                ),
 				array(
 					'id'          => 'words-count',
 					'label'       => __( 'Words Count to Add More/Less Link', 'wpcd-coupon' ),

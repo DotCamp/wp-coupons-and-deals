@@ -1759,6 +1759,11 @@ p.wpcd-coupon-four-expired {
     text-align: center;
 }
 
+.wpcd_coupon_loader.wpcd_coupon_loader_infinite_scroll {
+    position: relative;
+    background: #fff0;
+}
+
 .wpcd_coupon_loader:before {
     content: " ";
     display: block;
