@@ -79,26 +79,27 @@ jQuery(document).ready(function ($) {
     if(infinite_scroll_in_archive) {
         function infiniteScroll() {
             let wpcdCouponPaginationWr = document.querySelector('#wpcd_coupon_pagination_wr');
-            const scrollAmount = document.documentElement.scrollTop || document.body.scrollTop;
-            const pagWpCoordsY = wpcdCouponPaginationWr.getBoundingClientRect().top + window.pageYOffset;
-            const windowHeight = window.innerHeight;
-            if ((scrollAmount + windowHeight) >= pagWpCoordsY) {
+            if(wpcdCouponPaginationWr) {
+                const scrollAmount = document.documentElement.scrollTop || document.body.scrollTop;
+                const pagWpCoordsY = wpcdCouponPaginationWr.getBoundingClientRect().top + window.pageYOffset;
+                const windowHeight = window.innerHeight;
+                if ((scrollAmount + windowHeight) >= pagWpCoordsY) {
 
-                let hrefEl = wpcdCouponPaginationWr.querySelector('.current').nextElementSibling;
-                if(hrefEl) {
-                    window.removeEventListener('scroll', infiniteScroll);
-                    let href = hrefEl.getAttribute('href');
-                    let href_arr = wpcd_getUrlVar(href);
-                    let wpcd_page_num = href_arr['wpcd_page_num'];
-                    let wpcd_coupon_taxonomy = href_arr['wpcd_category'];
-                    if (!wpcd_coupon_taxonomy) {
-                        wpcd_coupon_taxonomy = href_arr['wpcd_vendor'];
+                    let hrefEl = wpcdCouponPaginationWr.querySelector('.current').nextElementSibling;
+                    if(hrefEl) {
+                        window.removeEventListener('scroll', infiniteScroll);
+                        let href = hrefEl.getAttribute('href');
+                        let href_arr = wpcd_getUrlVar(href);
+                        let wpcd_page_num = href_arr['wpcd_page_num'];
+                        let wpcd_coupon_taxonomy = href_arr['wpcd_category'];
+                        if (!wpcd_coupon_taxonomy) {
+                            wpcd_coupon_taxonomy = href_arr['wpcd_vendor'];
+                        }
+                        let search_text = href_arr['search_text'];
+                        let action = wpcdCouponPaginationWr.getAttribute('wpcd-data-action');
+                        wpcd_ajaxCouponCategoriesPagination(wpcd_page_num, action, wpcd_js_data_tax, wpcd_coupon_taxonomy, search_text, true);
                     }
-                    let search_text = href_arr['search_text'];
-                    let action = wpcdCouponPaginationWr.getAttribute('wpcd-data-action');
-                    wpcd_ajaxCouponCategoriesPagination(wpcd_page_num, action, wpcd_js_data_tax, wpcd_coupon_taxonomy, search_text, true);
                 }
-
             }
         }
 
@@ -237,7 +238,7 @@ jQuery(document).ready(function ($) {
                                 $('.wpcd-copy-tooltip')
                                     .css({top: mousey, left: mousex})
                             });
-                            
+
                             if(!wpcd_coupon_taxonomy) wpcd_coupon_taxonomy = 'all';
                             $.each($('#wpcd_cat_ul  li'), function () {
                                 if ($(this).children('a').attr(wpcd_js_data_tax) == wpcd_coupon_taxonomy) {
