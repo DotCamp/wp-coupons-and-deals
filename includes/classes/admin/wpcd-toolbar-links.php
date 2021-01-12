@@ -75,7 +75,7 @@ class WPCD_Toolbar_Links {
 			'parent' => 'wpcd_toolbar'
 		);
 		$wp_admin_bar->add_node( $args );
-                
+
         $args = array(
 			'id'     => 'wpcd_toolbar_vendors',
 			'title'  => __( 'Coupon Vendors', 'wpcd-coupon' ),
@@ -83,7 +83,7 @@ class WPCD_Toolbar_Links {
 			'parent' => 'wpcd_toolbar'
 		);
 		$wp_admin_bar->add_node( $args );
-                
+
 		$args = array(
 			'id'     => 'wpcd_toolbar_settings',
 			'title'  => __( 'Settings', 'wpcd-coupon' ),
@@ -96,7 +96,7 @@ class WPCD_Toolbar_Links {
 			'id'  	=> 'wpcd_toolbar_upgrade',
 			'title' => __( 'Upgrade to Pro', 'wpcd-coupon' ),
 			'href'  => wcad_fs()->get_upgrade_url(),
-			'parent' => 'wpcd_toolbar' 
+			'parent' => 'wpcd_toolbar'
 		);
 
 		if ( wcad_fs()->is_not_paying() ) {

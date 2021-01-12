@@ -82,6 +82,13 @@ class WPCD_Custom_Taxonomy {
 			'query_var'         => true
 		);
 
+		$args['capabilities'] = array(
+            'manage_terms' => WPCD_Plugin::ALLOWED_ROLE_META_CAP,
+            'edit_terms' => WPCD_Plugin::ALLOWED_ROLE_META_CAP,
+            'delete_terms' => WPCD_Plugin::ALLOWED_ROLE_META_CAP,
+            'assign_terms' => WPCD_Plugin::ALLOWED_ROLE_META_CAP
+        );
+
 		/**
 		 * Registers the taxonomy with WordPress.
 		 *

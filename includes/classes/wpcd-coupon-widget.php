@@ -155,7 +155,7 @@ class WPCD_Coupon_Widget extends WP_Widget {
 		if( empty( $widget_coupon_name ) ) {
 			return;
 		}
-		
+
 		/**
 		 * New custom query to get post and post data by its title
 		 *

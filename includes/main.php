@@ -41,6 +41,9 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 		const TAXONOMY_PLURAL = 'Coupon Categories';
         const VENDOR_SINGULAR = 'Coupon Vendor';
         const VENDOR_PLURAL = 'Coupon Vendors';
+
+        const ALLOWED_ROLE_META_CAP = 'wpcd_allowed_cap';
+
 		/**
 		 * Instance to instantiate object.
 		 *
@@ -122,6 +125,8 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 			$this->plugin_assets   = $this->plugin_dir_uri . trailingslashit( 'assets' );
 			$this->plugin_includes = $this->plugin_dir_path . trailingslashit( 'includes' );
 			$this->plugin_classes  = $this->plugin_includes . trailingslashit( 'classes' );
+
+            add_filter( 'user_has_cap', array( $this, 'filter_user_caps' ), 99, 1 );
 		}
 
 		/**
@@ -299,11 +304,11 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 
              /**
              * Adding the ajax class to initialize.
-             * 
+             *
              * @since 2.5.0.1
              */
             self::ajax_class();
-                        
+
 			/**
 			 * Welcome page.
 			 *
@@ -379,7 +384,7 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 		 * @since 1.0
 		 */
 		public static function custom_taxonomy_register() {
-			
+
 			/**
             * Category
             */
@@ -398,7 +403,7 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 			);
 
 			WPCD_Custom_Taxonomy_Image::register( self::CUSTOM_TAXONOMY );
-                        
+
             /**
              * Vendor
              */
@@ -487,7 +492,7 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 
 				require_once WPCD_Plugin::instance()->plugin_includes . '/classes/admin/wpcd-import-page-pro__premium_only.php';
 
-				if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) {
+				if ( ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) && current_user_can(self::ALLOWED_ROLE_META_CAP) ) {
 					new WPCD_Import_Page_Pro();
 				} else {
 					new WPCD_Import_Page();
@@ -519,7 +524,7 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 
 				new WPCD_Meta_Boxes();
 
-			}      
+			}
 
 			/**
 			 * Shows the shortcodes after coupon is published.
@@ -598,21 +603,21 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 			 */
 			WPCD_Short_Code::init();
 		}
-                
+
         /**
 		 * This function loads the ajax class
 		 *
 		 * @since 2.5.0.1
 		 */
         public static function ajax_class() {
-			
+
 			/**
             * Load the ajax events
-            * 
+            *
             * @since 2.5.0.1
             */
             WPCD_AJAX::LoadEvents();
-		
+
 		}
 
 		/**
@@ -620,17 +625,17 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 		 * @since 2.6.2
 		 */
 		public static function free_pro_trial() {
-			
+
 			global $menu, $submenu;
-			
+
 			$parent_menu = 'edit.php?post_type=wpcd_coupons';
 			$menu_name = 'Free Pro Trial';
 			$capability = 'manage_options';
 			$url = wcad_fs()->get_trial_url();
-			
+
 			$submenu[$parent_menu][] = array( $menu_name, $capability, $url );
-		
-		}	
+
+		}
 
 		/**
 		 * This function loads the file with pagination functions
@@ -638,14 +643,14 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 		 * @since 2.7.3
 		 */
         public static function wpcd_pagination() {
-			
+
 			if ( file_exists( WPCD_Plugin::instance()->plugin_includes . '/functions/wpcd-coupon-pagination__premium_only.php' ) ) {
 
 				include WPCD_Plugin::instance()->plugin_includes . '/functions/wpcd-coupon-pagination__premium_only.php';
-			
+
 			}
-		
-		}		
+
+		}
 
 		/**
 		 * This function loads the file with different help functions
@@ -653,9 +658,9 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 		 * @since 2.7.3
 		 */
         public static function wpcd_additional_functions() {
-			
+
 			include WPCD_Plugin::instance()->plugin_includes . '/functions/wpcd-addition-functions.php';
-		
+
 		}
 
 		/**
@@ -671,6 +676,34 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 		public static function wpcd_dashboard_widget_news_handler() {
 			include WPCD_Plugin::instance()->plugin_includes . '/templates/extras/dashboard-widget.php';
 		}
+
+        /**
+         * WordPress user_has_cap filter callback function
+         *
+         * We will be using this hook to allow option defined user roles to use table builder at front-end
+         *
+         * @param array $all_caps current user caps
+         *
+         * @return array user caps
+         */
+        public function filter_user_caps( $all_caps ) {
+            if ( is_user_logged_in() ) {
+                $current_user = wp_get_current_user();
+                if ( $current_user->roles[0] === 'administrator' or wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) {
+                    // provide default value for get_option
+                    $intersection = array_intersect( get_option( 'wpcd_form-shortcode-allowed-roles', [ 'administrator' ] ), $current_user->roles );
+
+                    if ( sizeof( $intersection ) > 0 ) {
+                        if ( ! isset( $all_caps[ self::ALLOWED_ROLE_META_CAP ] ) ) {
+                            $all_caps[ self::ALLOWED_ROLE_META_CAP ] = true;
+                        }
+                    }
+
+                }
+            }
+
+            return $all_caps;
+        }
 
 	}
 

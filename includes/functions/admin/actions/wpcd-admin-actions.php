@@ -38,13 +38,13 @@ add_action('wp_ajax_wpcd_process_import', 'wpcd_import_process_php');
 
 function wpcd_import_process_php() {
     $params = json_decode( file_get_contents( 'php://input' ) );
-    
-	$wpcd_coupon_templates = array( 'Template One', 'Template Two', 
-                                    'Template Three', 'Template Four', 
-                                    'Template Five', 'Template Six', 
+
+	$wpcd_coupon_templates = array( 'Template One', 'Template Two',
+                                    'Template Three', 'Template Four',
+                                    'Template Five', 'Template Six',
                                     'Template Seven', 'Template Eight' );
 	$wpcd_coupon_data = json_decode( stripslashes( $params->post_var ) );
-    
+
     $nonce_ajax = stripslashes( $params->nonce_ajax );
 	// wp_send_json($wpcd_coupon_data);
 	if( ! wp_verify_nonce( $nonce_ajax, 'wpcd-script-nonce' ) ) {
@@ -59,7 +59,7 @@ function wpcd_import_process_php() {
 			);
 			$post_id = wp_insert_post( $args );
 			if ( ! is_wp_error( $post_id ) ) {
-                if ( ! empty( $wpcd_coupon_data->expiry_date ) ) { 
+                if ( ! empty( $wpcd_coupon_data->expiry_date ) ) {
                     $expyry_data = wpcd_datetotime( sanitize_text_field( $wpcd_coupon_data->expiry_date ) ) ?
                                     wpcd_datetotime( sanitize_text_field( $wpcd_coupon_data->expiry_date ) ) : "";
                 }
@@ -80,8 +80,8 @@ function wpcd_import_process_php() {
 				add_post_meta( $post_id, 'coupon_details_expire-date', $expyry_data, true );
 				add_post_meta( $post_id, 'coupon_details_expire-time', $expiry_time, true );
 				add_post_meta( $post_id, 'coupon_details_hide-coupon', $wpcd_coupon_data->hide_coupon, true );
-				add_post_meta( $post_id, 'coupon_details_coupon-template', $wpcd_coupon_data->default_coupon_template, true );     
-	
+				add_post_meta( $post_id, 'coupon_details_coupon-template', $wpcd_coupon_data->default_coupon_template, true );
+
 				// Theme Color for only template Five and Six
 				$theme_color = $wpcd_coupon_data->theme_color;
 				if ( $wpcd_coupon_data->default_coupon_template == 'Template Five' ):
@@ -95,19 +95,19 @@ function wpcd_import_process_php() {
 				endif;
 				if ( $wpcd_coupon_data->category != '' && $wpcd_coupon_data->category != ' ' ) {
 					wp_set_object_terms( $post_id, $wpcd_coupon_data->category, 'wpcd_coupon_category' );
-				}	
+				}
 				if ( $wpcd_coupon_data->vendor != '' && $wpcd_coupon_data->vendor != ' ' ) {
 					wp_set_object_terms( $post_id, $wpcd_coupon_data->vendor, 'wpcd_coupon_vendor' );
-				}	
+				}
 			} else {
 				wp_send_json($post_id->get_error_message() . __( ' | On Line Number1', 'wpcd-coupon' ) . $wpcd_coupon_data->coupon_count . '<br />');
 			}
-	
+
 		} else {
 			wp_send_json(__( 'Error | On Line Number 2', 'wpcd-coupon' ) . $wpcd_coupon_data->coupon_count . '<br />');
 		}
         $wpcd_coupon_data->success = 'success';
 		wp_send_json( $wpcd_coupon_data ); // sends all the data back to js
 	}
-	
+
 } // End of wpcd_import_process_php

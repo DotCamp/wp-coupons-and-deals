@@ -38,7 +38,7 @@ class WPCD_Import_Page {
 			'edit.php?post_type=wpcd_coupons',
 			__( 'WP Coupons and Deals: Import Coupons', 'wpcd-coupon' ),
 			__( 'Import Coupons (Pro)', 'wpcd-coupon' ),
-			'manage_options',
+            WPCD_Plugin::ALLOWED_ROLE_META_CAP,
 			'wpcd_coupon_import',
 			array( $this, 'import_page' )
 		);

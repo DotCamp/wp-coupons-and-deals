@@ -87,9 +87,9 @@ class WPCD_Meta_Boxes {
 		if ( empty( $expire_date_format ) ) {
 			$expire_date_format = 'dd-mm-yy';
 		}
-			
+
 		$expireDateFormatFun = wpcd_getExpireDateFormatFun( $expire_date_format );
-		
+
 		$output           = '';
 		$help             = '';
 
@@ -122,7 +122,7 @@ class WPCD_Meta_Boxes {
 						$db_value
 					);
 					break;
-					
+
 				case 'temp4-dealtext':
 					$input = sprintf(
 						'<input type="text" name="%s" id="%s" value="%s"/>',
@@ -192,11 +192,11 @@ class WPCD_Meta_Boxes {
 						ob_start();
 						/**
 						* Add Editor to description field
-						* 
+						*
 						* @since 2.5.0.2
 						*/
 						$settings = array(
-					   		'wpautop' => false, 
+					   		'wpautop' => false,
 					   		'media_buttons' => false,
 							'tinymce' => true,
 							'textarea_rows' => 5,
@@ -374,14 +374,14 @@ class WPCD_Meta_Boxes {
 
 				if ( $wpcd_field['id'] == 'expire-date' ) {
                 	$_POST[ $wpcd_field['id'] ] = strtotime( sanitize_text_field( $_POST[ $wpcd_field['id'] ] ) );
-                } 
+                }
 				if ( $wpcd_field['id'] == 'second-expire-date' ) {
                 	$_POST[ $wpcd_field['id'] ] = strtotime( sanitize_text_field( $_POST[ $wpcd_field['id'] ] ) );
-                } 
+                }
 				if ( $wpcd_field['id'] == 'third-expire-date' ) {
                 	$_POST[ $wpcd_field['id'] ] = strtotime( sanitize_text_field( $_POST[ $wpcd_field['id'] ] ) );
-                } 
-                
+                }
+
 				$field_checker = 'coupon_details_' . $wpcd_field['id'];
 
 				if ( $field_checker == 'coupon_details_hide-coupon' ) {

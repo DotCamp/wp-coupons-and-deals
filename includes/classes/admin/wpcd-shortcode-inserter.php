@@ -181,7 +181,7 @@ class WPCD_Shortcode_Inserter {
                         </select>
                     </div>
                     <!-- End Category -->
-                    
+
                     <!-- Start Vendor -->
                     <div class="shortcode_inserter_select wpcd_vendors_select">
                         <label for="coupon_type">

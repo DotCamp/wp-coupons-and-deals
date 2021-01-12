@@ -110,6 +110,24 @@ class WPCD_Custom_Post_Type {
 			'show_in_nav_menus'  => false,
 		);
 
+        $args['capabilities'] = array(
+            'edit_post' => WPCD_Plugin::ALLOWED_ROLE_META_CAP,
+            'read_post' => WPCD_Plugin::ALLOWED_ROLE_META_CAP,
+            'delete_post' => WPCD_Plugin::ALLOWED_ROLE_META_CAP,
+            'edit_posts' => WPCD_Plugin::ALLOWED_ROLE_META_CAP,
+            'edit_others_posts' => WPCD_Plugin::ALLOWED_ROLE_META_CAP,
+            'delete_posts' => WPCD_Plugin::ALLOWED_ROLE_META_CAP,
+            'publish_posts' => WPCD_Plugin::ALLOWED_ROLE_META_CAP,
+            'read_private_posts' => WPCD_Plugin::ALLOWED_ROLE_META_CAP,
+            'read' => WPCD_Plugin::ALLOWED_ROLE_META_CAP,
+            'delete_private_posts' => WPCD_Plugin::ALLOWED_ROLE_META_CAP,
+            'delete_published_posts' => WPCD_Plugin::ALLOWED_ROLE_META_CAP,
+            'delete_others_posts' => WPCD_Plugin::ALLOWED_ROLE_META_CAP,
+            'edit_private_posts' => WPCD_Plugin::ALLOWED_ROLE_META_CAP,
+            'edit_published_posts' => WPCD_Plugin::ALLOWED_ROLE_META_CAP,
+            'create_posts' => WPCD_Plugin::ALLOWED_ROLE_META_CAP,
+        );
+
 		/**
 		 * WordPress function to register the custom
 		 * post type using our post type name and arguments.

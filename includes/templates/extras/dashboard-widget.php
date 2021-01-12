@@ -93,6 +93,6 @@ if ( current_user_can( "manage_options" ) ) {
 				<a href="<?php echo \esc_url( $install_ub_url ); ?>"><?php echo __( 'Install', 'wpcd-coupon' ); ?></a> |
 				<a href="https://ultimateblocks.com/?utm_source=wpdashboard&utm_medium=widget" target="_blank"><?php echo __( 'Learn More', 'wpcd-coupon' ); ?></a></p>
 	</div>
-	<?php 
+	<?php
 	}
 }
