@@ -143,6 +143,8 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 				return;
 			}
 
+            add_filter( 'user_has_cap', array( WPCD_Plugin::instance(), 'filter_user_caps' ), 99, 1 );
+
 			// Adds the option to check if user is notified for review.
 			add_option( 'wpcd_review_notify', 'no' );
 			add_option( 'wpcd_popup-goto-link', 'on' );
@@ -626,14 +628,13 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 		 */
 		public static function free_pro_trial() {
 
-			global $menu, $submenu;
-
-			$parent_menu = 'edit.php?post_type=wpcd_coupons';
-			$menu_name = 'Free Pro Trial';
-			$capability = 'manage_options';
-			$url = wcad_fs()->get_trial_url();
-
-			$submenu[$parent_menu][] = array( $menu_name, $capability, $url );
+            add_submenu_page(
+                'edit.php?post_type=wpcd_coupons',
+                __( 'Free Pro Trial', 'wpcd-coupon' ),
+                __( 'Free Pro Trial', 'wpcd-coupon' ),
+                'manage_options',
+                wcad_fs()->get_trial_url()
+            );
 
 		}
 
