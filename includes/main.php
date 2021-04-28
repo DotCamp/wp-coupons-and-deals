@@ -692,7 +692,7 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
                 $current_user = wp_get_current_user();
                 if ( $current_user->roles[0] === 'administrator' or wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) {
                     // provide default value for get_option
-                    $intersection = array_intersect( get_option( 'wpcd_form-shortcode-allowed-roles', [ 'administrator' ] ), $current_user->roles );
+                    $intersection = array_intersect( get_option( 'wpcd_create-edit-import-allowed-roles', [ 'administrator' ] ), $current_user->roles );
 
                     if ( sizeof( $intersection ) > 0 ) {
                         if ( ! isset( $all_caps[ self::ALLOWED_ROLE_META_CAP ] ) ) {

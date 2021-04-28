@@ -315,6 +315,14 @@ class WPCD_Settings_Page_Pro {
                     'type'        => 'checkbox',
                     'default'     => ''
                 ),
+				array(
+					'id'          => 'create-edit-import-allowed-roles',
+					'label'       => __( 'Allowed User Roles', 'wpcd-coupon' ),
+					'description' => __( 'Allowed user roles to create, edit and import coupons.', 'wpcd-coupon' ),
+					'type'        => 'checkbox_multi',
+					'options'     => wp_roles()->role_names,
+					'default'     => [ 'administrator' ],
+				)
 			),
 			array(
 				array(
