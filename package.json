@@ -40,7 +40,7 @@
     "gulp-replace": "^1.0.0",
     "gulp-sort": "^2.0.0",
     "gulp-wp-pot": "^2.0.4",
-    "postcss": "^7.0.23",
+    "postcss": "^8.2.10",
     "postcss-loader": "^3.0.0",
     "prettier": "^1.19.1",
     "url-loader": "^3.0.0",
