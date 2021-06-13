@@ -53,20 +53,19 @@ class WPCD_Import_Page {
 	 * @since 2.3.2
 	 */
 	public function load_stylesheet_script( $hook ) {
+		$screen = get_current_screen();
+		if ( is_object( $screen ) && 'wpcd_coupons' == $screen->post_type ) {
 
-		global $import_page;
+			global $import_page;
 
-		// Add style to the welcome page only.
-		if ( $hook != $import_page ) {
-			return;
+			// Add style to the welcome page only.
+			if ( $hook != $import_page ) {
+				return;
+			}
+
+			wp_enqueue_script( 'wp-color-picker' );
+			wp_enqueue_style( 'wp-color-picker' );
 		}
-		wp_enqueue_style( 'wpcd-admin-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/' . WPCD_Assets::wpcd_version_correct( 'dir' ) . 'admin' . WPCD_Assets::wpcd_version_correct( 'suffix' ) . '.css', false );
-		wp_enqueue_script( 'wpcd-admin-js', WPCD_Plugin::instance()->plugin_assets . 'admin/js/admin.js', array(
-			'jquery',
-			'jquery-ui-datepicker',
-			'wp-color-picker'
-		), WPCD_Plugin::PLUGIN_VERSION, false );
-
 	}
 
 	/**

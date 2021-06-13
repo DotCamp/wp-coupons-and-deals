@@ -311,59 +311,48 @@ class WPCD_Assets {
 		 * @since 1.2
 		 */
 		$custom_post_type = 'wpcd_coupons';
+		$screen = get_current_screen();
+		if ( is_object( $screen ) && $custom_post_type == $screen->post_type ) {
 
-		if ( in_array( $hook_suffix, array( 'post.php', 'post-new.php' ) ) ) {
-
-			$screen = get_current_screen();
-
-			if ( is_object( $screen ) && $custom_post_type == $screen->post_type ) {
+			if ( in_array( $hook_suffix, array( 'post.php', 'post-new.php' ) ) ) {
 
 				wp_enqueue_style( 'wpcd-jquery-ui-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/' . self::wpcd_version_correct( 'dir' ) . 'jquery-ui' . self::wpcd_version_correct( 'suffix' ) . '.css', false, WPCD_Plugin::PLUGIN_VERSION );
 
 			}
-		}
-
-		if ( in_array( $hook_suffix, array( 'edit.php', 'post.php', 'post-new.php' ) ) ) {
-
-			$screen = get_current_screen();
-
-			if ( is_object( $screen ) && $custom_post_type == $screen->post_type ) {
-
-				wp_enqueue_style( 'wpcd-admin-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/' . self::wpcd_version_correct( 'dir' ) . 'admin' . self::wpcd_version_correct( 'suffix' ) . '.css', false, WPCD_Plugin::PLUGIN_VERSION );
-				wp_enqueue_style( 'wpcd-admin-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/select2.min.css', false, WPCD_Plugin::PLUGIN_VERSION );
-
-			}
-		}
-
-		if ( in_array( $hook_suffix, array( 'edit.php', 'post.php', 'post-new.php' ) ) ) {
 
 			wp_enqueue_style( 'wpcd-admin-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/' . self::wpcd_version_correct( 'dir' ) . 'admin' . self::wpcd_version_correct( 'suffix' ) . '.css', false, WPCD_Plugin::PLUGIN_VERSION );
 
-		}
+			if ( in_array( $hook_suffix, array( 'edit.php', 'post.php', 'post-new.php' ) ) ) {
 
-		$coupon_type_color = get_option( 'wpcd_coupon-type-bg-color' );
-		$coupon_border_color = get_option( 'wpcd_dt-border-color' );
+				wp_enqueue_style( 'wpcd-admin-style', WPCD_Plugin::instance()->plugin_assets . 'admin/css/select2.min.css', false, WPCD_Plugin::PLUGIN_VERSION );
 
-		$inline_style = "
+			}
+
+
+			$coupon_type_color = get_option( 'wpcd_coupon-type-bg-color' );
+			$coupon_border_color = get_option( 'wpcd_dt-border-color' );
+
+			$inline_style = "
                     
-			.coupon-type {
-				background-color: {$coupon_type_color};
-			}
+					.coupon-type {
+						background-color: {$coupon_type_color};
+					}
+		
+					.deal-type {
+						background-color: {$coupon_type_color};
+					}
+		
+					.wpcd-coupon {
+						border-color: {$coupon_border_color};
+					}
+		
+				";
 
-			.deal-type {
-				background-color: {$coupon_type_color};
-			}
+			$inline_style = preg_replace( '/\s+/', '', $inline_style );
 
-			.wpcd-coupon {
-				border-color: {$coupon_border_color};
-			}
+			wp_add_inline_style( 'wpcd-admin-style', $inline_style  );
 
-		";
-
-		$inline_style = preg_replace( '/\s+/', '', $inline_style );
-
-		wp_add_inline_style( 'wpcd-admin-style', $inline_style  );
-
+		}
 	}
 
 	/**
@@ -379,12 +368,9 @@ class WPCD_Assets {
 		 * @since 1.2
 		 */
 		$custom_post_type = 'wpcd_coupons';
-
-		if ( in_array( $hook_suffix, array( 'post.php', 'post-new.php' ) ) ) {
-
-			$screen = get_current_screen();
-
-			if ( is_object( $screen ) && $custom_post_type == $screen->post_type ) {
+		$screen = get_current_screen();
+		if ( is_object( $screen ) && $custom_post_type == $screen->post_type ) {
+			if ( in_array( $hook_suffix, array( 'post.php', 'post-new.php' ) ) ) {
 
 				wp_enqueue_script( 'jquery-ui-datepicker' );
 				wp_enqueue_script( 'wpcd-jquery-ui-timepicker', WPCD_Plugin::instance()->plugin_assets . 'admin/js/jquery-ui-timepicker.js', array( 'jquery' ), WPCD_Plugin::PLUGIN_VERSION, false );
@@ -397,23 +383,19 @@ class WPCD_Assets {
 
 			}
 
-		} elseif ( isset( $_GET['post_type'] ) && isset( $_GET['page'] ) && $_GET['post_type'] == 'wpcd_coupons' && $_GET['page'] == 'wpcd_coupon_import' ) {
-            wp_enqueue_script( 'wp-color-picker' );
-            wp_enqueue_style( 'wp-color-picker' );
-        }
+			wp_enqueue_script( 'wpcd-admin-js', WPCD_Plugin::instance()->plugin_assets . 'admin/js/admin.js', array(
+				'jquery',
+				'jquery-ui-datepicker',
+				'wp-color-picker'
+			), WPCD_Plugin::PLUGIN_VERSION, false );
 
-		wp_enqueue_script( 'wpcd-admin-js', WPCD_Plugin::instance()->plugin_assets . 'admin/js/admin.js', array(
-			'jquery',
-			'jquery-ui-datepicker',
-            'wp-color-picker'
-		), WPCD_Plugin::PLUGIN_VERSION, false );
+			$ajax_data = array(
+				'ajaxurl'   => admin_url( 'admin-ajax.php' ),
+				'nonce' => wp_create_nonce( 'wpcd-script-nonce' ),
+			);
 
-		$ajax_data = array(
-			'ajaxurl'   => admin_url( 'admin-ajax.php' ),
-			'nonce' => wp_create_nonce( 'wpcd-script-nonce' ),
-		);
-
-		wp_localize_script( 'wpcd-admin-js', 'wpcd_ajax_script_import', $ajax_data );
+			wp_localize_script( 'wpcd-admin-js', 'wpcd_ajax_script_import', $ajax_data );
+		}
 	}
     /**
      * to add custom javascript code tinymce Editor at initiation
