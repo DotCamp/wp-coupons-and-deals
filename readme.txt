@@ -2,8 +2,8 @@
 Contributors: wpcdplugin, imtiazrayhan, istiakrayhan, mohmedelwany, ultimateblocks, wptb, wpleaders1
 Tags: coupon, coupons, deal, deals, affiliate, affiliate marketing
 Requires at least: 4.6
-Tested up to: 5.5
-Stable tag: 3.0.4
+Tested up to: 5.7
+Stable tag: 3.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -152,6 +152,17 @@ You can [__submit a feature request__](https://wpcouponsdeals.com/submit-new-fea
 11. Adding the widget.
 
 == Changelog ==
+
+= 3.0.5 =
+
+* Improve - Admin CSS and JS files loaded only where necessary.
+* Fix - Hidden expired coupons still showing.
+* Fix - Issue with trial submenu.
+* Update - Freemius SDK to latest version.
+* PRO: Add - Option to control user roles who can use the plugin.
+* PRO: Add - Option to enable infinite scroll instead of page navigation in Archive shortcode.
+* PRO: Fix - Archive Menu Navigation doesn't work with the Shortcode Attribute like - sortby, exclude.
+* PRO: Fix - Archive shortcode showing draft coupons.
 
 = 3.0.4 =
 
