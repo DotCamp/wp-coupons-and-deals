@@ -157,7 +157,7 @@ class WPCD_Meta_Boxes_Fields {
 				),
 				array(
 					'id'      => 'hide-coupon',
-					'label'   => __( 'Hide Coupon', 'wpcd-coupon' ),
+					'label'   => __( 'Hide Coupon (Pro)', 'wpcd-coupon' ),
 					'type'    => 'select',
 					'help'    => __( 'Choose whether you want to hide the coupun', 'wpcd-coupon' ),
 					'options' => array(
@@ -199,7 +199,7 @@ class WPCD_Meta_Boxes_Fields {
 				),
 				array(
 					'id'      => 'coupon-template',
-					'label'   => __( 'Template', 'wpcd-coupon' ),
+					'label'   => __( 'Template (Pro)', 'wpcd-coupon' ),
 					'type'    => 'select',
 					'help'    => __( 'Choose coupon shortcode template.', 'wpcd-coupon' ),
 					'options' => array(
