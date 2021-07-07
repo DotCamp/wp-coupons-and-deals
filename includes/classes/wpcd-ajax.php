@@ -37,11 +37,15 @@ class WPCD_AJAX {
 
         //Get the ip address of the client
         if ( !empty( $_SERVER['HTTP_CLIENT_IP'] ) ) {
-            $ip = $_SERVER['HTTP_CLIENT_IP'];
+            $ip = filter_var($_SERVER['HTTP_CLIENT_IP'], FILTER_VALIDATE_IP);
         } elseif ( !empty( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
-            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+            $ip = filter_var($_SERVER['HTTP_X_FORWARDED_FOR'], FILTER_VALIDATE_IP);
         } else {
-            $ip = $_SERVER['REMOTE_ADDR'];
+            $ip = filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP);
+        }
+
+        if($ip === false){
+            wp_die();
         }
 
         if ( $meta === "up" || $meta === "down" ) {
