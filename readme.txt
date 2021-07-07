@@ -1,4 +1,4 @@
-=== WordPress Coupon Plugin - WP Coupons and Deals ===
+===  WP Coupons and Deals - WordPress Coupon Plugin ===
 Contributors: wpcdplugin, imtiazrayhan, istiakrayhan, mohmedelwany, ultimateblocks, wptb, wpleaders1
 Tags: coupon, coupons, deal, deals, affiliate, affiliate marketing
 Requires at least: 4.6
