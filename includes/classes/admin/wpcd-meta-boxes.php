@@ -385,13 +385,13 @@ class WPCD_Meta_Boxes {
 				$field_checker = 'coupon_details_' . $wpcd_field['id'];
 
 				if ( $field_checker == 'coupon_details_hide-coupon' ) {
-					update_post_meta( $post_id, 'coupon_details_' . $wpcd_field['id'], 'No' );
+					update_post_meta( $post_id, 'coupon_details_' . sanitize_text_field($wpcd_field['id']), 'No' );
 				} elseif ( $field_checker == 'coupon_details_coupon-template' ) {
-					update_post_meta( $post_id, 'coupon_details_' . $wpcd_field['id'], 'Default' );
+					update_post_meta( $post_id, 'coupon_details_' . sanitize_text_field($wpcd_field['id']), 'Default' );
 				} else {
                     $wpcd_coupon_meta_key = 'coupon_details_' . $wpcd_field['id'];
                     if( $wpcd_field['id'] == 'wpcd_description' ) $wpcd_coupon_meta_key = 'coupon_details_description';
-					update_post_meta( $post_id, $wpcd_coupon_meta_key, $_POST[ $wpcd_field['id'] ] );
+					update_post_meta( $post_id, $wpcd_coupon_meta_key, sanitize_text_field($_POST[ $wpcd_field['id'] ]) );
 				}
 
 			} else if ( $wpcd_field['type'] === 'checkbox' ) {

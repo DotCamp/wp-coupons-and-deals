@@ -71,7 +71,7 @@ class WPCD_Formshortcode_Ajax_Pro extends WPCD_Ajax_Base {
 	 * update a coupon
 	 */
 	private function update_coupon() {
-		$ID = $_POST['ID'];
+		$ID = filter_var($_POST['ID'], FILTER_SANITIZE_NUMBER_INT);
 
 		$coupon_author  = $this->_c()->get_post( $ID )->post_author;
 		$current_author = $this->_c()->wp_get_current_user()->ID;
