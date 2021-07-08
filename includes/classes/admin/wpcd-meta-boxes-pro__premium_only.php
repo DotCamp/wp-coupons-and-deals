@@ -104,7 +104,7 @@ class WPCD_Meta_Boxes_Pro {
             <span  class="dashicons dashicons-editor-help" ></span></span>';
             $wpcd_coupon_meta_key = 'coupon_details_' . $wpcd_field['id'];
             if( $wpcd_field['id'] == 'wpcd_description' ) $wpcd_coupon_meta_key = 'coupon_details_description';
-			$db_value = get_post_meta( $post->ID, $wpcd_coupon_meta_key, true );
+			$db_value = get_post_meta( absint($post->ID), $wpcd_coupon_meta_key, true );
 			if ( $wpcd_field['type'] == 'expiredate' || $wpcd_field['type'] == 'temp4-expiredate' ) {
 				if ( ! empty( $db_value ) && ( (string)(int)$db_value ) == $db_value ) {
 					$db_value = date( $expireDateFormatFun, $db_value );
