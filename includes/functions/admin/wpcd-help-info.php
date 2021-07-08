@@ -24,7 +24,7 @@ function wpcd_help_info() { ?>
         </i>
 
         <p><?php if ( wcad_fs()->is_not_paying() ) {
-				echo '<a href="' . wcad_fs()->get_upgrade_url() . '">' .
+				echo '<a href="' . esc_url( wcad_fs()->get_upgrade_url() ) . '">' .
 				     __( 'Upgrade to Pro!', 'wp-coupons-and-deals' ) .
 				     '</a>';
 				echo __( ' to insert category, vendor, archive shortcodes, and many more features!', 'wpcd-coupon' );

@@ -313,11 +313,11 @@ class WPCD_Meta_Boxes {
 		if ( wcad_fs()->is_not_paying() ) {
 			echo '<p style="font-size: 16px;">' . __( 'Hide coupon, change templates and get many more features', 'wpcd-coupon' ) . '- ';
 
-			echo '<a href="' . wcad_fs()->get_upgrade_url() . '">' .
+			echo '<a href="' . esc_url( wcad_fs()->get_upgrade_url() ). '">' .
 			     __( 'Upgrade to Pro!', 'wpcd-coupon' ) .
 			     '</a>';
 			echo ' or ';
-			echo '<a href="' . wcad_fs()->get_trial_url() . '">' .
+			echo '<a href="' . esc_url( wcad_fs()->get_trial_url() ) . '">' .
 			     __( 'Start 14 day Free Trial!', 'wpcd-coupon' ) .
 			     '</a>';
 		}

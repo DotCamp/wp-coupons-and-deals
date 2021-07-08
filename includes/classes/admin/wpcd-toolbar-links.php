@@ -41,21 +41,21 @@ class WPCD_Toolbar_Links {
 		$iconspan = '<span class="custom-icon" style="
                     float:left; width:24px !important; height:24px !important;
                      margin-left: 5px !important; margin-top: 5px !important; margin-right: 5px !important;
-                     background-image:url(' . $iconurl . ');"></span>';
+                     background-image:url(' . esc_url( $iconurl ) . ');"></span>';
 
 		$title = __( 'Coupons', 'wpcd-coupon' );
 
 		$args = array(
 			'id'    => 'wpcd_toolbar',
 			'title' => $iconspan . $title,
-			'href'  => admin_url() . 'edit.php?post_type=wpcd_coupons',
+			'href'  => esc_url( admin_url() . 'edit.php?post_type=wpcd_coupons' ),
 		);
 		$wp_admin_bar->add_node( $args );
 
 		$args = array(
 			'id'     => 'wpcd_toolbar_coupons',
 			'title'  => __( 'Coupons', 'wpcd-coupon' ),
-			'href'   => admin_url() . 'edit.php?post_type=wpcd_coupons',
+			'href'   => esc_url( admin_url() . 'edit.php?post_type=wpcd_coupons' ),
 			'parent' => 'wpcd_toolbar'
 		);
 		$wp_admin_bar->add_node( $args );
@@ -63,7 +63,7 @@ class WPCD_Toolbar_Links {
 		$args = array(
 			'id'     => 'wpcd_toolbar_new',
 			'title'  => __( 'Add New Coupon', 'wpcd-coupon' ),
-			'href'   => admin_url() . 'post-new.php?post_type=wpcd_coupons',
+			'href'   => esc_url( admin_url() . 'post-new.php?post_type=wpcd_coupons' ),
 			'parent' => 'wpcd_toolbar'
 		);
 		$wp_admin_bar->add_node( $args );
@@ -71,7 +71,7 @@ class WPCD_Toolbar_Links {
 		$args = array(
 			'id'     => 'wpcd_toolbar_categories',
 			'title'  => __( 'Coupon Categories', 'wpcd-coupon' ),
-			'href'   => admin_url() . 'edit-tags.php?taxonomy=wpcd_coupon_category&post_type=wpcd_coupons',
+			'href'   => esc_url( admin_url() . 'edit-tags.php?taxonomy=wpcd_coupon_category&post_type=wpcd_coupons' ),
 			'parent' => 'wpcd_toolbar'
 		);
 		$wp_admin_bar->add_node( $args );
@@ -79,7 +79,7 @@ class WPCD_Toolbar_Links {
         $args = array(
 			'id'     => 'wpcd_toolbar_vendors',
 			'title'  => __( 'Coupon Vendors', 'wpcd-coupon' ),
-			'href'   => admin_url() . 'edit-tags.php?taxonomy=wpcd_coupon_vendor&post_type=wpcd_coupons',
+			'href'   => esc_url( admin_url() . 'edit-tags.php?taxonomy=wpcd_coupon_vendor&post_type=wpcd_coupons' ),
 			'parent' => 'wpcd_toolbar'
 		);
 		$wp_admin_bar->add_node( $args );
@@ -87,7 +87,7 @@ class WPCD_Toolbar_Links {
 		$args = array(
 			'id'     => 'wpcd_toolbar_settings',
 			'title'  => __( 'Settings', 'wpcd-coupon' ),
-			'href'   => admin_url() . 'edit.php?post_type=wpcd_coupons&page=wpcd_coupon_settings',
+			'href'   => esc_url( admin_url() . 'edit.php?post_type=wpcd_coupons&page=wpcd_coupon_settings' ),
 			'parent' => 'wpcd_toolbar'
 		);
 		$wp_admin_bar->add_node( $args );
@@ -95,7 +95,7 @@ class WPCD_Toolbar_Links {
 		$args = array(
 			'id'  	=> 'wpcd_toolbar_upgrade',
 			'title' => __( 'Upgrade to Pro', 'wpcd-coupon' ),
-			'href'  => wcad_fs()->get_upgrade_url(),
+			'href'  => esc_url( wcad_fs()->get_upgrade_url() ),
 			'parent' => 'wpcd_toolbar'
 		);
 
@@ -106,7 +106,7 @@ class WPCD_Toolbar_Links {
 		$import_args = array(
 			'id'      => 'wpcd_toolbar_import',
 			'title'   => __( 'Import Coupons', 'wpcd-coupon' ),
-			'href'    => admin_url() . 'edit.php?post_type=wpcd_coupons&page=wpcd_coupon_import',
+			'href'    => esc_url( admin_url() . 'edit.php?post_type=wpcd_coupons&page=wpcd_coupon_import' ),
 			'parent'  => 'wpcd_toolbar'
 		);
 

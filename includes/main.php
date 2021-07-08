@@ -633,7 +633,7 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
                 __( 'Free Pro Trial', 'wpcd-coupon' ),
                 __( 'Free Pro Trial', 'wpcd-coupon' ),
                 'manage_options',
-                wcad_fs()->get_trial_url()
+                esc_url( wcad_fs()->get_trial_url() )
             );
 
 		}
