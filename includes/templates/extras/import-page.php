@@ -12,6 +12,6 @@
 
 <p style="font-size: 16px;"><?php echo __( 'This is a Pro Version feature and only available to Pro Version users. It lets you add bulk of coupons at once from CSV or XML file.', 'wpcd-coupon' ); ?></p>
 
-<p style="font-size: 16px;"><?php echo '<a href="' . wcad_fs()->get_upgrade_url() . '">' . __( 'Upgrade to Pro!', 'wpcd-coupon' ) . '</a>' . __( ' or ', 'wpcd-coupon' ) .'<a href="' . wcad_fs()->get_trial_url() . '">' . __( 'Start Free Trial!', 'wpcd-coupon' )   . '</a>' . __( ' to start using this feature.', 'wpcd-coupon' ); ?></p>
+<p style="font-size: 16px;"><?php echo '<a href="' . esc_url( wcad_fs()->get_upgrade_url() ) . '">' . __( 'Upgrade to Pro!', 'wpcd-coupon' ) . '</a>' . __( ' or ', 'wpcd-coupon' ) .'<a href="' . esc_url( wcad_fs()->get_trial_url() ) . '">' . __( 'Start Free Trial!', 'wpcd-coupon' )   . '</a>' . __( ' to start using this feature.', 'wpcd-coupon' ); ?></p>
 
 <p style="font-size: 16px"><?php echo __( 'Alternatively, you can ', 'wpcd-coupon' ) . '<a href="https://wpcouponsdeals.com/wp-coupons-and-deals-features/">' . __( 'check out Pro Features', 'wpcd-coupon' ) . '</a>' . __( ' and see how it can protect your affiliate sales, generate more revenue.', 'wpcd-coupon' ); ?></p>
