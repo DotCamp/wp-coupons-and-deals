@@ -70,7 +70,9 @@ class WPCD_Shortcode_Metabox {
 		$output .= '<b>' . __( 'Full Coupon', 'wpcd-coupon' ) . ':</b> [wpcd_coupon id=' . absint($post->ID) . ']' . '<br><br>';
 		$output .= '<span class="only-coupon-code"><b>' . __( 'Only Coupon Code', 'wpcd-coupon' ) . ':</b> [wpcd_code id=' . absint($post->ID) . ']</span>';
 
-		echo $output;
+		$arr = array( 'b' => array(), 'span' => array(), 'br' => array() );
+		echo wp_kses( $output, $arr );
+		
 	}
 
 }

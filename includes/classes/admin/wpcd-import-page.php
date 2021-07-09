@@ -83,7 +83,7 @@ class WPCD_Import_Page {
 
 		$output = ob_get_clean();
 
-		echo $output;
+		echo esc_html( $output );
 	}
 
 }

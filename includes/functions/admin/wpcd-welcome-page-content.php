@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <div class="wpcd-intro">
 
         <div class="wpcd-icon">
-            <img src="<?php echo WPCD_Plugin::instance()->plugin_assets; ?>img/icon-128x128.png" alt="<?php esc_attr_e( 'WP Coupons and Deals', 'wpcd-coupon' ); ?>">
+            <img src="<?php echo esc_url( WPCD_Plugin::instance()->plugin_assets . 'img/icon-128x128.png' );?>" alt="<?php esc_attr_e( 'WP Coupons and Deals', 'wpcd-coupon' ); ?>">
         </div>
 
         <div class="wpcd-block">
