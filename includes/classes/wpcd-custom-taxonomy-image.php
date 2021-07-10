@@ -175,7 +175,7 @@ class WPCD_Custom_Taxonomy_Image {
 			$cat_keys  = array_keys( filter_var_array($_POST['term_meta'], FILTER_SANITIZE_STRING) );
 			foreach ( $cat_keys as $key ) {
 				if ( isset( $_POST['term_meta'][ $key ] ) ) {
-					$term_meta[ $key ] = esc_attr( $_POST['term_meta'][ $key ] );
+					$term_meta[ $key ] = sanitize_text_field( $_POST['term_meta'][ $key ] );
 				}
 			}
 			//save the option array  
