@@ -127,7 +127,15 @@ class WPCD_Amp {
 	 */
 	public function wpcd_print_amp_styles() {
 		foreach ( $this->styles as  $style ) {
-			echo $style;
+			echo wp_kses($style, array(
+                'svg' => array(
+                    'xmlns' => array(),
+                    'viewbox' => array()),
+                'path' => array(
+                    'fill' => array(),
+                    'd' => array()
+                    )
+                ));
 		}
 	}
 
