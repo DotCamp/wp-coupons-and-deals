@@ -87,7 +87,7 @@ a.wpcd-btn .wpcd_deal_icon {
 }
 
 .wpcd_coupon_li_content>.wpcd-coupon-title {
-    padding: 15px 15px 0;
+    padding: 15px 0 0;
 }
 
 .wpcd-coupon-title {
@@ -1740,6 +1740,10 @@ p.wpcd-coupon-four-expired {
     min-height: 180px;
 }
 
+.wpcd_coupon_archive_container {
+    overflow: hidden;
+}
+
 .wpcd_coupon_archive_container > .wpcd_item {
     margin-left: 1%;
     margin-right: 1%;
@@ -1785,6 +1789,11 @@ p.wpcd-coupon-four-expired {
     margin: 1%;
     /*min-height: 460px;*/
     width: 31.333%;
+    display: flex;
+}
+
+#wpcd_coupon_ul li.wpcd_coupon_li .wpcd_item {
+    width: 100%;
 }
 
 .wpcd_coupon_li:nth-child(3n+4) {
@@ -1848,8 +1857,7 @@ p.wpcd-coupon-four-expired {
 }
 
 .wpcd_coupon_li_inner {
-    padding: 15px;
-    height: calc(100% - 188px);
+    padding: 15px 0;
 }
 
 .wpcd_coupon_li_title {
@@ -2196,6 +2204,9 @@ p.wpcd-coupon-loop-expired {
     border-radius: 3px;
     display: flex;
     flex-direction: column;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
 }
 
 .wpcd_coupon_popup_layer {
@@ -2348,7 +2359,7 @@ p.wpcd-coupon-loop-expired {
 }
 
 .wpcd_coupon_li_top_btn_wr.wpcd_clearfix {
-    padding: 15px 15px 0;
+    padding: 15px 0 0;
 }
 
 .wpcd_coupon_li_top_discount_left {
@@ -2378,10 +2389,15 @@ p.wpcd-coupon-loop-expired {
     min-width: 132px;
 }
 
+.wpcd-li-bottom__wrapper {
+    margin-top: auto;
+}
+
 .wpcd_coupon_li_bottom.wpcd_clearfix {
     border-top: 1px solid #eaeaea;
     margin-top: 10px;
     padding-top: 15px;
+    padding-bottom: 15px;
     text-align: center;
 }
 
@@ -2681,6 +2697,10 @@ a.wpcd-btn-social,
     box-shadow: none;
 }
 
+.wpcd-li-footer .wpcd-btn-social.wpcd-btn-xs {
+    margin: 6px 8px 6px 0;
+}
+
 .wpcd-btn-social.wpcd-btn-xs:hover,
 .wpcd-btn-social.wpcd-btn-xs:focus {
     box-shadow: none;
@@ -2734,12 +2754,21 @@ a.wpcd-btn-social,
     background-color: #5cc2e7;
 }
 
+.wpcd-li-footer > div {
+    margin-bottom: 5px;
+}
+
 .wpcd-share-buttons-container {
     padding-left: 4px;
     margin-top: 15px;
     width: 50%;
     box-sizing: border-box !important;
     display: inline-block;
+}
+
+.wpcd-li-footer .wpcd-share-buttons-container {
+    padding-left: 0;
+    margin-top: 0;
 }
 
 .wpcd-share-buttons-container div.col-md-12.row {
@@ -2800,6 +2829,11 @@ a.wpcd-btn-social,
     float: right;
     line-height: 40px;
     margin-top: 15px;
+}
+
+.wpcd-li-footer .wpcd-vote-wrapper {
+    padding-right: 0;
+    margin-top: 0;
 }
 
 .wpcd-vote-wrapper a {

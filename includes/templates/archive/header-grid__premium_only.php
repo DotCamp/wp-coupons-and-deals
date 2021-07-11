@@ -92,11 +92,12 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
                 </div>
             <div class="wpcd_cat_ul_border"></div>
         <?php endif; ?>
-    <?php endif; ?>
-
-    <?php if( !WPCD_Amp::wpcd_amp_is() ): ?>
+        <?php if( !WPCD_Amp::wpcd_amp_is() ): ?>
         <div class="wpcd_coupon_archive_container_main">
             <div class="wpcd_coupon_archive_container">
+                <?php endif; ?>
     <?php endif; ?>
-    <ul id="wpcd_coupon_ul" class="wpcd_clearfix">
+    <?php if( !isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_action' || !infinity_scroll_in_archive() ) {
+        echo '<ul id="wpcd_coupon_ul" class="wpcd_clearfix">';
+    } ?>
 <?php endif; ?>

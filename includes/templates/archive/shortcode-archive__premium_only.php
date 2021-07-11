@@ -202,43 +202,44 @@ include('header-grid__premium_only.php');
                     </div>
                 </div>
             <?php } ?>
-            <?php if ($show_expiration == 'Show') {
-                $never_expire = ($wpcd_coupon_template == 'Template Two' || $wpcd_coupon_template == 'Template Six') ? $never_expire : '';
-                if (!empty($expire_date) && $never_expire != 'on') { ?>
-                    <div class="wpcd_coupon_li_bottom wpcd_clearfix">
-
-                        <?php if (strtotime($expire_date) >= strtotime($today)) { ?>
-
-                            <?php if (!empty($expire_text)) { ?>
-                                <p class="wpcd-coupon-loop-expire"><?php echo $expire_text . $expire_date; ?></p>
-                            <?php } else { ?>
-                                <p class="wpcd-coupon-loop-expire"><?php echo __('Expires on: ', 'wpcd-coupon') . $expire_date ?></p>
-                            <?php } ?>
-
-                        <?php } elseif (strtotime($expire_date) < strtotime($today)) { ?>
-
-                            <?php if (!empty($expired_text)) { ?>
-                                <p class="wpcd-coupon-loop-expired"><?php echo $expired_text . $expire_date; ?></p>
-                            <?php } else { ?>
-                                <p class="wpcd-coupon-loop-expired"><?php echo __('Expired on: ', 'wpcd-coupon') . $expire_date; ?></p>
-                            <?php } ?>
-
-                        <?php } ?>
-                    </div>
-                <?php } else { ?>
-                    <div class="wpcd_coupon_li_bottom wpcd_clearfix">
-
-                        <?php if (!empty($no_expiry)) { ?>
-                            <?php echo $no_expiry; ?>
-                        <?php } else { ?>
-                            <p class='wpcd-coupon-loop-expire'><?php echo __("Doesn't expire", 'wpcd-coupon'); ?></p>
-                        <?php } ?>
-
-                    </div>
-                <?php } ?>
-            <?php } ?>
         </div> <!-- wpcd_coupon_li_inner-->
         <div class="clearfix"></div>
+        <div class="wpcd-li-bottom__wrapper">
+        <?php if ($show_expiration == 'Show') {
+            $never_expire = ($wpcd_coupon_template == 'Template Two' || $wpcd_coupon_template == 'Template Six') ? $never_expire : '';
+            if (!empty($expire_date) && $never_expire != 'on') { ?>
+                <div class="wpcd_coupon_li_bottom wpcd_clearfix">
+
+                    <?php if (strtotime($expire_date) >= strtotime($today)) { ?>
+
+                        <?php if (!empty($expire_text)) { ?>
+                            <p class="wpcd-coupon-loop-expire"><?php echo $expire_text . $expire_date; ?></p>
+                        <?php } else { ?>
+                            <p class="wpcd-coupon-loop-expire"><?php echo __('Expires on: ', 'wpcd-coupon') . $expire_date ?></p>
+                        <?php } ?>
+
+                    <?php } elseif (strtotime($expire_date) < strtotime($today)) { ?>
+
+                        <?php if (!empty($expired_text)) { ?>
+                            <p class="wpcd-coupon-loop-expired"><?php echo $expired_text . $expire_date; ?></p>
+                        <?php } else { ?>
+                            <p class="wpcd-coupon-loop-expired"><?php echo __('Expired on: ', 'wpcd-coupon') . $expire_date; ?></p>
+                        <?php } ?>
+
+                    <?php } ?>
+                </div>
+            <?php } else { ?>
+                <div class="wpcd_coupon_li_bottom wpcd_clearfix">
+
+                    <?php if (!empty($no_expiry)) { ?>
+                        <?php echo $no_expiry; ?>
+                    <?php } else { ?>
+                        <p class='wpcd-coupon-loop-expire'><?php echo __("Doesn't expire", 'wpcd-coupon'); ?></p>
+                    <?php } ?>
+
+                </div>
+            <?php } ?>
+        <?php } ?>
         <?php if( !WPCD_Amp::wpcd_amp_is() ):?>
             <div class="wpcd-li-footer">
                 <?php
@@ -249,6 +250,7 @@ include('header-grid__premium_only.php');
                 ?>
             </div>
         <?php endif; ?>
+        </div>
         </div>
     </div>
     <?php

@@ -9,7 +9,7 @@ if ( $parent == 'footer' || $parent == 'headerANDfooter' ):
 
         <?php
             if( ! WPCD_Amp::wpcd_amp_is() ) {
-                if(infinite_scroll_in_archive()) {
+                if(infinity_scroll_in_archive()) {
                     echo '<div style="display: none;">';
                 }
                 if ( isset( $_POST['wpcd_page_num'] ) && ! empty( $_POST['wpcd_page_num'] ) && absint( $_POST['wpcd_page_num'] ) == $_POST['wpcd_page_num'] ) {
@@ -31,12 +31,16 @@ if ( $parent == 'footer' || $parent == 'headerANDfooter' ):
                         'next_text' => __( 'Next »', 'wpcd-coupon' ),
                     )
                 );
-                if(infinite_scroll_in_archive()) {
+                if(infinity_scroll_in_archive()) {
                     echo '</div>';
                 }
 
+                ?>
+                </div><!-- wpcd_coupon_pagination_wr -->
+                <?php
+
                 if ( !isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_cat_vend_action' ) {
-                    echo '</div></div> <!-- wpcd_coupon_archive_container -->';
+                    echo '</div> <!-- wpcd_coupon_archive_container -->';
                     echo '<div class="wpcd_coupon_loader wpcd_coupon_hidden_loader">';
                     echo '<img src="' . WPCD_Plugin::instance()->plugin_assets . 'img/loading.gif">';
                     echo '</div>';

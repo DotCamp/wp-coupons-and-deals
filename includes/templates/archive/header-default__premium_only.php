@@ -92,9 +92,9 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
                 </div>
                 <div class="wpcd_cat_ul_border"></div>
             <?php endif; ?>
-        <?php if( !WPCD_Amp::wpcd_amp_is() ): ?>
-        <div class="wpcd_coupon_archive_container_main">
-            <div class="wpcd_coupon_archive_container">
-        <?php endif; ?>
+            <?php if( !WPCD_Amp::wpcd_amp_is() ): ?>
+            <div class="wpcd_coupon_archive_container_main">
+                <div class="wpcd_coupon_archive_container">
+            <?php endif; ?>
     <?php endif; ?>
 <?php endif; ?>

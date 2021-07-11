@@ -3,16 +3,16 @@
  * Footer Grid for Templates
  */
 if ( $parent == 'footer' || $parent == 'headerANDfooter' ):
-    if ( !isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_action' ):
-        echo "</ul>";
-    endif;
+if( !isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_cat_vend_action' || !infinity_scroll_in_archive() ) {
+	echo "</ul>";
+}
 ?>
     <div id="wpcd_coupon_pagination_wr" class="wpcd_coupon_pagination wpcd_clearfix"
          wpcd-data-action="wpcd_coupons_cat_vend_action">
 
     <?php
         if( !WPCD_Amp::wpcd_amp_is() ) {
-            if(infinite_scroll_in_archive()) {
+            if(infinity_scroll_in_archive()) {
                 echo '<div style="display: none;">';
             }
 
@@ -36,12 +36,16 @@ if ( $parent == 'footer' || $parent == 'headerANDfooter' ):
                 )
             );
 
-            if(infinite_scroll_in_archive()) {
+            if(infinity_scroll_in_archive()) {
                 echo '</div>';
             }
 
+            ?>
+            </div><!-- wpcd_coupon_pagination_wr -->
+            <?php
+
             if ( !isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_cat_vend_action' ) {
-                echo '</div></div> <!-- wpcd_coupon_archive_container -->';
+                echo '</div> <!-- wpcd_coupon_archive_container -->';
                 echo '<div class="wpcd_coupon_loader wpcd_coupon_hidden_loader">';
 	                  echo '<img src="' . WPCD_Plugin::instance()->plugin_assets . 'img/loading.gif">';
 	              echo '</div>';
@@ -51,6 +55,8 @@ if ( $parent == 'footer' || $parent == 'headerANDfooter' ):
             echo wpcd_generatePagination( $max_num_page );
             echo "</div>";
         }
-    ?>
-</section>
+if ( !isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_cat_vend_action' ):
+    echo "</section>";
+endif;
+        ?>
 <?php endif; ?>

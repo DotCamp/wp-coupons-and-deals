@@ -87,15 +87,15 @@ if( ! function_exists( 'wpcd_uniq_attr' ) ) {
     }
 }
 
-if( ! function_exists( 'infinite_scroll_in_archive' ) ) {
+if( ! function_exists( 'infinity_scroll_in_archive' ) ) {
 
     /**
      * check option's activity infinite scroll in archive
      * @return bool
      */
-    function infinite_scroll_in_archive() {
-        $infinite_scroll_in_archive = get_option( 'wpcd_infinite-scroll-in-archive' );
-        if ( !empty( $infinite_scroll_in_archive ) && $infinite_scroll_in_archive == 'on' ) {
+    function infinity_scroll_in_archive() {
+        $infinity_scroll_in_archive = get_option( 'wpcd_infinite-scroll-in-archive' );
+        if ( !empty( $infinity_scroll_in_archive ) && $infinity_scroll_in_archive == 'on' ) {
             return true;
         } else {
             return false;

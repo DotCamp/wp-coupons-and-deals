@@ -599,9 +599,9 @@ class WPCD_Short_Code {
 			$max_num_page = $the_query->max_num_pages;
 			$current_url  = get_permalink();
 
-			$infinite_scroll_in_archive = '';
-            if ( infinite_scroll_in_archive() ) {
-                $infinite_scroll_in_archive = 'wpcd-data-infinite_scroll_in_archive="1"';
+			$infinity_scroll_in_archive = '';
+            if ( infinity_scroll_in_archive() ) {
+                $infinity_scroll_in_archive = 'wpcd-data-infinity_scroll_in_archive="1"';
             }
 
 			if ( WPCD_Amp::wpcd_amp_is() ) {
@@ -621,7 +621,7 @@ class WPCD_Short_Code {
 			if ( ! WPCD_Amp::wpcd_amp_is() && ( ! isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_action' ) ) {
 				global $post;
 				$wpcd_data_coupon_page_url = get_page_link( $post->ID );
-				$output                    = '<div id="wpcd_coupon_template" wpcd-data-coupon_template="' . $temp . '" ' . $infinite_scroll_in_archive . ' wpcd-data-coupon_items_count="' . $a["count"] . '" '
+				$output                    = '<div id="wpcd_coupon_template" wpcd-data-coupon_template="' . $temp . '" ' . $infinity_scroll_in_archive . ' wpcd-data-coupon_items_count="' . $a["count"] . '" '
 				                             . 'wpcd-data-coupon_sortby="' . $a["sortby"] . '" ' . 'wpcd-data-coupon_exclude_cat="' . $a["exclude"] . '" '
                                             . 'wpcd-data-coupon_page_url="' . $wpcd_data_coupon_page_url . '" ' . $wpcd_coupon_taxonomy . '="' . $wpcd_data_taxonomy . '"></div>';
 			}
@@ -793,12 +793,12 @@ class WPCD_Short_Code {
 
 		if ( ! WPCD_Amp::wpcd_amp_is() && ( ! isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_cat_vend_action' ) ) {
 			global $post;
-			$infinite_scroll_in_archive = '';
-            if ( infinite_scroll_in_archive() ) {
-                $infinite_scroll_in_archive = 'wpcd-data-infinite_scroll_in_archive="1"';
+			$infinity_scroll_in_archive = '';
+            if ( infinity_scroll_in_archive() ) {
+                $infinity_scroll_in_archive = 'wpcd-data-infinity_scroll_in_archive="1"';
             }
 			$wpcd_data_coupon_page_url = get_page_link( $post->ID );
-			$output                    = '<div id="wpcd_coupon_template" wpcd-data-coupon_template="' . $a['temp'] . '" ' . $infinite_scroll_in_archive . ' '
+			$output                    = '<div id="wpcd_coupon_template" wpcd-data-coupon_template="' . $a['temp'] . '" ' . $infinity_scroll_in_archive . ' '
 			                             . 'wpcd-data-coupon_items_count="' . $a["count"] . '" wpcd-data-coupon_sortby="' . $a["sortby"] . '" wpcd-data-coupon_page_url="' . $wpcd_data_coupon_page_url . '" '
 			                             . 'wpcd-data_category_coupons="' . $a['cat'] . '" wpcd-data_vendor_coupons="' . $a['vend'] . '" wpcd-data_ven_cat_id="' . $a['id'] . '"></div>';
 		}

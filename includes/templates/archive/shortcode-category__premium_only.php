@@ -99,7 +99,7 @@ if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
 ?>
 
 <li class="wpcd_coupon_li">
-    <div class="wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item <?php echo $coupon_categories_class; ?>" wpcd-data-search="<?php echo $title; ?>" <?php echo $wpcd_uniq_attr_data; ?>>
+    <div class="wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item" wpcd-data-search="<?php echo $title; ?>" <?php echo $wpcd_uniq_attr_data; ?>>
         <?php
         if ( $hide_featured_image != 'on' ) {
             if ( ! empty( $coupon_thumbnail ) ) { ?>
@@ -212,55 +212,58 @@ if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
                             </div>
                         </div>
                     <?php } ?>
-                    <?php if ( $show_expiration == 'Show' ) {
-                                $never_expire = ($wpcd_coupon_template == 'Template Two' ||$wpcd_coupon_template == 'Template Six') ? $never_expire: '';
-                                if ( ! empty( $expire_date ) && $never_expire != 'on' ) { ?>
-                            <div class="wpcd_coupon_li_bottom wpcd_clearfix">
-
-                                <?php if ( strtotime( $expire_date ) >= strtotime( $today ) ) { ?>
-
-                                    <?php if ( ! empty( $expire_text ) ) { ?>
-                                        <p class="wpcd-coupon-loop-expire"><?php echo $expire_text . $expire_date; ?></p>
-                                    <?php } else { ?>
-                                        <p class="wpcd-coupon-loop-expire"><?php echo __( 'Expires on: ', 'wpcd-coupon' ) . $expire_date ?></p>
-                                    <?php } ?>
-
-                                <?php } elseif ( strtotime( $expire_date ) < strtotime( $today ) ) { ?>
-
-                                    <?php if ( ! empty( $expired_text ) ) { ?>
-                                        <p class="wpcd-coupon-loop-expired"><?php echo $expired_text . $expire_date; ?></p>
-                                    <?php } else { ?>
-                                        <p class="wpcd-coupon-loop-expired"><?php echo __( 'Expired on: ', 'wpcd-coupon' ) . $expire_date; ?></p>
-                                    <?php } ?>
-
-                                <?php } ?>
-                            </div>
-                        <?php } else { ?>
-                            <div class="wpcd_coupon_li_bottom wpcd_clearfix">
-
-                                <?php if ( ! empty( $no_expiry ) ) { ?>
-                                    <?php echo $no_expiry; ?>
-                                <?php } else { ?>
-                                    <p class='wpcd-coupon-loop-expire'><?php echo __( "Doesn't expire", 'wpcd-coupon' ); ?></p>
-                                <?php } ?>
-
-                            </div>
-                        <?php } ?>
-                    <?php } ?>
                 </div>
                 <div class="clearfix"></div>
                 <script type="text/javascript">
                     var clip = new Clipboard('.<?php echo $button_class; ?>');
                 </script>
-                <div class="wpcd-li-footer">
-                    <?php
-                    if( !WPCD_Amp::wpcd_amp_is() ):
-                        if ( $coupon_share === 'on' ) {
-                                $template->get_template_part('social-share');
-                        }
-                        $template->get_template_part('vote-system');
-                    endif;
-                    ?>
+                <div class="wpcd-li-bottom__wrapper">
+                <?php if ( $show_expiration == 'Show' ) {
+                    $never_expire = ($wpcd_coupon_template == 'Template Two' ||$wpcd_coupon_template == 'Template Six') ? $never_expire: '';
+                    if ( ! empty( $expire_date ) && $never_expire != 'on' ) { ?>
+                        <div class="wpcd_coupon_li_bottom wpcd_clearfix">
+
+                            <?php if ( strtotime( $expire_date ) >= strtotime( $today ) ) { ?>
+
+                                <?php if ( ! empty( $expire_text ) ) { ?>
+                                    <p class="wpcd-coupon-loop-expire"><?php echo $expire_text . $expire_date; ?></p>
+                                <?php } else { ?>
+                                    <p class="wpcd-coupon-loop-expire"><?php echo __( 'Expires on: ', 'wpcd-coupon' ) . $expire_date ?></p>
+                                <?php } ?>
+
+                            <?php } elseif ( strtotime( $expire_date ) < strtotime( $today ) ) { ?>
+
+                                <?php if ( ! empty( $expired_text ) ) { ?>
+                                    <p class="wpcd-coupon-loop-expired"><?php echo $expired_text . $expire_date; ?></p>
+                                <?php } else { ?>
+                                    <p class="wpcd-coupon-loop-expired"><?php echo __( 'Expired on: ', 'wpcd-coupon' ) . $expire_date; ?></p>
+                                <?php } ?>
+
+                            <?php } ?>
+                        </div>
+                    <?php } else { ?>
+                        <div class="wpcd_coupon_li_bottom wpcd_clearfix">
+
+                            <?php if ( ! empty( $no_expiry ) ) { ?>
+                                <?php echo $no_expiry; ?>
+                            <?php } else { ?>
+                                <p class='wpcd-coupon-loop-expire'><?php echo __( "Doesn't expire", 'wpcd-coupon' ); ?></p>
+                            <?php } ?>
+
+                        </div>
+                    <?php } ?>
+                <?php } ?>
+                <?php if( !WPCD_Amp::wpcd_amp_is() ): ?>
+                    <div class="wpcd-li-footer">
+                        <?php
+                            if ( $coupon_share === 'on' ) {
+                                    $template->get_template_part('social-share');
+                            }
+                            $template->get_template_part('vote-system');
+
+                        ?>
+                    </div>
+                <?php endif; ?>
                 </div>
             </div>
         </div>
