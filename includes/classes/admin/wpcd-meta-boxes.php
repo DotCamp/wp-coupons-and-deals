@@ -104,7 +104,7 @@ class WPCD_Meta_Boxes {
             <span  class="dashicons dashicons-editor-help" ></span></span>';
             $wpcd_coupon_meta_key = 'coupon_details_' . $wpcd_field['id'];
             if( $wpcd_field['id'] == 'wpcd_description' ) $wpcd_coupon_meta_key = 'coupon_details_description';
-			$db_value = get_post_meta( $post->ID, $wpcd_coupon_meta_key, true );
+			$db_value = get_post_meta( absint($post->ID), $wpcd_coupon_meta_key, true );
 			if ( $wpcd_field['type'] == 'expiredate' || $wpcd_field['type'] == 'temp4-expiredate' ) {
 				if ( ! empty( $db_value ) && ( (string)(int)$db_value ) == $db_value ) {
 					$db_value = date( $expireDateFormatFun, $db_value );
@@ -313,11 +313,11 @@ class WPCD_Meta_Boxes {
 		if ( wcad_fs()->is_not_paying() ) {
 			echo '<p style="font-size: 16px;">' . __( 'Hide coupon, change templates and get many more features', 'wpcd-coupon' ) . '- ';
 
-			echo '<a href="' . wcad_fs()->get_upgrade_url() . '">' .
+			echo '<a href="' . esc_url( wcad_fs()->get_upgrade_url() ). '">' .
 			     __( 'Upgrade to Pro!', 'wpcd-coupon' ) .
 			     '</a>';
 			echo ' or ';
-			echo '<a href="' . wcad_fs()->get_trial_url() . '">' .
+			echo '<a href="' . esc_url( wcad_fs()->get_trial_url() ) . '">' .
 			     __( 'Start 14 day Free Trial!', 'wpcd-coupon' ) .
 			     '</a>';
 		}
@@ -385,13 +385,13 @@ class WPCD_Meta_Boxes {
 				$field_checker = 'coupon_details_' . $wpcd_field['id'];
 
 				if ( $field_checker == 'coupon_details_hide-coupon' ) {
-					update_post_meta( $post_id, 'coupon_details_' . $wpcd_field['id'], 'No' );
+					update_post_meta( $post_id, 'coupon_details_' . sanitize_text_field($wpcd_field['id']), 'No' );
 				} elseif ( $field_checker == 'coupon_details_coupon-template' ) {
-					update_post_meta( $post_id, 'coupon_details_' . $wpcd_field['id'], 'Default' );
+					update_post_meta( $post_id, 'coupon_details_' . sanitize_text_field($wpcd_field['id']), 'Default' );
 				} else {
                     $wpcd_coupon_meta_key = 'coupon_details_' . $wpcd_field['id'];
                     if( $wpcd_field['id'] == 'wpcd_description' ) $wpcd_coupon_meta_key = 'coupon_details_description';
-					update_post_meta( $post_id, $wpcd_coupon_meta_key, $_POST[ $wpcd_field['id'] ] );
+					update_post_meta( $post_id, $wpcd_coupon_meta_key, sanitize_text_field($_POST[ $wpcd_field['id'] ]) );
 				}
 
 			} else if ( $wpcd_field['type'] === 'checkbox' ) {

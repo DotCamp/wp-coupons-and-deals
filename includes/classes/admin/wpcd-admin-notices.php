@@ -106,8 +106,8 @@ class WPCD_Admin_Notices {
 
 		$post = get_post();
 
-		$full_coupon = '<b>' . __( 'Full Coupon:', 'wpcd-coupon' ) . '</b> [wpcd_coupon id=' . $post->ID . ']';
-		$only_code   = '<b>' . __( 'Only Coupon Code:', 'wpcd-coupon' ) . '</b> [wpcd_code id=' . $post->ID . ']';
+		$full_coupon = '<b>' . __( 'Full Coupon:', 'wpcd-coupon' ) . '</b> [wpcd_coupon id=' . absint($post->ID) . ']';
+		$only_code   = '<b>' . __( 'Only Coupon Code:', 'wpcd-coupon' ) . '</b> [wpcd_code id=' . absint($post->ID) . ']';
 
 		$messages['wpcd_coupons'] = array(
 			0  => '', // Unused. Messages start at index 1.

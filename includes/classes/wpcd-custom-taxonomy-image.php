@@ -172,10 +172,10 @@ class WPCD_Custom_Taxonomy_Image {
 		if ( isset( $_POST['term_meta'] ) ) {
 			$t_id      = $term_id;
 			$term_meta = get_option( "taxonomy_term_$t_id" );
-			$cat_keys  = array_keys( $_POST['term_meta'] );
+			$cat_keys  = array_keys( filter_var_array($_POST['term_meta'], FILTER_SANITIZE_STRING) );
 			foreach ( $cat_keys as $key ) {
 				if ( isset( $_POST['term_meta'][ $key ] ) ) {
-					$term_meta[ $key ] = $_POST['term_meta'][ $key ];
+					$term_meta[ $key ] = sanitize_text_field( $_POST['term_meta'][ $key ] );
 				}
 			}
 			//save the option array  

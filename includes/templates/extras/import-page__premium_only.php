@@ -12,6 +12,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // $wpcd_coupon_templates = array('Template One', 'Template Two', 'Template Three', 'Template Four', 'Template Five', 'Template Six', 'Template Seven', 'Template Eight');
 
+function sanitize_hex( $color = '#FFFFFF', $hash = true ) {
+
+    // Remove any spaces and special characters before and after the string
+    $color = trim( $color );
+
+    // Remove any trailing '#' symbols from the color value
+    $color = str_replace( '#', '', $color );
+
+    // If the string is 6 characters long then use it in pairs.
+    if ( 3 == strlen( $color ) ) {
+        $color = substr( $color, 0, 1 ) . substr( $color, 0, 1 ) . substr( $color, 1, 1 ) . substr( $color, 1, 1 ) . substr( $color, 2, 1 ) . substr( $color, 2, 1 );
+    }
+
+    $substr = array();
+    for ( $i = 0; $i <= 5; $i++ ) {
+        $default    = ( 0 == $i ) ? 'F' : ( $substr[$i-1] );
+        $substr[$i] = substr( $color, $i, 1 );
+        $substr[$i] = ( false === $substr[$i] || ! ctype_xdigit( $substr[$i] ) ) ? $default : $substr[$i];
+    }
+    $hex = implode( '', $substr );
+
+    return ( ! $hash ) ? $hex : '#' . $hex;
+
+}
+
 ?>
 
 <div class="wrap">
@@ -37,9 +62,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<div class="wpcd_import_field">
 							<div class="wpcd_import_field wpcd_import_field_submit wpcd_clearfix">
 							<input type="hidden" name="wpcd_import_counter_field" value="' . $name_var . '" />
-							<input type="file" style="display:none;" name="wpcd_import_file_final" value="' . $_FILES['wpcd_import_file']['tmp_name'] . '" />
-							<input type="hidden" name="wpcd_default_template" value="' . $_POST['wpcd_default_template'] . '">
-							<input type="hidden" name="theme_color" value="'.$_POST['theme_color'].'">
+							<input type="file" style="display:none;" name="wpcd_import_file_final" value="<?=filter_var($_FILES['wpcd_import_file']['tmp_name'], FILTER_SANITIZE_STRING)?>" />
+							<input type="hidden" name="wpcd_default_template" value="<?=filter_var($_POST['wpcd_default_template'], FILTER_SANITIZE_STRING)?>">
+							<input type="hidden" name="theme_color" value="<?=sanitize_hex($_POST['theme_color'])?>">
 							<?php wp_nonce_field( 'wpcd_nonce' ); ?>
 							<input name="wpcd_import_submit_final" value="Import Coupons" class="button button-primary button-large wpcd-import-btn" type="submit">
 							<span><strong>0</strong> <?php echo __( 'Coupons will be added!', 'wpcd-coupon' ); ?></span>

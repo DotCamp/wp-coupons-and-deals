@@ -67,10 +67,12 @@ class WPCD_Shortcode_Metabox {
 	 */
 	public function generate_fields( $post ) {
 		$output = '';
-		$output .= '<b>' . __( 'Full Coupon', 'wpcd-coupon' ) . ':</b> [wpcd_coupon id=' . $post->ID . ']' . '<br><br>';
-		$output .= '<span class="only-coupon-code"><b>' . __( 'Only Coupon Code', 'wpcd-coupon' ) . ':</b> [wpcd_code id=' . $post->ID . ']</span>';
+		$output .= '<b>' . __( 'Full Coupon', 'wpcd-coupon' ) . ':</b> [wpcd_coupon id=' . absint($post->ID) . ']' . '<br><br>';
+		$output .= '<span class="only-coupon-code"><b>' . __( 'Only Coupon Code', 'wpcd-coupon' ) . ':</b> [wpcd_code id=' . absint($post->ID) . ']</span>';
 
-		echo $output;
+		$arr = array( 'b' => array(), 'span' => array(), 'br' => array() );
+		echo wp_kses( $output, $arr );
+		
 	}
 
 }

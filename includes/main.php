@@ -30,7 +30,7 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 		 *
 		 * @since 1.0
 		 */
-		const PLUGIN_VERSION = '3.0.5';
+		const PLUGIN_VERSION = '3.0.6';
 		const CUSTOM_POST_TYPE = 'wpcd_coupons';
 		const CUSTOM_TAXONOMY = 'wpcd_coupon_category';
         const VENDOR_TAXONOMY = 'wpcd_coupon_vendor';
@@ -633,7 +633,7 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
                 __( 'Free Pro Trial', 'wpcd-coupon' ),
                 __( 'Free Pro Trial', 'wpcd-coupon' ),
                 'manage_options',
-                wcad_fs()->get_trial_url()
+                esc_url( wcad_fs()->get_trial_url() )
             );
 
 		}
