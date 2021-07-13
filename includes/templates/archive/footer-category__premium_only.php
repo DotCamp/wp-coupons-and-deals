@@ -42,7 +42,7 @@ if ( $parent == 'footer' || $parent == 'headerANDfooter' ):
                 if ( !isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_cat_vend_action' ) {
                     echo '</div> <!-- wpcd_coupon_archive_container -->';
                     echo '<div class="wpcd_coupon_loader wpcd_coupon_hidden_loader">';
-                    echo '<img src="' . WPCD_Plugin::instance()->plugin_assets . 'img/loading.gif">';
+                    echo '<img src="' . esc_url( WPCD_Plugin::instance()->plugin_assets ) . 'img/loading.gif">';
                     echo '</div>';
                     echo '</div> <!-- wpcd_coupon_archive_container_main -->';
                 }

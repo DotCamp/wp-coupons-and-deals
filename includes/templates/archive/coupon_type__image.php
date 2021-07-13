@@ -49,10 +49,10 @@ $target = ($linkTarget == "on") ? "_self" : "_blank" ;
     </style>
 <?php endif; ?>
     <div class="wpcd-coupon-image"
-         style="width: <?php echo $wpcd_image_width; ?>; height: <?php echo $wpcd_image_height; ?>">
-        <a href="<?php echo $link; ?>" target="<?php echo $target; ?>">
-            <img src="<?php echo $wpcd_coupon_image_src; ?>"
-                 alt="<?php _e('Coupon image not uploaded', 'wpcd-coupon'); ?>">
+         style="width: <?php echo esc_attr( $wpcd_image_width ); ?>; height: <?php echo esc_attr( $wpcd_image_height ); ?>">
+        <a href="<?php echo esc_url( $link ); ?>" target="<?php echo esc_attr( $target ); ?>">
+            <img src="<?php echo esc_url( $wpcd_coupon_image_src ); ?>"
+                 alt="<?php esc_attr_e('Coupon image not uploaded', 'wpcd-coupon'); ?>">
             <?php 
                 if( WPCD_Amp::wpcd_amp_is() ) {
                     echo '<div>' . __('Coupon image not uploaded', 'wpcd-coupon') . '</div>';
@@ -64,7 +64,7 @@ $target = ($linkTarget == "on") ? "_self" : "_blank" ;
     <?php if ( $wpcd_show_print != 'No' ): ?>
         <div style="text-align:center">
             <a class="coupon-image-print-link"
-               onclick="wpcd_print_coupon_img('<?php echo $wpcd_coupon_image_src; ?>')"><?php _e('Click To Print', 'wpcd-coupon'); ?></a>
+               onclick="wpcd_print_coupon_img('<?php echo esc_url( $wpcd_coupon_image_src ); ?>')"><?php esc_html_e('Click To Print', 'wpcd-coupon'); ?></a>
         </div>
         <script>
             function wpcd_print_coupon_img(url) {

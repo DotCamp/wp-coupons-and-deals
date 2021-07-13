@@ -35,11 +35,11 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
                         <ul id="wpcd_cat_ul" class="wpcd_dropdown wpcd_categories_in_dropdown">
                             <?php if( !WPCD_Amp::wpcd_amp_is() ): ?>
                                 <a href="javascript:void(0)" class="wpcd_dropbtn">
-                                    <?php echo __( $wpcd_category_menu_title, 'wpcd-coupon' ); ?>
+                                    <?php echo esc_html__( $wpcd_category_menu_title, 'wpcd-coupon' ); ?>
                                 </a>
                             <?php else: ?>
                                 <div class="wpcd_dropbtn">
-                                    <?php echo __( $wpcd_category_menu_title, 'wpcd-coupon' ); ?>
+                                    <?php echo esc_html__( $wpcd_category_menu_title, 'wpcd-coupon' ); ?>
                                 </div>
                             <?php endif; ?>
                             <div class="wpcd_dropdown-content">
@@ -51,8 +51,8 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
                                             $wpcd_dropdown_content = '';
                                         }
                                     ?>
-                                    <a class="wpcd_category<?php echo $wpcd_dropdown_content; ?>" <?php echo $wpcd_js_data_tax_name; ?>="all" href="<?php echo $current_url_final_all; ?>">
-                                        <?php echo $all_coupon_text; ?>
+                                    <a class="wpcd_category<?php echo esc_attr( $wpcd_dropdown_content ); ?>" <?php echo esc_attr( $wpcd_js_data_tax_name ); ?>="all" href="<?php echo esc_url( $current_url_final_all ); ?>">
+                                        <?php echo esc_html( $all_coupon_text ); ?>
                                     </a>
                                 </li>
                                 <?php foreach ( $terms as $term ):
@@ -65,8 +65,8 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
 
                                 ?>
                                     <li>
-                                        <a class="wpcd_category<?php echo $wpcd_dropdown_content; ?>" <?php echo $wpcd_js_data_tax_name; ?>="<?php echo $term->slug; ?>"
-                                           href="<?php echo $current_url_final_sin . $wpcd_term_field_name . '=' . $term->slug; ?>"><?php echo $term->name; ?></a>
+                                        <a class="wpcd_category<?php echo esc_attr( $wpcd_dropdown_content ); ?>" <?php echo esc_attr( $wpcd_js_data_tax_name ); ?>="<?php echo esc_attr( $term->slug ); ?>"
+                                           href="<?php echo esc_url( $current_url_final_sin . $wpcd_term_field_name . '=' . $term->slug ); ?>"><?php echo esc_html( $term->name ); ?></a>
                                     </li>
                                 <?php endforeach; ?>
                             </div>
