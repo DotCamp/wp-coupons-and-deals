@@ -123,52 +123,52 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 
 <style>
 	.wpcd-coupon-button-type .coupon-code-wpcd .get-code-wpcd {
-		background-color: <?php echo $hide_coupon_button_color; ?>;
+		background-color: <?php echo sanitize_hex_color( $hide_coupon_button_color ); ?>;
 	}
 
 	.wpcd-coupon-button-type .coupon-code-wpcd .get-code-wpcd:after {
-		border-left-color: <?php echo $hide_coupon_button_color; ?>;
+		border-left-color: <?php echo sanitize_hex_color( $hide_coupon_button_color ); ?>;
 	}
 </style>
 <span class="wpcd-default-img"
-	  default-img="<?php echo WPCD_Plugin::instance()->plugin_assets . 'img/icon-128x128.png'; ?>"
+	  default-img="<?php echo esc_url( WPCD_Plugin::instance()->plugin_assets . 'img/icon-128x128.png') ; ?>"
 	  style="display:none;">
 
 </span>
 
 <!-- Default Preview -->
-<div class="wpcd-coupon-preview wpcd-coupon wpcd-coupon-default wpcd-coupon-id-<?php echo $post_id; ?>">
+<div class="wpcd-coupon-preview wpcd-coupon wpcd-coupon-default wpcd-coupon-id-<?php echo absint( $post_id ); ?>">
 	<div class="wpcd-col-1-8">
 		<div class="wpcd-coupon-discount-text">
-			<?php echo $discount_text; ?>
+			<?php echo esc_html( $discount_text ); ?>
 		</div>
 		<div class="coupon-type">
-			<?php echo $coupon_type; ?>
+			<?php echo esc_html( $coupon_type ); ?>
 		</div>
 	</div>
 	<div class="wpcd-coupon-content wpcd-col-7-8">
 		<div class="wpcd-coupon-header">
 			<div class="wpcd-col-3-4">
 				<div class="wpcd-coupon-title">
-					<?php echo $title; ?>
+					<?php echo esc_html( $title ); ?>
 				</div>
 			</div>
 			<div class="wpcd-col-1-4">
 				<div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden">
 					<a  data-type="code"
-						data-coupon-id="<?php echo $post_id; ?>"
+						data-coupon-id="<?php echo absint( $post_id ); ?>"
 						href=""
 					   	class="coupon-button coupon-code-wpcd masterTooltip"
-						id="coupon-button-<?php echo $post_id; ?>"
-					   	title="<?php echo $hidden_coupon_hover_text; ?>"
+						id="coupon-button-<?php echo absint( $post_id ); ?>"
+					   	title="<?php echo esc_attr( $hidden_coupon_hover_text ); ?>"
 						data-position="top center"
 						data-inverted=""
-						data-aff-url="<?php echo $link; ?>">
+						data-aff-url="<?php echo esc_url( $link ); ?>">
 						<span class="code-text-wpcd" rel="nofollow">
-							<?php echo $coupon_code; ?>
+							<?php echo esc_html( $coupon_code ); ?>
 						</span>
 						<span class="get-code-wpcd">
-							<?php echo $hide_coupon_text; ?>
+							<?php echo esc_html( $hide_coupon_text ); ?>
 						</span>
 					</a>
 				</div>
@@ -176,22 +176,22 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 					<div class="wpcd-coupon-code">
 						<button
 							class="wpcd-btn masterTooltip wpcd-coupon-button"
-							title="<?php echo $coupon_hover_text; ?>"
-							data-clipboard-text="<?php echo $coupon_code; ?>">
+							title="<?php echo esc_attr( $coupon_hover_text ); ?>"
+							data-clipboard-text="<?php echo esc_attr( $coupon_code ); ?>">
 							<span class="wpcd_coupon_icon"></span>
 							<span class="coupon-code-button">
-								<?php echo $coupon_code; ?>
+								<?php echo esc_html( $coupon_code ); ?>
 							</span>
 						</button>
 					</div>
 					<div class="wpcd-deal-code">
 						<button
 							class="wpcd-btn masterTooltip wpcd-deal-button"
-							title="<?php echo $deal_hover_text; ?>"
-							data-clipboard-text="<?php echo $deal_text; ?>">
+							title="<?php echo esc_attr( $deal_hover_text ); ?>"
+							data-clipboard-text="<?php echo esc_attr( $deal_text ); ?>">
 							<span class="wpcd_deal_icon"></span>
 							<span class="deal-code-button">
-								<?php echo $deal_text; ?>
+								<?php echo esc_html( $deal_text ); ?>
 							</span>
 						</button>
 					</div>
@@ -201,20 +201,20 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 		<div class="wpcd-extra-content">
 			<div class="wpcd-col-3-4">
 				<div class="wpcd-coupon-description">
-					<?php echo $description; ?>
+					<?php echo esc_html( $description ); ?>
 				</div>
 			</div>
 			<div class="wpcd-col-1-4">
                 <div class="with-expiration1 <?php echo empty( $expire_date ) ? 'hidden' : ''; ?>">
                     <div class="wpcd-coupon-expire expire-text-block1 <?php echo strtotime( $expire_date ) < strtotime( $today ) ? 'hidden' : ''; ?>">
-                        <?php echo $expire_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>'; ?>
+                        <?php echo esc_html( $expire_text ) . ' ' . '<span class="expiration-date">' . $expire_date . '</span>'; ?>
                     </div>
                     <div class="wpcd-coupon-expired expired-text-block1 <?php echo strtotime( $expire_date ) >= strtotime( $today ) ? 'hidden' : ''; ?>">
-                        <?php echo $expired_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>'; ?>
+                        <?php echo esc_html( $expired_text ) . ' ' . '<span class="expiration-date">' . $expire_date . '</span>'; ?>
                     </div>
                 </div>
                 <div class="wpcd-coupon-expire without-expiration1 <?php echo empty( $expire_date ) ? '' : 'hidden'; ?>">
-                    <?php echo $no_expiry; ?>
+                    <?php echo esc_html( $no_expiry ); ?>
                 </div>
 			</div>
 		</div>
@@ -226,38 +226,38 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 	<div class="wpcd-col-one-1-8">
 		<figure>
 			<img class="wpcd-coupon-one-img wpcd-get-fetured-img"
-                 data-src="<?php echo $coupon_thumbnail_not_featured; ?>"
-                 src="<?php echo $coupon_thumbnail; ?>">
+                 data-src="<?php echo esc_url( $coupon_thumbnail_not_featured ); ?>"
+                 src="<?php echo esc_url( $coupon_thumbnail ); ?>">
 		</figure>
 	</div>
 	<div class="wpcd-col-one-7-8">
 		<h4 class="wpcd-coupon-one-title">
-			<?php echo $title; ?>
+			<?php echo esc_html( $title ); ?>
 		</h4>
 		<div id="clear"></div>
 		<div class="wpcd-coupon-description">
-			<?php echo $description; ?>
+			<?php echo esc_html( $description ); ?>
 		</div>
 	</div>
 	<div class="wpcd-col-one-1-4">
 		<div class="wpcd-coupon-one-discount-text">
-			<?php echo $discount_text; ?>
+			<?php echo esc_html( $discount_text ); ?>
 		</div>
 		<div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden">
 			<a 	data-type="code"
-				data-coupon-id="<?php echo $post_id; ?>"
+				data-coupon-id="<?php echo absint( $post_id ); ?>"
 				href=""
 			   	class="coupon-button coupon-code-wpcd masterTooltip"
-				id="coupon-button-<?php echo $post_id; ?>"
-			   	title="<?php echo $hidden_coupon_hover_text; ?>"
+				id="coupon-button-<?php echo absint( $post_id ); ?>"
+			   	title="<?php echo esc_attr( $hidden_coupon_hover_text ); ?>"
 				data-position="top center"
 				data-inverted=""
-				data-aff-url="<?php echo $link; ?>">
+				data-aff-url="<?php echo esc_url( $link ); ?>">
 				<span class="code-text-wpcd" rel="nofollow">
-					<?php echo $coupon_code; ?>
+					<?php echo esc_html( $coupon_code ); ?>
 				</span>
 				<span class="get-code-wpcd">
-					<?php echo $hide_coupon_text; ?>
+					<?php echo esc_html( $hide_coupon_text ); ?>
 				</span>
 			</a>
 		</div>
@@ -265,36 +265,36 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 			<div class="wpcd-coupon-code">
 				<button
 					class="wpcd-btn masterTooltip wpcd-coupon-button"
-					title="<?php echo $coupon_hover_text; ?>"
-					data-clipboard-text="<?php echo $coupon_code;?>">
+					title="<?php echo esc_attr( $coupon_hover_text ); ?>"
+					data-clipboard-text="<?php echo esc_attr( $coupon_code );?>">
 					<span class="wpcd_coupon_icon"></span>
 					<span class="coupon-code-button"
-						><?php echo $coupon_code; ?>
+						><?php echo esc_html( $coupon_code ); ?>
 					</span>
 				</button>
 			</div>
 			<div class="wpcd-deal-code">
 				<button
 					class="wpcd-btn masterTooltip wpcd-deal-button"
-					title="<?php echo $deal_hover_text; ?>"
-					data-clipboard-text="<?php echo $deal_text; ?>">
+					title="<?php echo esc_attr( $deal_hover_text ); ?>"
+					data-clipboard-text="<?php echo esc_attr( $deal_text ); ?>">
 					<span class="wpcd_deal_icon"></span>
 					<span class="deal-code-button">
-						<?php echo $deal_text; ?>
+						<?php echo esc_html( $deal_text ); ?>
 					</span>
 				</button>
 			</div>
 		</div>
 			<div class="with-expiration1 <?php echo empty( $expire_date ) ? 'hidden' : ''; ?>">
 				<div class="wpcd-coupon-one-expire expire-text-block1 <?php echo strtotime( $expire_date ) <= strtotime( $today ) ? 'hidden' : ''; ?>">
-					<?php echo $expire_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>';?>
+					<?php echo esc_html( $expire_text ) . ' ' . '<span class="expiration-date">' . $expire_date . '</span>';?>
 				</div>
 				<div class="wpcd-coupon-one-expired expired-text-block1 <?php echo strtotime( $expire_date ) > strtotime( $today ) ? 'hidden' : ''; ?>">
-					<?php echo $expired_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>';?>
+					<?php echo esc_html( $expired_text ) . ' ' . '<span class="expiration-date">' . $expire_date . '</span>';?>
 				</div>
 			</div>
 			<div class="wpcd-coupon-one-expire without-expiration1 <?php echo empty( $expire_date ) ? '' : 'hidden'; ?>">
-				<?php echo $no_expiry; ?>
+				<?php echo esc_html( $no_expiry ); ?>
 			</div>
 		<div id="clear"></div>
 	</div>
@@ -306,26 +306,26 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 	<div class="wpcd-col-two-1-4">
 			<figure>
 				<img class="wpcd-coupon-two-img wpcd-get-fetured-img"
-                     data-src="<?php echo $coupon_thumbnail_not_featured; ?>"
-                     src="<?php echo $coupon_thumbnail; ?>">
+                     data-src="<?php echo esc_url( $coupon_thumbnail_not_featured ); ?>"
+                     src="<?php echo esc_url( $coupon_thumbnail ); ?>">
 			</figure>
 		<div class="wpcd-coupon-two-discount-text">
-			<?php echo $discount_text; ?>
+			<?php echo esc_html( $discount_text ); ?>
 		</div>
 	</div>
 	<div class="wpcd-col-two-3-4">
 		<div class="wpcd-coupon-two-header">
 			<div>
-				<h4 class="wpcd-coupon-title"><?php echo $title; ?></h4>
+				<h4 class="wpcd-coupon-title"><?php echo esc_html( $title ); ?></h4>
 			</div>
 		</div>
 		<div class="wpcd-coupon-two-info">
 			<div class="wpcd-coupon-two-title">
 				<b class="expires-on" <?php echo empty( $expire_date ) ? 'style="display:none"' : ''; ?>>
 					<span >
-						<?php echo $expire_text; ?>
+						<?php echo esc_html( $expire_text ); ?>
 					</span>
-					<span class="wpcd-coupon-two-countdown" id="clock_two_<?php echo $post_id; ?>"></span>
+					<span class="wpcd-coupon-two-countdown" id="clock_two_<?php echo absint( $post_id ); ?>"></span>
 				</b>
 				<?php if ( ! $expire_date ) {
 					//$expire_date        = date( 'd/m/Y' );
@@ -334,9 +334,9 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 				<script type="text/javascript">
 					var hasDate = "<?php echo empty( $expire_date ) ? 'no' : 'yes';?>";
 					if (hasDate === 'no')
-						jQuery('#clock_two_<?php echo $post_id; ?>').hide();
+						jQuery('#clock_two_<?php echo absint( $post_id ); ?>').hide();
 
-					var $clock = jQuery('#clock_two_<?php echo $post_id; ?>').countdown('<?php echo $expire_date_format . ' ' . $expire_time; ?>', function (event) {
+					var $clock = jQuery('#clock_two_<?php echo absint( $post_id ); ?>').countdown('<?php echo strtotime( $expire_date_format . ' ' . $expire_time ) ?  $expire_date_format . ' ' . $expire_time : ''; ?>', function (event) {
 						var format = '%M <?php echo __( 'minutes', 'wpcd-coupon' ); ?> %S <?php echo __( 'seconds', 'wpcd-coupon' ); ?>';
 						if (event.offset.hours > 0) {
 							format = "%H <?php echo __( 'hours', 'wpcd-coupon' ); ?> %M <?php echo __( 'minutes', 'wpcd-coupon' ); ?> %S <?php echo __( 'seconds', 'wpcd-coupon' ); ?>";
@@ -353,12 +353,12 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 							jQuery(this).addClass('wpcd-countdown-expired').html('<?php echo __( 'This offer has expired!', 'wpcd-coupon' ); ?>');
 						} else {
 							jQuery(this).html(event.strftime(format));
-							jQuery('#clock_two_<?php echo $post_id; ?>').removeClass('wpcd-countdown-expired');
+							jQuery('#clock_two_<?php echo absint( $post_id ); ?>').removeClass('wpcd-countdown-expired');
 						}
 					});
 
 					jQuery("#expire-time").change(function () {
-						jQuery('#clock_two_<?php echo $post_id; ?>').show();
+						jQuery('#clock_two_<?php echo absint( $post_id ); ?>').show();
 						var coup_date = jQuery("#expire-date").val();
 						if (coup_date.indexOf("-") >= 0) {
 							var dateAr = coup_date.split('-');
@@ -369,26 +369,26 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 					});
 				</script>
 				<b class="never-expire" <?php echo empty( $expire_date ) ? '' : 'style="display:none"'; ?>>
-					<b><?php echo $no_expiry; ?></b>
+					<b><?php echo esc_html( $no_expiry ); ?></b>
 				</b>
 			</div>
 			<div class="wpcd-coupon-two-coupon">
 				<div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden">
 					<a
 						data-type="code"
-						data-coupon-id="<?php echo $post_id; ?>"
+						data-coupon-id="<?php echo absint( $post_id ); ?>"
 						href=""
 						class="coupon-button coupon-code-wpcd masterTooltip"
-						id="coupon-button-<?php echo $post_id; ?>"
-						title="<?php echo $hidden_coupon_hover_text; ?>"
+						id="coupon-button-<?php echo absint( $post_id ); ?>"
+						title="<?php echo esc_attr( $hidden_coupon_hover_text ); ?>"
 						data-position="top center"
 						data-inverted=""
-						data-aff-url="<?php echo $link; ?>">
+						data-aff-url="<?php echo esc_url( $link ); ?>">
 						<span class="code-text-wpcd" rel="nofollow">
-							<?php echo $coupon_code; ?>
+							<?php echo esc_html( $coupon_code ); ?>
 						</span>
 						<span class="get-code-wpcd">
-							<?php echo $hide_coupon_text; ?>
+							<?php echo esc_html( $hide_coupon_text ); ?>
 						</span>
 					</a>
 				</div>
@@ -396,22 +396,22 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 					<div class="wpcd-coupon-code">
 						<button
 							class="wpcd-btn masterTooltip wpcd-coupon-button"
-							title="<?php echo $coupon_hover_text; ?>"
-							data-clipboard-text="<?php echo $coupon_code; ?>">
+							title="<?php echo esc_attr( $coupon_hover_text ); ?>"
+							data-clipboard-text="<?php echo esc_attr( $coupon_code ); ?>">
 							<span class="wpcd_coupon_icon"></span>
 							<span class="coupon-code-button">
-								<?php echo $coupon_code; ?>
+								<?php echo esc_html( $coupon_code ); ?>
 							</span>
 						</button>
 					</div>
 					<div class="wpcd-deal-code">
 						<button
 							class="wpcd-btn masterTooltip wpcd-deal-button"
-							title="<?php echo $deal_hover_text; ?>"
-							data-clipboard-text="<?php echo $deal_text; ?>">
+							title="<?php echo esc_attr( $deal_hover_text ); ?>"
+							data-clipboard-text="<?php echo esc_attr( $deal_text ); ?>">
 							<span class="wpcd_deal_icon"></span>
 							<span class="deal-code-button">
-								<?php echo $deal_text; ?>
+								<?php echo esc_html( $deal_text ); ?>
 							</span>
 						</button>
 					</div>
@@ -421,7 +421,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 		</div>
 		<div id="clear"></div>
 		<div class="wpcd-coupon-description">
-			<?php echo $description; ?>
+			<?php echo esc_html( $description ); ?>
 		</div>
 	</div>
 </div><!-- End of Template Two Preview -->
@@ -430,10 +430,10 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 <div class="wpcd-coupon-preview wpcd-coupon-three">
 	<div class="wpcd-coupon-three-content">
 		<h4 class="wpcd-coupon-three-title">
-			<?php echo $title; ?>
+			<?php echo esc_html( $title ); ?>
 		</h4>
 		<div class="wpcd-coupon-description">
-			<?php echo $description; ?>
+			<?php echo esc_html( $description ); ?>
 		</div>
 	</div>
 	<div class="wpcd-coupon-three-info">
@@ -441,37 +441,37 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
             <div class="with-expiration1 <?php echo empty( $expire_date ) ? 'hidden' : ''; ?>">
                 <div class="wpcd-coupon-three-expire expire-text-block1 <?php echo strtotime( $expire_date ) >= strtotime( $today ) ? '' : 'hidden'; ?>">
                     <p class="wpcd-coupon-three-expire-text">
-                        <?php echo $expire_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>';
+                        <?php echo esc_html( $expire_text ) . ' ' . '<span class="expiration-date">' . (strtotime( $expire_date ) ? $expire_date  : '') . '</span>';
                         ?>
                     </p>
                 </div>
                 <div class="wpcd-coupon-three-expire expired-text-block1 <?php echo strtotime( $expire_date ) < strtotime( $today ) ? '' : 'hidden'; ?>">
                     <p class="wpcd-coupon-three-expired">
-                        <?php echo $expired_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>'; ?>
+                        <?php echo esc_html( $expired_text ) . ' ' . '<span class="expiration-date">' . (strtotime( $expire_date ) ? $expire_date  : '') . '</span>'; ?>
                     </p>
                 </div>
             </div>
             <div class="wpcd-coupon-three-expire without-expiration1 <?php echo empty( $expire_date ) ? '' : 'hidden'; ?>">
-                <p><?php echo $no_expiry; ?></p>
+                <p><?php echo esc_html( $no_expiry ); ?></p>
             </div>
 		</div>
 		<div class="wpcd-coupon-three-coupon">
 			<div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden">
 				<a
 					data-type="code"
-					data-coupon-id="<?php echo $post_id; ?>"
+					data-coupon-id="<?php echo absint( $post_id ); ?>"
 					href=""
 					class="coupon-button coupon-code-wpcd masterTooltip"
-					id="coupon-button-<?php echo $post_id; ?>"
-					title="<?php echo $hidden_coupon_hover_text; ?>"
+					id="coupon-button-<?php echo absint( $post_id ); ?>"
+					title="<?php echo esc_attr( $hidden_coupon_hover_text ); ?>"
 					data-position="top center"
 					data-inverted=""
-					data-aff-url="<?php echo $link; ?>">
+					data-aff-url="<?php echo esc_url( $link ); ?>">
 					<span class="code-text-wpcd" rel="nofollow">
-						<?php echo $coupon_code; ?>
+						<?php echo esc_html( $coupon_code ); ?>
 					</span>
 					<span class="get-code-wpcd">
-						<?php echo $hide_coupon_text; ?>
+						<?php echo esc_html( $hide_coupon_text ); ?>
 					</span>
 				</a>
 			</div>
@@ -480,21 +480,21 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 					<button
 						class="wpcd-btn masterTooltip wpcd-coupon-button"
 						title="<?php echo __( 'Click Here To Copy Coupon', 'wpcd-coupon' ); ?>"
-						data-clipboard-text="<?php echo $coupon_code; ?>">
+						data-clipboard-text="<?php echo esc_attr( $coupon_code ); ?>">
 						<span class="wpcd_coupon_icon"></span>
 						<span class="coupon-code-button">
-							<?php echo $coupon_code; ?>
+							<?php echo esc_html( $coupon_code ); ?>
 						</span>
 					</button>
 				</div>
 				<div class="wpcd-deal-code">
 					<button
 						class="wpcd-btn masterTooltip wpcd-deal-button"
-						title="<?php echo $deal_hover_text; ?>"
-						data-clipboard-text="<?php echo $deal_text; ?>">
+						title="<?php echo esc_attr( $deal_hover_text ); ?>"
+						data-clipboard-text="<?php echo esc_attr( $deal_text ); ?>">
 						<span class="wpcd_deal_icon"></span>
 						<span class="deal-code-button">
-							<?php echo $deal_text; ?>
+							<?php echo esc_html( $deal_text ); ?>
 						</span>
 					</button>
 				</div>
@@ -507,10 +507,10 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 <div class="wpcd-coupon-preview wpcd-coupon-four">
 	<div class="wpcd-coupon-four-content">
 		<h4 class="wpcd-coupon-four-title">
-			<?php echo $title; ?>
+			<?php echo esc_html( $title ); ?>
 		</h4>
 		<div class="wpcd-coupon-description">
-			<?php echo $description; ?>
+			<?php echo esc_html( $description ); ?>
 		</div>
 	</div>
 
@@ -518,24 +518,24 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 	<div class="wpcd-coupon-four-info">
 		<div class="wpcd-coupon-four-coupon">
 			<div class="wpcd-four-discount-text">
-				<?php echo $discount_text; ?>
+				<?php echo esc_html( $discount_text ); ?>
 			</div>
 			<div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden">
 				<a
 					data-type="code"
-					data-coupon-id="<?php echo $post_id; ?>"
+					data-coupon-id="<?php echo absint( $post_id ); ?>"
 					href=""
 					class="coupon-button coupon-code-wpcd masterTooltip"
-					id="coupon-button-<?php echo $post_id; ?>"
-					title="<?php echo $hidden_coupon_hover_text; ?>"
+					id="coupon-button-<?php echo absint( $post_id ); ?>"
+					title="<?php echo esc_attr( $hidden_coupon_hover_text ); ?>"
 					data-position="top center"
 					data-inverted=""
-					data-aff-url="<?php echo $link; ?>">
+					data-aff-url="<?php echo esc_url( $link ); ?>">
 					<span class="code-text-wpcd" rel="nofollow">
-						<?php echo $coupon_code; ?>
+						<?php echo esc_html( $coupon_code ); ?>
 					</span>
 					<span class="get-code-wpcd">
-						<?php echo $hide_coupon_text; ?>
+						<?php echo esc_html( $hide_coupon_text ); ?>
 					</span>
 				</a>
 			</div>
@@ -543,22 +543,22 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 				<div class="wpcd-coupon-code">
 					<button
 						class="wpcd-btn masterTooltip wpcd-coupon-button"
-						title="<?php echo $coupon_hover_text; ?>"
-						data-clipboard-text="<?php echo $coupon_code; ?>">
+						title="<?php echo esc_attr( $coupon_hover_text ); ?>"
+						data-clipboard-text="<?php echo esc_attr( $coupon_code ); ?>">
 						<span class="wpcd_coupon_icon"></span>
 						<span class="coupon-code-button">
-							<?php echo $coupon_code; ?>
+							<?php echo esc_html( $coupon_code ); ?>
 						</span>
 					</button>
 				</div>
 				<div class="wpcd-deal-code">
 					<button
 						class="wpcd-btn masterTooltip wpcd-deal-button"
-						title="<?php echo $deal_hover_text; ?>"
-						data-clipboard-text="<?php echo $deal_text; ?>">
+						title="<?php echo esc_attr( $deal_hover_text ); ?>"
+						data-clipboard-text="<?php echo esc_attr( $deal_text ); ?>">
 						<span class="wpcd_deal_icon"></span>
 						<span class="deal-code-button">
-							<?php echo $deal_text; ?>
+							<?php echo esc_html( $deal_text ); ?>
 						</span>
 					</button>
 				</div>
@@ -568,17 +568,17 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
             <div class="with-expiration1 <?php echo empty( $expire_date ) ? 'hidden' : ''; ?>">
                 <div class="wpcd-coupon-four-expire expire-text-block1 <?php echo strtotime( $expire_date ) >= strtotime( $today ) ? '' : 'hidden'; ?>">
                     <p class="wpcd-coupon-four-expire-text">
-                        <?php echo $expire_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>'; ?>
+                        <?php echo esc_html( $expire_text ) . ' ' . '<span class="expiration-date">' . (strtotime( $expire_date ) ? $expire_date  : '') . '</span>'; ?>
                     </p>
                 </div>
                 <div class="wpcd-coupon-four-expire expired-text-block1 <?php echo strtotime( $expire_date ) < strtotime( $today ) ? '' : 'hidden'; ?>">
                     <p class="wpcd-coupon-four-expired">
-                        <?php echo $expired_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>'; ?>
+                        <?php echo esc_html( $expired_text ) . ' ' . '<span class="expiration-date">' . (strtotime( $expire_date ) ? $expire_date  : '') . '</span>'; ?>
                     </p>
                 </div>
             </div>
             <div class="wpcd-coupon-four-expire without-expiration1 <?php echo empty( $expire_date ) ? '' : 'hidden'; ?>">
-                <p><?php echo $no_expiry; ?></p>
+                <p><?php echo esc_html( $no_expiry ); ?></p>
             </div>
 		</div>
 	</div>
@@ -587,23 +587,23 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 	<!-- start second coupon -->
 	<div class="wpcd-coupon-four-info">
 		<div class="wpcd-coupon-four-coupon">
-			<div class="wpcd-four-discount-text"><?php echo $second_discount_text; ?></div>
+			<div class="wpcd-four-discount-text"><?php echo esc_html( $second_discount_text ); ?></div>
 			<div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden">
 				<a
 					data-type="code"
-					data-coupon-id="<?php echo $post_id; ?>"
+					data-coupon-id="<?php echo absint( $post_id ); ?>"
 					href=""
 					class="coupon-button coupon-code-wpcd masterTooltip"
-					id="coupon-button-<?php echo $post_id; ?>"
-					title="<?php echo $hidden_coupon_hover_text; ?>"
+					id="coupon-button-<?php echo absint( $post_id ); ?>"
+					title="<?php echo esc_attr( $hidden_coupon_hover_text ); ?>"
 					data-position="top center"
 					data-inverted=""
-					data-aff-url="<?php echo $link; ?>">
+					data-aff-url="<?php echo esc_url( $link ); ?>">
 					<span class="code-text-wpcd" rel="nofollow">
-						<?php echo $second_coupon_code; ?>
+						<?php echo esc_html( $second_coupon_code ); ?>
 					</span>
 					<span class="get-code-wpcd">
-						<?php echo $hide_coupon_text; ?>
+						<?php echo esc_html( $hide_coupon_text ); ?>
 					</span>
 				</a>
 			</div>
@@ -611,22 +611,22 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 				<div class="wpcd-coupon-code">
 					<button
 						class="wpcd-btn masterTooltip wpcd-coupon-button"
-						title="<?php echo $coupon_hover_text; ?>"
-						data-clipboard-text="<?php echo $second_coupon_code; ?>">
+						title="<?php echo esc_attr( $coupon_hover_text ); ?>"
+						data-clipboard-text="<?php echo esc_attr( $second_coupon_code ); ?>">
 						<span class="wpcd_coupon_icon"></span>
 						<span class="coupon-code-button">
-							<?php echo $second_coupon_code; ?>
+							<?php echo esc_html( $second_coupon_code ); ?>
 						</span>
 					</button>
 				</div>
 				<div class="wpcd-deal-code">
 					<button
 						class="wpcd-btn masterTooltip wpcd-deal-button"
-						title="<?php echo $deal_hover_text; ?>"
-						data-clipboard-text="<?php echo $second_deal_text; ?>">
+						title="<?php echo esc_attr( $deal_hover_text ); ?>"
+						data-clipboard-text="<?php echo esc_attr( $second_deal_text ); ?>">
 						<span class="wpcd_deal_icon"></span>
 						<span class="deal-code-button">
-							<?php echo $second_deal_text; ?>
+							<?php echo esc_html( $second_deal_text ); ?>
 						</span>
 					</button>
 				</div>
@@ -636,17 +636,17 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
             <div class="with-expiration-4-2 <?php echo empty( $second_expire_date ) ? 'hidden' : ''; ?>">
                 <div class="wpcd-coupon-four-expire expire-text-block2 <?php echo strtotime( $second_expire_date ) >= strtotime( $today ) ? '' : 'hidden'; ?>">
                     <p class="wpcd-coupon-four-expire-text">
-                        <?php echo $expire_text . ' ' . '<span class="expiration-date">' . $second_expire_date . '</span>'; ?>
+                        <?php echo esc_html( $expire_text ) . ' ' . '<span class="expiration-date">' . (strtotime( $second_expire_date ) ? $second_expire_date  : '') . '</span>'; ?>
                     </p>
                 </div>
                 <div class="wpcd-coupon-four-expire expired-text-block2 <?php echo strtotime( $second_expire_date ) < strtotime( $today ) ? '' : 'hidden'; ?>">
                     <p class="wpcd-coupon-four-expired">
-                        <?php echo $expired_text . ' ' . '<span class="expiration-date">' . $second_expire_date . '</span>'; ?>
+                        <?php echo esc_html( $expired_text ) . ' ' . '<span class="expiration-date">' . (strtotime( $second_expire_date ) ? $second_expire_date  : '') . '</span>'; ?>
                     </p>
                 </div>
             </div>
             <div class="wpcd-coupon-four-expire without-expiration-4-2 <?php echo empty( $second_expire_date ) ? '' : 'hidden'; ?>">
-                <p><?php echo $no_expiry; ?></p>
+                <p><?php echo esc_html( $no_expiry ); ?></p>
             </div>
 		</div>
 	</div>
@@ -655,23 +655,23 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 	<!-- start third coupon -->
 	<div class="wpcd-coupon-four-info">
 		<div class="wpcd-coupon-four-coupon">
-			<div class="wpcd-four-discount-text"><?php echo $third_discount_text; ?></div>
+			<div class="wpcd-four-discount-text"><?php echo esc_html( $third_discount_text ); ?></div>
 			<div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden">
 				<a
 					data-type="code"
-					data-coupon-id="<?php echo $post_id; ?>"
+					data-coupon-id="<?php echo absint( $post_id ); ?>"
 					href=""
 					class="coupon-button coupon-code-wpcd masterTooltip"
-					id="coupon-button-<?php echo $post_id; ?>"
-					title="<?php echo $hidden_coupon_hover_text; ?>"
+					id="coupon-button-<?php echo absint( $post_id ); ?>"
+					title="<?php echo esc_attr( $hidden_coupon_hover_text ); ?>"
 					data-position="top center"
 					data-inverted=""
-					data-aff-url="<?php echo $link; ?>">
+					data-aff-url="<?php echo esc_url( $link ); ?>">
 					<span class="code-text-wpcd" rel="nofollow">
-						<?php echo $third_coupon_code; ?>
+						<?php echo esc_html( $third_coupon_code ); ?>
 					</span>
 					<span class="get-code-wpcd">
-						<?php echo $hide_coupon_text; ?>
+						<?php echo esc_html( $hide_coupon_text ); ?>
 					</span>
 				</a>
 			</div>
@@ -679,22 +679,22 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 				<div class="wpcd-coupon-code">
 					<button
 						class="wpcd-btn masterTooltip wpcd-coupon-button"
-						title="<?php echo $coupon_hover_text; ?>"
-						data-clipboard-text="<?php echo $third_coupon_code; ?>">
+						title="<?php echo esc_attr( $coupon_hover_text ); ?>"
+						data-clipboard-text="<?php echo esc_attr( $third_coupon_code ); ?>">
 						<span class="wpcd_coupon_icon"></span>
 						<span class="coupon-code-button">
-							<?php echo $third_coupon_code; ?>
+							<?php echo esc_html( $third_coupon_code ); ?>
 						</span>
 					</button>
 				</div>
 				<div class="wpcd-deal-code">
 					<button
 						class="wpcd-btn masterTooltip wpcd-deal-button"
-						title="<?php echo $deal_hover_text; ?>"
-						data-clipboard-text="<?php echo $third_deal_text; ?>">
+						title="<?php echo esc_attr( $deal_hover_text ); ?>"
+						data-clipboard-text="<?php echo esc_attr( $third_deal_text ); ?>">
 						<span class="wpcd_deal_icon"></span>
 						<span class="deal-code-button">
-							<?php echo $third_deal_text; ?>
+							<?php echo esc_html( $third_deal_text ); ?>
 						</span>
 					</button>
 				</div>
@@ -704,17 +704,17 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
             <div class="with-expiration-4-3 <?php echo empty( $third_expire_date ) ? 'hidden' : ''; ?>">
                 <div class="wpcd-coupon-four-expire expire-text-block3 <?php echo strtotime( $third_expire_date ) >= strtotime( $today ) ? '' : 'hidden'; ?>">
                     <p class="wpcd-coupon-four-expire-text">
-                        <?php echo $expire_text . ' ' . '<span class="expiration-date">' . $third_expire_date . '</span>';?>
+                        <?php echo esc_html( $expire_text ) . ' ' . '<span class="expiration-date">' . (strtotime( $third_expire_date ) ? $third_expire_date  : '') . '</span>';?>
                     </p>
                 </div>
                 <div class="wpcd-coupon-four-expire expired-text-block3 <?php echo strtotime( $third_expire_date ) < strtotime( $today ) ? '' : 'hidden'; ?>">
                     <p class="wpcd-coupon-four-expired">
-                        <?php echo $expired_text . ' ' . '<span class="expiration-date">' . $third_expire_date . '</span>'; ?>
+                        <?php echo esc_html( $expired_text ) . ' ' . '<span class="expiration-date">' . (strtotime( $third_expire_date ) ? $third_expire_date  : '') . '</span>'; ?>
                     </p>
                 </div>
             </div>
             <div class="wpcd-coupon-four-expire without-expiration-4-3 <?php echo empty( $third_expire_date ) ? '' : 'hidden'; ?>">
-                <p><?php echo $no_expiry; ?></p>
+                <p><?php echo esc_html( $no_expiry ); ?></p>
             </div>
 		</div>
 	</div>
@@ -723,69 +723,69 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 
 <!-- Template Five Preview -->
 <div class="wpcd-coupon-preview wpcd-coupon-five">
-	<div class="wpcd-template-five" style="border-color: <?php echo $wpcd_template_five_theme; ?>">
+	<div class="wpcd-template-five" style="border-color: <?php echo sanitize_hex_color( $wpcd_template_five_theme ); ?>">
 		<div class="wpcd-template-five-holder">
 			<div class="wpcd-template-five-percent-off">
 				<p class="wpcd-coupon-five-discount-text">
-					<?php echo $discount_text; ?>
+					<?php echo esc_html( $discount_text ); ?>
 				</p>
 			</div>
 			<div class="wpcd-template-five-pro-img">
-				<img data-src="<?php echo $coupon_thumbnail_not_featured; ?>"
-					 src="<?php echo $coupon_thumbnail; ?>"
+				<img data-src="<?php echo esc_url( $coupon_thumbnail_not_featured ); ?>"
+					 src="<?php echo esc_url( $coupon_thumbnail ); ?>"
 					 alt="Coupon">
 			</div>
 
 			<div class="wpcd-template-five-texts">
 				<h2 class="wpcd-coupon-five-title">
-					<?php echo $title; ?></h2>
+					<?php echo esc_html( $title ); ?></h2>
 				<div class="wpcd-coupon-description">
-					<?php echo $description; ?>
+					<?php echo esc_html( $description ); ?>
 				</div>
 			</div>
 		</div>
 
 		<div class="extra-wpcd-template-five-holder">
-			<div class="wpcd-template-five-exp" style="background-color: <?php echo $wpcd_template_five_theme; ?>">
+			<div class="wpcd-template-five-exp" style="background-color: <?php echo sanitize_hex_color( $wpcd_template_five_theme ); ?>">
 				<!-- <p>Expires On: 12/31/17</p> -->
 				<div class="with-expiration1 <?php echo( empty( $expire_date ) ? 'hidden' : '' );
 				echo( $show_expiration !== 'Hide' ? '' : ' hide-expire-preview' ); ?> ">
 					<div class="wpcd-coupon-five-expire expire-text-block1 <?php echo strtotime( $expire_date ) >= strtotime( $today ) ? '' : 'hidden'; ?>">
 						<p class="wpcd-coupon-five-expire-text">
-							<?php echo $expire_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>';?>
+							<?php echo esc_html( $expire_text ) . ' ' . '<span class="expiration-date">' . (strtotime( $expire_date ) ? $expire_date  : '') . '</span>';?>
 						</p>
 					</div>
 					<div class="wpcd-coupon-five-expire expired-text-block1 <?php echo strtotime( $expire_date ) < strtotime( $today ) ? '' : 'hidden'; ?>">
 						<p class="wpcd-coupon-five-expired">
-							<?php echo $expired_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>'; ?>
+							<?php echo esc_html( $expired_text ) . ' ' . '<span class="expiration-date">' . (strtotime( $expire_date ) ? $expire_date  : '') . '</span>'; ?>
 						</p>
 					</div>
 				</div>
 				<div class="wpcd-coupon-five-expire without-expiration1 <?php echo( empty( $expire_date ) ? '' : 'hidden' );
 				echo( $show_expiration !== 'Hide' ? '' : ' hide-expire-preview' ); ?>">
-					<p><?php echo $no_expiry; ?></p>
+					<p><?php echo esc_html( $no_expiry ); ?></p>
 				</div>
 			</div>
 			<div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden">
 				<a
 					data-type="code"
-					data-coupon-id="<?php echo $post_id; ?>"
+					data-coupon-id="<?php echo absint( $post_id ); ?>"
 					href=""
 					class="coupon-button coupon-code-wpcd masterTooltip"
-					id="coupon-button-<?php echo $post_id; ?>"
-					title="<?php echo $hidden_coupon_hover_text; ?>"
+					id="coupon-button-<?php echo absint( $post_id ); ?>"
+					title="<?php echo esc_attr( $hidden_coupon_hover_text ); ?>"
 					data-position="top center"
 					data-inverted=""
-					data-aff-url="<?php echo $link; ?>">
+					data-aff-url="<?php echo esc_url( $link ); ?>">
 					<span class="code-text-wpcd" rel="nofollow">
-						<?php echo $coupon_code; ?>
+						<?php echo esc_html( $coupon_code ); ?>
 					</span>
 					<span class="get-code-wpcd">
-						<div class="square_wpcd" style="background-color: <?php echo $wpcd_template_five_theme; ?>"></div>
+						<div class="square_wpcd" style="background-color: <?php echo sanitize_hex_color( $wpcd_template_five_theme ); ?>"></div>
 						<span>
-							<?php echo $hide_coupon_text; ?>
+							<?php echo esc_html( $hide_coupon_text ); ?>
 						</span>
-						<div class="rectangle_wpcd" style="border-left-color: <?php echo $wpcd_template_five_theme; ?>"></div>
+						<div class="rectangle_wpcd" style="border-left-color: <?php echo sanitize_hex_color( $wpcd_template_five_theme ); ?>"></div>
 					</span>
 				</a>
 			</div>
@@ -794,11 +794,11 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 					<a
 						class="wpcd-template-five-btn masterTooltip"
 						href="#"
-					   	title="<?php echo $coupon_hover_text; ?>"
-						data-clipboard-text="<?php echo $coupon_code; ?>"
-						style="border-color: <?php echo $wpcd_template_five_theme; ?>">
-						<p class="coupon-code-button" style="color: <?php echo $wpcd_template_five_theme; ?>">
-							<?php echo $coupon_code; ?>
+					   	title="<?php echo esc_attr( $coupon_hover_text ); ?>"
+						data-clipboard-text="<?php echo esc_attr( $coupon_code ); ?>"
+						style="border-color: <?php echo sanitize_hex_color( $wpcd_template_five_theme ); ?>">
+						<p class="coupon-code-button" style="color: <?php echo sanitize_hex_color( $wpcd_template_five_theme ); ?>">
+							<?php echo esc_html( $coupon_code ); ?>
 						</p>
 					</a>
 				</div>
@@ -806,11 +806,11 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 					<a
 						class="wpcd-template-five-btn masterTooltip"
 						href="#"
-					   	title="<?php echo $deal_hover_text; ?>"
-						data-clipboard-text="<?php echo $deal_text; ?>"
-						style="border-color: <?php echo $wpcd_template_five_theme; ?>">
-						<p class="deal-code-button" style="color: <?php echo $wpcd_template_five_theme; ?>">
-							<?php echo $deal_text; ?>
+					   	title="<?php echo esc_attr( $deal_hover_text ); ?>"
+						data-clipboard-text="<?php echo esc_attr( $deal_text ); ?>"
+						style="border-color: <?php echo sanitize_hex_color( $wpcd_template_five_theme ); ?>">
+						<p class="deal-code-button" style="color: <?php echo sanitize_hex_color( $wpcd_template_five_theme ); ?>">
+							<?php echo esc_html( $deal_text ); ?>
 						</p>
 					</a>
 				</div>
@@ -820,43 +820,43 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 </div><!-- End of Template Five Preview -->
 
 <!-- Template Six Preview -->
-<div class="wpcd-coupon-preview wpcd-coupon-six" style="border-color: <?php echo $wpcd_template_six_theme; ?>">
+<div class="wpcd-coupon-preview wpcd-coupon-six" style="border-color: <?php echo sanitize_hex_color( $wpcd_template_six_theme ); ?>">
 	<div class="wpcd-coupon-six-holder">
 		<div class="wpcd-coupon-six-percent-off">
 			<div class="wpcd-for-ribbon">
-				<div class="wpcd-ribbon" style="background-color: <?php echo $wpcd_template_six_theme; ?>">
+				<div class="wpcd-ribbon" style="background-color: <?php echo sanitize_hex_color( $wpcd_template_six_theme ); ?>">
 					<div class="wpcd-ribbon-before"
-						 style="border-left-color: <?php echo $wpcd_template_six_theme; ?>"></div>
+						 style="border-left-color: <?php echo sanitize_hex_color( $wpcd_template_six_theme ); ?>"></div>
 					<p class="wpcd-coupon-six-discount-text">
-						<?php echo $discount_text; ?>
+						<?php echo esc_html( $discount_text ); ?>
 					</p>
-					<div class="wpcd-ribbon-after" style="border-right-color: <?php echo $wpcd_template_six_theme; ?>"></div>
+					<div class="wpcd-ribbon-after" style="border-right-color: <?php echo sanitize_hex_color( $wpcd_template_six_theme ); ?>"></div>
 				</div>
 			</div>
 		</div>
 		<div class="wpcd-coupon-six-texts">
 			<div class="texts">
 				<h2 class="wpcd-coupon-six-title">
-					<?php echo $title; ?>
+					<?php echo esc_html( $title ); ?>
 				</h2>
 				<div class="wpcd-coupon-description">
-					<?php echo $description; ?>
+					<?php echo esc_html( $description ); ?>
 				</div>
 			</div>
-			<div class="exp" style="border-color: <?php echo $wpcd_template_six_theme; ?>">
+			<div class="exp" style="border-color: <?php echo sanitize_hex_color( $wpcd_template_six_theme ); ?>">
 				<p>
 					<b class="expires-on"  <?php echo empty( $expire_date ) ? 'style="display:none"' : ''; ?>>
-						<?php echo $expire_text; ?>
-						<span class="wpcd-coupon-six-countdown" id="clock_six_<?php echo $post_id; ?>"></span>
+						<?php echo esc_html( $expire_text ); ?>
+						<span class="wpcd-coupon-six-countdown" id="clock_six_<?php echo absint( $post_id ); ?>"></span>
 						<?php if ( ! $expire_date ) {
 								$expire_date_format = date( 'd/m/Y' );
 						} ?>
 						<script type="text/javascript">
 							var hasDate = "<?php echo empty( $expire_date ) ? 'no' : 'yes';?>";
 							if (hasDate === 'no')
-								jQuery('#clock_six_<?php echo $post_id; ?>').hide();
+								jQuery('#clock_six_<?php echo absint( $post_id ); ?>').hide();
 
-							var $clock6 = jQuery('#clock_six_<?php echo $post_id; ?>').countdown('<?php echo $expire_date_format . ' ' . $expire_time; ?>', function (event) {
+							var $clock6 = jQuery('#clock_six_<?php echo absint( $post_id ); ?>').countdown('<?php echo strtotime( $expire_date_format . ' ' . $expire_time ) ?  $expire_date_format . ' ' . $expire_time : ''; ?>', function (event) {
 								var format = '%M <?php echo __( 'minutes', 'wpcd-coupon' ); ?> %S <?php echo __( 'seconds', 'wpcd-coupon' ); ?>';
 								if (event.offset.hours > 0) {
 									format = "%H <?php echo __( 'hours', 'wpcd-coupon' ); ?> %M <?php echo __( 'minutes', 'wpcd-coupon' ); ?> %S <?php echo __( 'seconds', 'wpcd-coupon' ); ?>";
@@ -873,12 +873,12 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 									jQuery(this).addClass('wpcd-countdown-expired').html('<?php echo __( 'This offer has expired!', 'wpcd-coupon' ); ?>');
 								} else {
 									jQuery(this).html(event.strftime(format));
-									jQuery('#clock_six_<?php echo $post_id; ?>').removeClass('wpcd-countdown-expired');
+									jQuery('#clock_six_<?php echo absint( $post_id ); ?>').removeClass('wpcd-countdown-expired');
 								}
 							});
 
 							jQuery("#expire-time").change(function () {
-								jQuery('#clock_six_<?php echo $post_id; ?>').show();
+								jQuery('#clock_six_<?php echo absint( $post_id ); ?>').show();
 								var coup_date = jQuery("#expire-date").val();
 								if (coup_date.indexOf("-") >= 0) {
 									var dateAr = coup_date.split('-');
@@ -890,39 +890,39 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 						</script>
 					</b>
 					<b class="never-expire" <?php echo empty( $expire_date ) ? '' : 'style="display:none"'; ?>>
-						<b><?php echo $no_expiry; ?></b>
+						<b><?php echo esc_html( $no_expiry ); ?></b>
 					</b>
 				</p>
 			</div>
 		</div>
 		<div class="wpcd-coupon-six-img-and-btn">
 			<div class="item-img">
-				<img data-src="<?php echo $coupon_thumbnail_not_featured; ?>"
-					 src="<?php echo $coupon_thumbnail; ?>"
+				<img data-src="<?php echo esc_url( $coupon_thumbnail_not_featured ); ?>"
+					 src="<?php echo esc_url( $coupon_thumbnail ); ?>"
 					 alt="Coupon">
 			</div>
 			<div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden">
 				<div class="wpcd-btn-wrap">
 					<a
 						data-type="code"
-						data-coupon-id="<?php echo $post_id; ?>"
+						data-coupon-id="<?php echo absint( $post_id ); ?>"
 						href=""
 						class="coupon-button coupon-code-wpcd masterTooltip"
-						id="coupon-button-<?php echo $post_id; ?>"
-						title="<?php echo $hidden_coupon_hover_text; ?>"
+						id="coupon-button-<?php echo absint( $post_id ); ?>"
+						title="<?php echo esc_attr( $hidden_coupon_hover_text ); ?>"
 						data-position="top center"
 						data-inverted=""
-						data-aff-url="<?php echo $link; ?>"
-					   	style="border-color: <?php echo $wpcd_template_six_theme; ?>">
+						data-aff-url="<?php echo esc_url( $link ); ?>"
+					   	style="border-color: <?php echo sanitize_hex_color( $wpcd_template_six_theme ); ?>">
 						<span class="code-text-wpcd" rel="nofollow">
-							<?php echo $coupon_code; ?>
+							<?php echo esc_html( $coupon_code ); ?>
 						</span>
 						<span class="get-code-wpcd">
-							<div class="square_wpcd" style="background-color: <?php echo $wpcd_template_six_theme; ?>"></div>
+							<div class="square_wpcd" style="background-color: <?php echo sanitize_hex_color( $wpcd_template_six_theme ); ?>"></div>
 							<span>
-								<?php echo $hide_coupon_text; ?>
+								<?php echo esc_html( $hide_coupon_text ); ?>
 							</span>
-							<div class="rectangle_wpcd" style="border-left-color: <?php echo $wpcd_template_six_theme; ?>"></div>
+							<div class="rectangle_wpcd" style="border-left-color: <?php echo sanitize_hex_color( $wpcd_template_six_theme ); ?>"></div>
 						</span>
 					</a>
 				</div>
@@ -932,11 +932,11 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 					<a
 						class="wpcd-template-six-btn masterTooltip"
 						href="#"
-					   	title="<?php echo $coupon_hover_text; ?>"
-						data-clipboard-text="<?php echo $coupon_code; ?>"
-						style="border-color: <?php echo $wpcd_template_six_theme; ?>">
-						<span class="coupon-code-button" style="border-color: <?php echo $wpcd_template_six_theme; ?>; color: <?php echo $wpcd_template_six_theme; ?>">
-							  <?php echo $coupon_code; ?>
+					   	title="<?php echo esc_attr( $coupon_hover_text ); ?>"
+						data-clipboard-text="<?php echo esc_attr( $coupon_code ); ?>"
+						style="border-color: <?php echo sanitize_hex_color( $wpcd_template_six_theme ); ?>">
+						<span class="coupon-code-button" style="border-color: <?php echo sanitize_hex_color( $wpcd_template_six_theme ); ?>; color: <?php echo sanitize_hex_color( $wpcd_template_six_theme ); ?>">
+							  <?php echo esc_html( $coupon_code ); ?>
 						</span>
 					</a>
 				</div>
@@ -944,11 +944,11 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 					<a
 						class="wpcd-template-six-btn masterTooltip"
 						href="#"
-					   	title="<?php echo $deal_hover_text; ?>"
-						data-clipboard-text="<?php echo $deal_text; ?>"
-						style="border-color: <?php echo $wpcd_template_six_theme; ?>">
-						<span class="deal-code-button" style="border-color: <?php echo $wpcd_template_six_theme; ?>;color: <?php echo $wpcd_template_six_theme; ?>">
-							<?php echo $deal_text; ?>
+					   	title="<?php echo esc_attr( $deal_hover_text ); ?>"
+						data-clipboard-text="<?php echo esc_attr( $deal_text ); ?>"
+						style="border-color: <?php echo sanitize_hex_color( $wpcd_template_six_theme ); ?>">
+						<span class="deal-code-button" style="border-color: <?php echo sanitize_hex_color( $wpcd_template_six_theme ); ?>;color: <?php echo sanitize_hex_color( $wpcd_template_six_theme ); ?>">
+							<?php echo esc_html( $deal_text ); ?>
 						</span>
 					</a>
 				</div>
@@ -960,27 +960,27 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 <!-- Template Seven Preview -->
 <section class="admin_wpcd_seven admin_wpcd_seven_shortcode">
 	<div class="wpcd-coupon-preview wpcd-coupon-seven admin_wpcd_seven_container">
-		<div class="admin_wpcd_seven_couponBox" style="border-color: <?php echo $wpcd_template_seven_theme; ?>">
+		<div class="admin_wpcd_seven_couponBox" style="border-color: <?php echo sanitize_hex_color( $wpcd_template_seven_theme ); ?>">
 			<div class="admin_wpcd_seven_percentAndPic">
-				<div class="admin_wpcd_seven_percentOff" style="background-color: <?php echo $wpcd_template_seven_theme; ?>; border-color: <?php echo $wpcd_template_seven_theme; ?>;">
+				<div class="admin_wpcd_seven_percentOff" style="background-color: <?php echo sanitize_hex_color( $wpcd_template_seven_theme ) ; ?>; border-color: <?php echo sanitize_hex_color( $wpcd_template_seven_theme ); ?>;">
 					<p>
-						<?php echo $discount_text; ?>
+						<?php echo esc_html( $discount_text ); ?>
 					</p>
 				</div>
 				<div class="admin_wpcd_seven_productPic">
 					<!-- <img src="http://rdironworks.com/wp-content/uploads/2017/12/dummy-200x200.png" alt="Product-pic"> -->
-					<img data-src="<?php echo $coupon_thumbnail_not_featured; ?>"
-					 src="<?php echo $coupon_thumbnail; ?>"
+					<img data-src="<?php echo esc_url( $coupon_thumbnail_not_featured ); ?>"
+					 src="<?php echo esc_url( $coupon_thumbnail ); ?>"
 					 alt="Coupon">
 				</div>
 			</div>
 			<div class="admin_wpcd_seven_headingAndExpire">
 				<div class="admin_wpcd_seven_heading">
                     <h2 class="admin_wpcd_seven_new_title">
-                        <?php echo $title; ?>
+                        <?php echo esc_html( $title ); ?>
                     </h2>
 					<p>
-						<?php echo '<div class="wpcd-coupon-description">' . $description . '</div>';?>
+						<?php echo '<div class="wpcd-coupon-description">' . esc_html( $description ) . '</div>';?>
 					</p>
 				</div>
 			</div>
@@ -988,23 +988,23 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 				<div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden">
 					<a
 						data-type="code"
-						data-coupon-id="<?php echo $post_id; ?>"
+						data-coupon-id="<?php echo absint( $post_id ); ?>"
 						href=""
 						class="coupon-button coupon-code-wpcd masterTooltip"
-						id="coupon-button-<?php echo $post_id; ?>"
-						title="<?php echo $hidden_coupon_hover_text; ?>"
+						id="coupon-button-<?php echo absint( $post_id ); ?>"
+						title="<?php echo esc_attr( $hidden_coupon_hover_text ); ?>"
 						data-position="top center"
 						data-inverted=""
-						data-aff-url="<?php echo $link; ?>">
+						data-aff-url="<?php echo esc_url( $link ); ?>">
 						<span class="code-text-wpcd" rel="nofollow">
-							<?php echo $coupon_code; ?>
+							<?php echo esc_html( $coupon_code ); ?>
 						</span>
 						<span class="get-code-wpcd">
-							<div class="square_wpcd" style="background-color: <?php echo $wpcd_template_seven_theme; ?>"></div>
+							<div class="square_wpcd" style="background-color: <?php echo sanitize_hex_color( $wpcd_template_seven_theme ); ?>"></div>
 							<span>
-								<?php echo $hide_coupon_text; ?>
+								<?php echo esc_html( $hide_coupon_text ); ?>
 							</span>
-							<div class="rectangle_wpcd" style="border-left-color: <?php echo $wpcd_template_seven_theme; ?>"></div>
+							<div class="rectangle_wpcd" style="border-left-color: <?php echo sanitize_hex_color( $wpcd_template_seven_theme ); ?>"></div>
 						</span>
 					</a>
 				</div>
@@ -1013,10 +1013,11 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 		                <div class="admin_wpcd_seven_btn">
 		                    <a class="masterTooltip coupon-code-button"
 		                    	href="#"
-			                    title="<?php echo $coupon_hover_text; ?>"
-								data-clipboard-text="<?php echo $coupon_code; ?>"
-			                    data-title-ab="<?php echo $coupon_code; ?>"
-			                    style="background-color: <?php echo $wpcd_template_seven_theme; ?>; border-color: <?php echo $wpcd_template_seven_theme; ?>; color: <?php echo $wpcd_template_seven_theme; ?>;"><?php echo $coupon_code; ?>
+			                    title="<?php echo esc_attr( $coupon_hover_text ); ?>"
+								data-clipboard-text="<?php echo esc_attr( $coupon_code ); ?>"
+			                    data-title-ab="<?php echo esc_attr( $coupon_code ); ?>"
+			                    style="background-color: <?php echo sanitize_hex_color( $wpcd_template_seven_theme ); ?>; border-color: <?php echo sanitize_hex_color( $wpcd_template_seven_theme ); ?>; color: <?php echo sanitize_hex_color( $wpcd_template_seven_theme ); ?>;">
+								<?php echo esc_html( $coupon_code ); ?>
 		                    </a>
 		                </div>
 					</div>
@@ -1024,9 +1025,11 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 		                <div class="admin_wpcd_seven_btn">
 		                    <a class="masterTooltip deal-code-button"
 		                    	href="#"
-			                    title="<?php echo $deal_hover_text; ?>"
-								data-clipboard-text="<?php echo $deal_text; ?>"
-			                    data-title-ab="<?php echo $deal_text; ?>" style="background-color: <?php echo $wpcd_template_seven_theme; ?>; border-color: <?php echo $wpcd_template_seven_theme; ?>; color: <?php echo $wpcd_template_seven_theme; ?>;"><?php echo $deal_text; ?>
+			                    title="<?php echo esc_attr( $deal_hover_text ); ?>"
+								data-clipboard-text="<?php echo esc_attr( $deal_text ); ?>"
+			                    data-title-ab="<?php echo esc_attr( $deal_text ); ?>"
+								style="background-color: <?php echo sanitize_hex_color( $wpcd_template_seven_theme ); ?>; border-color: <?php echo sanitize_hex_color( $wpcd_template_seven_theme); ?>; color: <?php echo sanitize_hex_color( $wpcd_template_seven_theme ); ?>;">
+								<?php echo esc_html( $deal_text ); ?>
 			                </a>
 		                </div>
 					</div>
@@ -1038,16 +1041,18 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 					<div class="admin_wpcd_seven_expire" style="border-color:">
 						<p>
                             <b class="expires-on"  <?php echo empty( $expire_date ) ? 'style="display:none"' : ''; ?>>
-                                <?php echo $expire_text; ?>
-                                <span class="wpcd-coupon-seven-countdown" data-countdown_coupon="<?php echo $expire_date_format . ' ' . $expire_time; ?>" id="clock_seven_<?php echo $post_id; ?>"></span>
+                                <?php echo esc_html( $expire_text ); ?>
+                                <span class="wpcd-coupon-seven-countdown"
+									data-countdown_coupon="<?php echo strtotime( $expire_date_format . ' ' . $expire_time ) ?  $expire_date_format . ' ' . $expire_time : ''; ?>"
+									id="clock_seven_<?php echo absint( $post_id ); ?>"></span>
                                 <?php if ( ! $expire_date ) {
                                         $expire_date_format = date( 'd/m/Y' );
                                 } ?>
                                 <script type="text/javascript">
                                     var hasDate = "<?php echo empty( $expire_date ) ? 'no' : 'yes';?>";
                                     if (hasDate === 'no')
-                                        jQuery('#clock_seven_<?php echo $post_id; ?>').hide();
-                                    var $clock7 = jQuery('#clock_seven_<?php echo $post_id; ?>').countdown('<?php echo $expire_date_format . ' ' . $expire_time; ?>', function (event) {
+                                        jQuery('#clock_seven_<?php echo absint( $post_id ); ?>').hide();
+                                    var $clock7 = jQuery('#clock_seven_<?php echo absint( $post_id ); ?>').countdown('<?php echo strtotime( $expire_date_format . ' ' . $expire_time ) ?  $expire_date_format . ' ' . $expire_time : ''; ?>', function (event) {
                                         var format = '%M <?php echo __( 'minutes', 'wpcd-coupon' ); ?> %S <?php echo __( 'seconds', 'wpcd-coupon' ); ?>';
                                         if (event.offset.hours > 0) {
                                             format = "%H <?php echo __( 'hours', 'wpcd-coupon' ); ?> %M <?php echo __( 'minutes', 'wpcd-coupon' ); ?> %S <?php echo __( 'seconds', 'wpcd-coupon' ); ?>";
@@ -1064,12 +1069,12 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
                                             jQuery(this).addClass('wpcd-countdown-expired').html('<?php echo __( 'This offer has expired!', 'wpcd-coupon' ); ?>');
                                         } else {
                                             jQuery(this).html(event.strftime(format));
-                                            jQuery('#clock_seven_<?php echo $post_id; ?>').removeClass('wpcd-countdown-expired');
+                                            jQuery('#clock_seven_<?php echo absint( $post_id ); ?>').removeClass('wpcd-countdown-expired');
                                         }
                                     });
 
                                     jQuery("#expire-time").change(function () {
-                                        jQuery('#clock_seven_<?php echo $post_id; ?>').show();
+                                        jQuery('#clock_seven_<?php echo absint( $post_id ); ?>').show();
                                         var coup_date = jQuery("#expire-date").val();
                                         if (coup_date.indexOf("-") >= 0) {
                                             var dateAr = coup_date.split('-');
@@ -1081,7 +1086,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
                                 </script>
                             </b>
 							<b class="never-expire" <?php echo empty( $expire_date ) ? '' : 'style="display:none"'; ?>>
-								<b><?php echo $no_expiry; ?></b>
+								<b><?php echo esc_html( $no_expiry ); ?></b>
 							</b>
 						</p>
 					</div>
@@ -1096,26 +1101,26 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 <div class="wpcd-coupon-preview wpcd-coupon-eight admin-wpcd-new-grid-container">
 	<div class="admin-wpcd-new-grid-one">
 		<div class="admin-wpcd-new-discount-text wpcd-coupon-discount-text">
-			<?php echo $discount_text; ?>
+			<?php echo esc_html( $discount_text ); ?>
 		</div>
-		<div class="coupon-type" style="background-color: <?php echo $wpcd_template_eight_theme; ?>">
-			<?php echo $coupon_type; ?>
+		<div class="coupon-type" style="background-color: <?php echo sanitize_hex_color( $wpcd_template_eight_theme ); ?>">
+			<?php echo esc_html( $coupon_type ); ?>
 		</div>
         <div class="with-expiration1 <?php echo empty( $expire_date ) ? 'hidden' : ''; ?>">
             <div class="wpcd-coupon-three-expire expire-text-block1 <?php echo strtotime( $expire_date ) >= strtotime( $today ) ? '' : 'hidden'; ?>">
                 <p class="wpcd-coupon-three-expire-text">
-                    <?php echo $expire_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>';
+                    <?php echo esc_html( $expire_text ) . ' ' . '<span class="expiration-date">' . ( strtotime($expire_date) ? $expire_date : '' ) . '</span>';
                     ?>
                 </p>
             </div>
             <div class="wpcd-coupon-three-expire expired-text-block1 <?php echo strtotime( $expire_date ) < strtotime( $today ) ? '' : 'hidden'; ?>">
                 <p class="wpcd-coupon-three-expired">
-                    <?php echo $expired_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>'; ?>
+                    <?php echo esc_html( $expired_text ) . ' ' . '<span class="expiration-date">' . ( strtotime($expire_date) ? $expire_date : '' ) . '</span>'; ?>
                 </p>
             </div>
         </div>
         <div class="wpcd-coupon-three-expire without-expiration1 <?php echo empty( $expire_date ) ? '' : 'hidden'; ?>">
-            <p><?php echo $no_expiry; ?></p>
+            <p><?php echo esc_html( $no_expiry ); ?></p>
         </div>
    </div> <!-- End of grid-one -->
    <div class="admin-wpcd-new-grid-two">
@@ -1124,66 +1129,75 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 	    if ( empty( $coupon_title_tag ) ) {
 			if ( 'on' === $disable_coupon_title_link ) { ?>
 				<<?php echo esc_html( $coupon_title_tag ); ?> class="admin-wpcd-new-title wpcd-coupon-title">
-					<?php echo $title; ?>
+					<?php echo esc_html( $title ); ?>
 				</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
 			} else { ?>
 				<<?php echo esc_html( $coupon_title_tag ); ?> class="admin-wpcd-new-title wpcd-coupon-title">
-					<a href="<?php echo esc_url( $link ); ?>" target="_blank" rel="nofollow"><?php echo $title; ?></a>
+					<a href="<?php echo esc_url( $link ); ?>" target="_blank" rel="nofollow"><?php echo esc_html( $title ); ?></a>
 				</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
 			}
 		}
 		else { ?>
 			<<?php echo esc_html( $coupon_title_tag ); ?> class="admin-wpcd-new-title wpcd-coupon-title">
-				<?php echo $title; ?>
+				<?php echo esc_html( $title ); ?>
 			</<?php echo esc_html( $coupon_title_tag ); ?>> <?php
 
 		}
 	   ?>
 		<div class="wpcd-coupon-description">
-			<?php echo $description; ?>
+			<?php echo esc_html( $description ); ?>
 		</div>
 	</div> <!-- End of grid-two -->
 	<div class="admin-wpcd-new-grid-three">
 		<div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden">
 			<a
 				data-type="code"
-				data-coupon-id="<?php echo $post_id; ?>"
+				data-coupon-id="<?php echo absint( $post_id ); ?>"
 				href=""
 				class="coupon-button coupon-code-wpcd masterTooltip"
-				id="coupon-button-<?php echo $post_id; ?>"
-				title="<?php echo $hidden_coupon_hover_text; ?>"
+				id="coupon-button-<?php echo absint( $post_id ); ?>"
+				title="<?php echo esc_attr( $hidden_coupon_hover_text ); ?>"
 				data-position="top center"
 				data-inverted=""
-				data-aff-url="<?php echo $link; ?>">
+				data-aff-url="<?php echo esc_url( $link ); ?>">
 				<span class="code-text-wpcd" rel="nofollow">
-					<?php echo $coupon_code; ?>
+					<?php echo esc_html( $coupon_code ); ?>
 				</span>
 				<span class="get-code-wpcd">
-					<div class="square_wpcd" style="background-color: <?php echo $wpcd_template_eight_theme; ?>"></div>
+					<div class="square_wpcd" style="background-color: <?php echo sanitize_hex_color( $wpcd_template_eight_theme ); ?>"></div>
 					<span>
-						<?php echo $hide_coupon_text; ?>
+						<?php echo esc_html( $hide_coupon_text ); ?>
 					</span>
-					<div class="rectangle_wpcd" style="border-left-color: <?php echo $wpcd_template_eight_theme; ?>"></div>
+					<div class="rectangle_wpcd" style="border-left-color: <?php echo sanitize_hex_color( $wpcd_template_eight_theme ); ?>"></div>
 				</span>
 			</a>
 		</div>
 		<div class="wpcd-coupon-not-hidden">
 			<div class="wpcd-coupon-code">
-				<a class="admin-wpcd-new-coupon-code masterTooltip coupon-code-button" rel="nofollow" href="#" target="_blank" data-clipboard-text="<?php echo $coupon_code; ?>" title="<?php echo $coupon_hover_text; ?>" onmouseover="this.style.borderColor='<?php echo $wpcd_template_eight_theme; ?>';" onmouseout="this.style.borderColor='#cdcdcd';">
-					<?php echo $coupon_code; ?>
+				<a class="admin-wpcd-new-coupon-code masterTooltip coupon-code-button"
+					rel="nofollow" href="#" target="_blank"
+					data-clipboard-text="<?php echo esc_attr( $coupon_code ); ?>"
+					title="<?php echo esc_attr( $coupon_hover_text ); ?>"
+					onmouseover="this.style.borderColor='<?php echo sanitize_hex_color( $wpcd_template_eight_theme ); ?>';"
+					onmouseout="this.style.borderColor='#cdcdcd';">
+					<?php echo esc_html( $coupon_code ); ?>
 				</a>
 			</div>
 		</div>
 
-		<a class="admin-wpcd-new-goto-button masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="_blank" title="<?php echo $deal_hover_text; ?>" style="background-color: <?php echo $wpcd_template_eight_theme; ?>">
-		   <?php echo $deal_text; ?>
+		<a class="admin-wpcd-new-goto-button masterTooltip" rel="nofollow"
+			href="<?php echo esc_url( $link ); ?>"
+			target="_blank"
+			title="<?php echo esc_attr( $deal_hover_text ); ?>"
+			style="background-color: <?php echo sanitize_hex_color( $wpcd_template_eight_theme ); ?>">
+		   <?php echo esc_html( $deal_text ); ?>
 		</a>
 	</div><!-- End of grid-three -->
 </div><!-- End of Template Eight Preview -->
 
 <!-- Image Preview -->
 <div class="wpcd-coupon-preview wpcd-coupon-image">
-	<img style="max-width:100%;" src="<?php echo is_array( $coupon_image_src ) ? $coupon_image_src[0] : ''; ?>"
+	<img style="max-width:100%;" src="<?php echo is_array( $coupon_image_src ) ? esc_url( $coupon_image_src[0] ) : ''; ?>"
 		 alt="<?php _e( 'Coupon image not uploaded', 'wpcd-coupon' ); ?>">
 </div>
 

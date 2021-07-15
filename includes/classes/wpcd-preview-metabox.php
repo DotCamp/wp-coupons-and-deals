@@ -70,7 +70,7 @@ class WPCD_Preview_Metabox {
 
 		$output .= ob_get_clean();
 
-		echo $output;
+		echo $output; //output is from includes/functions/admin/wpcd-preview-metabox.php
 	}
 
 }
