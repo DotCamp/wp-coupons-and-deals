@@ -117,7 +117,7 @@ $wpcd_uniq_attr_data = '';
 if( $coupon_type !== 'Image' && function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
     ! empty( $show_print_links ) && $show_print_links == 'on' ) {
     $wpcd_uniq_attr = wpcd_uniq_attr( 10 );
-    $wpcd_uniq_attr_data = 'data-unic-attr="' . $wpcd_uniq_attr . '"';
+    $wpcd_uniq_attr_data = 'data-unic-attr="' . esc_attr( $wpcd_uniq_attr ) . '"';
 }
 ?>
 <?php if ( $coupon_type === 'Image' ): ?>
@@ -129,7 +129,7 @@ if( $coupon_type !== 'Image' && function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Am
 ?>
 <?php elseif ( $wpcd_coupon_template === 'Template Five' ): ?>
     <!--Template Five -->
-    <div class="wpcd-template-five wpcd-coupon-id-<?php echo absint( $coupon_id ); ?> wpcd_item" style="border-color: <?php echo sanitize_hex_color( $wpcd_template_five_theme ); ?>" <?php echo esc_html( $wpcd_uniq_attr_data) ;?>>
+    <div class="wpcd-template-five wpcd-coupon-id-<?php echo absint( $coupon_id ); ?> wpcd_item" style="border-color: <?php echo sanitize_hex_color( $wpcd_template_five_theme ); ?>" <?php echo $wpcd_uniq_attr_data ;?>>
         <div class="wpcd-template-five-holder">
             <div class="wpcd-template-five-percent-off">
                 <p class="wpcd-coupon-five-discount-text">
@@ -143,7 +143,7 @@ if( $coupon_type !== 'Image' && function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Am
             <div class="wpcd-template-five-pro-img">
                 <?php 
                 if ($link_thumbnail == "on"):
-                    echo "<a class='wpcd-coupon-click-link' data-id='" . absint( $coupon_id ) . "' class='wpcd-coupon-click-link' href='" . esc_url( $link ) . "' target='" . esc_attr( $target ) . "'><img src='" . esc_url( $coupon_thumbnail ) ."' alt='" . esc_attr($title) . "'></a>";
+                    echo "<a class='wpcd-coupon-click-link' data-id='" . absint( $coupon_id ) . "' class='wpcd-coupon-click-link' href='" . esc_url( $link ) . "' target='" . esc_attr( $target ) . "'><img src='" . esc_url( $coupon_thumbnail ) ."' alt='" . esc_attr( $title ) . "'></a>";
                 else:
                     echo "<img src='" . esc_url( $coupon_thumbnail ) ."' alt='" . esc_url( $title ) . "'>";
                 endif;

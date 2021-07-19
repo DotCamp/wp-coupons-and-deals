@@ -124,12 +124,12 @@ include('header-default__premium_only.php');
     if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
         ! empty( $show_print_links ) && $show_print_links == 'on' ) {
         $wpcd_uniq_attr = wpcd_uniq_attr( 10 );
-        $wpcd_uniq_attr_data = 'data-unic-attr="' . $wpcd_uniq_attr . '"';
+        $wpcd_uniq_attr_data = 'data-unic-attr="' . esc_attr( $wpcd_uniq_attr ) . '"';
     }
 ?>
     <!--- Template Eight start -->
     <div class="wpcd-new-grid-container wpcd-coupon-id-<?php echo absint( $coupon_id ); ?> wpcd_item <?php echo esc_attr( $coupon_categories_class ); ?>"
-         wpcd-data-search="<?php echo esc_attr( $title );?>" <?php echo esc_html( $wpcd_uniq_attr_data );?>>
+         wpcd-data-search="<?php echo esc_attr( $title );?>" <?php echo $wpcd_uniq_attr_data ;?>>
         <div class="wpcd-new-grid-one">
             <div class="wpcd-new-discount-text">
                 <?php echo esc_html( $discount_text ); ?>

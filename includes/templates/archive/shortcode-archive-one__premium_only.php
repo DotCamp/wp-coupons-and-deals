@@ -123,7 +123,7 @@ include('header-default__premium_only.php');
 ?>
 <!--- Template One start -->
 <div class="wpcd-coupon-one wpcd-coupon-id-<?php echo absint( $coupon_id ); ?> wpcd_item <?php echo esc_attr( $coupon_categories_class ); ?>"
-    wpcd-data-search="<?php echo esc_attr( $title );?>" <?php echo esc_html( $wpcd_uniq_attr_data );?>>
+    wpcd-data-search="<?php echo esc_attr( $title );?>" <?php echo $wpcd_uniq_attr_data;?>>
     <div class="wpcd-col-one-1-8">
         <figure>
             <?php
