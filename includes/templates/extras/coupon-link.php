@@ -14,9 +14,9 @@ if ( isset($enable_stats) && $enable_stats == "on" ){
     $btn_class_name = $coupon_type == 'Deal'? "wpcd-deal-button": "wpcd-coupon-button";
     ?>
     <a rel="nofollow"
-        class="wpcd-btn-<?php echo $coupon_id; ?> masterTooltip wpcd-btn <?php echo $btn_class_name ?>  wpcd-coupon-click-link"
-        data-id="<?php echo $coupon_id; ?>" 
-        href="<?php echo $link; ?>" 
+        class="wpcd-btn-<?php echo absint( $coupon_id ); ?> masterTooltip wpcd-btn <?php echo esc_attr( $btn_class_name ) ?>  wpcd-coupon-click-link"
+        data-id="<?php echo absint( $coupon_id ); ?>" 
+        href="<?php echo esc_url( $link ); ?>" 
         title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
                         if ( ! empty( $coupon_hover_text ) ) {
                             echo $coupon_hover_text;
@@ -25,22 +25,22 @@ if ( isset($enable_stats) && $enable_stats == "on" ){
                         }
                     }
                 ?>"
-        target="<?php echo $target; ?>"
-        data-clipboard-text="<?php echo $coupon_code; ?>">
+        target="<?php echo esc_attr( $target ); ?>"
+        data-clipboard-text="<?php echo esc_attr( $coupon_code ); ?>">
         <?php if ($coupon_type == 'Deal') {
             ?>
             <span class="wpcd_deal_icon">
-                <img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>img/deal-24.png" style="width: 100%;height: 100%;" >
-            </span><?php echo $deal_text; ?>
+                <img class="" src="<?php echo esc_url( WPCD_Plugin::instance()->plugin_assets . 'img/deal-24.png' ) ?>" style="width: 100%;height: 100%;" >
+            </span><?php echo esc_html( $deal_text ); ?>
             <?php
         } else {
             ?>
             <span class="wpcd_coupon_icon">
-                <img class="" src="<?php echo WPCD_Plugin::instance()->plugin_assets?>img/coupon-code-24.png" style="width: 100%;height: 100%;" >
+                <img class="" src="<?php echo esc_url( WPCD_Plugin::instance()->plugin_assets . 'img/coupon-code-24.png' ) ?>" style="width: 100%;height: 100%;" >
             </span>
             <?php
         }
-        echo $coupon_code; ?>
+        echo esc_html( $coupon_code ); ?>
     </a>
     
 <?php
