@@ -276,8 +276,8 @@ include('header-default__premium_only.php');
 				} else { ?>
                     <div class="wpcd-coupon-code">
                         <a rel="nofollow" href="<?php echo esc_url( $link ); ?>"
-						   class="<?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip wpcd-btn wpcd-coupon-button wpcd-coupon-click-link"
-						   data-id="<?php echo $coupon_id; ?>"
+						   class="<?php echo esc_attr( 'wpcd-btn-' . $coupon_id ); ?> masterTooltip wpcd-btn wpcd-coupon-button wpcd-coupon-click-link"
+						   data-id="<?php echo absint( $coupon_id ); ?>"
                            target="<?php echo esc_attr( $target ); ?>" href="<?php echo esc_url( $link ); ?>"
                            title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
                                             if ( ! empty( $coupon_hover_text ) ) {

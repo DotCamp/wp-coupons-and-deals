@@ -199,7 +199,7 @@ if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
 											    }
 		                                    }
 	                            		?>"
-                               data-clipboard-text="<?php echo $coupon_code; ?>">
+                               data-clipboard-text="<?php echo esc_attr( $coupon_code ); ?>">
                                 <span class="wpcd_coupon_icon">
                                 	<img class="" src="<?php echo esc_url( WPCD_Plugin::instance()->plugin_assets . 'img/coupon-code-24.png' ) ?>" style="width: 100%;height: 100%;" >
                                 </span>

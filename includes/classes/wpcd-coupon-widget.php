@@ -44,18 +44,18 @@ class WPCD_Coupon_Widget extends WP_Widget {
 					<?php echo __( 'Select the category', 'wpcd-coupon' ); ?>
                 </label>
                 <input autocomplete="off" placeholder="<?php echo __( 'Search the Category', 'wpcd-coupon' ); ?>"
-                       value="<?php echo $category_name; ?>" id="coupon_category_filter_select_widget"
-                       list="<?php echo $this->get_field_id( 'category_id' ); ?>"
-                       name="<?php echo $this->get_field_name( 'category_name' ); ?>"
+                       value="<?php echo wp_strip_all_tags( $category_name ); ?>" id="coupon_category_filter_select_widget"
+                       list="<?php echo absint( $this->get_field_id( 'category_id' ) ); ?>"
+                       name="<?php echo wp_strip_all_tags( $this->get_field_name( 'category_name' ) ); ?>"
                        class="widefat coupon_category_filter_select_widget">
-                <datalist id="<?php echo $this->get_field_id( 'category_id' ); ?>">
+                <datalist id="<?php echo absint( $this->get_field_id( 'category_id' ) ); ?>">
 					<?php
 					$terms = get_terms( 'wpcd_coupon_category' );
 
 					foreach ( $terms as $term ) {
 						$term = (array) $term;
 						?>
-                        <option value="<?php echo $term['name']; ?>"><?php echo $term['name']; ?></option>
+                        <option value="<?php echo wp_strip_all_tags($term['name']); ?>"><?php echo wp_strip_all_tags( $term['name'] ); ?></option>
 					<?php } ?>
                     <option value="all-categories" <?php selected( 'all-categories', $category_name ); ?> ><?php echo __( 'All Categories', 'wpcd-coupon' ); ?></option>
                 </datalist>
@@ -64,11 +64,11 @@ class WPCD_Coupon_Widget extends WP_Widget {
                 <label for="coupon_select_widget">
 					<?php echo __( 'Select the Coupon you want to insert', 'wpcd-coupon' ); ?>
                 </label>
-                <input autocomplete="off" class="widefat" name="<?php echo $this->get_field_name( 'coupon_name' ); ?>"
-                       id="coupon_select_widget" list="<?php echo $this->get_field_id( 'coupon_name' ); ?>"
-                       value="<?php echo $coupon_name; ?>"
+                <input autocomplete="off" class="widefat" name="<?php echo wp_strip_all_tags( $this->get_field_name( 'coupon_name' ) ); ?>"
+                       id="coupon_select_widget" list="<?php echo wp_strip_all_tags( $this->get_field_id( 'coupon_name' ) ); ?>"
+                       value="<?php echo wp_strip_all_tags( $coupon_name ); ?>"
                        placeholder="<?php echo __( 'Select the Coupon', 'wpcd-coupon' ); ?>">
-                <datalist id="<?php echo $this->get_field_id( 'coupon_name' ); ?>">
+                <datalist id="<?php echo wp_strip_all_tags( $this->get_field_id( 'coupon_name' ) ); ?>">
 					<?php
 
 					$terms_name = array();
@@ -90,7 +90,7 @@ class WPCD_Coupon_Widget extends WP_Widget {
 						if ( $coupons->have_posts() ) {
 							while ( $coupons->have_posts() ) : $coupons->the_post();
 								?>
-                                <option category-title="<?php echo $term->name; ?>"
+                                <option category-title="<?php echo wp_strip_all_tags($term->name); ?>"
                                         coupon-id="<?php the_ID(); ?>"
                                         value="<?php the_title(); ?>"></option>
 								<?php

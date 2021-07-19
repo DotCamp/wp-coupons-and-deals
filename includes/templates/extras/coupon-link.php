@@ -19,7 +19,7 @@ if ( isset($enable_stats) && $enable_stats == "on" ){
         href="<?php echo esc_url( $link ); ?>" 
         title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
                         if ( ! empty( $coupon_hover_text ) ) {
-                            echo $coupon_hover_text;
+                            echo esc_attr( $coupon_hover_text );
                         } else {
                             echo __( "Click To Copy Coupon", 'wpcd-coupon' );
                         }

@@ -220,12 +220,12 @@ include('header-default__premium_only.php');
                                 <?php if( ! WPCD_Amp::wpcd_amp_is() ) { ?>
                                     <?php
                                     if ( ! empty( $expire_text ) ) {
-                                        echo $expire_text;
+                                        echo esc_html( $expire_text );
                                     } else {
                                         echo __( 'Expires on: ', 'wpcd-coupon' );
                                     }
                                     ?>
-                                    <span class="wpcd-coupon-seven-countdown" data-countdown_coupon="<?php echo $expire_date_format . ' ' . ( strtotime( $expire_date ) ? $expire_date : '' ); ?>" id="clock_seven_<?php echo $coupon_id; ?>"></span>            
+                                    <span class="wpcd-coupon-seven-countdown" data-countdown_coupon="<?php echo $expire_date_format . ' ' . ( strtotime( $expire_date ) ? $expire_date : '' ); ?>" id="clock_seven_<?php echo absint( $coupon_id ); ?>"></span>            
                                 <?php } else { 
                                     if ( strtotime( $expire_date ) >= strtotime( $today ) ) { ?>
                                         <span class="wpcd-coupon-expire">

@@ -169,7 +169,7 @@ if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
 				?>
 			<?php else: ?>
                 <div class="wpcd-coupon-code">
-                    <a class="wpcd-template-five-btn masterTooltip <?php echo $button_class; ?>"
+                    <a class="wpcd-template-five-btn masterTooltip <?php echo esc_attr( $button_class ); ?>"
                        href="<?php echo esc_url( $link ); ?>" target="<?php echo esc_attr( $target ); ?>" rel="nofollow"
                        title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
                                    		if ( ! empty( $coupon_hover_text ) ) {

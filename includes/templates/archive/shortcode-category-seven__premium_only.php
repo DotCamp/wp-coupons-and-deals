@@ -199,7 +199,7 @@ include('header-category__premium_only.php');
                                             echo __( 'Expires on: ', 'wpcd-coupon' );
                                         }
                                         ?>
-                                        <span class="wpcd-coupon-seven-countdown" data-countdown_coupon="<?php echo $expire_date_format . ' ' . $expire_time; ?>" id="clock_seven_<?php echo $coupon_id; ?>"></span>
+                                        <span class="wpcd-coupon-seven-countdown" data-countdown_coupon="<?php echo strtotime( $expire_date_format . ' ' . $expire_time ) ? ( $expire_date_format . ' ' . $expire_time ) : ''; ?>" id="clock_seven_<?php echo absint( $coupon_id ); ?>"></span>
                                     <?php } else { 
                                         if ( strtotime( $expire_date ) >= strtotime( $today ) ) { ?>
                                             <span class="wpcd-coupon-expire">

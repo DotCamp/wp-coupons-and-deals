@@ -88,7 +88,7 @@ if ( isset( $_POST[$wpcd_term_field_name] ) && ! empty( $_POST[$wpcd_term_field_
 		} else {
 			_e( 'Click Here to Show Code', 'wpcd-coupon' );
 		} ?>" data-position="top center" data-inverted="" data-aff-url="<?php echo esc_url( $link ); ?>"
-           onClick="return wpcd_openCouponAffLink(this,  '<?php echo absint( $new_coupon_id ); ?>', '<?php echo $wpcd_term_field_name;?>' )" target="_blank">
+           onClick="return wpcd_openCouponAffLink(this,  '<?php echo absint( $new_coupon_id ); ?>', '<?php echo esc_attr( $wpcd_term_field_name );?>' )" target="_blank">
             <span class="code-text-wpcd" rel="nofollow"><?php echo( ! empty( $coupon_code ) ? esc_html( $coupon_code ) : __( 'COUPONCODE', 'wpcd-coupon' ) ); ?></span>
             <span class="get-code-wpcd">
         <?php

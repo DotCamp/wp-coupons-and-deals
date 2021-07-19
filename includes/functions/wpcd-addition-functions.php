@@ -64,7 +64,7 @@ if( ! function_exists( 'wpcd_coupon_print_link' ) ) {
         $out = '<div style="text-align:center">';
         $wpcd_frontend_style_url = WPCD_Assets::wpcd_frontend_css_url_get();
         $out .= '<a class="coupon-print-link" style="cursor: pointer" 
-            onclick="wpcd_printCoupon( \'' . $coupon_unic_attr . '\', \'' . $wpcd_frontend_style_url . '\' )">' .
+            onclick="wpcd_printCoupon( \'' . ( ctype_xdigit($coupon_unic_attr) ? $coupon_unic_attr : '' )  . '\', \'' . esc_url( $wpcd_frontend_style_url ) . '\' )">' .
             __( "Click To Print", "wpcd-coupon" ) .
             '</a>';
         $out .= '</div>';

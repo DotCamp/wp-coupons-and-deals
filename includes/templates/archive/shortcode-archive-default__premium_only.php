@@ -247,22 +247,22 @@ if( $coupon_type !== 'Image' && function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Am
     </div>
 <?php elseif ( $wpcd_coupon_template === 'Template Six' ): ?>
     <!-- Template Six -->
-    <div class="wpcd-coupon-six wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item" style="border-color: <?php echo $wpcd_template_six_theme; ?>" <?php echo $wpcd_uniq_attr_data;?>>
+    <div class="wpcd-coupon-six wpcd-coupon-id-<?php echo absint( $coupon_id ); ?> wpcd_item" style="border-color: <?php echo sanitize_hex_color( $wpcd_template_six_theme ); ?>" <?php echo $wpcd_uniq_attr_data;?>>
         <div class="wpcd-coupon-six-holder">
             <div class="wpcd-coupon-six-percent-off">
                 <div class="wpcd-for-ribbon">
-                    <div class="wpcd-ribbon" style="background-color: <?php echo $wpcd_template_six_theme; ?>; border-color: <?php echo $wpcd_template_six_theme; ?>">
+                    <div class="wpcd-ribbon" style="background-color: <?php echo sanitize_hex_color( $wpcd_template_six_theme ); ?>; border-color: <?php echo sanitize_hex_color( $wpcd_template_six_theme ); ?>">
                         <div class="wpcd-ribbon-before"
-                             style="border-left-color: <?php echo $wpcd_template_six_theme; ?>"></div>
+                             style="border-left-color: <?php echo sanitize_hex_color( $wpcd_template_six_theme ); ?>"></div>
                         <p class="wpcd-coupon-six-discount-text">
 							<?php if ( ! empty( $discount_text ) ) {
-								echo $discount_text;
+								echo esc_html( $discount_text );
 							} else {
 								echo __( '70% OFF', 'wpcd-coupon' );
 							} ?>
                         </p>
                         <div class="wpcd-ribbon-after"
-                             style="border-right-color: <?php echo $wpcd_template_six_theme; ?>"></div>
+                             style="border-right-color: <?php echo sanitize_hex_color( $wpcd_template_six_theme ); ?>"></div>
                     </div>
                 </div>
             </div>
@@ -271,16 +271,16 @@ if( $coupon_type !== 'Image' && function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Am
                 <?php
 					if ( 'on' === $disable_coupon_title_link ) { ?>
 						<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
-							<?php echo $title; ?>
+							<?php echo esc_html( $title ); ?>
                 		</<?php echo esc_html( $coupon_title_tag ); ?>>
 			 		<?php } else { ?>
 						<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
-							<a class="wpcd-coupon-click-link" href="<?php echo $link; ?>" data-id='<?php echo $coupon_id;?>' target="<?php echo $target; ?>" rel="nofollow"><?php echo $title; ?></a>
+							<a class="wpcd-coupon-click-link" href="<?php echo esc_url( $link ); ?>" data-id='<?php echo absint( $coupon_id );?>' target="<?php echo esc_attr( $target ); ?>" rel="nofollow"><?php echo esc_html( $title ); ?></a>
                 		</<?php echo esc_html( $coupon_title_tag ); ?>>
 					<?php } 
 				?>
                     <div class="wpcd-coupon-description">
-                        <span class="wpcd-full-description"><?php echo $description; ?></span>
+                        <span class="wpcd-full-description"><?php echo esc_html( $description ); ?></span>
                         <span class="wpcd-short-description"></span>
                         <?php if( !WPCD_Amp::wpcd_amp_is() ): ?>
                             <a href="#" class="wpcd-more-description"><?php echo __( 'More', 'wpcd-coupon' ); ?></a>
@@ -353,7 +353,7 @@ if( $coupon_type !== 'Image' && function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Am
                                 <span class="wpcd-coupon-expired">
                                     <?php
                                     if ( ! empty( $expired_text ) ) {
-                                        echo $expired_text . ' ' . $expire_date;
+                                        echo esc_html( $expire_text ) . ' ' . $expire_date;
                                     } else {
                                         echo __( 'Expired on: ', 'wpcd-coupon' ) . ( strtotime( $expire_date ) ? $expire_date : '');
                                     }
@@ -476,7 +476,7 @@ if( $coupon_type !== 'Image' && function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Am
                 <?php
 					if ( 'on' === $disable_coupon_title_link ) { ?>
 						<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
-							<?php echo $title; ?>
+							<?php echo esc_html( $title ); ?>
                 		</<?php echo esc_html( $coupon_title_tag ); ?>>
 			 		<?php } else { ?>
 						<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">

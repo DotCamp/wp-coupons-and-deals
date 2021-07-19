@@ -169,7 +169,7 @@ if ( isset( $_POST[$wpcd_term_field_name] ) && ! empty( $_POST[$wpcd_term_field_
 		   } ?>">
         <span class="code-text-wpcd" rel="nofollow"
               style="<?php echo $wpcd_show_coupon_popup ? 'text-align: center;' : ''; ?>"><?php if ( ! empty( $coupon_code ) ) {
-		        echo $coupon_code;
+		        echo esc_html( $coupon_code );
 	        } else {
 		        echo __( 'COUPONCODE', 'wpcd-coupon' );
 	        } ?></span>
@@ -234,7 +234,7 @@ if ( isset( $_POST[$wpcd_term_field_name] ) && ! empty( $_POST[$wpcd_term_field_
 <?php elseif ( $wpcd_coupon_template === 'Template Seven' ): 
       ?>
     <div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden <?php echo esc_attr( $button_class ); ?>">
-      <a data-type="code" data-coupon-id="<?php echo $new_coupon_id; ?>"
+      <a data-type="code" data-coupon-id="<?php echo absint( $new_coupon_id ); ?>"
            href="<?php echo $wpcd_show_coupon_popup ? 'javascript:void(0)' : '?wpcd_coupon=' . absint( $new_coupon_id ); ?>"
            target="_blank"
            class="coupon-button coupon-code-wpcd <?php echo $wpcd_show_coupon_popup ? '' : 'masterTooltip'; ?> <?php echo esc_attr( $button_class ); ?>"
@@ -350,9 +350,9 @@ if ( isset( $_POST[$wpcd_term_field_name] ) && ! empty( $_POST[$wpcd_term_field_
                 </div>
                 <div class="wpcd_coupon_popup_copy_code_wr">
                     <span class="wpcd_coupon_popup_copy_code_span"><?php echo esc_html( $coupon_code ); ?></span>
-                    <span class="wpcd_coupon_top_copy_span wpcd_coupon_top_copy_span_<?php echo $new_coupon_id; ?>"
+                    <span class="wpcd_coupon_top_copy_span wpcd_coupon_top_copy_span_<?php echo absint( $new_coupon_id ); ?>"
                           data-clipboard-text="<?php echo esc_attr( $coupon_code ); ?>"><?php if ( ! empty( $copy_button_text ) ) {
-							echo $copy_button_text;
+							echo esc_html( $copy_button_text );
 						} else {
 							echo __( 'Copy', 'wpcd-coupon' );
 						} ?></span>

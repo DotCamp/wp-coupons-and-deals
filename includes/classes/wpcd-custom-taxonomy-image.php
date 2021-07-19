@@ -58,11 +58,11 @@ class WPCD_Custom_Taxonomy_Image {
             <td>
                 <input type="hidden" class="custom-img-id" name="term_meta[image_id]" id="term_meta[image_id]" size="25"
                        style="width:60%;"
-                       value="<?php echo $term_meta['image_id'] ? $term_meta['image_id'] : ''; ?>"><br/>
+                       value="<?php echo wp_strip_all_tags($term_meta['image_id']) ?: ''; ?>"><br/>
                 <!-- Your image container -->
                 <div class="custom-img-container" style="width:250px;">
 					<?php if ( $you_have_img ) : ?>
-                        <img src="<?php echo $your_img_src[0] ?>" alt="" style="max-width:100%;"/>
+                        <img src="<?php echo esc_url($your_img_src[0]) ?>" alt="" style="max-width:100%;"/>
 					<?php endif; ?>
                 </div>
                 <!-- Your add & remove image links -->

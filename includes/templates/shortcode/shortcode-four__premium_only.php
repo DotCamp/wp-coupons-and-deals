@@ -211,7 +211,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                             <p class="wpcd-coupon-four-expired">
 								<?php
 								if ( ! empty( $expired_text ) ) {
-									echo $expired_text . ' ' . strtotime( $expire_date ) ? $expire_date : '';
+									echo esc_html( $expired_text ) . ' ' . strtotime( $expire_date ) ? $expire_date : '';
 								} else {
 									echo __( 'Expired on: ', 'wpcd-coupon' ) . strtotime( $expire_date ) ? $expire_date : '';
 								}

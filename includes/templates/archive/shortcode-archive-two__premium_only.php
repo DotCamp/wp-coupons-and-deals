@@ -154,7 +154,7 @@ include('header-default__premium_only.php');
                 	</<?php echo esc_html( $coupon_title_tag ); ?>>
 			 	<?php } else { ?>
 					<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
-						<a class="wpcd-coupon-click-link" data-id="<?php echo esc_attr ( $coupon_id ); ?>" href="<?php echo $link; ?>" target="<?php echo esc_attr( $target ); ?>" rel="nofollow"><?php echo esc_html( $title ); ?></a>
+						<a class="wpcd-coupon-click-link" data-id="<?php echo esc_attr ( $coupon_id ); ?>" href="<?php echo esc_url( $link ); ?>" target="<?php echo esc_attr( $target ); ?>" rel="nofollow"><?php echo esc_html( $title ); ?></a>
                 	</<?php echo esc_html( $coupon_title_tag ); ?>>
 				<?php } 
 			?>
@@ -222,7 +222,7 @@ include('header-default__premium_only.php');
                                    target="<?php echo esc_attr( $target ); ?>" href="<?php echo esc_html( $link ); ?>"
                                    title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
                                                     if ( ! empty( $coupon_hover_text ) ) {
-                                                        echo $coupon_hover_text;
+                                                        echo esc_attr( $coupon_hover_text );
                                                     } else {
                                                         echo __( "Click To Copy Coupon", 'wpcd-coupon' );
                                                     }
@@ -239,10 +239,10 @@ include('header-default__premium_only.php');
 						<?php }
 					} else { ?>
                         <div class="wpcd-coupon-code">
-                            <a rel="nofollow" href="<?php echo $link; ?>"
-                               class="<?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip wpcd-btn wpcd-coupon-button wpcd-coupon-click-link"
-                               data-id="<?php echo $coupon_id; ?>"
-                               target="<?php echo $target; ?>" href="<?php echo esc_url( $link ); ?>"
+                            <a rel="nofollow" href="<?php echo esc_url( $link ); ?>"
+                               class="<?php echo esc_attr( 'wpcd-btn-' . $coupon_id ); ?> masterTooltip wpcd-btn wpcd-coupon-button wpcd-coupon-click-link"
+                               data-id="<?php echo absint( $coupon_id ); ?>"
+                               target="<?php echo esc_attr( $target ); ?>" href="<?php echo esc_url( $link ); ?>"
                                title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
                                                 if ( ! empty( $coupon_hover_text ) ) {
                                                     echo esc_attr( $coupon_hover_text );
