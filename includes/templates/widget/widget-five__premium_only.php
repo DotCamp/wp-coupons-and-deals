@@ -67,19 +67,19 @@ wp_enqueue_script( 'wpcd-clipboardjs' );
 
 ?>
 
-<div class="wpcd-template-five wpcd-widget" style="border-color: <?php echo $wpcd_template_five_theme; ?>">
+<div class="wpcd-template-five wpcd-widget" style="border-color: <?php echo sanitize_hex_color( $wpcd_template_five_theme ); ?>">
     <div class="wpcd-template-five-holder">
         <div class="wpcd-template-five-percent-off">
             <p class="wpcd-coupon-five-discount-text">
 				<?php if ( ! empty( $discount_text ) ) {
-					echo $discount_text;
+					echo esc_html( $discount_text );
 				} else {
 					echo __( 'Discount Text', 'wpcd-coupon' );
 				} ?>
             </p>
         </div>
         <div class="wpcd-template-five-pro-img">
-            <img src="<?php echo empty( $wpcd_coupon_thumbnail ) ? $wpcd_dummy_coupon_img : $wpcd_coupon_thumbnail; ?>"
+            <img src="<?php echo empty( $wpcd_coupon_thumbnail ) ? esc_url( $wpcd_dummy_coupon_img ) : esc_url( $wpcd_coupon_thumbnail ); ?>"
                  alt="image">
         </div>
 
@@ -87,16 +87,16 @@ wp_enqueue_script( 'wpcd-clipboardjs' );
             <?php
 				if ( 'on' === $disable_coupon_title_link ) { ?>
 					<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
-						<?php echo $title; ?>
+						<?php echo esc_html( $title ); ?>
                 	</<?php echo esc_html( $coupon_title_tag ); ?>>
 			 	<?php } else { ?>
 					<<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
-						<a href="<?php echo $link; ?>" target="<?php echo $target; ?>" rel="nofollow"><?php echo $title; ?></a>
+						<a href="<?php echo esc_url( $link ); ?>" target="<?php echo esc_attr( $target ); ?>" rel="nofollow"><?php echo esc_html( $title ); ?></a>
                 	</<?php echo esc_html( $coupon_title_tag ); ?>>
 				<?php } 
 			?>
             <div class="wpcd-coupon-description">
-                <span class="wpcd-full-description"><?php echo $description; ?></span>
+                <span class="wpcd-full-description"><?php echo esc_html( $description ); ?></span>
                 <span class="wpcd-short-description"></span>
                 <a href="#" class="wpcd-more-description"><?php echo __( 'More', 'wpcd-coupon' ); ?></a>
                 <a href="#" class="wpcd-less-description"><?php echo __( 'Less', 'wpcd-coupon' ); ?></a>
@@ -105,16 +105,16 @@ wp_enqueue_script( 'wpcd-clipboardjs' );
     </div>
 
     <div class="extra-wpcd-template-five-holder">
-        <div class="wpcd-template-five-exp" style="background-color: <?php echo $wpcd_template_five_theme; ?>">
+        <div class="wpcd-template-five-exp" style="background-color: <?php echo sanitize_hex_color( $wpcd_template_five_theme ); ?>">
 			<?php
 			if ( $show_expiration !== 'Hide' ) { ?>
                 <div class="with-expiration1 <?php echo empty( trim( $expire_date ) ) ? 'hidden' : ''; ?>">
                     <div class="wpcd-coupon-five-expire expire-text-block1 <?php echo strtotime( $expire_date ) >= strtotime( $today ) ? '' : 'hidden'; ?>">
                         <p class="wpcd-coupon-five-expire-text"><?php
 							if ( ! empty( $expire_text ) ) {
-								echo $expire_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>';;
+								echo esc_html( $expire_text ) . ' ' . '<span class="expiration-date">' . ( strtotime( $expire_date ) ? $expire_date : '' ) . '</span>';;
 							} else {
-								echo __( 'Expires on: ', 'wpcd-coupon' ) . '<span class="expiration-date">' . $expire_date . '</span>';
+								echo __( 'Expires on: ', 'wpcd-coupon' ) . '<span class="expiration-date">' . ( strtotime( $expire_date ) ? $expire_date : '' ) . '</span>';
 							}
 							?></p>
                     </div>
@@ -122,9 +122,9 @@ wp_enqueue_script( 'wpcd-clipboardjs' );
                         <p class="wpcd-coupon-five-expired">
 							<?php
 							if ( ! empty( $expired_text ) ) {
-								echo $expired_text . ' ' . '<span class="expiration-date">' . $expire_date . '</span>';;
+								echo esc_html( $expired_text ) . ' ' . '<span class="expiration-date">' . ( strtotime( $expire_date ) ? $expire_date : '' ) . '</span>';;
 							} else {
-								echo __( 'Expired on: ', 'wpcd-coupon' ) . '<span class="expiration-date">' . $expire_date . '</span>';
+								echo __( 'Expired on: ', 'wpcd-coupon' ) . '<span class="expiration-date">' . ( strtotime( $expire_date ) ? $expire_date : '' ) . '</span>';
 							}
 							?>
                         </p>
@@ -132,7 +132,7 @@ wp_enqueue_script( 'wpcd-clipboardjs' );
                 </div>
                 <div class="wpcd-coupon-five-expire without-expiration1 <?php echo empty( trim( $expire_date ) ) ? '' : 'hidden'; ?>">
 					<?php if ( ! empty( $no_expiry ) ) { ?>
-                        <p><?php echo $no_expiry; ?></p>
+                        <p><?php echo esc_html( $no_expiry ); ?></p>
 					<?php } else { ?>
                         <p><?php echo __( "Doesn't expire", 'wpcd-coupon' ); ?></p>
 					<?php }
@@ -152,31 +152,31 @@ wp_enqueue_script( 'wpcd-clipboardjs' );
 				?>
 			<?php else: ?>
                 <div class="wpcd-coupon-code">
-                    <a class="wpcd-template-five-btn masterTooltip <?php echo $button_class; ?>"
-                       href="<?php echo $link; ?>" target="<?php echo $target; ?>"
+                    <a class="wpcd-template-five-btn masterTooltip <?php echo esc_attr( $button_class ); ?>"
+                       href="<?php echo esc_url( $link ); ?>" target="<?php echo esc_attr( $target ); ?>"
                        title="<?php echo __( 'Click Here To Copy Coupon', 'wpcd-coupon' ); ?>"
                        data-clipboard-text="<?php if ( ! empty( $coupon_code ) ) {
-						   echo $coupon_code;
+						   echo esc_attr( $coupon_code );
 					   } else {
 						   echo __( 'COUPONCODE', 'wpcd-coupon' );
-					   } ?>" style="border-color: <?php echo $wpcd_template_five_theme; ?>">
+					   } ?>" style="border-color: <?php echo sanitize_hex_color( $wpcd_template_five_theme ); ?>">
                         <p class="coupon-code-button"
-                           style="color: <?php echo $wpcd_template_five_theme; ?>"><?php echo( ! empty( $coupon_code ) ? $coupon_code : __( 'COUPONCODE', 'wpcd-coupon' ) ); ?></p>
+                           style="color: <?php echo sanitize_hex_color( $wpcd_template_five_theme ); ?>"><?php echo( ! empty( $coupon_code ) ? esc_html( $coupon_code ) : __( 'COUPONCODE', 'wpcd-coupon' ) ); ?></p>
                     </a>
                 </div>
 			<?php endif; ?>
 		<?php elseif ( $coupon_type == 'Deal' ): ?>
             <div class="wpcd-deal-code">
-                <a class="wpcd-template-five-btn masterTooltip" href="<?php echo $link; ?>" target="<?php echo $target; ?>"
+                <a class="wpcd-template-five-btn masterTooltip" href="<?php echo esc_url( $link ); ?>" target="<?php echo esc_url( $target ); ?>"
                    title="<?php echo __( 'Click Here To Get this deal', 'wpcd-coupon' ); ?>"
                    data-clipboard-text="<?php if ( ! empty( $deal_text ) ) {
-					   echo $deal_text;
+					   echo esc_attr( $deal_text );
 				   } else {
 					   echo __( 'Claim This Deal', 'wpcd-coupon' );
-				   } ?>" style="border-color: <?php echo $wpcd_template_five_theme; ?>">
-                    <p class="deal-code-button" style="color: <?php echo $wpcd_template_five_theme; ?>">
+				   } ?>" style="border-color: <?php echo sanitize_hex_color( $wpcd_template_five_theme ); ?>">
+                    <p class="deal-code-button" style="color: <?php echo sanitize_hex_color( $wpcd_template_five_theme ); ?>">
 						<?php if ( ! empty( $deal_text ) ) {
-							echo $deal_text;
+							echo esc_html( $deal_text );
 						} else {
 							echo __( 'Claim This Deal', 'wpcd-coupon' );
 						} ?>
@@ -187,7 +187,7 @@ wp_enqueue_script( 'wpcd-clipboardjs' );
 		<?php endif; ?>
     </div>
     <script type="text/javascript">
-        var clip = new Clipboard('.<?php echo $button_class; ?>');
+        var clip = new Clipboard('.<?php echo esc_attr( $button_class ); ?>');
     </script>
     <div class="clearfix"></div>
     <?php
