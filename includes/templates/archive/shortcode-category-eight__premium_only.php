@@ -109,24 +109,24 @@ include( 'header-category__premium_only.php' );
     if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
         ! empty( $show_print_links ) && $show_print_links == 'on' ) {
         $wpcd_uniq_attr = wpcd_uniq_attr( 10 );
-        $wpcd_uniq_attr_data = 'data-unic-attr="' . $wpcd_uniq_attr . '"';
+        $wpcd_uniq_attr_data = 'data-unic-attr="' . esc_attr( $wpcd_uniq_attr ) . '"';
     }
 ?>
 <!--- Template Eight start -->
-    <div class="wpcd-new-grid-container wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item"
-         wpcd-data-search="<?php echo $title; ?>" <?php echo $wpcd_uniq_attr_data;?>>
+    <div class="wpcd-new-grid-container wpcd-coupon-id-<?php echo absint( $coupon_id ); ?> wpcd_item"
+         wpcd-data-search="<?php echo esc_attr( $title ); ?>" <?php echo $wpcd_uniq_attr_data;?>>
         <div class="wpcd-new-grid-one">
             <div class="wpcd-new-discount-text">
-                <?php echo $discount_text; ?>
+                <?php echo esc_html( $discount_text ); ?>
             </div>
 
             <?php if ( $coupon_type == 'Coupon' ) { ?>
                 <div class="wpcd-new-coupon-type">
-                    <?php echo $dt_coupon_type_name; ?>
+                    <?php echo esc_html( $dt_coupon_type_name ); ?>
                 </div>
             <?php } elseif ( $coupon_type == 'Deal' ) { ?>
                 <div class="wpcd-new-deal-type">
-                    <?php echo $dt_deal_type_name; ?>
+                    <?php echo esc_html( $dt_deal_type_name ); ?>
                 </div>
             <?php }
             ?>
@@ -136,16 +136,16 @@ include( 'header-category__premium_only.php' );
                     if ( ! empty( $expire_date ) ) {
                         if ( strtotime( $expire_date ) >= strtotime( $today ) ) { ?>
                             <p class="wpcd-new-expire-text">
-                                <?php echo $expire_text . ' ' . $expire_date; ?>
+                                <?php echo esc_html( $expire_text ) . ' ' . strtotime( $expire_date ) ? $expire_date : ''; ?>
                             </p>
                         <?php } elseif ( strtotime( $expire_date ) < strtotime( $today ) ) { ?>
                             <p class="wpcd-new-expired-text">
-                                <?php echo $expired_text . ' ' . $expire_date; ?>
+                                <?php echo esc_html( $expired_text ) . ' ' . strtotime( $expire_date ) ? $expire_date : ''; ?>
                             </p>
                         <?php }
                     } else { ?>
                         <p class="wpcd-new-expire-text">
-                            <?php echo $no_expiry; ?>
+                            <?php echo esc_html( $no_expiry ); ?>
                         </p>
                     <?php }
                 } else {
@@ -157,16 +157,16 @@ include( 'header-category__premium_only.php' );
                     if ( ! empty( $expire_date ) ) {
                         if ( strtotime( $expire_date ) >= strtotime( $today ) ) { ?>
                             <p class="wpcd-new-expire-text">
-                                <?php echo $expire_text . ' ' . $expire_date; ?>
+                                <?php echo esc_html( $expire_text ) . ' ' . strtotime( $expire_date ) ? $expire_date : ''; ?>
                             </p>
                         <?php } elseif ( strtotime( $expire_date ) < strtotime( $today ) ) { ?>
                             <p class="wpcd-new-expired-text">
-                                <?php echo $expired_text . ' ' . $expire_date; ?>
+                                <?php echo esc_html( $expired_text ) . ' ' . strtotime( $expire_date ) ? $expire_date : ''; ?>
                             </p>
                         <?php }
                     } else { ?>
                         <p class="wpcd-new-expire-text">
-                            <?php echo $no_expiry; ?>
+                            <?php echo esc_html( $no_expiry ); ?>
                         </p>
                     <?php }
                 } else {
@@ -179,17 +179,17 @@ include( 'header-category__premium_only.php' );
             <?php
             if ('on' === $disable_coupon_title_link) { ?>
                 <<?php echo esc_html($coupon_title_tag); ?> class="wpcd-new-title">
-                    <?php echo $title; ?>
+                    <?php echo esc_html( $title ); ?>
                 </<?php echo esc_html($coupon_title_tag); ?>> <?php
             } else { ?>
                 <<?php echo esc_html($coupon_title_tag); ?> class="wpcd-new-title">
-                    <a href="<?php echo esc_url($link); ?>" target="<?php echo $target; ?>" rel="nofollow">
-                        <?php echo $title; ?>
+                    <a href="<?php echo esc_url($link); ?>" target="<?php echo esc_attr( $target ); ?>" rel="nofollow">
+                        <?php echo esc_html( $title ); ?>
                     </a>
                 </<?php echo esc_html( $coupon_title_tag ); ?>>
       <?php } ?>
     <div class="wpcd-coupon-description">
-        <span class="wpcd-full-description"><?php echo $description; ?></span>
+        <span class="wpcd-full-description"><?php echo esc_html( $description ); ?></span>
         <span class="wpcd-short-description"></span>
         <?php if( !WPCD_Amp::wpcd_amp_is() ): ?>
             <a href="#" class="wpcd-more-description"><?php echo __( 'More', 'wpcd-coupon' ); ?></a>
@@ -204,21 +204,21 @@ include( 'header-category__premium_only.php' );
                 $template->get_template_part( 'hide-coupon3__premium_only' );
                 ?>
             <?php else: ?>
-                <a class="wpcd-new-coupon-code <?php echo 'wpcd-btn-' . $coupon_id; ?> masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="<?php echo $target; ?>" data-clipboard-text="<?php echo $coupon_code; ?>" 
+                <a class="wpcd-new-coupon-code <?php echo 'wpcd-btn-' . absint( $coupon_id ); ?> masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="<?php echo esc_attr( $target ); ?>" data-clipboard-text="<?php echo esc_attr( $coupon_code ); ?>" 
                 title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
-                                 echo $coupon_hover_text;
+                                 echo esc_attr( $coupon_hover_text );
                              }
                          ?>">
-                   <?php echo $coupon_code; ?>
+                   <?php echo esc_html( $coupon_code ); ?>
                 </a>
             <?php endif; ?>
         <?php endif; ?>
-        <a class="wpcd-new-goto-button masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="<?php echo $target; ?>" title="<?php echo $deal_hover_text; ?>" >
-           <?php echo $deal_text; ?>
+        <a class="wpcd-new-goto-button masterTooltip" rel="nofollow" href="<?php echo esc_url( $link ); ?>" target="<?php echo esc_attr( $target ); ?>" title="<?php echo esc_attr( $deal_hover_text ); ?>" >
+           <?php echo esc_html( $deal_text ); ?>
         </a>
     </div><!-- End of grid-three -->
     <script type="text/javascript">
-        var clip = new Clipboard('.<?php echo $button_class; ?>');
+        var clip = new Clipboard('.<?php echo esc_attr( $button_class) ; ?>');
     </script>
     <?php if( !WPCD_Amp::wpcd_amp_is() ): ?>
         <div class="wpcd-new-grid-footer">

@@ -124,26 +124,26 @@ include('header-default__premium_only.php');
     if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
         ! empty( $show_print_links ) && $show_print_links == 'on' ) {
         $wpcd_uniq_attr = wpcd_uniq_attr( 10 );
-        $wpcd_uniq_attr_data = 'data-unic-attr="' . $wpcd_uniq_attr . '"';
+        $wpcd_uniq_attr_data = 'data-unic-attr="' . esc_attr( $wpcd_uniq_attr ) . '"';
     }
 ?>
     <!--  Template Seven Start -->
-    <section class="wpcd_seven wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item <?php echo $coupon_categories_class; ?>"
-             wpcd-data-search="<?php echo $title; ?>" <?php echo $wpcd_uniq_attr_data;?>>
+    <section class="wpcd_seven wpcd-coupon-id-<?php echo absint( $coupon_id ); ?> wpcd_item <?php echo esc_attr( $coupon_categories_class ); ?>"
+             wpcd-data-search="<?php echo esc_attr( $title ); ?>" <?php echo $wpcd_uniq_attr_data;?>>
         <div class="wpcd_seven_container">
             <div class="wpcd_seven_couponBox">
                 <div class="wpcd_seven_percentAndPic">
                     <div class="wpcd_seven_percentOff">
-                        <p><?php echo $discount_text; ?></p>
+                        <p><?php echo esc_html( $discount_text ); ?></p>
                     </div>
 
                     <div class="wpcd_seven_productPic">
                         <?php
                         if($coupon_thumbnail){
                             if ($link_thumbnail == "on"):
-                                echo "<a class='wpcd-coupon-click-link' data-id='{$coupon_id}' href='{$link}' rel='nofollow' target='{$target}'><img src='{$coupon_thumbnail}' alt='{$title}'></a>";
+                                echo "<a class='wpcd-coupon-click-link' data-id='" . absint( $coupon_id ) . "' href='" . esc_url( $link ) . "' rel='nofollow' target='" . esc_attr( $target ) . "'><img src='" . esc_url( $coupon_thumbnail ) . "' alt='" . esc_url( $title ) . "'></a>";
                             else:
-                                echo "<img src='{$coupon_thumbnail}' alt='{$title}'>";
+                                echo "<img src='" . esc_url( $coupon_thumbnail ) ." alt='" . esc_attr( $title ) . "'>";
                             endif;
                         }
                         ?>
@@ -154,11 +154,11 @@ include('header-default__premium_only.php');
                     <?php
                         if ( 'on' === $disable_coupon_title_link ) { ?>
                             <<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-new-title">
-                                <?php echo $title; ?>
+                                <?php echo esc_html( $title ); ?>
                             </<?php echo esc_html( $coupon_title_tag ); ?>> <?php
                         } else { ?>
                             <<?php echo esc_html( $coupon_title_tag ); ?> class="wpcd-new-title">
-                                <a class="wpcd-coupon-click-link" data-id="<?php echo $coupon_id;?>" href="<?php echo esc_url( $link ); ?>" target="<?php echo $target; ?>" rel="nofollow"><?php echo $title; ?></a>
+                                <a class="wpcd-coupon-click-link" data-id="<?php echo absint( $coupon_id );?>" href="<?php echo esc_url( $link ); ?>" target="<?php echo esc_attr( $target ); ?>" rel="nofollow"><?php echo esc_attr( $title ); ?></a>
                             </<?php echo esc_html( $coupon_title_tag ); ?>> <?php
                         }?>
                         <div class="wpcd-coupon-description">
@@ -181,16 +181,16 @@ include('header-default__premium_only.php');
                                 ?>
                             <?php else: ?>
                                 <div class="wpcd_seven_btn">
-                                    <a  rel="nofollow" class="masterTooltip <?php echo $button_class; ?> wpcd-coupon-click-link"
-                                        data-id="<?php echo $coupon_id;?>" 
-                                        href="<?php echo $link; ?>"
-                                        target="<?php echo $target; ?>"
+                                    <a  rel="nofollow" class="masterTooltip <?php echo esc_attr( $button_class ); ?> wpcd-coupon-click-link"
+                                        data-id="<?php echo esc_attr( $coupon_id );?>" 
+                                        href="<?php echo esc_url( $link ); ?>"
+                                        target="<?php echo esc_attr( $target ); ?>"
                                         title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
-                                                         echo $coupon_hover_text;
+                                                         echo esc_attr( $coupon_hover_text );
                                                      }
                                                  ?>"
-                                        data-clipboard-text="<?php echo $coupon_code; ?>"
-                                        data-title-ab="<?php echo $coupon_code; ?>"><?php echo $coupon_code; ?>
+                                        data-clipboard-text="<?php echo esc_attr( $coupon_code ); ?>"
+                                        data-title-ab="<?php echo esc_attr( $coupon_code ); ?>"><?php echo esc_html( $coupon_code ); ?>
                                     </a>
                                 </div>
                             <?php endif; ?>
@@ -202,12 +202,12 @@ include('header-default__premium_only.php');
                         <div class="wpcd_seven_buttonSociaLikeDislike">
                             <div class="wpcd_seven_btn">
                                 <a class="masterTooltip wpcd-coupon-click-link"
-                                    data-id="<?php echo $coupon_id; ?>"
+                                    data-id="<?php echo absint( $coupon_id ); ?>"
                                     href="nofollow"
-                                    href="<?php echo $link; ?>"
-                                    target="<?php echo $target; ?>"
-                                    title="<?php echo $deal_hover_text; ?>"
-                                    data-title-ab="<?php echo $deal_text; ?>"><?php echo $deal_text; ?>
+                                    href="<?php echo esc_url( $link ); ?>"
+                                    target="<?php echo esc_attr( $target ); ?>"
+                                    title="<?php echo esc_attr( $deal_hover_text ); ?>"
+                                    data-title-ab="<?php echo esc_attr( $deal_text ); ?>"><?php echo esc_html( $deal_text ); ?>
                                 </a>
                             </div>
                         </div>
@@ -225,15 +225,15 @@ include('header-default__premium_only.php');
                                         echo __( 'Expires on: ', 'wpcd-coupon' );
                                     }
                                     ?>
-                                    <span class="wpcd-coupon-seven-countdown" data-countdown_coupon="<?php echo $expire_date_format . ' ' . $expire_time; ?>" id="clock_seven_<?php echo $coupon_id; ?>"></span>            
+                                    <span class="wpcd-coupon-seven-countdown" data-countdown_coupon="<?php echo $expire_date_format . ' ' . ( strtotime( $expire_date ) ? $expire_date : '' ); ?>" id="clock_seven_<?php echo $coupon_id; ?>"></span>            
                                 <?php } else { 
                                     if ( strtotime( $expire_date ) >= strtotime( $today ) ) { ?>
                                         <span class="wpcd-coupon-expire">
                                             <?php
                                             if ( ! empty( $expire_text ) ) {
-                                                echo $expire_text . ' ' . $expire_date;
+                                                echo esc_html( $expire_text ) . ' ' . ( strtotime( $expire_date ) ? $expire_date : '' );
                                             } else {
-                                                echo __( 'Expires on: ', 'wpcd-coupon' ) . $expire_date;
+                                                echo __( 'Expires on: ', 'wpcd-coupon' ) . ( strtotime( $expire_date ) ? $expire_date : '' );
                                             }
                                             ?>
                                         </span>
@@ -241,9 +241,9 @@ include('header-default__premium_only.php');
                                         <span class="wpcd-coupon-expired">
                                             <?php
                                             if ( ! empty( $expired_text ) ) {
-                                                echo $expired_text . ' ' . $expire_date;
+                                                echo esc_html( $expired_text ) . ' ' . ( strtotime( $expire_date ) ? $expire_date : '' );
                                             } else {
-                                                echo __( 'Expired on: ', 'wpcd-coupon' ) . $expire_date;
+                                                echo __( 'Expired on: ', 'wpcd-coupon' ) . ( strtotime( $expire_date ) ? $expire_date : '' );
                                             }
                                             ?>
                                         </span>
@@ -252,7 +252,7 @@ include('header-default__premium_only.php');
                             <?php else : ?>
                                 <b class="never-expire">
                                     <?php if ( ! empty( $no_expiry ) ) : ?>
-                                            <b><?php echo $no_expiry; ?></b>
+                                            <b><?php echo esc_html( $no_expiry ); ?></b>
                                     <?php else : ?>
                                             <b><?php echo __( "Doesn't expire", 'wpcd-coupon' ); ?></b>
                                     <?php endif; ?>
@@ -263,7 +263,7 @@ include('header-default__premium_only.php');
                 </div>
                 <div class="wpcd_seven_couponBox_both"></div>
                 <script type="text/javascript">
-                    var clip = new Clipboard('.<?php echo $button_class; ?>');
+                    var clip = new Clipboard('.<?php echo esc_attr( $button_class ); ?>');
                 </script>
                 <div class="clearfix"></div>
                 <?php

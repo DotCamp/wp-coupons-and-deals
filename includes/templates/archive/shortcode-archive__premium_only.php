@@ -116,22 +116,22 @@ include('header-grid__premium_only.php');
 ?>
 
 <li class="wpcd_coupon_li">
-    <div class="wpcd-coupon-id-<?php echo $coupon_id; ?> wpcd_item <?php echo $coupon_categories_class; ?>" wpcd-data-search="<?php echo $title; ?>" <?php echo $wpcd_uniq_attr_data; ?>>
+    <div class="wpcd-coupon-id-<?php echo absint( $coupon_id ); ?> wpcd_item <?php echo esc_attr( $coupon_categories_class ); ?>" wpcd-data-search="<?php echo esc_attr( $title ); ?>" <?php echo esc_attr( $wpcd_uniq_attr_data ); ?>>
         <?php
         if ($hide_featured_image != 'on') {
         if (!empty($coupon_thumbnail)) { ?>
         <?php
         if ($link_thumbnail == "on"):
-            echo "<a class='wpcd-coupon-click-link' href='{$link}' target='{$target}'>";
+            echo "<a class='wpcd-coupon-click-link' href='" . esc_url( $link ) . "' target='" . esc_attr( $target ) ."'>";
         endif; ?>
             <div class="wpcd_coupon_li_top_wr"
-             style="background-image:url('<?php echo esc_url($coupon_thumbnail); ?>')">
+             style="background-image:url('<?php echo esc_url( $coupon_thumbnail ); ?>')">
             <?php if( WPCD_Amp::wpcd_amp_is() ) { ?>
                 <?php
                 if ($link_thumbnail == "on"):
-                    echo "<a class='wpcd-coupon-click-link' href='{$link}' target='{$target}'><img class='wpcd_archive_coupon_feature_image' src='{$coupon_thumbnail}' alt='{$title}' style='width: 100%;height: 100%;' ></a>";
+                    echo "<a class='wpcd-coupon-click-link' href='" . esc_url( $link ) . "' target='" . esc_attr( $target ) . "'><img class='wpcd_archive_coupon_feature_image' src='" . esc_url( $coupon_thumbnail ) . "' alt='" . esc_attr( $title ) . "' style='width: 100%;height: 100%;' ></a>";
                 else:
-                    echo "<img class='wpcd_archive_coupon_feature_image' src='{$coupon_thumbnail}' alt='{$title}' style='width: 100%;height: 100%;' >";
+                    echo "<img class='wpcd_archive_coupon_feature_image' src='" . esc_url( $coupon_thumbnail ). "' alt='" . esc_attr( $title ) ."' style='width: 100%;height: 100%;' >";
                 endif;
                 ?>
             <?php } ?>
@@ -154,35 +154,35 @@ include('header-grid__premium_only.php');
             </<?php echo esc_html($coupon_title_tag); ?>>
             <?php } else { ?>
             <<?php echo esc_html($coupon_title_tag); ?> class="wpcd-coupon-title">
-            <a class="wpcd-coupon-click-link" href="<?php echo $link; ?>" target="<?php echo $target; ?>" rel="nofollow"><?php echo $title; ?></a>
+            <a class="wpcd-coupon-click-link" href="<?php echo esc_url( $link ); ?>" target="<?php echo esc_attr( $target ); ?>" rel="nofollow"><?php echo esc_html( $title ); ?></a>
         </<?php echo esc_html($coupon_title_tag); ?>>
     <?php }
     ?>
-        <div class="wpcd_coupon_li_top_btn_wr wpcd_clearfix <?php echo($coupon_type === 'Image' ? 'hidden' : ''); ?>">
+        <div class="wpcd_coupon_li_top_btn_wr wpcd_clearfix <?php echo ($coupon_type === 'Image' ? 'hidden' : ''); ?>">
             <?php if ($discount_text) { ?>
-                <div class="wpcd_coupon_li_top_discount_left"><?php echo $discount_text; ?></div>
+                <div class="wpcd_coupon_li_top_discount_left"><?php echo esc_html( $discount_text ); ?></div>
                 <?php
             }
             if ($coupon_type == 'Coupon') {
             if ( $hide_coupon == 'Yes' && ! WPCD_Amp::wpcd_amp_is() ) { ?>
 
                 <div class="wpcd-coupon-code wpcd_btn_wr">
-                    <?php $template->get_template_part('hide-coupon__premium_only'); ?>
+                    <?php $template->get_template_part('hide-coupon__premium_only') ; //escape in template/extras/hide-coupon__premium_only.php ?>
                 </div>
 
             <?php } else { ?>
                 <div class="wpcd-coupon-code wpcd_btn_wr">
-                    <?php $template->get_template_part('coupon-link'); ?>
+                    <?php $template->get_template_part('coupon-link') ; //escape in template/extras/coupon-link.php ?>
                 </div>
             <?php } ?>
 
                 <script type="text/javascript">
-                    var clip = new Clipboard('.<?php echo $button_class; ?>');
+                    var clip = new Clipboard('.<?php echo esc_attr( $button_class ); ?>');
                 </script>
 
             <?php } elseif ($coupon_type == 'Deal') { ?>
                 <div class="wpcd-coupon-code wpcd_btn_wr">
-                    <?php $template->get_template_part('coupon-link'); ?>
+                    <?php $template->get_template_part('coupon-link') ; //escape in template/extras/coupon-link.php ?> 
                 </div>
             <?php } ?>
 
@@ -191,13 +191,11 @@ include('header-grid__premium_only.php');
             <?php if ($description) { ?>
                 <div class="wpcd_coupon_li_description">
                     <div class="wpcd-coupon-description">
-                        <span class="wpcd-full-description"><?php echo $description; ?></span>
+                        <span class="wpcd-full-description"><?php echo esc_html( $description ); ?></span>
                         <span class="wpcd-short-description"></span>
                         <?php if( !WPCD_Amp::wpcd_amp_is() ): ?>
-                            <a href="#"
-                               class="wpcd-more-description"><?php echo __('More', 'wpcd-coupon'); ?></a>
-                            <a href="#"
-                           class="wpcd-less-description"><?php echo __('Less', 'wpcd-coupon'); ?></a>
+                            <a href="#" class="wpcd-more-description"><?php echo __('More', 'wpcd-coupon'); ?></a>
+                            <a href="#" class="wpcd-less-description"><?php echo __('Less', 'wpcd-coupon'); ?></a>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -213,7 +211,7 @@ include('header-grid__premium_only.php');
                     <?php if (strtotime($expire_date) >= strtotime($today)) { ?>
 
                         <?php if (!empty($expire_text)) { ?>
-                            <p class="wpcd-coupon-loop-expire"><?php echo $expire_text . $expire_date; ?></p>
+                            <p class="wpcd-coupon-loop-expire"><?php echo esc_html( $expire_text ) . $expire_date; ?></p>
                         <?php } else { ?>
                             <p class="wpcd-coupon-loop-expire"><?php echo __('Expires on: ', 'wpcd-coupon') . $expire_date ?></p>
                         <?php } ?>
@@ -221,7 +219,7 @@ include('header-grid__premium_only.php');
                     <?php } elseif (strtotime($expire_date) < strtotime($today)) { ?>
 
                         <?php if (!empty($expired_text)) { ?>
-                            <p class="wpcd-coupon-loop-expired"><?php echo $expired_text . $expire_date; ?></p>
+                            <p class="wpcd-coupon-loop-expired"><?php echo esc_html( $expired_text ) . $expire_date; ?></p>
                         <?php } else { ?>
                             <p class="wpcd-coupon-loop-expired"><?php echo __('Expired on: ', 'wpcd-coupon') . $expire_date; ?></p>
                         <?php } ?>
@@ -232,7 +230,7 @@ include('header-grid__premium_only.php');
                 <div class="wpcd_coupon_li_bottom wpcd_clearfix">
 
                     <?php if (!empty($no_expiry)) { ?>
-                        <?php echo $no_expiry; ?>
+                        <?php echo esc_html( $no_expiry ); ?>
                     <?php } else { ?>
                         <p class='wpcd-coupon-loop-expire'><?php echo __("Doesn't expire", 'wpcd-coupon'); ?></p>
                     <?php } ?>
@@ -244,9 +242,9 @@ include('header-grid__premium_only.php');
             <div class="wpcd-li-footer">
                 <?php
                 if ($coupon_share === 'on') {
-                    $template->get_template_part('social-share');
+                    $template->get_template_part('social-share'); //escape in template/extras/social-share.php
                 }
-                $template->get_template_part('vote-system');
+                $template->get_template_part('vote-system'); //escape in template/extras/vote-system.php
                 ?>
             </div>
         <?php endif; ?>

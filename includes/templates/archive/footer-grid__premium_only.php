@@ -41,10 +41,10 @@ if( !isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_act
 
             if ( isset( $_POST['wpcd_page_num'] ) && ! empty( $_POST['wpcd_page_num'] ) &&
                 absint( $_POST['wpcd_page_num'] ) == $_POST['wpcd_page_num'] ) {
-                $current = absint( $_POST['wpcd_page_num'] );
+                $current = $_POST['wpcd_page_num'];
             } elseif ( isset( $_GET['wpcd_page_num'] ) && ! empty( $_GET['wpcd_page_num'] ) &&
                 absint( $_GET['wpcd_page_num'] ) == $_GET['wpcd_page_num'] ) {
-                $current = absint( $_GET['wpcd_page_num'] );
+                $current = $_GET['wpcd_page_num'];
             } else {
                 $current = 1;
             }
@@ -59,8 +59,8 @@ if( !isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_act
                     'base'      => '?wpcd_page_num=%#%',
                     'format'    => '?page=%#%',
                     'add_args'  => $add_args,
-                    'current'   => $current,
-                    'total'     => $max_num_page,
+                    'current'   => absint( $current ),
+                    'total'     => absint( $max_num_page ),
                     'prev_next' => true,
                     'prev_text' => __( '« Prev', 'wpcd-coupon' ),
                     'next_text' => __( 'Next »', 'wpcd-coupon' ),
@@ -76,12 +76,12 @@ if( !isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_act
             if ( !isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_action' ) {
                 echo '</div> <!-- wpcd_coupon_archive_container -->';
                 echo '<div class="wpcd_coupon_loader wpcd_coupon_hidden_loader">';
-                echo '<img src="' . esc_url( WPCD_Plugin::instance()->plugin_assets ) . 'img/loading.gif">';
+                echo '<img src="' . esc_url( WPCD_Plugin::instance()->plugin_assets . 'img/loading.gif"' ) . '>';
                 echo '</div>';
                 echo '</div> <!-- wpcd_coupon_archive_container_main -->';
             }
         } else {
-            echo wpcd_generatePagination( $max_num_page );
+            echo wpcd_generatePagination( absint( $max_num_page ) );
             echo "</div>";
         }
 
