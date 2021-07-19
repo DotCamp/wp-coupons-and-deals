@@ -65,10 +65,7 @@ class WPCD_Help_Metabox {
 	 * @since 2.3.2
 	 */
 	public function generate_fields( $post ) {
-		$output = '';
-		$output .= '<p style="font-size: 14px;">' . __( 'If you have any questions or confusions, please check our ', 'wpcd-coupon' ) . '<a target="_blank" href="https://wpcouponsdeals.com/knowledgebase/">' . __( 'Knowledgebase', 'wpcd-coupon' ) . '</a>' . __( ' or', 'wpcd-coupon' ) . '<a target="_blank" href="https://wpcouponsdeals.com/contact-us/">' . __( ' contact us', 'wpcd-coupon' ) . '</a>.</p>';
-
-		echo $output;
+		echo '<p style="font-size: 14px;">' . __( 'If you have any questions or confusions, please check our ', 'wpcd-coupon' ) . '<a target="_blank" href="https://wpcouponsdeals.com/knowledgebase/">' . __( 'Knowledgebase', 'wpcd-coupon' ) . '</a>' . __( ' or', 'wpcd-coupon' ) . '<a target="_blank" href="https://wpcouponsdeals.com/contact-us/">' . __( ' contact us', 'wpcd-coupon' ) . '</a>.</p>';
 	}
 
 }

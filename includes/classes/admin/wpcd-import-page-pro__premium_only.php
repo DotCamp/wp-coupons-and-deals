@@ -43,7 +43,7 @@ class WPCD_Import_Page_Pro extends WPCD_Import_Page {
 
 		$output = ob_get_clean();
 
-		echo $output;
+		echo $output; //look at includes/templates/extras/import-page__premium_only
 	}
 
 }

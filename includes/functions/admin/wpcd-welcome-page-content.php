@@ -69,61 +69,61 @@ if ( ! defined( 'ABSPATH' ) ) {
             <div class="wpcd-feature-list wpcd-clear">
 
                 <div class="wpcd-feature-block wpcd-first">
-                    <img src="<?php echo WPCD_Plugin::instance()->plugin_assets; ?>img/lightweight.png">
+                    <img src="<?php echo esc_url( WPCD_Plugin::instance()->plugin_assets . 'img/lightweight.png'); ?>">
                     <h5><?php esc_html_e( 'Click to Copy', 'wpcd-coupon' ); ?></h5>
                     <p><?php esc_html_e( 'Users can copy the coupon code with just one click. How cool is that?', 'wpcd-coupon' ); ?></p>
                 </div>
 
                 <div class="wpcd-feature-block wpcd-last">
-                    <img src="<?php echo WPCD_Plugin::instance()->plugin_assets; ?>img/responsive.png">
+                    <img src="<?php echo esc_url( WPCD_Plugin::instance()->plugin_assets . 'img/responsive.png' ); ?>">
                     <h5><?php esc_html_e( 'Responsive', 'wpcd-coupon' ); ?></h5>
                     <p><?php esc_html_e( 'Coupon templates are designed to work on all screen sizes.', 'wpcd-coupon' ); ?></p>
                 </div>
 
                 <div class="wpcd-feature-block wpcd-first">
-                    <img src="<?php echo WPCD_Plugin::instance()->plugin_assets; ?>img/image.png">
+                    <img src="<?php echo esc_url( WPCD_Plugin::instance()->plugin_assets . 'img/image.png' ); ?>">
                     <h5><?php esc_html_e( 'Image Coupons', 'wpcd-coupon' ); ?></h5>
                     <p><?php esc_html_e( 'Add printable image coupons that can be printed and used offline.', 'wpcd-coupon' ); ?></p>
                 </div>
 
                 <div class="wpcd-feature-block wpcd-last">
-                    <img src="<?php echo WPCD_Plugin::instance()->plugin_assets; ?>img/preview.png">
+                    <img src="<?php echo esc_url( WPCD_Plugin::instance()->plugin_assets . 'img/preview.png' ); ?>">
                     <h5><?php esc_html_e( 'Live Preview', 'wpcd-coupon' ); ?></h5>
                     <p><?php esc_html_e( 'Watch the coupon as you create it, so you know what you are doing.', 'wpcd-coupon' ); ?></p>
                 </div>
 
                 <div class="wpcd-feature-block wpcd-first">
-                    <img src="<?php echo WPCD_Plugin::instance()->plugin_assets; ?>img/expire.png">
+                    <img src="<?php echo esc_url( WPCD_Plugin::instance()->plugin_assets . 'img/expire.png' ); ?>">
                     <h5><?php esc_html_e( 'Expiration Dates', 'wpcd-coupon' ); ?></h5>
                     <p><?php esc_html_e( 'Let your users know which coupons are expired and which are available.', 'wpcd-coupon' ); ?></p>
                 </div>
 
                 <div class="wpcd-feature-block wpcd-last">
-                    <img src="<?php echo WPCD_Plugin::instance()->plugin_assets; ?>img/hide.png">
+                    <img src="<?php echo esc_url( WPCD_Plugin::instance()->plugin_assets . 'img/hide.png' ); ?>">
                     <h5><?php esc_html_e( 'Hide Expired Coupon', 'wpcd-coupon' ); ?></h5>
                     <p><?php esc_html_e( 'Don\'t want to update expired coupons? No problem, just hide \'em.', 'wpcd-coupon' ); ?></p>
                 </div>
                 
                 <div class="wpcd-feature-block wpcd-first">
-                    <img src="<?php echo WPCD_Plugin::instance()->plugin_assets; ?>img/social.png">
+                    <img src="<?php echo esc_url( WPCD_Plugin::instance()->plugin_assets . 'img/social.png' ); ?>">
                     <h5><?php esc_html_e( 'Social Share', 'wpcd-coupon' ); ?></h5>
                     <p><?php esc_html_e( 'Add social share buttons in your coupons, let users spread the love.', 'wpcd-coupon' ); ?></p>
                 </div>
 
                 <div class="wpcd-feature-block wpcd-last">
-                    <img src="<?php echo WPCD_Plugin::instance()->plugin_assets; ?>img/settings.png">
+                    <img src="<?php echo esc_url( WPCD_Plugin::instance()->plugin_assets . 'img/settings.png' ); ?>">
                     <h5><?php esc_html_e( 'Voting System', 'wpcd-coupon' ); ?></h5>
                     <p><?php esc_html_e( 'Let your users vote whether a coupon worked for them or not.', 'wpcd-coupon' ); ?></p>
                 </div>
 
                 <div class="wpcd-feature-block wpcd-first">
-                    <img src="<?php echo WPCD_Plugin::instance()->plugin_assets; ?>img/widget.png">
+                    <img src="<?php echo esc_url( WPCD_Plugin::instance()->plugin_assets . 'img/widget.png' ); ?>">
                     <h5><?php esc_html_e( 'Widgets', 'wpcd-coupon' ); ?></h5>
                     <p><?php esc_html_e( 'So you can add your coupons in any widget areas on your site.', 'wpcd-coupon' ); ?></p>
                 </div>
 
                 <div class="wpcd-feature-block wpcd-last">
-                    <img src="<?php echo WPCD_Plugin::instance()->plugin_assets; ?>img/inserter.png">
+                    <img src="<?php echo esc_url( WPCD_Plugin::instance()->plugin_assets . 'img/inserter.png'); ?>">
                     <h5><?php esc_html_e( 'Shortcode Inserter', 'wpcd-coupon' ); ?></h5>
                     <p><?php esc_html_e( 'Instead of copy-paste, insert coupons straight from your editor.', 'wpcd-coupon' ); ?></p>
                 </div>
@@ -184,15 +184,15 @@ if ( ! defined( 'ABSPATH' ) ) {
             <h1><?php esc_html_e( 'Testimonials', 'wpcd-coupon' ); ?></h1>
 
             <div class="wpcd-testimonial-block wpcd-clear">
-                <img src="<?php echo WPCD_Plugin::instance()->plugin_assets; ?>img/testimonial1.png">
+                <img src="<?php echo esc_url( WPCD_Plugin::instance()->plugin_assets . 'img/testimonial1.png'); ?>">
             </div>
 
             <div class="wpcd-testimonial-block wpcd-clear">
-                <img src="<?php echo WPCD_Plugin::instance()->plugin_assets; ?>img/testimonial3.png">
+                <img src="<?php echo esc_url( WPCD_Plugin::instance()->plugin_assets . 'img/testimonial3.png' ); ?>">
             </div>
 
             <div class="wpcd-testimonial-block wpcd-clear">
-                <img src="<?php echo WPCD_Plugin::instance()->plugin_assets; ?>img/testimonial2.png">
+                <img src="<?php echo esc_url( WPCD_Plugin::instance()->plugin_assets . 'img/testimonial2.png' ); ?>">
             </div>
 
             <div class="wpcd-button-wrap">

@@ -89,8 +89,7 @@ class WPCD_Shortcode_Inserter {
 								<?php echo __( 'Select Shortcode Type', 'wpcd-coupon' ); ?>
                             </label>
                             <select name="shortcode_type_box" id="coupons_shortcode_type">
-                                <option value="single"
-                                        selected="selected"><?php echo __( 'Single Coupon', 'wpcd-coupon' ); ?></option>
+                                <option value="single" selected="selected"><?php echo __( 'Single Coupon', 'wpcd-coupon' ); ?></option>
                                 <option value="archive"><?php echo __( 'Archive', 'wpcd-coupon' ); ?></option>
                                 <option value="category"><?php echo __( 'Category', 'wpcd-coupon' ); ?></option>
                                 <option value="vendor"><?php echo __( 'Vendor', 'wpcd-coupon' ); ?></option>
@@ -152,7 +151,7 @@ class WPCD_Shortcode_Inserter {
 							$terms = get_terms( 'wpcd_coupon_category' );
 							foreach ( $terms as $term ) {
 								$term = (array) $term;
-								echo '<option category_id="' . $term['term_id'] . '" value="' . $term['name'] . '"></option>';
+								echo '<option category_id="' . esc_attr( $term['term_id'] ) . '" value="' . esc_attr( $term['name'] ) . '"></option>';
 							}
 							?>
                         </datalist>
@@ -194,7 +193,7 @@ class WPCD_Shortcode_Inserter {
 							$terms = get_terms( 'wpcd_coupon_vendor' );
 							foreach ( $terms as $term ) {
 								$term = (array) $term;
-								echo '<option vendor_id="' . $term['term_id'] . '" value="' . $term['name'] . '"></option>';
+								echo '<option vendor_id="' . esc_attr( $term['term_id'] ) . '" value="' . esc_attr( $term['name'] ) . '"></option>';
 							}
 							?>
                         </datalist>
@@ -205,8 +204,7 @@ class WPCD_Shortcode_Inserter {
                         </label>
                         <select name="shortcode_style_box" id="coupons_style_vendor_select">
                             <option value="vertical"><?php echo __( 'Vertical', 'wpcd-coupon' ); ?></option>
-                            <option value="horizontal"
-                                    selected="selected"><?php echo __( 'Horizontal', 'wpcd-coupon' ); ?></option>
+                            <option value="horizontal" selected="selected"><?php echo __( 'Horizontal', 'wpcd-coupon' ); ?></option>
                         </select>
                     </div>
 
@@ -236,7 +234,7 @@ class WPCD_Shortcode_Inserter {
 							$terms = get_terms( 'wpcd_coupon_category' );
 							foreach ( $terms as $term ) {
 								$term = (array) $term;
-								echo '<option value="' . $term['name'] . '">' . $term['name'] . '</option>';
+								echo '<option value="' . esc_attr( $term['name'] ) . '">' . esc_html( $term['name'] ) . '</option>';
 							}
 							?>
                             <option value="all-categories"><?php echo __( 'All Categories', 'wpcd-coupon' ); ?></option>
@@ -275,7 +273,7 @@ class WPCD_Shortcode_Inserter {
 									if ( $loop->have_posts() ) {
 										while ( $loop->have_posts() ) : $loop->the_post();
 											?>
-                                            <option category-title="<?php echo $term->name; ?>"
+                                            <option category-title="<?php echo esc_attr( $term->name ); ?>"
                                                     coupon-id="<?php the_ID(); ?>"
                                                     value="<?php the_title(); ?>"><?php the_title(); ?></option>
 											<?php

@@ -209,7 +209,7 @@ class WPCD_Admin_Columns extends WP_List_Table {
 
 
 			case 'id':
-				echo $post_id;
+				echo absint( $post_id );
 				break;
 
 			case 'coupon_category':
@@ -258,33 +258,33 @@ class WPCD_Admin_Columns extends WP_List_Table {
 			case 'coupon_shortcode':
 				$coupon_type = get_post_meta( $post_id, 'coupon_details_coupon-type', true );
 				if ( $coupon_type === 'Image' ) {
-					$shortcode = "[wpcd_coupon id=" . $post_id . "]";
+					$shortcode = "[wpcd_coupon id=" . absint( $post_id ) . "]";
 					echo $shortcode;
 				} else {
 					$shortcode      = "[wpcd_coupon id=" . $post_id . "]";
 					$code_shortcode = "[wpcd_code id=" . $post_id . "]";
-					echo $shortcode . ' <br><br> ' . $code_shortcode;
+					echo wp_kses( $shortcode . ' <br><br> ' . $code_shortcode, array('br' => array()) );
 				}
 				break;
 
 			case 'coupon_details_coupon-code':
 				$coupon_code = get_post_meta( $post_id, 'coupon_details_coupon-code-text', true );
-				echo $coupon_code;
+				echo esc_html( $coupon_code);
 				break;
 
 			case 'coupon_details_description':
 				$description = get_post_meta( $post_id, 'coupon_details_description', true );
-				echo $description;
+				echo esc_html( $description );
 				break;
 
 			case 'coupon_details_link':
 				$link = get_post_meta( $post_id, 'coupon_details_link', true );
-				echo $link;
+				echo esc_url( $link );
 				break;
 
 			case 'coupon_type':
 				$coupon_type = get_post_meta( $post_id, 'coupon_details_coupon-type', true );
-				echo $coupon_type;
+				echo esc_html( $coupon_type );
 				break;
 
 			case 'coupon_expire':

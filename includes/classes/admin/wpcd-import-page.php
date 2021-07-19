@@ -83,7 +83,7 @@ class WPCD_Import_Page {
 
 		$output = ob_get_clean();
 
-		echo esc_html( $output );
+		echo $output; //already sanitized in incldues/templates/extras/import-page.php
 	}
 
 }

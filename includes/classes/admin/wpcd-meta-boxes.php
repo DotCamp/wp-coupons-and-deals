@@ -298,7 +298,17 @@ class WPCD_Meta_Boxes {
 						( empty( $wpcd_field['placeholder'] ) ? '' : $wpcd_field['placeholder'] )
 					);
 			}
-			$output .= $this->row_format( $type, $label, $input, $tr_class );
+			$output .= $this->row_format( esc_attr( $type ),
+								wp_kses( $label , array('label' => array( 'for' => array() ),
+														'span' => array( 'class' => array(), 'wpcd-data-tooltip' => array() ) ) ),
+								wp_kses( $input, array('select' => array( 'id' => array(), 'name' => array() ),
+														'option' => array( 'selected' => array(), 'value' => array() ),
+														'input' => array( 'class' => array(), 'type' => array(), 'name' => array(), 'id' => array(), 'value' => array(), 'placeholder' => array()),
+														'div' => array( 'id' => array(), 'class' => array()),
+														'link' => array( 'rel' => array(), 'id' => array(), 'href' => array(), 'media' => array() ),
+														'textarea' => array( 'class' => array(), 'style' => array(), 'autocomplete' => array(), 'cols' => array(), 'id' => array(), 'name' => array() )
+															) ),
+								esc_attr( $tr_class ) );
 		}
 		echo '<table class="form-table"><tbody>' . $output . $help . '</tbody></table>';
 		echo "<script>

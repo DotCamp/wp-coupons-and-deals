@@ -460,9 +460,9 @@ class WPCD_Settings_Page {
 
 		//If it's not link
 		if ( ! array_key_exists( 'href', $this->settings['tabs'][ $section['id'] ] ) ) {
-			echo "<button type='button' class='nav-tab $active'>" . $this->settings['tabs'][ $section['id'] ]['title'] . "</button>";
+			echo "<button type='button' class='nav-tab $active'>" . esc_html( $this->settings['tabs'][ $section['id'] ]['title'] ) . "</button>";
 		} else {
-			echo "<a target='_blank' href='" . $this->settings['tabs'][ $section['id'] ]['href'] . "'  class='nav-tab'>" . $this->settings['tabs'][ $section['id'] ]['title'] . "</a>";
+			echo "<a target='_blank' href='" . esc_url( $this->settings['tabs'][ $section['id'] ]['href'] ) . "'  class='nav-tab'>" . esc_html( $this->settings['tabs'][ $section['id'] ]['title'] ) . "</a>";
 		}
 
 		//after last tab
@@ -498,17 +498,17 @@ class WPCD_Settings_Page {
 			case 'text':
 			case 'password':
 			case 'number':
-				$output .= '<input id="' . esc_attr( $field['id'] ) . '" type="' . $field['type'] . '" name="' . esc_attr( $option_name ) . '" placeholder="' . esc_attr( $field['placeholder'] ) . '" value="' . $data . '"/>' . "\n";
+				$output .= '<input id="' . esc_attr( $field['id'] ) . '" type="' . esc_attr( $field['type'] ) . '" name="' . esc_attr( $option_name ) . '" placeholder="' . esc_attr( $field['placeholder'] ) . '" value="' . esc_attr( $data ) . '"/>' . "\n";
 				break;
 
 			case 'hidden':
-				$output .= '<input class="color-picker" id="' . esc_attr( $field['id'] ) . '" type="' . $field['type'] . '" name="' . esc_attr( $option_name ) . '" value="' . $data . '"/>' . "\n";
+				$output .= '<input class="color-picker" id="' . esc_attr( $field['id'] ) . '" type="' . esc_attr( $field['type'] ) . '" name="' . esc_attr( $option_name ) . '" value="' . esc_attr( $data ) . '"/>' . "\n";
 				break;
 
 			case 'colorpicker':
 				$output .= '<div id="' . esc_attr( $field['id'] ) . '" class="wpcd_colorSelectors">
-                    <div data-color="' . $data . '" style="background-color:' . $data . ';"></div>
-                    <input id="wpcd_color" name="' . esc_attr( $option_name ) . '" type="text" value="' . $data . '"/>
+                    <div data-color="' . sanitize_hex_color( $data ) . '" style="background-color:' . sanitize_hex_color( $data ) . ';"></div>
+                    <input id="wpcd_color" name="' . esc_attr( $option_name ) . '" type="text" value="' . sanitize_hex_color( $data ) . '"/>
                     </div>';
 				break;
 
@@ -517,7 +517,7 @@ class WPCD_Settings_Page {
 				break;
 
 			case 'textarea':
-				$output .= '<textarea id="' . esc_attr( $field['id'] ) . '" rows="5" cols="50" name="' . esc_attr( $option_name ) . '" placeholder="' . esc_attr( $field['placeholder'] ) . '">' . $data . '</textarea><br/>' . "\n";
+				$output .= '<textarea id="' . esc_attr( $field['id'] ) . '" rows="5" cols="50" name="' . esc_attr( $option_name ) . '" placeholder="' . esc_attr( $field['placeholder'] ) . '">' . esc_html( $data ) . '</textarea><br/>' . "\n";
 				break;
 
 			case 'checkbox':
@@ -525,7 +525,7 @@ class WPCD_Settings_Page {
 				if ( $option && 'on' == $option ) {
 					$checked = 'checked="checked"';
 				}
-				$output .= '<input id="' . esc_attr( $field['id'] ) . '" type="' . $field['type'] . '" name="' . esc_attr( $option_name ) . '" ' . $checked . '/>' . "\n";
+				$output .= '<input id="' . esc_attr( $field['id'] ) . '" type="' . esc_attr( $field['type'] ) . '" name="' . esc_attr( $option_name . '" ' . $checked ) . '/>' . "\n";
 				break;
 
 			case 'checkbox_multi':
@@ -534,7 +534,7 @@ class WPCD_Settings_Page {
 					if ( in_array( $k, $data ) ) {
 						$checked = true;
 					}
-					$output .= '<label for="' . esc_attr( $field['id'] . '_' . $k ) . '"><input type="checkbox" ' . checked( $checked, true, false ) . ' name="' . esc_attr( $option_name ) . '[]" value="' . esc_attr( $k ) . '" id="' . esc_attr( $field['id'] . '_' . $k ) . '" /> ' . $v . '</label> ';
+					$output .= '<label for="' . esc_attr( $field['id'] . '_' . $k ) . '"><input type="checkbox" ' . checked( $checked, true, false ) . ' name="' . esc_attr( $option_name ) . '[]" value="' . esc_attr( $k ) . '" id="' . esc_attr( $field['id'] . '_' . $k ) . '" /> ' . esc_html( $v ) . '</label> ';
 				}
 				break;
 
@@ -544,7 +544,7 @@ class WPCD_Settings_Page {
 					if ( $k == $data ) {
 						$checked = true;
 					}
-					$output .= '<label for="' . esc_attr( $field['id'] . '_' . $k ) . '"><input type="radio" ' . checked( $checked, true, false ) . ' name="' . esc_attr( $option_name ) . '" value="' . esc_attr( $k ) . '" id="' . esc_attr( $field['id'] . '_' . $k ) . '" /> ' . $v . '</label> ';
+					$output .= '<label for="' . esc_attr( $field['id'] . '_' . $k ) . '"><input type="radio" ' . checked( $checked, true, false ) . ' name="' . esc_attr( $option_name ) . '" value="' . esc_attr( $k ) . '" id="' . esc_attr( $field['id'] . '_' . $k ) . '" /> ' . esc_html( $v ) . '</label> ';
 				}
 				break;
 
@@ -555,7 +555,7 @@ class WPCD_Settings_Page {
 					if ( $k == $data ) {
 						$selected = true;
 					}
-					$output .= '<option ' . selected( $selected, true, false ) . ' value="' . esc_attr( $k ) . '">' . $v . '</option>';
+					$output .= '<option ' . selected( $selected, true, false ) . ' value="' . esc_attr( $k ) . '">' . esc_html( $v ) . '</option>';
 				}
 				$output .= '</select> ';
 				break;
@@ -567,7 +567,7 @@ class WPCD_Settings_Page {
 					if ( in_array( $k, $data ) ) {
 						$selected = true;
 					}
-					$output .= '<option ' . selected( $selected, true, false ) . ' value="' . esc_attr( $k ) . '" />' . $v . '</label> ';
+					$output .= '<option ' . selected( $selected, true, false ) . ' value="' . esc_attr( $k ) . '" />' . esc_html( $v ) . '</label> ';
 				}
 				$output .= '</select> ';
 				break;
@@ -578,11 +578,11 @@ class WPCD_Settings_Page {
 			case 'checkbox_multi':
 			case 'radio':
 			case 'select_multi':
-				$output .= '<br/><span class="description">' . $field['description'] . '</span>';
+				$output .= '<br/><span class="description">' . esc_html( $field['description'] ) . '</span>';
 				break;
 
 			default:
-				$output .= '<label for="' . esc_attr( $field['id'] ) . '"><span class="description">' . $field['description'] . '</span></label>' . "\n";
+				$output .= '<label for="' . esc_attr( $field['id'] ) . '"><span class="description">' . esc_html( $field['description'] ) . '</span></label>' . "\n";
 				break;
 		}
 
