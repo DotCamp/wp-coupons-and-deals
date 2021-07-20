@@ -100,7 +100,7 @@ class WPCD_Meta_Boxes_Pro {
 			}
 			$type     = $wpcd_field['type'];
 			$label    = '<label for="' . $wpcd_field['id'] . '">' . $wpcd_field['label'] . '</label>
-            <span wpcd-data-tooltip="'.$wpcd_field['help'].'">
+            <span wpcd-data-tooltip="' . $wpcd_field['help'] . '">
             <span  class="dashicons dashicons-editor-help" ></span></span>';
             $wpcd_coupon_meta_key = 'coupon_details_' . $wpcd_field['id'];
             if( $wpcd_field['id'] == 'wpcd_description' ) $wpcd_coupon_meta_key = 'coupon_details_description';
@@ -396,7 +396,7 @@ class WPCD_Meta_Boxes_Pro {
                 
                 $wpcd_coupon_meta_key = 'coupon_details_' . $wpcd_field['id'];
                 if( $wpcd_field['id'] == 'wpcd_description' ) $wpcd_coupon_meta_key = 'coupon_details_description';
-				update_post_meta( $post_id, $wpcd_coupon_meta_key, sanitize_text_field( $_POST[ $wpcd_field['id'] ]) );
+				update_post_meta( $post_id, $wpcd_coupon_meta_key, wp_kses_post( $_POST[ $wpcd_field['id'] ] ) );
 			} else if ( $wpcd_field['type'] === 'checkbox' ||  
                                     strpos($wpcd_field['type'],'checkbox')) {
 				update_post_meta( $post_id, 'coupon_details_' . $wpcd_field['id'], '0' );
