@@ -6,11 +6,9 @@ $coupon_vote = get_option( 'wpcd_coupon-vote-system' );
 if ( $coupon_vote == "on" ){
     $up_votes = array_filter( explode( ",", get_post_meta( $coupon_id, "_up", true ) ) );
     $down_votes = array_filter( explode( ",", get_post_meta( $coupon_id, "_down", true ) ) );
-    $all_votes = array_merge( $up_votes,$down_votes );
-    if( !empty( $all_votes ) )
-        $percentage = ceil( count( $up_votes ) / count( $all_votes ) * 100 );
-    else
-        $percentage = 100;
+    $all_votes = array_merge( $up_votes, $down_votes );
+
+    $percentage = !empty( $all_votes ) ? ceil( count( $up_votes ) / count( $all_votes ) * 100 ) : 100;
     ?>
     <div class="wpcd-vote-wrapper">
         <a class="wpcd-vote-up" href="#" data-id = "<?php echo absint( $coupon_id ); ?>"><span class="wpcd-tooltip"><?php echo __( 'It works.', 'wpcd-coupon' ); ?></span><div class="wpcd-thumbs-up"><img class="wpcd-svg" src="<?php echo esc_url( WPCD_Plugin::instance()->plugin_assets . 'svg/thumbs-up.svg' ); ?>"/></div></a>

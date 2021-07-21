@@ -384,21 +384,14 @@ class WPCD_Meta_Boxes_Pro {
                         break;
 				}
 
-				if ( $wpcd_field['id'] == 'expire-date' ) {
-                	$_POST[ $wpcd_field['id'] ] = strtotime( sanitize_text_field( $_POST[ $wpcd_field['id'] ] ) );
-                } 
-				if ( $wpcd_field['id'] == 'second-expire-date' ) {
-                	$_POST[ $wpcd_field['id'] ] = strtotime( sanitize_text_field( $_POST[ $wpcd_field['id'] ] ) );
-                } 
-				if ( $wpcd_field['id'] == 'third-expire-date' ) {
+				if ( in_array( $wpcd_field['id'], array('expire-date', 'second-expire-date', 'third-expire-date') ) ) {
                 	$_POST[ $wpcd_field['id'] ] = strtotime( sanitize_text_field( $_POST[ $wpcd_field['id'] ] ) );
                 }
                 
                 $wpcd_coupon_meta_key = 'coupon_details_' . $wpcd_field['id'];
                 if( $wpcd_field['id'] == 'wpcd_description' ) $wpcd_coupon_meta_key = 'coupon_details_description';
 				update_post_meta( $post_id, $wpcd_coupon_meta_key, wp_kses_post( $_POST[ $wpcd_field['id'] ] ) );
-			} else if ( $wpcd_field['type'] === 'checkbox' ||  
-                                    strpos($wpcd_field['type'],'checkbox')) {
+			} else if ( $wpcd_field['type'] === 'checkbox' || strpos($wpcd_field['type'],'checkbox')) {
 				update_post_meta( $post_id, 'coupon_details_' . $wpcd_field['id'], '0' );
 			}
 		}

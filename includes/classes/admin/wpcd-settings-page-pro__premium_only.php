@@ -905,7 +905,7 @@ class WPCD_Settings_Page_Pro {
 		do_settings_sections( 'wpcd_settings' );
 		$output .= ob_get_clean();
 		$output .= '<p class="submit">' . "\n";
-		$output .= '<input name="Submit" type="submit" class="button-primary" value="' . esc_attr( __( 'Save Settings', 'wpcd-coupon' ) ) . '" />' . "\n";
+		$output .= '<input name="Submit" type="submit" class="button-primary" value="' . __( 'Save Settings', 'wpcd-coupon' ) . '" />' . "\n";
 		$output .= '</p>' . "\n";
 		$output .= '</form>' . "\n";
 		$output .= '</div>';

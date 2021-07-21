@@ -97,10 +97,8 @@ $deal_hover_text = ( !empty( $deal_hover_text ) ) ? $deal_hover_text : __( 'Clic
 
 if ( $wpcd_text_to_show == 'description' ) {
 	$wpcd_custom_text = $description;
-} else {
-	if ( empty( $wpcd_custom_text ) ) {
-		$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wpcd-coupon' );
-	}
+} else if ( empty( $wpcd_custom_text ) ) {
+	$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wpcd-coupon' );
 }
 
 /*

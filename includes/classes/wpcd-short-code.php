@@ -486,33 +486,12 @@ class WPCD_Short_Code {
         if ( $temp == '' ) { // vertical style.
             $argcss          = 'archive_not_temp';
             $coupon_template = 'shortcode-archive__premium_only';
-        } else {
-            switch ( $temp ) {
-                case 'one':
-                    $argcss          = 'archive_one';
-                    $coupon_template = 'shortcode-archive-one__premium_only';
-                    break;
-                case 'two':
-                    $argcss          = 'archive_two';
-                    $coupon_template = 'shortcode-archive-two__premium_only';
-                    break;
-                case 'three':
-                    $argcss          = 'archive_three';
-                    $coupon_template = 'shortcode-archive-three__premium_only';
-                    break;
-                case 'seven':
-                    $argcss          = 'archive_seven';
-                    $coupon_template = 'shortcode-archive-seven__premium_only';
-                    break;
-                case 'eight':
-                    $argcss          = 'archive_eight';
-                    $coupon_template = 'shortcode-archive-eight__premium_only';
-                    break;
-                default :
-                    $argcss          = 'archive_default';
-                    $coupon_template = 'shortcode-archive-default__premium_only';
-                    break;
-            }
+        } else if ( in_array( $temp, array( 'one', 'two', 'three', 'seven', 'eight' ) ) ) {
+			$argcss          = 'archive_' . $temp;
+			$coupon_template = 'shortcode-archive-' . $temp . '__premium_only';
+		} else {
+			$argcss          = 'archive_default';
+			$coupon_template = 'shortcode-archive-default__premium_only';
         }
 
 		// hide the coupons which is expired
@@ -621,10 +600,10 @@ class WPCD_Short_Code {
 			if ( ! WPCD_Amp::wpcd_amp_is() && ( ! isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_category_action' ) ) {
 				global $post;
 				$wpcd_data_coupon_page_url = get_page_link( $post->ID );
-				$output                    = '<div id="wpcd_coupon_template" wpcd-data-coupon_template="' . $temp . '" ' . $infinity_scroll_in_archive . ' wpcd-data-coupon_items_count="' . $a["count"] . '" '
+				$output                    = '<div id="wpcd_coupon_template" wpcd-data-coupon_template="' . esc_attr( $temp ) . '" ' . $infinity_scroll_in_archive . ' wpcd-data-coupon_items_count="' . absint( $a["count"] ) . '" '
 
-				                             . 'wpcd-data-coupon_sortby="' . $a["sortby"] . '" ' . 'wpcd-data-coupon_exclude_cat="' . $a["exclude"] . '" '
-                                            . 'wpcd-data-coupon_page_url="' . $wpcd_data_coupon_page_url . '" ' . $wpcd_coupon_taxonomy . '="' . $wpcd_data_taxonomy . '"></div>';
+				                             . 'wpcd-data-coupon_sortby="' . esc_attr( $a["sortby"] ) . '" ' . 'wpcd-data-coupon_exclude_cat="' . esc_attr( $a["exclude"] ) . '" '
+                                            . 'wpcd-data-coupon_page_url="' . esc_url( $wpcd_data_coupon_page_url ) . '" ' . $wpcd_coupon_taxonomy . '="' . esc_attr( $wpcd_data_taxonomy ) . '"></div>';
 			}
 
 			// check enable statistics

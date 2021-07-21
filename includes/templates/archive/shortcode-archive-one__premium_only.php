@@ -96,10 +96,8 @@ $dt_deal_type_name 	      = get_option( 'wpcd_dt-deal-type-text' );
 
 if ( $wpcd_text_to_show == 'description' ) {
 	$wpcd_custom_text = $description;
-} else {
-	if ( empty( $wpcd_custom_text ) ) {
-		$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wpcd-coupon' );
-	}
+} else if ( empty( $wpcd_custom_text ) ) {
+	$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wpcd-coupon' );
 }
 global $parent;
 include('header-default__premium_only.php');

@@ -95,10 +95,6 @@ if( ! function_exists( 'infinity_scroll_in_archive' ) ) {
      */
     function infinity_scroll_in_archive() {
         $infinity_scroll_in_archive = get_option( 'wpcd_infinite-scroll-in-archive' );
-        if ( !empty( $infinity_scroll_in_archive ) && $infinity_scroll_in_archive == 'on' ) {
-            return true;
-        } else {
-            return false;
-        }
+        return ( !empty( $infinity_scroll_in_archive ) && $infinity_scroll_in_archive == 'on' );
     }
 }

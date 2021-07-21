@@ -382,13 +382,7 @@ class WPCD_Meta_Boxes {
                         break;
 				}
 
-				if ( $wpcd_field['id'] == 'expire-date' ) {
-                	$_POST[ $wpcd_field['id'] ] = strtotime( sanitize_text_field( $_POST[ $wpcd_field['id'] ] ) );
-                }
-				if ( $wpcd_field['id'] == 'second-expire-date' ) {
-                	$_POST[ $wpcd_field['id'] ] = strtotime( sanitize_text_field( $_POST[ $wpcd_field['id'] ] ) );
-                }
-				if ( $wpcd_field['id'] == 'third-expire-date' ) {
+				if ( in_array( $wpcd_field['id'], array('expire-date', 'second-expire-date', 'third-expire-date') ) ) {
                 	$_POST[ $wpcd_field['id'] ] = strtotime( sanitize_text_field( $_POST[ $wpcd_field['id'] ] ) );
                 }
 

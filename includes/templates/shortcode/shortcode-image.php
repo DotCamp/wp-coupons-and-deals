@@ -28,11 +28,8 @@ $wpcd_image_height     = get_post_meta( $coupon_id, 'coupon_details_coupon-image
 $linkTarget = get_option("wpcd_coupon-link-target");
 $target = ($linkTarget == "on") ? "_self" : "_blank" ;
 
-if ( is_array( $wpcd_coupon_image_src ) ) {
-	$wpcd_coupon_image_src = $wpcd_coupon_image_src[0];
-} else {
-	$wpcd_coupon_image_src = '';
-}
+$wpcd_coupon_image_src = is_array( $wpcd_coupon_image_src ) ? $wpcd_coupon_image_src[0] : '';
+
 ?>
 
 <div class="wpcd-coupon-image-wrapper">
