@@ -201,7 +201,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 		<div class="wpcd-extra-content">
 			<div class="wpcd-col-3-4">
 				<div class="wpcd-coupon-description">
-					<?php echo esc_html( $description ); ?>
+					<?php echo wp_kses_post( $description ); ?>
 				</div>
 			</div>
 			<div class="wpcd-col-1-4">
@@ -236,7 +236,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 		</h4>
 		<div id="clear"></div>
 		<div class="wpcd-coupon-description">
-			<?php echo esc_html( $description ); ?>
+			<?php echo wp_kses_post( $description ); ?>
 		</div>
 	</div>
 	<div class="wpcd-col-one-1-4">
@@ -421,7 +421,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 		</div>
 		<div id="clear"></div>
 		<div class="wpcd-coupon-description">
-			<?php echo esc_html( $description ); ?>
+			<?php echo wp_kses_post( $description ); ?>
 		</div>
 	</div>
 </div><!-- End of Template Two Preview -->
@@ -433,7 +433,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 			<?php echo esc_html( $title ); ?>
 		</h4>
 		<div class="wpcd-coupon-description">
-			<?php echo esc_html( $description ); ?>
+			<?php echo wp_kses_post( $description ); ?>
 		</div>
 	</div>
 	<div class="wpcd-coupon-three-info">
@@ -510,7 +510,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 			<?php echo esc_html( $title ); ?>
 		</h4>
 		<div class="wpcd-coupon-description">
-			<?php echo esc_html( $description ); ?>
+			<?php echo wp_kses_post( $description ); ?>
 		</div>
 	</div>
 
@@ -740,7 +740,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 				<h2 class="wpcd-coupon-five-title">
 					<?php echo esc_html( $title ); ?></h2>
 				<div class="wpcd-coupon-description">
-					<?php echo esc_html( $description ); ?>
+					<?php echo wp_kses_post( $description ); ?>
 				</div>
 			</div>
 		</div>
@@ -840,7 +840,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 					<?php echo esc_html( $title ); ?>
 				</h2>
 				<div class="wpcd-coupon-description">
-					<?php echo esc_html( $description ); ?>
+					<?php echo wp_kses_post( $description ); ?>
 				</div>
 			</div>
 			<div class="exp" style="border-color: <?php echo sanitize_hex_color( $wpcd_template_six_theme ); ?>">
@@ -980,7 +980,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
                         <?php echo esc_html( $title ); ?>
                     </h2>
 					<p>
-						<?php echo '<div class="wpcd-coupon-description">' . esc_html( $description ) . '</div>';?>
+						<?php echo '<div class="wpcd-coupon-description">' . wp_kses_post( $description ) . '</div>';?>
 					</p>
 				</div>
 			</div>
@@ -1145,7 +1145,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 		}
 	   ?>
 		<div class="wpcd-coupon-description">
-			<?php echo esc_html( $description ); ?>
+			<?php echo wp_kses_post( $description ); ?>
 		</div>
 	</div> <!-- End of grid-two -->
 	<div class="admin-wpcd-new-grid-three">

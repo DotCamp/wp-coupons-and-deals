@@ -109,7 +109,7 @@ if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
 				<?php } 
 			?>
                 <div class="wpcd-coupon-description">
-                    <span class="wpcd-full-description"><?php echo esc_html( $description ); ?></span>
+                    <span class="wpcd-full-description"><?php echo wp_kses_post( $description ); ?></span>
                     <span class="wpcd-short-description"></span>
                     <?php if( !WPCD_Amp::wpcd_amp_is() ): ?>
                         <a href="#" class="wpcd-more-description"><?php echo __( 'More', 'wpcd-coupon' ); ?></a>

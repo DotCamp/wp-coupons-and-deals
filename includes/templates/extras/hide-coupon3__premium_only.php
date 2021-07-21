@@ -144,7 +144,7 @@ if ( isset( $_POST[$wpcd_term_field_name] ) && ! empty( $_POST[$wpcd_term_field_
             </div>
             <div class="wpcd_coupon_popup_copy_main">
                 <div class="wpcd_coupon_popup_copy_text">
-                    <p><?php echo esc_html( $wpcd_custom_text ); ?></p>
+                    <p><?php echo wp_kses_post( $wpcd_custom_text ); ?></p>
                 </div>
                 <div class="wpcd_coupon_popup_copy_code_wr">
                     <span class="wpcd_coupon_popup_copy_code_span"><?php echo esc_html( $coupon_code ); ?></span>

@@ -92,7 +92,7 @@ $expire_date_format = date( "m/d/Y", strtotime( $expire_date ) );
 				<?php } 
 			?>
                 <div class="wpcd-coupon-description">
-                    <span class="wpcd-full-description"><?php echo esc_html( $description ); ?></span>
+                    <span class="wpcd-full-description"><?php echo wp_kses_post( $description ); ?></span>
                     <span class="wpcd-short-description"></span>
                     <a href="#" class="wpcd-more-description"><?php echo __( 'More', 'wpcd-coupon' ); ?></a>
                     <a href="#" class="wpcd-less-description"><?php echo __( 'Less', 'wpcd-coupon' ); ?></a>
