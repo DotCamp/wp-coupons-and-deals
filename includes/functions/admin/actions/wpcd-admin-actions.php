@@ -60,10 +60,10 @@ function wpcd_import_process_php() {
 			$post_id = wp_insert_post( $args );
 			if ( ! is_wp_error( $post_id ) ) {
                 if ( ! empty( $wpcd_coupon_data->expiry_date ) ) {
-                    $expyry_data = wpcd_datetotime( sanitize_text_field( $wpcd_coupon_data->expiry_date ) ) ?
+                    $expiry_date = wpcd_datetotime( sanitize_text_field( $wpcd_coupon_data->expiry_date ) ) ?
                                     wpcd_datetotime( sanitize_text_field( $wpcd_coupon_data->expiry_date ) ) : "";
                 }
-                if ( empty( $expyry_data ) ) $expyry_data = "";
+                if ( empty( $expiry_date ) ) $expiry_date = "";
                 if ( ! empty( $wpcd_coupon_data->expiry_time ) ) {
                     $expiry_time = strtotime( sanitize_text_field( $wpcd_coupon_data->expiry_time ) );
                     if ( ! empty( $expiry_time ) ) {
@@ -71,27 +71,31 @@ function wpcd_import_process_php() {
                     }
                 }
                 if ( empty( $expiry_time ) ) $expiry_time = "";
+
+				$hide_coupon = sanitize_text_field( $wpcd_coupon_data->hide_coupon );
+				$coupon_template = sanitize_text_field( $wpcd_coupon_data->default_coupon_template );
+
 				add_post_meta( $post_id, 'coupon_details_coupon-type', 'Coupon', true );
-				add_post_meta( $post_id, 'coupon_details_coupon-code-text', $wpcd_coupon_data->coupon_code, true );
-				add_post_meta( $post_id, 'coupon_details_link', $wpcd_coupon_data->link, true );
-				add_post_meta( $post_id, 'coupon_details_description', $wpcd_coupon_data->wpcd_description, true );
-				add_post_meta( $post_id, 'coupon_details_discount-text', $wpcd_coupon_data->discount_text, true );
+				add_post_meta( $post_id, 'coupon_details_coupon-code-text', sanitize_text_field( $wpcd_coupon_data->coupon_code ), true );
+				add_post_meta( $post_id, 'coupon_details_link', esc_url_raw( $wpcd_coupon_data->link ), true );
+				add_post_meta( $post_id, 'coupon_details_description', wp_kses_post( $wpcd_coupon_data->wpcd_description ), true );
+				add_post_meta( $post_id, 'coupon_details_discount-text', sanitize_text_field( $wpcd_coupon_data->discount_text ), true );
 				add_post_meta( $post_id, 'coupon_details_show-expiration', 'Show', true );
-				add_post_meta( $post_id, 'coupon_details_expire-date', $expyry_data, true );
-				add_post_meta( $post_id, 'coupon_details_expire-time', $expiry_time, true );
-				add_post_meta( $post_id, 'coupon_details_hide-coupon', $wpcd_coupon_data->hide_coupon, true );
-				add_post_meta( $post_id, 'coupon_details_coupon-template', $wpcd_coupon_data->default_coupon_template, true );
+				add_post_meta( $post_id, 'coupon_details_expire-date', $expiry_date, true ); //already sanitized
+				add_post_meta( $post_id, 'coupon_details_expire-time', $expiry_time, true ); //already sanitized
+				add_post_meta( $post_id, 'coupon_details_hide-coupon', $hide_coupon === 'Yes' ? $hide_coupon : 'No', true );
+				add_post_meta( $post_id, 'coupon_details_coupon-template', in_array( $coupon_template, $wpcd_coupon_templates) ? $coupon_template : 'Default' , true );
 
 				// Theme Color for only template Five and Six
 				$theme_color = $wpcd_coupon_data->theme_color;
 				if ( $wpcd_coupon_data->default_coupon_template == 'Template Five' ):
-					add_post_meta( $post_id, 'coupon_details_template-five-theme', $theme_color );
+					add_post_meta( $post_id, 'coupon_details_template-five-theme', sanitize_hex_color( $theme_color ) );
 				elseif( $wpcd_coupon_data->default_coupon_template == 'Template Six'):
-					add_post_meta( $post_id, 'coupon_details_template-six-theme', $theme_color );
+					add_post_meta( $post_id, 'coupon_details_template-six-theme', sanitize_hex_color( $theme_color ) );
 				elseif( $wpcd_coupon_data->default_coupon_template == 'Template Seven'):
-					add_post_meta( $post_id, 'coupon_details_template-seven-theme', $theme_color );
+					add_post_meta( $post_id, 'coupon_details_template-seven-theme', sanitize_hex_color( $theme_color ) );
 				elseif( $wpcd_coupon_data->default_coupon_template == 'Template Eight'):
-					add_post_meta( $post_id, 'coupon_details_template-eight-theme', $theme_color );
+					add_post_meta( $post_id, 'coupon_details_template-eight-theme', sanitize_hex_color( $theme_color ) );
 				endif;
 				if ( $wpcd_coupon_data->category != '' && $wpcd_coupon_data->category != ' ' ) {
 					wp_set_object_terms( $post_id, $wpcd_coupon_data->category, 'wpcd_coupon_category' );
