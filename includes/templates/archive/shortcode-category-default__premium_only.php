@@ -156,9 +156,9 @@ if( $coupon_type !== 'Image' && function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Am
                             <div class="wpcd-coupon-five-expire expire-text-block1 <?php echo strtotime( $expire_date ) >= strtotime( $today ) ? '' : 'hidden'; ?>">
                                 <p class="wpcd-coupon-five-expire-text"><?php
 									if ( ! empty( $expire_text ) ) {
-										echo esc_html( $expire_text ) . ' ' . '<span class="expiration-date">' . ( strtotime( $expire_date ) ? $expire_date : '' ) . '</span>';;
+										echo esc_html( $expire_text ) . ' ' . '<span class="expiration-date">' . $expire_date . '</span>';
 									} else {
-										echo __( 'Expires on: ', 'wpcd-coupon' ) . '<span class="expiration-date">' . ( strtotime( $expire_date ) ? $expire_date : '' ) . '</span>';
+										echo __( 'Expires on: ', 'wpcd-coupon' ) . '<span class="expiration-date">' . $expire_date . '</span>';
 									}
 									?></p>
                             </div>
@@ -166,9 +166,9 @@ if( $coupon_type !== 'Image' && function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Am
                                 <p class="wpcd-coupon-five-expired">
 									<?php
 									if ( ! empty( $expired_text ) ) {
-										echo esc_html( $expired_text ) . ' ' . '<span class="expiration-date">' . ( strtotime( $expire_date ) ? $expire_date : '' ) . '</span>';;
+										echo esc_html( $expired_text ) . ' ' . '<span class="expiration-date">' . $expire_date . '</span>';;
 									} else {
-										echo __( 'Expired on: ', 'wpcd-coupon' ) . '<span class="expiration-date">' . ( strtotime( $expire_date ) ? $expire_date : '' ) . '</span>';
+										echo __( 'Expired on: ', 'wpcd-coupon' ) . '<span class="expiration-date">' . $expire_date . '</span>';
 									}
 									?>
                                 </p>
@@ -345,9 +345,9 @@ if( $coupon_type !== 'Image' && function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Am
                                     <span class="wpcd-coupon-expire">
                                         <?php
                                         if ( ! empty( $expire_text ) ) {
-                                            echo esc_html( $expire_text ) . ' ' . strtotime( $expire_date ) ? $expire_date : '';
+                                            echo esc_html( $expire_text ) . ' ' . $expire_date;
                                         } else {
-                                            echo __( 'Expires on: ', 'wpcd-coupon' ) . strtotime( $expire_date ) ? $expire_date : '';
+                                            echo __( 'Expires on: ', 'wpcd-coupon' ) . $expire_date;
                                         }
                                         ?>
                                     </span>
@@ -355,9 +355,9 @@ if( $coupon_type !== 'Image' && function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Am
                                     <span class="wpcd-coupon-expired">
                                         <?php
                                         if ( ! empty( $expired_text ) ) {
-                                            echo esc_html( $expired_text ) . ' ' . strtotime( $expire_date ) ? $expire_date : '';
+                                            echo esc_html( $expired_text ) . ' ' . $expire_date;
                                         } else {
-                                            echo __( 'Expired on: ', 'wpcd-coupon' ) . strtotime( $expire_date ) ? $expire_date : '';
+                                            echo __( 'Expired on: ', 'wpcd-coupon' ) . $expire_date;
                                         }
                                         ?>
                                     </span>
@@ -576,9 +576,9 @@ if( $coupon_type !== 'Image' && function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Am
                                         <div class="wpcd-coupon-expire">
 											<?php
 											if ( ! empty( $expire_text ) ) {
-												echo esc_html( $expire_text ) . ' ' . strtotime( $expire_date ) ? $expire_date : '';
+												echo esc_html( $expire_text ) . ' ' . $expire_date;
 											} else {
-												echo __( 'Expires on: ', 'wpcd-coupon' ) . strtotime( $expire_date ) ? $expire_date : '';
+												echo __( 'Expires on: ', 'wpcd-coupon' ) . $expire_date;
 											}
 											?>
                                         </div>
@@ -586,9 +586,9 @@ if( $coupon_type !== 'Image' && function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Am
                                         <div class="wpcd-coupon-expired">
 											<?php
 											if ( ! empty( $expired_text ) ) {
-												echo esc_html( $expired_text ) . ' ' . strtotime( $expire_date ) ? $expire_date : '';
+												echo esc_html( $expired_text ) . ' ' . $expire_date;
 											} else {
-												echo __( 'Expired on: ', 'wpcd-coupon' ) . strtotime( $expire_date ) ? $expire_date : '';
+												echo __( 'Expired on: ', 'wpcd-coupon' ) . $expire_date;
 											}
 											?>
                                         </div>
@@ -615,9 +615,9 @@ if( $coupon_type !== 'Image' && function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Am
                                         <div class="wpcd-coupon-expire">
 											<?php
 											if ( ! empty( $expire_text ) ) {
-												echo esc_html( $expire_text ) . ' ' . strtotime( $expire_date ) ? $expire_date : '';
+												echo esc_html( $expire_text ) . ' ' . $expire_date;
 											} else {
-												echo __( 'Expires on: ', 'wpcd-coupon' ) . strtotime( $expire_date ) ? $expire_date : '';
+												echo __( 'Expires on: ', 'wpcd-coupon' ) . $expire_date;
 											}
 											?>
                                         </div>
@@ -625,9 +625,9 @@ if( $coupon_type !== 'Image' && function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Am
                                         <div class="wpcd-coupon-expired">
 											<?php
 											if ( ! empty( $expired_text ) ) {
-												echo esc_html( $expired_text ) . ' ' . strtotime( $expire_date ) ? $expire_date : '';
+												echo esc_html( $expired_text ) . ' ' . $expire_date;
 											} else {
-												echo __( 'Expired on: ', 'wpcd-coupon' ) . strtotime( $expire_date ) ? $expire_date : '';
+												echo __( 'Expired on: ', 'wpcd-coupon' ) . $expire_date;
 											}
 											?>
                                         </div>

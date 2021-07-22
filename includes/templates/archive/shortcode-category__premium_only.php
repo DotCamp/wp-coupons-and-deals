@@ -224,17 +224,17 @@ if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
                             <?php if ( strtotime( $expire_date ) >= strtotime( $today ) ) { ?>
 
                                 <?php if ( ! empty( $expire_text ) ) { ?>
-                                    <p class="wpcd-coupon-loop-expire"><?php echo esc_html( $expire_text ) . strtotime( $expire_date ) ? $expire_date : ''; ?></p>
+                                    <p class="wpcd-coupon-loop-expire"><?php echo esc_html( $expire_text ) . $expire_date; ?></p>
                                 <?php } else { ?>
-                                    <p class="wpcd-coupon-loop-expire"><?php echo __( 'Expires on: ', 'wpcd-coupon' ) . strtotime( $expire_date ) ? $expire_date : ''; ?></p>
+                                    <p class="wpcd-coupon-loop-expire"><?php echo __( 'Expires on: ', 'wpcd-coupon' ) . $expire_date; ?></p>
                                 <?php } ?>
 
                             <?php } elseif ( strtotime( $expire_date ) < strtotime( $today ) ) { ?>
 
                                 <?php if ( ! empty( $expired_text ) ) { ?>
-                                    <p class="wpcd-coupon-loop-expired"><?php echo esc_html( $expired_text ) . strtotime( $expire_date ) ? $expire_date : ''; ?></p>
+                                    <p class="wpcd-coupon-loop-expired"><?php echo esc_html( $expired_text ) . $expire_date; ?></p>
                                 <?php } else { ?>
-                                    <p class="wpcd-coupon-loop-expired"><?php echo __( 'Expired on: ', 'wpcd-coupon' ) . strtotime( $expire_date ) ? $expire_date : ''; ?></p>
+                                    <p class="wpcd-coupon-loop-expired"><?php echo __( 'Expired on: ', 'wpcd-coupon' ) . $expire_date; ?></p>
                                 <?php } ?>
 
                             <?php } ?>

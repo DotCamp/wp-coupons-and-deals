@@ -169,9 +169,9 @@ if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
                                 <div class="wpcd-coupon-expire">
 									<?php
 									if ( ! empty( $expire_text ) ) {
-										echo esc_html( $expire_text ) . ' ' . strtotime( $expire_date ) ? $expire_date : '';
+										echo esc_html( $expire_text ) . ' ' . $expire_date;
 									} else {
-										echo __( 'Expires on: ', 'wpcd-coupon' ) . strtotime( $expire_date ) ? $expire_date : '';
+										echo __( 'Expires on: ', 'wpcd-coupon' ) . $expire_date;
 									}
 									?>
                                 </div>
@@ -179,9 +179,9 @@ if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
                                 <div class="wpcd-coupon-expired">
 									<?php
 									if ( ! empty( $expired_text ) ) {
-										echo esc_html( $expired_text ) . ' ' . strtotime( $expire_date ) ? $expire_date : '';
+										echo esc_html( $expired_text ) . ' ' . $expire_date;
 									} else {
-										echo __( 'Expired on: ', 'wpcd-coupon' ) . strtotime( $expire_date ) ? $expire_date : '';
+										echo __( 'Expired on: ', 'wpcd-coupon' ) . $expire_date;
 									}
 									?>
                                 </div>
@@ -210,9 +210,9 @@ if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
                                 <div class="wpcd-coupon-expire">
 									<?php
 									if ( ! empty( $expire_text ) ) {
-										echo esc_html( $expire_text ) . ' ' . strtotime( $expire_date ) ? $expire_date : '';
+										echo esc_html( $expire_text ) . ' ' . $expire_date;
 									} else {
-										echo __( 'Expires on: ', 'wpcd-coupon' ) . strtotime( $expire_date ) ? $expire_date : '';
+										echo __( 'Expires on: ', 'wpcd-coupon' ) . $expire_date;
 									}
 									?>
                                 </div>
@@ -220,9 +220,9 @@ if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
                                 <div class="wpcd-coupon-expired">
 									<?php
 									if ( ! empty( $expired_text ) ) {
-										echo esc_html( $expired_text ) . ' ' . strtotime( $expire_date ) ? $expire_date : '';
+										echo esc_html( $expired_text ) . ' ' . $expire_date;
 									} else {
-										echo __( 'Expired on: ', 'wpcd-coupon' ) . strtotime( $expire_date ) ? $expire_date : '';
+										echo __( 'Expired on: ', 'wpcd-coupon' ) . $expire_date;
 									}
 									?>
                                 </div>

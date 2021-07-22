@@ -109,11 +109,11 @@ if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
 			if ( ! empty( $expire_date ) ) {
 				if ( strtotime( $expire_date ) >= strtotime( $today ) ) { ?>
 					<p class="wpcd-new-expire-text">
-						<?php echo esc_html( $expire_text ) . ' ' . strtotime( $expire_date ) ? $expire_date : ''; ?>
+						<?php echo esc_html( $expire_text ) . ' ' . $expire_date; ?>
 					</p> <?php
 				} elseif ( strtotime( $expire_date ) < strtotime( $today ) ) { ?>
 					<p class="wpcd-new-expired-text">
-						<?php echo esc_html( $expired_text ) . ' ' . strtotime( $expire_date ) ? $expire_date : ''; ?>
+						<?php echo esc_html( $expired_text ) . ' ' . $expire_date; ?>
 					</p> <?php
 				}
 			} else { ?>

@@ -99,9 +99,9 @@ class WPCD_Meta_Boxes_Pro {
 				$tr_class = $wpcd_field['tr_class'];
 			}
 			$type     = $wpcd_field['type'];
-			$label    = '<label for="' . $wpcd_field['id'] . '">' . $wpcd_field['label'] . '</label>
-            <span wpcd-data-tooltip="' . $wpcd_field['help'] . '">
-            <span  class="dashicons dashicons-editor-help" ></span></span>';
+			$label    = '<label for="' . esc_attr( $wpcd_field['id'] ) . '">' . esc_html( $wpcd_field['label'] ) . '</label>
+						<span wpcd-data-tooltip="' . esc_attr( $wpcd_field['help'] ) . '">
+						<span  class="dashicons dashicons-editor-help" ></span></span>';
             $wpcd_coupon_meta_key = 'coupon_details_' . $wpcd_field['id'];
             if( $wpcd_field['id'] == 'wpcd_description' ) $wpcd_coupon_meta_key = 'coupon_details_description';
 			$db_value = get_post_meta( absint($post->ID), $wpcd_coupon_meta_key, true );
@@ -310,8 +310,7 @@ class WPCD_Meta_Boxes_Pro {
 					);
 			}
 			$output .= $this->row_format( esc_attr( $type ),
-								wp_kses( $label , array('label' => array( 'for' => array() ),
-														'span' => array( 'class' => array(), 'wpcd-data-tooltip' => array() ) ) ),
+								$label,
 								wp_kses( $input, array('select' => array( 'id' => array(), 'name' => array() ),
 														'option' => array( 'selected' => array(), 'value' => array() ),
 														'input' => array( 'class' => array(), 'type' => array(), 'name' => array(), 'id' => array(), 'value' => array(), 'placeholder' => array()),
