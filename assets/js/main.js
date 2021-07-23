@@ -70,9 +70,13 @@ jQuery(document).ready(function ($) {
     const CouponsNavigation = {
         categoriesPaginationSetTimeout: '',
         jsDataTax: 'data-category',
-        action: document.querySelector('#wpcd_coupon_pagination_wr').getAttribute('wpcd-data-action'),
+        action: document.querySelector('#wpcd_coupon_pagination_wr') &&
+            document.querySelector('#wpcd_coupon_pagination_wr').getAttribute('wpcd-data-action') ?
+            document.querySelector('#wpcd_coupon_pagination_wr').getAttribute('wpcd-data-action') : '',
         couponTemplate: $('#wpcd_coupon_template'),
-        infinityScrollInArchive: $('#wpcd_coupon_template').attr('wpcd-data-infinity_scroll_in_archive'),
+        infinityScrollInArchive: document.querySelector('#wpcd_coupon_template') &&
+            document.querySelector('#wpcd_coupon_template').getAttribute('wpcd-data-infinity_scroll_in_archive') ?
+            document.querySelector('#wpcd_coupon_template').getAttribute('wpcd-data-infinity_scroll_in_archive') : '',
         wpcdCatUl: document.querySelector('#wpcd_cat_ul'),
         wpcdDropbtn: document.querySelector('#wpcd_cat_ul .wpcd_dropbtn'),
         searchInputField: $('.wpcd_searchbar_search input'),
@@ -346,6 +350,9 @@ jQuery(document).ready(function ($) {
         },
 
         init: function () {
+            console.log(this.action)
+            console.log(this.infinityScrollInArchive)
+
             // getting wpcdJsDataTax value
             if ($('#wpcd_cat_ul .wpcd_category').attr('data-category')) {
                 this.jsDataTax = 'data-category';
