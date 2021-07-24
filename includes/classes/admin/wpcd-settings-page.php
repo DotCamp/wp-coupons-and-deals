@@ -525,7 +525,7 @@ class WPCD_Settings_Page {
 				if ( $option && 'on' == $option ) {
 					$checked = 'checked="checked"';
 				}
-				$output .= '<input id="' . esc_attr( $field['id'] ) . '" type="' . esc_attr( $field['type'] ) . '" name="' . esc_attr( $option_name . '" ' . $checked ) . '/>' . "\n";
+				$output .= '<input id="' . esc_attr( $field['id'] ) . '" type="' . esc_attr( $field['type'] ) . '" name="' . esc_attr( $option_name ) . '" ' . $checked . '/>' . "\n";
 				break;
 
 			case 'checkbox_multi':
