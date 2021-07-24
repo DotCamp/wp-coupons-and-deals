@@ -778,10 +778,10 @@ class WPCD_Short_Code {
                 $infinity_scroll_in_archive = 'wpcd-data-infinity_scroll_in_archive="1"';
             }
 			$wpcd_data_coupon_page_url = get_page_link( $post->ID );
-			$output                    = '<div id="wpcd_coupon_template" wpcd-data-coupon_template="' . $a['temp'] . '" ' . $infinity_scroll_in_archive . ' '
+			$output                    = '<div id="wpcd_coupon_template" wpcd-data-coupon_template="' . esc_attr( $a['temp'] ) . '" ' . $infinity_scroll_in_archive . ' '
 
-			                             . 'wpcd-data-coupon_items_count="' . $a["count"] . '" wpcd-data-coupon_sortby="' . $a["sortby"] . '" wpcd-data-coupon_page_url="' . $wpcd_data_coupon_page_url . '" '
-			                             . 'wpcd-data_category_coupons="' . $a['cat'] . '" wpcd-data_vendor_coupons="' . $a['vend'] . '" wpcd-data_ven_cat_id="' . $a['id'] . '"></div>';
+			                             . 'wpcd-data-coupon_items_count="' . esc_attr( $a["count"] ) . '" wpcd-data-coupon_sortby="' . esc_attr( $a["sortby"] ) . '" wpcd-data-coupon_page_url="' . esc_url( $wpcd_data_coupon_page_url ) . '" '
+			                             . 'wpcd-data_category_coupons="' . esc_attr( $a['cat'] ) . '" wpcd-data_vendor_coupons="' . esc_attr( $a['vend'] ) . '" wpcd-data_ven_cat_id="' . esc_attr( $a['id'] ) . '"></div>';
 		}
 
 		if ( $a['cat'] || $a['vend'] ) {

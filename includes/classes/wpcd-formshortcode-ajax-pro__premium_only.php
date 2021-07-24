@@ -93,7 +93,7 @@ class WPCD_Formshortcode_Ajax_Pro extends WPCD_Ajax_Base {
 				$key  = $field['id'];
 				$rule = 'sanitize_text_field';
 				if ( strpos( $key, 'link' ) !== false ) {
-					$rule = 'esc_url';
+					$rule = 'esc_url_raw';
 				}
 				if ( $key === 'wpcd_description' ) {
 					$rule = 'wp_kses_post';
@@ -147,7 +147,7 @@ class WPCD_Formshortcode_Ajax_Pro extends WPCD_Ajax_Base {
 			$key  = $field['id'];
 			$rule = 'sanitize_text_field';
 			if ( strpos( $key, 'link' ) !== false ) {
-				$rule = 'esc_url';
+				$rule = 'esc_url_raw';
 			}
 			if ( $key === 'wpcd_description' ) {
 				$rule = 'wp_kses_post';

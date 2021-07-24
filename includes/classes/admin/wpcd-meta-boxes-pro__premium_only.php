@@ -115,68 +115,41 @@ class WPCD_Meta_Boxes_Pro {
 			switch ( $wpcd_field['type'] ) {
 
 				case 'dealtext':
-					$input = sprintf(
-						'<input type="text" name="%s" id="%s" value="%s"/>',
-						$wpcd_field['id'],
-						$wpcd_field['id'],
-						$db_value
-
-					);
-					break;
-					
 				case 'temp4-dealtext':
-					$input = sprintf(
-						'<input type="text" name="%s" id="%s" value="%s"/>',
-						$wpcd_field['id'],
-						$wpcd_field['id'],
-						$db_value
-
-					);
-					break;
-
 				case 'buttontext':
-					$input = sprintf(
-						'<input type="text" name="%s" id="%s" value="%s"/>',
-						$wpcd_field['id'],
-						$wpcd_field['id'],
-						$db_value
-					);
-					break;
-
 				case 'temp4-buttontext':
 					$input = sprintf(
 						'<input type="text" name="%s" id="%s" value="%s"/>',
-						$wpcd_field['id'],
-						$wpcd_field['id'],
-						$db_value
+						esc_attr( $wpcd_field['id'] ),
+						esc_attr( $wpcd_field['id'] ),
+						esc_attr( $db_value )
 					);
 					break;
 
 				case 'temp4-text':
 					$input = sprintf(
-						'<input %s id="%s" name="%s" type="%s" value="%s">',
+						'<input %s id="%s" name="%s" type="text" value="%s">',
 						$wpcd_field['type'] !== 'color' ? 'class="regular-text"' : '',
-						$wpcd_field['id'],
-						$wpcd_field['id'],
-						'text',
-						$db_value
+						esc_attr( $wpcd_field['id'] ),
+						esc_attr( $wpcd_field['id'] ),
+						esc_attr( $db_value )
 					);
 					break;
 				case 'date':
 					$input = sprintf(
 						'<input type="%s" name="%s" id="%s" value="%s" />',
-						$wpcd_field['type'],
-						$wpcd_field['id'],
-						$wpcd_field['id'],
-						$db_value
+						esc_attr( $wpcd_field['type'] ),
+						esc_attr( $wpcd_field['id'] ),
+						esc_attr( $wpcd_field['id'] ),
+						esc_attr( $db_value )
 					);
 					break;
 
 				case 'select':
 					$input = sprintf(
 						'<select id="%s" name="%s">',
-						$wpcd_field['id'],
-						$wpcd_field['id']
+						esc_attr( $wpcd_field['id'] ),
+						esc_attr( $wpcd_field['id'] )
 					);
 					$value = (empty( $db_value ) && !empty($wpcd_field['default']))? $wpcd_field['default'] : $db_value;
 					foreach ( $wpcd_field['options'] as $key => $value ) {
@@ -184,8 +157,8 @@ class WPCD_Meta_Boxes_Pro {
 						$input       .= sprintf(
 							'<option %s value="%s">%s</option>',
                             empty( $db_value ) ? ((!empty($wpcd_field['default']) && $wpcd_field['default'] === $field_value) ? 'selected' : '') : ($db_value === $field_value ? 'selected' : ''),
-							$field_value,
-							$value
+							esc_attr( $field_value ),
+							esc_html( $value )
 						);
 					}
 					$input .= '</select>';
@@ -213,9 +186,9 @@ class WPCD_Meta_Boxes_Pro {
 					else:
 						$input = sprintf(
 							'<textarea class="large-text" id="%s" name="%s" rows="5">%s</textarea>',
-							$wpcd_field['id'],
-							$wpcd_field['id'],
-							$db_value
+							esc_attr( $wpcd_field['id'] ),
+							esc_attr( $wpcd_field['id'] ),
+							esc_texarea( $db_value )
 						);
 					endif;
 					break;
@@ -223,48 +196,38 @@ class WPCD_Meta_Boxes_Pro {
 				case 'expirationcheck':
 					$input = sprintf(
 						'<input type="checkbox" name="%s" id="%s" value="%s"/>',
-						$wpcd_field['id'],
-						$wpcd_field['id'],
-						$db_value
+						esc_attr( $wpcd_field['id'] ),
+						esc_attr( $wpcd_field['id'] ),
+						esc_attr( $db_value )
 					);
 					break;
 
                 case 'neverexpire-checkbox':
                     $input = sprintf(
                         '<input type="checkbox" name="%s" id="%s" '. checked( $db_value, 'on', false ).'/>',
-                        $wpcd_field['id'],
-                        $wpcd_field['id']
+                        esc_attr( $wpcd_field['id'] ),
+                        esc_attr( $wpcd_field['id'] )
                     );
                     break;
                                 
 				case 'expiredate':
-					$input = sprintf(
-						'<input type="text" data-expiredate-format="%s" name="%s" id="%s" placeholder="%s" value="%s"/>',
-						$expire_date_format,
-						$wpcd_field['id'],
-						$wpcd_field['id'],
-						$expire_date_format,
-						$db_value
-					);
-					break;
-
 				case 'temp4-expiredate':
 					$input = sprintf(
 						'<input type="text" data-expiredate-format="%s" name="%s" id="%s" placeholder="%s" value="%s"/>',
-						$expire_date_format,
-						$wpcd_field['id'],
-						$wpcd_field['id'],
-						$expire_date_format,
-						$db_value
+						esc_attr( $expire_date_format ),
+						esc_attr( $wpcd_field['id'] ),
+						esc_attr( $wpcd_field['id'] ),
+						esc_attr( $expire_date_format ),
+						esc_attr( $db_value )
 					);
 					break;
 
 				case 'expiretime':
 					$input = sprintf(
 						'<input type="text" name="%s" id="%s" placeholder="" value="%s"/>',
-						$wpcd_field['id'],
-						$wpcd_field['id'],
-						$db_value
+						esc_attr( $wpcd_field['id'] ),
+						esc_attr( $wpcd_field['id'] ),
+						esc_attr( $db_value )
 					);
 					break;
 
@@ -279,7 +242,7 @@ class WPCD_Meta_Boxes_Pro {
 					//img container
 					$input .= '<div class="coupon-img-container" style="width:70%;">';
 					if ( $you_have_img ) {
-						$input .= '<img src="' . $img_src[0] . '" alt="" style="max-width:100%;"/>';
+						$input .= '<img src="' . esc_url( $img_src[0] ) . '" alt="" style="max-width:100%;"/>';
 					}
 					$input .= '</div>';
 					//add image or remove
@@ -288,37 +251,28 @@ class WPCD_Meta_Boxes_Pro {
 					$input .= '<a class="red-text delete-coupon-img button media-button ' . ( $you_have_img ? '' : 'hidden' ) . '">' . __( 'Remove Coupon Image', 'wpcd-coupon' ) . '</a>';
 					$input .= '</div>';
 					//hidden input
-					$input .= '<input class="' . $id . '" id="' . $id . '" name="' . $id . '" type="hidden" value="' . $db_value . '"/>
+					$input .= '<input class="' . esc_attr( $id ) . '" id="' . esc_attr( $id ) . '" name="' . esc_attr( $id ) . '" type="hidden" value="' . esc_attr( $db_value ) . '"/>
 					';
 					break;
 				case 'colorpicker':
 					$value = empty( $db_value ) ? $wpcd_field['default'] : $db_value;
 					$input = '<div id="' . esc_attr( $wpcd_field['id'] ) . '" class="wpcd_colorSelectors">
-	                    <div data-color="' . $value . '" style="background-color:' . $value . ';"></div>
-	                    <input id="' . $wpcd_field['id'] . '" name="' . $wpcd_field['id'] . '" type="text" value="' . $value . '"/>
+	                    <div data-color="' . sanitize_hex_color( $value ) . '" style="background-color:' . sanitize_hex_color( $value ) . ';"></div>
+	                    <input id="' . esc_attr( $wpcd_field['id'] ) . '" name="' . esc_attr( $wpcd_field['id'] ) . '" type="text" value="' . sanitize_hex_color( $value ) . '"/>
 	                    </div>';
 					break;
 				default:
 					$input = sprintf(
 						'<input %s id="%s" name="%s" type="%s" value="%s" placeholder="%s">',
 						$wpcd_field['type'] !== 'color' ? 'class="regular-text"' : '',
-						$wpcd_field['id'],
-						$wpcd_field['id'],
-						$wpcd_field['type'],
-						$db_value,
-						( empty( $wpcd_field['placeholder'] ) ? '' : $wpcd_field['placeholder'] )
+						esc_attr( $wpcd_field['id'] ),
+						esc_attr( $wpcd_field['id'] ),
+						esc_attr( $wpcd_field['type'] ),
+						$wpcd_field['type'] === 'color' ? sanitize_hex_color( $db_value ) : esc_attr( $db_value ),
+						( empty( $wpcd_field['placeholder'] ) ? '' : esc_attr( $wpcd_field['placeholder'] ) )
 					);
 			}
-			$output .= $this->row_format( esc_attr( $type ),
-								$label,
-								wp_kses( $input, array('select' => array( 'id' => array(), 'name' => array() ),
-														'option' => array( 'selected' => array(), 'value' => array() ),
-														'input' => array( 'class' => array(), 'type' => array(), 'name' => array(), 'id' => array(), 'value' => array(), 'placeholder' => array()),
-														'div' => array( 'id' => array(), 'class' => array()),
-														'link' => array( 'rel' => array(), 'id' => array(), 'href' => array(), 'media' => array() ),
-														'textarea' => array( 'class' => array(), 'style' => array(), 'autocomplete' => array(), 'cols' => array(), 'id' => array(), 'name' => array() )
-															) ),
-								esc_attr( $tr_class ) );
+			$output .= $this->row_format( esc_attr( $type ), $label, $input, esc_attr( $tr_class ) );
 		}
 		echo '<table class="form-table"><tbody>' . $output . $help . '</tbody></table>';
 		echo "<script>
@@ -376,7 +330,7 @@ class WPCD_Meta_Boxes_Pro {
 						break;
 					case 'text':
                         if ( $wpcd_field['id'] == 'link' ) {
-                            $_POST[ $wpcd_field['id'] ] = esc_url( $_POST[ $wpcd_field['id'] ] );
+                            $_POST[ $wpcd_field['id'] ] = esc_url_raw( $_POST[ $wpcd_field['id'] ] );
                         } else {
                         	$_POST[ $wpcd_field['id'] ] = sanitize_text_field( $_POST[ $wpcd_field['id'] ] );
                         }

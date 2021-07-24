@@ -179,7 +179,7 @@ if( $coupon_type !== 'Image' && function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Am
                         <div class="wpcd-coupon-five-expire expire-text-block1 <?php echo strtotime( $expire_date ) >= strtotime( $today ) ? '' : 'hidden'; ?>">
                             <p class="wpcd-coupon-five-expire-text"><?php
 								if ( ! empty( $expire_text ) ) {
-									echo esc_html( $expire_text ) . ' ' . '<span class="expiration-date">' . $expire_date . '</span>';;
+									echo esc_html( $expire_text ) . ' ' . '<span class="expiration-date">' . $expire_date . '</span>';
 								} else {
 									echo __( 'Expires on: ', 'wpcd-coupon' ) . '<span class="expiration-date">' . $expire_date . '</span>';
 								}
@@ -189,7 +189,7 @@ if( $coupon_type !== 'Image' && function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Am
                             <p class="wpcd-coupon-five-expired">
 								<?php
 								if ( ! empty( $expired_text ) ) {
-									echo esc_html( $expired_text ) . ' ' . '<span class="expiration-date">' . $expire_date . '</span>';;
+									echo esc_html( $expired_text ) . ' ' . '<span class="expiration-date">' . $expire_date . '</span>';
 								} else {
 									echo __( 'Expired on: ', 'wpcd-coupon' ) . '<span class="expiration-date">' . $expire_date . '</span>';
 								}

@@ -166,7 +166,7 @@ if( $coupon_type !== 'Image' && function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Am
                                 <p class="wpcd-coupon-five-expired">
 									<?php
 									if ( ! empty( $expired_text ) ) {
-										echo esc_html( $expired_text ) . ' ' . '<span class="expiration-date">' . $expire_date . '</span>';;
+										echo esc_html( $expired_text ) . ' ' . '<span class="expiration-date">' . $expire_date . '</span>';
 									} else {
 										echo __( 'Expired on: ', 'wpcd-coupon' ) . '<span class="expiration-date">' . $expire_date . '</span>';
 									}
