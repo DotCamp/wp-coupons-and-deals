@@ -23,7 +23,7 @@ $wpcd_coupon_templates = array(
 			</label>
 			<select name="wpcd_default_template">
 				<?php foreach ( $wpcd_coupon_templates as $template ): ?>
-					<option value="<?php echo esc_att( $template ); ?>"><?php echo esc_html( $template ); ?></option>
+					<option value="<?php echo esc_attr( $template ); ?>"><?php echo esc_html( $template ); ?></option>
 				<?php endforeach; ?>
 			</select>
 		</div>
