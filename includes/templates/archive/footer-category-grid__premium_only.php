@@ -31,8 +31,8 @@ if( !isset( $_POST['action'] ) || $_POST['action'] != 'wpcd_coupons_cat_vend_act
                     'current'   => absint( $current ),
                     'total'     => absint( $max_num_page ),
                     'prev_next' => true,
-                    'prev_text' => __( '« Prev', 'wpcd-coupon' ),
-                    'next_text' => __( 'Next »', 'wpcd-coupon' ),
+                    'prev_text' => __( '« Prev', 'wp-coupons-and-deals' ),
+                    'next_text' => __( 'Next »', 'wp-coupons-and-deals' ),
                 )
             );
 

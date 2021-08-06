@@ -15,14 +15,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <div class="wrap">
-    <h2><?php echo __( 'Import Coupons from CSV or XML File', 'wpcd-coupon' ); ?></h2>
+    <h2><?php echo __( 'Import Coupons from CSV or XML File', 'wp-coupons-and-deals' ); ?></h2>
     <section id="wpcd_import_form_wr">
 		<?php
 			include('import-form__premium_only.php');
 		?>
 		<!-- Wrapper set to display none -->
 		<div class="wpcd-import-wrapper">
-			<p><?php echo __( 'This is just a preview of the file you uploaded. All data are not showing here.', 'wpcd-coupon'); ?></p>
+			<p><?php echo __( 'This is just a preview of the file you uploaded. All data are not showing here.', 'wp-coupons-and-deals'); ?></p>
 			<!-- Table -->
 			<div class="wpcd_preview_table_support">
 				<div id="wpcd-table-csv">
@@ -30,7 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</div>
 			</div>
 			<div class="wpcd_choose_fields_wr wpcd_import_white_box wpcd_clearfix">
-				<h5><?php echo __( 'Select Import Fields', 'wpcd-coupon' ); ?></h5>
+				<h5><?php echo __( 'Select Import Fields', 'wp-coupons-and-deals' ); ?></h5>
 				<form id="wpcd_import_form_final" class="wpcd_clearfix" enctype="multipart/form-data" method="post">
 					<div class="wpcd_import_field_inner_wr wpcd_clearfix">
 						
@@ -42,8 +42,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<input type="hidden" name="theme_color" value="<?=sanitize_hex_color($_POST['theme_color'])?>">
 							<?php wp_nonce_field( 'wpcd_nonce' ); ?>
 							<input name="wpcd_import_submit_final" value="Import Coupons" class="button button-primary button-large wpcd-import-btn" type="submit">
-							<span><strong>0</strong> <?php echo __( 'Coupons will be added!', 'wpcd-coupon' ); ?></span>
-							<p style="display:none; color: red; font-size: 16px; margin-top: 20px;" id="wpcd_import_field_error"><?php echo __( 'Error: You must select a field for Coupon Title.', 'wpcd-coupon' ); ?></p>
+							<span><strong>0</strong> <?php echo __( 'Coupons will be added!', 'wp-coupons-and-deals' ); ?></span>
+							<p style="display:none; color: red; font-size: 16px; margin-top: 20px;" id="wpcd_import_field_error"><?php echo __( 'Error: You must select a field for Coupon Title.', 'wp-coupons-and-deals' ); ?></p>
 						</div>
 						</div><!-- end of import notes -->
 					</div><!-- end of clearfix -->
@@ -59,9 +59,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div><!-- End of Wrapper import -->
 		<div class="wpcd_green">
 			<span>
-				<?php echo __( ' 0 Coupons added.', 'wpcd-coupon' ); ?>
+				<?php echo __( ' 0 Coupons added.', 'wp-coupons-and-deals' ); ?>
 			</span>
-			<?php echo '<a href="' . admin_url( 'edit.php?post_type=wpcd_coupons' ) . '" class="page-title-action">' . __( 'View', 'wpcd-coupon' ); ?></a>
+			<?php echo '<a href="' . admin_url( 'edit.php?post_type=wpcd_coupons' ) . '" class="page-title-action">' . __( 'View', 'wp-coupons-and-deals' ); ?></a>
 		</div>
 	</section>
 </div>

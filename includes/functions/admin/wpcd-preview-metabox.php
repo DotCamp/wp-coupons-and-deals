@@ -68,7 +68,7 @@ if ( $wpcd_text_to_show == 'description' ) {
 	$wpcd_custom_text = $description;
 } else {
 	if ( empty( $wpcd_custom_text ) ) {
-		$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wpcd-coupon' );
+		$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wp-coupons-and-deals' );
 	}
 }
 
@@ -117,7 +117,7 @@ $expire_text = ( !empty( $expire_text ) ) ? $expire_text : __( 'Expires on: ' );
 $expired_text = ( !empty( $expired_text ) ) ? $expired_text : __( 'Expired on: ' );
 $hide_coupon_text = ( !empty( $hide_coupon_text ) ) ? $hide_coupon_text : __( 'Show Code' );
 $hidden_coupon_hover_text = ( !empty( $hidden_coupon_hover_text ) ) ? $hidden_coupon_hover_text : __( 'Click Here to Show Code' );
-$wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text : __( 'GET THE DEAL', 'wpcd-coupon' );
+$wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text : __( 'GET THE DEAL', 'wp-coupons-and-deals' );
 
 ?>
 
@@ -337,20 +337,20 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 						jQuery('#clock_two_<?php echo absint( $post_id ); ?>').hide();
 
 					var $clock = jQuery('#clock_two_<?php echo absint( $post_id ); ?>').countdown('<?php echo strtotime( $expire_date_format . ' ' . $expire_time ) ?  $expire_date_format . ' ' . $expire_time : ''; ?>', function (event) {
-						var format = '%M <?php echo __( 'minutes', 'wpcd-coupon' ); ?> %S <?php echo __( 'seconds', 'wpcd-coupon' ); ?>';
+						var format = '%M <?php echo __( 'minutes', 'wp-coupons-and-deals' ); ?> %S <?php echo __( 'seconds', 'wp-coupons-and-deals' ); ?>';
 						if (event.offset.hours > 0) {
-							format = "%H <?php echo __( 'hours', 'wpcd-coupon' ); ?> %M <?php echo __( 'minutes', 'wpcd-coupon' ); ?> %S <?php echo __( 'seconds', 'wpcd-coupon' ); ?>";
+							format = "%H <?php echo __( 'hours', 'wp-coupons-and-deals' ); ?> %M <?php echo __( 'minutes', 'wp-coupons-and-deals' ); ?> %S <?php echo __( 'seconds', 'wp-coupons-and-deals' ); ?>";
 						}
 						if (event.offset.totalDays > 0) {
-							format = "%-d <?php echo __( 'day', 'wpcd-coupon' ); ?>%!d " + format;
+							format = "%-d <?php echo __( 'day', 'wp-coupons-and-deals' ); ?>%!d " + format;
 						}
 						if (event.offset.weeks > 0) {
-							format = "%-w <?php echo __( 'week', 'wpcd-coupon' ); ?>%!w " + format;
+							format = "%-w <?php echo __( 'week', 'wp-coupons-and-deals' ); ?>%!w " + format;
 						}
 						jQuery(this).html(event.strftime(format));
 
 						if (event.offset.weeks == 0 && event.offset.totalDays == 0 && event.offset.hours == 0 && event.offset.minutes == 0 && event.offset.seconds == 0) {
-							jQuery(this).addClass('wpcd-countdown-expired').html('<?php echo __( 'This offer has expired!', 'wpcd-coupon' ); ?>');
+							jQuery(this).addClass('wpcd-countdown-expired').html('<?php echo __( 'This offer has expired!', 'wp-coupons-and-deals' ); ?>');
 						} else {
 							jQuery(this).html(event.strftime(format));
 							jQuery('#clock_two_<?php echo absint( $post_id ); ?>').removeClass('wpcd-countdown-expired');
@@ -479,7 +479,7 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 				<div class="wpcd-coupon-code">
 					<button
 						class="wpcd-btn masterTooltip wpcd-coupon-button"
-						title="<?php echo __( 'Click Here To Copy Coupon', 'wpcd-coupon' ); ?>"
+						title="<?php echo __( 'Click Here To Copy Coupon', 'wp-coupons-and-deals' ); ?>"
 						data-clipboard-text="<?php echo esc_attr( $coupon_code ); ?>">
 						<span class="wpcd_coupon_icon"></span>
 						<span class="coupon-code-button">
@@ -857,20 +857,20 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 								jQuery('#clock_six_<?php echo absint( $post_id ); ?>').hide();
 
 							var $clock6 = jQuery('#clock_six_<?php echo absint( $post_id ); ?>').countdown('<?php echo strtotime( $expire_date_format . ' ' . $expire_time ) ?  $expire_date_format . ' ' . $expire_time : ''; ?>', function (event) {
-								var format = '%M <?php echo __( 'minutes', 'wpcd-coupon' ); ?> %S <?php echo __( 'seconds', 'wpcd-coupon' ); ?>';
+								var format = '%M <?php echo __( 'minutes', 'wp-coupons-and-deals' ); ?> %S <?php echo __( 'seconds', 'wp-coupons-and-deals' ); ?>';
 								if (event.offset.hours > 0) {
-									format = "%H <?php echo __( 'hours', 'wpcd-coupon' ); ?> %M <?php echo __( 'minutes', 'wpcd-coupon' ); ?> %S <?php echo __( 'seconds', 'wpcd-coupon' ); ?>";
+									format = "%H <?php echo __( 'hours', 'wp-coupons-and-deals' ); ?> %M <?php echo __( 'minutes', 'wp-coupons-and-deals' ); ?> %S <?php echo __( 'seconds', 'wp-coupons-and-deals' ); ?>";
 								}
 								if (event.offset.totalDays > 0) {
-									format = "%-d <?php echo __( 'day', 'wpcd-coupon' ); ?>%!d " + format;
+									format = "%-d <?php echo __( 'day', 'wp-coupons-and-deals' ); ?>%!d " + format;
 								}
 								if (event.offset.weeks > 0) {
-									format = "%-w <?php echo __( 'week', 'wpcd-coupon' ); ?>%!w " + format;
+									format = "%-w <?php echo __( 'week', 'wp-coupons-and-deals' ); ?>%!w " + format;
 								}
 								jQuery(this).html(event.strftime(format));
 
 								if (event.offset.weeks == 0 && event.offset.totalDays == 0 && event.offset.hours == 0 && event.offset.minutes == 0 && event.offset.seconds == 0) {
-									jQuery(this).addClass('wpcd-countdown-expired').html('<?php echo __( 'This offer has expired!', 'wpcd-coupon' ); ?>');
+									jQuery(this).addClass('wpcd-countdown-expired').html('<?php echo __( 'This offer has expired!', 'wp-coupons-and-deals' ); ?>');
 								} else {
 									jQuery(this).html(event.strftime(format));
 									jQuery('#clock_six_<?php echo absint( $post_id ); ?>').removeClass('wpcd-countdown-expired');
@@ -1053,20 +1053,20 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
                                     if (hasDate === 'no')
                                         jQuery('#clock_seven_<?php echo absint( $post_id ); ?>').hide();
                                     var $clock7 = jQuery('#clock_seven_<?php echo absint( $post_id ); ?>').countdown('<?php echo strtotime( $expire_date_format . ' ' . $expire_time ) ?  $expire_date_format . ' ' . $expire_time : ''; ?>', function (event) {
-                                        var format = '%M <?php echo __( 'minutes', 'wpcd-coupon' ); ?> %S <?php echo __( 'seconds', 'wpcd-coupon' ); ?>';
+                                        var format = '%M <?php echo __( 'minutes', 'wp-coupons-and-deals' ); ?> %S <?php echo __( 'seconds', 'wp-coupons-and-deals' ); ?>';
                                         if (event.offset.hours > 0) {
-                                            format = "%H <?php echo __( 'hours', 'wpcd-coupon' ); ?> %M <?php echo __( 'minutes', 'wpcd-coupon' ); ?> %S <?php echo __( 'seconds', 'wpcd-coupon' ); ?>";
+                                            format = "%H <?php echo __( 'hours', 'wp-coupons-and-deals' ); ?> %M <?php echo __( 'minutes', 'wp-coupons-and-deals' ); ?> %S <?php echo __( 'seconds', 'wp-coupons-and-deals' ); ?>";
                                         }
                                         if (event.offset.totalDays > 0) {
-                                            format = "%-d <?php echo __( 'day', 'wpcd-coupon' ); ?>%!d " + format;
+                                            format = "%-d <?php echo __( 'day', 'wp-coupons-and-deals' ); ?>%!d " + format;
                                         }
                                         if (event.offset.weeks > 0) {
-                                            format = "%-w <?php echo __( 'week', 'wpcd-coupon' ); ?>%!w " + format;
+                                            format = "%-w <?php echo __( 'week', 'wp-coupons-and-deals' ); ?>%!w " + format;
                                         }
                                         jQuery(this).html(event.strftime(format));
 
                                         if (event.offset.weeks == 0 && event.offset.totalDays == 0 && event.offset.hours == 0 && event.offset.minutes == 0 && event.offset.seconds == 0) {
-                                            jQuery(this).addClass('wpcd-countdown-expired').html('<?php echo __( 'This offer has expired!', 'wpcd-coupon' ); ?>');
+                                            jQuery(this).addClass('wpcd-countdown-expired').html('<?php echo __( 'This offer has expired!', 'wp-coupons-and-deals' ); ?>');
                                         } else {
                                             jQuery(this).html(event.strftime(format));
                                             jQuery('#clock_seven_<?php echo absint( $post_id ); ?>').removeClass('wpcd-countdown-expired');
@@ -1198,10 +1198,10 @@ $wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text
 <!-- Image Preview -->
 <div class="wpcd-coupon-preview wpcd-coupon-image">
 	<img style="max-width:100%;" src="<?php echo is_array( $coupon_image_src ) ? esc_url( $coupon_image_src[0] ) : ''; ?>"
-		 alt="<?php _e( 'Coupon image not uploaded', 'wpcd-coupon' ); ?>">
+		 alt="<?php _e( 'Coupon image not uploaded', 'wp-coupons-and-deals' ); ?>">
 </div>
 
 <!-- Info -->
 <p>
-	<i><strong><?php echo __( 'Note:', 'wpcd-coupon' ); ?></strong> <?php echo __( 'This is just to show how the coupon will look. Click to copy functionality, showing hidden coupon will not work here, but it will work on posts, pages where you put the shortcode.', 'wpcd-coupon' ); ?>
+	<i><strong><?php echo __( 'Note:', 'wp-coupons-and-deals' ); ?></strong> <?php echo __( 'This is just to show how the coupon will look. Click to copy functionality, showing hidden coupon will not work here, but it will work on posts, pages where you put the shortcode.', 'wp-coupons-and-deals' ); ?>
 	</i></p>

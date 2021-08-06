@@ -46,29 +46,29 @@ $install_ub_url = \wp_nonce_url(
 	<table cellspacing="0">
     	<tbody>
         	<tr>
-            	<td style="border-top: 0;"><?php echo __( 'Published', 'wpcd-coupon' ); ?></td>
+            	<td style="border-top: 0;"><?php echo __( 'Published', 'wp-coupons-and-deals' ); ?></td>
             	<td style="border-top: 0;">
                 	<?php echo absint( $published ); ?>
             	</td>
         	</tr>
         	<tr>
-            	<td><?php echo __( 'Drafts', 'wpcd-coupon' ); ?></td>
+            	<td><?php echo __( 'Drafts', 'wp-coupons-and-deals' ); ?></td>
             	<td>
                 	<?php echo absint( $draft ); ?>
             	</td>
         	</tr>
         	<tr>
-            	<td><?php echo __( 'Trash', 'wpcd-coupon' ); ?></td>
+            	<td><?php echo __( 'Trash', 'wp-coupons-and-deals' ); ?></td>
             	<td>
                 	<?php echo absint( $trash ); ?>
             	</td>
         	</tr>
 			<tr>
-				<td><?php echo __( 'Categories', 'wpcd-coupon' ); ?></td>
+				<td><?php echo __( 'Categories', 'wp-coupons-and-deals' ); ?></td>
 				<td><?php echo absint( $category_count ); ?></td>
 			</tr>
 			<tr>
-				<td><?php echo __( 'Vendors', 'wpcd-coupon' ); ?></td>
+				<td><?php echo __( 'Vendors', 'wp-coupons-and-deals' ); ?></td>
 				<td><?php echo absint( $vendor_count ); ?></td>
 			</tr>
     	</tbody>
@@ -77,9 +77,9 @@ $install_ub_url = \wp_nonce_url(
 
 <div style="margin: 0px -12px 0; padding: 12px 12px 0; border-top: 1px solid #eee;">
 	<p style="margin: 0">
-		<?php echo __( 'Using WP Coupons and Deals version ', 'wpcd-coupon' ) . '<strong>' .WPCD_Plugin::PLUGIN_VERSION . '</strong>'; ?>
+		<?php echo __( 'Using WP Coupons and Deals version ', 'wp-coupons-and-deals' ) . '<strong>' .WPCD_Plugin::PLUGIN_VERSION . '</strong>'; ?>
 		(<a href="https://wpcouponsdeals.com/changelog/" target="_blank">
-			<?php echo __( 'Changelog', 'wpcd-coupon'); ?>
+			<?php echo __( 'Changelog', 'wp-coupons-and-deals'); ?>
 		</a>)
 	</p>
 </div>
@@ -89,9 +89,9 @@ $install_ub_url = \wp_nonce_url(
 if ( current_user_can( "manage_options" ) ) {
 	if ( !in_array( 'ultimate-blocks/ultimate-blocks.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) { ?>
 	<div style="margin: 12px -12px 0; padding: 12px 12px 0; border-top: 1px solid #eee;">
-			<p style="margin: 0"><?php echo __( 'Recommended Plugin: ', 'wpcd-coupon' );?><b><?php echo __( 'Ultimate Blocks', 'wpcd-coupon' ); ?></b> -
-				<a href="<?php echo esc_url( $install_ub_url ); ?>"><?php echo __( 'Install', 'wpcd-coupon' ); ?></a> |
-				<a href="https://ultimateblocks.com/?utm_source=wpdashboard&utm_medium=widget" target="_blank"><?php echo __( 'Learn More', 'wpcd-coupon' ); ?></a></p>
+			<p style="margin: 0"><?php echo __( 'Recommended Plugin: ', 'wp-coupons-and-deals' );?><b><?php echo __( 'Ultimate Blocks', 'wp-coupons-and-deals' ); ?></b> -
+				<a href="<?php echo esc_url( $install_ub_url ); ?>"><?php echo __( 'Install', 'wp-coupons-and-deals' ); ?></a> |
+				<a href="https://ultimateblocks.com/?utm_source=wpdashboard&utm_medium=widget" target="_blank"><?php echo __( 'Learn More', 'wp-coupons-and-deals' ); ?></a></p>
 	</div>
 	<?php
 	}

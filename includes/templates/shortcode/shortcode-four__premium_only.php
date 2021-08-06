@@ -43,12 +43,12 @@ $hide_coupon               = get_post_meta( $coupon_id, 'coupon_details_hide-cou
 $wpcd_text_to_show         = get_option( 'wpcd_text-to-show' );
 $wpcd_custom_text          = get_option( 'wpcd_custom-text' );
 
-$coupon_code               = ( ! empty( $coupon_code ) ? $coupon_code : __( 'COUPONCODE', 'wpcd-coupon' ) );
-$second_coupon_code        = ( ! empty( $second_coupon_code ) ? $second_coupon_code : __( 'COUPONCODE', 'wpcd-coupon' ) );
-$third_coupon_code         = ( ! empty( $third_coupon_code ) ? $third_coupon_code : __( 'COUPONCODE', 'wpcd-coupon' ) );
-$deal_text                 = ( ! empty( $deal_text ) ? $deal_text : __( 'Claim This Deal', 'wpcd-coupon' ) );
-$second_deal_text          = ( ! empty( $second_deal_text ) ? $second_deal_text : __( 'Claim This Deal', 'wpcd-coupon' ) );
-$third_deal_text           = ( ! empty( $third_deal_text ) ? $third_deal_text : __( 'Claim This Deal', 'wpcd-coupon' ) );
+$coupon_code               = ( ! empty( $coupon_code ) ? $coupon_code : __( 'COUPONCODE', 'wp-coupons-and-deals' ) );
+$second_coupon_code        = ( ! empty( $second_coupon_code ) ? $second_coupon_code : __( 'COUPONCODE', 'wp-coupons-and-deals' ) );
+$third_coupon_code         = ( ! empty( $third_coupon_code ) ? $third_coupon_code : __( 'COUPONCODE', 'wp-coupons-and-deals' ) );
+$deal_text                 = ( ! empty( $deal_text ) ? $deal_text : __( 'Claim This Deal', 'wp-coupons-and-deals' ) );
+$second_deal_text          = ( ! empty( $second_deal_text ) ? $second_deal_text : __( 'Claim This Deal', 'wp-coupons-and-deals' ) );
+$third_deal_text           = ( ! empty( $third_deal_text ) ? $third_deal_text : __( 'Claim This Deal', 'wp-coupons-and-deals' ) );
 
 $linkTarget = get_option("wpcd_coupon-link-target");
 $target = ($linkTarget == "on") ? "_self" : "_blank" ;
@@ -56,7 +56,7 @@ $target = ($linkTarget == "on") ? "_self" : "_blank" ;
 if ( $wpcd_text_to_show == 'description' ) {
 	$wpcd_custom_text = $description;
 } else if ( empty( $wpcd_custom_text ) ) {
-	$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wpcd-coupon' );
+	$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wp-coupons-and-deals' );
 }
 if( ! $link && WPCD_Amp::wpcd_amp_is() ) $link = "#";
 if( ! $second_link && WPCD_Amp::wpcd_amp_is() ) $second_link = "#";
@@ -111,8 +111,8 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
             <span class="wpcd-full-description"><?php echo wp_kses_post( $description ); ?></span>
             <span class="wpcd-short-description"></span>
             <?php if( !WPCD_Amp::wpcd_amp_is() ): ?>
-	            <a href="#" class="wpcd-more-description"><?php echo __( 'More', 'wpcd-coupon' ); ?></a>
-	            <a href="#" class="wpcd-less-description"><?php echo __( 'Less', 'wpcd-coupon' ); ?></a>
+	            <a href="#" class="wpcd-more-description"><?php echo __( 'More', 'wp-coupons-and-deals' ); ?></a>
+	            <a href="#" class="wpcd-less-description"><?php echo __( 'Less', 'wp-coupons-and-deals' ); ?></a>
 	        <?php endif; ?>
         </div>
     </div>
@@ -135,7 +135,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 		                                   		if ( ! empty( $coupon_hover_text ) ) {
 												    echo esc_attr( $coupon_hover_text );
 											    } else {
-												    echo __( "Click To Copy Coupon", 'wpcd-coupon' );
+												    echo __( "Click To Copy Coupon", 'wp-coupons-and-deals' );
 											    }
 		                                    }
 	                            		?>"
@@ -157,7 +157,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 	                                   		if ( ! empty( $coupon_hover_text ) ) {
 											    echo esc_attr( $coupon_hover_text );
 										    } else {
-											    echo __( "Click To Copy Coupon", 'wpcd-coupon' );
+											    echo __( "Click To Copy Coupon", 'wp-coupons-and-deals' );
 										    }
 	                                    }
                             		?>"
@@ -178,7 +178,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                        title="<?php if ( ! empty( $deal_hover_text ) ) {
 									    echo esc_attr( $deal_hover_text );
 								    } else {
-									    echo __( "Click Here To Get This Deal", 'wpcd-coupon' );
+									    echo __( "Click Here To Get This Deal", 'wp-coupons-and-deals' );
 								    } ?>" 
 					   href="<?php echo esc_url( $link ); ?>" target="<?php echo esc_attr( $target ); ?>">
                         <span class="wpcd_deal_icon">
@@ -199,7 +199,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 								if ( ! empty( $expire_text ) ) {
 									echo esc_html( $expire_text ) . ' ' . $expire_date;
 								} else {
-									echo __( 'Expires on: ', 'wpcd-coupon' ) . $expire_date;
+									echo __( 'Expires on: ', 'wp-coupons-and-deals' ) . $expire_date;
 								}
 								?>
                             </p>
@@ -211,7 +211,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 								if ( ! empty( $expired_text ) ) {
 									echo esc_html( $expired_text ) . ' ' . $expire_date;
 								} else {
-									echo __( 'Expired on: ', 'wpcd-coupon' ) . $expire_date;
+									echo __( 'Expired on: ', 'wp-coupons-and-deals' ) . $expire_date;
 								}
 								?>
                             </p>
@@ -222,7 +222,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 						<?php if ( ! empty( $no_expiry ) ) { ?>
                             <p><?php echo esc_html( $no_expiry ); ?></p>
 						<?php } else {
-							echo '<p>' . __( "Doesn't expire", 'wpcd-coupon' ) . '</p>';
+							echo '<p>' . __( "Doesn't expire", 'wp-coupons-and-deals' ) . '</p>';
 						}
 						?>
                     </div>
@@ -240,7 +240,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 								if ( ! empty( $expire_text ) ) {
 									echo esc_attr( $expire_text ) . ' ' . $expire_date;
 								} else {
-									echo __( 'Expires on: ', 'wpcd-coupon' ) . $expire_date;
+									echo __( 'Expires on: ', 'wp-coupons-and-deals' ) . $expire_date;
 								}
 								?>
                             </p>
@@ -252,7 +252,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 								if ( ! empty( $expired_text ) ) {
 									echo esc_attr( $expired_text ) . ' ' . $expire_date;
 								} else {
-									echo __( 'Expired on: ', 'wpcd-coupon' ) . $expire_date;
+									echo __( 'Expired on: ', 'wp-coupons-and-deals' ) . $expire_date;
 								}
 								?>
                             </p>
@@ -263,7 +263,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 						<?php if ( ! empty( $no_expiry ) ) { ?>
                             <p><?php echo esc_html( $no_expiry ); ?></p>
 						<?php } else {
-							echo '<p>' . __( "Doesn't expire", 'wpcd-coupon' ) . '</p>';
+							echo '<p>' . __( "Doesn't expire", 'wp-coupons-and-deals' ) . '</p>';
 						}
 						?>
                     </div>
@@ -300,7 +300,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                                    		if ( ! empty( $coupon_hover_text ) ) {
 										    echo esc_attr( $coupon_hover_text );
 									    } else {
-										    echo __( "Click To Copy Coupon", 'wpcd-coupon' );
+										    echo __( "Click To Copy Coupon", 'wp-coupons-and-deals' );
 									    }
                                     }
                         		?>"
@@ -320,7 +320,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                                    		if ( ! empty( $coupon_hover_text ) ) {
 										    echo esc_attr( $coupon_hover_text );
 									    } else {
-										    echo __( "Click To Copy Coupon", 'wpcd-coupon' );
+										    echo __( "Click To Copy Coupon", 'wp-coupons-and-deals' );
 									    }
                                     }
                         		?>"
@@ -344,7 +344,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                        title="<?php if ( ! empty( $deal_hover_text ) ) {
 									   	echo esc_attr( $deal_hover_text );
 								    } else {
-									   echo __( "Click Here To Get This Deal", 'wpcd-coupon' );
+									   echo __( "Click Here To Get This Deal", 'wp-coupons-and-deals' );
 								    } ?>" 
 					   href="<?php echo esc_url( $second_link ); ?>" target="<?php echo esc_attr( $target ); ?>">
                         <span class="wpcd_deal_icon">
@@ -365,7 +365,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 								if ( ! empty( $expire_text ) ) {
 									echo esc_html( $expire_text ) . ' ' . $second_expire_date;
 								} else {
-									echo __( 'Expires on: ', 'wpcd-coupon' ) . $second_expire_date;
+									echo __( 'Expires on: ', 'wp-coupons-and-deals' ) . $second_expire_date;
 								}
 								?>
                             </p>
@@ -377,7 +377,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 								if ( ! empty( $expired_text ) ) {
 									echo esc_html( $expired_text ) . ' ' . $second_expire_date;
 								} else {
-									echo __( 'Expired on: ', 'wpcd-coupon' ) . $second_expire_date;
+									echo __( 'Expired on: ', 'wp-coupons-and-deals' ) . $second_expire_date;
 								}
 								?>
                             </p>
@@ -388,7 +388,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 						<?php if ( ! empty( $no_expiry ) ) { ?>
                             <p><?php echo esc_html( $no_expiry ); ?></p>
 						<?php } else {
-							echo '<p>' . __( "Doesn't expire", 'wpcd-coupon' ) . '</p>';
+							echo '<p>' . __( "Doesn't expire", 'wp-coupons-and-deals' ) . '</p>';
 						}
 						?>
                     </div>
@@ -406,7 +406,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 								if ( ! empty( $expire_text ) ) {
 									echo esc_html( $expire_text ) . ' ' . $second_expire_date;
 								} else {
-									echo __( 'Expires on: ', 'wpcd-coupon' ) . $second_expire_date;
+									echo __( 'Expires on: ', 'wp-coupons-and-deals' ) . $second_expire_date;
 								}
 								?>
                             </p>
@@ -418,7 +418,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 								if ( ! empty( $expired_text ) ) {
 									echo esc_html( $expired_text ) . ' ' . $second_expire_date;
 								} else {
-									echo __( 'Expired on: ', 'wpcd-coupon' ) . $second_expire_date;
+									echo __( 'Expired on: ', 'wp-coupons-and-deals' ) . $second_expire_date;
 								}
 								?>
                             </p>
@@ -429,7 +429,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 						<?php if ( ! empty( $no_expiry ) ) { ?>
                             <p><?php echo esc_html( $no_expiry ); ?></p>
 						<?php } else {
-							echo '<p>' . __( "Doesn't expire", 'wpcd-coupon' ) . '</p>';
+							echo '<p>' . __( "Doesn't expire", 'wp-coupons-and-deals' ) . '</p>';
 						}
 						?>
                     </div>
@@ -462,7 +462,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                                    		if ( ! empty( $coupon_hover_text ) ) {
 										    echo esc_attr( $coupon_hover_text );
 									    } else {
-										    echo __( "Click To Copy Coupon", 'wpcd-coupon' );
+										    echo __( "Click To Copy Coupon", 'wp-coupons-and-deals' );
 									    }
                                     }
                         		?>"
@@ -484,7 +484,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                                    		if ( ! empty( $coupon_hover_text ) ) {
 										    echo esc_attr( $coupon_hover_text );
 									    } else {
-										    echo __( "Click To Copy Coupon", 'wpcd-coupon' );
+										    echo __( "Click To Copy Coupon", 'wp-coupons-and-deals' );
 									    }
                                     }
                         		?>"
@@ -507,7 +507,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                        title="<?php if ( ! empty( $deal_hover_text ) ) {
 								   	echo esc_attr( $deal_hover_text );
 							    } else {
-								    echo __( "Click Here To Get This Deal", 'wpcd-coupon' );
+								    echo __( "Click Here To Get This Deal", 'wp-coupons-and-deals' );
 							    } ?>" 
 					   href="<?php echo esc_url( $third_link ); ?>" target="<?php echo esc_attr( $target ); ?>">
                         <span class="wpcd_deal_icon">
@@ -528,7 +528,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 								if ( ! empty( $expire_text ) ) {
 									echo esc_html( $expire_text ) . ' ' . $third_expire_date;
 								} else {
-									echo __( 'Expires on: ', 'wpcd-coupon' ) . $third_expire_date;
+									echo __( 'Expires on: ', 'wp-coupons-and-deals' ) . $third_expire_date;
 								}
 								?>
                             </p>
@@ -540,7 +540,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 								if ( ! empty( $expired_text ) ) {
 									echo esc_html( $expired_text ) . ' ' . $third_expire_date;
 								} else {
-									echo __( 'Expired on: ', 'wpcd-coupon' ) . $third_expire_date;
+									echo __( 'Expired on: ', 'wp-coupons-and-deals' ) . $third_expire_date;
 								}
 								?>
                             </p>
@@ -551,7 +551,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 						<?php if ( ! empty( $no_expiry ) ) { ?>
                             <p><?php echo esc_html( $no_expiry ); ?></p>
 						<?php } else {
-							echo '<p>' . __( "Doesn't expire", 'wpcd-coupon' ) . '</p>';
+							echo '<p>' . __( "Doesn't expire", 'wp-coupons-and-deals' ) . '</p>';
 						}
 						?>
                     </div>
@@ -570,7 +570,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 								if ( ! empty( $expire_text ) ) {
 									echo esc_html( $expire_text ) . ' ' . $third_expire_date;
 								} else {
-									echo __( 'Expires on: ', 'wpcd-coupon' ) . $third_expire_date;
+									echo __( 'Expires on: ', 'wp-coupons-and-deals' ) . $third_expire_date;
 								}
 								?>
                             </p>
@@ -582,7 +582,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 								if ( ! empty( $expired_text ) ) {
 									echo esc_html( $expired_text ) . ' ' . $third_expire_date;
 								} else {
-									echo __( 'Expired on: ', 'wpcd-coupon' ) . $third_expire_date;
+									echo __( 'Expired on: ', 'wp-coupons-and-deals' ) . $third_expire_date;
 								}
 								?>
                             </p>
@@ -593,7 +593,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 						<?php if ( ! empty( $no_expiry ) ) { ?>
                             <p><?php echo esc_html( $no_expiry ); ?></p>
 						<?php } else {
-							echo '<p>' . __( "Doesn't expire", 'wpcd-coupon' ) . '</p>';
+							echo '<p>' . __( "Doesn't expire", 'wp-coupons-and-deals' ) . '</p>';
 						}
 						?>
                     </div>

@@ -47,16 +47,16 @@ $wpcd_eight_btn_text       = get_option( 'wpcd_eight-button-text' );
 $today                     = date( 'd-m-Y' );
 $button_class              = 'wpcd-btn-' . $coupon_id;
 
-$dt_coupon_type_name = ( !empty( $dt_coupon_type_name ) ) ? $dt_coupon_type_name : __( 'Coupon', 'wpcd-coupon' );
-$dt_deal_type_name   = ( !empty( $dt_deal_type_name ) ) ? $dt_deal_type_name : __( 'Deal', 'wpcd-coupon' );
-$expire_text         = ( !empty( $expire_text ) ) ? $expire_text : __( 'Expires On: ', 'wpcd-coupon' );
-$expired_text        = ( !empty( $expired_text ) ) ? $expired_text : __( 'Expired On: ', 'wpcd-coupon' );
-$no_expiry           = ( !empty( $no_expiry ) ) ? $no_expiry : __( "Doesn't expire", 'wpcd-coupon' );
-$coupon_code         = ( ! empty( $coupon_code ) ? $coupon_code : __( 'COUPONCODE', 'wpcd-coupon' ) );
-$deal_text           = ( ! empty( $deal_text ) ? $deal_text : __( 'Claim This Deal', 'wpcd-coupon' ) );
-$coupon_hover_text   = ( ! empty( $coupon_hover_text ) ) ? $coupon_hover_text : __( 'Click To Copy Coupon', 'wpcd-coupon' );
+$dt_coupon_type_name = ( !empty( $dt_coupon_type_name ) ) ? $dt_coupon_type_name : __( 'Coupon', 'wp-coupons-and-deals' );
+$dt_deal_type_name   = ( !empty( $dt_deal_type_name ) ) ? $dt_deal_type_name : __( 'Deal', 'wp-coupons-and-deals' );
+$expire_text         = ( !empty( $expire_text ) ) ? $expire_text : __( 'Expires On: ', 'wp-coupons-and-deals' );
+$expired_text        = ( !empty( $expired_text ) ) ? $expired_text : __( 'Expired On: ', 'wp-coupons-and-deals' );
+$no_expiry           = ( !empty( $no_expiry ) ) ? $no_expiry : __( "Doesn't expire", 'wp-coupons-and-deals' );
+$coupon_code         = ( ! empty( $coupon_code ) ? $coupon_code : __( 'COUPONCODE', 'wp-coupons-and-deals' ) );
+$deal_text           = ( ! empty( $deal_text ) ? $deal_text : __( 'Claim This Deal', 'wp-coupons-and-deals' ) );
+$coupon_hover_text   = ( ! empty( $coupon_hover_text ) ) ? $coupon_hover_text : __( 'Click To Copy Coupon', 'wp-coupons-and-deals' );
 $deal_hover_text = ( !empty( $deal_hover_text ) ) ? $deal_hover_text : __( 'Click Here To Get This Deal' );
-$wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text : __( 'GET THE DEAL', 'wpcd-coupon' );
+$wpcd_eight_btn_text = ( !empty( $wpcd_eight_btn_text ) ) ? $wpcd_eight_btn_text : __( 'GET THE DEAL', 'wp-coupons-and-deals' );
 
 $wpcd_template_eight_theme  = get_post_meta( $coupon_id, 'coupon_details_template-eight-theme', true );
 
@@ -66,7 +66,7 @@ $target = ($linkTarget == "on") ? "_self" : "_blank" ;
 if ( $wpcd_text_to_show == 'description' ) {
 	$wpcd_custom_text = $description;
 } else if ( empty( $wpcd_custom_text ) ) {
-	$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wpcd-coupon' );
+	$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wp-coupons-and-deals' );
 }
 if( ! $link && WPCD_Amp::wpcd_amp_is() ) $link = "#";
 
@@ -142,8 +142,8 @@ if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
 			<span class="wpcd-full-description"><?php echo wp_kses_post( $description ); ?></span>
 			<span class="wpcd-short-description"></span>
 			<?php if( !WPCD_Amp::wpcd_amp_is() ): ?>
-				<a href="#" class="wpcd-more-description"><?php echo __( 'More', 'wpcd-coupon' ); ?></a>
-				<a href="#" class="wpcd-less-description"><?php echo __( 'Less', 'wpcd-coupon' ); ?></a>
+				<a href="#" class="wpcd-more-description"><?php echo __( 'More', 'wp-coupons-and-deals' ); ?></a>
+				<a href="#" class="wpcd-less-description"><?php echo __( 'Less', 'wp-coupons-and-deals' ); ?></a>
 			<?php endif; ?>
 		</div>
 	</div> <!-- End of grid-two -->
@@ -162,7 +162,7 @@ if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
                                     if ( ! empty( $coupon_hover_text ) ) {
                                         echo esc_attr( $coupon_hover_text );
                                     } else {
-                                        echo __( "Click To Copy Coupon", 'wpcd-coupon' );
+                                        echo __( "Click To Copy Coupon", 'wp-coupons-and-deals' );
                                     }
                                 }
                             ?>" 

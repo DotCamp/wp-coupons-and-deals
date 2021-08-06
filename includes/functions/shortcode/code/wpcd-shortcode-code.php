@@ -30,14 +30,14 @@ function wpcd_shortcode_code() {
 	$wpcd_text_to_show = get_option( 'wpcd_text-to-show' );
 	$wpcd_custom_text  = get_option( 'wpcd_custom-text' );
     
-    $coupon_code               = ( ! empty( $coupon_code ) ? $coupon_code : __( 'COUPONCODE', 'wpcd-coupon' ) );
-    $deal_text                 = ( ! empty( $deal_text ) ? $deal_text : __( 'Claim This Deal', 'wpcd-coupon' ) );
+    $coupon_code               = ( ! empty( $coupon_code ) ? $coupon_code : __( 'COUPONCODE', 'wp-coupons-and-deals' ) );
+    $deal_text                 = ( ! empty( $deal_text ) ? $deal_text : __( 'Claim This Deal', 'wp-coupons-and-deals' ) );
 
 	if ( $wpcd_text_to_show == 'description' ) {
 		$wpcd_custom_text = $description;
 	} else {
 		if ( empty( $wpcd_custom_text ) ) {
-			$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wpcd-coupon' );
+			$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wp-coupons-and-deals' );
 		}
 	}
 	if ( $coupon_type == 'Coupon' ) {
@@ -58,7 +58,7 @@ function wpcd_shortcode_code() {
 					   if ( ! empty( $coupon_hover_text ) ) {
 						   echo esc_attr( $coupon_hover_text );
 					   } else {
-						   echo __( "Click To Copy Coupon", 'wpcd-coupon' );
+						   echo __( "Click To Copy Coupon", 'wp-coupons-and-deals' );
 					   }
 					   ?>" href="<?php echo esc_url( $link ); ?>" target="_blank"
                        data-clipboard-text="<?php echo esc_attr( $coupon_code ); ?>">
@@ -83,7 +83,7 @@ function wpcd_shortcode_code() {
 				   if ( ! empty( $coupon_hover_text ) ) {
 					   echo esc_attr( $coupon_hover_text );
 				   } else {
-					   echo __( "Click To Copy Coupon", 'wpcd-coupon' );
+					   echo __( "Click To Copy Coupon", 'wp-coupons-and-deals' );
 				   }
 				   ?>" href="<?php echo esc_url( $link ); ?>" target="_blank"
                    data-clipboard-text="<?php echo esc_attr( $coupon_code ); ?>">
@@ -106,7 +106,7 @@ function wpcd_shortcode_code() {
 			   if ( ! empty( $deal_hover_text ) ) {
 				   echo esc_attr( $deal_hover_text );
 			   } else {
-				   echo __( "Click Here To Get This Deal", 'wpcd-coupon' );
+				   echo __( "Click Here To Get This Deal", 'wp-coupons-and-deals' );
 			   }
 			   ?>" href="<?php echo esc_attr( $link ); ?>" target="_blank">
                 <span class="wpcd_deal_icon">

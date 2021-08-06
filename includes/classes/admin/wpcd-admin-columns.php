@@ -128,7 +128,7 @@ class WPCD_Admin_Columns extends WP_List_Table {
 		}
 
 		if ( isset( $columns['title'] ) ) {
-			$wpcd_columns['title'] = __( 'Title', 'wpcd-coupon' );
+			$wpcd_columns['title'] = __( 'Title', 'wp-coupons-and-deals' );
 		}
 
 		if ( isset( $columns['author'] ) ) {
@@ -140,18 +140,18 @@ class WPCD_Admin_Columns extends WP_List_Table {
 		 *
 		 * @since 1.0
 		 */
-		$wpcd_columns['coupon_type'] = __( 'Coupon Type', 'wpcd-coupon' );
-		$wpcd_columns['coupon_category']  = __( 'Category', 'wpcd-coupon' );
-        $wpcd_columns['coupon_vendor']    = __( 'Vendor','wpcd-coupon' );
-		$wpcd_columns['id']               = __( 'ID', 'wpcd-coupon' );
-		$wpcd_columns['coupon_shortcode'] = __( 'Shortcodes', 'wpcd-coupon' );
-		$wpcd_columns['coupon_expire']    = __( 'Expires', 'wpcd-coupon' );
+		$wpcd_columns['coupon_type'] = __( 'Coupon Type', 'wp-coupons-and-deals' );
+		$wpcd_columns['coupon_category']  = __( 'Category', 'wp-coupons-and-deals' );
+        $wpcd_columns['coupon_vendor']    = __( 'Vendor','wp-coupons-and-deals' );
+		$wpcd_columns['id']               = __( 'ID', 'wp-coupons-and-deals' );
+		$wpcd_columns['coupon_shortcode'] = __( 'Shortcodes', 'wp-coupons-and-deals' );
+		$wpcd_columns['coupon_expire']    = __( 'Expires', 'wp-coupons-and-deals' );
 
 		if ( wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code() ) {
 			$enable_stats = get_option('wpcd_enable-stats-count');
 			if (! empty( $enable_stats ) && $enable_stats == 'on') {
-				$wpcd_columns['coupon_view_count']    = __( 'Viewed Count', 'wpcd-coupon' );
-				$wpcd_columns['coupon_click_count']    = __( 'Clicked Count', 'wpcd-coupon' );
+				$wpcd_columns['coupon_view_count']    = __( 'Viewed Count', 'wp-coupons-and-deals' );
+				$wpcd_columns['coupon_click_count']    = __( 'Clicked Count', 'wp-coupons-and-deals' );
 			}
 		}
 
@@ -231,7 +231,7 @@ class WPCD_Admin_Columns extends WP_List_Table {
 
 				} else {
 
-					_e( 'No Category', 'wpcd-coupon' );
+					_e( 'No Category', 'wp-coupons-and-deals' );
 
 				}
 				break;
@@ -251,7 +251,7 @@ class WPCD_Admin_Columns extends WP_List_Table {
 					}
 					echo join( ', ', $out );
 				} else {
-					_e( 'No Vendor', 'wpcd-coupon' );
+					_e( 'No Vendor', 'wp-coupons-and-deals' );
 				}
 				break;
 
@@ -299,10 +299,10 @@ class WPCD_Admin_Columns extends WP_List_Table {
 					if ( $expire  >= strtotime( $today ) ) {
 						echo date( $expireDateFormatFun, $expire );
 					} elseif ( $expire < strtotime( $today ) ) {
-						echo __( 'Expired', 'wpcd-coupon' );
+						echo __( 'Expired', 'wp-coupons-and-deals' );
 					}
 				} else {
-					echo __( "Doesn't Expire", 'wpcd-coupon' );
+					echo __( "Doesn't Expire", 'wp-coupons-and-deals' );
 				}
 				break;
 			case 'coupon_view_count':
@@ -411,10 +411,10 @@ class WPCD_Admin_Columns extends WP_List_Table {
 
 		$columns = array(
 			'cb'                 => '<input type="checkbox" />',
-			'name'               => __( 'Name', 'wpcd-coupon' ),
-			'slug'               => __( 'Slug', 'wpcd-coupon' ),
-			'posts'              => __( 'Posts', 'wpcd-coupon' ),
-			'wpcd_cat_shortcode' => __( 'Shortcode', 'wpcd-coupon' )
+			'name'               => __( 'Name', 'wp-coupons-and-deals' ),
+			'slug'               => __( 'Slug', 'wp-coupons-and-deals' ),
+			'posts'              => __( 'Posts', 'wp-coupons-and-deals' ),
+			'wpcd_cat_shortcode' => __( 'Shortcode', 'wp-coupons-and-deals' )
 		);
 
 		return $columns;
@@ -456,10 +456,10 @@ class WPCD_Admin_Columns extends WP_List_Table {
 
 		$columns = array(
 			'cb'                 => '<input type="checkbox" />',
-			'name'               => __( 'Name', 'wpcd-coupon' ),
-			'slug'               => __( 'Slug', 'wpcd-coupon' ),
-			'posts'              => __( 'Posts', 'wpcd-coupon' ),
-			'wpcd_vend_shortcode' => __( 'Shortcode', 'wpcd-coupon' )
+			'name'               => __( 'Name', 'wp-coupons-and-deals' ),
+			'slug'               => __( 'Slug', 'wp-coupons-and-deals' ),
+			'posts'              => __( 'Posts', 'wp-coupons-and-deals' ),
+			'wpcd_vend_shortcode' => __( 'Shortcode', 'wp-coupons-and-deals' )
 		);
 
 		return $columns;

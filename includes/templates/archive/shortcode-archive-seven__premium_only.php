@@ -94,11 +94,11 @@ $dt_deal_type_name = get_option('wpcd_dt-deal-type-text');
 if ($wpcd_text_to_show == 'description') {
     $wpcd_custom_text = $description;
 } else if (empty($wpcd_custom_text)) {
-    $wpcd_custom_text = __("Click on 'Copy' to Copy the Coupon Code.", 'wpcd-coupon');
+    $wpcd_custom_text = __("Click on 'Copy' to Copy the Coupon Code.", 'wp-coupons-and-deals');
 }
-$coupon_code = ( ! empty( $coupon_code ) ? $coupon_code : __( 'COUPONCODE', 'wpcd-coupon' ) );
-$deal_text = ( ! empty( $deal_text ) ? $deal_text : __( 'Claim This Deal', 'wpcd-coupon' ) );
-$coupon_hover_text = ( ! empty( $coupon_hover_text ) ) ? $coupon_hover_text : __( 'Click To Copy Coupon', 'wpcd-coupon' );
+$coupon_code = ( ! empty( $coupon_code ) ? $coupon_code : __( 'COUPONCODE', 'wp-coupons-and-deals' ) );
+$deal_text = ( ! empty( $deal_text ) ? $deal_text : __( 'Claim This Deal', 'wp-coupons-and-deals' ) );
+$coupon_hover_text = ( ! empty( $coupon_hover_text ) ) ? $coupon_hover_text : __( 'Click To Copy Coupon', 'wp-coupons-and-deals' );
 $deal_hover_text = ( !empty( $deal_hover_text ) ) ? $deal_hover_text : __( 'Click Here To Get This Deal' );
 
 /*
@@ -163,8 +163,8 @@ include('header-default__premium_only.php');
                             <span class="wpcd-full-description"><?php echo wpautop( $description, false );?></span>
                             <span class="wpcd-short-description"></span>
                             <?php if( !WPCD_Amp::wpcd_amp_is() ): ?>
-                                <a href="#" class="wpcd-more-description"><?php echo __( 'More', 'wpcd-coupon' ); ?></a>
-                                <a href="#" class="wpcd-less-description"><?php echo __( 'Less', 'wpcd-coupon' ); ?></a>
+                                <a href="#" class="wpcd-more-description"><?php echo __( 'More', 'wp-coupons-and-deals' ); ?></a>
+                                <a href="#" class="wpcd-less-description"><?php echo __( 'Less', 'wp-coupons-and-deals' ); ?></a>
                             <?php endif; ?>
                         </div>
                         
@@ -220,7 +220,7 @@ include('header-default__premium_only.php');
                                     if ( ! empty( $expire_text ) ) {
                                         echo esc_html( $expire_text );
                                     } else {
-                                        echo __( 'Expires on: ', 'wpcd-coupon' );
+                                        echo __( 'Expires on: ', 'wp-coupons-and-deals' );
                                     }
                                     ?>
                                     <span class="wpcd-coupon-seven-countdown" data-countdown_coupon="<?php echo $expire_date_format . ' ' . ( strtotime( $expire_date ) ? $expire_date : '' ); ?>" id="clock_seven_<?php echo absint( $coupon_id ); ?>"></span>            
@@ -231,7 +231,7 @@ include('header-default__premium_only.php');
                                             if ( ! empty( $expire_text ) ) {
                                                 echo esc_html( $expire_text ) . ' ' . $expire_date;
                                             } else {
-                                                echo __( 'Expires on: ', 'wpcd-coupon' ) . $expire_date;
+                                                echo __( 'Expires on: ', 'wp-coupons-and-deals' ) . $expire_date;
                                             }
                                             ?>
                                         </span>
@@ -241,7 +241,7 @@ include('header-default__premium_only.php');
                                             if ( ! empty( $expired_text ) ) {
                                                 echo esc_html( $expired_text ) . ' ' . $expire_date;
                                             } else {
-                                                echo __( 'Expired on: ', 'wpcd-coupon' ) . $expire_date;
+                                                echo __( 'Expired on: ', 'wp-coupons-and-deals' ) . $expire_date;
                                             }
                                             ?>
                                         </span>
@@ -252,7 +252,7 @@ include('header-default__premium_only.php');
                                     <?php if ( ! empty( $no_expiry ) ) : ?>
                                             <b><?php echo esc_html( $no_expiry ); ?></b>
                                     <?php else : ?>
-                                            <b><?php echo __( "Doesn't expire", 'wpcd-coupon' ); ?></b>
+                                            <b><?php echo __( "Doesn't expire", 'wp-coupons-and-deals' ); ?></b>
                                     <?php endif; ?>
                                 </b>
                             <?php endif; ?> 

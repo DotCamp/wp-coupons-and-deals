@@ -27,8 +27,8 @@ if ( $parent == 'footer' || $parent == 'headerANDfooter' ):
                         'current'   => absint( $current ),
                         'total'     => absint( $max_num_page ),
                         'prev_next' => true,
-                        'prev_text' => __( '« Prev', 'wpcd-coupon' ),
-                        'next_text' => __( 'Next »', 'wpcd-coupon' ),
+                        'prev_text' => __( '« Prev', 'wp-coupons-and-deals' ),
+                        'next_text' => __( 'Next »', 'wp-coupons-and-deals' ),
                     )
                 );
                 if(infinity_scroll_in_archive()) {

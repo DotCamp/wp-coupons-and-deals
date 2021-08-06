@@ -38,8 +38,8 @@ class WPCD_Welcome_Page {
 
 		$wpcd_sub_menu = add_submenu_page(
 			'index.php',
-			__( 'WP Coupons and Deals', 'wpcd-coupon' ),
-			__( 'WP Coupons and Deals', 'wpcd-coupon' ),
+			__( 'WP Coupons and Deals', 'wp-coupons-and-deals' ),
+			__( 'WP Coupons and Deals', 'wp-coupons-and-deals' ),
 			'read',
 			'wpcd_welcome_menu_page',
 			array(

@@ -241,40 +241,40 @@ class WPCD_Assets {
 		if ( ! empty( $vote_success ) ) {
 			$vote_success_message = $vote_success;
 		} else {
-			$vote_success_message = __( 'You have voted successfully!', 'wpcd-coupon' );
+			$vote_success_message = __( 'You have voted successfully!', 'wp-coupons-and-deals' );
 		}
 
 		if ( ! empty( $vote_failed ) ) {
 			$vote_failed_message = $vote_failed;
 		} else {
-			$vote_failed_message = __( 'Voting failed!', 'wpcd-coupon' );
+			$vote_failed_message = __( 'Voting failed!', 'wp-coupons-and-deals' );
 		}
 
 		if ( ! empty( $vote_already ) ) {
 			$vote_already_message = $vote_already;
 		} else {
-			$vote_already_message = __( 'You have voted already!', 'wpcd-coupon' );
+			$vote_already_message = __( 'You have voted already!', 'wp-coupons-and-deals' );
 		}
 
 		if ( ! empty( $copy_button_text ) ) {
 			$button_text = $copy_button_text;
 		} else {
-			$button_text = __( 'Copy', 'wpcd-coupon' );
+			$button_text = __( 'Copy', 'wp-coupons-and-deals' );
 		}
 
 		if ( ! empty( $after_copy_text ) ) {
 			$after_copy = $after_copy_text;
 		} else {
-			$after_copy = __( 'Copied', 'wpcd-coupon' );
+			$after_copy = __( 'Copied', 'wp-coupons-and-deals' );
 		}
 
 		wp_localize_script( 'wpcd-main-js', 'wpcd_main_js', array(
-			'minutes'      => __( 'minutes', 'wpcd-coupon' ),
-			'seconds'      => __( 'seconds', 'wpcd-coupon' ),
-			'hours'        => __( 'hours', 'wpcd-coupon' ),
-			'day'          => __( 'day', 'wpcd-coupon' ),
-			'week'         => __( 'week', 'wpcd-coupon' ),
-			'expired_text' => __( 'This offer has expired!', 'wpcd-coupon' ),
+			'minutes'      => __( 'minutes', 'wp-coupons-and-deals' ),
+			'seconds'      => __( 'seconds', 'wp-coupons-and-deals' ),
+			'hours'        => __( 'hours', 'wp-coupons-and-deals' ),
+			'day'          => __( 'day', 'wp-coupons-and-deals' ),
+			'week'         => __( 'week', 'wp-coupons-and-deals' ),
+			'expired_text' => __( 'This offer has expired!', 'wp-coupons-and-deals' ),
 			'word_count'   => $word_count,
 			'button_text'  => $button_text,
 			'after_copy'   => $after_copy,

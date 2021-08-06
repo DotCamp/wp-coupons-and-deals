@@ -10,7 +10,7 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
 
             $archive_category_setting = get_option( 'wpcd_archive-munu-categories' );
             if( !($all_coupon_text = get_option( 'wpcd_all-coupon-text')) ){
-                $all_coupon_text = __( 'All Coupons', 'wpcd-coupon' );
+                $all_coupon_text = __( 'All Coupons', 'wp-coupons-and-deals' );
             }
 
             if( $archive_category_setting == 'vendor' ) {
@@ -35,11 +35,11 @@ if ( $parent == 'header' || $parent == 'headerANDfooter' ):
                         <ul id="wpcd_cat_ul" class="wpcd_dropdown wpcd_categories_in_dropdown">
                             <?php if( !WPCD_Amp::wpcd_amp_is() ): ?>
                                 <a href="javascript:void(0)" class="wpcd_dropbtn">
-                                    <?php echo esc_html__( $wpcd_category_menu_title, 'wpcd-coupon' ); ?>
+                                    <?php echo esc_html__( $wpcd_category_menu_title, 'wp-coupons-and-deals' ); ?>
                                 </a>
                             <?php else: ?>
                                 <div class="wpcd_dropbtn">
-                                    <?php echo esc_html__( $wpcd_category_menu_title, 'wpcd-coupon' ); ?>
+                                    <?php echo esc_html__( $wpcd_category_menu_title, 'wp-coupons-and-deals' ); ?>
                                 </div>
                             <?php endif; ?>
                             <div class="wpcd_dropdown-content">

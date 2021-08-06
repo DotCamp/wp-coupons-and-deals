@@ -54,7 +54,7 @@ class WPCD_Meta_Boxes_Pro {
 		foreach ( $this->post_types as $post_type ) {
 			add_meta_box(
 				'coupon-details',
-				__( 'Coupon Details', 'wpcd-coupon' ),
+				__( 'Coupon Details', 'wp-coupons-and-deals' ),
 				array( $this, 'add_meta_box_callback' ),
 				$post_type,
 				'normal',
@@ -247,8 +247,8 @@ class WPCD_Meta_Boxes_Pro {
 					$input .= '</div>';
 					//add image or remove
 					$input .= '<div class="hide-if-no-js">';
-					$input .= '<a class="upload-coupon-img button media-button ' . ( $you_have_img ? 'hidden' : '' ) . '" >' . __( 'Upload Coupon Image', 'wpcd-coupon' ) . '</a>';
-					$input .= '<a class="red-text delete-coupon-img button media-button ' . ( $you_have_img ? '' : 'hidden' ) . '">' . __( 'Remove Coupon Image', 'wpcd-coupon' ) . '</a>';
+					$input .= '<a class="upload-coupon-img button media-button ' . ( $you_have_img ? 'hidden' : '' ) . '" >' . __( 'Upload Coupon Image', 'wp-coupons-and-deals' ) . '</a>';
+					$input .= '<a class="red-text delete-coupon-img button media-button ' . ( $you_have_img ? '' : 'hidden' ) . '">' . __( 'Remove Coupon Image', 'wp-coupons-and-deals' ) . '</a>';
 					$input .= '</div>';
 					//hidden input
 					$input .= '<input class="' . esc_attr( $id ) . '" id="' . esc_attr( $id ) . '" name="' . esc_attr( $id ) . '" type="hidden" value="' . esc_attr( $db_value ) . '"/>

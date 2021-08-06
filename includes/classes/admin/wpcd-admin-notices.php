@@ -42,7 +42,7 @@ class WPCD_Admin_Notices {
 			?>
             <div class="wpcd-review-notice notice notice-info">
                 <p style="font-size: 14px;">
-					<?php _e( 'Hey,<br> I noticed you have already created ' . $coupon_number . ' coupons with WP Coupons and Deals plugin - that’s awesome! Could you please do me a BIG favor and <b>give it a 5-star rating on WordPress</b>? Just to help us spread the word and boost our motivation. <br>~ Imtiaz Rayhan', 'wpcd-coupon' ); ?>
+					<?php _e( 'Hey,<br> I noticed you have already created ' . $coupon_number . ' coupons with WP Coupons and Deals plugin - that’s awesome! Could you please do me a BIG favor and <b>give it a 5-star rating on WordPress</b>? Just to help us spread the word and boost our motivation. <br>~ Imtiaz Rayhan', 'wp-coupons-and-deals' ); ?>
                 </p>
                 <ul>
                     <li><a style="margin-right: 5px; margin-bottom: 5px;" class="button-primary"
@@ -106,27 +106,27 @@ class WPCD_Admin_Notices {
 
 		$post = get_post();
 
-		$full_coupon = '<b>' . __( 'Full Coupon:', 'wpcd-coupon' ) . '</b> [wpcd_coupon id=' . absint($post->ID) . ']';
-		$only_code   = '<b>' . __( 'Only Coupon Code:', 'wpcd-coupon' ) . '</b> [wpcd_code id=' . absint($post->ID) . ']';
+		$full_coupon = '<b>' . __( 'Full Coupon:', 'wp-coupons-and-deals' ) . '</b> [wpcd_coupon id=' . absint($post->ID) . ']';
+		$only_code   = '<b>' . __( 'Only Coupon Code:', 'wp-coupons-and-deals' ) . '</b> [wpcd_code id=' . absint($post->ID) . ']';
 
 		$messages['wpcd_coupons'] = array(
 			0  => '', // Unused. Messages start at index 1.
-			1  => __( 'Coupon updated.', 'wpcd-coupon' ),
+			1  => __( 'Coupon updated.', 'wp-coupons-and-deals' ),
 			2  => '',
 			3  => '',
-			4  => __( 'Coupon updated.', 'wpcd-coupon' ),
-			5  => isset( $_GET['revision'] ) ? sprintf( __( 'Coupon restored to revision from %s', 'wpcd-coupon' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+			4  => __( 'Coupon updated.', 'wp-coupons-and-deals' ),
+			5  => isset( $_GET['revision'] ) ? sprintf( __( 'Coupon restored to revision from %s', 'wp-coupons-and-deals' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
 			6  => sprintf(
-				__( 'Coupon published. <br><br> Here are the shortcodes for this coupon: %s and %s ', 'wpcd-coupon' ),
+				__( 'Coupon published. <br><br> Here are the shortcodes for this coupon: %s and %s ', 'wp-coupons-and-deals' ),
 				$full_coupon, $only_code
 			),
-			7  => __( 'Coupon saved.', 'wpcd-coupon' ),
-			8  => __( 'Coupon submitted.', 'wpcd-coupon' ),
+			7  => __( 'Coupon saved.', 'wp-coupons-and-deals' ),
+			8  => __( 'Coupon submitted.', 'wp-coupons-and-deals' ),
 			9  => sprintf(
-				__( 'Coupon scheduled for: <strong>%1$s</strong>.', 'wpcd-coupon' ),
-				date_i18n( __( 'M j, Y @ G:i', 'wpcd-coupon' ), strtotime( $post->post_date ) )
+				__( 'Coupon scheduled for: <strong>%1$s</strong>.', 'wp-coupons-and-deals' ),
+				date_i18n( __( 'M j, Y @ G:i', 'wp-coupons-and-deals' ), strtotime( $post->post_date ) )
 			),
-			10 => __( 'Coupon draft updated.', 'wpcd-coupon' )
+			10 => __( 'Coupon draft updated.', 'wp-coupons-and-deals' )
 		);
 
 		return $messages;

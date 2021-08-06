@@ -37,7 +37,7 @@ class WPCD_Help_Metabox {
 		foreach ( $this->screens as $screen ) {
 			add_meta_box(
 				'help',
-				__( 'Help', 'wpcd-coupon' ),
+				__( 'Help', 'wp-coupons-and-deals' ),
 				array( $this, 'add_meta_box_callback' ),
 				$screen,
 				'side',
@@ -65,7 +65,7 @@ class WPCD_Help_Metabox {
 	 * @since 2.3.2
 	 */
 	public function generate_fields( $post ) {
-		echo '<p style="font-size: 14px;">' . __( 'If you have any questions or confusions, please check our ', 'wpcd-coupon' ) . '<a target="_blank" href="https://wpcouponsdeals.com/knowledgebase/">' . __( 'Knowledgebase', 'wpcd-coupon' ) . '</a>' . __( ' or', 'wpcd-coupon' ) . '<a target="_blank" href="https://wpcouponsdeals.com/contact-us/">' . __( ' contact us', 'wpcd-coupon' ) . '</a>.</p>';
+		echo '<p style="font-size: 14px;">' . __( 'If you have any questions or confusions, please check our ', 'wp-coupons-and-deals' ) . '<a target="_blank" href="https://wpcouponsdeals.com/knowledgebase/">' . __( 'Knowledgebase', 'wp-coupons-and-deals' ) . '</a>' . __( ' or', 'wp-coupons-and-deals' ) . '<a target="_blank" href="https://wpcouponsdeals.com/contact-us/">' . __( ' contact us', 'wp-coupons-and-deals' ) . '</a>.</p>';
 	}
 
 }

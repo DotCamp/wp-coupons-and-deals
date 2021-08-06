@@ -399,7 +399,7 @@ class WPCD_Short_Code {
 				if ( sanitize_text_field( $_POST['search_text'] ) === trim( $_POST['search_text'] ) ) {
 					$wpcd_data_search = sanitize_text_field( $_POST['search_text'] );
 				} else {
-					$output = '<p>' . __( 'Sorry, no coupons/deals found.', 'wpcd-coupon' ) . '</p>';
+					$output = '<p>' . __( 'Sorry, no coupons/deals found.', 'wp-coupons-and-deals' ) . '</p>';
 					echo json_encode( $output );
 					wp_die();
 				}
@@ -646,7 +646,7 @@ class WPCD_Short_Code {
 			// end of the loop.
 			wp_reset_postdata();
 		else :
-			$output .= '<p>' . __( 'Sorry, no coupons/deals found.', 'wpcd-coupon' ) . '</p>';
+			$output .= '<p>' . __( 'Sorry, no coupons/deals found.', 'wp-coupons-and-deals' ) . '</p>';
 		endif;
 
 		if ( isset( $_POST['action'] ) && $_POST['action'] == 'wpcd_coupons_category_action' ) {
@@ -931,7 +931,7 @@ class WPCD_Short_Code {
 			// end of the loop
 			wp_reset_postdata();
 		else :
-			$output .= '<p>' . __( 'Sorry, no coupons/deals found.', 'wpcd-coupon' ) . '</p>';
+			$output .= '<p>' . __( 'Sorry, no coupons/deals found.', 'wp-coupons-and-deals' ) . '</p>';
 		endif;
 
 		if ( isset( $_POST['action'] ) && $_POST['action'] == 'wpcd_coupons_cat_vend_action' ) {

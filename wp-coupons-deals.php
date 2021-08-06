@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 if ( ! function_exists( 'wpcd_load_languages' ) ) {
 	function wpcd_load_languages() {
-		load_plugin_textdomain( 'wpcd-coupon', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+		load_plugin_textdomain( 'wp-coupons-and-deals', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 } else {
 	deactivate_plugins( plugin_basename( __FILE__ ) );

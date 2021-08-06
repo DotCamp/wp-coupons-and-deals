@@ -53,7 +53,7 @@ class WPCD_Custom_Taxonomy_Image {
 
         <tr class="form-field">
             <th scope="row" valign="top">
-                <label for="image_id"><?php _e( 'Image', 'wpcd-coupon' ); ?></label>
+                <label for="image_id"><?php _e( 'Image', 'wp-coupons-and-deals' ); ?></label>
             </th>
             <td>
                 <input type="hidden" class="custom-img-id" name="term_meta[image_id]" id="term_meta[image_id]" size="25"

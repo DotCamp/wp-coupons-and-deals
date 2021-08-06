@@ -34,7 +34,7 @@ class WPCD_Preview_Metabox {
 		foreach ( $this->screens as $screen ) {
 			add_meta_box(
 				'coupon_preview',
-				__( 'Coupon Preview', 'wpcd-coupon' ),
+				__( 'Coupon Preview', 'wp-coupons-and-deals' ),
 				array( $this, 'add_meta_box_callback' ),
 				$screen,
 				'normal',

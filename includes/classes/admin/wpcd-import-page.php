@@ -36,8 +36,8 @@ class WPCD_Import_Page {
 		 */
 		$import_page = add_submenu_page(
 			'edit.php?post_type=wpcd_coupons',
-			__( 'WP Coupons and Deals: Import Coupons', 'wpcd-coupon' ),
-			__( 'Import Coupons (Pro)', 'wpcd-coupon' ),
+			__( 'WP Coupons and Deals: Import Coupons', 'wp-coupons-and-deals' ),
+			__( 'Import Coupons (Pro)', 'wp-coupons-and-deals' ),
             WPCD_Plugin::ALLOWED_ROLE_META_CAP,
 			'wpcd_coupon_import',
 			array( $this, 'import_page' )

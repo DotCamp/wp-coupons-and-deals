@@ -38,7 +38,7 @@ class WPCD_Shortcode_Metabox {
 			foreach ( $this->screens as $screen ) {
 				add_meta_box(
 					'shortcodes',
-					__( 'Coupon Shortcodes', 'wpcd-coupon' ),
+					__( 'Coupon Shortcodes', 'wp-coupons-and-deals' ),
 					array( $this, 'add_meta_box_callback' ),
 					$screen,
 					'side',
@@ -67,8 +67,8 @@ class WPCD_Shortcode_Metabox {
 	 */
 	public function generate_fields( $post ) {
 		$output = '';
-		$output .= '<b>' . __( 'Full Coupon', 'wpcd-coupon' ) . ':</b> [wpcd_coupon id=' . absint($post->ID) . ']' . '<br><br>';
-		$output .= '<span class="only-coupon-code"><b>' . __( 'Only Coupon Code', 'wpcd-coupon' ) . ':</b> [wpcd_code id=' . absint($post->ID) . ']</span>';
+		$output .= '<b>' . __( 'Full Coupon', 'wp-coupons-and-deals' ) . ':</b> [wpcd_coupon id=' . absint($post->ID) . ']' . '<br><br>';
+		$output .= '<span class="only-coupon-code"><b>' . __( 'Only Coupon Code', 'wp-coupons-and-deals' ) . ':</b> [wpcd_code id=' . absint($post->ID) . ']</span>';
 
 		$arr = array( 'b' => array(), 'span' => array(), 'br' => array() );
 		echo wp_kses( $output, $arr );

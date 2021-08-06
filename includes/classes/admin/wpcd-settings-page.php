@@ -91,7 +91,7 @@ class WPCD_Settings_Page {
 			$plugin = 'wp-coupons-deals/wp-coupons-deals.php';
 		}
 		if ( $file == $plugin ) {
-			$settings_link = '<a href="edit.php?post_type=wpcd_coupons&page=wpcd_coupon_settings">' . __( 'Settings', 'wpcd-coupon' ) . '</a>';
+			$settings_link = '<a href="edit.php?post_type=wpcd_coupons&page=wpcd_coupon_settings">' . __( 'Settings', 'wp-coupons-and-deals' ) . '</a>';
 			array_unshift( $links, $settings_link );
 		}
 
@@ -124,28 +124,28 @@ class WPCD_Settings_Page {
 		$settings['tabs'] = array(
 			array(
 				'id'          => 'general',
-				'title'       => __( 'Coupon Settings', 'wpcd-coupon' ),
-				'description' => __( 'These are some general coupon settings. You can use the default settings or set your own ones.', 'wpcd-coupon' )
+				'title'       => __( 'Coupon Settings', 'wp-coupons-and-deals' ),
+				'description' => __( 'These are some general coupon settings. You can use the default settings or set your own ones.', 'wp-coupons-and-deals' )
 			),
 			array(
 				'id'          => 'design',
-				'title'       => __( 'Design Settings', 'wpcd-coupon' ),
-				'description' => __( 'Design Settings for coupon templates and other elements.', 'wpcd-coupon' )
+				'title'       => __( 'Design Settings', 'wp-coupons-and-deals' ),
+				'description' => __( 'Design Settings for coupon templates and other elements.', 'wp-coupons-and-deals' )
 			),
 			array(
 				'id' => 'voting',
-				'title' => __( 'Voting Settings', 'wpcd-coupon' ),
-				'description' => __( 'Configure Voting Settings for Your Coupons.', 'wpcd-coupon' )
+				'title' => __( 'Voting Settings', 'wp-coupons-and-deals' ),
+				'description' => __( 'Configure Voting Settings for Your Coupons.', 'wp-coupons-and-deals' )
 			),
 			array(
 				'id'          => 'settings-extra',
-				'title'       => __( 'Extras', 'wpcd-coupon' ),
-				'description' => __( 'These are some extra settings. You can use the default settings or set your own ones.', 'wpcd-coupon' )
+				'title'       => __( 'Extras', 'wp-coupons-and-deals' ),
+				'description' => __( 'These are some extra settings. You can use the default settings or set your own ones.', 'wp-coupons-and-deals' )
 			),
 			array(
 				'id'          => 'link',
-				'title'       => __( 'Knowledge Base', 'wpcd-coupon' ),
-				'description' => __( 'These are some general settings. You can use the default settings or set your own ones.', 'wpcd-coupon' ),
+				'title'       => __( 'Knowledge Base', 'wp-coupons-and-deals' ),
+				'description' => __( 'These are some general settings. You can use the default settings or set your own ones.', 'wp-coupons-and-deals' ),
 				'href'        => 'https://wpcouponsdeals.com/knowledgebase/'
 			)
 		);
@@ -160,56 +160,56 @@ class WPCD_Settings_Page {
 			array(
 				array(
 					'id'          => 'words-count',
-					'label'       => __( 'Words Count to Add More/Less Link', 'wpcd-coupon' ),
-					'description' => __( 'If coupon description is more than this count, More/Less link will be added. Default is 30 words.', 'wpcd-coupon' ),
+					'label'       => __( 'Words Count to Add More/Less Link', 'wp-coupons-and-deals' ),
+					'description' => __( 'If coupon description is more than this count, More/Less link will be added. Default is 30 words.', 'wp-coupons-and-deals' ),
 					'type'        => 'number',
 					'default'     => 30,
 					'placeholder' => 30,
 				),
 				array(
 					'id'          => 'coupon-hover-text',
-					'label'       => __( 'Coupon Button Hover Text', 'wpcd-coupon' ),
+					'label'       => __( 'Coupon Button Hover Text', 'wp-coupons-and-deals' ),
 					'description' => __( 'Text to show when user hovers on the coupon button. Default is Click To Copy Coupon' ),
 					'type'        => 'text',
 					'default'     => '',
-					'placeholder' => __( 'Click To Copy Coupon', 'wpcd-coupon' ),
+					'placeholder' => __( 'Click To Copy Coupon', 'wp-coupons-and-deals' ),
 				),
 				array(
 					'id'          => 'deal-hover-text',
-					'label'       => __( 'Deal Button Hover Text', 'wpcd-coupon' ),
+					'label'       => __( 'Deal Button Hover Text', 'wp-coupons-and-deals' ),
 					'description' => __( 'Text to show when user hovers on the deal button. Default is Click Here To Get This Deal' ),
 					'type'        => 'text',
 					'default'     => '',
-					'placeholder' => __( 'Click Here To Get This Deal', 'wpcd-coupon' ),
+					'placeholder' => __( 'Click Here To Get This Deal', 'wp-coupons-and-deals' ),
 				),
 				array(
 					'id'          => 'expire-text',
-					'label'       => __( 'Expire Text', 'wpcd-coupon' ),
-					'description' => __( 'Text to show before expire date. Default is \'Expires on:\' ', 'wpcd-coupon' ),
+					'label'       => __( 'Expire Text', 'wp-coupons-and-deals' ),
+					'description' => __( 'Text to show before expire date. Default is \'Expires on:\' ', 'wp-coupons-and-deals' ),
 					'type'        => 'text',
 					'default'     => '',
-					'placeholder' => __( 'Expires on:', 'wpcd-coupon' )
+					'placeholder' => __( 'Expires on:', 'wp-coupons-and-deals' )
 				),
 				array(
 					'id'          => 'expired-text',
-					'label'       => __( 'Expired Text', 'wpcd-coupon' ),
-					'description' => __( 'Text to show before expired date. Default is \'Expired on:\' ', 'wpcd-coupon' ),
+					'label'       => __( 'Expired Text', 'wp-coupons-and-deals' ),
+					'description' => __( 'Text to show before expired date. Default is \'Expired on:\' ', 'wp-coupons-and-deals' ),
 					'type'        => 'text',
 					'default'     => '',
-					'placeholder' => __( 'Expired on:', 'wpcd-coupon' )
+					'placeholder' => __( 'Expired on:', 'wp-coupons-and-deals' )
 				),
 				array(
 					'id'          => 'no-expiry-message',
-					'label'       => __( 'No Expiration Text', 'wpcd-coupon' ),
-					'description' => __( 'Text to show if coupon or deal never expires. Default is \'Doesn\'t expire\'.', 'wpcd-coupon' ),
+					'label'       => __( 'No Expiration Text', 'wp-coupons-and-deals' ),
+					'description' => __( 'Text to show if coupon or deal never expires. Default is \'Doesn\'t expire\'.', 'wp-coupons-and-deals' ),
 					'type'        => 'text',
 					'default'     => '',
-					'placeholder' => __( 'Doesn\'t Expire', 'wpcd-coupon' )
+					'placeholder' => __( 'Doesn\'t Expire', 'wp-coupons-and-deals' )
 				),
 				array(
 					'id'          => 'expiry-date-format',
-					'label'       => __( 'Expiration Date Format', 'wpcd-coupon' ),
-					'description' => __( 'Choose the date format for expiration date.', 'wpcd-coupon' ),
+					'label'       => __( 'Expiration Date Format', 'wp-coupons-and-deals' ),
+					'description' => __( 'Choose the date format for expiration date.', 'wp-coupons-and-deals' ),
 					'type'        => 'select',
 					'options'     => array(
 						'dd-mm-yy' => 'dd-mm-yy',
@@ -220,15 +220,15 @@ class WPCD_Settings_Page {
 				),
 				array(
 					'id'          => 'hide-expired-coupon',
-					'label'       => __( 'Hide expired Coupon', 'wpcd-coupon' ),
+					'label'       => __( 'Hide expired Coupon', 'wp-coupons-and-deals' ),
 					'type'        => 'checkbox',
-					'description' => __( 'Hide Coupon when it\'s expired. Default - Not to hide', 'wpcd-coupon' ),
+					'description' => __( 'Hide Coupon when it\'s expired. Default - Not to hide', 'wp-coupons-and-deals' ),
 					'default'     => ''
 				),
 				array(
 					'id'          => 'coupon-title-tag',
-					'label'       => __( 'Coupon Title Tag', 'wpcd-coupon' ),
-					'description' => __( 'Choose the heading tag to be used for Coupon Title', 'wpcd-coupon' ),
+					'label'       => __( 'Coupon Title Tag', 'wp-coupons-and-deals' ),
+					'description' => __( 'Choose the heading tag to be used for Coupon Title', 'wp-coupons-and-deals' ),
 					'type'        => 'select',
 					'options'     => array(
 						'h1' => 'H1',
@@ -242,8 +242,8 @@ class WPCD_Settings_Page {
 				),
 				array(
 					'id' => 'coupon-social-share',
-					'label' => __( 'Social Share Buttons', 'wpcd-coupon' ),
-					'description' => __( 'Enable Social Share buttons in Coupons', 'wpcd-coupon' ),
+					'label' => __( 'Social Share Buttons', 'wp-coupons-and-deals' ),
+					'description' => __( 'Enable Social Share buttons in Coupons', 'wp-coupons-and-deals' ),
 					'type' => 'checkbox',
 					'default' => ''
 				),
@@ -251,22 +251,22 @@ class WPCD_Settings_Page {
 			array(
 				array(
 					'id'          => 'coupon-type-bg-color',
-					'label'       => __( 'Coupon Type Color', 'wpcd-coupon' ),
-					'description' => __( 'Coupon Type Background Color in Default Template.', 'wpcd-coupon' ),
+					'label'       => __( 'Coupon Type Color', 'wp-coupons-and-deals' ),
+					'description' => __( 'Coupon Type Background Color in Default Template.', 'wp-coupons-and-deals' ),
 					'type'        => 'colorpicker',
 					'default'     => '#56b151'
 				),
 				array(
 					'id'          => 'dt-border-color',
-					'label'       => __( 'Border Color', 'wpcd-coupon' ),
-					'description' => __( 'Border Color in Default Template.', 'wpcd-coupon' ),
+					'label'       => __( 'Border Color', 'wp-coupons-and-deals' ),
+					'description' => __( 'Border Color in Default Template.', 'wp-coupons-and-deals' ),
 					'type'        => 'colorpicker',
 					'default'     => '#000000'
 				),
 				array(
 					'id' 		  => 'custom-css',
-					'label'	      => __( 'Custom CSS', 'wpcd-coupon' ),
-					'description' => __( 'Add any custom CSS you want here.', 'wpcd-coupon' ),
+					'label'	      => __( 'Custom CSS', 'wp-coupons-and-deals' ),
+					'description' => __( 'Add any custom CSS you want here.', 'wp-coupons-and-deals' ),
 					'type'		  => 'textarea',
 					'default' 	  => '',
 					'placeholder' => ''
@@ -275,66 +275,66 @@ class WPCD_Settings_Page {
 			array(
 				array(
 					'id' => 'coupon-vote-system',
-					'label' => __( 'Vote Buttons', 'wpcd-coupon' ),
-					'description' => __( 'Enable Voting buttons in Coupons', 'wpcd-coupon' ),
+					'label' => __( 'Vote Buttons', 'wp-coupons-and-deals' ),
+					'description' => __( 'Enable Voting buttons in Coupons', 'wp-coupons-and-deals' ),
 					'type' => 'checkbox',
 					'default' => ''
 				),
 				array(
 					'id' => 'coupon-vote-success',
-					'label' => __( 'Voting Success Message', 'wpcd-coupon' ),
-					'description' => __( 'Message to Show After User has Voted Successfully', 'wpcd-coupon' ),
+					'label' => __( 'Voting Success Message', 'wp-coupons-and-deals' ),
+					'description' => __( 'Message to Show After User has Voted Successfully', 'wp-coupons-and-deals' ),
 					'type' => 'text',
 					'default' => '',
-					'placeholder' => __( 'You have voted successfully!', 'wpcd-coupon' )
+					'placeholder' => __( 'You have voted successfully!', 'wp-coupons-and-deals' )
 				),
 				array(
 					'id' => 'coupon-vote-fail',
-					'label' => __( 'Voting Failed Message', 'wpcd-coupon' ),
-					'description' => __( 'Message to Show If Voting Fails', 'wpcd-coupon' ),
+					'label' => __( 'Voting Failed Message', 'wp-coupons-and-deals' ),
+					'description' => __( 'Message to Show If Voting Fails', 'wp-coupons-and-deals' ),
 					'type' => 'text',
 					'default' => '',
-					'placeholder' => __( 'Voting Failed!', 'wpcd-coupon' )
+					'placeholder' => __( 'Voting Failed!', 'wp-coupons-and-deals' )
 				),
 				array(
 					'id' => 'coupon-vote-already',
-					'label' => __( 'Already Voted Message', 'wpcd-coupon' ),
-					'description' => __( 'Message to Show If User has Voted Already', 'wpcd-coupon' ),
+					'label' => __( 'Already Voted Message', 'wp-coupons-and-deals' ),
+					'description' => __( 'Message to Show If User has Voted Already', 'wp-coupons-and-deals' ),
 					'type' => 'text',
 					'default' => '',
-					'placeholder' => __( 'You have voted already!', 'wpcd-coupon' )
+					'placeholder' => __( 'You have voted already!', 'wp-coupons-and-deals' )
 				)
 			),
 			array(
 				array (
 					'id' => 'coupon-link-target',
-					'label' => __( 'Affiliate Link in Current Tab', 'wpcd-coupon' ),
-					'description' => __( 'Enabling it will open the affiliate link in current tab. By default it opens in a new tab.', 'wpcd-coupon' ),
+					'label' => __( 'Affiliate Link in Current Tab', 'wp-coupons-and-deals' ),
+					'description' => __( 'Enabling it will open the affiliate link in current tab. By default it opens in a new tab.', 'wp-coupons-and-deals' ),
 					'type' => 'checkbox',
 					'default' => ''
 				),
 				array(
 					'id'          => 'disable-coupon-title-link',
-					'label'       => __( 'Disable Link in Coupon Title', 'wpcd-coupon' ),
-					'description' => __( 'Disable the coupon title link. By default it\'s linked to the link/affiliate link you put when you create a coupon.', 'wpcd-coupon' ),
+					'label'       => __( 'Disable Link in Coupon Title', 'wp-coupons-and-deals' ),
+					'description' => __( 'Disable the coupon title link. By default it\'s linked to the link/affiliate link you put when you create a coupon.', 'wp-coupons-and-deals' ),
 					'type'        => 'checkbox',
 					'default'     => '',
 				),
 				array(
 					'id' 		  => 'dt-coupon-type-text',
-					'label'       => __( 'Coupon Type Name', 'wpcd-coupon' ),
-					'description' => __( 'Text to Show for Coupon Type Name in Default Template. Default is - Coupon.', 'wpcd-coupon' ),
+					'label'       => __( 'Coupon Type Name', 'wp-coupons-and-deals' ),
+					'description' => __( 'Text to Show for Coupon Type Name in Default Template. Default is - Coupon.', 'wp-coupons-and-deals' ),
 					'type'		  => 'text',
-					'default'	  => __( 'Coupon', 'wpcd-coupon' ),
-					'placeholder' => __( 'Coupon', 'wpcd-coupon' )
+					'default'	  => __( 'Coupon', 'wp-coupons-and-deals' ),
+					'placeholder' => __( 'Coupon', 'wp-coupons-and-deals' )
 				),
 				array(
 					'id' 		  => 'dt-deal-type-text',
-					'label'       => __( 'Deal Type Name', 'wpcd-coupon' ),
-					'description' => __( 'Text to Show for Deal Type Name in Default Template. Default is - Deal.', 'wpcd-coupon' ),
+					'label'       => __( 'Deal Type Name', 'wp-coupons-and-deals' ),
+					'description' => __( 'Text to Show for Deal Type Name in Default Template. Default is - Deal.', 'wp-coupons-and-deals' ),
 					'type'		  => 'text',
-					'default'	  => __( 'Deal', 'wpcd-coupon' ),
-					'placeholder' => __( 'Deal', 'wpcd-coupon' )
+					'default'	  => __( 'Deal', 'wp-coupons-and-deals' ),
+					'placeholder' => __( 'Deal', 'wp-coupons-and-deals' )
 				)
 			),
 
@@ -359,8 +359,8 @@ class WPCD_Settings_Page {
 		 */
 		$settings_page = add_submenu_page(
 			'edit.php?post_type=wpcd_coupons',
-			__( 'WP Coupons and Deals Settings', 'wpcd-coupon' ),
-			__( 'Settings', 'wpcd-coupon' ),
+			__( 'WP Coupons and Deals Settings', 'wp-coupons-and-deals' ),
+			__( 'Settings', 'wp-coupons-and-deals' ),
 			'manage_options',
 			'wpcd_coupon_settings',
 			array( $this, 'settings_page' )
@@ -619,7 +619,7 @@ class WPCD_Settings_Page {
 		 * @since 1.0
 		 */
 		$output = '<div class="wrap" id="wpcd_coupon_settings">' . "\n";
-		$output .= '<h3 class="setting-title">' . __( 'WP Coupons and Deals Settings', 'wpcd-coupon' ) . '</h3>' . "\n";
+		$output .= '<h3 class="setting-title">' . __( 'WP Coupons and Deals Settings', 'wp-coupons-and-deals' ) . '</h3>' . "\n";
 		$output .= '<div class="wpcd_settings_section">';
 		$output .= '<form method="post" action="options.php" enctype="multipart/form-data">' . "\n";
 		// Get settings fields
@@ -628,7 +628,7 @@ class WPCD_Settings_Page {
 		do_settings_sections( 'wpcd_settings' );
 		$output .= ob_get_clean();
 		$output .= '<p class="submit">' . "\n";
-		$output .= '<input name="Submit" type="submit" class="button-primary" value="' . __( 'Save Settings', 'wpcd-coupon' ) . '" />' . "\n";
+		$output .= '<input name="Submit" type="submit" class="button-primary" value="' . __( 'Save Settings', 'wp-coupons-and-deals' ) . '" />' . "\n";
 		$output .= '</p>' . "\n";
 		$output .= '</form>' . "\n";
 		$output .= '</div>';

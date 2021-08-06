@@ -54,7 +54,7 @@ class WPCD_Meta_Boxes {
 		foreach ( $this->post_types as $post_type ) {
 			add_meta_box(
 				'coupon-details',
-				__( 'Coupon Details', 'wpcd-coupon' ),
+				__( 'Coupon Details', 'wp-coupons-and-deals' ),
 				array( $this, 'add_meta_box_callback' ),
 				$post_type,
 				'normal',
@@ -239,8 +239,8 @@ class WPCD_Meta_Boxes {
 					$input .= '</div>';
 					//add image or remove
 					$input .= '<div class="hide-if-no-js">';
-					$input .= '<a class="upload-coupon-img button media-button ' . ( $you_have_img ? 'hidden' : '' ) . '" >' . __( 'Upload Coupon Image', 'wpcd-coupon' ) . '</a>';
-					$input .= '<a class="red-text delete-coupon-img button media-button ' . ( $you_have_img ? '' : 'hidden' ) . '">' . __( 'Remove Coupon Image', 'wpcd-coupon' ) . '</a>';
+					$input .= '<a class="upload-coupon-img button media-button ' . ( $you_have_img ? 'hidden' : '' ) . '" >' . __( 'Upload Coupon Image', 'wp-coupons-and-deals' ) . '</a>';
+					$input .= '<a class="red-text delete-coupon-img button media-button ' . ( $you_have_img ? '' : 'hidden' ) . '">' . __( 'Remove Coupon Image', 'wp-coupons-and-deals' ) . '</a>';
 					$input .= '</div>';
 					//hidden input
 					$input .= '<input class="' . esc_attr( $id ) . '" id="' . esc_attr( $id ) . '" name="' . esc_attr( $id ) . '" type="hidden" value="' . esc_attr( $db_value ) . '"/>
@@ -277,14 +277,14 @@ class WPCD_Meta_Boxes {
 			 </script>";
 
 		if ( wcad_fs()->is_not_paying() ) {
-			echo '<p style="font-size: 16px;">' . __( 'Hide coupon, change templates and get many more features', 'wpcd-coupon' ) . '- ';
+			echo '<p style="font-size: 16px;">' . __( 'Hide coupon, change templates and get many more features', 'wp-coupons-and-deals' ) . '- ';
 
 			echo '<a href="' . esc_url( wcad_fs()->get_upgrade_url() ). '">' .
-			     __( 'Upgrade to Pro!', 'wpcd-coupon' ) .
+			     __( 'Upgrade to Pro!', 'wp-coupons-and-deals' ) .
 			     '</a>';
 			echo ' or ';
 			echo '<a href="' . esc_url( wcad_fs()->get_trial_url() ) . '">' .
-			     __( 'Start 14 day Free Trial!', 'wpcd-coupon' ) .
+			     __( 'Start 14 day Free Trial!', 'wp-coupons-and-deals' ) .
 			     '</a>';
 		}
 

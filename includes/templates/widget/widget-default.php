@@ -36,7 +36,7 @@ $target = ($linkTarget == "on") ? "_self" : "_blank" ;
 if ( $wpcd_text_to_show == 'description' ) {
 	$wpcd_custom_text = $description;
 } else if ( empty( $wpcd_custom_text ) ) {
-	$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wpcd-coupon' );	
+	$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wp-coupons-and-deals' );	
 }
 
 $expireDateFormatFun = wpcd_getExpireDateFormatFun( $expireDateFormat );
@@ -77,7 +77,7 @@ if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
                            title="<?php if ( ! empty( $coupon_hover_text ) ) {
 							   echo esc_attr( $coupon_hover_text );
 						   } else {
-							   echo __( "Click To Copy Coupon", 'wpcd-coupon' );
+							   echo __( "Click To Copy Coupon", 'wp-coupons-and-deals' );
 						   } ?>" href="<?php echo esc_url( $link ); ?>" target="<?php echo esc_attr( $target ); ?>"
                            data-clipboard-text="<?php echo esc_attr( $coupon_code ); ?>">
                             <span class="wpcd_coupon_icon"></span> <?php echo esc_html( $coupon_code ); ?>
@@ -93,7 +93,7 @@ if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
                            title="<?php if ( ! empty( $coupon_hover_text ) ) {
 							   echo esc_attr( $coupon_hover_text );
 						   } else {
-							   echo __( "Click To Copy Coupon", 'wpcd-coupon' );
+							   echo __( "Click To Copy Coupon", 'wp-coupons-and-deals' );
 						   } ?>" href="<?php echo esc_url( $link ); ?>" target="<?php echo esc_attr( $target ); ?>"
                            data-clipboard-text="<?php echo esc_attr( $coupon_code ); ?>">
                             <span class="wpcd_coupon_icon"></span> <?php echo esc_html( $coupon_code ); ?>
@@ -112,7 +112,7 @@ if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
                            title="<?php if ( ! empty( $deal_hover_text ) ) {
 							   echo esc_attr( $deal_hover_text );
 						   } else {
-							   echo __( "Click Here To Get This Deal", 'wpcd-coupon' );
+							   echo __( "Click Here To Get This Deal", 'wp-coupons-and-deals' );
 						   } ?>" href="<?php echo esc_url( $link ); ?>" target="<?php echo esc_attr( $target ); ?>">
                             <span class="wpcd_deal_icon"></span><?php echo esc_html( $deal_text ); ?>
                         </a>
@@ -127,8 +127,8 @@ if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
                 <div class="wpcd-coupon-description">
                     <span class="wpcd-full-description"><?php echo wp_kses_post( $description ); ?></span>
                     <span class="wpcd-short-description"></span>
-                    <a href="#" class="wpcd-more-description"><?php echo __( 'More', 'wpcd-coupon' ); ?></a>
-                    <a href="#" class="wpcd-less-description"><?php echo __( 'Less', 'wpcd-coupon' ); ?></a>
+                    <a href="#" class="wpcd-more-description"><?php echo __( 'More', 'wp-coupons-and-deals' ); ?></a>
+                    <a href="#" class="wpcd-less-description"><?php echo __( 'Less', 'wp-coupons-and-deals' ); ?></a>
                 </div>
             </div>
             <div class="wpcd-col-1-1">
@@ -142,7 +142,7 @@ if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
 									if ( ! empty( $expire_text ) ) {
 										echo esc_html( $expire_text ) . ' ' . $expire_date;
 									} else {
-										echo __( 'Expires on: ', 'wpcd-coupon' ) . $expire_date;
+										echo __( 'Expires on: ', 'wp-coupons-and-deals' ) . $expire_date;
 									}
 									?>
                                 </div>
@@ -152,7 +152,7 @@ if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
 									if ( ! empty( $expired_text ) ) {
 										echo esc_html( $expired_text ) . ' ' . $expire_date;
 									} else {
-										echo __( 'Expired on: ', 'wpcd-coupon' ) . $expire_date;
+										echo __( 'Expired on: ', 'wp-coupons-and-deals' ) . $expire_date;
 									}
 									?>
                                 </div>
@@ -162,7 +162,7 @@ if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
 								<?php if ( ! empty( $no_expiry ) ) {
 									echo esc_html( $no_expiry );
 								} else {
-									echo __( "Doesn't expire", 'wpcd-coupon' );
+									echo __( "Doesn't expire", 'wp-coupons-and-deals' );
 								} ?>
                             </div>
 						<?php }
@@ -179,7 +179,7 @@ if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
 									if ( ! empty( $expire_text ) ) {
 										echo esc_html( $expire_text ) . ' ' . $expire_date;
 									} else {
-										echo __( 'Expires on: ', 'wpcd-coupon' ) . $expire_date;
+										echo __( 'Expires on: ', 'wp-coupons-and-deals' ) . $expire_date;
 									}
 									?>
                                 </div>
@@ -189,7 +189,7 @@ if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
 									if ( ! empty( $expired_text ) ) {
 										echo esc_html( $expired_text ) . ' ' . $expire_date;
 									} else {
-										echo __( 'Expired on: ', 'wpcd-coupon' ) . $expire_date;
+										echo __( 'Expired on: ', 'wp-coupons-and-deals' ) . $expire_date;
 									}
 									?>
                                 </div>
@@ -202,7 +202,7 @@ if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
 								<?php if ( ! empty( $no_expiry ) ) {
 									echo esc_html( $no_expiry );
 								} else {
-									echo __( "Doesn't expire", 'wpcd-coupon' );
+									echo __( "Doesn't expire", 'wp-coupons-and-deals' );
 								}
 								?>
                             </div>

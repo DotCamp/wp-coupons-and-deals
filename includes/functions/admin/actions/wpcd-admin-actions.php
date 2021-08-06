@@ -104,11 +104,11 @@ function wpcd_import_process_php() {
 					wp_set_object_terms( $post_id, $wpcd_coupon_data->vendor, 'wpcd_coupon_vendor' );
 				}
 			} else {
-				wp_send_json($post_id->get_error_message() . __( ' | On Line Number1', 'wpcd-coupon' ) . $wpcd_coupon_data->coupon_count . '<br />');
+				wp_send_json($post_id->get_error_message() . __( ' | On Line Number1', 'wp-coupons-and-deals' ) . $wpcd_coupon_data->coupon_count . '<br />');
 			}
 
 		} else {
-			wp_send_json(__( 'Error | On Line Number 2', 'wpcd-coupon' ) . $wpcd_coupon_data->coupon_count . '<br />');
+			wp_send_json(__( 'Error | On Line Number 2', 'wp-coupons-and-deals' ) . $wpcd_coupon_data->coupon_count . '<br />');
 		}
         $wpcd_coupon_data->success = 'success';
 		wp_send_json( $wpcd_coupon_data ); // sends all the data back to js

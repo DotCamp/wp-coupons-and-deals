@@ -21,7 +21,7 @@ if ( isset($enable_stats) && $enable_stats == "on" ){
                         if ( ! empty( $coupon_hover_text ) ) {
                             echo esc_attr( $coupon_hover_text );
                         } else {
-                            echo __( "Click To Copy Coupon", 'wpcd-coupon' );
+                            echo __( "Click To Copy Coupon", 'wp-coupons-and-deals' );
                         }
                     }
                 ?>"

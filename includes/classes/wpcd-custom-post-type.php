@@ -147,7 +147,7 @@ class WPCD_Custom_Post_Type {
 	function wpcd_change_enter_title( $input ) {
 
 		if ( is_admin() && 'wpcd_coupons' === get_post_type() ) {
-			return __( 'Enter Coupon title here', 'wpcd-coupon' );
+			return __( 'Enter Coupon title here', 'wp-coupons-and-deals' );
 		}
 
 		return $input;

@@ -34,7 +34,7 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 		const CUSTOM_POST_TYPE = 'wpcd_coupons';
 		const CUSTOM_TAXONOMY = 'wpcd_coupon_category';
         const VENDOR_TAXONOMY = 'wpcd_coupon_vendor';
-		const TEXT_DOMAIN = 'wpcd-coupon';
+		const TEXT_DOMAIN = 'wp-coupons-and-deals';
 		const NAME_SINGULAR = 'Coupon';
 		const NAME_PLURAL = 'Coupons';
 		const TAXONOMY_SINGULAR = 'Coupon Category';
@@ -630,8 +630,8 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 
             add_submenu_page(
                 'edit.php?post_type=wpcd_coupons',
-                __( 'Free Pro Trial', 'wpcd-coupon' ),
-                __( 'Free Pro Trial', 'wpcd-coupon' ),
+                __( 'Free Pro Trial', 'wp-coupons-and-deals' ),
+                __( 'Free Pro Trial', 'wp-coupons-and-deals' ),
                 'manage_options',
                 esc_url( wcad_fs()->get_trial_url() )
             );
@@ -668,7 +668,7 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 		 * Setting up dashboard widget.
 		 */
 		public static function wpcd_dashboard_add_widgets() {
-			wp_add_dashboard_widget( 'wpcd_dashboard_widget_news', __( 'Coupons Overview', 'wpcd-coupon' ), array ( __CLASS__, 'wpcd_dashboard_widget_news_handler' ) );
+			wp_add_dashboard_widget( 'wpcd_dashboard_widget_news', __( 'Coupons Overview', 'wp-coupons-and-deals' ), array ( __CLASS__, 'wpcd_dashboard_widget_news_handler' ) );
 		}
 
 		/**

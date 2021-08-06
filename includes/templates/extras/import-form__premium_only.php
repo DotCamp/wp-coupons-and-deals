@@ -13,13 +13,13 @@ $wpcd_coupon_templates = array(
 ?>
 
 <form id="wpcd_import_form" class="wpcd_clearfix" enctype='multipart/form-data' method='post'>
-	<p style="font-size: 16px"><?php echo __( 'Here you can import coupons from a CSV or XML file. Select the file you want to import, then click on Next.', 'wpcd-coupon' ); ?></p>
-	<p style="font-size: 16px"><?php echo __( 'Coupons will be imported as \'Coupon\' type.', 'wpcd-coupon' ); ?>
+	<p style="font-size: 16px"><?php echo __( 'Here you can import coupons from a CSV or XML file. Select the file you want to import, then click on Next.', 'wp-coupons-and-deals' ); ?></p>
+	<p style="font-size: 16px"><?php echo __( 'Coupons will be imported as \'Coupon\' type.', 'wp-coupons-and-deals' ); ?>
 	
 	<div class="wpcd_import_field">
 		<div>
 			<label>
-				<?php echo __( 'Choose Default template which will be assigned to imported coupons.', 'wpcd-coupon' ); ?>
+				<?php echo __( 'Choose Default template which will be assigned to imported coupons.', 'wp-coupons-and-deals' ); ?>
 			</label>
 			<select name="wpcd_default_template">
 				<?php foreach ( $wpcd_coupon_templates as $template ): ?>
@@ -29,7 +29,7 @@ $wpcd_coupon_templates = array(
 		</div>
 		<div id="wpcd_import_color_parent" style="display:none;">
 			<label>
-			   <?php echo __( 'Color Theme:', 'wpcd-coupon' ); ?>
+			   <?php echo __( 'Color Theme:', 'wp-coupons-and-deals' ); ?>
 			</label>
 			<div id="wpcd_import_color" class="wpcd_colorSelectors">
 				<div data-color="#18e06e" style="background-color:#18e06e;"></div>
@@ -46,9 +46,9 @@ $wpcd_coupon_templates = array(
 		</div>
 	</div>
 	<?php if ( isset( $_POST['wpcd_import_submit'] ) ) : ?>
-		<p style="font-size: 16px; color: red"><?php echo __( 'File type not allowed.', 'wpcd-coupon' ); ?></p>
+		<p style="font-size: 16px; color: red"><?php echo __( 'File type not allowed.', 'wp-coupons-and-deals' ); ?></p>
 	<?php endif; ?>
-	<p style="font-size: 16px;"><?php echo __( 'Only CSV or XML files are allowed.', 'wpcd-coupon' ); ?></p>
+	<p style="font-size: 16px;"><?php echo __( 'Only CSV or XML files are allowed.', 'wp-coupons-and-deals' ); ?></p>
 	<div class="wpcd_import_form_loader wpcd_loader" style="display:none"></div>
 
 	<!-- Remove after finish below -->

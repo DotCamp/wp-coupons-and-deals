@@ -41,7 +41,7 @@ $target = ($linkTarget == "on") ? "_self" : "_blank" ;
 if ( $wpcd_text_to_show == 'description' ) {
 	$wpcd_custom_text = $description;
 } else if ( empty( $wpcd_custom_text ) ) {
-	$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wpcd-coupon' );
+	$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wp-coupons-and-deals' );
 }
 
 $expireDateFormatFun = wpcd_getExpireDateFormatFun( $expireDateFormat );
@@ -90,7 +90,7 @@ $expire_date_format = date( "m/d/Y", strtotime( $expire_date ) );
                         if ( ! empty( $expire_text ) ) {
                             echo esc_html( $expire_text );
                         } else {
-                            echo __( 'Expires on: ', 'wpcd-coupon' );
+                            echo __( 'Expires on: ', 'wp-coupons-and-deals' );
                         }
                         ?>
                     </span>
@@ -102,7 +102,7 @@ $expire_date_format = date( "m/d/Y", strtotime( $expire_date ) );
                         <?php if ( ! empty( $no_expiry ) ) {
 							echo esc_html( $no_expiry );
 						} else {
-							echo __( "Doesn't expire", 'wpcd-coupon' );
+							echo __( "Doesn't expire", 'wp-coupons-and-deals' );
                         } ?>
                     </span>   
                 <?php endif; ?>
@@ -115,8 +115,8 @@ $expire_date_format = date( "m/d/Y", strtotime( $expire_date ) );
                 <div class="wpcd-coupon-description">
                     <span class="wpcd-full-description"><?php echo wp_kses_post( $description ); ?></span>
                     <span class="wpcd-short-description"></span>
-                    <a href="#" class="wpcd-more-description"><?php echo __( 'More', 'wpcd-coupon' ); ?></a>
-                    <a href="#" class="wpcd-less-description"><?php echo __( 'Less', 'wpcd-coupon' ); ?></a>
+                    <a href="#" class="wpcd-more-description"><?php echo __( 'More', 'wp-coupons-and-deals' ); ?></a>
+                    <a href="#" class="wpcd-less-description"><?php echo __( 'Less', 'wp-coupons-and-deals' ); ?></a>
                 </div>
             </div>
 
@@ -135,7 +135,7 @@ $expire_date_format = date( "m/d/Y", strtotime( $expire_date ) );
 						   if ( ! empty( $coupon_hover_text ) ) {
 							   echo esc_attr( $coupon_hover_text );
 						   } else {
-							   echo __( "Click To Copy Coupon", 'wpcd-coupon' );
+							   echo __( "Click To Copy Coupon", 'wp-coupons-and-deals' );
 						   }
 						   ?>" href="<?php echo esc_url( $link ); ?>" target="<?php echo esc_attr( $target ); ?>"
                            data-clipboard-text="<?php echo esc_attr( $coupon_code ); ?>">
@@ -154,7 +154,7 @@ $expire_date_format = date( "m/d/Y", strtotime( $expire_date ) );
 						   if ( ! empty( $coupon_hover_text ) ) {
 							   echo esc_attr( $coupon_hover_text );
 						   } else {
-							   echo __( "Click To Copy Coupon", 'wpcd-coupon' );
+							   echo __( "Click To Copy Coupon", 'wp-coupons-and-deals' );
 						   }
 						   ?>" href="<?php echo esc_url( $link ); ?>" target="<?php echo esc_attr( $target ); ?>"
                            data-clipboard-text="<?php echo esc_attr( $coupon_code ); ?>">
@@ -176,7 +176,7 @@ $expire_date_format = date( "m/d/Y", strtotime( $expire_date ) );
 						   if ( ! empty( $deal_hover_text ) ) {
 							   echo esc_attr( $deal_hover_text );
 						   } else {
-							   echo __( "Click Here To Get This Deal", 'wpcd-coupon' );
+							   echo __( "Click Here To Get This Deal", 'wp-coupons-and-deals' );
 						   }
 						   ?>" href="<?php echo esc_url( $link ); ?>" target="<?php echo esc_attr( $target ); ?>">
                             <span class="wpcd_deal_icon"></span><?php echo esc_html( $deal_text ); ?>
