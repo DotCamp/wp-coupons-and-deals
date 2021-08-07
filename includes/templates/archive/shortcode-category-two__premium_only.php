@@ -63,8 +63,6 @@ if( ! $link && WPCD_Amp::wpcd_amp_is() ) $link = "#";
 $expireDateFormatFun = wpcd_getExpireDateFormatFun( $expireDateFormat );
 if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
     $expire_date = date( $expireDateFormatFun, $expire_date );
-} elseif ( ! empty( $expire_date ) ) {
-    $expire_date = date( $expireDateFormatFun, strtotime( $expire_date ) );
 }
 $expire_date_format = date( "m/d/Y", strtotime( $expire_date ) );
 
@@ -152,32 +150,24 @@ include('header-category__premium_only.php');
                         if ( strtotime( $expire_date ) >= strtotime( $today ) ) { ?>
                             <span class="wpcd-coupon-expire">
                                 <?php
-                                if ( ! empty( $expire_text ) ) {
-                                    echo esc_html( $expire_text ) . ' ' . $expire_date;
-                                } else {
-                                    echo __( 'Expires on: ', 'wp-coupons-and-deals' ) . $expire_date;
-                                }
+                                    echo ( $expire_text ? esc_html( $expire_text ) : __( 'Expires on:', 'wp-coupons-and-deals' ) ) . ' ' .
+                                    date( $expireDateFormatFun, strtotime( $expire_date ) );
                                 ?>
                             </span>
                         <?php } elseif ( strtotime( $expire_date ) < strtotime( $today ) ) { ?>
                             <span class="wpcd-coupon-expired">
                                 <?php
-                                if ( ! empty( $expired_text ) ) {
-                                    echo esc_html( $expired_text ) . ' ' . $expire_date;
-                                } else {
-                                    echo __( 'Expired on: ', 'wp-coupons-and-deals' ) . $expire_date;
-                                }
+                                    echo ( $expired_text ? esc_html( $expired_text ) : __( 'Expired on:', 'wp-coupons-and-deals' ) ) . ' ' .
+                                    date( $expireDateFormatFun, strtotime( $expire_date ) );
                                 ?>
                             </span>
                         <?php } ?>
                     <?php } ?>
                 <?php else : ?>
                     <span style="color: green;">
-                        <?php if ( ! empty( $no_expiry ) ) {
-							echo esc_html( $no_expiry );
-						} else {
-							echo __( "Doesn't expire", 'wp-coupons-and-deals' );
-                        } ?>
+                        <?php 
+                            echo $no_expiry ? esc_html( $no_expiry ) : __( "Doesn't expire", 'wp-coupons-and-deals' );
+                        ?>
                     </span>    
                 <?php endif; ?>
             </div>
@@ -214,11 +204,8 @@ include('header-category__premium_only.php');
                                class="<?php echo 'wpcd-btn-' . absint( $coupon_id ); ?> masterTooltip wpcd-btn wpcd-coupon-button"
                                target="<?php echo esc_attr( $target ); ?>" href="<?php echo esc_url( $link ); ?>"
                                title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
-                                                if ( ! empty( $coupon_hover_text ) ) {
-                                                    echo esc_attr( $coupon_hover_text );
-                                                } else {
-                                                    echo __( "Click To Copy Coupon", 'wp-coupons-and-deals' );
-                                                }
+                                                echo $coupon_hover_text ? esc_attr( $coupon_hover_text ) :
+                                                    __( "Click To Copy Coupon", 'wp-coupons-and-deals' );
                                             }
                                         ?>"
                                data-clipboard-text="<?php echo esc_attr( $coupon_code ); ?>">

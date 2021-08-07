@@ -58,16 +58,14 @@ $expire_date_format = date( "m/d/Y", strtotime( $expire_date ) );
     <div class="wpcd-coupon-content wpcd-col-1-1">
         <div class="wpcd-coupon-header">
             <div class="wpcd-col-1-1">
-				<?php if ( has_post_thumbnail() ) { ?>
-                    <figure>
+                <figure>
+				    <?php if ( has_post_thumbnail() ) { ?>
                         <img class="wpcd-coupon-one-img" src="<?php echo esc_url( $coupon_thumbnail ); ?>">
-                    </figure>
-				<?php } else { ?>
-                    <figure>
+				    <?php } else { ?>
                         <img class="wpcd-coupon-one-img"
                              src="<?php echo esc_url( WPCD_Plugin::instance()->plugin_assets . 'img/icon-128x128.png' ); ?>">
-                    </figure>
-				<?php } ?>
+				    <?php } ?>
+                </figure>
             </div>
             <div class="wpcd-col-1-1">
             <?php
@@ -87,11 +85,7 @@ $expire_date_format = date( "m/d/Y", strtotime( $expire_date ) );
                 <?php if( ! empty( $expire_date ) && $never_expire != 'on' ): ?>
                     <span class="wpcd-coupon-two-countdown-text">
                         <?php
-                        if ( ! empty( $expire_text ) ) {
-                            echo esc_html( $expire_text );
-                        } else {
-                            echo __( 'Expires on: ', 'wp-coupons-and-deals' );
-                        }
+                            echo $expire_text ? esc_html( $expire_text ) : __( 'Expires on: ', 'wp-coupons-and-deals' );
                         ?>
                     </span>
                     <span class="wpcd-coupon-two-countdown test"
@@ -99,11 +93,9 @@ $expire_date_format = date( "m/d/Y", strtotime( $expire_date ) );
                         id="clock_<?php echo absint( $coupon_id ); ?>"></span>
                 <?php else : ?>
                     <span style="color: green;">
-                        <?php if ( ! empty( $no_expiry ) ) {
-							echo esc_html( $no_expiry );
-						} else {
-							echo __( "Doesn't expire", 'wp-coupons-and-deals' );
-                        } ?>
+                        <?php
+                            echo $no_expiry ? esc_html( $no_expiry ) : __( "Doesn't expire", 'wp-coupons-and-deals' );
+                        ?>
                     </span>   
                 <?php endif; ?>
             </div>

@@ -65,18 +65,12 @@ if( ! $third_link && WPCD_Amp::wpcd_amp_is() ) $third_link = "#";
 $expireDateFormatFun = wpcd_getExpireDateFormatFun( $expireDateFormat );
 if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
 	$expire_date = date( $expireDateFormatFun, $expire_date );
-} elseif ( ! empty( $expire_date ) ) {
-	$expire_date = date( $expireDateFormatFun, strtotime( $expire_date ) );
 }
 if ( ! empty( $second_expire_date ) && (string)(int)$second_expire_date == $second_expire_date ) {
 	$second_expire_date = date( $expireDateFormatFun, $second_expire_date );
-} elseif ( ! empty( $second_expire_date ) ) {
-	$second_expire_date = date( $expireDateFormatFun, strtotime( $second_expire_date ) );
 }
 if ( ! empty( $third_expire_date ) && (string)(int)$third_expire_date == $third_expire_date ) {
 	$third_expire_date = date( $expireDateFormatFun, $third_expire_date );
-} elseif ( !empty( $third_expire_date ) ) {
-	$third_expire_date = date( $expireDateFormatFun, strtotime( $third_expire_date ) );
 }
 
 $template = new WPCD_Template_Loader();
@@ -196,11 +190,8 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                         <div class="wpcd-coupon-four-expire">
                             <p>
 								<?php
-								if ( ! empty( $expire_text ) ) {
-									echo esc_html( $expire_text ) . ' ' . $expire_date;
-								} else {
-									echo __( 'Expires on: ', 'wp-coupons-and-deals' ) . $expire_date;
-								}
+									echo ( $expire_text ? esc_html( $expire_text ) : __( 'Expires on:', 'wp-coupons-and-deals' ) ) . ' ' .
+									date( $expireDateFormatFun, strtotime( $expire_date ) );
 								?>
                             </p>
                         </div>
@@ -208,23 +199,17 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                         <div class="wpcd-coupon-four-expire">
                             <p class="wpcd-coupon-four-expired">
 								<?php
-								if ( ! empty( $expired_text ) ) {
-									echo esc_html( $expired_text ) . ' ' . $expire_date;
-								} else {
-									echo __( 'Expired on: ', 'wp-coupons-and-deals' ) . $expire_date;
-								}
+									echo ( $expired_text ? esc_html( $expired_text ) : __( 'Expired on:', 'wp-coupons-and-deals' ) ) . ' ' .
+									date( $expireDateFormatFun, strtotime( $expire_date ) );
 								?>
                             </p>
                         </div>
 					<?php }
 				} else { ?>
                     <div class="wpcd-coupon-four-expire">
-						<?php if ( ! empty( $no_expiry ) ) { ?>
-                            <p><?php echo esc_html( $no_expiry ); ?></p>
-						<?php } else {
-							echo '<p>' . __( "Doesn't expire", 'wp-coupons-and-deals' ) . '</p>';
-						}
-						?>
+						<p>
+							<?php echo $no_expiry ? esc_html( $no_expiry ) : __( "Doesn't expire", 'wp-coupons-and-deals' ); ?>
+						</p>
                     </div>
 				<?php }
 			} else {
@@ -237,11 +222,8 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                         <div class="wpcd-coupon-four-expire">
                             <p>
 								<?php
-								if ( ! empty( $expire_text ) ) {
-									echo esc_attr( $expire_text ) . ' ' . $expire_date;
-								} else {
-									echo __( 'Expires on: ', 'wp-coupons-and-deals' ) . $expire_date;
-								}
+									echo ( $expire_text ? esc_html( $expire_text ) : __( 'Expires on:', 'wp-coupons-and-deals' ) ) . ' ' .
+									date( $expireDateFormatFun, strtotime( $expire_date ) );
 								?>
                             </p>
                         </div>
@@ -249,23 +231,18 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                         <div class="wpcd-coupon-four-expire">
                             <p class="wpcd-coupon-four-expired">
 								<?php
-								if ( ! empty( $expired_text ) ) {
-									echo esc_attr( $expired_text ) . ' ' . $expire_date;
-								} else {
-									echo __( 'Expired on: ', 'wp-coupons-and-deals' ) . $expire_date;
-								}
+									echo ( $expired_text ? esc_html( $expired_text ) : __( 'Expired on:', 'wp-coupons-and-deals' ) ) . ' ' .
+									date( $expireDateFormatFun, strtotime( $expire_date ) );
 								?>
-                            </p>
                         </div>
 					<?php }
 				} else { ?>
                     <div class="wpcd-coupon-four-expire">
-						<?php if ( ! empty( $no_expiry ) ) { ?>
-                            <p><?php echo esc_html( $no_expiry ); ?></p>
-						<?php } else {
-							echo '<p>' . __( "Doesn't expire", 'wp-coupons-and-deals' ) . '</p>';
-						}
-						?>
+						<p>
+							<?php
+								echo $no_expiry ? esc_html( $no_expiry ) : __( "Doesn't expire", 'wp-coupons-and-deals' );
+							?>
+						</p>
                     </div>
 				<?php }
 			} else {
@@ -362,11 +339,8 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                         <div class="wpcd-coupon-four-expire">
                             <p>
 								<?php
-								if ( ! empty( $expire_text ) ) {
-									echo esc_html( $expire_text ) . ' ' . $second_expire_date;
-								} else {
-									echo __( 'Expires on: ', 'wp-coupons-and-deals' ) . $second_expire_date;
-								}
+									echo ( $expire_text ? esc_html( $expire_text ) : __( 'Expires on:', 'wp-coupons-and-deals' ) ) . ' ' .
+									date( $expireDateFormatFun, strtotime( $second_expire_date ) );
 								?>
                             </p>
                         </div>
@@ -374,23 +348,19 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                         <div class="wpcd-coupon-four-expire">
                             <p class="wpcd-coupon-four-expired">
 								<?php
-								if ( ! empty( $expired_text ) ) {
-									echo esc_html( $expired_text ) . ' ' . $second_expire_date;
-								} else {
-									echo __( 'Expired on: ', 'wp-coupons-and-deals' ) . $second_expire_date;
-								}
+									echo ( $expired_text ? esc_html( $expired_text ) : __( 'Expired on:', 'wp-coupons-and-deals' ) ) . ' ' .
+									date( $expireDateFormatFun, strtotime( $second_expire_date ) );
 								?>
                             </p>
                         </div>
 					<?php }
 				} else { ?>
                     <div class="wpcd-coupon-four-expire">
-						<?php if ( ! empty( $no_expiry ) ) { ?>
-                            <p><?php echo esc_html( $no_expiry ); ?></p>
-						<?php } else {
-							echo '<p>' . __( "Doesn't expire", 'wp-coupons-and-deals' ) . '</p>';
-						}
-						?>
+						<p>
+							<?php
+								echo $no_expiry ? esc_html( $no_expiry ) : __( "Doesn't expire", 'wp-coupons-and-deals' );
+							?>
+						</p>
                     </div>
 				<?php }
 			} else {
@@ -403,11 +373,8 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                         <div class="wpcd-coupon-four-expire">
                             <p>
 								<?php
-								if ( ! empty( $expire_text ) ) {
-									echo esc_html( $expire_text ) . ' ' . $second_expire_date;
-								} else {
-									echo __( 'Expires on: ', 'wp-coupons-and-deals' ) . $second_expire_date;
-								}
+									echo ( $expire_text ? esc_html( $expire_text ) : __( 'Expires on:', 'wp-coupons-and-deals' ) ) . ' ' .
+									date( $expireDateFormatFun, strtotime( $second_expire_date ) );
 								?>
                             </p>
                         </div>
@@ -415,23 +382,19 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                         <div class="wpcd-coupon-four-expire">
                             <p class="wpcd-coupon-four-expired">
 								<?php
-								if ( ! empty( $expired_text ) ) {
-									echo esc_html( $expired_text ) . ' ' . $second_expire_date;
-								} else {
-									echo __( 'Expired on: ', 'wp-coupons-and-deals' ) . $second_expire_date;
-								}
+									echo ( $expired_text ? esc_html( $expired_text ) : __( 'Expired on:', 'wp-coupons-and-deals' ) ) . ' ' .
+									date( $expireDateFormatFun, strtotime( $second_expire_date ) );
 								?>
                             </p>
                         </div>
 					<?php }
 				} else { ?>
                     <div class="wpcd-coupon-four-expire">
-						<?php if ( ! empty( $no_expiry ) ) { ?>
-                            <p><?php echo esc_html( $no_expiry ); ?></p>
-						<?php } else {
-							echo '<p>' . __( "Doesn't expire", 'wp-coupons-and-deals' ) . '</p>';
-						}
-						?>
+						<p>
+							<?php
+								echo $no_expiry ? esc_html( $no_expiry ) : __( "Doesn't expire", 'wp-coupons-and-deals' );
+							?>
+						</p>
                     </div>
 				<?php }
 			} else {
@@ -525,11 +488,8 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                         <div class="wpcd-coupon-four-expire">
                             <p>
 								<?php
-								if ( ! empty( $expire_text ) ) {
-									echo esc_html( $expire_text ) . ' ' . $third_expire_date;
-								} else {
-									echo __( 'Expires on: ', 'wp-coupons-and-deals' ) . $third_expire_date;
-								}
+								echo ( $expire_text ? esc_html( $expire_text ) : __( 'Expires on: ', 'wp-coupons-and-deals' ) ) .
+									date( $expireDateFormatFun, strtotime( $third_expire_date ) );
 								?>
                             </p>
                         </div>
@@ -537,23 +497,19 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                         <div class="wpcd-coupon-four-expire">
                             <p class="wpcd-coupon-four-expired">
 								<?php
-								if ( ! empty( $expired_text ) ) {
-									echo esc_html( $expired_text ) . ' ' . $third_expire_date;
-								} else {
-									echo __( 'Expired on: ', 'wp-coupons-and-deals' ) . $third_expire_date;
-								}
+								echo ( $expired_text ? esc_html( $expired_text ) : __( 'Expired on: ', 'wp-coupons-and-deals' ) ) .
+									date( $expireDateFormatFun, strtotime( $third_expire_date ) );
 								?>
                             </p>
                         </div>
 					<?php }
 				} else { ?>
                     <div class="wpcd-coupon-four-expire">
-						<?php if ( ! empty( $no_expiry ) ) { ?>
-                            <p><?php echo esc_html( $no_expiry ); ?></p>
-						<?php } else {
-							echo '<p>' . __( "Doesn't expire", 'wp-coupons-and-deals' ) . '</p>';
-						}
-						?>
+						<p>
+							<?php
+							echo $no_expiry ? esc_html( $no_expiry ) : __( "Doesn't expire", 'wp-coupons-and-deals' );
+							?>
+						</p>
                     </div>
 				<?php }
 			} else {
@@ -567,11 +523,8 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                         <div class="wpcd-coupon-four-expire">
                             <p>
 								<?php
-								if ( ! empty( $expire_text ) ) {
-									echo esc_html( $expire_text ) . ' ' . $third_expire_date;
-								} else {
-									echo __( 'Expires on: ', 'wp-coupons-and-deals' ) . $third_expire_date;
-								}
+								echo ( $expire_text ? esc_html( $expire_text ) : __( 'Expires on:', 'wp-coupons-and-deals' ) ) . ' ' .
+									date( $expireDateFormatFun, strtotime( $third_expire_date ) );
 								?>
                             </p>
                         </div>
@@ -579,23 +532,19 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                         <div class="wpcd-coupon-four-expire">
                             <p class="wpcd-coupon-four-expired">
 								<?php
-								if ( ! empty( $expired_text ) ) {
-									echo esc_html( $expired_text ) . ' ' . $third_expire_date;
-								} else {
-									echo __( 'Expired on: ', 'wp-coupons-and-deals' ) . $third_expire_date;
-								}
+								echo ( $expired_text ? esc_html( $expired_text ) : __( 'Expired on:', 'wp-coupons-and-deals' ) ) . ' ' .
+									date( $expireDateFormatFun, strtotime( $third_expire_date ) );
 								?>
                             </p>
                         </div>
 					<?php }
 				} else { ?>
                     <div class="wpcd-coupon-four-expire">
-						<?php if ( ! empty( $no_expiry ) ) { ?>
-                            <p><?php echo esc_html( $no_expiry ); ?></p>
-						<?php } else {
-							echo '<p>' . __( "Doesn't expire", 'wp-coupons-and-deals' ) . '</p>';
-						}
-						?>
+						<p>
+							<?php
+							echo $no_expiry ? esc_html( $no_expiry ) : __( "Doesn't expire", 'wp-coupons-and-deals' );
+							?>
+						</p>
                     </div>
 				<?php }
 			} else {

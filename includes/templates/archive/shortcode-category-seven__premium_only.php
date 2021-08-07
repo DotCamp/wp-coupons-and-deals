@@ -60,8 +60,6 @@ if( ! $link && WPCD_Amp::wpcd_amp_is() ) $link = "#";
 $expireDateFormatFun = wpcd_getExpireDateFormatFun( $expireDateFormat );
 if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
     $expire_date = date( $expireDateFormatFun, $expire_date );
-} elseif ( ! empty( $expire_date ) ) {
-    $expire_date = date( $expireDateFormatFun, strtotime( $expire_date ) );
 }
 $expire_date_format = date( "m/d/Y", strtotime( $expire_date ) );
 
@@ -191,43 +189,31 @@ include('header-category__premium_only.php');
                                 <?php if( ! empty( trim( $expire_date ) ) && $never_expire != 'on' ) : ?>
                                     <?php if( ! WPCD_Amp::wpcd_amp_is() ) { ?>
                                         <?php
-                                        if ( ! empty( $expire_text ) ) {
-                                            echo esc_html( $expire_text );
-                                        } else {
-                                            echo __( 'Expires on: ', 'wp-coupons-and-deals' );
-                                        }
+                                            echo $expire_text ? esc_html( $expire_text ) : __( 'Expires on: ', 'wp-coupons-and-deals' );
                                         ?>
                                         <span class="wpcd-coupon-seven-countdown" data-countdown_coupon="<?php echo strtotime( $expire_date_format . ' ' . $expire_time ) ? ( $expire_date_format . ' ' . $expire_time ) : ''; ?>" id="clock_seven_<?php echo absint( $coupon_id ); ?>"></span>
                                     <?php } else { 
                                         if ( strtotime( $expire_date ) >= strtotime( $today ) ) { ?>
                                             <span class="wpcd-coupon-expire">
                                                 <?php
-                                                if ( ! empty( $expire_text ) ) {
-                                                    echo esc_html( $expire_text ) . ' ' . $expire_date;
-                                                } else {
-                                                    echo __( 'Expires on: ', 'wp-coupons-and-deals' ) . $expire_date;
-                                                }
+                                                    echo ( $expire_text ? esc_html( $expire_text ) :  __( 'Expires on:', 'wp-coupons-and-deals' ) ) . ' ' .
+                                                    date( $expireDateFormatFun, strtotime( $expire_date ) );
                                                 ?>
                                             </span>
                                         <?php } elseif ( strtotime( $expire_date ) < strtotime( $today ) ) { ?>
                                             <span class="wpcd-coupon-expired">
                                                 <?php
-                                                if ( ! empty( $expired_text ) ) {
-                                                    echo esc_html( $expired_text ) . ' ' . $expire_date;
-                                                } else {
-                                                    echo __( 'Expired on: ', 'wp-coupons-and-deals' ) . $expire_date;
-                                                }
+                                                    echo ( $expired_text ? esc_html( $expired_text ) :  __( 'Expired on:', 'wp-coupons-and-deals' ) ) . ' ' .
+                                                    date( $expireDateFormatFun, strtotime( $expire_date ) );
                                                 ?>
                                             </span>
                                         <?php } ?>
                                     <?php } ?>
                                 <?php else : ?>
                                     <b class="never-expire">
-                                        <?php if ( ! empty( $no_expiry ) ) : ?>
-                                                <b><?php echo esc_html( $no_expiry ); ?></b>
-                                        <?php else : ?>
-                                                <b><?php echo __( "Doesn't expire", 'wp-coupons-and-deals' ); ?></b>
-                                        <?php endif; ?>
+                                        <?php 
+                                            echo $no_expiry ? esc_html( $no_expiry ) : __( "Doesn't expire", 'wp-coupons-and-deals' );
+                                        ?>
                                     </b>
                                 <?php endif; ?> 
                             </p>

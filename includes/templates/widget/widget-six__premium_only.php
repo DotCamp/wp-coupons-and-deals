@@ -50,8 +50,6 @@ if ( $wpcd_text_to_show == 'description' ) {
 $expireDateFormatFun = wpcd_getExpireDateFormatFun( $expireDateFormat );
 if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
     $expire_date = date( $expireDateFormatFun, $expire_date );
-} elseif ( ! empty( $expire_date ) ) {
-    $expire_date = date( $expireDateFormatFun, strtotime( $expire_date ) );
 }
 $expire_date_format = date( "m/d/Y", strtotime( $expire_date ) );
 
@@ -101,20 +99,14 @@ $expire_date_format = date( "m/d/Y", strtotime( $expire_date ) );
 					<?php if( ! empty( trim( $expire_date ) ) && $never_expire != 'on' ) : ?>
 						<b>
 							<?php
-							if ( ! empty( $expire_text ) ) {
-								echo esc_html( $expire_text );
-							} else {
-								echo __( 'Expires on: ', 'wp-coupons-and-deals' );
-							}
+                                echo $expire_text ? esc_html( $expire_text ) : __( 'Expires on: ', 'wp-coupons-and-deals' );
 							?>
                             <span class="wpcd-coupon-six-countdown clock_six_<?php echo absint( $coupon_id ); ?>"></span>
 						</b> 
 					<?php else : ?>
-						<?php if ( ! empty( $no_expiry ) ) : ?>
-							<b><?php echo esc_html( $no_expiry ); ?></b>
-						<?php else : ?>
-							<b><?php echo __( "Doesn't expire", 'wp-coupons-and-deals' ); ?></b>
-						<?php endif; ?>
+                        <b><?php
+                            echo $no_expiry ? esc_html( $no_expiry ) : __( "Doesn't expire", 'wp-coupons-and-deals' );
+                        ?></b>
 					<?php endif; ?>
 					<?php if ( $expire_date ) : ?>
                         <script type="text/javascript">

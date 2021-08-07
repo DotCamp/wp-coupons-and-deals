@@ -73,8 +73,6 @@ if( ! $link && WPCD_Amp::wpcd_amp_is() ) $link = "#";
 $expireDateFormatFun = wpcd_getExpireDateFormatFun( $expireDateFormat );
 if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
     $expire_date = date( $expireDateFormatFun, $expire_date );
-} elseif ( ! empty( $expire_date ) ) {
-    $expire_date = date( $expireDateFormatFun, strtotime( $expire_date ) );
 }
 
 wp_enqueue_script( 'wpcd-clipboardjs' );
@@ -109,11 +107,11 @@ if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
 			if ( ! empty( $expire_date ) ) {
 				if ( strtotime( $expire_date ) >= strtotime( $today ) ) { ?>
 					<p class="wpcd-new-expire-text">
-						<?php echo esc_html( $expire_text ) . ' ' . $expire_date; ?>
+						<?php echo esc_html( $expire_text ) . ' ' . date( $expireDateFormatFun, strtotime( $expire_date ) ); ?>
 					</p> <?php
 				} elseif ( strtotime( $expire_date ) < strtotime( $today ) ) { ?>
 					<p class="wpcd-new-expired-text">
-						<?php echo esc_html( $expired_text ) . ' ' . $expire_date; ?>
+						<?php echo esc_html( $expired_text ) . ' ' . date( $expireDateFormatFun, strtotime( $expire_date ) ); ?>
 					</p> <?php
 				}
 			} else { ?>
