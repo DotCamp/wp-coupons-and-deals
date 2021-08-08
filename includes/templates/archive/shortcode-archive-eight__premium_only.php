@@ -249,7 +249,9 @@ include('header-default__premium_only.php');
         </a>
     </div><!-- End of grid-three -->
     <script type="text/javascript">
-        var clip = new Clipboard('.<?php echo esc_attr( $button_class ); ?>');
+        window.addEventListener('DOMContentLoaded', function() {
+            var clip = new ClipboardJS('.<?php echo esc_attr( $button_class ); ?>');
+        });
     </script>
     <?php if( !WPCD_Amp::wpcd_amp_is() ): ?>
         <div class="wpcd-new-grid-footer">

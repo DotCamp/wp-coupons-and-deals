@@ -202,7 +202,9 @@ $expire_date_format = date( "m/d/Y", strtotime( $expire_date ) );
         </div>
     </div>
     <script type="text/javascript">
-        var clip = new Clipboard('.<?php echo esc_attr( $button_class ); ?>');
+		window.addEventListener('DOMContentLoaded', function() {
+			var clip = new ClipboardJS('.<?php echo esc_attr( $button_class ); ?>');
+		});
     </script>
         <div class="clearfix"></div>
     <?php

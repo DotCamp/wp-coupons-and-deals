@@ -250,7 +250,9 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
 			}
 		} ?>
         <script type="text/javascript">
-            var clip = new Clipboard('.<?php echo esc_attr( $button_class ); ?>');
+			window.addEventListener('DOMContentLoaded', function() {
+				var clip = new ClipboardJS('.<?php echo esc_attr( $button_class ); ?>');
+			});
         </script>
     </div>
     <!-- End First Coupon -->
@@ -311,7 +313,9 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                 </div>
 			<?php } ?>
                 <script type="text/javascript">
-                    var clip = new Clipboard('.<?php echo esc_attr( $button_class . '_' . $num_coupon ); ?>');
+					window.addEventListener('DOMContentLoaded', function() {
+						var clip = new ClipboardJS('.<?php echo esc_attr( $button_class . '_' . $num_coupon ); ?>');
+					});
                 </script>
 			<?php } elseif ( $coupon_type == 'Deal' ) { ?>
                 <div class="wpcd-four-discount-text"><?php echo esc_html( $discount_text ); ?></div>
@@ -460,7 +464,9 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                 </div>
 			<?php } ?>
                 <script type="text/javascript">
-                    var clip = new Clipboard('.<?php echo esc_attr( $button_class . '_' . $num_coupon) ; ?>');
+					window.addEventListener('DOMContentLoaded', function() {
+						var clip = new ClipboardJS('.<?php echo esc_attr( $button_class . '_' . $num_coupon ); ?>');
+					});
                 </script>
 			<?php } elseif ( $coupon_type == 'Deal' ) { ?>
                 <div class="wpcd-four-discount-text"><?php echo esc_html( $discount_text ); ?></div>

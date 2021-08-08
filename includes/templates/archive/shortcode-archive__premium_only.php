@@ -172,7 +172,9 @@ include('header-grid__premium_only.php');
             <?php } ?>
 
                 <script type="text/javascript">
-                    var clip = new Clipboard('.<?php echo esc_attr( $button_class ); ?>');
+                    window.addEventListener('DOMContentLoaded', function() {
+                        var clip = new ClipboardJS('.<?php echo esc_attr( $button_class ); ?>');
+                    });
                 </script>
 
             <?php } elseif ($coupon_type == 'Deal') { ?>

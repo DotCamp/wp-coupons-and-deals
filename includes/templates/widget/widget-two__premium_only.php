@@ -157,7 +157,9 @@ $expire_date_format = date( "m/d/Y", strtotime( $expire_date ) );
                     </div>
 				<?php } ?>
                     <script type="text/javascript">
-                        var clip = new Clipboard('.wpcd-btn-<?php echo absint( $coupon_id ); ?>');
+                        window.addEventListener('DOMContentLoaded', function() {
+                            var clip = new ClipboardJS('.wpcd-btn-<?php echo absint( $coupon_id ); ?>');
+                        });
                     </script>
 				<?php } elseif ( $coupon_type == 'Deal' ) {
 				?>

@@ -376,16 +376,16 @@ if ( isset( $_POST[$wpcd_term_field_name] ) && ! empty( $_POST[$wpcd_term_field_
 				}
 				?>
                 <script type="text/javascript">
-
-                    var clip = new Clipboard('.wpcd_coupon_top_copy_span_<?php echo absint( $new_coupon_id ); ?>');
+                  window.addEventListener('DOMContentLoaded', function() {
+                    var clip = new ClipboardJS('.wpcd_coupon_top_copy_span_<?php echo absint( $new_coupon_id ); ?>');
                     clip.on("success", function () {
 
                         document.querySelector('.wpcd_coupon_top_copy_span_<?php echo absint( $new_coupon_id ); ?>').innerText = '<?php echo wp_strip_all_tags( $after_copy ); ?>';
                         setTimeout(function () {
                             document.querySelector('.wpcd_coupon_top_copy_span_<?php echo absint( $new_coupon_id ); ?>').innerText = '<?php echo wp_strip_all_tags( $button_text ); ?>';
                         }, 500);
-
                     });
+                  });
                 </script>
 	            <?php if ( $wpcd_enable_goto_button === 'on' ) { ?>
                     <a target="<?php echo esc_attr( $target ); ?>" rel="nofollow" class="wpcd_popup-go-link" href="<?php echo esc_url( $link ); ?>">

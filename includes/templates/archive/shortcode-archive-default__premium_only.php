@@ -220,7 +220,9 @@ if( $coupon_type !== 'Image' && function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Am
 
         </div>
         <script type="text/javascript">
-            var clip = new Clipboard('.<?php echo esc_attr( $button_class ); ?>');
+            window.addEventListener('DOMContentLoaded', function() {
+                var clip = new ClipboardJS('.<?php echo esc_attr( $button_class ); ?>');
+            });
         </script>
         <div class="clearfix"></div>
         <?php 
@@ -401,7 +403,9 @@ if( $coupon_type !== 'Image' && function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Am
             </div>
         </div>
         <script type="text/javascript">
-            var clip = new Clipboard('.<?php echo esc_attr( $button_class ); ?>');
+            window.addEventListener('DOMContentLoaded', function() {
+                var clip = new ClipboardJS('.<?php echo esc_attr( $button_class ); ?>');
+            });
         </script>
         <div class="clearfix"></div>
         <?php 
@@ -496,7 +500,9 @@ if( $coupon_type !== 'Image' && function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Am
 					<?php } ?>
 
                         <script type="text/javascript">
-                            var clip = new Clipboard('.wpcd-btn-<?php echo absint( $coupon_id ); ?>');
+                            window.addEventListener('DOMContentLoaded', function() {
+                                var clip = new ClipboardJS('.wpcd-btn-<?php echo absint( $coupon_id ); ?>');
+                            });
                         </script>
                         
 					<?php } elseif ( $coupon_type == 'Deal' ) { ?>

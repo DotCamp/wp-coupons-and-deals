@@ -245,7 +245,9 @@ include('header-default__premium_only.php');
                 </div>
                 <div class="wpcd_seven_couponBox_both"></div>
                 <script type="text/javascript">
-                    var clip = new Clipboard('.<?php echo esc_attr( $button_class ); ?>');
+                    window.addEventListener('DOMContentLoaded', function() {
+                        var clip = new ClipboardJS('.<?php echo esc_attr( $button_class ); ?>');
+                    });
                 </script>
                 <div class="clearfix"></div>
                 <?php

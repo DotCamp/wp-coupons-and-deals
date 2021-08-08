@@ -267,7 +267,9 @@ include('header-category__premium_only.php');
     </div>
     <div id="clear"></div>
     <script type="text/javascript">
-        var clip = new Clipboard('.<?php echo esc_attr( $button_class ); ?>');
+    window.addEventListener('DOMContentLoaded', function() {
+        var clip = new ClipboardJS('.<?php echo esc_attr( $button_class ); ?>');
+    });
     </script>
     <div class="clearfix"></div>
     <?php

@@ -146,15 +146,15 @@ if ( isset( $_POST[$wpcd_term_field_name] ) && ! empty( $_POST[$wpcd_term_field_
 				}
 				?>
                 <script type="text/javascript">
+                    window.addEventListener('DOMContentLoaded', function() {
+                        var clip = new ClipboardJS('.wpcd_coupon_top_copy_span_<?php echo absint( $new_coupon_id ); ?>');
+                        clip.on("success", function () {
 
-                    var clip = new Clipboard('.wpcd_coupon_top_copy_span_<?php echo absint( $new_coupon_id ); ?>');
-                    clip.on("success", function () {
-
-                        document.querySelector('.wpcd_coupon_top_copy_span_<?php echo absint( $new_coupon_id ); ?>').innerText = '<?php echo wp_filter_nohtml_kses( $after_copy ); ?>';
-                        setTimeout(function () {
-                            document.querySelector('.wpcd_coupon_top_copy_span_<?php echo absint( $new_coupon_id ); ?>').innerText = '<?php echo wp_filter_nohtml_kses( $button_text ); ?>';
-                        }, 500);
-
+                            document.querySelector('.wpcd_coupon_top_copy_span_<?php echo absint( $new_coupon_id ); ?>').innerText = '<?php echo wp_filter_nohtml_kses( $after_copy ); ?>';
+                            setTimeout(function () {
+                                document.querySelector('.wpcd_coupon_top_copy_span_<?php echo absint( $new_coupon_id ); ?>').innerText = '<?php echo wp_filter_nohtml_kses( $button_text ); ?>';
+                            }, 500);
+                        });
                     });
                 </script>
 	            <?php if ( $wpcd_enable_goto_button === 'on' ) { ?>
