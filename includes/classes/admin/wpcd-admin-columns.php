@@ -258,8 +258,7 @@ class WPCD_Admin_Columns extends WP_List_Table {
 			case 'coupon_shortcode':
 				$coupon_type = get_post_meta( $post_id, 'coupon_details_coupon-type', true );
 				if ( $coupon_type === 'Image' ) {
-					$shortcode = "[wpcd_coupon id=" . absint( $post_id ) . "]";
-					echo $shortcode;
+					echo "[wpcd_coupon id=" . absint( $post_id ) . "]";
 				} else {
 					$shortcode      = "[wpcd_coupon id=" . $post_id . "]";
 					$code_shortcode = "[wpcd_code id=" . $post_id . "]";

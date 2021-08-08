@@ -93,16 +93,14 @@ include('header-category__premium_only.php');
 <?php else: ?>
 <?php
     $wpcd_uniq_attr = '';
-    $wpcd_uniq_attr_data = '';
     if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
         ! empty( $show_print_links ) && $show_print_links == 'on' ) {
         $wpcd_uniq_attr = wpcd_uniq_attr( 10 );
-        $wpcd_uniq_attr_data = 'data-unic-attr="' . esc_attr( $wpcd_uniq_attr ) . '"';
     }
 ?>
 <!--- Template Seven start -->
         <section class="wpcd_seven wpcd-coupon-id-<?php echo absint( $coupon_id ); ?> wpcd_item"
-                 wpcd-data-search="<?php echo esc_attr( $title );?>" <?php echo $wpcd_uniq_attr_data;?>>
+                 wpcd-data-search="<?php echo esc_attr( $title );?>" <?php echo $wpcd_uniq_attr ? 'data-unic-attr="' . esc_attr( $wpcd_uniq_attr ) . '"' : '';?>>
             <div class="wpcd_seven_container">
                 <div class="wpcd_seven_couponBox">
                     <div class="wpcd_seven_percentAndPic">

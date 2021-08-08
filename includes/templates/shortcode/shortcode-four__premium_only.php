@@ -76,17 +76,15 @@ if ( ! empty( $third_expire_date ) && (string)(int)$third_expire_date == $third_
 $template = new WPCD_Template_Loader();
 
 $wpcd_uniq_attr = '';
-$wpcd_uniq_attr_data = '';
 if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
     ! empty( $show_print_links ) && $show_print_links == 'on' ) {
     $wpcd_uniq_attr = wpcd_uniq_attr( 10 );
-    $wpcd_uniq_attr_data = 'data-unic-attr="' . esc_attr( $wpcd_uniq_attr ) . '"';
 }
 /*
 I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one in hide-coupon file.
 */
 ?>
-<div class="wpcd-coupon-four wpcd-coupon-id-<?php echo absint( $coupon_id ); ?>" <?php echo $wpcd_uniq_attr_data;?>>
+<div class="wpcd-coupon-four wpcd-coupon-id-<?php echo absint( $coupon_id ); ?>" <?php echo $wpcd_uniq_attr ? 'data-unic-attr="' . esc_attr( $wpcd_uniq_attr ) . '"' : '';?>>
     <div class="wpcd-coupon-four-content">
 		<div class="wpcd-coupon-four-title">
 			<?php

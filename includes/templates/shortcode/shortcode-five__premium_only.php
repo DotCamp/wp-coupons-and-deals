@@ -66,15 +66,13 @@ wp_enqueue_script( 'wpcd-clipboardjs' );
 $template = new WPCD_Template_Loader();
 
 $wpcd_uniq_attr = '';
-$wpcd_uniq_attr_data = '';
 if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
     ! empty( $show_print_links ) && $show_print_links == 'on' ) {
     $wpcd_uniq_attr = wpcd_uniq_attr( 10 );
-    $wpcd_uniq_attr_data = 'data-unic-attr="' . esc_attr( $wpcd_uniq_attr ) . '"';
 }
 ?>
 
-<div class="wpcd-template-five wpcd-coupon-id-<?php echo absint( $coupon_id ); ?>" style="border-color: <?php echo sanitize_hex_color( $wpcd_template_five_theme ); ?>" <?php echo $wpcd_uniq_attr_data;?>>
+<div class="wpcd-template-five wpcd-coupon-id-<?php echo absint( $coupon_id ); ?>" style="border-color: <?php echo sanitize_hex_color( $wpcd_template_five_theme ); ?>" <?php echo $wpcd_uniq_attr ? 'data-unic-attr="' . esc_attr( $wpcd_uniq_attr ) . '"' : '';?>>
     <div class="wpcd-template-five-holder">
         <div class="wpcd-template-five-percent-off">
             <p class="wpcd-coupon-five-discount-text">

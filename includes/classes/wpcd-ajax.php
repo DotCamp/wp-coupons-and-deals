@@ -86,7 +86,7 @@ class WPCD_AJAX {
                        
             // Return the percent of success
             $percent = ceil( count( $up_votes ) / count( $all_voted_IPs ) * 100 );
-            echo "{$percent}% Success";
+            echo absint( $percent ) . "% Success";
             
         } else {
             echo "Failed";

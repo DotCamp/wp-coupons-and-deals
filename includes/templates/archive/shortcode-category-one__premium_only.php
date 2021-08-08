@@ -90,15 +90,13 @@ include('header-category__premium_only.php');
 <?php else: ?>
 <?php
     $wpcd_uniq_attr = '';
-    $wpcd_uniq_attr_data = '';
     if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
         ! empty( $show_print_links ) && $show_print_links == 'on' ) {
         $wpcd_uniq_attr = wpcd_uniq_attr( 10 );
-        $wpcd_uniq_attr_data = 'data-unic-attr="' . esc_attr( $wpcd_uniq_attr ) . '"';
     }
 ?>
 <!--- Template One start -->
-<div class="wpcd-coupon-one wpcd-coupon-id-<?php echo absint( $coupon_id ); ?> wpcd_item" <?php echo $wpcd_uniq_attr_data;?>>
+<div class="wpcd-coupon-one wpcd-coupon-id-<?php echo absint( $coupon_id ); ?> wpcd_item" <?php echo $wpcd_uniq_attr ? 'data-unic-attr="' . esc_attr( $wpcd_uniq_attr ) . '"' : '';?>>
     <div class="wpcd-col-one-1-8">
         <figure>
             <?php
@@ -177,7 +175,7 @@ include('header-category__premium_only.php');
                                         }
                                     }
                                 ?>"
-                       data-clipboard-text="<?php echo esc_atr( $coupon_code ); ?>">
+                       data-clipboard-text="<?php echo esc_attr( $coupon_code ); ?>">
                         <span class="wpcd_coupon_icon">
                         	<img class="" src="<?php echo esc_url( WPCD_Plugin::instance()->plugin_assets . 'img/coupon-code-24.png')?>" style="width: 100%;height: 100%;" >
                         </span>

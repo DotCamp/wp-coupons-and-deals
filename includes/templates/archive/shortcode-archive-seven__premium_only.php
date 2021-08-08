@@ -116,16 +116,14 @@ include('header-default__premium_only.php');
 <?php else: ?>
 <?php
     $wpcd_uniq_attr = '';
-    $wpcd_uniq_attr_data = '';
     if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
         ! empty( $show_print_links ) && $show_print_links == 'on' ) {
         $wpcd_uniq_attr = wpcd_uniq_attr( 10 );
-        $wpcd_uniq_attr_data = 'data-unic-attr="' . esc_attr( $wpcd_uniq_attr ) . '"';
     }
 ?>
     <!--  Template Seven Start -->
     <section class="wpcd_seven wpcd-coupon-id-<?php echo absint( $coupon_id ); ?> wpcd_item <?php echo esc_attr( $coupon_categories_class ); ?>"
-             wpcd-data-search="<?php echo esc_attr( $title ); ?>" <?php echo $wpcd_uniq_attr_data;?>>
+             wpcd-data-search="<?php echo esc_attr( $title ); ?>" <?php echo $wpcd_uniq_attr ? 'data-unic-attr="' . esc_attr( $wpcd_uniq_attr ) . '"' : '';?>>
         <div class="wpcd_seven_container">
             <div class="wpcd_seven_couponBox">
                 <div class="wpcd_seven_percentAndPic">
@@ -217,7 +215,7 @@ include('header-default__premium_only.php');
                                     <?php
                                         echo ( $expire_text ? esc_html( $expire_text ) : __( 'Expires on: ', 'wp-coupons-and-deals' ) );
                                     ?>
-                                    <span class="wpcd-coupon-seven-countdown" data-countdown_coupon="<?php echo $expire_date_format . ' ' . ( strtotime( $expire_date ) ? $expire_date : '' ); ?>" id="clock_seven_<?php echo absint( $coupon_id ); ?>"></span>            
+                                    <span class="wpcd-coupon-seven-countdown" data-countdown_coupon="<?php echo ( strtotime( $expire_date_format ) ? $expire_date_format : '' ) . ' ' . ( strtotime( $expire_date ) ? $expire_date : '' ); ?>" id="clock_seven_<?php echo absint( $coupon_id ); ?>"></span>            
                                 <?php } else { 
                                     if ( strtotime( $expire_date ) >= strtotime( $today ) ) { ?>
                                         <span class="wpcd-coupon-expire">

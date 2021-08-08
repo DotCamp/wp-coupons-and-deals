@@ -119,16 +119,14 @@ include('header-default__premium_only.php');
 <?php else: ?>
 <?php
     $wpcd_uniq_attr = '';
-    $wpcd_uniq_attr_data = '';
     if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
         ! empty( $show_print_links ) && $show_print_links == 'on' ) {
         $wpcd_uniq_attr = wpcd_uniq_attr( 10 );
-        $wpcd_uniq_attr_data = 'data-unic-attr="' . esc_attr( $wpcd_uniq_attr ) . '"';
     }
 ?>
 <!--- Template three start -->
 <div class="wpcd-coupon-three wpcd-coupon-id-<?php echo absint( $coupon_id ); ?> wpcd_item <?php echo esc_attr( $coupon_categories_class ); ?>"
-    wpcd-data-search="<?php echo esc_attr( $title );?>" <?php echo $wpcd_uniq_attr_data;?>>
+    wpcd-data-search="<?php echo esc_attr( $title );?>" <?php echo $wpcd_uniq_attr ? 'data-unic-attr="' . esc_attr( $wpcd_uniq_attr ) . '"' : '';?>>
     <div class="wpcd-coupon-three-content">
 		<div  class="wpcd-coupon-three-title">
 			<?php

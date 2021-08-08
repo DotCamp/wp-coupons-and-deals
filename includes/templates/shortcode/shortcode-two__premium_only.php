@@ -64,15 +64,13 @@ $expire_date_format = date( "m/d/Y", strtotime( $expire_date ) );
 $template = new WPCD_Template_Loader();
 
 $wpcd_uniq_attr = '';
-$wpcd_uniq_attr_data = '';
 if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
     ! empty( $show_print_links ) && $show_print_links == 'on' ) {
     $wpcd_uniq_attr = wpcd_uniq_attr( 10 );
-    $wpcd_uniq_attr_data = 'data-unic-attr="' . esc_attr( $wpcd_uniq_attr ) . '"';
 }
 ?>
 
-<div class="wpcd-coupon-two wpcd-coupon-id-<?php echo absint( $coupon_id ); ?>" <?php echo $wpcd_uniq_attr_data;?>>
+<div class="wpcd-coupon-two wpcd-coupon-id-<?php echo absint( $coupon_id ); ?>" <?php echo $wpcd_uniq_attr ? 'data-unic-attr="' . esc_attr( $wpcd_uniq_attr ) . '"' : '';?>>
     <div class="wpcd-col-two-1-4">
         <figure>
             <?php

@@ -60,15 +60,13 @@ if ( ! empty( $expire_date ) && (string)(int)$expire_date == $expire_date ) {
 $template = new WPCD_Template_Loader();
 
 $wpcd_uniq_attr = '';
-$wpcd_uniq_attr_data = '';
 if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
     ! empty( $show_print_links ) && $show_print_links == 'on' ) {
     $wpcd_uniq_attr = wpcd_uniq_attr( 10 );
-    $wpcd_uniq_attr_data = 'data-unic-attr="' . esc_attr( $wpcd_uniq_attr ) . '"';
 }
 ?>
 
-<div class="wpcd-coupon-one wpcd-coupon-id-<?php echo esc_attr( $coupon_id ); ?>" <?php echo $wpcd_uniq_attr_data;?>>
+<div class="wpcd-coupon-one wpcd-coupon-id-<?php echo esc_attr( $coupon_id ); ?>" <?php echo $wpcd_uniq_attr ? 'data-unic-attr="' . esc_attr( $wpcd_uniq_attr ) . '"' : '';?>>
     <div class="wpcd-col-one-1-8">
         <figure>
             <?php

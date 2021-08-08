@@ -62,17 +62,17 @@ if ( $wpcd_text_to_show == 'description' ) {
 $wpcd_show_coupon_popup = ! empty( $_GET['wpcd_coupon'] ) && $_GET['wpcd_coupon'] == $coupon_id;
 
 if ( isset( $_POST['wpcd_page_num'] ) && ! empty( $_POST['wpcd_page_num'] ) && absint( $_POST['wpcd_page_num'] ) == $_POST['wpcd_page_num'] ) {
-    $wpcd_page_num = '&wpcd_page_num=' . absint( $_POST['wpcd_page_num'] );
+    $wpcd_page_num = $_POST['wpcd_page_num'];
 } elseif ( isset( $_GET['wpcd_page_num'] ) && ! empty( $_GET['wpcd_page_num'] ) && absint( $_GET['wpcd_page_num'] ) == $_GET['wpcd_page_num'] ) {
-    $wpcd_page_num = '&wpcd_page_num=' . absint( $_GET['wpcd_page_num'] );
+    $wpcd_page_num = $_GET['wpcd_page_num'];
 } else {
     $wpcd_page_num = '';
 }
 
 if ( isset( $_POST[$wpcd_term_field_name] ) && ! empty( $_POST[$wpcd_term_field_name] ) && sanitize_text_field( $_POST[$wpcd_term_field_name] ) === $_POST[$wpcd_term_field_name] ) {
-    $wpcd_data_taxonomy = '&' . $wpcd_term_field_name . '=' . sanitize_text_field( $_POST[$wpcd_term_field_name] );
+    $wpcd_data_taxonomy = sanitize_text_field( $_POST[$wpcd_term_field_name] );
 } elseif ( isset( $_GET[$wpcd_term_field_name] ) && ! empty( $_GET[$wpcd_term_field_name] ) && sanitize_text_field( $_GET[$wpcd_term_field_name] ) === $_GET[$wpcd_term_field_name] ) {
-    $wpcd_data_taxonomy = '&' . $wpcd_term_field_name . '=' . sanitize_text_field( $_GET[$wpcd_term_field_name] );
+    $wpcd_data_taxonomy = sanitize_text_field( $_GET[$wpcd_term_field_name] );
 } else {
     $wpcd_data_taxonomy = '';
 }
@@ -82,7 +82,8 @@ if ( isset( $_POST[$wpcd_term_field_name] ) && ! empty( $_POST[$wpcd_term_field_
 
     <div class="coupon-code-wpcd coupon-detail wpcd-coupon-id-<?php echo absint( $new_coupon_id ); ?> wpcd-coupon-button-type">
         <a data-type="code" data-coupon-id="<?php echo absint( $new_coupon_id ); ?>"
-           href="?wpcd_coupon=<?php echo absint( $new_coupon_id ); echo $wpcd_data_taxonomy; echo absint( $wpcd_page_num ); ?>" class="coupon-button coupon-code-wpcd masterTooltip"
+           href="?wpcd_coupon=<?php echo absint( $new_coupon_id ); echo ( $wpcd_data_taxonomy ? '&' . esc_attr( $wpcd_term_field_name ) . '=' . esc_attr( $wpcd_data_taxonomy ) : '' );
+            echo ( $wpcd_page_num ? '&wpcd_page_num=' . absint( $wpcd_page_num ) : '' ); ?>" class="coupon-button coupon-code-wpcd masterTooltip"
            id="coupon-button-<?php echo absint( $new_coupon_id ); ?>" title="<?php if ( ! empty( $hidden_coupon_hover_text ) ) {
 			echo esc_attr( $hidden_coupon_hover_text );
 		} else {

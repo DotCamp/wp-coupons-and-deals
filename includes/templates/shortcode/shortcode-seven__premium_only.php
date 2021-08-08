@@ -84,14 +84,12 @@ wp_enqueue_script( 'wpcd-clipboardjs' );
 $template = new WPCD_Template_Loader();
 
 $wpcd_uniq_attr = '';
-$wpcd_uniq_attr_data = '';
 if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
     ! empty( $show_print_links ) && $show_print_links == 'on' ) {
     $wpcd_uniq_attr = wpcd_uniq_attr( 10 );
-    $wpcd_uniq_attr_data = 'data-unic-attr="' . esc_attr( $wpcd_uniq_attr ) . '"';
 }
 ?>
-<section class="wpcd_seven wpcd_seven_shortcode wpcd-coupon-id-<?php echo esc_attr( $coupon_id ); ?>" <?php echo $wpcd_uniq_attr_data;?>>
+<section class="wpcd_seven wpcd_seven_shortcode wpcd-coupon-id-<?php echo esc_attr( $coupon_id ); ?>" <?php echo $wpcd_uniq_attr ? 'data-unic-attr="' . esc_attr( $wpcd_uniq_attr ) . '"' : '';?>>
 	<div class="wpcd_seven_container">
 		<div class="wpcd_seven_couponBox" style="border-color: <?php echo sanitize_hex_color( $wpcd_template_seven_theme ); ?>">
 			<div class="wpcd_seven_percentAndPic">

@@ -110,16 +110,14 @@ include('header-default__premium_only.php');
 <?php else: ?>
 <?php
     $wpcd_uniq_attr = '';
-    $wpcd_uniq_attr_data = '';
     if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
         ! empty( $show_print_links ) && $show_print_links == 'on' ) {
         $wpcd_uniq_attr = wpcd_uniq_attr( 10 );
-        $wpcd_uniq_attr_data = 'data-unic-attr="' . esc_attr( $wpcd_uniq_attr ) . '"';
     }
 ?>
 <!--- Template One start -->
 <div class="wpcd-coupon-one wpcd-coupon-id-<?php echo absint( $coupon_id ); ?> wpcd_item <?php echo esc_attr( $coupon_categories_class ); ?>"
-    wpcd-data-search="<?php echo esc_attr( $title );?>" <?php echo $wpcd_uniq_attr_data;?>>
+    wpcd-data-search="<?php echo esc_attr( $title );?>" <?php echo $wpcd_uniq_attr ? 'data-unic-attr="' . esc_attr( $wpcd_uniq_attr ) . '"' : '';?>>
     <div class="wpcd-col-one-1-8">
         <figure>
             <?php
@@ -278,7 +276,6 @@ include('header-default__premium_only.php');
 				} else { ?>
 
                     <div class="wpcd-coupon-one-expire">
-
 						<?php
                             echo $no_expiry ? esc_html( $no_expiry ) : __( "Doesn't expire", 'wp-coupons-and-deals' );
 						?>
