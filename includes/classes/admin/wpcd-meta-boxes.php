@@ -91,7 +91,64 @@ class WPCD_Meta_Boxes {
 		$expireDateFormatFun = wpcd_getExpireDateFormatFun( $expire_date_format );
 
 		$output           = '';
-		$help             = '';
+
+		$kses_array = array('table' => array(
+								'class' => array()
+							),
+							'tbody' => array(),
+							'tr' => array(
+								'id' => array(),
+								'class' => array()
+							),
+							'th' => array(
+								'scope' => array()
+							),
+							'td' => array(),
+							'label' => array(
+								'for' => array()
+							),
+							'span' => array(
+								'wpcd-data-tooltip' => array(),
+								'class' => array()
+							),
+							'div' => array(
+								'class' => array(),
+								'id' => array(),
+								'data-color' => array(),
+								'style' => array()
+							),
+							'img' => array(
+								'src' => array(),
+								'alt' => array(),
+								'style' => array()
+							),
+							'a' => array(
+								'class' => array()
+							),
+							'input' => array(
+								'type' => array(),
+								'name' => array(),
+								'class' => array(),
+								'id' => array(),
+								'value' => array(),
+								'placeholder' => array(),
+								'data-expiredate-format' => array()
+							),
+							'textarea' => array(
+								'class' => array(),
+								'id' => array(),
+								'name' => array(),
+								'rows' => array()
+							),
+							'select' => array(
+								'id' => array(),
+								'name' => array()
+							),
+							'option' => array(
+								'selected' => array(),
+								'value' => array()
+							)
+						);
 
 		foreach ( $this->wpcd_fields as $wpcd_field ) {
 			$tr_class = '';
@@ -266,7 +323,7 @@ class WPCD_Meta_Boxes {
 			}
 			$output .= $this->row_format( esc_attr( $type ), $label, $input, esc_attr( $tr_class ) );
 		}
-		echo '<table class="form-table"><tbody>' . $output . $help . '</tbody></table>';
+		echo '<table class="form-table"><tbody>' . wp_kses($output, $kses_array) . '</tbody></table>';
 		echo "<script>
 				jQuery('#expire-time').timepicker({
 					controlType: 'select',

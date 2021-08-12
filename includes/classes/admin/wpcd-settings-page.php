@@ -586,7 +586,47 @@ class WPCD_Settings_Page {
 				break;
 		}
 
-		echo $output;
+		echo wp_kses($output, array(
+			'input' => array(
+				'id' => array(),
+				'class' => array(),
+				'name' => array(),
+				'type' => array(),
+				'placeholder' => array(),
+				'value' => array(),
+				'checked' => array()
+			),
+			'div' => array(
+				'id' => array(),
+				'class' => array(),
+				'data-color' => array(),
+				'style' => array(),
+
+			),
+			'textarea' => array(
+				'id' => array(),
+				'rows' => array(),
+				'cols' => array(),
+				'name' => array(),
+				'placeholder' => array()
+			),
+			'label' => array(
+				'for' => array()
+			),
+			'select' => array(
+				'name' => array(),
+				'id' => array(),
+				'multiple' => array()
+			),
+			'option' => array(
+				'value' => array(),
+				'selected' => array()
+			),
+			'br' => array(),
+			'span' => array(
+				'class' => array()
+			)
+		));
 	}
 
 	/**
@@ -638,7 +678,86 @@ class WPCD_Settings_Page {
 
 		$output .= ob_get_clean();
 
-		echo $output;
+		echo wp_kses($output, array(
+			'div' => array(
+				'class' => array(),
+				'id' => array(),
+				'data-color' => array(),
+				'style' => array()
+			),
+			'h2' => array(
+				'class' => array()
+			),
+			'h3' => array(
+				'class' => array()
+			),
+			'form' => array(
+				'method' => array(),
+				'action' => array(),
+				'enctype' => array()
+			),
+			'button' => array(
+				'type' => array(),
+				'class' => array(),
+				'style' => array(),
+				'aria-expanded' => array()
+			),
+			'p' => array(
+				'class' => array()
+			),
+			'a' => array(
+				'tabindex' => array(),
+				'target' => array(),
+				'href' => array(),
+				'class' => array(),
+				'style' => array()
+			),
+			'input' => array(
+				'id' => array(),
+				'name' => array(),
+				'class' => array(),
+				'type' => array(),
+				'value' => array(),
+				'placeholder' => array(),
+				'aria-label' => array(),
+				'checked' => array()
+			),
+			'table' => array(
+				'class' => array(),
+				'role' => array(),
+				'style' => array()
+			),
+			'tbody' => array(),
+			'tr' => array(),
+			'th' => array(
+				'scope' => array()
+			),
+			'td' => array(),
+			'label' => array(
+				'for' => array()
+			),
+			'span' => array(
+				'tabindex' => array(),
+				'class' => array(),
+				'style' => array()
+			),
+			'select' => array(
+				'name' => array(),
+				'id' => array()
+			),
+			'option' => array(
+				'value' => array(),
+				'selected' => array()
+			),
+			'textarea' => array(
+				'id' => array(),
+				'rows' => array(),
+				'cols' => array(),
+				'name' => array(),
+				'placeholder' => array()
+			),
+			'br' => array()
+		));
 	}
 
 }
