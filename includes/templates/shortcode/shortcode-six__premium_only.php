@@ -192,7 +192,7 @@ if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
                             						    } else {
                             							    echo __( 'Claim This Deal', 'wp-coupons-and-deals' );
                             						    } ?>" 
-                           style="border-color: <?php echo sanitize_hex_color( $wpcd_template_six_theme ); ?>; color: <?php echo sanitize_Hex_color( $wpcd_template_six_theme ); ?>">
+                           style="border-color: <?php echo sanitize_hex_color( $wpcd_template_six_theme ); ?>; color: <?php echo sanitize_hex_color( $wpcd_template_six_theme ); ?>">
 		    			<span class="deal-code-button">
 		    				<?php if ( ! empty( $deal_text ) ) {
 							    echo esc_html( $deal_text );

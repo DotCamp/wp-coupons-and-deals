@@ -64,12 +64,6 @@ class WPCD_Preview_Metabox {
 
 		$output = '';
 
-		ob_start();
-
-		include WPCD_Plugin::instance()->plugin_includes . 'functions/admin/wpcd-preview-metabox.php';
-
-		$output .= ob_get_clean();
-
 		if ( !function_exists( 'wpcd_coupon_thumbnail_img' ) ) {
 			include WPCD_Plugin::instance()->plugin_includes . 'functions/wpcd-coupon-thumbnail-img.php';
 		}
