@@ -65,7 +65,7 @@ if( ! function_exists( 'wpcd_coupon_print_link' ) ) {
 
         echo '<div style="text-align:center"><a class="coupon-print-link" style="cursor: pointer" 
             onclick="wpcd_printCoupon( \'' . ( ctype_xdigit($coupon_unic_attr) ? $coupon_unic_attr : '' )  . '\', \'' . esc_url( $wpcd_frontend_style_url ) . '\' )">' .
-            __( "Click To Print", "wpcd-coupon" ) .
+            __( "Click To Print", "wp-coupons-and-deals" ) .
             '</a></div>';
     }
 }

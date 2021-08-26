@@ -7,7 +7,7 @@
  * Author: WP Coupons and Deals
  * Author URI: https://wpcouponsdeals.com/
  * Author Email: irayhan.asif@gmail.com
- * Text Domain: wpcd-coupon
+ * Text Domain: wp-coupons-and-deals
  * License: GPLv2 or later
  *
  * @package wpcd_coupon
