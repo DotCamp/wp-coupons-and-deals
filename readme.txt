@@ -2,7 +2,7 @@
 Contributors: wpcdplugin, imtiazrayhan, istiakrayhan, mohmedelwany, ultimateblocks, wptb, wpleaders1
 Tags: coupon, coupons, deal, deals, affiliate, affiliate marketing
 Requires at least: 5.2
-Tested up to: 5.7
+Tested up to: 5.8
 Stable tag: 3.0.6
 Requires PHP: 5.6
 License: GPLv2 or later
