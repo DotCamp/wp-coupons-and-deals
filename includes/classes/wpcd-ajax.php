@@ -33,7 +33,7 @@ class WPCD_AJAX {
             wp_die();
         }
         $coupon_id = intval( $_POST['coupon_id'] );
-        $meta = esc_sql( $_POST['meta'] );
+        $meta = sanitize_text_field( $_POST['meta'] );
 
         //Get the ip address of the client
         if ( !empty( $_SERVER['HTTP_CLIENT_IP'] ) ) {
