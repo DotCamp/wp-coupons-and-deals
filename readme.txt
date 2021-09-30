@@ -3,7 +3,7 @@ Contributors: wpcdplugin, imtiazrayhan, istiakrayhan, mohmedelwany, ultimatebloc
 Tags: coupon, coupons, deal, deals, affiliate, affiliate marketing
 Requires at least: 5.2
 Tested up to: 5.8
-Stable tag: 3.0.6
+Stable tag: 3.1.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -153,6 +153,10 @@ You can [__submit a feature request__](https://wpcouponsdeals.com/submit-new-fea
 11. Adding the widget.
 
 == Changelog ==
+
+= 3.1.0 =
+
+* Fix PHP error issue.
 
 = 3.0.6 =
 
