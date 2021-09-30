@@ -272,7 +272,7 @@ I took the class wpcd-coupon-id-<?php echo $coupon_id; ?> and put it to each one
                 <div class="wpcd-coupon-code">
                     <a rel="nofollow"
                        class="<?php echo esc_attr( 'wpcd-btn-' . $coupon_id . '_' . $num_coupon ); ?> masterTooltip wpcd-btn wpcd-coupon-button"
-                       target="<?php echo esc_attr( $target ); ?>" href="<?php echo_url( $second_link ); ?>"
+                       target="<?php echo esc_attr( $target ); ?>" href="<?php esc_url( $second_link ); ?>"
                        title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
                                    		if ( ! empty( $coupon_hover_text ) ) {
 										    echo esc_attr( $coupon_hover_text );
