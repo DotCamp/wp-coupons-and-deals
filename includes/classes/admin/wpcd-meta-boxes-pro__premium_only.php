@@ -87,9 +87,9 @@ class WPCD_Meta_Boxes_Pro {
 		if ( empty( $expire_date_format ) ) {
 			$expire_date_format = 'dd-mm-yy';
 		}
-		
+
 		$expireDateFormatFun = wpcd_getExpireDateFormatFun( $expire_date_format );
-		
+
 		$output           = '';
 		$kses_array = array('table' => array(
 								'class' => array()
@@ -225,11 +225,11 @@ class WPCD_Meta_Boxes_Pro {
 						ob_start();
 						/**
 						* Add Editor to description field
-						* 
+						*
 						* @since 2.5.0.2
 						*/
 						$settings = array(
-					   		'wpautop' => false, 
+					   		'wpautop' => false,
 					   		'media_buttons' => false,
 							'tinymce' => true,
 							'editor_height' => 150,
@@ -265,7 +265,7 @@ class WPCD_Meta_Boxes_Pro {
                         esc_attr( $wpcd_field['id'] )
                     );
                     break;
-                                
+
 				case 'expiredate':
 				case 'temp4-expiredate':
 					$input = sprintf(
@@ -330,7 +330,7 @@ class WPCD_Meta_Boxes_Pro {
 			}
 			$output .= $this->row_format( esc_attr( $type ), $label, $input, esc_attr( $tr_class ) );
 		}
-		echo '<table class="form-table"><tbody>' . wp_kses($output, $kses_array) . '</tbody></table>';
+		echo '<table class="form-table"><tbody>' . $output, $kses_array . '</tbody></table>';
 		echo "<script>
 				jQuery('#expire-time').timepicker({
 					controlType: 'select',
@@ -377,8 +377,8 @@ class WPCD_Meta_Boxes_Pro {
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 			return $post_id;
 		}
-                
-		foreach ( $this->wpcd_fields as $wpcd_field ) {    
+
+		foreach ( $this->wpcd_fields as $wpcd_field ) {
             if ( isset( $_POST[ $wpcd_field['id'] ] ) ) {
 				switch ( $wpcd_field['type'] ) {
 					case 'email':
@@ -396,7 +396,7 @@ class WPCD_Meta_Boxes_Pro {
 				if ( in_array( $wpcd_field['id'], array('expire-date', 'second-expire-date', 'third-expire-date') ) ) {
                 	$_POST[ $wpcd_field['id'] ] = strtotime( sanitize_text_field( $_POST[ $wpcd_field['id'] ] ) );
                 }
-                
+
                 $wpcd_coupon_meta_key = 'coupon_details_' . $wpcd_field['id'];
                 if( $wpcd_field['id'] == 'wpcd_description' ) $wpcd_coupon_meta_key = 'coupon_details_description';
 				update_post_meta( $post_id, $wpcd_coupon_meta_key, wp_kses_post( $_POST[ $wpcd_field['id'] ] ) );
