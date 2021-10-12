@@ -330,7 +330,7 @@ class WPCD_Meta_Boxes_Pro {
 			}
 			$output .= $this->row_format( esc_attr( $type ), $label, $input, esc_attr( $tr_class ) );
 		}
-		echo '<table class="form-table"><tbody>' . $output, $kses_array . '</tbody></table>';
+		echo '<table class="form-table"><tbody>' . $output . '</tbody></table>';
 		echo "<script>
 				jQuery('#expire-time').timepicker({
 					controlType: 'select',
