@@ -938,7 +938,7 @@ class WPCD_Settings_Page_Pro {
 		$output = '<div class="wrap" id="wpcd_coupon_settings">' . "\n";
 		$output .= '<h3 class="setting-title">' . __( 'WP Coupons and Deals Settings', 'wp-coupons-and-deals' ) . '</h3>' . "\n";
 		$output .= '<div class="wpcd_settings_section">';
-		$output .= '<form method="post" action="options.php" enctype="multipart/form-data">' . "\n";
+		$output .= '<form method="post" action="/wp-admin/options.php" enctype="multipart/form-data">' . "\n";
 		// Get settings fields
 		ob_start();
 		settings_fields( 'wpcd_settings' );
