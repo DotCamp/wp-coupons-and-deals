@@ -525,8 +525,8 @@ class WPCD_Settings_Page {
 				if ( $option && 'on' == $option ) {
 					$checked = 'checked="checked"';
 				}
-				$output .= '<input id="' . esc_attr( $field['id'] ) . '" type="' . esc_attr( $field['type'] ) . '" name="' . esc_attr( $option_name ) . '" ' . $checked . '/>' . "\n";
-				break;
+                $output .= '<input name="' . esc_attr($option_name) . '" ' . esc_attr($checked) . ' id="' . esc_attr($field['id']) . '" type="' . esc_attr($field['type']) . '"/>' . "\n";
+                break;
 
 			case 'checkbox_multi':
 				foreach ( $field['options'] as $k => $v ) {
@@ -661,7 +661,7 @@ class WPCD_Settings_Page {
 		$output = '<div class="wrap" id="wpcd_coupon_settings">' . "\n";
 		$output .= '<h3 class="setting-title">' . __( 'WP Coupons and Deals Settings', 'wp-coupons-and-deals' ) . '</h3>' . "\n";
 		$output .= '<div class="wpcd_settings_section">';
-		$output .= '<form method="post" action="/wp-admin/options.php" enctype="multipart/form-data">' . "\n";
+		$output .= '<form method="post" action="options.php" enctype="multipart/form-data">' . "\n";
 		// Get settings fields
 		ob_start();
 		settings_fields( 'wpcd_settings' );
