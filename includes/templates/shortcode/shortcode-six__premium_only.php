@@ -68,6 +68,12 @@ if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
     ! empty( $show_print_links ) && $show_print_links == 'on' ) {
     $wpcd_uniq_attr = wpcd_uniq_attr( 10 );
 }
+
+$file = WP_PLUGIN_DIR . '/wp-coupons-and-deals/includes/classes/CouponHelper.php';
+if (file_exists($file)) {
+    require_once $file;
+    $expire_time = CouponHelper::processTime($expire_time);
+}
 ?>
 
 <div class="wpcd-coupon-six wpcd-coupon-id-<?php echo absint( $coupon_id ); ?>" style="border-color: <?php echo sanitize_hex_color( $wpcd_template_six_theme ); ?>" <?php echo $wpcd_uniq_attr ? 'data-unic-attr="' . esc_attr( $wpcd_uniq_attr ) . '"' : '';?>>

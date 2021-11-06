@@ -176,6 +176,12 @@ class WPCD_Preview_Metabox {
 			$expire_date_format = date( 'd/m/Y' );
 		}
 
+        $file = WP_PLUGIN_DIR . '/wp-coupons-and-deals/includes/classes/CouponHelper.php';
+        if (file_exists($file)) {
+            require_once $file;
+            $expire_time = CouponHelper::processTime($expire_time);
+        }
+
 		echo '<style>
 		.wpcd-coupon-button-type .coupon-code-wpcd .get-code-wpcd {
 			background-color: ' . sanitize_hex_color( $hide_coupon_button_color ) . ';
