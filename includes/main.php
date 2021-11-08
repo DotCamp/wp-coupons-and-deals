@@ -282,7 +282,7 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 			 * @since 1.0
 			 */
 			include WPCD_Plugin::instance()->plugin_includes . 'autoloader.php';
-
+			include WPCD_Plugin::instance()->plugin_includes . 'classes/CouponHelper.php';
 			/**
 			 * Registering the autoloader to autoload classes.
 			 *

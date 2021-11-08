@@ -69,11 +69,7 @@ if( function_exists( 'wpcd_uniq_attr' ) && ! WPCD_Amp::wpcd_amp_is() &&
     $wpcd_uniq_attr = wpcd_uniq_attr( 10 );
 }
 
-$file = WP_PLUGIN_DIR . '/wp-coupons-and-deals/includes/classes/CouponHelper.php';
-if (file_exists($file)) {
-    require_once $file;
-    $expire_time = CouponHelper::processTime($expire_time);
-}
+$expire_time = CouponHelper::processTime($expire_time);
 ?>
 
 <div class="wpcd-coupon-two wpcd-coupon-id-<?php echo absint( $coupon_id ); ?>" <?php echo $wpcd_uniq_attr ? 'data-unic-attr="' . esc_attr( $wpcd_uniq_attr ) . '"' : '';?>>
