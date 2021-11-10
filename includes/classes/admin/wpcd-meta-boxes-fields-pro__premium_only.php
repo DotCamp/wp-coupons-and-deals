@@ -253,6 +253,7 @@ class WPCD_Meta_Boxes_Fields_Pro__Premium_Only
 						'Template Six',
 						'Template Seven',
 						'Template Eight',
+						'Template Nine',
 					)
 				),
 				array(

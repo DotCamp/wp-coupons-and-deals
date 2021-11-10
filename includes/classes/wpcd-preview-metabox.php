@@ -260,6 +260,34 @@ class WPCD_Preview_Metabox {
 		</div>
 	</div><!-- End of Default Preview -->
 	
+		
+	<!-- Template Nine Preview -->
+	<div class="wpcd-coupon-preview wpcd-coupon-nine">
+    
+    <div class="wpcd-coupon-content wpcd-col-2-8">
+        <div class="wpcd-coupon-nine-header">
+            <div class="wpcd-col-1-4">
+				<h1 class="wpcd-coupon-title">
+					<a href="#" target="_blank" rel="nofollow">' . esc_html( $title ) . '</a></h1>
+			</div>
+            <div class="wpcd-col-1-4 second-div">
+				<div class="wpcd-coupon-not-hidden">
+						<div class="wpcd-coupon-code wpcd-col-2-4">
+							<button
+								class="wpcd-btn masterTooltip wpcd-coupon-button"
+								title="' . esc_attr( $coupon_hover_text ) . '"
+								data-clipboard-text="'.  esc_attr( $coupon_code ) . '">
+								<span class="wpcd_coupon_icon"></span>
+								<span class="coupon-code-button">' . esc_html( $coupon_code ) . '</span>
+							</button>
+						</div>
+					</div>
+			</div>
+        </div>    
+    </div>
+    <div class="clearfix"></div>     
+</div><!-- End of Template Nine Preview -->
+	
 	<!-- Template One Preview -->
 	<div class="wpcd-coupon-preview wpcd-coupon-one">
 		<div class="wpcd-col-one-1-8">

@@ -51,7 +51,7 @@ jQuery(document).ready(function ($) {
     };
     wpcd_moreLessDescription();
 
-
+    console.log("here")
     $.each($('#wpcd_cat_ul > li'), function () {
         if ($(this).children('a').attr('href') === window.location.href) {
             $(this).children('a').addClass('active');

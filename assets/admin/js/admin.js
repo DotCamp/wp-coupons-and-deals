@@ -11,6 +11,7 @@ jQuery(document).ready(function ($) {
         SIX: 'Template Six',
         SEVEN: 'Template Seven',
         EIGHT: 'Template Eight',
+        NINE: 'Template Nine',
     };
     var couponTypes = {
         COUPON: 'Coupon',
@@ -762,7 +763,7 @@ jQuery(document).ready(function ($) {
 
     function wpcd_onCouponTemplateFieldChange() {
         var currentTemplate = $(this).val();
-
+        console.log("currentTemplate: ",currentTemplate)
         if (
             currentTemplate === templates.TWO ||
             currentTemplate === templates.SIX ||
@@ -1617,6 +1618,7 @@ jQuery(document).ready(function ($) {
         SIX: 'Template Six',
         SEVEN: 'Template Seven',
         EIGHT: 'Template Eight',
+        NINE: 'Template Nine',
 
     };
     var couponTypes = {
@@ -1628,6 +1630,7 @@ jQuery(document).ready(function ($) {
     var couponPreview = previewWrap.find('.wpcd-coupon-preview');
     var couponDefault = $('.wpcd-coupon');
     var couponEight = $('.wpcd-coupon-eight');
+    var couponNine = $('.wpcd-coupon-nine');
     var couponOne = $('.wpcd-coupon-one');
     var couponTwo = $('.wpcd-coupon-two');
     var couponThree = $('.wpcd-coupon-three');
@@ -1672,6 +1675,8 @@ jQuery(document).ready(function ($) {
             couponSeven.show("slow");
         } else if (currentTemplate === templates.EIGHT) {
             couponEight.show('slow');
+        } else if (currentTemplate === templates.NINE) {
+            couponNine.show('slow');
         }
     }
 

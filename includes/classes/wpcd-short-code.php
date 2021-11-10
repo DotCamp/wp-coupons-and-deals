@@ -229,6 +229,13 @@ class WPCD_Short_Code {
 					$template->get_template_part( 'shortcode-eight__premium_only' );
 					$output = ob_get_clean();
 
+				} elseif ( $coupon_template == 'Template Nine' ) {
+
+					$argcss = 'shortcode_nine';
+					ob_start();
+					$template->get_template_part( 'shortcode-nine__premium_only' );
+					$output = ob_get_clean();
+
 				} else {
 
 					$argcss = 'shortcode_default';
