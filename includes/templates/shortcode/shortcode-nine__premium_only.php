@@ -98,13 +98,24 @@ if (function_exists('wpcd_uniq_attr') && !WPCD_Amp::wpcd_amp_is() &&
             <div class="wpcd-col-1-4 second-div">
                 <div class="wpcd-coupon-not-hidden">
                     <div class="wpcd-coupon-code wpcd-col-2-4">
-                        <button
-                                class="wpcd-btn masterTooltip wpcd-coupon-button"
-                                title="<?= esc_html($coupon_hover_text) ?>"
-                                data-clipboard-text="<?= esc_html($coupon_code) ?>">
-                            <span class="wpcd_coupon_icon"></span>
-                            <span class="coupon-code-button"><?= esc_html($coupon_code) ?></span>
-                        </button>
+                        <a rel="nofollow" href="<?php echo esc_url( $link ); ?>"
+                           class="<?php echo 'wpcd-btn-' . absint( $coupon_id ); ?> masterTooltip wpcd-btn wpcd-coupon-button"
+                           target="<?php echo esc_attr( $target ); ?>"
+                           title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
+                               if ( ! empty( $coupon_hover_text ) ) {
+                                   echo esc_attr( $coupon_hover_text );
+                               } else {
+                                   echo __( "Click To Copy Coupon", 'wp-coupons-and-deals' );
+                               }
+                           }
+                           ?>"
+                           data-clipboard-text="<?php echo esc_attr( $coupon_code ); ?>">
+                                    <span class="wpcd_coupon_icon">
+                                    	<img class="" src="<?php echo esc_url( WPCD_Plugin::instance()->plugin_assets . 'img/coupon-code-24.png' ) ?>" style="width: 100%;height: 100%;" >
+                                    </span>
+
+                            <?php echo esc_html( $coupon_code ); ?>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -112,6 +123,12 @@ if (function_exists('wpcd_uniq_attr') && !WPCD_Amp::wpcd_amp_is() &&
     </div>
     <div class="clearfix"></div>
 </div><!-- End of Template Nine Preview -->
+<script type="text/javascript">
+    window.addEventListener('DOMContentLoaded', function() {
+        var clip = new ClipboardJS('.<?php echo esc_attr( $button_class ); ?>');
+    });
+
+</script>
 
 <?php
 if (!WPCD_Amp::wpcd_amp_is() && !empty($show_print_links) && $show_print_links == 'on') {

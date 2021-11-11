@@ -67,7 +67,7 @@ class WPCD_Preview_Metabox {
 		if ( !function_exists( 'wpcd_coupon_thumbnail_img' ) ) {
 			include WPCD_Plugin::instance()->plugin_includes . 'functions/wpcd-coupon-thumbnail-img.php';
 		}
-		
+
 		$post_id                  	   = get_the_ID();
 		$title                    	   = get_the_title();
 		$description              	   = get_post_meta( $post_id, 'coupon_details_description', true );
@@ -112,17 +112,17 @@ class WPCD_Preview_Metabox {
 		$wpcd_text_to_show        	   = get_option( 'wpcd_text-to-show' );
 		$wpcd_custom_text              = get_option( 'wpcd_custom-text' );
 		$wpcd_eight_btn_text           = get_option( 'wpcd_eight-button-text' );
-		
+
 		/** Alternative Template Variables */
 		global $coupon_id;
 		$disable_coupon_title_link = get_option( 'wpcd_disable-coupon-title-link' );
 		$coupon_title_tag          = get_option( 'wpcd_coupon-title-tag', 'h1' );
 		$dt_coupon_type_name       = get_option( 'wpcd_dt-coupon-type-text' );
-		
+
 		/** Seven Template Variables */
 		$never_expire              = get_post_meta( $coupon_id, 'coupon_details_never-expire-check', true );
-		
-		
+
+
 		if ( $wpcd_text_to_show == 'description' ) {
 			$wpcd_custom_text = $description;
 		} else {
@@ -130,7 +130,7 @@ class WPCD_Preview_Metabox {
 				$wpcd_custom_text = __( "Click on 'Copy' to Copy the Coupon Code.", 'wp-coupons-and-deals' );
 			}
 		}
-		
+
 		if ( $expireDateFormat == 'mm/dd/yy' ) {
 			$expireDateFormatFun = 'm/d/Y';
 		} elseif ( $expireDateFormat == 'yy/mm/dd' ) {
@@ -148,7 +148,7 @@ class WPCD_Preview_Metabox {
 			$third_expire_date = date( $expireDateFormatFun, $third_expire_date );
 		}
 		$expire_date_format = date( "m/d/Y", strtotime( $expire_date ) );
-		
+
 		/** Setting Default Values if Empty */
 		$title = ( !empty( $title ) ) ? $title : __( 'Sample Coupon Title' );
 		$description = ( !empty( $description ) ) ? $description : __( 'This is the description of the coupon code. Additional details of what the coupon or deal is.' );
@@ -268,22 +268,31 @@ class WPCD_Preview_Metabox {
         <div class="wpcd-coupon-nine-header">
             <div class="wpcd-col-1-4">
 				<h1 class="wpcd-coupon-title">
-					<a href="#" target="_blank" rel="nofollow">' . esc_html( $title ) . '</a></h1>
+					<a href="#" target="_blank" rel="nofollow">' . esc_html($title) . '</a>
+				</h1>
 			</div>
             <div class="wpcd-col-1-4 second-div">
 				<div class="wpcd-coupon-not-hidden">
-						<div class="wpcd-coupon-code wpcd-col-2-4">
-							<button
-								class="wpcd-btn masterTooltip wpcd-coupon-button"
-								title="' . esc_attr( $coupon_hover_text ) . '"
-								data-clipboard-text="'.  esc_attr( $coupon_code ) . '">
-								<span class="wpcd_coupon_icon"></span>
-								<span class="coupon-code-button">' . esc_html( $coupon_code ) . '</span>
-							</button>
-						</div>
-					</div>
+					<div class="wpcd-coupon-code wpcd-col-2-4">
+                        <button rel="nofollow"
+                           class="wpcd-btn-' . absint($coupon_id) . ' masterTooltip wpcd-btn wpcd-coupon-button"
+                           title="' . esc_attr($coupon_hover_text) . '"
+						   data-clipboard-text="' . esc_attr($coupon_code) . '">
+                           <span class="wpcd_coupon_icon">
+                               <img class="" src="' . esc_url(WPCD_Plugin::instance()->plugin_assets . 'img/coupon-code-24.png') . '" style="width: 100%;height: 100%;" >
+                           </span>
+                            ' . esc_html($coupon_code) . '
+                        </button>
+                </div>
+                
+		    </div>
 			</div>
-        </div>    
+        </div> 
+<script type="text/javascript">
+    window.addEventListener("DOMContentLoaded", function() {
+        var clip = new ClipboardJS("'.esc_attr( $button_class ).'");
+    });
+</script> 
     </div>
     <div class="clearfix"></div>     
 </div><!-- End of Template Nine Preview -->
