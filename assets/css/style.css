@@ -4447,3 +4447,37 @@ li.wpcd_dropdown {
 .wpcd_dropdown:hover .wpcd_dropdown-content {
     display: block;
 }
+
+.wpcd-coupon-nine-header {
+    width: 100%;
+    float: left;
+    padding-bottom: 5px;
+}
+
+.wpcd-coupon-nine-header button {
+    float: right;
+}
+
+.wpcd-coupon-nine-header h1 {
+    padding: 0px;
+}
+
+.wpcd-coupon-nine-header h1 a {
+    text-decoration: none;
+}
+
+.wpcd-coupon-nine-header .second-div {
+    float: right;
+}
+
+.wpcd-coupon-nine-header .wpcd-col-1-4, .wpcd-col-2-4 {
+    padding: 0px;
+}
+
+.wpcd-coupon-nine {
+    background: #fafafa none repeat scroll 0 0;
+    border: 2px dashed #000;
+    background: #fafafa;
+    box-sizing: border-box;
+    padding: 10px 5px 10px 10px;
+}
