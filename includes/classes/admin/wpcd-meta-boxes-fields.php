@@ -212,6 +212,7 @@ class WPCD_Meta_Boxes_Fields {
 						'Template Six',
 						'Template Seven',
 						'Template Eight',
+                        'Template Nine',
 					)
 				),
 				array(
