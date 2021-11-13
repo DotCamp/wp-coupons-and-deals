@@ -267,9 +267,9 @@ class WPCD_Preview_Metabox {
     <div class="wpcd-coupon-content wpcd-col-2-8">
         <div class="wpcd-coupon-nine-header">
             <div class="wpcd-col-1-2 firstDiv">
-				<h1 class="wpcd-coupon-title">
+				<' . esc_html($coupon_title_tag) . ' class="wpcd-coupon-title">
 					<a href="#" target="_blank" rel="nofollow">' . esc_html($title) . '</a>
-				</h1>
+				</' . esc_html($coupon_title_tag) . '>
 			</div>
             <div class="wpcd-col-1-2 second-div">
 				<div class="wpcd-coupon-not-hidden">
