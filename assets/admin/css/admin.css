@@ -3848,11 +3848,12 @@ a.admin-wpcd-new-goto-button {
     float: right;
 }
 
-.wpcd-coupon-nine-header h1 {
+.wpcd-coupon-nine-header .wpcd-coupon-title {
     padding: 0px;
+    margin: 0px;
 }
 
-.wpcd-coupon-nine-header h1 a {
+.wpcd-coupon-nine-header .wpcd-coupon-title a {
     text-decoration: none;
 }
 
