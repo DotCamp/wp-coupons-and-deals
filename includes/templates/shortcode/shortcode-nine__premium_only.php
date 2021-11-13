@@ -91,11 +91,11 @@ if (function_exists('wpcd_uniq_attr') && !WPCD_Amp::wpcd_amp_is() &&
 
     <div class="wpcd-coupon-content wpcd-col-2-8">
         <div class="wpcd-coupon-nine-header">
-            <div class="wpcd-col-1-4">
+            <div class="wpcd-col-1-2 firstDiv">
                 <h1 class="wpcd-coupon-title">
                     <a href="#" target="_blank" rel="nofollow"><?= esc_html($title) ?></a></h1>
             </div>
-            <div class="wpcd-col-1-4 second-div">
+            <div class="wpcd-col-1-2 second-div">
                 <div class="wpcd-coupon-not-hidden">
                     <div class="wpcd-coupon-code wpcd-col-2-4">
                         <a rel="nofollow" href="<?php echo esc_url( $link ); ?>"

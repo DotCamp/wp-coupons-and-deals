@@ -4481,3 +4481,42 @@ li.wpcd_dropdown {
     box-sizing: border-box;
     padding: 10px 5px 10px 10px;
 }
+
+.second-div .wpcd-coupon-code {
+    text-align: right;
+}
+
+.wpcd-coupon-nine-header .second-div {
+    padding:0 15px 0 0 !important;
+}
+
+.wpcd-coupon-nine-header .firstDiv {
+    padding:0 0 0 8px !important;
+}
+
+@media only screen and (max-width: 600px) {
+    .wpcd-coupon-nine-header {
+        display: inline-flex;
+        margin-left: -3px;
+    }
+
+    .wpcd-coupon-nine-header .firstDiv {
+        width: 50%;
+    }
+
+    .wpcd-coupon-nine-header .firstDiv .wpcd-coupon-title {
+        text-align: left;
+    }
+
+    .wpcd-coupon-nine-header .second-div {
+        width: 50%;
+    }
+
+    .wpcd-coupon-nine-header .second-div {
+        padding: 5px 5px 5px 5px !important;
+    }
+
+    .wpcd-coupon-nine-header .firstDiv {
+        padding: 5px 5px 5px 5px !important;;
+    }
+}
