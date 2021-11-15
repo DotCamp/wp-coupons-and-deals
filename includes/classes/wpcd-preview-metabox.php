@@ -271,22 +271,42 @@ class WPCD_Preview_Metabox {
 					<a href="#" target="_blank" rel="nofollow">' . esc_html($title) . '</a>
 				</' . esc_html($coupon_title_tag) . '>
 			</div>
-            <div class="wpcd-col-1-2 second-div">
-				<div class="wpcd-coupon-not-hidden">
-					<div class="wpcd-coupon-code wpcd-col-2-4">
-                        <button rel="nofollow"
-                           class="wpcd-btn-' . absint($coupon_id) . ' masterTooltip wpcd-btn wpcd-coupon-button"
-                           title="' . esc_attr($coupon_hover_text) . '"
-						   data-clipboard-text="' . esc_attr($coupon_code) . '">
-                           <span class="wpcd_coupon_icon">
-                               <img class="" src="' . esc_url(WPCD_Plugin::instance()->plugin_assets . 'img/coupon-code-24.png') . '" style="width: 100%;height: 100%;" >
-                           </span>
-                            ' . esc_html($coupon_code) . '
-                        </button>
-                </div>
-                
-		    </div>
-			</div>
+            <div class="wpcd-col-1-4">
+					<div class="coupon-code-wpcd coupon-detail wpcd-coupon-button-type wpcd-coupon-hidden">
+						<a  data-type="code"
+							data-coupon-id="' . absint( $post_id ) . '"
+							href=""
+							class="coupon-button coupon-code-wpcd masterTooltip"
+							id="coupon-button-' . absint( $post_id ) .'"
+							title="' . esc_attr( $hidden_coupon_hover_text ) .'"
+							data-position="top center"
+							data-inverted=""
+							data-aff-url="' . esc_url( $link ) . '">
+							<span class="code-text-wpcd" rel="nofollow">' . esc_html( $coupon_code ) . '</span>
+							<span class="get-code-wpcd">' . esc_html( $hide_coupon_text ) .	'</span>
+						</a>
+					</div>
+					<div class="wpcd-coupon-not-hidden">
+						<div class="wpcd-coupon-code">
+							<button
+								class="wpcd-btn masterTooltip wpcd-coupon-button"
+								title="' . esc_attr( $coupon_hover_text ) . '"
+								data-clipboard-text="' . esc_attr( $coupon_code ) . '">
+								<span class="wpcd_coupon_icon"></span>
+								<span class="coupon-code-button">' . esc_html( $coupon_code ) . '</span>
+							</button>
+						</div>
+						<div class="wpcd-deal-code">
+							<button
+								class="wpcd-btn masterTooltip wpcd-deal-button"
+								title="' . esc_attr( $deal_hover_text ) . '"
+								data-clipboard-text="' . esc_attr( $deal_text ) . '">
+								<span class="wpcd_deal_icon"></span>
+								<span class="deal-code-button">' . esc_html( $deal_text ) . '</span>
+							</button>
+						</div>
+					</div>
+				</div>
         </div> 
 <script type="text/javascript">
     window.addEventListener("DOMContentLoaded", function() {

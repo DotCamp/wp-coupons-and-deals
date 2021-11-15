@@ -92,41 +92,51 @@ if (function_exists('wpcd_uniq_attr') && !WPCD_Amp::wpcd_amp_is() &&
     <div class="wpcd-coupon-content wpcd-col-2-8">
         <div class="wpcd-coupon-nine-header">
             <div class="wpcd-col-1-2 firstDiv">
-                <<?= esc_html( $coupon_title_tag ); ?> class="wpcd-coupon-title">
-                    <a href="<?php echo esc_url( $link ); ?>" target="_blank" rel="nofollow"><?= esc_html($title) ?></a>
-                </<?= esc_html( $coupon_title_tag ); ?>>
-            </div>
-            <div class="wpcd-col-1-2 second-div">
+                <<?= esc_html($coupon_title_tag); ?> class="wpcd-coupon-title">
+                <a href="<?php echo esc_url($link); ?>" target="_blank" rel="nofollow"><?= esc_html($title) ?></a>
+            </<?= esc_html($coupon_title_tag); ?>>
+        </div>
+
+        <div class="wpcd-col-1-2 second-div">
+            <?php
+            if ($hide_coupon == 'Yes' && !WPCD_Amp::wpcd_amp_is()) {
+                $template->get_template_part('hide-coupon__premium_only');
+
+            } else { ?>
                 <div class="wpcd-coupon-not-hidden">
                     <div class="wpcd-coupon-code wpcd-col-2-4">
-                        <a rel="nofollow" href="<?php echo esc_url( $link ); ?>"
-                           class="<?php echo 'wpcd-btn-' . absint( $coupon_id ); ?> masterTooltip wpcd-btn wpcd-coupon-button"
-                           target="<?php echo esc_attr( $target ); ?>"
-                           title="<?php if( !WPCD_Amp::wpcd_amp_is() ) {
-                               if ( ! empty( $coupon_hover_text ) ) {
-                                   echo esc_attr( $coupon_hover_text );
+                        <a rel="nofollow" href="<?php echo esc_url($link); ?>"
+                           class="<?php echo 'wpcd-btn-' . absint($coupon_id); ?> masterTooltip wpcd-btn wpcd-coupon-button"
+                           target="<?php echo esc_attr($target); ?>"
+                           title="<?php if (!WPCD_Amp::wpcd_amp_is()) {
+                               if (!empty($coupon_hover_text)) {
+                                   echo esc_attr($coupon_hover_text);
                                } else {
-                                   echo __( "Click To Copy Coupon", 'wp-coupons-and-deals' );
+                                   echo __("Click To Copy Coupon", 'wp-coupons-and-deals');
                                }
                            }
                            ?>"
-                           data-clipboard-text="<?php echo esc_attr( $coupon_code ); ?>">
+                           data-clipboard-text="<?php echo esc_attr($coupon_code); ?>">
                                     <span class="wpcd_coupon_icon">
-                                    	<img class="" src="<?php echo esc_url( WPCD_Plugin::instance()->plugin_assets . 'img/coupon-code-24.png' ) ?>" style="width: 100%;height: 100%;" >
+                                    	<img class=""
+                                             src="<?php echo esc_url(WPCD_Plugin::instance()->plugin_assets . 'img/coupon-code-24.png') ?>"
+                                             style="width: 100%;height: 100%;">
                                     </span>
 
-                            <?php echo esc_html( $coupon_code ); ?>
+                            <?php echo esc_html($coupon_code); ?>
                         </a>
                     </div>
                 </div>
-            </div>
+
+            <?php } ?>
         </div>
     </div>
-    <div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
 </div><!-- End of Template Nine Preview -->
 <script type="text/javascript">
-    window.addEventListener('DOMContentLoaded', function() {
-        var clip = new ClipboardJS('.<?php echo esc_attr( $button_class ); ?>');
+    window.addEventListener('DOMContentLoaded', function () {
+        var clip = new ClipboardJS('.<?php echo esc_attr($button_class); ?>');
     });
 
 </script>
