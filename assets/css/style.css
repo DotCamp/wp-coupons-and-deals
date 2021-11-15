@@ -4452,6 +4452,8 @@ li.wpcd_dropdown {
     width: 100%;
     float: left;
     padding-bottom: 5px;
+    align-items: center;
+    display: flex;
 }
 
 .wpcd-coupon-nine-header button {

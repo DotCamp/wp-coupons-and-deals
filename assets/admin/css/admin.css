@@ -3838,7 +3838,8 @@ a.admin-wpcd-new-goto-button {
 }
 
 .wpcd-coupon-nine-header {
-    display: inline-flex;
+    align-items: center;
+    display: flex;
     width: 100%;
     float: left;
     padding-bottom: 5px;
