@@ -3886,6 +3886,10 @@ a.admin-wpcd-new-goto-button {
     padding:0 0 0 8px !important;
 }
 
+.second-div .coupon-detail{
+    text-align: right;
+}
+
 @media only screen and (max-width: 600px) {
     .wpcd-coupon-nine-header {
         display: inline-flex;
