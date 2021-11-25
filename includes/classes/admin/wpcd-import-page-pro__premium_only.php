@@ -106,9 +106,9 @@ class WPCD_Import_Page_Pro extends WPCD_Import_Page {
 							<div class="wpcd_import_field">
 								<div class="wpcd_import_field wpcd_import_field_submit wpcd_clearfix">
 								<input type="hidden" name="wpcd_import_counter_field" value="$name_var" />
-								<input type="file" style="display:none;" name="wpcd_import_file_final" value="' . filter_var($_FILES['wpcd_import_file']['tmp_name'], FILTER_SANITIZE_STRING) .'" />
-								<input type="hidden" name="wpcd_default_template" value="' . filter_var($_POST['wpcd_default_template'], FILTER_SANITIZE_STRING) . '">
-								<input type="hidden" name="theme_color" value="' . sanitize_hex_color($_POST['theme_color']) . '">'
+								<input type="file" style="display:none;" name="wpcd_import_file_final" value="' . filter_var($_FILES['wpcd_import_file']['tmp_name'] ?? '', FILTER_SANITIZE_STRING) .'" />
+								<input type="hidden" name="wpcd_default_template" value="' . filter_var($_POST['wpcd_default_template'] ?? '', FILTER_SANITIZE_STRING) . '">
+								<input type="hidden" name="theme_color" value="' . sanitize_hex_color($_POST['theme_color'] ?? '') . '">'
 								. wp_nonce_field( 'wpcd_nonce' ) .
 								'<input name="wpcd_import_submit_final" value="Import Coupons" class="button button-primary button-large wpcd-import-btn" type="submit">
 								<span><strong>0</strong>' . __( 'Coupons will be added!', 'wp-coupons-and-deals' ) . '</span>
