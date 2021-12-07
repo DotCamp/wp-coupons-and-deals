@@ -813,15 +813,16 @@ class WPCD_Short_Code {
             );
         }
 
-		if ( empty( $a['temp'] ) ) {
-			$args['meta_query'] = array(
-				array(
-					'key'     => 'coupon_details_coupon-type',
-					'value'   => 'Image',
-					'compare' => '!='
-				)
-			);
-		}
+        $type = get_option('wpcd_coupon_category_' . $atts['cat'] . '_type');
+        if (empty($a['temp'])) {
+            $args['meta_query'] = array(
+                array(
+                    'key' => 'coupon_details_coupon-type',
+                    'value' => 'Image',
+                    'compare' => ($type == 'yes') ? '==' : '!='
+                )
+            );
+        }
 
 		// sortby attribute - available options - newest(default), oldest, expire-first, expire-last
 		if ( !empty( $a['sortby'])) {
