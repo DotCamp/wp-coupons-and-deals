@@ -467,11 +467,10 @@ class WPCD_Admin_Columns extends WP_List_Table {
     {
         wp_nonce_field('category_meta_new', 'category_meta_new_nonce');
         ?>
-        <label for='type'>Type</label>
+      <label for='type'>Image Coupon</label>
         <select name="type">
-            <option value="image">Image</option>
-            <option value="coupon">Coupon</option>
-            <option value="deals">Deals</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
         </select>
         <p class='type'>Enter category type </p>
         <?php
@@ -487,11 +486,10 @@ class WPCD_Admin_Columns extends WP_List_Table {
         $type = get_option('wpcd_coupon_category_' . $taxonomy->term_id . '_type');
         wp_nonce_field('category_meta_new', 'category_meta_new_nonce');
         ?>
-        <label for='type'>Type</label>
+        <label for='type'>Image Coupon</label>
         <select name="type">
-            <option <?= ($type == 'image') ? 'selected' : '' ?> value="image">Image</option>
-            <option <?= ($type == 'coupon') ? 'selected' : '' ?> value="coupon">Coupon</option>
-            <option <?= ($type == 'deals') ? 'selected' : '' ?> value="deals">Deals</option>
+            <option <?= ($type == 'yes') ? 'selected' : '' ?> value="yes">Yes</option>
+            <option <?= ($type == 'no') ? 'selected' : '' ?> value="no">No</option>
         </select>
         <p class='type'>Enter category type </p>
         <?php
