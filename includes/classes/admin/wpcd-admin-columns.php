@@ -73,6 +73,46 @@ class WPCD_Admin_Columns extends WP_List_Table {
 				'wpcd_custom_taxonomy_columns__premium_only'
 			), 10, 2 );
 
+            /**
+             * Adding custom field to get Coupon type.
+             * @since 2.2
+             */
+            add_action('wpcd_coupon_category_add_form_fields',
+                array(
+                    __CLASS__,
+                    'add_coupon_type_field'
+                ), 10);
+
+            /**
+             * Adding custom field to get Coupon type.
+             * @since 2.2
+             */
+            add_action('wpcd_coupon_category_edit_form_fields',
+                array(
+                    __CLASS__,
+                    'edit_coupon_type_field'
+                ), 10);
+
+            /**
+             * create coupon type fields.
+             * @since 2.2
+             */
+            add_action('create_wpcd_coupon_category',
+                array(
+                    __CLASS__,
+                    'save_coupon_type_fields'
+                ), 10);
+
+            /**
+             * create coupon type fields.
+             * @since 2.2
+             */
+            add_action('edited_wpcd_coupon_category',
+                array(
+                    __CLASS__,
+                    'save_coupon_type_fields'
+                ), 10);
+
 			/**
 			 * Adding content to custom columns in Coupon Category List.
 			 *
@@ -418,6 +458,58 @@ class WPCD_Admin_Columns extends WP_List_Table {
 
 		return $columns;
 	}
+
+    /**
+     * create custom Category.
+     * @since 2.2
+     */
+    public static function add_coupon_type_field($taxonomy)
+    {
+        wp_nonce_field('category_meta_new', 'category_meta_new_nonce');
+        ?>
+        <label for='type'>Type</label>
+        <select name="type">
+            <option value="image">Image</option>
+            <option value="coupon">Coupon</option>
+            <option value="deals">Deals</option>
+        </select>
+        <p class='type'>Enter category type </p>
+        <?php
+        return $taxonomy;
+    }
+
+    /**
+     * edit custom Category.
+     * @since 2.2
+     */
+    public static function edit_coupon_type_field($taxonomy)
+    {
+        $type = get_option('wpcd_coupon_category_' . $taxonomy->term_id . '_type');
+        wp_nonce_field('category_meta_new', 'category_meta_new_nonce');
+        ?>
+        <label for='type'>Type</label>
+        <select name="type">
+            <option <?= ($type == 'image') ? 'selected' : '' ?> value="image">Image</option>
+            <option <?= ($type == 'coupon') ? 'selected' : '' ?> value="coupon">Coupon</option>
+            <option <?= ($type == 'deals') ? 'selected' : '' ?> value="deals">Deals</option>
+        </select>
+        <p class='type'>Enter category type </p>
+        <?php
+        return $taxonomy;
+    }
+
+    /**
+     * Custom field save Coupon type.
+     * @since 2.2
+     */
+    public static function save_coupon_type_fields($term_id)
+    {
+        if (!empty($_POST['type'])) {
+            update_option('wpcd_coupon_category_' . $term_id . '_type', $_POST['type']);
+        } elseif (!empty($category_imageUrl)) {
+            delete_option('wpcd_coupon_category_' . $term_id . '_type');
+        }
+    }
 
 	/**
 	 * Content for custom taxonomy columns.

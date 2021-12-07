@@ -45,7 +45,7 @@ class WPCD_Custom_Taxonomy_Image {
 		$term_meta = get_option( "taxonomy_term_$t_id" ); // Do the check
 
 		// Get the image src
-		$your_img_src = wp_get_attachment_image_src( $term_meta['image_id'], 'full' );
+		$your_img_src = wp_get_attachment_image_src( $term_meta['image_id'] ?? '', 'full' );
 
 		// For convenience, see if the array is valid
 		$you_have_img = is_array( $your_img_src );
