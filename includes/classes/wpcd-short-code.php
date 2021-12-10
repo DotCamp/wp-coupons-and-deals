@@ -669,7 +669,7 @@ class WPCD_Short_Code {
 	public static function wpcd_coupons_loop_func__premium_only( $atts ) {
 		$output = "";
 		$paged  = 1;
-
+		
 		$a = shortcode_atts( array(
 			'count' => 9,
 			'id'    => '',
@@ -813,13 +813,17 @@ class WPCD_Short_Code {
             );
         }
 
-        $type = get_option('wpcd_coupon_category_' . $atts['cat'] . '_type');
+        $condition = '!=';
+        if (isset($atts['imgcoupons'])) {
+            $condition = (strpos($atts['imgcoupons'], 'yes') !== false) ? '==' : '!=';
+        }
+
         if (empty($a['temp'])) {
             $args['meta_query'] = array(
                 array(
                     'key' => 'coupon_details_coupon-type',
                     'value' => 'Image',
-                    'compare' => ($type == 'yes') ? '==' : '!='
+                    'compare' => $condition
                 )
             );
         }
