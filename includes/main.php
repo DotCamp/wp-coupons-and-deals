@@ -557,7 +557,7 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 			 *
 			 * @since 1.0
 			 */
-			WPCD_Shortcode_Inserter::wpcd_shortcode_insert();
+			//WPCD_Shortcode_Inserter::wpcd_shortcode_insert();
 
 			/**
 			 * This adds the custom columns in

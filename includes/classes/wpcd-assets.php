@@ -311,7 +311,7 @@ class WPCD_Assets {
 		 */
 		$custom_post_type = 'wpcd_coupons';
 		$screen = get_current_screen();
-		if ( is_object( $screen ) || $custom_post_type == $screen->post_type ) {
+		if ( is_object( $screen ) && $custom_post_type == $screen->post_type ) {
 
 			if ( in_array( $hook_suffix, array( 'post.php', 'post-new.php' ) ) ) {
 
@@ -368,7 +368,7 @@ class WPCD_Assets {
 		 */
 		$custom_post_type = 'wpcd_coupons';
 		$screen = get_current_screen();
-		if ( is_object( $screen ) || $custom_post_type == $screen->post_type ) {
+		if ( is_object( $screen ) && $custom_post_type == $screen->post_type ) {
 			if ( in_array( $hook_suffix, array( 'post.php', 'post-new.php' ) ) ) {
 
 				wp_enqueue_script( 'jquery-ui-datepicker' );
