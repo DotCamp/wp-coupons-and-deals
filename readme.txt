@@ -154,6 +154,12 @@ You can [__submit a feature request__](https://wpcouponsdeals.com/submit-new-fea
 
 == Changelog ==
 
+= 3.1.15 =
+
+* WordPress 6.1 compatible.
+* Freemius SDK update.
+* Missing icon fix.
+
 = 3.1.14 =
 
 * WordPress 6.0 compatible.
