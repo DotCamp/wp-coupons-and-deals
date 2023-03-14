@@ -154,6 +154,10 @@ You can [__submit a feature request__](https://wpcouponsdeals.com/submit-new-fea
 
 == Changelog ==
 
+= 3.1.17 =
+
+* Remove unnecessary menu item.
+
 = 3.1.16 =
 
 * WordPress 6.2 compatible.
