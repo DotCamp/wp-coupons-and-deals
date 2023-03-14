@@ -3,7 +3,7 @@ Contributors: dotcamp, wpcdplugin, imtiazrayhan, istiakrayhan, mohmedelwany, ult
 Tags: coupon, coupons, deal, deals, affiliate, affiliate marketing
 Requires at least: 5.2
 Tested up to: 6.2
-Stable tag: 3.1.15
+Stable tag: 3.1.16
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -153,6 +153,14 @@ You can [__submit a feature request__](https://wpcouponsdeals.com/submit-new-fea
 11. Adding the widget.
 
 == Changelog ==
+
+= 3.1.16 =
+
+* WordPress 6.2 compatible.
+* Ajax loader animation fix.
+* Dashboard widget fix.
+* Help metabox update.
+* Freemius SDK update.
 
 = 3.1.15 =
 
