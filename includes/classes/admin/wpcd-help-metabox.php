@@ -41,7 +41,7 @@ class WPCD_Help_Metabox {
 				array( $this, 'add_meta_box_callback' ),
 				$screen,
 				'side',
-				'high'
+				'low'
 			);
 		}
 
@@ -66,6 +66,14 @@ class WPCD_Help_Metabox {
 	 */
 	public function generate_fields( $post ) {
 		echo '<p style="font-size: 14px;">' . __( 'If you have any questions or confusions, please check our ', 'wp-coupons-and-deals' ) . '<a target="_blank" href="https://wpcouponsdeals.com/knowledgebase/">' . __( 'Knowledgebase', 'wp-coupons-and-deals' ) . '</a>' . __( ' or', 'wp-coupons-and-deals' ) . '<a target="_blank" href="https://wpcouponsdeals.com/contact-us/">' . __( ' contact us', 'wp-coupons-and-deals' ) . '</a>.</p>';
+		echo 
+		'
+		<p>Other Tools By Me:</p>
+		<ol>
+			<li><a target="_blank" href="https://wordpress.org/plugins/wp-table-builder/">WP Table Builder</a> - Drag and Drop Table Builder.</li>
+			<li><a target="_blank" href="https://wordpress.org/plugins/ultimate-blocks/">Ultimate Blocks</a> - Custom Gutenberg Blocks.</li>
+			<li><a target="_blank" href="https://wordpress.org/themes/groundwp/">GroundWP</a> - Block Theme For Site Building.</li>
+		</ol>';
 	}
 
 }

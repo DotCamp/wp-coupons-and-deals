@@ -94,7 +94,7 @@ class WPCD_Welcome_Page {
 	 */
 	static function remove_menu_entry() {
 
-		remove_submenu_page( 'index.php', 'wpcd_welcome_menu_page' );
+		//remove_submenu_page( 'index.php', 'wpcd_welcome_menu_page' );
 
 	}
 

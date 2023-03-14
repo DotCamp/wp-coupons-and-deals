@@ -1,0 +1,1542 @@
+# Copyright (C) 2023 wpcd_coupon
+# This file is distributed under the same license as the wpcd_coupon package.
+msgid ""
+msgstr ""
+"Project-Id-Version: wpcd_coupon\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language-Team: WP Coupons and Deals <irayhan.asif@gmail.com>\n"
+"Last-Translator: Imtiaz Rayhan <irayhan.asif@gmail.com>\n"
+"POT-Creation-Date: 2023-03-14 03:54+0000\n"
+"Report-Msgid-Bugs-To: https://wpcouponsdeals/contact-us/\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../includes/main.php:633, ../includes/main.php:634
+msgid "Free Pro Trial"
+msgstr ""
+
+#: ../includes/main.php:671
+msgid "Coupons Overview"
+msgstr ""
+
+#: ../includes/classes/wpcd-assets.php:243, ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:394, ../includes/classes/admin/wpcd-settings-page.php:289
+msgid "You have voted successfully!"
+msgstr ""
+
+#: ../includes/classes/wpcd-assets.php:249
+msgid "Voting failed!"
+msgstr ""
+
+#: ../includes/classes/wpcd-assets.php:255, ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:410, ../includes/classes/admin/wpcd-settings-page.php:305
+msgid "You have voted already!"
+msgstr ""
+
+#: ../includes/classes/wpcd-assets.php:261, ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:441, ../includes/templates/extras/hide-coupon2__premium_only.php:358, ../includes/templates/extras/hide-coupon2__premium_only.php:370, ../includes/templates/extras/hide-coupon3__premium_only.php:156, ../includes/templates/extras/hide-coupon3__premium_only.php:168, ../includes/templates/extras/hide-coupon__premium_only.php:128, ../includes/templates/extras/hide-coupon__premium_only.php:140
+msgid "Copy"
+msgstr ""
+
+#: ../includes/classes/wpcd-assets.php:267, ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:449, ../includes/templates/extras/hide-coupon2__premium_only.php:376, ../includes/templates/extras/hide-coupon3__premium_only.php:174, ../includes/templates/extras/hide-coupon__premium_only.php:146
+msgid "Copied"
+msgstr ""
+
+#: ../includes/classes/wpcd-assets.php:271, ../includes/classes/wpcd-preview-metabox.php:415, ../includes/classes/wpcd-preview-metabox.php:417, ../includes/classes/wpcd-preview-metabox.php:915, ../includes/classes/wpcd-preview-metabox.php:917, ../includes/classes/wpcd-preview-metabox.php:1097, ../includes/classes/wpcd-preview-metabox.php:1099, ../includes/templates/archive/shortcode-archive-default__premium_only.php:291, ../includes/templates/archive/shortcode-archive-default__premium_only.php:293, ../includes/templates/archive/shortcode-category-default__premium_only.php:295, ../includes/templates/archive/shortcode-category-default__premium_only.php:297, ../includes/templates/widget/widget-six__premium_only.php:116, ../includes/templates/widget/widget-six__premium_only.php:118
+msgid "minutes"
+msgstr ""
+
+#: ../includes/classes/wpcd-assets.php:272, ../includes/classes/wpcd-preview-metabox.php:415, ../includes/classes/wpcd-preview-metabox.php:417, ../includes/classes/wpcd-preview-metabox.php:915, ../includes/classes/wpcd-preview-metabox.php:917, ../includes/classes/wpcd-preview-metabox.php:1097, ../includes/classes/wpcd-preview-metabox.php:1099, ../includes/templates/archive/shortcode-archive-default__premium_only.php:291, ../includes/templates/archive/shortcode-archive-default__premium_only.php:293, ../includes/templates/archive/shortcode-category-default__premium_only.php:295, ../includes/templates/archive/shortcode-category-default__premium_only.php:297, ../includes/templates/widget/widget-six__premium_only.php:116, ../includes/templates/widget/widget-six__premium_only.php:118
+msgid "seconds"
+msgstr ""
+
+#: ../includes/classes/wpcd-assets.php:273, ../includes/classes/wpcd-preview-metabox.php:417, ../includes/classes/wpcd-preview-metabox.php:917, ../includes/classes/wpcd-preview-metabox.php:1099, ../includes/templates/archive/shortcode-archive-default__premium_only.php:293, ../includes/templates/archive/shortcode-category-default__premium_only.php:297, ../includes/templates/widget/widget-six__premium_only.php:118
+msgid "hours"
+msgstr ""
+
+#: ../includes/classes/wpcd-assets.php:274, ../includes/classes/wpcd-preview-metabox.php:420, ../includes/classes/wpcd-preview-metabox.php:920, ../includes/classes/wpcd-preview-metabox.php:1102, ../includes/templates/archive/shortcode-archive-default__premium_only.php:296, ../includes/templates/archive/shortcode-category-default__premium_only.php:300, ../includes/templates/widget/widget-six__premium_only.php:121
+msgid "day"
+msgstr ""
+
+#: ../includes/classes/wpcd-assets.php:275, ../includes/classes/wpcd-preview-metabox.php:423, ../includes/classes/wpcd-preview-metabox.php:923, ../includes/classes/wpcd-preview-metabox.php:1105, ../includes/templates/archive/shortcode-archive-default__premium_only.php:299, ../includes/templates/archive/shortcode-category-default__premium_only.php:303, ../includes/templates/widget/widget-six__premium_only.php:124
+msgid "week"
+msgstr ""
+
+#: ../includes/classes/wpcd-assets.php:276, ../includes/classes/wpcd-preview-metabox.php:428, ../includes/classes/wpcd-preview-metabox.php:928, ../includes/classes/wpcd-preview-metabox.php:1110, ../includes/templates/archive/shortcode-archive-default__premium_only.php:304, ../includes/templates/archive/shortcode-category-default__premium_only.php:308, ../includes/templates/widget/widget-six__premium_only.php:129
+msgid "This offer has expired!"
+msgstr ""
+
+#: ../includes/classes/wpcd-coupon-widget.php:23
+msgid "Add Coupons and Deals to your widget areas."
+msgstr ""
+
+#: ../includes/classes/wpcd-coupon-widget.php:44, ../includes/classes/admin/wpcd-shortcode-inserter.php:228
+msgid "Select the category"
+msgstr ""
+
+#: ../includes/classes/wpcd-coupon-widget.php:46, ../includes/classes/admin/wpcd-shortcode-inserter.php:231
+msgid "Search the Category"
+msgstr ""
+
+#: ../includes/classes/wpcd-coupon-widget.php:60, ../includes/classes/admin/wpcd-shortcode-inserter.php:240
+msgid "All Categories"
+msgstr ""
+
+#: ../includes/classes/wpcd-coupon-widget.php:65, ../includes/classes/admin/wpcd-shortcode-inserter.php:246
+msgid "Select the Coupon you want to insert"
+msgstr ""
+
+#: ../includes/classes/wpcd-coupon-widget.php:70
+msgid "Select the Coupon"
+msgstr ""
+
+#: ../includes/classes/wpcd-custom-post-type.php:150
+msgid "Enter Coupon title here"
+msgstr ""
+
+#: ../includes/classes/wpcd-custom-taxonomy-image.php:56
+msgid "Image"
+msgstr ""
+
+#: ../includes/classes/wpcd-preview-metabox.php:37
+msgid "Coupon Preview"
+msgstr ""
+
+#: ../includes/classes/wpcd-preview-metabox.php:130, ../includes/templates/archive/shortcode-archive-default__premium_only.php:88, ../includes/templates/archive/shortcode-archive-eight__premium_only.php:99, ../includes/templates/archive/shortcode-archive-one__premium_only.php:98, ../includes/templates/archive/shortcode-archive-seven__premium_only.php:95, ../includes/templates/archive/shortcode-archive-three__premium_only.php:102, ../includes/templates/archive/shortcode-archive-two__premium_only.php:99, ../includes/templates/archive/shortcode-archive__premium_only.php:84, ../includes/templates/archive/shortcode-category-default__premium_only.php:69, ../includes/templates/archive/shortcode-category-eight__premium_only.php:83, ../includes/templates/archive/shortcode-category-one__premium_only.php:79, ../includes/templates/archive/shortcode-category-seven__premium_only.php:77, ../includes/templates/archive/shortcode-category-three__premium_only.php:78, ../includes/templates/archive/shortcode-category-two__premium_only.php:80, ../includes/templates/archive/shortcode-category__premium_only.php:66, ../includes/templates/extras/hide-coupon2__premium_only.php:69, ../includes/templates/extras/hide-coupon3__premium_only.php:64, ../includes/templates/extras/hide-coupon__premium_only.php:58, ../includes/templates/shortcode/shortcode-default.php:58, ../includes/templates/shortcode/shortcode-eight__premium_only.php:69, ../includes/templates/shortcode/shortcode-five__premium_only.php:56, ../includes/templates/shortcode/shortcode-four__premium_only.php:59, ../includes/templates/shortcode/shortcode-nine__premium_only.php:69, ../includes/templates/shortcode/shortcode-one__premium_only.php:51, ../includes/templates/shortcode/shortcode-seven__premium_only.php:73, ../includes/templates/shortcode/shortcode-six__premium_only.php:54, ../includes/templates/shortcode/shortcode-three__premium_only.php:45, ../includes/templates/shortcode/shortcode-two__premium_only.php:54, ../includes/templates/widget/widget-default.php:39, ../includes/templates/widget/widget-five__premium_only.php:54, ../includes/templates/widget/widget-one__premium_only.php:42, ../includes/templates/widget/widget-six__premium_only.php:47, ../includes/templates/widget/widget-three__premium_only.php:42, ../includes/templates/widget/widget-two__premium_only.php:44, ../includes/functions/shortcode/code/wpcd-shortcode-code.php:40
+msgid "Click on 'Copy' to Copy the Coupon Code."
+msgstr ""
+
+#: ../includes/classes/wpcd-preview-metabox.php:173, ../includes/templates/archive/shortcode-category-eight__premium_only.php:70, ../includes/templates/shortcode/shortcode-eight__premium_only.php:59, ../includes/templates/shortcode/shortcode-nine__premium_only.php:59
+msgid "GET THE DEAL"
+msgstr ""
+
+#: ../includes/classes/wpcd-preview-metabox.php:554, ../includes/templates/widget/widget-five__premium_only.php:144, ../includes/templates/widget/widget-six__premium_only.php:168
+msgid "Click Here To Copy Coupon"
+msgstr ""
+
+#: ../includes/classes/wpcd-preview-metabox.php:1235, ../includes/templates/archive/coupon_type__image.php:55, ../includes/templates/archive/coupon_type__image.php:58, ../includes/templates/shortcode/shortcode-image.php:76, ../includes/templates/shortcode/shortcode-image.php:79
+msgid "Coupon image not uploaded"
+msgstr ""
+
+#: ../includes/classes/wpcd-preview-metabox.php:1240
+msgid "Note:"
+msgstr ""
+
+#: ../includes/classes/wpcd-preview-metabox.php:1240
+msgid "This is just to show how the coupon will look. Click to copy functionality, showing hidden coupon will not work here, but it will work on posts, pages where you put the shortcode."
+msgstr ""
+
+#: ../includes/classes/wpcd-short-code.php:409, ../includes/classes/wpcd-short-code.php:650, ../includes/classes/wpcd-short-code.php:936
+msgid "Sorry, no coupons/deals found."
+msgstr ""
+
+#: ../includes/functions/wpcd-addition-functions.php:68, ../includes/templates/archive/coupon_type__image.php:67, ../includes/templates/shortcode/shortcode-image.php:88
+msgid "Click To Print"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-admin-columns.php:131
+msgid "Title"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-admin-columns.php:143, ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:20, ../includes/classes/admin/wpcd-meta-boxes-fields.php:19
+msgid "Coupon Type"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-admin-columns.php:144, ../includes/classes/admin/wpcd-shortcode-inserter.php:94
+msgid "Category"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-admin-columns.php:145, ../includes/classes/admin/wpcd-shortcode-inserter.php:95
+msgid "Vendor"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-admin-columns.php:146
+msgid "ID"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-admin-columns.php:147
+msgid "Shortcodes"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-admin-columns.php:148
+msgid "Expires"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-admin-columns.php:153
+msgid "Viewed Count"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-admin-columns.php:154
+msgid "Clicked Count"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-admin-columns.php:234
+msgid "No Category"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-admin-columns.php:254
+msgid "No Vendor"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-admin-columns.php:304, ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:268, ../includes/classes/admin/wpcd-settings-page.php:207
+msgid "Doesn't Expire"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-admin-columns.php:301
+msgid "Expired"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-admin-columns.php:413, ../includes/classes/admin/wpcd-admin-columns.php:458
+msgid "Name"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-admin-columns.php:414, ../includes/classes/admin/wpcd-admin-columns.php:459
+msgid "Slug"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-admin-columns.php:415, ../includes/classes/admin/wpcd-admin-columns.php:460
+msgid "Posts"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-admin-columns.php:416, ../includes/classes/admin/wpcd-admin-columns.php:461
+msgid "Shortcode"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-admin-notices.php:109
+msgid "Full Coupon:"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-admin-notices.php:110
+msgid "Only Coupon Code:"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-admin-notices.php:114, ../includes/classes/admin/wpcd-admin-notices.php:117
+msgid "Coupon updated."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-admin-notices.php:118
+msgid "Coupon restored to revision from %s"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-admin-notices.php:120
+msgid "Coupon published. <br><br> Here are the shortcodes for this coupon: %s and %s "
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-admin-notices.php:123
+msgid "Coupon saved."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-admin-notices.php:124
+msgid "Coupon submitted."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-admin-notices.php:126
+msgid "Coupon scheduled for: <strong>%1$s</strong>."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-admin-notices.php:127
+msgid "M j, Y @ G:i"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-admin-notices.php:129
+msgid "Coupon draft updated."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-help-metabox.php:40
+msgid "Help"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-help-metabox.php:68
+msgid "If you have any questions or confusions, please check our "
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-help-metabox.php:68
+msgid "Knowledgebase"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-help-metabox.php:68
+msgid " or"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-help-metabox.php:68
+msgid " contact us"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-import-page-pro__premium_only.php:23, ../includes/classes/admin/wpcd-import-page.php:39
+msgid "WP Coupons and Deals: Import Coupons"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-import-page-pro__premium_only.php:24, ../includes/classes/admin/wpcd-toolbar-links.php:108
+msgid "Import Coupons"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-import-page-pro__premium_only.php:50, ../includes/classes/admin/wpcd-import-page.php:78
+msgid "Import Coupons from CSV or XML File"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-import-page-pro__premium_only.php:53
+msgid "Here you can import coupons from a CSV or XML file. Select the file you want to import, then click on Next."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-import-page-pro__premium_only.php:54
+msgid "Coupons will be imported as 'Coupon' type."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-import-page-pro__premium_only.php:58
+msgid "Choose Default template which will be assigned to imported coupons."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-import-page-pro__premium_only.php:67
+msgid "Color Theme:"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-import-page-pro__premium_only.php:83
+msgid "File type not allowed."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-import-page-pro__premium_only.php:86
+msgid "Only CSV or XML files are allowed."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-import-page-pro__premium_only.php:95
+msgid "This is just a preview of the file you uploaded. All data are not showing here."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-import-page-pro__premium_only.php:103
+msgid "Select Import Fields"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-import-page-pro__premium_only.php:114
+msgid "Coupons will be added!"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-import-page-pro__premium_only.php:115
+msgid "Error: You must select a field for Coupon Title."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-import-page-pro__premium_only.php:130
+msgid " 0 Coupons added."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-import-page-pro__premium_only.php:131
+msgid "View"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-import-page.php:40
+msgid "Import Coupons (Pro)"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-import-page.php:79
+msgid "This is a Pro Version feature and only available to Pro Version users. It lets you add bulk of coupons at once from CSV or XML file."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-import-page.php:80, ../includes/classes/admin/wpcd-meta-boxes.php:340, ../includes/functions/admin/wpcd-help-info.php:28
+msgid "Upgrade to Pro!"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-import-page.php:80
+msgid " or "
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-import-page.php:80
+msgid "Start Free Trial!"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-import-page.php:80
+msgid " to start using this feature."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-import-page.php:81
+msgid "Alternatively, you can "
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-import-page.php:81
+msgid "check out Pro Features"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-import-page.php:81
+msgid " and see how it can protect your affiliate sales, generate more revenue."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:22, ../includes/classes/admin/wpcd-meta-boxes-fields.php:21
+msgid "Coupon Type. Coupon will display a coupon code which will be copied when user clicks on it. Deal will display a link to get the deal instead of coupon code."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:35, ../includes/classes/admin/wpcd-meta-boxes-fields.php:31
+msgid "Coupon Code"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:37, ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:47, ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:57, ../includes/classes/admin/wpcd-meta-boxes-fields.php:33, ../includes/classes/admin/wpcd-meta-boxes-fields.php:40, ../includes/classes/admin/wpcd-meta-boxes-fields.php:47
+msgid "Put your coupon code here. This will be copied when user clicks on it."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:45, ../includes/classes/admin/wpcd-meta-boxes-fields.php:38
+msgid "Second Coupon Code"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:55, ../includes/classes/admin/wpcd-meta-boxes-fields.php:45
+msgid "Third Coupon Code"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:65, ../includes/classes/admin/wpcd-meta-boxes-fields.php:52
+msgid "Deal Button Text"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:67, ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:74, ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:81, ../includes/classes/admin/wpcd-meta-boxes-fields.php:54, ../includes/classes/admin/wpcd-meta-boxes-fields.php:60, ../includes/classes/admin/wpcd-meta-boxes-fields.php:66
+msgid "Deal button text. Put something like Get this Deal."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:72, ../includes/classes/admin/wpcd-meta-boxes-fields.php:58
+msgid "Second Deal Button Text"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:79, ../includes/classes/admin/wpcd-meta-boxes-fields.php:64
+msgid "Third Deal Button Text"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:86, ../includes/classes/admin/wpcd-meta-boxes-fields.php:70
+msgid "Link"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:88, ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:98, ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:108, ../includes/classes/admin/wpcd-meta-boxes-fields.php:72, ../includes/classes/admin/wpcd-meta-boxes-fields.php:79, ../includes/classes/admin/wpcd-meta-boxes-fields.php:86
+msgid "Link to be opened when clicked on coupon code. You can use your affiliate links."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:96, ../includes/classes/admin/wpcd-meta-boxes-fields.php:77
+msgid "Second Link"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:106, ../includes/classes/admin/wpcd-meta-boxes-fields.php:84
+msgid "Third Link"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:116, ../includes/classes/admin/wpcd-meta-boxes-fields.php:91
+msgid "Discount Amount/Text"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:118, ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:126, ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:133, ../includes/classes/admin/wpcd-meta-boxes-fields.php:93, ../includes/classes/admin/wpcd-meta-boxes-fields.php:99, ../includes/classes/admin/wpcd-meta-boxes-fields.php:105
+msgid "Discount amount or text to be shown. Example: 60% Off."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:124, ../includes/classes/admin/wpcd-meta-boxes-fields.php:97
+msgid "Discount Amount/Text (Second Code)"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:131, ../includes/classes/admin/wpcd-meta-boxes-fields.php:103
+msgid "Discount Amount/Text (Third Code)"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:139, ../includes/classes/admin/wpcd-meta-boxes-fields.php:110
+msgid "Description"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:141, ../includes/classes/admin/wpcd-meta-boxes-fields.php:112
+msgid "A little description so users know what the coupon code or deal is about."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:149, ../includes/classes/admin/wpcd-meta-boxes-fields.php:117
+msgid "Coupon/Deal Expiration"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:151, ../includes/classes/admin/wpcd-meta-boxes-fields.php:119
+msgid "Choose whether you want to show coupon/deal expiration."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:159, ../includes/classes/admin/wpcd-meta-boxes-fields.php:127
+msgid "Expiration Date"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:161, ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:171, ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:181, ../includes/classes/admin/wpcd-meta-boxes-fields.php:129, ../includes/classes/admin/wpcd-meta-boxes-fields.php:136, ../includes/classes/admin/wpcd-meta-boxes-fields.php:143
+msgid "Choose a date this coupon will expire. If you leave this blank, shortcode will show the message Doesn't expire."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:169, ../includes/classes/admin/wpcd-meta-boxes-fields.php:134
+msgid "Expiration Date (Second Coupon)"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:179, ../includes/classes/admin/wpcd-meta-boxes-fields.php:141
+msgid "Expiration Date (Third Coupon)"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:189, ../includes/classes/admin/wpcd-meta-boxes-fields.php:148
+msgid "Expiration Time"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:191, ../includes/classes/admin/wpcd-meta-boxes-fields.php:150
+msgid "Choose expiration time of the coupon."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:195, ../includes/classes/admin/wpcd-meta-boxes-fields.php:154
+msgid "Never expire"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:197, ../includes/classes/admin/wpcd-meta-boxes-fields.php:156
+msgid "Check this if the coupon never expires."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:201
+msgid "Hide Coupon"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:203, ../includes/classes/admin/wpcd-meta-boxes-fields.php:162
+msgid "Choose whether you want to hide the coupun"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:211, ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:219, ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:227, ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:235, ../includes/classes/admin/wpcd-meta-boxes-fields.php:170, ../includes/classes/admin/wpcd-meta-boxes-fields.php:178, ../includes/classes/admin/wpcd-meta-boxes-fields.php:186, ../includes/classes/admin/wpcd-meta-boxes-fields.php:194
+msgid "Coupon Theme"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:243
+msgid "Template"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:245, ../includes/classes/admin/wpcd-meta-boxes-fields.php:204
+msgid "Choose coupon shortcode template."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:261, ../includes/classes/admin/wpcd-meta-boxes-fields.php:220
+msgid "Coupon Image"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:263, ../includes/classes/admin/wpcd-meta-boxes-fields.php:222
+msgid "Choose your coupon image"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:270, ../includes/classes/admin/wpcd-meta-boxes-fields.php:228
+msgid "Show Coupon Print link"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:281, ../includes/classes/admin/wpcd-meta-boxes-fields.php:239
+msgid "Coupon Image width"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields-pro__premium_only.php:289, ../includes/classes/admin/wpcd-meta-boxes-fields.php:247
+msgid "Coupon Image height"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields.php:160
+msgid "Hide Coupon (Pro)"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-fields.php:202
+msgid "Template (Pro)"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:57, ../includes/classes/admin/wpcd-meta-boxes.php:57
+msgid "Coupon Details"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:306, ../includes/classes/admin/wpcd-meta-boxes.php:299
+msgid "Upload Coupon Image"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes-pro__premium_only.php:307, ../includes/classes/admin/wpcd-meta-boxes.php:300
+msgid "Remove Coupon Image"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes.php:337
+msgid "Hide coupon, change templates and get many more features"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-meta-boxes.php:344
+msgid "Start 14 day Free Trial!"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:94, ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:639, ../includes/classes/admin/wpcd-settings-page.php:94, ../includes/classes/admin/wpcd-settings-page.php:363, ../includes/classes/admin/wpcd-toolbar-links.php:89
+msgid "Settings"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:141, ../includes/classes/admin/wpcd-settings-page.php:127
+msgid "Coupon Settings"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:142, ../includes/classes/admin/wpcd-settings-page.php:128
+msgid "These are some general coupon settings. You can use the default settings or set your own ones."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:147, ../includes/classes/admin/wpcd-settings-page.php:132
+msgid "Design Settings"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:148, ../includes/classes/admin/wpcd-settings-page.php:133
+msgid "Design Settings for coupon templates and other elements."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:152, ../includes/classes/admin/wpcd-settings-page.php:137
+msgid "Voting Settings"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:153, ../includes/classes/admin/wpcd-settings-page.php:138
+msgid "Configure Voting Settings for Your Coupons."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:157
+msgid "Hide Coupon Settings"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:158
+msgid "Settings when coupon is hidden."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:162
+msgid "Pop-up Settings"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:167, ../includes/classes/admin/wpcd-settings-page.php:142
+msgid "Extras"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:168, ../includes/classes/admin/wpcd-settings-page.php:143
+msgid "These are some extra settings. You can use the default settings or set your own ones."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:174
+msgid "Form Shortcode"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:175
+msgid "Form shortcode settings"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:189
+msgid "Featured Image"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:190
+msgid "If there's no featured image selected, choose whether to use Category Image or Vendor Image as the featured image."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:194
+msgid "Category Image"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:195
+msgid "Vendor Image"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:201
+msgid "Archive Menu Categories"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:202
+msgid "Choose the Type of  Navigation on Category or Vendor for Archive."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:206
+msgid "Category Navigation"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:207
+msgid "Vendor Navigation"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:213
+msgid "Infinite Scroll in Archive."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:215
+msgid "Set infinite scroll instead of pagination"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:220, ../includes/classes/admin/wpcd-settings-page.php:163
+msgid "Words Count to Add More/Less Link"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:221, ../includes/classes/admin/wpcd-settings-page.php:164
+msgid "If coupon description is more than this count, More/Less link will be added. Default is 30 words."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:229, ../includes/classes/admin/wpcd-settings-page.php:171
+msgid "Coupon Button Hover Text"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:233, ../includes/classes/admin/wpcd-settings-page.php:175, ../includes/templates/archive/shortcode-archive-default__premium_only.php:100, ../includes/templates/archive/shortcode-archive-eight__premium_only.php:93, ../includes/templates/archive/shortcode-archive-one__premium_only.php:198, ../includes/templates/archive/shortcode-archive-one__premium_only.php:175, ../includes/templates/archive/shortcode-archive-seven__premium_only.php:99, ../includes/templates/archive/shortcode-archive-three__premium_only.php:265, ../includes/templates/archive/shortcode-archive-three__premium_only.php:242, ../includes/templates/archive/shortcode-archive-two__premium_only.php:232, ../includes/templates/archive/shortcode-archive-two__premium_only.php:209, ../includes/templates/archive/shortcode-category-default__premium_only.php:83, ../includes/templates/archive/shortcode-category-eight__premium_only.php:68, ../includes/templates/archive/shortcode-category-one__premium_only.php:174, ../includes/templates/archive/shortcode-category-one__premium_only.php:152, ../includes/templates/archive/shortcode-category-seven__premium_only.php:81, ../includes/templates/archive/shortcode-category-three__premium_only.php:230, ../includes/templates/archive/shortcode-category-three__premium_only.php:208, ../includes/templates/archive/shortcode-category-two__premium_only.php:206, ../includes/templates/archive/shortcode-category-two__premium_only.php:186, ../includes/templates/archive/shortcode-category__premium_only.php:158, ../includes/templates/extras/coupon-link.php:24, ../includes/templates/shortcode/shortcode-default.php:158, ../includes/templates/shortcode/shortcode-default.php:136, ../includes/templates/shortcode/shortcode-eight__premium_only.php:57, ../includes/templates/shortcode/shortcode-eight__premium_only.php:161, ../includes/templates/shortcode/shortcode-five__premium_only.php:163, ../includes/templates/shortcode/shortcode-four__premium_only.php:152, ../includes/templates/shortcode/shortcode-four__premium_only.php:130, ../includes/templates/shortcode/shortcode-four__premium_only.php:300, ../includes/templates/shortcode/shortcode-four__premium_only.php:280, ../includes/templates/shortcode/shortcode-four__premium_only.php:452, ../includes/templates/shortcode/shortcode-four__premium_only.php:430, ../includes/templates/shortcode/shortcode-nine__premium_only.php:57, ../includes/templates/shortcode/shortcode-nine__premium_only.php:115, ../includes/templates/shortcode/shortcode-one__premium_only.php:144, ../includes/templates/shortcode/shortcode-one__premium_only.php:122, ../includes/templates/shortcode/shortcode-seven__premium_only.php:64, ../includes/templates/shortcode/shortcode-seven__premium_only.php:148, ../includes/templates/shortcode/shortcode-six__premium_only.php:175, ../includes/templates/shortcode/shortcode-three__premium_only.php:199, ../includes/templates/shortcode/shortcode-three__premium_only.php:177, ../includes/templates/shortcode/shortcode-two__premium_only.php:179, ../includes/templates/shortcode/shortcode-two__premium_only.php:157, ../includes/templates/widget/widget-default.php:94, ../includes/templates/widget/widget-default.php:78, ../includes/templates/widget/widget-one__premium_only.php:128, ../includes/templates/widget/widget-one__premium_only.php:103, ../includes/templates/widget/widget-three__premium_only.php:173, ../includes/templates/widget/widget-three__premium_only.php:152, ../includes/templates/widget/widget-two__premium_only.php:149, ../includes/templates/widget/widget-two__premium_only.php:130, ../includes/functions/shortcode/code/wpcd-shortcode-code.php:88, ../includes/functions/shortcode/code/wpcd-shortcode-code.php:61
+msgid "Click To Copy Coupon"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:237, ../includes/classes/admin/wpcd-settings-page.php:179
+msgid "Deal Button Hover Text"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:241, ../includes/classes/admin/wpcd-settings-page.php:183, ../includes/templates/archive/shortcode-archive-default__premium_only.php:514, ../includes/templates/archive/shortcode-archive-one__premium_only.php:219, ../includes/templates/archive/shortcode-archive-three__premium_only.php:286, ../includes/templates/archive/shortcode-archive-two__premium_only.php:253, ../includes/templates/archive/shortcode-category-default__premium_only.php:527, ../includes/templates/archive/shortcode-category-default__premium_only.php:513, ../includes/templates/archive/shortcode-category-one__premium_only.php:194, ../includes/templates/archive/shortcode-category-three__premium_only.php:250, ../includes/templates/archive/shortcode-category-two__premium_only.php:226, ../includes/templates/archive/shortcode-category__premium_only.php:184, ../includes/templates/shortcode/shortcode-default.php:179, ../includes/templates/shortcode/shortcode-four__premium_only.php:173, ../includes/templates/shortcode/shortcode-four__premium_only.php:326, ../includes/templates/shortcode/shortcode-four__premium_only.php:477, ../includes/templates/shortcode/shortcode-one__premium_only.php:163, ../includes/templates/shortcode/shortcode-three__premium_only.php:218, ../includes/templates/shortcode/shortcode-two__premium_only.php:198, ../includes/templates/widget/widget-default.php:115, ../includes/templates/widget/widget-one__premium_only.php:147, ../includes/templates/widget/widget-three__premium_only.php:189, ../includes/templates/widget/widget-two__premium_only.php:173, ../includes/functions/shortcode/code/wpcd-shortcode-code.php:113
+msgid "Click Here To Get This Deal"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:245, ../includes/classes/admin/wpcd-settings-page.php:187
+msgid "Expire Text"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:246, ../includes/classes/admin/wpcd-settings-page.php:188
+msgid "Text to show before expire date. Default is 'Expires on:' "
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:250, ../includes/classes/admin/wpcd-settings-page.php:191, ../includes/templates/archive/shortcode-archive-eight__premium_only.php:178, ../includes/templates/archive/shortcode-archive-eight__premium_only.php:149, ../includes/templates/archive/shortcode-archive-one__premium_only.php:263, ../includes/templates/archive/shortcode-archive-one__premium_only.php:234, ../includes/templates/archive/shortcode-archive-seven__premium_only.php:223, ../includes/templates/archive/shortcode-archive-three__premium_only.php:195, ../includes/templates/archive/shortcode-archive-three__premium_only.php:162, ../includes/templates/archive/shortcode-archive-two__premium_only.php:173, ../includes/templates/archive/shortcode-category-default__premium_only.php:589, ../includes/templates/archive/shortcode-category-default__premium_only.php:558, ../includes/templates/archive/shortcode-category-default__premium_only.php:332, ../includes/templates/archive/shortcode-category-default__premium_only.php:152, ../includes/templates/archive/shortcode-category-one__premium_only.php:238, ../includes/templates/archive/shortcode-category-one__premium_only.php:209, ../includes/templates/archive/shortcode-category-seven__premium_only.php:197, ../includes/templates/archive/shortcode-category-three__premium_only.php:164, ../includes/templates/archive/shortcode-category-three__premium_only.php:131, ../includes/templates/archive/shortcode-category-two__premium_only.php:151, ../includes/templates/shortcode/shortcode-default.php:239, ../includes/templates/shortcode/shortcode-default.php:210, ../includes/templates/shortcode/shortcode-five__premium_only.php:126, ../includes/templates/shortcode/shortcode-four__premium_only.php:223, ../includes/templates/shortcode/shortcode-four__premium_only.php:191, ../includes/templates/shortcode/shortcode-four__premium_only.php:378, ../includes/templates/shortcode/shortcode-four__premium_only.php:344, ../includes/templates/shortcode/shortcode-four__premium_only.php:530, ../includes/templates/shortcode/shortcode-one__premium_only.php:208, ../includes/templates/shortcode/shortcode-one__premium_only.php:179, ../includes/templates/shortcode/shortcode-seven__premium_only.php:190, ../includes/templates/shortcode/shortcode-six__premium_only.php:129, ../includes/templates/shortcode/shortcode-three__premium_only.php:131, ../includes/templates/shortcode/shortcode-three__premium_only.php:96, ../includes/templates/shortcode/shortcode-two__premium_only.php:122, ../includes/templates/widget/widget-default.php:171, ../includes/templates/widget/widget-default.php:142, ../includes/templates/widget/widget-five__premium_only.php:110, ../includes/templates/widget/widget-one__premium_only.php:200, ../includes/templates/widget/widget-one__premium_only.php:169, ../includes/templates/widget/widget-three__premium_only.php:114, ../includes/templates/widget/widget-three__premium_only.php:86
+msgid "Expires on:"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:254, ../includes/classes/admin/wpcd-settings-page.php:195
+msgid "Expired Text"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:255, ../includes/classes/admin/wpcd-settings-page.php:196
+msgid "Text to show before expired date. Default is 'Expired on:' "
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:259, ../includes/classes/admin/wpcd-settings-page.php:199, ../includes/templates/archive/shortcode-archive-eight__premium_only.php:185, ../includes/templates/archive/shortcode-archive-eight__premium_only.php:156, ../includes/templates/archive/shortcode-archive-one__premium_only.php:270, ../includes/templates/archive/shortcode-archive-one__premium_only.php:241, ../includes/templates/archive/shortcode-archive-seven__premium_only.php:230, ../includes/templates/archive/shortcode-archive-three__premium_only.php:204, ../includes/templates/archive/shortcode-archive-three__premium_only.php:171, ../includes/templates/archive/shortcode-archive-two__premium_only.php:180, ../includes/templates/archive/shortcode-category-default__premium_only.php:596, ../includes/templates/archive/shortcode-category-default__premium_only.php:565, ../includes/templates/archive/shortcode-category-default__premium_only.php:339, ../includes/templates/archive/shortcode-category-default__premium_only.php:159, ../includes/templates/archive/shortcode-category-one__premium_only.php:245, ../includes/templates/archive/shortcode-category-one__premium_only.php:216, ../includes/templates/archive/shortcode-category-seven__premium_only.php:204, ../includes/templates/archive/shortcode-category-three__premium_only.php:173, ../includes/templates/archive/shortcode-category-three__premium_only.php:140, ../includes/templates/archive/shortcode-category-two__premium_only.php:158, ../includes/templates/shortcode/shortcode-default.php:246, ../includes/templates/shortcode/shortcode-default.php:217, ../includes/templates/shortcode/shortcode-five__premium_only.php:133, ../includes/templates/shortcode/shortcode-four__premium_only.php:232, ../includes/templates/shortcode/shortcode-four__premium_only.php:200, ../includes/templates/shortcode/shortcode-four__premium_only.php:387, ../includes/templates/shortcode/shortcode-four__premium_only.php:353, ../includes/templates/shortcode/shortcode-four__premium_only.php:539, ../includes/templates/shortcode/shortcode-one__premium_only.php:215, ../includes/templates/shortcode/shortcode-one__premium_only.php:186, ../includes/templates/shortcode/shortcode-seven__premium_only.php:197, ../includes/templates/shortcode/shortcode-six__premium_only.php:136, ../includes/templates/shortcode/shortcode-three__premium_only.php:140, ../includes/templates/shortcode/shortcode-three__premium_only.php:105, ../includes/templates/shortcode/shortcode-two__premium_only.php:129, ../includes/templates/widget/widget-default.php:178, ../includes/templates/widget/widget-default.php:149, ../includes/templates/widget/widget-five__premium_only.php:117, ../includes/templates/widget/widget-one__premium_only.php:207, ../includes/templates/widget/widget-one__premium_only.php:176, ../includes/templates/widget/widget-three__premium_only.php:121, ../includes/templates/widget/widget-three__premium_only.php:93
+msgid "Expired on:"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:263, ../includes/classes/admin/wpcd-settings-page.php:203
+msgid "No Expiration Text"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:264, ../includes/classes/admin/wpcd-settings-page.php:204
+msgid "Text to show if coupon or deal never expires. Default is 'Doesn't expire'."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:272, ../includes/classes/admin/wpcd-settings-page.php:211
+msgid "Expiration Date Format"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:273, ../includes/classes/admin/wpcd-settings-page.php:212
+msgid "Choose the date format for expiration date."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:284, ../includes/classes/admin/wpcd-settings-page.php:223
+msgid "Hide expired Coupon"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:286, ../includes/classes/admin/wpcd-settings-page.php:225
+msgid "Hide Coupon when it's expired. Default - Not to hide"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:291, ../includes/classes/admin/wpcd-settings-page.php:230
+msgid "Coupon Title Tag"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:292, ../includes/classes/admin/wpcd-settings-page.php:231
+msgid "Choose the heading tag to be used for Coupon Title"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:306, ../includes/classes/admin/wpcd-settings-page.php:245
+msgid "Social Share Buttons"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:307
+msgid "Enable Social Share Buttons in Coupons"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:313
+msgid "Show Print Links"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:314
+msgid "Enable Print Links for Coupons, Deals and Images"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:320, ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:567
+msgid "Allowed User Roles"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:321
+msgid "Allowed user roles to create, edit and import coupons."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:330, ../includes/classes/admin/wpcd-settings-page.php:254
+msgid "Coupon Type Color"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:331, ../includes/classes/admin/wpcd-settings-page.php:255
+msgid "Coupon Type Background Color in Default Template."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:337, ../includes/classes/admin/wpcd-settings-page.php:261
+msgid "Border Color"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:338, ../includes/classes/admin/wpcd-settings-page.php:262
+msgid "Border Color in Default Template."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:344
+msgid "Pagination Color"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:345
+msgid "Color for Pagination Numbers."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:351
+msgid "Hidden Coupon Button Color"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:352
+msgid "The color of the button when coupon is hidden."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:358
+msgid "Copy Button Color"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:359
+msgid "Background color for the copy button in Pop Up."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:365
+msgid "Coupon Code Color"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:366
+msgid "Background color of the coupon code in the Pop up. Pop up is shown when users click to show code."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:373, ../includes/classes/admin/wpcd-settings-page.php:268
+msgid "Custom CSS"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:374, ../includes/classes/admin/wpcd-settings-page.php:269
+msgid "Add any custom CSS you want here."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:383, ../includes/classes/admin/wpcd-settings-page.php:278
+msgid "Vote Buttons"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:384
+msgid "Enable Voting Buttons in Coupons"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:390, ../includes/classes/admin/wpcd-settings-page.php:285
+msgid "Voting Success Message"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:391, ../includes/classes/admin/wpcd-settings-page.php:286
+msgid "Message to Show After User has Voted Successfully"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:398, ../includes/classes/admin/wpcd-settings-page.php:293
+msgid "Voting Failed Message"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:399, ../includes/classes/admin/wpcd-settings-page.php:294
+msgid "Message to Show If Voting Fails"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:402, ../includes/classes/admin/wpcd-settings-page.php:297
+msgid "Voting Failed!"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:406, ../includes/classes/admin/wpcd-settings-page.php:301
+msgid "Already Voted Message"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:407, ../includes/classes/admin/wpcd-settings-page.php:302
+msgid "Message to Show If User has Voted Already"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:416
+msgid "Hidden Coupon Text"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:417
+msgid "Text to show when coupon is hidden. Default is 'Show Code' "
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:421, ../includes/templates/extras/hide-coupon2__premium_only.php:317, ../includes/templates/extras/hide-coupon2__premium_only.php:272, ../includes/templates/extras/hide-coupon2__premium_only.php:226, ../includes/templates/extras/hide-coupon2__premium_only.php:184, ../includes/templates/extras/hide-coupon2__premium_only.php:138, ../includes/templates/extras/hide-coupon3__premium_only.php:126, ../includes/templates/extras/hide-coupon__premium_only.php:99
+msgid "Show Code"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:425
+msgid "Hidden Coupon Hover Text"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:426
+msgid "Text to show when user hovers on the hidden coupon. Default is 'Click Here to Show Code'"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:430, ../includes/templates/extras/hide-coupon2__premium_only.php:292, ../includes/templates/extras/hide-coupon2__premium_only.php:247, ../includes/templates/extras/hide-coupon2__premium_only.php:206, ../includes/templates/extras/hide-coupon2__premium_only.php:160, ../includes/templates/extras/hide-coupon2__premium_only.php:129, ../includes/templates/extras/hide-coupon3__premium_only.php:101, ../includes/templates/extras/hide-coupon__premium_only.php:90
+msgid "Click Here to Show Code"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:436
+msgid "Copy Button Text"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:437
+msgid "Text to show in Copy button when pop up is shown. Default is 'Copy'."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:445
+msgid "After Copy Text"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:446
+msgid "Text to show after coupon is copied. Default is 'Copied'."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:453
+msgid "Text to Show Below Coupon Code"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:454
+msgid "Select what to show below the coupon code in Pop-up. Default is Description."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:465
+msgid "Custom Text"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:466
+msgid "Custom text to show below the coupon code. Default is 'Click on Copy to Copy the Coupon Code.' "
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:470
+msgid "Click on Copy to Copy the Coupon Code."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:474
+msgid "Enable 'Go To Offer' button"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:481
+msgid "Custom Text for Button"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:483
+msgid "Custom text to show instead of 'Go to Offer'."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:484
+msgid "Go To Offer"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:491, ../includes/classes/admin/wpcd-settings-page.php:311
+msgid "Affiliate Link in Current Tab"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:492, ../includes/classes/admin/wpcd-settings-page.php:312
+msgid "Enabling it will open the affiliate link in current tab. By default it opens in a new tab."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:499
+msgid "Link the Featured Image"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:500
+msgid "Enabling it will link the featured image to affiliate link. By default only the image is shown, it is not linked."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:507, ../includes/classes/admin/wpcd-settings-page.php:318
+msgid "Disable Link in Coupon Title"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:508, ../includes/classes/admin/wpcd-settings-page.php:319
+msgid "Disable the coupon title link. By default it's linked to the link/affiliate link you put when you create a coupon."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:515
+msgid "Disable Navigation"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:516
+msgid "Disable the categories navigation in archive shortcode."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:522
+msgid "Hide Featured Image"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:523
+msgid "Hide the featured image in Default Grid Style of Category and Archive Shortcode."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:530, ../includes/classes/admin/wpcd-settings-page.php:325
+msgid "Coupon Type Name"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:531, ../includes/classes/admin/wpcd-settings-page.php:326
+msgid "Text to Show for Coupon Type Name in Default Template. Default is - Coupon."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:534, ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:535, ../includes/classes/admin/wpcd-settings-page.php:328, ../includes/classes/admin/wpcd-settings-page.php:329, ../includes/templates/archive/shortcode-archive-default__premium_only.php:428, ../includes/templates/archive/shortcode-category-default__premium_only.php:432, ../includes/templates/archive/shortcode-category-eight__premium_only.php:61, ../includes/templates/shortcode/shortcode-default.php:90, ../includes/templates/shortcode/shortcode-eight__premium_only.php:50, ../includes/templates/shortcode/shortcode-nine__premium_only.php:50, ../includes/templates/shortcode/shortcode-seven__premium_only.php:57
+msgid "Coupon"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:539, ../includes/classes/admin/wpcd-settings-page.php:333
+msgid "Deal Type Name"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:540, ../includes/classes/admin/wpcd-settings-page.php:334
+msgid "Text to Show for Deal Type Name in Default Template. Default is - Deal."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:543, ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:544, ../includes/classes/admin/wpcd-settings-page.php:336, ../includes/classes/admin/wpcd-settings-page.php:337, ../includes/templates/archive/shortcode-archive-default__premium_only.php:434, ../includes/templates/archive/shortcode-category-default__premium_only.php:436, ../includes/templates/archive/shortcode-category-eight__premium_only.php:62, ../includes/templates/shortcode/shortcode-default.php:100, ../includes/templates/shortcode/shortcode-eight__premium_only.php:51, ../includes/templates/shortcode/shortcode-nine__premium_only.php:51, ../includes/templates/shortcode/shortcode-seven__premium_only.php:58
+msgid "Deal"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:548
+msgid "All Coupons Text"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:549
+msgid "\"All Coupons\" text in Archive Shortcode Navigation menu. Deafult is - All Coupons"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:552, ../includes/templates/archive/header-default__premium_only.php:13, ../includes/templates/archive/header-grid__premium_only.php:13
+msgid "All Coupons"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:557
+msgid "Enable Statistics"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:558
+msgid "Enable stats count of clicking and viewing the coupon"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:568
+msgid "Allowed user roles to submit coupons using the form."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:575
+msgid "Coupon Status"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:576
+msgid "Status of user submitted coupons, default is \"publish\"."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:584
+msgid "Split Form"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:585
+msgid "Split the form into smaller segments or show all fields."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:593
+msgid "Enable Coupon Delete"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:594
+msgid "Give the users the ability to delete their own coupons."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:601
+msgid "Enable New Term Creation"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:602
+msgid "Give the users the ability to create new terms (Categories & Vendors)."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:609
+msgid "Default Template"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:610
+msgid "Default template for users to use. Select \"all\" to enable selection from available templates."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:638, ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:940, ../includes/classes/admin/wpcd-settings-page.php:362, ../includes/classes/admin/wpcd-settings-page.php:662
+msgid "WP Coupons and Deals Settings"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page-pro__premium_only.php:949, ../includes/classes/admin/wpcd-settings-page.php:671
+msgid "Save Settings"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page.php:147
+msgid "Knowledge Base"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page.php:148
+msgid "These are some general settings. You can use the default settings or set your own ones."
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page.php:246
+msgid "Enable Social Share buttons in Coupons"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-settings-page.php:279
+msgid "Enable Voting buttons in Coupons"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-shortcode-inserter.php:323
+msgid "No Coupons are Published"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-shortcode-inserter.php:133, ../includes/classes/admin/wpcd-shortcode-inserter.php:89
+msgid "Select Shortcode Type"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-shortcode-inserter.php:137, ../includes/classes/admin/wpcd-shortcode-inserter.php:92
+msgid "Single Coupon"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-shortcode-inserter.php:93
+msgid "Archive"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-shortcode-inserter.php:101
+msgid "Number of Coupon Display"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-shortcode-inserter.php:107, ../includes/classes/admin/wpcd-shortcode-inserter.php:161, ../includes/classes/admin/wpcd-shortcode-inserter.php:203
+msgid "Select Style Type"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-shortcode-inserter.php:110, ../includes/classes/admin/wpcd-shortcode-inserter.php:164, ../includes/classes/admin/wpcd-shortcode-inserter.php:206
+msgid "Vertical"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-shortcode-inserter.php:112, ../includes/classes/admin/wpcd-shortcode-inserter.php:166, ../includes/classes/admin/wpcd-shortcode-inserter.php:207
+msgid "Horizontal"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-shortcode-inserter.php:117, ../includes/classes/admin/wpcd-shortcode-inserter.php:172, ../includes/classes/admin/wpcd-shortcode-inserter.php:213
+msgid "Select Template"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-shortcode-inserter.php:121, ../includes/classes/admin/wpcd-shortcode-inserter.php:176, ../includes/classes/admin/wpcd-shortcode-inserter.php:217
+msgid "Default"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-shortcode-inserter.php:122, ../includes/classes/admin/wpcd-shortcode-inserter.php:177, ../includes/classes/admin/wpcd-shortcode-inserter.php:218
+msgid "Template one"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-shortcode-inserter.php:123, ../includes/classes/admin/wpcd-shortcode-inserter.php:178, ../includes/classes/admin/wpcd-shortcode-inserter.php:219
+msgid "Template two"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-shortcode-inserter.php:124, ../includes/classes/admin/wpcd-shortcode-inserter.php:179, ../includes/classes/admin/wpcd-shortcode-inserter.php:220
+msgid "Template three"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-shortcode-inserter.php:145
+msgid "Select The Category"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-shortcode-inserter.php:148
+msgid "Search the category"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-shortcode-inserter.php:187
+msgid "Select The Vendor"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-shortcode-inserter.php:190
+msgid "Search the vendor"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-shortcode-inserter.php:253
+msgid "Search the Coupon"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-shortcode-inserter.php:307
+msgid "Select the Coupon Shortcode Type"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-shortcode-inserter.php:310
+msgid "Full Coupon with Details"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-shortcode-inserter.php:311, ../includes/classes/admin/wpcd-shortcode-metabox.php:71
+msgid "Only Coupon Code"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-shortcode-metabox.php:41
+msgid "Coupon Shortcodes"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-shortcode-metabox.php:70
+msgid "Full Coupon"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-toolbar-links.php:46, ../includes/classes/admin/wpcd-toolbar-links.php:57
+msgid "Coupons"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-toolbar-links.php:65
+msgid "Add New Coupon"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-toolbar-links.php:73
+msgid "Coupon Categories"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-toolbar-links.php:81
+msgid "Coupon Vendors"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-toolbar-links.php:97
+msgid "Upgrade to Pro"
+msgstr ""
+
+#: ../includes/classes/admin/wpcd-welcome-page.php:41, ../includes/classes/admin/wpcd-welcome-page.php:42, ../includes/functions/admin/wpcd-welcome-page-content.php:24
+msgid "WP Coupons and Deals"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-add-coupon-button.php:17
+msgid "Insert Coupon Shortcode"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-add-coupon-button.php:19
+msgid "Add Coupon"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-help-info.php:16
+msgid "From the list, select the coupon you want to insert then click on Insert Coupon Shortcode button. 	If you have not created any coupons,"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-help-info.php:18, ../includes/functions/admin/wpcd-widget-help-info.php:18
+msgid "create one"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-help-info.php:20
+msgid "or"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-help-info.php:22, ../includes/functions/admin/wpcd-widget-help-info.php:22
+msgid "manage your coupons"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-help-info.php:30
+msgid " to insert category, vendor, archive shortcodes, and many more features!"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:28
+msgid "Welcome to WP Coupons and Deals"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:29
+msgid "Thank you for choosing WP Coupons and Deals - the best Coupon Plugin for WordPress Websites."
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:31
+msgid "Check out the video below that shows how you can create your first coupon and insert the coupon in a post or page."
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:42
+msgid "WP Coupons and Deals makes it insanely easy to create coupons and present them the right way in your posts/pages."
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:47, ../includes/functions/admin/wpcd-welcome-page-content.php:217
+msgid "Create Your First Coupon"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:53
+msgid "Read the Documentation"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:66
+msgid "WP Coupons and Deals Features"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:67
+msgid "WP Coupons and Deals comes with features that are designed to protect your affiliate sales and boost your revenue."
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:73
+msgid "Click to Copy"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:74
+msgid "Users can copy the coupon code with just one click. How cool is that?"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:79
+msgid "Responsive"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:80
+msgid "Coupon templates are designed to work on all screen sizes."
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:85
+msgid "Image Coupons"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:86
+msgid "Add printable image coupons that can be printed and used offline."
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:91
+msgid "Live Preview"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:92
+msgid "Watch the coupon as you create it, so you know what you are doing."
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:97
+msgid "Expiration Dates"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:98
+msgid "Let your users know which coupons are expired and which are available."
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:103
+msgid "Hide Expired Coupon"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:104
+msgid "Don't want to update expired coupons? No problem, just hide 'em."
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:109
+msgid "Social Share"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:110
+msgid "Add social share buttons in your coupons, let users spread the love."
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:115
+msgid "Voting System"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:116
+msgid "Let your users vote whether a coupon worked for them or not."
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:121
+msgid "Widgets"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:122
+msgid "So you can add your coupons in any widget areas on your site."
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:127
+msgid "Shortcode Inserter"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:128
+msgid "Instead of copy-paste, insert coupons straight from your editor."
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:136
+msgid "Check Out More"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:149
+msgid "Upgrade to PRO"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:151
+msgid "7 Coupon Templates"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:152
+msgid "Hide Coupon Code"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:153
+msgid "Expiration Counter"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:154
+msgid "Import from CSV"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:155
+msgid "Category Shortcode"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:156
+msgid "Archive Shortcode"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:157
+msgid "Extensive Settings"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:158
+msgid "Lifetime Usage"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:159
+msgid "1 Year Update"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:160
+msgid "1 Year Priority Support"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:165
+msgid "PRO"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:168
+msgid "per year"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:172
+msgid "Upgrade Now!"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:184
+msgid "Testimonials"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:201
+msgid "Read More Reviews on WP.org"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:224
+msgid "WP Coupons and Deals Pro"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:232
+msgid "Other Free Tools By Me"
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:235
+msgid "Drag and Drop Table Builder."
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:236
+msgid "Custom Gutenberg Blocks."
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-welcome-page-content.php:237
+msgid "Block Theme For Site Building."
+msgstr ""
+
+#: ../includes/functions/admin/wpcd-widget-help-info.php:16
+msgid "From the list, select the coupon you want to show on the widget and click on the Save button. 	If you have not created any coupons,"
+msgstr ""
+
+#: ../includes/templates/archive/footer-category-grid__premium_only.php:34, ../includes/templates/archive/footer-category__premium_only.php:30, ../includes/templates/archive/footer-default__premium_only.php:62, ../includes/templates/archive/footer-grid__premium_only.php:65
+msgid "« Prev"
+msgstr ""
+
+#: ../includes/templates/archive/footer-category-grid__premium_only.php:35, ../includes/templates/archive/footer-category__premium_only.php:31, ../includes/templates/archive/footer-default__premium_only.php:63, ../includes/templates/archive/footer-grid__premium_only.php:66
+msgid "Next »"
+msgstr ""
+
+#: ../includes/templates/archive/shortcode-archive-default__premium_only.php:98, ../includes/templates/archive/shortcode-archive-default__premium_only.php:374, ../includes/templates/archive/shortcode-archive-default__premium_only.php:376, ../includes/templates/archive/shortcode-archive-eight__premium_only.php:91, ../includes/templates/archive/shortcode-archive-one__premium_only.php:62, ../includes/templates/archive/shortcode-archive-seven__premium_only.php:97, ../includes/templates/archive/shortcode-archive-three__premium_only.php:63, ../includes/templates/archive/shortcode-archive-two__premium_only.php:62, ../includes/templates/archive/shortcode-archive__premium_only.php:59, ../includes/templates/archive/shortcode-category-default__premium_only.php:81, ../includes/templates/archive/shortcode-category-default__premium_only.php:380, ../includes/templates/archive/shortcode-category-default__premium_only.php:382, ../includes/templates/archive/shortcode-category-default__premium_only.php:194, ../includes/templates/archive/shortcode-category-default__premium_only.php:197, ../includes/templates/archive/shortcode-category-eight__premium_only.php:66, ../includes/templates/archive/shortcode-category-one__premium_only.php:50, ../includes/templates/archive/shortcode-category-seven__premium_only.php:79, ../includes/templates/archive/shortcode-category-three__premium_only.php:50, ../includes/templates/archive/shortcode-category-two__premium_only.php:50, ../includes/templates/archive/shortcode-category__premium_only.php:48, ../includes/templates/extras/hide-coupon2__premium_only.php:49, ../includes/templates/extras/hide-coupon2__premium_only.php:50, ../includes/templates/extras/hide-coupon2__premium_only.php:51, ../includes/templates/extras/hide-coupon2__premium_only.php:301, ../includes/templates/extras/hide-coupon2__premium_only.php:307, ../includes/templates/extras/hide-coupon2__premium_only.php:256, ../includes/templates/extras/hide-coupon2__premium_only.php:262, ../includes/templates/extras/hide-coupon2__premium_only.php:217, ../includes/templates/extras/hide-coupon2__premium_only.php:169, ../includes/templates/extras/hide-coupon2__premium_only.php:175, ../includes/templates/extras/hide-coupon3__premium_only.php:46, ../includes/templates/extras/hide-coupon3__premium_only.php:110, ../includes/templates/extras/hide-coupon3__premium_only.php:116, ../includes/templates/extras/hide-coupon__premium_only.php:93, ../includes/templates/extras/hide-coupon__premium_only.php:123, ../includes/templates/extras/hide-coupon__premium_only.php:125, ../includes/templates/extras/hide-coupon__premium_only.php:131, ../includes/templates/shortcode/shortcode-default.php:49, ../includes/templates/shortcode/shortcode-eight__premium_only.php:55, ../includes/templates/shortcode/shortcode-five__premium_only.php:170, ../includes/templates/shortcode/shortcode-five__premium_only.php:173, ../includes/templates/shortcode/shortcode-four__premium_only.php:46, ../includes/templates/shortcode/shortcode-four__premium_only.php:47, ../includes/templates/shortcode/shortcode-four__premium_only.php:48, ../includes/templates/shortcode/shortcode-nine__premium_only.php:55, ../includes/templates/shortcode/shortcode-one__premium_only.php:42, ../includes/templates/shortcode/shortcode-seven__premium_only.php:62, ../includes/templates/shortcode/shortcode-six__premium_only.php:182, ../includes/templates/shortcode/shortcode-six__premium_only.php:184, ../includes/templates/shortcode/shortcode-three__premium_only.php:36, ../includes/templates/shortcode/shortcode-two__premium_only.php:45, ../includes/templates/widget/widget-five__premium_only.php:148, ../includes/templates/widget/widget-five__premium_only.php:151, ../includes/templates/widget/widget-six__premium_only.php:172, ../includes/templates/widget/widget-six__premium_only.php:176, ../includes/functions/shortcode/code/wpcd-shortcode-code.php:33
+msgid "COUPONCODE"
+msgstr ""
+
+#: ../includes/templates/archive/shortcode-archive-default__premium_only.php:99, ../includes/templates/archive/shortcode-archive-default__premium_only.php:388, ../includes/templates/archive/shortcode-archive-default__premium_only.php:394, ../includes/templates/archive/shortcode-archive-eight__premium_only.php:92, ../includes/templates/archive/shortcode-archive-one__premium_only.php:63, ../includes/templates/archive/shortcode-archive-seven__premium_only.php:98, ../includes/templates/archive/shortcode-archive-three__premium_only.php:64, ../includes/templates/archive/shortcode-archive-two__premium_only.php:63, ../includes/templates/archive/shortcode-archive__premium_only.php:60, ../includes/templates/archive/shortcode-category-default__premium_only.php:82, ../includes/templates/archive/shortcode-category-default__premium_only.php:394, ../includes/templates/archive/shortcode-category-default__premium_only.php:400, ../includes/templates/archive/shortcode-category-default__premium_only.php:208, ../includes/templates/archive/shortcode-category-default__premium_only.php:214, ../includes/templates/archive/shortcode-category-eight__premium_only.php:67, ../includes/templates/archive/shortcode-category-one__premium_only.php:51, ../includes/templates/archive/shortcode-category-seven__premium_only.php:80, ../includes/templates/archive/shortcode-category-three__premium_only.php:51, ../includes/templates/archive/shortcode-category-two__premium_only.php:51, ../includes/templates/archive/shortcode-category__premium_only.php:49, ../includes/templates/shortcode/shortcode-default.php:50, ../includes/templates/shortcode/shortcode-eight__premium_only.php:56, ../includes/templates/shortcode/shortcode-five__premium_only.php:184, ../includes/templates/shortcode/shortcode-five__premium_only.php:190, ../includes/templates/shortcode/shortcode-four__premium_only.php:49, ../includes/templates/shortcode/shortcode-four__premium_only.php:50, ../includes/templates/shortcode/shortcode-four__premium_only.php:51, ../includes/templates/shortcode/shortcode-nine__premium_only.php:56, ../includes/templates/shortcode/shortcode-one__premium_only.php:43, ../includes/templates/shortcode/shortcode-seven__premium_only.php:63, ../includes/templates/shortcode/shortcode-six__premium_only.php:195, ../includes/templates/shortcode/shortcode-six__premium_only.php:202, ../includes/templates/shortcode/shortcode-three__premium_only.php:37, ../includes/templates/shortcode/shortcode-two__premium_only.php:46, ../includes/templates/widget/widget-five__premium_only.php:162, ../includes/templates/widget/widget-five__premium_only.php:168, ../includes/templates/widget/widget-six__premium_only.php:188, ../includes/templates/widget/widget-six__premium_only.php:195, ../includes/functions/shortcode/code/wpcd-shortcode-code.php:34
+msgid "Claim This Deal"
+msgstr ""
+
+#: ../includes/templates/archive/shortcode-archive-default__premium_only.php:531, ../includes/templates/archive/shortcode-archive-default__premium_only.php:273, ../includes/templates/archive/shortcode-archive-default__premium_only.php:163, ../includes/templates/archive/shortcode-archive-eight__premium_only.php:222, ../includes/templates/archive/shortcode-archive-one__premium_only.php:151, ../includes/templates/archive/shortcode-archive-seven__premium_only.php:162, ../includes/templates/archive/shortcode-archive-three__premium_only.php:148, ../includes/templates/archive/shortcode-archive-two__premium_only.php:269, ../includes/templates/archive/shortcode-archive__premium_only.php:192, ../includes/templates/archive/shortcode-category-default__premium_only.php:543, ../includes/templates/archive/shortcode-category-default__premium_only.php:277, ../includes/templates/archive/shortcode-category-default__premium_only.php:137, ../includes/templates/archive/shortcode-category-eight__premium_only.php:189, ../includes/templates/archive/shortcode-category-one__premium_only.php:130, ../includes/templates/archive/shortcode-category-seven__premium_only.php:138, ../includes/templates/archive/shortcode-category-three__premium_only.php:117, ../includes/templates/archive/shortcode-category-two__premium_only.php:243, ../includes/templates/archive/shortcode-category__premium_only.php:204, ../includes/templates/shortcode/shortcode-default.php:197, ../includes/templates/shortcode/shortcode-eight__premium_only.php:141, ../includes/templates/shortcode/shortcode-five__premium_only.php:112, ../includes/templates/shortcode/shortcode-four__premium_only.php:106, ../includes/templates/shortcode/shortcode-one__premium_only.php:100, ../includes/templates/shortcode/shortcode-seven__premium_only.php:127, ../includes/templates/shortcode/shortcode-six__premium_only.php:111, ../includes/templates/shortcode/shortcode-three__premium_only.php:82, ../includes/templates/shortcode/shortcode-two__premium_only.php:215, ../includes/templates/widget/widget-default.php:130, ../includes/templates/widget/widget-five__premium_only.php:97, ../includes/templates/widget/widget-one__premium_only.php:80, ../includes/templates/widget/widget-six__premium_only.php:93, ../includes/templates/widget/widget-three__premium_only.php:71, ../includes/templates/widget/widget-two__premium_only.php:110
+msgid "More"
+msgstr ""
+
+#: ../includes/templates/archive/shortcode-archive-default__premium_only.php:532, ../includes/templates/archive/shortcode-archive-default__premium_only.php:274, ../includes/templates/archive/shortcode-archive-default__premium_only.php:164, ../includes/templates/archive/shortcode-archive-eight__premium_only.php:223, ../includes/templates/archive/shortcode-archive-one__premium_only.php:152, ../includes/templates/archive/shortcode-archive-seven__premium_only.php:163, ../includes/templates/archive/shortcode-archive-three__premium_only.php:149, ../includes/templates/archive/shortcode-archive-two__premium_only.php:270, ../includes/templates/archive/shortcode-archive__premium_only.php:193, ../includes/templates/archive/shortcode-category-default__premium_only.php:544, ../includes/templates/archive/shortcode-category-default__premium_only.php:278, ../includes/templates/archive/shortcode-category-default__premium_only.php:138, ../includes/templates/archive/shortcode-category-eight__premium_only.php:190, ../includes/templates/archive/shortcode-category-one__premium_only.php:131, ../includes/templates/archive/shortcode-category-seven__premium_only.php:139, ../includes/templates/archive/shortcode-category-three__premium_only.php:118, ../includes/templates/archive/shortcode-category-two__premium_only.php:244, ../includes/templates/archive/shortcode-category__premium_only.php:206, ../includes/templates/shortcode/shortcode-default.php:198, ../includes/templates/shortcode/shortcode-eight__premium_only.php:142, ../includes/templates/shortcode/shortcode-five__premium_only.php:113, ../includes/templates/shortcode/shortcode-four__premium_only.php:107, ../includes/templates/shortcode/shortcode-one__premium_only.php:101, ../includes/templates/shortcode/shortcode-seven__premium_only.php:128, ../includes/templates/shortcode/shortcode-six__premium_only.php:112, ../includes/templates/shortcode/shortcode-three__premium_only.php:83, ../includes/templates/shortcode/shortcode-two__premium_only.php:216, ../includes/templates/widget/widget-default.php:131, ../includes/templates/widget/widget-five__premium_only.php:98, ../includes/templates/widget/widget-one__premium_only.php:81, ../includes/templates/widget/widget-six__premium_only.php:94, ../includes/templates/widget/widget-three__premium_only.php:72, ../includes/templates/widget/widget-two__premium_only.php:111
+msgid "Less"
+msgstr ""
+
+#: ../includes/templates/archive/shortcode-archive-default__premium_only.php:593, ../includes/templates/archive/shortcode-archive-default__premium_only.php:560, ../includes/templates/archive/shortcode-archive-default__premium_only.php:342, ../includes/templates/archive/shortcode-archive-default__premium_only.php:192, ../includes/templates/archive/shortcode-archive-eight__premium_only.php:195, ../includes/templates/archive/shortcode-archive-eight__premium_only.php:164, ../includes/templates/archive/shortcode-archive-one__premium_only.php:280, ../includes/templates/archive/shortcode-archive-one__premium_only.php:249, ../includes/templates/archive/shortcode-archive-seven__premium_only.php:238, ../includes/templates/archive/shortcode-archive-three__premium_only.php:216, ../includes/templates/archive/shortcode-archive-three__premium_only.php:180, ../includes/templates/archive/shortcode-archive-two__premium_only.php:189, ../includes/templates/archive/shortcode-archive__premium_only.php:223, ../includes/templates/archive/shortcode-category-default__premium_only.php:606, ../includes/templates/archive/shortcode-category-default__premium_only.php:573, ../includes/templates/archive/shortcode-category-default__premium_only.php:347, ../includes/templates/archive/shortcode-category-default__premium_only.php:168, ../includes/templates/archive/shortcode-category-eight__premium_only.php:65, ../includes/templates/archive/shortcode-category-one__premium_only.php:255, ../includes/templates/archive/shortcode-category-one__premium_only.php:224, ../includes/templates/archive/shortcode-category-seven__premium_only.php:213, ../includes/templates/archive/shortcode-category-three__premium_only.php:184, ../includes/templates/archive/shortcode-category-three__premium_only.php:149, ../includes/templates/archive/shortcode-category-two__premium_only.php:167, ../includes/templates/archive/shortcode-category__premium_only.php:243, ../includes/templates/shortcode/shortcode-default.php:256, ../includes/templates/shortcode/shortcode-default.php:225, ../includes/templates/shortcode/shortcode-eight__premium_only.php:54, ../includes/templates/shortcode/shortcode-five__premium_only.php:141, ../includes/templates/shortcode/shortcode-four__premium_only.php:241, ../includes/templates/shortcode/shortcode-four__premium_only.php:209, ../includes/templates/shortcode/shortcode-four__premium_only.php:397, ../includes/templates/shortcode/shortcode-four__premium_only.php:363, ../includes/templates/shortcode/shortcode-four__premium_only.php:549, ../includes/templates/shortcode/shortcode-four__premium_only.php:514, ../includes/templates/shortcode/shortcode-nine__premium_only.php:54, ../includes/templates/shortcode/shortcode-one__premium_only.php:226, ../includes/templates/shortcode/shortcode-one__premium_only.php:194, ../includes/templates/shortcode/shortcode-seven__premium_only.php:61, ../includes/templates/shortcode/shortcode-seven__premium_only.php:206, ../includes/templates/shortcode/shortcode-six__premium_only.php:145, ../includes/templates/shortcode/shortcode-three__premium_only.php:152, ../includes/templates/shortcode/shortcode-three__premium_only.php:115, ../includes/templates/shortcode/shortcode-two__premium_only.php:138, ../includes/templates/widget/widget-default.php:188, ../includes/templates/widget/widget-default.php:157, ../includes/templates/widget/widget-five__premium_only.php:125, ../includes/templates/widget/widget-one__premium_only.php:217, ../includes/templates/widget/widget-one__premium_only.php:185, ../includes/templates/widget/widget-six__premium_only.php:108, ../includes/templates/widget/widget-three__premium_only.php:129, ../includes/templates/widget/widget-three__premium_only.php:101, ../includes/templates/widget/widget-two__premium_only.php:97
+msgid "Doesn't expire"
+msgstr ""
+
+#: ../includes/templates/archive/shortcode-archive-default__premium_only.php:582, ../includes/templates/archive/shortcode-archive-default__premium_only.php:552, ../includes/templates/archive/shortcode-archive-default__premium_only.php:335, ../includes/templates/archive/shortcode-archive-default__premium_only.php:184, ../includes/templates/archive/shortcode-archive__premium_only.php:215, ../includes/templates/archive/shortcode-category__premium_only.php:233, ../includes/templates/shortcode/shortcode-four__premium_only.php:504
+msgid "Expired on: "
+msgstr ""
+
+#: ../includes/templates/archive/shortcode-archive-default__premium_only.php:575, ../includes/templates/archive/shortcode-archive-default__premium_only.php:545, ../includes/templates/archive/shortcode-archive-default__premium_only.php:328, ../includes/templates/archive/shortcode-archive-default__premium_only.php:283, ../includes/templates/archive/shortcode-archive-default__premium_only.php:177, ../includes/templates/archive/shortcode-archive-seven__premium_only.php:216, ../includes/templates/archive/shortcode-archive-two__premium_only.php:163, ../includes/templates/archive/shortcode-archive__premium_only.php:209, ../includes/templates/archive/shortcode-category-default__premium_only.php:287, ../includes/templates/archive/shortcode-category-seven__premium_only.php:190, ../includes/templates/archive/shortcode-category-two__premium_only.php:140, ../includes/templates/archive/shortcode-category__premium_only.php:226, ../includes/templates/shortcode/shortcode-four__premium_only.php:495, ../includes/templates/shortcode/shortcode-seven__premium_only.php:183, ../includes/templates/shortcode/shortcode-six__premium_only.php:121, ../includes/templates/shortcode/shortcode-two__premium_only.php:112, ../includes/templates/widget/widget-six__premium_only.php:102, ../includes/templates/widget/widget-two__premium_only.php:88
+msgid "Expires on: "
+msgstr ""
+
+#: ../includes/templates/archive/shortcode-archive-default__premium_only.php:248, ../includes/templates/archive/shortcode-category-default__premium_only.php:252, ../includes/templates/widget/widget-six__premium_only.php:69
+msgid "70% OFF"
+msgstr ""
+
+#: ../includes/templates/archive/shortcode-archive-default__premium_only.php:383, ../includes/templates/archive/shortcode-category-default__premium_only.php:390, ../includes/templates/archive/shortcode-category-default__premium_only.php:204, ../includes/templates/shortcode/shortcode-five__premium_only.php:180, ../includes/templates/shortcode/shortcode-six__premium_only.php:191, ../includes/templates/widget/widget-five__premium_only.php:158, ../includes/templates/widget/widget-six__premium_only.php:184
+msgid "Click Here To Get this deal"
+msgstr ""
+
+#: ../includes/templates/archive/shortcode-archive-default__premium_only.php:133, ../includes/templates/archive/shortcode-category-default__premium_only.php:108, ../includes/templates/shortcode/shortcode-five__premium_only.php:82, ../includes/templates/widget/widget-five__premium_only.php:73
+msgid "Discount Text"
+msgstr ""
+
+#: ../includes/templates/archive/shortcode-category-eight__premium_only.php:63, ../includes/templates/shortcode/shortcode-eight__premium_only.php:52, ../includes/templates/shortcode/shortcode-nine__premium_only.php:52, ../includes/templates/shortcode/shortcode-seven__premium_only.php:59
+msgid "Expires On: "
+msgstr ""
+
+#: ../includes/templates/archive/shortcode-category-eight__premium_only.php:64, ../includes/templates/shortcode/shortcode-eight__premium_only.php:53, ../includes/templates/shortcode/shortcode-nine__premium_only.php:53, ../includes/templates/shortcode/shortcode-seven__premium_only.php:60
+msgid "Expired On: "
+msgstr ""
+
+#: ../includes/templates/extras/dashboard-widget.php:49
+msgid "Published"
+msgstr ""
+
+#: ../includes/templates/extras/dashboard-widget.php:55
+msgid "Drafts"
+msgstr ""
+
+#: ../includes/templates/extras/dashboard-widget.php:61
+msgid "Trash"
+msgstr ""
+
+#: ../includes/templates/extras/dashboard-widget.php:67
+msgid "Categories"
+msgstr ""
+
+#: ../includes/templates/extras/dashboard-widget.php:71
+msgid "Vendors"
+msgstr ""
+
+#: ../includes/templates/extras/dashboard-widget.php:80
+msgid "Using WP Coupons and Deals version "
+msgstr ""
+
+#: ../includes/templates/extras/dashboard-widget.php:82
+msgid "Changelog"
+msgstr ""
+
+#: ../includes/templates/extras/dashboard-widget.php:92
+msgid "Recommended Plugin: "
+msgstr ""
+
+#: ../includes/templates/extras/dashboard-widget.php:92
+msgid "Ultimate Blocks"
+msgstr ""
+
+#: ../includes/templates/extras/dashboard-widget.php:93
+msgid "Install"
+msgstr ""
+
+#: ../includes/templates/extras/dashboard-widget.php:94
+msgid "Learn More"
+msgstr ""
+
+#: ../includes/templates/extras/hide-coupon2__premium_only.php:398, ../includes/templates/extras/hide-coupon3__premium_only.php:196, ../includes/templates/extras/hide-coupon__premium_only.php:168
+msgid "Go to Offer"
+msgstr ""
+
+#: ../includes/templates/extras/vote-system.php:14
+msgid "It works."
+msgstr ""
+
+#: ../includes/templates/extras/vote-system.php:15
+msgid "Success"
+msgstr ""
+
+#: ../includes/templates/extras/vote-system.php:17
+msgid "It doesn't!"
+msgstr ""
+
+#: ../includes/templates/shortcode/shortcode-six__premium_only.php:86
+msgid "Discount"
+msgstr ""
+
+#: ../includes/functions/admin/actions/wpcd-admin-actions.php:111
+msgid "Error | On Line Number 2"
+msgstr ""
+
+#: ../includes/functions/admin/actions/wpcd-admin-actions.php:107
+msgid " | On Line Number1"
+msgstr ""
