@@ -90,6 +90,12 @@ if ( current_user_can( "manage_options" ) ) {
 				<a href="<?php echo esc_url( $install_ub_url ); ?>"><?php echo __( 'Install', 'wp-coupons-and-deals' ); ?></a> |
 				<a href="https://ultimateblocks.com/?utm_source=wpdashboard&utm_medium=widget" target="_blank"><?php echo __( 'Learn More', 'wp-coupons-and-deals' ); ?></a></p>
 	</div>
+	<?php
+	}
+}
+
+if ( current_user_can( "manage_options" ) ) {
+	if ( !in_array( 'wp-table-builder/wp-table-builder.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) { ?>
 	<div style="margin: 12px -12px 0; padding: 12px 12px 0; border-top: 1px solid #eee;">
 			<p style="margin: 0"><?php echo __( 'Recommended Plugin: ', 'wp-coupons-and-deals' );?><b><?php echo __( 'WP Table Builder', 'wp-coupons-and-deals' ); ?></b> -
 				<a href="<?php echo esc_url( $install_ub_url ); ?>"><?php echo __( 'Install', 'wp-coupons-and-deals' ); ?></a> |
