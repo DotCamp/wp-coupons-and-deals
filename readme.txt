@@ -110,6 +110,12 @@ You're done!
 * [Follow Us on Twitter](https://twitter.com/WPCD_Plugin)
 * [Join Our Facebook Group](https://www.facebook.com/groups/wpcdPlugin/)
 
+## Other WordPress Tools By Me
+
+* [WP Table Builder](https://wptablebuilder.com/) - The Drag & Drop WordPress Table Plugin.
+* [Ultimate Blocks](https://ultimateblocks.com/) - The #1 Gutenberg Blocks Plugin for Content Creators. 
+* [GroundWP](https://groundwp.com/) - WordPress Block Theme For Efficient Site Building.
+
 == Installation ==
 
 This is one way you can install and use the plugin:
