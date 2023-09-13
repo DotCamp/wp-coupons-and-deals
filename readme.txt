@@ -162,6 +162,7 @@ You can [__submit a feature request__](https://wpcouponsdeals.com/submit-new-fea
 
 = 3.1.2 =
 
+* ADD: Option to duplicate coupons.
 * Freemius SDK Update.
 * WordPress 6.3 Compatibility.
 
