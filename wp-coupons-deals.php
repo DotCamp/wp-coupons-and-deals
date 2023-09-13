@@ -162,6 +162,13 @@ function wpcd_duplicate_coupon_action() {
                 add_post_meta($new_post_id, $key, $value);
             }
         }
+
+        // Duplicate post taxonomies
+        $taxonomies = get_object_taxonomies($post->post_type);
+        foreach ($taxonomies as $taxonomy) {
+            $terms = wp_get_object_terms($post_id, $taxonomy, array('fields' => 'slugs'));
+            wp_set_object_terms($new_post_id, $terms, $taxonomy);
+        }
         
         // Redirect to the edit screen for the new draft post
         wp_redirect(admin_url('post.php?action=edit&post=' . $new_post_id));
