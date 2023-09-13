@@ -129,3 +129,45 @@ function wpcd_expire_date_convert() {
 
     add_option('wpcd_expire_date_converted', '1');
 }
+
+function wpcd_add_duplicate_link( $actions, $post ) {
+    if ( $post->post_type === 'wpcd_coupons' && current_user_can('edit_posts') ) {
+        $actions['duplicate'] = '<a href="' . wp_nonce_url( admin_url( 'admin.php?action=wpcd_duplicate_coupon&post=' . $post->ID ), 'wpcd-duplicate-coupon_' . $post->ID ) . '" title="Duplicate this item" rel="permalink">Duplicate</a>';
+    }
+    return $actions;
+}
+add_filter( 'post_row_actions', 'wpcd_add_duplicate_link', 10, 2 );
+
+function wpcd_duplicate_coupon_action() {
+    if (!isset($_GET['post'])) {
+        wp_die('No coupon to duplicate has been supplied!');
+    }
+
+    $post_id = absint($_GET['post']);
+    $post = get_post($post_id);
+
+    if (isset($post) && $post != null) {
+        $args = array(
+            'post_title'     => $post->post_title . ' (Duplicate)',
+            'post_type'      => $post->post_type,
+            'post_status'    => 'draft',
+        );
+        
+        $new_post_id = wp_insert_post($args);
+        
+        // Duplicate post meta
+        $post_meta_data = get_post_meta($post_id);
+        foreach ($post_meta_data as $key => $values) {
+            foreach ($values as $value) {
+                add_post_meta($new_post_id, $key, $value);
+            }
+        }
+        
+        // Redirect to the edit screen for the new draft post
+        wp_redirect(admin_url('post.php?action=edit&post=' . $new_post_id));
+        exit;
+    } else {
+        wp_die('Failed to duplicate: ' . $post_id);
+    }
+}
+add_action('admin_action_wpcd_duplicate_coupon', 'wpcd_duplicate_coupon_action');
