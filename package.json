@@ -6,7 +6,9 @@
     "pot": "wp-pot --src '**/*.php' --dest-file 'languages/wpcd-coupon.pot' --package 'wpcd_coupon' --domain 'wp-coupons-and-deals' --last-translator 'Imtiaz Rayhan <irayhan.asif@gmail.com>' --team 'WP Coupons and Deals <irayhan.asif@gmail.com>' --bug-report 'https://wpcouponsdeals/contact-us/'",
     "dev:build": "cross-env NODE_ENV=development webpack --watch",
     "prod:build": "cross-env NODE_ENV=production webpack",
-    "lint": "eslint ./assets/js/webpack-src --ext .js,.vue"
+    "lint": "eslint ./assets/js/webpack-src --ext .js,.vue",
+    "build": "wp-scripts build",
+    "start": "wp-scripts start"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,7 @@
   "devDependencies": {
     "@babel/core": "^7.7.4",
     "@babel/preset-env": "^7.7.4",
+    "@wordpress/scripts": "^24.0.0",
     "autoprefixer": "^9.7.3",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",

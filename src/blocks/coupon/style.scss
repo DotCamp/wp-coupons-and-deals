@@ -1,0 +1,15 @@
+@import "./common.scss";
+.ub-coupon-wrapper {
+  &.wp-block-ub-coupon {
+    padding-top: var(--ub-coupon-wrapper-padding-top, 25px) !important;
+    padding-right: var(--ub-coupon-wrapper-padding-right, 25px) !important;
+    padding-bottom: var(--ub-coupon-wrapper-padding-bottom, 25px) !important;
+    padding-left: var(--ub-coupon-wrapper-padding-left, 25px) !important;
+    &.has-margin {
+      margin-top: var(--ub-coupon-wrapper-margin-top, auto) !important;
+      margin-right: var(--ub-coupon-wrapper-margin-right, auto) !important;
+      margin-bottom: var(--ub-coupon-wrapper-margin-bottom, auto) !important;
+      margin-left: var(--ub-coupon-wrapper-margin-left, auto) !important;
+    }
+  }
+}
