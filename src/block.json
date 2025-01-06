@@ -246,10 +246,10 @@
      "supports": {
           "align": true
      },
-     "editorScript": "./index.js",
+     "editorScript": "file:./index.js",
      "editorStyle": "file:./index.css",
-     "viewScript": "ub-coupon-frontend-script",
+     "viewScript": "file:./front.js",
      "style": [
-          "file:./style.css"
+          "file:./style-index.css"
      ]
 }

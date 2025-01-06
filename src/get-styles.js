@@ -5,7 +5,7 @@ import { isUndefined, trim, isEmpty, omitBy } from "lodash";
 import {
   getBorderVariablesCss,
   getSpacingCss,
-} from "../../utils/styling-helpers";
+} from "./styling-helpers";
 /**
  *
  * @param {Array} attributes

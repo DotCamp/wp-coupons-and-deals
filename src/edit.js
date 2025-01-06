@@ -14,6 +14,8 @@ import { getStyleClass } from "./get-classes";
 import { getStyles } from "./get-styles";
 import classNames from "classnames";
 
+import "./editor.scss";
+
 function Edit(props) {
   const { attributes, setAttributes } = props;
   const { template, hideCoupon, couponId, couponType } = attributes;

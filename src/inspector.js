@@ -21,7 +21,7 @@ import {
   CustomFontSizePicker,
   CustomToggleGroupControl,
   SpacingControlWithToolsPanel,
-} from "../../components/StylingControls";
+} from "./StylingControls";
 import HideCouponSettings from "./components/HideCouponSettings";
 import TabsPanelControl from "./components/TabsPanelControl";
 
