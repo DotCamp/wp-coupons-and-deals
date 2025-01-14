@@ -126,9 +126,22 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 			$this->plugin_includes = $this->plugin_dir_path . trailingslashit( 'includes' );
 			$this->plugin_classes  = $this->plugin_includes . trailingslashit( 'classes' );
 
-            add_filter( 'user_has_cap', array( $this, 'filter_user_caps' ), 99, 1 );
+			add_filter( 'user_has_cap', array( $this, 'filter_user_caps' ), 99, 1 );
 		}
 
+		/**
+		 * Load necessary files.
+		 *
+		 * @since 1.0
+		 */
+		public static function load_block_files() {
+			// Load the block assets
+			require_once WPCD_Plugin::instance()->plugin_classes . 'wpcd-block-assets.php';
+			// Load the block css generator
+			require_once WPCD_Plugin::instance()->plugin_classes . 'wpcd-block-css-generator.php';
+			// Load the blocks
+			require_once WPCD_Plugin::instance()->plugin_includes . 'blocks/class-coupon-block.php';
+		}
 		/**
 		 * Activation function. Runs this when plugin is activated.
 		 *
@@ -231,6 +244,7 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 			add_action( 'init', array( __CLASS__, 'loadClasses' ), 10 );
 			add_action( 'init', array( __CLASS__, 'custom_taxonomy_register' ) );
 			add_action( 'init', array( __CLASS__, 'custom_post_type_register' ) );
+			add_action( 'init', array( __CLASS__, 'load_block_files' ) );
 
 			// form short-code registration
 			// since our form short-code needs custom taxonomies, need to que it afterwards taxonomy registration, apart from other short-codes

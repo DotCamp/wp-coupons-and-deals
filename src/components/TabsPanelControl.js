@@ -8,7 +8,7 @@ function TabsPanelControl({
 }) {
   return (
     <TabPanel
-      className="ub-tab-panels"
+      className="wpcd-tab-panels"
       tabs={[
         {
           name: "normalState",

@@ -1,13 +1,13 @@
 {
      "$schema": "https://schemas.wp.org/trunk/block.json",
      "apiVersion": 3,
-     "name": "ub/coupon",
+     "name": "wpcd/coupon",
      "title": "Coupon",
-     "category": "ultimateblocks",
+     "category": "wpcd",
      "description": "Add coupon boxes to boost your affiliate sales.",
      "keywords": [
           "coupon",
-          "ultimate coupon"
+          "deal"
      ],
      "attributes": {
           "template": {
@@ -246,10 +246,10 @@
      "supports": {
           "align": true
      },
-     "editorScript": "file:./index.js",
-     "editorStyle": "file:./index.css",
-     "viewScript": "file:./front.js",
+     "editorScript": "wpcd-block-script",
+     "editorStyle": "wpcd-editor-style",
+     "viewScript": "wpcd-frontend-script",
      "style": [
-          "file:./style-index.css"
+          "wpcd-frontend-style"
      ]
 }

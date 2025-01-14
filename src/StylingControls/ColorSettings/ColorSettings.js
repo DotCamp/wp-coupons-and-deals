@@ -29,9 +29,8 @@ function ColorSettings(props) {
   const colorGradientSettings = useMultipleOriginColorsAndGradients();
   const { defaultColors } = useSelect((select) => {
     return {
-      defaultColors:
-        select("core/block-editor")?.getSettings()?.__experimentalFeatures
-          ?.color?.palette?.default,
+      defaultColors: select("core/block-editor")?.getSettings()
+        ?.__experimentalFeatures?.color?.palette?.default,
     };
   });
 
@@ -40,7 +39,7 @@ function ColorSettings(props) {
       {...colorGradientSettings}
       enableAlpha
       panelId={clientId}
-      title={__("Color Settings", "ultimate-blocks-pro")}
+      title={__("Color Settings", "wp-coupons-and-deals")}
       popoverProps={{
         placement: "left start",
       }}

@@ -3,6 +3,14 @@
  */
 import { __ } from "@wordpress/i18n";
 import { RichText } from "@wordpress/block-editor";
+import { isEmpty } from "lodash";
+import {
+  generateStyles,
+  getBackgroundColorVar,
+  getBorderCSS,
+  getSingleSideBorderValue,
+  isValueEmpty,
+} from "../../styling-helpers";
 
 function DefaultTemplate(props) {
   const { attributes, setAttributes } = props;
@@ -19,50 +27,181 @@ function DefaultTemplate(props) {
     dealButtonText,
   } = attributes;
 
+  const couponCodeBorder = getBorderCSS(attributes.codeBorder);
+  const separatorBorder = getBorderCSS(attributes.separatorBorder);
+
+  let titleStyles = {
+    fontSize: isEmpty(attributes?.titleFontSize)
+      ? "21px"
+      : attributes?.titleFontSize,
+    color: isEmpty(attributes?.titleColor) ? "#000000" : attributes?.titleColor,
+  };
+
+  let discountStyles = {
+    fontSize: isEmpty(attributes?.discountFontSize)
+      ? "20px"
+      : attributes?.discountFontSize,
+    color: isEmpty(attributes?.discountColor)
+      ? "#000000"
+      : attributes?.discountColor,
+  };
+
+  const dealLabelBgColor = getBackgroundColorVar(
+    attributes,
+    "couponDealLabelBackgroundColor",
+    "couponDealLabelGradientBackground"
+  );
+  let couponDealLabelStyles = {
+    fontSize: isEmpty(attributes?.couponDealLabelFontSize)
+      ? "12px"
+      : attributes?.couponDealLabelFontSize,
+    color: isEmpty(attributes?.couponDealLabelColor)
+      ? "#ffffff"
+      : attributes?.couponDealLabelColor,
+    backgroundColor: isEmpty(dealLabelBgColor) ? "#56b151" : dealLabelBgColor,
+  };
+
+  let descriptionStyles = {
+    fontSize: isEmpty(attributes?.descriptionFontSize)
+      ? "16px"
+      : attributes?.descriptionFontSize,
+    color: isEmpty(attributes?.descriptionColor)
+      ? "#000000"
+      : attributes?.descriptionColor,
+  };
+  const codeHoverBgColor = getBackgroundColorVar(
+    attributes,
+    "codeHoverBackgroundColor",
+    "codeHoverGradientBackground"
+  );
+  let codeHoverStyles = {
+    "--wpcd-coupon-code-bg-hover-color": codeHoverBgColor,
+    "--wpcd-coupon-code-hover-color": attributes?.codeHoverColor,
+  };
+  const borderStyle = attributes.hideCoupon
+    ? "2px solid #56b151"
+    : "2px dashed #ccc";
+  let codeStyles = {
+    ...codeHoverStyles,
+    "--wpcd-coupon-code-button-text": `"${attributes?.couponCodeButtonText}"`,
+    fontSize: attributes?.codeFontSize,
+    "--wpcd-coupon-code-color": attributes?.codeColor,
+    "--wpcd-coupon-code-bg-color": getBackgroundColorVar(
+      attributes,
+      "codeBackgroundColor",
+      "codeGradientBackground"
+    ),
+    "border-top-left-radius": isEmpty(attributes.codeBorderRadius?.topLeft)
+      ? " 2px"
+      : attributes.codeBorderRadius?.topLeft,
+    "border-top-right-radius": isEmpty(attributes.codeBorderRadius?.topRight)
+      ? " 2px"
+      : attributes.codeBorderRadius?.topRight,
+    "border-bottom-left-radius": isEmpty(
+      attributes.codeBorderRadius?.bottomLeft
+    )
+      ? " 2px"
+      : attributes.codeBorderRadius?.bottomLeft,
+    "border-bottom-right-radius": isEmpty(
+      attributes.codeBorderRadius?.bottomRight
+    )
+      ? " 2px"
+      : attributes.codeBorderRadius?.bottomRight,
+    borderTop: isValueEmpty(getSingleSideBorderValue(couponCodeBorder, "top"))
+      ? couponType === "deal"
+        ? "2px solid #56b151"
+        : borderStyle
+      : getSingleSideBorderValue(couponCodeBorder, "top"),
+    borderLeft: isValueEmpty(getSingleSideBorderValue(couponCodeBorder, "left"))
+      ? couponType === "deal"
+        ? "2px solid #56b151"
+        : borderStyle
+      : getSingleSideBorderValue(couponCodeBorder, "left"),
+    borderRight: isValueEmpty(
+      getSingleSideBorderValue(couponCodeBorder, "right")
+    )
+      ? couponType === "deal"
+        ? "2px solid #56b151"
+        : borderStyle
+      : getSingleSideBorderValue(couponCodeBorder, "right"),
+    borderBottom: isValueEmpty(
+      getSingleSideBorderValue(couponCodeBorder, "bottom")
+    )
+      ? couponType === "deal"
+        ? "2px solid #56b151"
+        : borderStyle
+      : getSingleSideBorderValue(couponCodeBorder, "bottom"),
+  };
+
+  let expirationDateStyles = {
+    "--wpcd-coupon-expiration-date-font-size": isEmpty(
+      attributes?.expirationDateFontSize
+    )
+      ? "14px"
+      : attributes?.expirationDateFontSize,
+    "--wpcd-coupon-expired-date-font-size": isEmpty(
+      attributes?.expiredDateFontSize
+    )
+      ? "14px"
+      : attributes?.expiredDateFontSize,
+    "--wpcd-coupon-expiration-date-color": isEmpty(
+      attributes?.expirationDateColor
+    )
+      ? "green"
+      : attributes?.expirationDateColor,
+    "--wpcd-coupon-expired-date-color": isEmpty(attributes?.expiredDateColor)
+      ? "red"
+      : attributes?.expiredDateColor,
+  };
+
   return (
-    <div className="ub-coupon-inner__wrapper">
-      <div className="ub-coupon-discount-wrapper">
-        <div className="ub-coupon-discount-inner__wrapper">
+    <div className="wpcd-coupon-inner__wrapper">
+      <div className="wpcd-coupon-discount-wrapper">
+        <div className="wpcd-coupon-discount-inner__wrapper">
           <RichText
-            className="ub-coupon-discount"
+            className="wpcd-coupon-discount"
             value={discount}
             tagName="div"
             onChange={(newValue) => setAttributes({ discount: newValue })}
-            placeholder={__("100%", "ultimate-blocks-pro")}
+            placeholder={__("100%", "wp-coupons-and-deals")}
+            style={generateStyles(discountStyles)}
           />
           <RichText
             tagName="div"
-            className="ub-coupon-name"
+            className="wpcd-coupon-name"
             value={couponDealLabel}
             onChange={(newValue) =>
               setAttributes({ couponDealLabel: newValue })
             }
-            placeholder={__("Coupon", "ultimate-blocks-pro")}
+            placeholder={__("Coupon", "wp-coupons-and-deals")}
+            style={generateStyles(couponDealLabelStyles)}
           />
         </div>
       </div>
 
-      <div className="ub-coupon-details-wrapper">
-        <div className="ub-coupon-header">
-          <div className="ub-coupon-title-wrapper">
+      <div className="wpcd-coupon-details-wrapper">
+        <div className="wpcd-coupon-header">
+          <div className="wpcd-coupon-title-wrapper">
             <RichText
-              className="ub-coupon-title"
+              className="wpcd-coupon-title"
               value={title}
               tagName="h3"
               onChange={(newValue) => setAttributes({ title: newValue })}
-              placeholder={__("Title here", "ultimate-blocks-pro")}
+              placeholder={__("Title here", "wp-coupons-and-deals")}
+              style={generateStyles(titleStyles)}
             />
           </div>
-          <div className="ub-coupon-code">
+          <div className="wpcd-coupon-code">
             {couponType !== "deal" && (
               <a
                 rel="nofollow noopener"
                 target="_blank"
                 data-clipboard-text={code}
-                className="ub-coupon-button"
-                title={__("Click To Copy Coupon", "ultimate-blocks-pro")}
+                className="wpcd-coupon-button"
+                title={__("Click To Copy Coupon", "wp-coupons-and-deals")}
+                style={generateStyles(codeStyles)}
               >
-                <span className="ub-coupon-icon">
+                <span className="wpcd-coupon-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -83,7 +222,7 @@ function DefaultTemplate(props) {
                   value={code}
                   tagName="span"
                   onChange={(newValue) => setAttributes({ code: newValue })}
-                  placeholder={__("SAMPLECODE", "ultimate-blocks-pro")}
+                  placeholder={__("SAMPLECODE", "wp-coupons-and-deals")}
                 />
               </a>
             )}
@@ -91,8 +230,9 @@ function DefaultTemplate(props) {
               <a
                 rel="nofollow noopener"
                 target="_blank"
-                className="ub-coupon-button"
-                title={__("Click To Claim This Deal", "ultimate-blocks-pro")}
+                className="wpcd-coupon-button"
+                style={generateStyles(codeStyles)}
+                title={__("Click To Claim This Deal", "wp-coupons-and-deals")}
               >
                 <RichText
                   value={dealButtonText}
@@ -100,29 +240,31 @@ function DefaultTemplate(props) {
                   onChange={(newValue) =>
                     setAttributes({ dealButtonText: newValue })
                   }
-                  placeholder={__("Get Deal", "ultimate-blocks-pro")}
+                  placeholder={__("Get Deal", "wp-coupons-and-deals")}
                 />
               </a>
             )}
           </div>
         </div>
-        <div className="ub-coupon-content">
-          <div className="ub-coupon-description">
+        <div className="wpcd-coupon-content">
+          <div className="wpcd-coupon-description">
             <RichText
               value={description}
               tagName="p"
               onChange={(newValue) => setAttributes({ description: newValue })}
-              placeholder={__("Description here", "ultimate-blocks-pro")}
+              placeholder={__("Description here", "wp-coupons-and-deals")}
+              style={generateStyles(descriptionStyles)}
             />
           </div>
           <div
-            className={`ub-coupon-expiration-date${
-              isDoesNotExpire ? " ub-coupon-does-not-expire" : ""
+            className={`wpcd-coupon-expiration-date${
+              isDoesNotExpire ? " wpcd-coupon-does-not-expire" : ""
             }`}
+            style={generateStyles(expirationDateStyles)}
           >
             {!isDoesNotExpire && (
               <>
-                <span>{__("Expire On ", "ultimate-blocks-pro")}</span>
+                <span>{__("Expire On ", "wp-coupons-and-deals")}</span>
                 <span>{expirationDate}</span>
               </>
             )}
@@ -135,7 +277,7 @@ function DefaultTemplate(props) {
                 }
                 placeholder={__(
                   "Doesn't Expire Text Here",
-                  "ultimate-blocks-pro"
+                  "wp-coupons-and-deals"
                 )}
               />
             )}

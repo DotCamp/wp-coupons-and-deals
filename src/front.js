@@ -2,13 +2,13 @@ class UBCoupon {
   constructor(wrapper) {
     this.wrapper = wrapper;
     this.expirationDateWrapper = this.wrapper.querySelector(
-      ".ub-coupon-expiration-date"
+      ".wpcd-coupon-expiration-date"
     );
     this.copyButton = this.wrapper.querySelector(
-      ".ub-coupon-button:not(.ub-popup-button)"
+      ".wpcd-coupon-button:not(.wpcd-popup-button)"
     );
     this.showCodeButton = this.wrapper.querySelector(
-      ".ub-coupon-button.ub-popup-button"
+      ".wpcd-coupon-button.wpcd-popup-button"
     );
 
     this.expirationDate = new Date(
@@ -24,9 +24,9 @@ class UBCoupon {
     this.setupCopyButton();
     this.handleHiddenCoupon();
     const url = new URL(location);
-    const couponIdParam = url?.searchParams?.get("ub_coupon");
+    const couponIdParam = url?.searchParams?.get("wpcd_coupon");
     if (
-      this.wrapper.classList.contains("ub-coupon-hidden") &&
+      this.wrapper.classList.contains("wpcd-coupon-hidden") &&
       this.showCodeButton &&
       !couponIdParam
     ) {
@@ -37,31 +37,31 @@ class UBCoupon {
     this.showCodeButton.addEventListener("click", () => {
       const couponId = this.wrapper.getAttribute("data-coupon_id");
       const url = new URL(location);
-      url.searchParams.set("ub_coupon", couponId);
+      url.searchParams.set("wpcd_coupon", couponId);
       window.open(url, "_blank");
     });
   }
 
   handleHiddenCoupon() {
-    if (!this.wrapper.classList.contains("ub-coupon-hidden")) {
+    if (!this.wrapper.classList.contains("wpcd-coupon-hidden")) {
       return;
     }
     const url = new URL(location);
-    const couponId = url?.searchParams?.get("ub_coupon");
+    const couponId = url?.searchParams?.get("wpcd_coupon");
     if (!couponId || couponId === "null") {
       return;
     }
     const couponPopup = document.getElementById(couponId);
     const couponTargetButton = this.wrapper.querySelector(
-      ".ub-coupon-button.ub-popup-button"
+      ".wpcd-coupon-button.wpcd-popup-button"
     );
     couponTargetButton.removeAttribute("href");
 
-    couponTargetButton.classList.add("ub-coupon-popup-opened");
+    couponTargetButton.classList.add("wpcd-coupon-popup-opened");
 
     couponPopup.style.display = "block";
     const closeButton = couponPopup.querySelector(
-      ".ub-coupon-popup-close-button"
+      ".wpcd-coupon-popup-close-button"
     );
     closeButton.addEventListener("click", () => {
       couponPopup.style.display = "none";
@@ -74,7 +74,7 @@ class UBCoupon {
 
     if (isDateExpired) {
       this.expirationDateWrapper.textContent = this.expiredDateText;
-      this.expirationDateWrapper.classList.add("ub-coupon-expired");
+      this.expirationDateWrapper.classList.add("wpcd-coupon-expired");
     }
   }
   setupCopyButton() {
@@ -83,7 +83,7 @@ class UBCoupon {
       this.copyButton.innerText = "Copied!";
       this.copyToClipboard();
       setTimeout(() => {
-        this.copyButton.innerText = copyButtonText;
+        this.copyButton.innerText = copyButtonText.trim();
       }, 1000);
     });
   }
@@ -101,7 +101,7 @@ class UBCoupon {
 
 window.addEventListener("DOMContentLoaded", () => {
   const couponWrappers = document.querySelectorAll(
-    ".ub-coupon-wrapper:not(.ub-coupon-type-deal)"
+    ".wpcd-coupon-wrapper:not(.wpcd-coupon-type-deal)"
   );
   couponWrappers.forEach((wrapper) => {
     new UBCoupon(wrapper);

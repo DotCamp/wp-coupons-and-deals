@@ -1,1 +1,1912 @@
-(()=>{var e,t={801:(e,t,o)=>{"use strict";const l=window.React,a=window.wp.blocks,r=JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"ub/coupon","title":"Coupon","category":"ultimateblocks","description":"Add coupon boxes to boost your affiliate sales.","keywords":["coupon","ultimate coupon"],"attributes":{"template":{"type":"string","default":"default"},"padding":{"type":"object","default":{}},"margin":{"type":"object","default":{}},"discount":{"type":"string","default":"100%"},"title":{"type":"string","default":"Sample Coupon Code 2023"},"description":{"type":"string","default":"This is a little description of the coupon code or deal. Just to let users know some additional details."},"code":{"type":"string","default":"SAMPLECODE"},"expiredDateText":{"type":"string","default":"Expired"},"couponDealLabel":{"type":"string","default":"Coupon"},"navigationLink":{"type":"string","default":""},"expirationDate":{"type":"string","default":"10/30/2024"},"titleColor":{"type":"string","default":null},"descriptionColor":{"type":"string","default":null},"codeColor":{"type":"string","default":null},"discountColor":{"type":"string","default":null},"couponDealLabelColor":{"type":"string","default":null},"codeHoverColor":{"type":"string","default":null},"expirationDateColor":{"type":"string","default":null},"expiredDateColor":{"type":"string","default":null},"couponDealLabelBackgroundColor":{"type":"string","default":null},"couponDealLabelGradientBackground":{"type":"string","default":null},"codeBackgroundColor":{"type":"string","default":null},"codeGradientBackground":{"type":"string","default":null},"codeHoverBackgroundColor":{"type":"string","default":null},"codeHoverGradientBackground":{"type":"string","default":null},"wrapperBackgroundColor":{"type":"string","default":null},"wrapperGradientBackground":{"type":"string","default":null},"wrapperBorder":{"type":"object","default":{}},"wrapperBorderRadius":{"type":"object","default":{}},"codeBorder":{"type":"object","default":{}},"codeBorderRadius":{"type":"object","default":{}},"separatorBorder":{"type":"object","default":{}},"discountFontSize":{"type":"string","default":""},"couponDealLabelFontSize":{"type":"string","default":""},"titleFontSize":{"type":"string","default":""},"descriptionFontSize":{"type":"string","default":""},"codeFontSize":{"type":"string","default":""},"expirationDateFontSize":{"type":"string","default":""},"expiredDateFontSize":{"type":"string","default":""},"hideCoupon":{"type":"boolean","default":false},"couponId":{"type":"string","default":""},"couponPopupOfferButtonColor":{"type":"string","default":null},"couponPopupCopyButtonColor":{"type":"string","default":null},"couponPopupCodeFieldColor":{"type":"string","default":null},"couponPopupOfferButtonBgColor":{"type":"string","default":null},"couponPopupCopyButtonBgColor":{"type":"string","default":null},"couponPopupCodeFieldBgColor":{"type":"string","default":null},"couponPopupOfferButtonBgGradient":{"type":"string","default":null},"couponPopupCopyButtonBgGradient":{"type":"string","default":null},"couponPopupCodeFieldBgGradient":{"type":"string","default":null},"couponPopupCodeFieldBorder":{"type":"object","default":{}},"couponCodeButtonText":{"type":"string","default":"Show Code"},"couponPopupCopyButtonText":{"type":"string","default":"Copy"},"couponPopupOfferText":{"type":"string","default":"Go To Offer"},"doesNotExpireText":{"type":"string","default":"Doesn\'t Expire"},"couponType":{"type":"string","default":"coupon"},"dealButtonText":{"type":"string","default":"Get Deal"},"isDoesNotExpire":{"type":"boolean","default":false}},"supports":{"align":true},"editorScript":"file:./index.js","editorStyle":"file:./index.css","viewScript":"file:./front.js","style":["file:./style-index.css"]}'),n=window.lodash,u=window.wp.blockEditor,p=window.wp.element,i=window.wp.i18n,c=function(e){const{attributes:t,setAttributes:o}=e,{discount:a,title:r,description:n,code:p,couponDealLabel:c,expirationDate:d,doesNotExpireText:s,isDoesNotExpire:m,couponType:b,dealButtonText:g}=t;return(0,l.createElement)("div",{className:"ub-coupon-inner__wrapper"},(0,l.createElement)("div",{className:"ub-coupon-discount-wrapper"},(0,l.createElement)("div",{className:"ub-coupon-discount-inner__wrapper"},(0,l.createElement)(u.RichText,{className:"ub-coupon-discount",value:a,tagName:"div",onChange:e=>o({discount:e}),placeholder:(0,i.__)("100%","ultimate-blocks-pro")}),(0,l.createElement)(u.RichText,{tagName:"div",className:"ub-coupon-name",value:c,onChange:e=>o({couponDealLabel:e}),placeholder:(0,i.__)("Coupon","ultimate-blocks-pro")}))),(0,l.createElement)("div",{className:"ub-coupon-details-wrapper"},(0,l.createElement)("div",{className:"ub-coupon-header"},(0,l.createElement)("div",{className:"ub-coupon-title-wrapper"},(0,l.createElement)(u.RichText,{className:"ub-coupon-title",value:r,tagName:"h3",onChange:e=>o({title:e}),placeholder:(0,i.__)("Title here","ultimate-blocks-pro")})),(0,l.createElement)("div",{className:"ub-coupon-code"},"deal"!==b&&(0,l.createElement)("a",{rel:"nofollow noopener",target:"_blank","data-clipboard-text":p,className:"ub-coupon-button",title:(0,i.__)("Click To Copy Coupon","ultimate-blocks-pro")},(0,l.createElement)("span",{className:"ub-coupon-icon"},(0,l.createElement)("svg",{xmlns:"http://www.w3.org/2000/svg",width:"24",height:"24",viewBox:"0 0 24 24"},(0,l.createElement)("g",{fill:"currentColor"},(0,l.createElement)("path",{"fill-rule":"evenodd",d:"M8.128 9.155a3.751 3.751 0 1 1 .713-1.321l1.136.656a.75.75 0 0 1 .222 1.104l-.006.007a.75.75 0 0 1-1.032.157a1.421 1.421 0 0 0-.113-.072l-.92-.531Zm-4.827-3.53a2.25 2.25 0 0 1 3.994 2.063a.756.756 0 0 0-.122.23a2.25 2.25 0 0 1-3.872-2.293Zm10.047 2.647a5.073 5.073 0 0 0-3.428 3.57c-.101.387-.158.79-.165 1.202a1.415 1.415 0 0 1-.707 1.201l-.96.554a3.751 3.751 0 1 0 .734 1.309l13.729-7.926a.75.75 0 0 0-.181-1.374l-.803-.215a5.25 5.25 0 0 0-2.894.05l-5.325 1.629Zm-9.223 7.03a2.25 2.25 0 1 0 2.25 3.897a2.25 2.25 0 0 0-2.25-3.897ZM12 12.75a.75.75 0 1 0 0-1.5a.75.75 0 0 0 0 1.5Z","clip-rule":"evenodd"}),(0,l.createElement)("path",{d:"M16.372 12.615a.75.75 0 0 1 .75 0l5.43 3.135a.75.75 0 0 1-.182 1.374l-.802.215a5.25 5.25 0 0 1-2.894-.051l-5.147-1.574a.75.75 0 0 1-.156-1.367l3-1.732Z"})))),(0,l.createElement)(u.RichText,{value:p,tagName:"span",onChange:e=>o({code:e}),placeholder:(0,i.__)("SAMPLECODE","ultimate-blocks-pro")})),"deal"===b&&(0,l.createElement)("a",{rel:"nofollow noopener",target:"_blank",className:"ub-coupon-button",title:(0,i.__)("Click To Claim This Deal","ultimate-blocks-pro")},(0,l.createElement)(u.RichText,{value:g,tagName:"span",onChange:e=>o({dealButtonText:e}),placeholder:(0,i.__)("Get Deal","ultimate-blocks-pro")})))),(0,l.createElement)("div",{className:"ub-coupon-content"},(0,l.createElement)("div",{className:"ub-coupon-description"},(0,l.createElement)(u.RichText,{value:n,tagName:"p",onChange:e=>o({description:e}),placeholder:(0,i.__)("Description here","ultimate-blocks-pro")})),(0,l.createElement)("div",{className:"ub-coupon-expiration-date"+(m?" ub-coupon-does-not-expire":"")},!m&&(0,l.createElement)(l.Fragment,null,(0,l.createElement)("span",null,(0,i.__)("Expire On ","ultimate-blocks-pro")),(0,l.createElement)("span",null,d)),m&&(0,l.createElement)(u.RichText,{value:s,tagName:"span",onChange:e=>o({doesNotExpireText:e}),placeholder:(0,i.__)("Doesn't Expire Text Here","ultimate-blocks-pro")})))))},d=window.wp.components,s=window.wp.data,m=function(e){const{clientId:t}=(0,u.useBlockEditContext)(),{updateBlockAttributes:o}=(0,s.useDispatch)("core/block-editor"),a=(0,s.useSelect)((e=>e("core/block-editor").getBlockAttributes(t))),r=e=>o(t,e),n=(0,u.__experimentalUseMultipleOriginColorsAndGradients)(),{defaultColors:p}=(0,s.useSelect)((e=>({defaultColors:e("core/block-editor")?.getSettings()?.__experimentalFeatures?.color?.palette?.default})));return(0,l.createElement)(u.__experimentalColorGradientSettingsDropdown,{...n,enableAlpha:!0,panelId:t,title:(0,i.__)("Color Settings","ultimate-blocks-pro"),popoverProps:{placement:"left start"},settings:[{clearable:!0,resetAllFilter:()=>r({[e.attrKey]:null}),colorValue:a[e.attrKey],colors:p,label:e.label,onColorChange:t=>r({[e.attrKey]:t})}]})},b=function(e){const{clientId:t}=(0,u.useBlockEditContext)(),{updateBlockAttributes:o}=(0,s.useDispatch)("core/block-editor"),a=(0,s.useSelect)((e=>e("core/block-editor").getBlockAttributes(t))),r=e=>o(t,e),n=(0,u.__experimentalUseMultipleOriginColorsAndGradients)(),{defaultColors:p,defaultGradients:c}=(0,s.useSelect)((e=>({defaultColors:e("core/block-editor")?.getSettings()?.__experimentalFeatures?.color?.palette?.default,defaultGradients:e("core/block-editor")?.getSettings()?.__experimentalFeatures?.color?.gradients?.default})));return(0,l.createElement)(u.__experimentalColorGradientSettingsDropdown,{...n,enableAlpha:!0,panelId:t,title:(0,i.__)("Color Settings","ultimate-blocks-pro"),popoverProps:{placement:"left start"},settings:[{clearable:!0,resetAllFilter:()=>r({[e.attrBackgroundKey]:null,[e.attrGradientKey]:null}),colorValue:a[e.attrBackgroundKey],gradientValue:a[e.attrGradientKey],colors:p,gradients:c,label:e.label,onColorChange:t=>r({[e.attrBackgroundKey]:t}),onGradientChange:t=>r({[e.attrGradientKey]:t})}]})};function g(e){return!!e?.includes&&("0"===e||e.includes("var:preset|spacing|"))}function C(e){if(!e)return;const t=e.match(/var:preset\|spacing\|(.+)/);return t?`var(--wp--preset--spacing--${t[1]})`:e}function f(e){let t={};for(const[o,l]of Object.entries(e))g(l)?t[o]=C(l):t[o]=l;return t}function E(e,t){var o,l;const a=!(0,n.isEmpty)(e[t]?.width);return`${null!==(o=e[t]?.width)&&void 0!==o?o:""} ${a&&(0,n.isEmpty)(e[t]?.style)?"solid":null!==(l=e[t]?.style)&&void 0!==l?l:""} ${a&&(0,n.isEmpty)(e[t]?.color)?"":e[t]?.color}`}function _(e,t){const o=(e=>{let t={};return function(e={}){const t=["top","right","bottom","left"];for(const o in e)if(t.includes(o))return!0;return!1}(e)?e:(t.top=e,t.right=e,t.bottom=e,t.left=e,t)})(e),l=["top","right","bottom","left"];let a={};for(let e=0;e<l.length;e++){const r=l[e],n=[`--ub-${t}-border-${r}`],u=E(o,r);a[n]=u}return a}const B=function({borderLabel:e,attrBorderKey:t,borderRadiusLabel:o,attrBorderRadiusKey:a,isShowBorder:r=!0,isShowBorderRadius:p=!0,showDefaultBorder:i=!1,showDefaultBorderRadius:c=!1}){const{clientId:m}=(0,u.useBlockEditContext)(),b=(0,s.useSelect)((e=>e("core/block-editor").getBlockAttributes(m))),{updateBlockAttributes:g}=(0,s.useDispatch)("core/block-editor"),C=e=>{g(m,e)},{defaultColors:f}=(0,s.useSelect)((e=>({defaultColors:e("core/block-editor")?.getSettings()?.__experimentalFeatures?.color?.palette?.default})));return(0,l.createElement)(l.Fragment,null,r&&(0,l.createElement)(d.__experimentalToolsPanelItem,{panelId:m,isShownByDefault:i,resetAllFilter:()=>C({[t]:{}}),hasValue:()=>!(0,n.isEmpty)(b[t]),label:e,onDeselect:()=>{C({[t]:{}})}},(0,l.createElement)(d.__experimentalBorderBoxControl,{enableAlpha:!0,size:"__unstable-large",colors:f,label:e,onChange:e=>{C({[t]:e})},value:b[t]})),p&&(0,l.createElement)(d.__experimentalToolsPanelItem,{panelId:m,isShownByDefault:c,resetAllFilter:()=>C({[a]:{}}),label:o,hasValue:()=>!(0,n.isEmpty)(b[a]),onDeselect:()=>{C({[a]:{}})}},(0,l.createElement)(d.BaseControl.VisualLabel,{as:"legend"},o),(0,l.createElement)("div",{className:"ub-border-radius-control"},(0,l.createElement)(u.__experimentalBorderRadiusControl,{values:b[a],onChange:e=>{const t=function(e={}){return"string"==typeof e}(o=e)?{topLeft:o,topRight:o,bottomLeft:o,bottomRight:o}:o;var o;C({[a]:t})}}))))},y=function({attrKey:e,label:t,withReset:o=!1,withSlider:a=!0,showDefaultFontSize:r=!0}){const{clientId:p}=(0,u.useBlockEditContext)(),i=(0,s.useSelect)((e=>e("core/block-editor").getSelectedBlock().attributes)),{fontSizes:c}=(0,s.useSelect)((e=>({fontSizes:e("core/block-editor")?.getSettings()?.fontSizes}))),{updateBlockAttributes:m}=(0,s.useDispatch)("core/block-editor"),b=e=>{m(p,e)};return(0,l.createElement)(l.Fragment,null,(0,l.createElement)(d.__experimentalToolsPanelItem,{panelId:p,isShownByDefault:r,resetAllFilter:()=>b({[e]:{}}),label:t,hasValue:()=>!(0,n.isEmpty)(i[e]),onDeselect:()=>{b({[e]:""})}},(0,l.createElement)(d.BaseControl,{label:t},(0,l.createElement)(d.FontSizePicker,{withReset:o,size:"__unstable-large",__nextHasNoMarginBottom:!0,fontSizes:c,withSlider:a,value:i[e],onChange:t=>b({[e]:t})}))))},k=function({label:e,options:t,attributeKey:o,isBlock:a=!1,isAdaptiveWidth:r=!1,callBack:n=()=>null}){const{clientId:p}=(0,u.useBlockEditContext)(),{updateBlockAttributes:i}=(0,s.useDispatch)("core/block-editor"),c=(0,s.useSelect)((e=>e("core/block-editor").getBlockAttributes(p)));return(0,l.createElement)(d.__experimentalToggleGroupControl,{label:e,isBlock:a,isAdaptiveWidth:r,__nextHasNoMarginBottom:!0,value:c[o],onChange:e=>{var t;n(t={[o]:e}),i(p,t)}},t.map((({value:e,icon:t=null,label:o})=>t?(0,l.createElement)(d.__experimentalToggleGroupControlOptionIcon,{key:e,value:e,icon:t,label:o}):(0,l.createElement)(d.__experimentalToggleGroupControlOption,{key:e,value:e,label:o}))))},h=function({label:e,attrKey:t,showByDefault:o=!1,minimumCustomValue:a=0,sides:r=["top","right","bottom","left"]}){const{clientId:p}=(0,u.useBlockEditContext)(),i=(0,s.useSelect)((e=>e("core/block-editor").getBlockAttributes(p))),{updateBlockAttributes:c}=(0,s.useDispatch)("core/block-editor"),m=e=>{c(p,e)};return(0,l.createElement)(l.Fragment,null,(0,l.createElement)(d.__experimentalToolsPanelItem,{panelId:p,isShownByDefault:o,resetAllFilter:()=>{m({[t]:{}})},className:"tools-panel-item-spacing",label:e,onDeselect:()=>m({[t]:{}}),hasValue:()=>!(0,n.isEmpty)(i[t])},(0,l.createElement)(u.__experimentalSpacingSizesControl,{minimumCustomValue:a,allowReset:!0,label:e,values:i[t],sides:r,onChange:e=>{m({[t]:e})}})))},x=function({attributes:e,setAttributes:t}){const{couponPopupCopyButtonText:o,couponPopupOfferText:a,couponCodeButtonText:r}=e;return(0,l.createElement)(l.Fragment,null,(0,l.createElement)(d.TextControl,{label:(0,i.__)("HIDDEN COUPON TEXT","ultimate-blocks-pro"),value:r,onChange:e=>t({couponCodeButtonText:e})}),(0,l.createElement)(d.TextControl,{label:(0,i.__)("Popup Copy Button Text","ultimate-blocks-pro"),value:o,onChange:e=>t({couponPopupCopyButtonText:e})}),(0,l.createElement)(d.TextControl,{label:(0,i.__)("POPUP OFFER BUTTON TEXT","ultimate-blocks-pro"),value:a,onChange:e=>t({couponPopupOfferText:e})}))},v=function({normalStateLabel:e,hoverStateLabel:t,normalState:o,hoverState:a}){return(0,l.createElement)(d.TabPanel,{className:"ub-tab-panels",tabs:[{name:"normalState",title:e},{name:"hoverState",title:t}]},(e=>"normalState"===e.name?o:a))},w=function(e){const{attributes:t,setAttributes:o}=e,{navigationLink:a,expiredDateText:r,expirationDate:n,hideCoupon:p,isDoesNotExpire:c,couponType:s}=t,g=(0,l.createElement)(l.Fragment,null,(0,l.createElement)(m,{attrKey:"titleColor",label:(0,i.__)("Title Color","ultimate-blocks-pro")}),(0,l.createElement)(m,{attrKey:"descriptionColor",label:(0,i.__)("Description Color","ultimate-blocks-pro")}),(0,l.createElement)(m,{attrKey:"codeColor",label:"deal"!==s?(0,i.__)("Code Color","ultimate-blocks-pro"):(0,i.__)("Get Deal Color","ultimate-blocks-pro")}),(0,l.createElement)(m,{attrKey:"discountColor",label:(0,i.__)("Discount Color","ultimate-blocks-pro")}),(0,l.createElement)(m,{attrKey:"couponDealLabelColor",label:(0,i.__)("Coupon/Deal Label Color","ultimate-blocks-pro")}),(0,l.createElement)(m,{attrKey:"expirationDateColor",label:c?(0,i.__)("Doesn't Expire Color","ultimate-blocks-pro"):(0,i.__)("Expiration Date Color","ultimate-blocks-pro")}),!c&&(0,l.createElement)(m,{attrKey:"expiredDateColor",label:(0,i.__)("Expired Date Color","ultimate-blocks-pro")}),(0,l.createElement)(b,{attrBackgroundKey:"codeBackgroundColor",attrGradientKey:"codeGradientBackground",label:"deal"!==s?(0,i.__)("Code Background","ultimate-blocks-pro"):(0,i.__)("Get Deal Background","ultimate-blocks-pro")}),(0,l.createElement)(b,{attrBackgroundKey:"couponDealLabelBackgroundColor",attrGradientKey:"couponDealLabelGradientBackground",label:(0,i.__)("Coupon/Deal Background","ultimate-blocks-pro")}),(0,l.createElement)(b,{attrBackgroundKey:"wrapperBackgroundColor",attrGradientKey:"wrapperGradientBackground",label:(0,i.__)("Wrapper Background","ultimate-blocks-pro")}),p&&(0,l.createElement)(l.Fragment,null,(0,l.createElement)(m,{attrKey:"couponPopupOfferButtonColor",label:(0,i.__)("Popup Navigation Button Color","ultimate-blocks-pro")}),(0,l.createElement)(m,{attrKey:"couponPopupCopyButtonColor",label:(0,i.__)("Popup Copy Button Color","ultimate-blocks-pro")}),(0,l.createElement)(m,{attrKey:"couponPopupCodeFieldColor",label:(0,i.__)("Popup Coupon Field Color","ultimate-blocks-pro")}),(0,l.createElement)(b,{attrBackgroundKey:"couponPopupOfferButtonBgColor",attrGradientKey:"couponPopupOfferButtonBgGradient",label:(0,i.__)("Popup Navigation Button Background","ultimate-blocks-pro")}),(0,l.createElement)(b,{attrBackgroundKey:"couponPopupCopyButtonBgColor",attrGradientKey:"couponPopupCopyButtonBgGradient",label:(0,i.__)("Popup Copy Button Background","ultimate-blocks-pro")}),(0,l.createElement)(b,{attrBackgroundKey:"couponPopupCodeFieldBgColor",attrGradientKey:"couponPopupCodeFieldBgGradient",label:(0,i.__)("Popup Coupon Field Background","ultimate-blocks-pro")}))),C=(0,l.createElement)(l.Fragment,null,(0,l.createElement)(m,{attrKey:"codeHoverColor",label:"deal"!==s?(0,i.__)("Code Hover Color","ultimate-blocks-pro"):(0,i.__)("Get Deal Hover Color","ultimate-blocks-pro")}),(0,l.createElement)(b,{attrBackgroundKey:"codeHoverBackgroundColor",attrGradientKey:"codeHoverGradientBackground",label:"deal"!==s?(0,i.__)("Code Hover Background","ultimate-blocks-pro"):(0,i.__)("Get Deal Hover Background","ultimate-blocks-pro")})),f=[{label:(0,i.__)("Coupon","ultimate-blocks-pro"),value:"coupon"},{label:(0,i.__)("Deal","ultimate-blocks-pro"),value:"deal"}];return(0,l.createElement)(l.Fragment,null,(0,l.createElement)(u.InspectorControls,null,(0,l.createElement)(d.PanelBody,{title:(0,i.__)("General","ultimate-blocks-pro")},(0,l.createElement)(k,{label:(0,i.__)("Coupon Type","ultimate-blocks-pro"),isBlock:!0,options:f,attributeKey:"couponType"}),(0,l.createElement)(d.TextControl,{label:(0,i.__)("Link To Navigate On Copy (Affiliate Link)","ultimate-blocks-pro"),type:"url",value:a,onChange:e=>o({navigationLink:e})}),(0,l.createElement)(d.ToggleControl,{label:(0,i.__)("Doesn't Expire","ultimate-blocks-pro"),checked:c,onChange:()=>o({isDoesNotExpire:!c})}),!c&&(0,l.createElement)(l.Fragment,null,(0,l.createElement)(d.TextControl,{label:(0,i.__)("Expired Date Label","ultimate-blocks-pro"),value:r,help:(0,i.__)("This text will show when coupon date is expired.","ultimate-blocks-pro"),onChange:e=>o({expiredDateText:e})}),(0,l.createElement)(d.BaseControl,{label:(0,i.__)("Expiration Date","ultimate-blocks-pro")},(0,l.createElement)(d.DatePicker,{currentDate:n,onChange:e=>{const t=new Date(e);o({expirationDate:t.toLocaleDateString()})}}))),"deal"!==s&&(0,l.createElement)(l.Fragment,null,(0,l.createElement)(d.ToggleControl,{label:(0,i.__)("Hide Coupon","ultimate-blocks-pro"),checked:p,onChange:()=>o({hideCoupon:!p})}),p&&(0,l.createElement)(x,{...e})))),(0,l.createElement)(u.InspectorControls,{group:"color"},(0,l.createElement)(v,{normalStateLabel:(0,i.__)("Normal","ultimate-blocks-pro"),hoverStateLabel:(0,i.__)("Hover","ultimate-blocks-pro"),normalState:g,hoverState:C})),(0,l.createElement)(u.InspectorControls,{group:"typography"},(0,l.createElement)(y,{attrKey:"discountFontSize",label:(0,i.__)("Discount Font Size","ultimate-blocks-pro")}),(0,l.createElement)(y,{attrKey:"couponDealLabelFontSize",label:(0,i.__)("Coupon/Deal Label Font Size","ultimate-blocks-pro")}),(0,l.createElement)(y,{attrKey:"titleFontSize",label:(0,i.__)("Title Font Size","ultimate-blocks-pro")}),(0,l.createElement)(y,{attrKey:"descriptionFontSize",label:(0,i.__)("Description Font Size","ultimate-blocks-pro")}),(0,l.createElement)(y,{attrKey:"codeFontSize",label:"deal"!==s?(0,i.__)("Code Font Size","ultimate-blocks-pro"):(0,i.__)("Get Deal Font Size","ultimate-blocks-pro")}),(0,l.createElement)(y,{attrKey:"expirationDateFontSize",label:(0,i.__)("Expiration Date Font Size","ultimate-blocks-pro")}),(0,l.createElement)(y,{attrKey:"expiredDateFontSize",label:(0,i.__)("Expired Date Font Size","ultimate-blocks-pro")})),(0,l.createElement)(u.InspectorControls,{group:"border"},(0,l.createElement)(B,{showDefaultBorder:!0,showDefaultBorderRadius:!0,attrBorderKey:"wrapperBorder",attrBorderRadiusKey:"wrapperBorderRadius",borderLabel:(0,i.__)("Wrapper Border","ultimate-blocks-pro"),borderRadiusLabel:(0,i.__)("Wrapper Border Radius","ultimate-blocks-pro")}),(0,l.createElement)(B,{showDefaultBorder:!0,showDefaultBorderRadius:!0,attrBorderKey:"codeBorder",attrBorderRadiusKey:"codeBorderRadius",borderLabel:"deal"!==s?(0,i.__)("Code Border","ultimate-blocks-pro"):(0,i.__)("Get Deal Border","ultimate-blocks-pro"),borderRadiusLabel:"deal"!==s?(0,i.__)("Code Border Radius","ultimate-blocks-pro"):(0,i.__)("Get Deal Border Radius","ultimate-blocks-pro")}),(0,l.createElement)(B,{showDefaultBorder:!0,showDefaultBorderRadius:!0,isShowBorderRadius:!1,attrBorderKey:"separatorBorder",borderLabel:(0,i.__)("Separator Border","ultimate-blocks-pro")}),p&&"deal"!==s&&(0,l.createElement)(B,{showDefaultBorder:!0,showDefaultBorderRadius:!0,isShowBorderRadius:!1,attrBorderKey:"couponPopupCodeFieldBorder",borderLabel:(0,i.__)("Popup Coupon Field Border","ultimate-blocks-pro")})),(0,l.createElement)(u.InspectorControls,{group:"dimensions"},(0,l.createElement)(h,{showByDefault:!0,attrKey:"padding",label:(0,i.__)("Padding","ultimate-blocks-pro")}),(0,l.createElement)(h,{minimumCustomValue:-1/0,showByDefault:!0,attrKey:"margin",label:(0,i.__)("Margin","ultimate-blocks-pro")})))};function D(e){const{padding:t,margin:o}=e,l=e=>(0,n.isUndefined)(e)||!1===e||""===(0,n.trim)(e)||"undefined undefined undefined"===(0,n.trim)(e)||(0,n.isEmpty)(e);return{"has-padding":!l(t),"has-margin":!l(o)}}function S(e){const t=_(e.codeBorder,"coupon-code"),o=f(e.padding),l=f(e.margin),a=_(e.wrapperBorder,"coupon-wrapper"),r=_(e.separatorBorder,"coupon-separator"),u=_(e.couponPopupCodeFieldBorder,"coupon-popup-field"),p={"--ub-coupon-code-top-left-radius":e.codeBorderRadius?.topLeft,"--ub-coupon-code-top-right-radius":e.codeBorderRadius?.topRight,"--ub-coupon-code-bottom-left-radius":e.codeBorderRadius?.bottomLeft,"--ub-coupon-code-bottom-right-radius":e.codeBorderRadius?.bottomRight},i={"--ub-coupon-wrapper-top-left-radius":e.wrapperBorderRadius?.topLeft,"--ub-coupon-wrapper-top-right-radius":e.wrapperBorderRadius?.topRight,"--ub-coupon-wrapper-bottom-left-radius":e.wrapperBorderRadius?.bottomLeft,"--ub-coupon-wrapper-bottom-right-radius":e.wrapperBorderRadius?.bottomRight};let c={"--ub-coupon-title-font-size":e?.titleFontSize,"--ub-coupon-discount-font-size":e?.discountFontSize,"--ub-coupon-deal-label-font-size":e?.couponDealLabelFontSize,"--ub-coupon-description-font-size":e?.descriptionFontSize,"--ub-coupon-code-font-size":e?.codeFontSize,"--ub-coupon-expiration-date-font-size":e?.expirationDateFontSize,"--ub-coupon-expired-date-font-size":e?.expiredDateFontSize,"--ub-coupon-code-bg-color":(0,n.isEmpty)(e?.codeBackgroundColor)?e?.codeGradientBackground:e.codeBackgroundColor,"--ub-coupon-popup-offer-bg-color":(0,n.isEmpty)(e?.couponPopupOfferButtonBgColor)?e?.couponPopupOfferButtonBgGradient:e.couponPopupOfferButtonBgColor,"--ub-coupon-popup-copy-bg-color":(0,n.isEmpty)(e?.couponPopupCopyButtonBgColor)?e?.couponPopupCopyButtonBgGradient:e.couponPopupCopyButtonBgColor,"--ub-coupon-popup-field-bg-color":(0,n.isEmpty)(e?.couponPopupCodeFieldBgColor)?e?.couponPopupCodeFieldBgGradient:e.couponPopupCodeFieldBgColor,"--ub-coupon-code-bg-hover-color":(0,n.isEmpty)(e?.codeHoverBackgroundColor)?e?.codeHoverGradientBackground:e.codeHoverBackgroundColor,"--ub-coupon-wrapper-bg-color":(0,n.isEmpty)(e?.wrapperBackgroundColor)?e?.wrapperGradientBackground:e.wrapperBackgroundColor,"--ub-coupon-deal-label-bg-color":(0,n.isEmpty)(e?.couponDealLabelBackgroundColor)?e?.couponDealLabelGradientBackground:e.couponDealLabelBackgroundColor,"--ub-coupon-popup-offer-color":e?.couponPopupOfferButtonColor,"--ub-coupon-popup-copy-color":e?.couponPopupCopyButtonColor,"--ub-coupon-popup-field-color":e?.couponPopupCodeFieldColor,"--ub-coupon-title-color":e?.titleColor,"--ub-coupon-description-color":e?.descriptionColor,"--ub-coupon-code-color":e?.codeColor,"--ub-coupon-code-hover-color":e?.codeHoverColor,"--ub-coupon-discount-color":e?.discountColor,"--ub-coupon-deal-label-color":e?.couponDealLabelColor,"--ub-coupon-expiration-date-color":e?.expirationDateColor,"--ub-coupon-expired-date-color":e?.expiredDateColor,"--ub-coupon-code-button-text":`"${e?.couponCodeButtonText}"`,"--ub-coupon-wrapper-padding-top":o?.top,"--ub-coupon-wrapper-padding-right":o?.right,"--ub-coupon-wrapper-padding-bottom":o?.bottom,"--ub-coupon-wrapper-padding-left":o?.left,"--ub-coupon-wrapper-margin-top":l?.top,"--ub-coupon-wrapper-margin-right":l?.right,"--ub-coupon-wrapper-margin-bottom":l?.bottom,"--ub-coupon-wrapper-margin-left":l?.left,...p,...t,...a,...r,...i,...u};return(0,n.omitBy)(c,(e=>(0,n.isUndefined)(e)||!1===e||""===(0,n.trim)(e)||"undefined undefined undefined"===(0,n.trim)(e)||(0,n.isEmpty)(e)))}var T=o(942),N=o.n(T);const F=function(e){const{attributes:t}=e,{discount:o,title:a,description:r,code:n,couponDealLabel:p,navigationLink:c,expirationDate:d,hideCoupon:s,doesNotExpireText:m,isDoesNotExpire:b,dealButtonText:g,couponType:C}=t,f=s?{}:{rel:"nofollow noopener",target:"_blank"};return(0,l.createElement)("div",{className:"ub-coupon-inner__wrapper"},(0,l.createElement)("div",{className:"ub-coupon-discount-wrapper"},(0,l.createElement)("div",{className:"ub-coupon-discount-inner__wrapper"},(0,l.createElement)(u.RichText.Content,{className:"ub-coupon-discount",value:o,tagName:"div"}),(0,l.createElement)(u.RichText.Content,{className:"ub-coupon-name",value:p,tagName:"div"}))),(0,l.createElement)("div",{className:"ub-coupon-details-wrapper"},(0,l.createElement)("div",{className:"ub-coupon-header"},(0,l.createElement)("div",{className:"ub-coupon-title-wrapper"},(0,l.createElement)(u.RichText.Content,{className:"ub-coupon-title",value:a,tagName:"h3"})),(0,l.createElement)("div",{className:"ub-coupon-code"},"deal"!==C&&(0,l.createElement)("a",{...f,href:c,className:"ub-coupon-button"+(s?" ub-popup-button":""),title:(0,i.__)("Click To Copy Coupon","ultimate-blocks-pro")},(0,l.createElement)("span",{className:"ub-coupon-icon"},(0,l.createElement)("svg",{xmlns:"http://www.w3.org/2000/svg",width:"24",height:"24",viewBox:"0 0 24 24"},(0,l.createElement)("g",{fill:"currentColor"},(0,l.createElement)("path",{"fill-rule":"evenodd",d:"M8.128 9.155a3.751 3.751 0 1 1 .713-1.321l1.136.656a.75.75 0 0 1 .222 1.104l-.006.007a.75.75 0 0 1-1.032.157a1.421 1.421 0 0 0-.113-.072l-.92-.531Zm-4.827-3.53a2.25 2.25 0 0 1 3.994 2.063a.756.756 0 0 0-.122.23a2.25 2.25 0 0 1-3.872-2.293Zm10.047 2.647a5.073 5.073 0 0 0-3.428 3.57c-.101.387-.158.79-.165 1.202a1.415 1.415 0 0 1-.707 1.201l-.96.554a3.751 3.751 0 1 0 .734 1.309l13.729-7.926a.75.75 0 0 0-.181-1.374l-.803-.215a5.25 5.25 0 0 0-2.894.05l-5.325 1.629Zm-9.223 7.03a2.25 2.25 0 1 0 2.25 3.897a2.25 2.25 0 0 0-2.25-3.897ZM12 12.75a.75.75 0 1 0 0-1.5a.75.75 0 0 0 0 1.5Z","clip-rule":"evenodd"}),(0,l.createElement)("path",{d:"M16.372 12.615a.75.75 0 0 1 .75 0l5.43 3.135a.75.75 0 0 1-.182 1.374l-.802.215a5.25 5.25 0 0 1-2.894-.051l-5.147-1.574a.75.75 0 0 1-.156-1.367l3-1.732Z"})))),(0,l.createElement)(u.RichText.Content,{value:n,tagName:"span"})),"deal"===C&&(0,l.createElement)("a",{...f,href:c,className:"ub-coupon-button",title:(0,i.__)("Click To Claim This Deal","ultimate-blocks-pro")},(0,l.createElement)(u.RichText.Content,{value:g,tagName:"span"})))),(0,l.createElement)("div",{className:"ub-coupon-content"},(0,l.createElement)("div",{className:"ub-coupon-description"},(0,l.createElement)(u.RichText.Content,{value:r,tagName:"p"})),(0,l.createElement)("div",{className:"ub-coupon-expiration-date"+(b?" ub-coupon-does-not-expire":"")},!b&&(0,l.createElement)(l.Fragment,null,(0,l.createElement)("span",null,(0,i.__)("Expire On ","ultimate-blocks-pro")),(0,l.createElement)("span",null,d)),b&&(0,l.createElement)(u.RichText.Content,{tagName:"span",value:m})))))},P=function(e){const{attributes:t}=e,{code:o,couponId:a,navigationLink:r,couponPopupCopyButtonText:n,couponPopupOfferText:u,title:p,description:i}=t;return(0,l.createElement)("div",{id:a,className:"ub-coupon-popup"},(0,l.createElement)("div",{className:"ub-coupon-popup-inner_wrapper"},(0,l.createElement)("div",{className:"ub-coupon-popup-header"},(0,l.createElement)("p",{className:"ub-coupon-popup-title"},p),(0,l.createElement)("span",{className:"ub-coupon-popup-close-button"},"×")),(0,l.createElement)("div",{className:"ub-coupon-popup-content"},(0,l.createElement)("p",{className:"ub-coupon-popup-description"},i),(0,l.createElement)("div",{className:"ub-coupon-popup-code-wrapper"},(0,l.createElement)("span",{className:"ub-coupon-popup-code"},o),(0,l.createElement)("span",{className:"ub-coupon-button"},n)),(0,l.createElement)("a",{href:r,rel:"nofollow noopener",target:"_blank",className:"ub-coupon-go-to-offer"},u))))};(0,a.registerBlockType)(r.name,{...r,edit:function(e){const{attributes:t,setAttributes:o}=e,{template:a,hideCoupon:r,couponId:i,couponType:d}=t,s=(0,u.useBlockProps)({className:N()(`ub-coupon-wrapper ub-coupon-${a}-template`,{"ub-coupon-hidden":r&&"deal"!==d,"ub-coupon-type-deal":"deal"===d,...D(t)}),style:S(t)});return(0,p.useEffect)((()=>{(0,n.isEmpty)(i)&&r&&o({couponId:(0,n.uniqueId)().toString()})}),[r]),(0,l.createElement)(l.Fragment,null,(0,l.createElement)("div",{...s},"default"===a&&(0,l.createElement)(c,{...e})),(0,l.createElement)(w,{...e}))},save:function(e){const{attributes:t}=e,{template:o,expiredDateText:a,expirationDate:r,code:n,hideCoupon:p,couponId:i,couponType:c}=t,d=u.useBlockProps.save({className:N()(`ub-coupon-wrapper ub-coupon-${o}-template`,{"ub-coupon-hidden":p&&"deal"!==c,"ub-coupon-type-deal":"deal"===c}),style:S(t),"data-expired_date_text":a,"data-expiration_date":r,"data-coupon_code":n,"data-coupon_id":i});return(0,l.createElement)("div",{...d},"default"===o&&(0,l.createElement)(F,{...e}),p&&(0,l.createElement)(P,{...e}))},icon:(0,l.createElement)("svg",{width:"24",height:"24",viewBox:"0 0 24 24",fill:"none",xmlns:"http://www.w3.org/2000/svg"},(0,l.createElement)("rect",{width:"24",height:"24",fill:"white"}),(0,l.createElement)("path",{fillRule:"evenodd",clipRule:"evenodd",d:"M5.47272 4.62474C4.97028 4.39547 4.3771 4.61692 4.14783 5.11936L3.28967 6.99999H10.678L5.47272 4.62474ZM20.7104 17H13.322L18.5273 19.3753C19.0298 19.6045 19.6229 19.3831 19.8522 18.8806L20.7104 17Z",fill:"#E11B4C"}),(0,l.createElement)("path",{fillRule:"evenodd",clipRule:"evenodd",d:"M2 9C2 8.44771 2.44772 8 3 8H8.5V9C8.5 9.27614 8.72386 9.5 9 9.5C9.27614 9.5 9.5 9.27614 9.5 9V8H21C21.5523 8 22 8.44771 22 9V10C20.8954 10 20 10.8954 20 12C20 13.1046 20.8954 14 22 14V15C22 15.5523 21.5523 16 21 16H9.5V15C9.5 14.7239 9.27614 14.5 9 14.5C8.72386 14.5 8.5 14.7239 8.5 15V16H3C2.44772 16 2 15.5523 2 15V14C3.10457 14 4 13.1046 4 12C4 10.8954 3.10457 10 2 10V9ZM9 10.5C9.27614 10.5 9.5 10.7239 9.5 11V13C9.5 13.2761 9.27614 13.5 9 13.5C8.72386 13.5 8.5 13.2761 8.5 13V11C8.5 10.7239 8.72386 10.5 9 10.5ZM17.3611 10.3458C17.5521 10.1464 17.5453 9.82985 17.3458 9.63886C17.1464 9.44788 16.8298 9.45475 16.6389 9.6542L12.5056 13.9708C12.3146 14.1702 12.3214 14.4867 12.5209 14.6777C12.7203 14.8687 13.0368 14.8618 13.2278 14.6624L17.3611 10.3458ZM15 10C15 10.5523 14.5523 11 14 11C13.4477 11 13 10.5523 13 10C13 9.44771 13.4477 9 14 9C14.5523 9 15 9.44771 15 10ZM16 15C16.5523 15 17 14.5523 17 14C17 13.4477 16.5523 13 16 13C15.4477 13 15 13.4477 15 14C15 14.5523 15.4477 15 16 15Z",fill:"#E11B4C"})),example:{viewportWidth:900,attributes:{template:"default",discount:"100%",title:"Sample Coupon Code 2023",description:"This is a little description of the coupon code or deal. Just to let users know some additional details.",code:"SAMPLECODE",expiredDateText:"Expired",couponDealLabel:"Coupon",navigationLink:"",expirationDate:"10/30/2024",hideCoupon:!1,couponCodeButtonText:"Show Code"}}})},942:(e,t)=>{var o;!function(){"use strict";var l={}.hasOwnProperty;function a(){for(var e="",t=0;t<arguments.length;t++){var o=arguments[t];o&&(e=n(e,r(o)))}return e}function r(e){if("string"==typeof e||"number"==typeof e)return e;if("object"!=typeof e)return"";if(Array.isArray(e))return a.apply(null,e);if(e.toString!==Object.prototype.toString&&!e.toString.toString().includes("[native code]"))return e.toString();var t="";for(var o in e)l.call(e,o)&&e[o]&&(t=n(t,o));return t}function n(e,t){return t?e?e+" "+t:e+t:e}e.exports?(a.default=a,e.exports=a):void 0===(o=function(){return a}.apply(t,[]))||(e.exports=o)}()}},o={};function l(e){var a=o[e];if(void 0!==a)return a.exports;var r=o[e]={exports:{}};return t[e](r,r.exports,l),r.exports}l.m=t,e=[],l.O=(t,o,a,r)=>{if(!o){var n=1/0;for(c=0;c<e.length;c++){for(var[o,a,r]=e[c],u=!0,p=0;p<o.length;p++)(!1&r||n>=r)&&Object.keys(l.O).every((e=>l.O[e](o[p])))?o.splice(p--,1):(u=!1,r<n&&(n=r));if(u){e.splice(c--,1);var i=a();void 0!==i&&(t=i)}}return t}r=r||0;for(var c=e.length;c>0&&e[c-1][2]>r;c--)e[c]=e[c-1];e[c]=[o,a,r]},l.n=e=>{var t=e&&e.__esModule?()=>e.default:()=>e;return l.d(t,{a:t}),t},l.d=(e,t)=>{for(var o in t)l.o(t,o)&&!l.o(e,o)&&Object.defineProperty(e,o,{enumerable:!0,get:t[o]})},l.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),(()=>{var e={57:0,350:0};l.O.j=t=>0===e[t];var t=(t,o)=>{var a,r,[n,u,p]=o,i=0;if(n.some((t=>0!==e[t]))){for(a in u)l.o(u,a)&&(l.m[a]=u[a]);if(p)var c=p(l)}for(t&&t(o);i<n.length;i++)r=n[i],l.o(e,r)&&e[r]&&e[r][0](),e[r]=0;return l.O(c)},o=globalThis.webpackChunkwp_coupons_and_deals=globalThis.webpackChunkwp_coupons_and_deals||[];o.forEach(t.bind(null,0)),o.push=t.bind(null,o.push.bind(o))})();var a=l.O(void 0,[350],(()=>l(801)));a=l.O(a)})();
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/StylingControls/BorderControl/index.js":
+/*!****************************************************!*\
+  !*** ./src/StylingControls/BorderControl/index.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _styling_helpers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../styling-helpers */ "./src/styling-helpers.js");
+
+/**
+ * WordPress Dependencies
+ */
+
+
+
+
+
+
+function BorderControl({
+  borderLabel,
+  attrBorderKey,
+  borderRadiusLabel,
+  attrBorderRadiusKey,
+  isShowBorder = true,
+  isShowBorderRadius = true,
+  showDefaultBorder = false,
+  showDefaultBorderRadius = false
+}) {
+  const {
+    clientId
+  } = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockEditContext)();
+  const attributes = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_4__.useSelect)(select => select("core/block-editor").getBlockAttributes(clientId));
+  const {
+    updateBlockAttributes
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_4__.useDispatch)("core/block-editor");
+  const setAttributes = newAttributes => {
+    updateBlockAttributes(clientId, newAttributes);
+  };
+  const {
+    defaultColors
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_4__.useSelect)(select => {
+    return {
+      defaultColors: select("core/block-editor")?.getSettings()?.__experimentalFeatures?.color?.palette?.default
+    };
+  });
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, isShowBorder && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.__experimentalToolsPanelItem, {
+    panelId: clientId,
+    isShownByDefault: showDefaultBorder,
+    resetAllFilter: () => setAttributes({
+      [attrBorderKey]: {}
+    }),
+    hasValue: () => !(0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(attributes[attrBorderKey]),
+    label: borderLabel,
+    onDeselect: () => {
+      setAttributes({
+        [attrBorderKey]: {}
+      });
+    }
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.__experimentalBorderBoxControl, {
+    enableAlpha: true,
+    size: "__unstable-large",
+    colors: defaultColors,
+    label: borderLabel,
+    onChange: newBorder => {
+      setAttributes({
+        [attrBorderKey]: newBorder
+      });
+    },
+    value: attributes[attrBorderKey]
+  })), isShowBorderRadius && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.__experimentalToolsPanelItem, {
+    panelId: clientId,
+    isShownByDefault: showDefaultBorderRadius,
+    resetAllFilter: () => setAttributes({
+      [attrBorderRadiusKey]: {}
+    }),
+    label: borderRadiusLabel,
+    hasValue: () => !(0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(attributes[attrBorderRadiusKey]),
+    onDeselect: () => {
+      setAttributes({
+        [attrBorderRadiusKey]: {}
+      });
+    }
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.BaseControl.VisualLabel, {
+    as: "legend"
+  }, borderRadiusLabel), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wpcd-border-radius-control"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.__experimentalBorderRadiusControl, {
+    values: attributes[attrBorderRadiusKey],
+    onChange: newBorderRadius => {
+      const splitted = (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_6__.splitBorderRadius)(newBorderRadius);
+      setAttributes({
+        [attrBorderRadiusKey]: splitted
+      });
+    }
+  }))));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BorderControl);
+
+/***/ }),
+
+/***/ "./src/StylingControls/ColorSettings/ColorSettings.js":
+/*!************************************************************!*\
+  !*** ./src/StylingControls/ColorSettings/ColorSettings.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
+
+/**
+ * WordPress Dependencies
+ */
+
+
+
+
+
+/**
+ *
+ * @param {object} props - Color settings with gradients props
+ * @param {string} props.label - Component Label
+ * @param {string} props.attrKey - Attribute key for color
+ *
+ */
+function ColorSettings(props) {
+  const {
+    clientId
+  } = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockEditContext)();
+  const {
+    updateBlockAttributes
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.useDispatch)("core/block-editor");
+  const attributes = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.useSelect)(select => {
+    return select("core/block-editor").getBlockAttributes(clientId);
+  });
+  const setAttributes = newAttributes => updateBlockAttributes(clientId, newAttributes);
+  const colorGradientSettings = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.__experimentalUseMultipleOriginColorsAndGradients)();
+  const {
+    defaultColors
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.useSelect)(select => {
+    return {
+      defaultColors: select("core/block-editor")?.getSettings()?.__experimentalFeatures?.color?.palette?.default
+    };
+  });
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.__experimentalColorGradientSettingsDropdown, {
+    ...colorGradientSettings,
+    enableAlpha: true,
+    panelId: clientId,
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Color Settings", "wp-coupons-and-deals"),
+    popoverProps: {
+      placement: "left start"
+    },
+    settings: [{
+      clearable: true,
+      resetAllFilter: () => setAttributes({
+        [props.attrKey]: null
+      }),
+      colorValue: attributes[props.attrKey],
+      colors: defaultColors,
+      label: props.label,
+      onColorChange: newValue => setAttributes({
+        [props.attrKey]: newValue
+      })
+    }]
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ColorSettings);
+
+/***/ }),
+
+/***/ "./src/StylingControls/ColorSettings/ColorSettingsWithGradient.js":
+/*!************************************************************************!*\
+  !*** ./src/StylingControls/ColorSettings/ColorSettingsWithGradient.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
+
+/**
+ * WordPress Dependencies
+ */
+
+
+
+
+
+/**
+ *
+ * @param {object} props - Color settings with gradients props
+ * @param {string} props.label - Component Label
+ * @param {string} props.attrBackgroundKey - Attribute key for background color
+ * @param {string} props.attrGradientKey - Attribute key for gradient background color
+ *
+ */
+function ColorSettingsWithGradient(props) {
+  const {
+    clientId
+  } = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockEditContext)();
+  const {
+    updateBlockAttributes
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.useDispatch)("core/block-editor");
+  const attributes = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.useSelect)(select => {
+    return select("core/block-editor").getBlockAttributes(clientId);
+  });
+  const setAttributes = newAttributes => updateBlockAttributes(clientId, newAttributes);
+  const colorGradientSettings = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.__experimentalUseMultipleOriginColorsAndGradients)();
+  const {
+    defaultColors,
+    defaultGradients
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.useSelect)(select => {
+    return {
+      defaultColors: select("core/block-editor")?.getSettings()?.__experimentalFeatures?.color?.palette?.default,
+      defaultGradients: select("core/block-editor")?.getSettings()?.__experimentalFeatures?.color?.gradients?.default
+    };
+  });
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.__experimentalColorGradientSettingsDropdown, {
+    ...colorGradientSettings,
+    enableAlpha: true,
+    panelId: clientId,
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Color Settings", "wp-coupons-and-deals"),
+    popoverProps: {
+      placement: "left start"
+    },
+    settings: [{
+      clearable: true,
+      resetAllFilter: () => setAttributes({
+        [props.attrBackgroundKey]: null,
+        [props.attrGradientKey]: null
+      }),
+      colorValue: attributes[props.attrBackgroundKey],
+      gradientValue: attributes[props.attrGradientKey],
+      colors: defaultColors,
+      gradients: defaultGradients,
+      label: props.label,
+      onColorChange: newValue => setAttributes({
+        [props.attrBackgroundKey]: newValue
+      }),
+      onGradientChange: newValue => setAttributes({
+        [props.attrGradientKey]: newValue
+      })
+    }]
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ColorSettingsWithGradient);
+
+/***/ }),
+
+/***/ "./src/StylingControls/ColorSettings/index.js":
+/*!****************************************************!*\
+  !*** ./src/StylingControls/ColorSettings/index.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ColorSettings: () => (/* reexport safe */ _ColorSettings__WEBPACK_IMPORTED_MODULE_0__["default"]),
+/* harmony export */   ColorSettingsWithGradient: () => (/* reexport safe */ _ColorSettingsWithGradient__WEBPACK_IMPORTED_MODULE_1__["default"])
+/* harmony export */ });
+/* harmony import */ var _ColorSettings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ColorSettings */ "./src/StylingControls/ColorSettings/ColorSettings.js");
+/* harmony import */ var _ColorSettingsWithGradient__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ColorSettingsWithGradient */ "./src/StylingControls/ColorSettings/ColorSettingsWithGradient.js");
+
+
+
+/***/ }),
+
+/***/ "./src/StylingControls/FontSizePicker/index.js":
+/*!*****************************************************!*\
+  !*** ./src/StylingControls/FontSizePicker/index.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__);
+
+/**
+ * WordPress Dependencies
+ */
+
+
+
+
+
+
+function CustomFontSizePicker({
+  attrKey,
+  label,
+  withReset = false,
+  withSlider = true,
+  showDefaultFontSize = true
+}) {
+  const {
+    clientId
+  } = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockEditContext)();
+  const attributes = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => select("core/block-editor").getSelectedBlock().attributes);
+  const {
+    fontSizes
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => {
+    return {
+      fontSizes: select("core/block-editor")?.getSettings()?.fontSizes
+    };
+  });
+  const {
+    updateBlockAttributes
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useDispatch)("core/block-editor");
+  const setAttributes = newAttributes => {
+    updateBlockAttributes(clientId, newAttributes);
+  };
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.__experimentalToolsPanelItem, {
+    panelId: clientId,
+    isShownByDefault: showDefaultFontSize,
+    resetAllFilter: () => setAttributes({
+      [attrKey]: {}
+    }),
+    label: label,
+    hasValue: () => !(0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(attributes[attrKey]),
+    onDeselect: () => {
+      setAttributes({
+        [attrKey]: ""
+      });
+    }
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.BaseControl, {
+    label: label
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.FontSizePicker, {
+    withReset: withReset,
+    size: "__unstable-large",
+    __nextHasNoMarginBottom: true,
+    fontSizes: fontSizes,
+    withSlider: withSlider,
+    value: attributes[attrKey],
+    onChange: newSize => setAttributes({
+      [attrKey]: newSize
+    })
+  }))));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CustomFontSizePicker);
+
+/***/ }),
+
+/***/ "./src/StylingControls/SpacingControl/index.js":
+/*!*****************************************************!*\
+  !*** ./src/StylingControls/SpacingControl/index.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_3__);
+
+/**
+ * WordPress Dependencies
+ */
+
+
+
+function SpacingControl({
+  label,
+  attrKey,
+  minimumCustomValue = 0,
+  sides = ["top", "right", "bottom", "left"]
+}) {
+  const {
+    clientId
+  } = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockEditContext)();
+  const attributes = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => select("core/block-editor").getSelectedBlock().attributes);
+  const {
+    updateBlockAttributes
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useDispatch)("core/block-editor");
+  const setAttributes = newAttributes => {
+    updateBlockAttributes(clientId, newAttributes);
+  };
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.__experimentalSpacingSizesControl, {
+    minimumCustomValue: minimumCustomValue,
+    allowReset: true,
+    label: label,
+    values: attributes[attrKey],
+    sides: sides,
+    onChange: newValue => {
+      setAttributes({
+        [attrKey]: newValue
+      });
+    }
+  }));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SpacingControl);
+
+/***/ }),
+
+/***/ "./src/StylingControls/SpacingControlWIthToolsPanel/index.js":
+/*!*******************************************************************!*\
+  !*** ./src/StylingControls/SpacingControlWIthToolsPanel/index.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__);
+
+/**
+ * WordPress Dependencies
+ */
+
+
+
+
+
+function SpacingControlWithToolsPanel({
+  label,
+  attrKey,
+  showByDefault = false,
+  minimumCustomValue = 0,
+  sides = ["top", "right", "bottom", "left"]
+}) {
+  const {
+    clientId
+  } = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockEditContext)();
+  const attributes = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_4__.useSelect)(select => select("core/block-editor").getBlockAttributes(clientId));
+  const {
+    updateBlockAttributes
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_4__.useDispatch)("core/block-editor");
+  const setAttributes = newAttributes => {
+    updateBlockAttributes(clientId, newAttributes);
+  };
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.__experimentalToolsPanelItem, {
+    panelId: clientId,
+    isShownByDefault: showByDefault,
+    resetAllFilter: () => {
+      setAttributes({
+        [attrKey]: {}
+      });
+    },
+    className: "tools-panel-item-spacing",
+    label: label,
+    onDeselect: () => setAttributes({
+      [attrKey]: {}
+    }),
+    hasValue: () => !(0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(attributes[attrKey])
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.__experimentalSpacingSizesControl, {
+    minimumCustomValue: minimumCustomValue,
+    allowReset: true,
+    label: label,
+    values: attributes[attrKey],
+    sides: sides,
+    onChange: newValue => {
+      setAttributes({
+        [attrKey]: newValue
+      });
+    }
+  })));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SpacingControlWithToolsPanel);
+
+/***/ }),
+
+/***/ "./src/StylingControls/TabsPanelControl/index.js":
+/*!*******************************************************!*\
+  !*** ./src/StylingControls/TabsPanelControl/index.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function TabsPanelControl({
+  tabs
+}) {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TabPanel, {
+    className: "wpcd-tab-panels",
+    tabs: tabs
+  }, tab => tab.component);
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TabsPanelControl);
+
+/***/ }),
+
+/***/ "./src/StylingControls/ToggleGroupControl/index.js":
+/*!*********************************************************!*\
+  !*** ./src/StylingControls/ToggleGroupControl/index.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+
+/**
+ * WordPress Dependencies
+ */
+
+
+
+
+/**
+ *
+ * @param {string} label - Group control label
+ * @param {Array} options - Group control available options
+ * @param {string} attributeKey - Attribute key
+ * @param {boolean} [isBlock=false] - Toggle group control prop
+ * @param {boolean} [isAdaptiveWidth=false] - Toggle group control prop
+ * @param {Function} [null] - call back function when attribute is update
+ */
+function CustomToggleGroupControl({
+  label,
+  options,
+  attributeKey,
+  isBlock = false,
+  isAdaptiveWidth = false,
+  callBack = () => null
+}) {
+  const {
+    clientId
+  } = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockEditContext)();
+  const {
+    updateBlockAttributes
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.useDispatch)("core/block-editor");
+  const attributes = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.useSelect)(select => {
+    return select("core/block-editor").getBlockAttributes(clientId);
+  });
+  const setAttributes = newAttributes => {
+    callBack(newAttributes);
+    updateBlockAttributes(clientId, newAttributes);
+  };
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControl, {
+    label: label,
+    isBlock: isBlock,
+    isAdaptiveWidth: isAdaptiveWidth,
+    __nextHasNoMarginBottom: true,
+    value: attributes[attributeKey],
+    onChange: newValue => {
+      setAttributes({
+        [attributeKey]: newValue
+      });
+    }
+  }, options.map(({
+    value,
+    icon = null,
+    label
+  }) => {
+    return icon ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOptionIcon, {
+      key: value,
+      value: value,
+      icon: icon,
+      label: label
+    }) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOption, {
+      key: value,
+      value: value,
+      label: label
+    });
+  }));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CustomToggleGroupControl);
+
+/***/ }),
+
+/***/ "./src/StylingControls/index.js":
+/*!**************************************!*\
+  !*** ./src/StylingControls/index.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   BorderControl: () => (/* reexport safe */ _BorderControl__WEBPACK_IMPORTED_MODULE_1__["default"]),
+/* harmony export */   ColorSettings: () => (/* reexport safe */ _ColorSettings__WEBPACK_IMPORTED_MODULE_0__.ColorSettings),
+/* harmony export */   ColorSettingsWithGradient: () => (/* reexport safe */ _ColorSettings__WEBPACK_IMPORTED_MODULE_0__.ColorSettingsWithGradient),
+/* harmony export */   CustomFontSizePicker: () => (/* reexport safe */ _FontSizePicker__WEBPACK_IMPORTED_MODULE_2__["default"]),
+/* harmony export */   CustomToggleGroupControl: () => (/* reexport safe */ _ToggleGroupControl__WEBPACK_IMPORTED_MODULE_3__["default"]),
+/* harmony export */   SpacingControl: () => (/* reexport safe */ _SpacingControl__WEBPACK_IMPORTED_MODULE_4__["default"]),
+/* harmony export */   SpacingControlWithToolsPanel: () => (/* reexport safe */ _SpacingControlWIthToolsPanel__WEBPACK_IMPORTED_MODULE_5__["default"]),
+/* harmony export */   TabsPanelControl: () => (/* reexport safe */ _TabsPanelControl__WEBPACK_IMPORTED_MODULE_6__["default"])
+/* harmony export */ });
+/* harmony import */ var _ColorSettings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ColorSettings */ "./src/StylingControls/ColorSettings/index.js");
+/* harmony import */ var _BorderControl__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BorderControl */ "./src/StylingControls/BorderControl/index.js");
+/* harmony import */ var _FontSizePicker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./FontSizePicker */ "./src/StylingControls/FontSizePicker/index.js");
+/* harmony import */ var _ToggleGroupControl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ToggleGroupControl */ "./src/StylingControls/ToggleGroupControl/index.js");
+/* harmony import */ var _SpacingControl__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SpacingControl */ "./src/StylingControls/SpacingControl/index.js");
+/* harmony import */ var _SpacingControlWIthToolsPanel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./SpacingControlWIthToolsPanel */ "./src/StylingControls/SpacingControlWIthToolsPanel/index.js");
+/* harmony import */ var _TabsPanelControl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./TabsPanelControl */ "./src/StylingControls/TabsPanelControl/index.js");
+
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./src/components/HideCouponSettings.js":
+/*!**********************************************!*\
+  !*** ./src/components/HideCouponSettings.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+function HideCouponSettings({
+  attributes,
+  setAttributes
+}) {
+  const {
+    couponPopupCopyButtonText,
+    couponPopupOfferText,
+    couponCodeButtonText
+  } = attributes;
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("HIDDEN COUPON TEXT", "wp-coupons-and-deals"),
+    value: couponCodeButtonText,
+    onChange: newValue => setAttributes({
+      couponCodeButtonText: newValue
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Popup Copy Button Text", "wp-coupons-and-deals"),
+    value: couponPopupCopyButtonText,
+    onChange: newValue => setAttributes({
+      couponPopupCopyButtonText: newValue
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("POPUP OFFER BUTTON TEXT", "wp-coupons-and-deals"),
+    value: couponPopupOfferText,
+    onChange: newValue => setAttributes({
+      couponPopupOfferText: newValue
+    })
+  }));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HideCouponSettings);
+
+/***/ }),
+
+/***/ "./src/components/TabsPanelControl.js":
+/*!********************************************!*\
+  !*** ./src/components/TabsPanelControl.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function TabsPanelControl({
+  normalStateLabel,
+  hoverStateLabel,
+  normalState,
+  hoverState
+}) {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TabPanel, {
+    className: "wpcd-tab-panels",
+    tabs: [{
+      name: "normalState",
+      title: normalStateLabel
+    }, {
+      name: "hoverState",
+      title: hoverStateLabel
+    }]
+  }, tab => tab.name === "normalState" ? normalState : hoverState);
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TabsPanelControl);
+
+/***/ }),
+
+/***/ "./src/edit.js":
+/*!*********************!*\
+  !*** ./src/edit.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _templates_default_template_EditDefaultTemplate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./templates/default-template/EditDefaultTemplate */ "./src/templates/default-template/EditDefaultTemplate.js");
+/* harmony import */ var _inspector__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./inspector */ "./src/inspector.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
+/* harmony import */ var _styling_helpers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./styling-helpers */ "./src/styling-helpers.js");
+
+/**
+ * Wordpress Dependencies
+ */
+
+
+
+
+/**
+ * Internal Dependencies
+ */
+
+
+
+
+
+function Edit(props) {
+  const {
+    attributes,
+    setAttributes
+  } = props;
+  const {
+    template,
+    hideCoupon,
+    couponId,
+    couponType,
+    padding,
+    margin
+  } = attributes;
+  const wrapperBorder = (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.getBorderCSS)(attributes.wrapperBorder);
+  const paddingObj = (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.getSpacingCss)(attributes.padding);
+  const marginObj = (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.getSpacingCss)(attributes.margin);
+  const wrapperStyles = {
+    backgroundColor: !(0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(attributes?.wrapperBackgroundColor) ? attributes.wrapperBackgroundColor : attributes?.wrapperGradientBackground,
+    "padding-top": !(0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(paddingObj?.top) ? paddingObj?.top : "25px",
+    "padding-right": !(0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(paddingObj?.right) ? paddingObj?.right : "25px",
+    "padding-bottom": !(0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(paddingObj?.bottom) ? paddingObj?.bottom : "25px",
+    "padding-left": !(0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(paddingObj?.left) ? paddingObj?.left : "25px",
+    "margin-top": marginObj?.top,
+    "margin-right": marginObj?.right,
+    "margin-bottom": marginObj?.bottom,
+    "margin-left": marginObj?.left,
+    "border-top-left-radius": attributes.wrapperBorderRadius?.topLeft,
+    "border-top-right-radius": attributes.wrapperBorderRadius?.topRight,
+    "border-bottom-left-radius": attributes.wrapperBorderRadius?.bottomLeft,
+    "border-bottom-right-radius": attributes.wrapperBorderRadius?.bottomRight,
+    borderTop: !(0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.isValueEmpty)((0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.getSingleSideBorderValue)(wrapperBorder, "top")) ? (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.getSingleSideBorderValue)(wrapperBorder, "top") : "2px dashed #000000",
+    borderLeft: !(0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.isValueEmpty)((0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.getSingleSideBorderValue)(wrapperBorder, "left")) ? (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.getSingleSideBorderValue)(wrapperBorder, "left") : "2px dashed #000000",
+    borderRight: !(0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.isValueEmpty)((0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.getSingleSideBorderValue)(wrapperBorder, "right")) ? (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.getSingleSideBorderValue)(wrapperBorder, "right") : "2px dashed #000000",
+    borderBottom: !(0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.isValueEmpty)((0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.getSingleSideBorderValue)(wrapperBorder, "bottom")) ? (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.getSingleSideBorderValue)(wrapperBorder, "bottom") : "2px dashed #000000"
+  };
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
+    className: classnames__WEBPACK_IMPORTED_MODULE_6___default()(`wpcd-coupon-wrapper wpcd-coupon-${template}-template`, {
+      ["wpcd-coupon-hidden"]: hideCoupon && couponType !== "deal",
+      ["wpcd-coupon-type-deal"]: couponType === "deal",
+      "has-padding": !(0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.isValueEmpty)(padding),
+      "has-margin": !(0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.isValueEmpty)(margin)
+    }),
+    style: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.generateStyles)(wrapperStyles)
+  });
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useEffect)(() => {
+    if ((0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(couponId) && hideCoupon) {
+      setAttributes({
+        couponId: (0,lodash__WEBPACK_IMPORTED_MODULE_1__.uniqueId)().toString()
+      });
+    }
+  }, [hideCoupon]);
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    ...blockProps
+  }, template === "default" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_templates_default_template_EditDefaultTemplate__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    ...props
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_inspector__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    ...props
+  }));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Edit);
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./block.json */ "./src/block.json");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./edit */ "./src/edit.js");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
+
+
+
+
+
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_2__.name, {
+  ..._block_json__WEBPACK_IMPORTED_MODULE_2__,
+  edit: _edit__WEBPACK_IMPORTED_MODULE_3__["default"],
+  save: () => null,
+  icon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    width: "24",
+    height: "24",
+    fill: "white"
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    fillRule: "evenodd",
+    clipRule: "evenodd",
+    d: "M5.47272 4.62474C4.97028 4.39547 4.3771 4.61692 4.14783 5.11936L3.28967 6.99999H10.678L5.47272 4.62474ZM20.7104 17H13.322L18.5273 19.3753C19.0298 19.6045 19.6229 19.3831 19.8522 18.8806L20.7104 17Z",
+    fill: "#E11B4C"
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    fillRule: "evenodd",
+    clipRule: "evenodd",
+    d: "M2 9C2 8.44771 2.44772 8 3 8H8.5V9C8.5 9.27614 8.72386 9.5 9 9.5C9.27614 9.5 9.5 9.27614 9.5 9V8H21C21.5523 8 22 8.44771 22 9V10C20.8954 10 20 10.8954 20 12C20 13.1046 20.8954 14 22 14V15C22 15.5523 21.5523 16 21 16H9.5V15C9.5 14.7239 9.27614 14.5 9 14.5C8.72386 14.5 8.5 14.7239 8.5 15V16H3C2.44772 16 2 15.5523 2 15V14C3.10457 14 4 13.1046 4 12C4 10.8954 3.10457 10 2 10V9ZM9 10.5C9.27614 10.5 9.5 10.7239 9.5 11V13C9.5 13.2761 9.27614 13.5 9 13.5C8.72386 13.5 8.5 13.2761 8.5 13V11C8.5 10.7239 8.72386 10.5 9 10.5ZM17.3611 10.3458C17.5521 10.1464 17.5453 9.82985 17.3458 9.63886C17.1464 9.44788 16.8298 9.45475 16.6389 9.6542L12.5056 13.9708C12.3146 14.1702 12.3214 14.4867 12.5209 14.6777C12.7203 14.8687 13.0368 14.8618 13.2278 14.6624L17.3611 10.3458ZM15 10C15 10.5523 14.5523 11 14 11C13.4477 11 13 10.5523 13 10C13 9.44771 13.4477 9 14 9C14.5523 9 15 9.44771 15 10ZM16 15C16.5523 15 17 14.5523 17 14C17 13.4477 16.5523 13 16 13C15.4477 13 15 13.4477 15 14C15 14.5523 15.4477 15 16 15Z",
+    fill: "#E11B4C"
+  })),
+  example: {
+    viewportWidth: 900,
+    attributes: {
+      template: "default",
+      discount: "100%",
+      title: "Sample Coupon Code 2023",
+      description: "This is a little description of the coupon code or deal. Just to let users know some additional details.",
+      code: "SAMPLECODE",
+      expiredDateText: "Expired",
+      couponDealLabel: "Coupon",
+      navigationLink: "",
+      expirationDate: "10/30/2024",
+      hideCoupon: false,
+      couponCodeButtonText: "Show Code"
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./src/inspector.js":
+/*!**************************!*\
+  !*** ./src/inspector.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _StylingControls__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./StylingControls */ "./src/StylingControls/index.js");
+/* harmony import */ var _components_HideCouponSettings__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/HideCouponSettings */ "./src/components/HideCouponSettings.js");
+/* harmony import */ var _components_TabsPanelControl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/TabsPanelControl */ "./src/components/TabsPanelControl.js");
+
+/**
+ * Wordpress Dependencies
+ */
+
+
+
+/**
+ * Internal Imports
+ */
+
+
+
+function Inspector(props) {
+  const {
+    attributes,
+    setAttributes
+  } = props;
+  const {
+    navigationLink,
+    expiredDateText,
+    expirationDate,
+    hideCoupon,
+    isDoesNotExpire,
+    couponType
+  } = attributes;
+  const normalStateColors = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettings, {
+    attrKey: "titleColor",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Title Color", "wp-coupons-and-deals")
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettings, {
+    attrKey: "descriptionColor",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Description Color", "wp-coupons-and-deals")
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettings, {
+    attrKey: "codeColor",
+    label: couponType !== "deal" ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Code Color", "wp-coupons-and-deals") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Get Deal Color", "wp-coupons-and-deals")
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettings, {
+    attrKey: "discountColor",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Discount Color", "wp-coupons-and-deals")
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettings, {
+    attrKey: "couponDealLabelColor",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Coupon/Deal Label Color", "wp-coupons-and-deals")
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettings, {
+    attrKey: "expirationDateColor",
+    label: isDoesNotExpire ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Doesn't Expire Color", "wp-coupons-and-deals") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Expiration Date Color", "wp-coupons-and-deals")
+  }), !isDoesNotExpire && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettings, {
+    attrKey: "expiredDateColor",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Expired Date Color", "wp-coupons-and-deals")
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettingsWithGradient, {
+    attrBackgroundKey: "codeBackgroundColor",
+    attrGradientKey: "codeGradientBackground",
+    label: couponType !== "deal" ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Code Background", "wp-coupons-and-deals") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Get Deal Background", "wp-coupons-and-deals")
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettingsWithGradient, {
+    attrBackgroundKey: "couponDealLabelBackgroundColor",
+    attrGradientKey: "couponDealLabelGradientBackground",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Coupon/Deal Background", "wp-coupons-and-deals")
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettingsWithGradient, {
+    attrBackgroundKey: "wrapperBackgroundColor",
+    attrGradientKey: "wrapperGradientBackground",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Wrapper Background", "wp-coupons-and-deals")
+  }), hideCoupon && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettings, {
+    attrKey: "couponPopupOfferButtonColor",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Popup Navigation Button Color", "wp-coupons-and-deals")
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettings, {
+    attrKey: "couponPopupCopyButtonColor",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Popup Copy Button Color", "wp-coupons-and-deals")
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettings, {
+    attrKey: "couponPopupCodeFieldColor",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Popup Coupon Field Color", "wp-coupons-and-deals")
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettingsWithGradient, {
+    attrBackgroundKey: "couponPopupOfferButtonBgColor",
+    attrGradientKey: "couponPopupOfferButtonBgGradient",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Popup Navigation Button Background", "wp-coupons-and-deals")
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettingsWithGradient, {
+    attrBackgroundKey: "couponPopupCopyButtonBgColor",
+    attrGradientKey: "couponPopupCopyButtonBgGradient",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Popup Copy Button Background", "wp-coupons-and-deals")
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettingsWithGradient, {
+    attrBackgroundKey: "couponPopupCodeFieldBgColor",
+    attrGradientKey: "couponPopupCodeFieldBgGradient",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Popup Coupon Field Background", "wp-coupons-and-deals")
+  })));
+  const hoverStateColors = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettings, {
+    attrKey: "codeHoverColor",
+    label: couponType !== "deal" ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Code Hover Color", "wp-coupons-and-deals") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Get Deal Hover Color", "wp-coupons-and-deals")
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettingsWithGradient, {
+    attrBackgroundKey: "codeHoverBackgroundColor",
+    attrGradientKey: "codeHoverGradientBackground",
+    label: couponType !== "deal" ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Code Hover Background", "wp-coupons-and-deals") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Get Deal Hover Background", "wp-coupons-and-deals")
+  }));
+  const couponTypes = [{
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Coupon", "wp-coupons-and-deals"),
+    value: "coupon"
+  }, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Deal", "wp-coupons-and-deals"),
+    value: "deal"
+  }];
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("General", "wp-coupons-and-deals")
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.CustomToggleGroupControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Coupon Type", "wp-coupons-and-deals"),
+    isBlock: true,
+    options: couponTypes,
+    attributeKey: "couponType"
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Link To Navigate On Copy (Affiliate Link)", "wp-coupons-and-deals"),
+    type: "url",
+    value: navigationLink,
+    onChange: newLink => setAttributes({
+      navigationLink: newLink
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Doesn't Expire", "wp-coupons-and-deals"),
+    checked: isDoesNotExpire,
+    onChange: () => setAttributes({
+      isDoesNotExpire: !isDoesNotExpire
+    })
+  }), !isDoesNotExpire && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Expired Date Label", "wp-coupons-and-deals"),
+    value: expiredDateText,
+    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("This text will show when coupon date is expired.", "wp-coupons-and-deals"),
+    onChange: newLink => setAttributes({
+      expiredDateText: newLink
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.BaseControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Expiration Date", "wp-coupons-and-deals")
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.DatePicker, {
+    currentDate: expirationDate,
+    onChange: newDate => {
+      const date = new Date(newDate);
+      setAttributes({
+        expirationDate: date.toLocaleDateString()
+      });
+    }
+  }))), couponType !== "deal" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Hide Coupon", "wp-coupons-and-deals"),
+    checked: hideCoupon,
+    onChange: () => setAttributes({
+      hideCoupon: !hideCoupon
+    })
+  }), hideCoupon && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_HideCouponSettings__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    ...props
+  })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, {
+    group: "color"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_TabsPanelControl__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    normalStateLabel: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Normal", "wp-coupons-and-deals"),
+    hoverStateLabel: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Hover", "wp-coupons-and-deals"),
+    normalState: normalStateColors,
+    hoverState: hoverStateColors
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, {
+    group: "typography"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.CustomFontSizePicker, {
+    attrKey: "discountFontSize",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Discount Font Size", "wp-coupons-and-deals")
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.CustomFontSizePicker, {
+    attrKey: "couponDealLabelFontSize",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Coupon/Deal Label Font Size", "wp-coupons-and-deals")
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.CustomFontSizePicker, {
+    attrKey: "titleFontSize",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Title Font Size", "wp-coupons-and-deals")
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.CustomFontSizePicker, {
+    attrKey: "descriptionFontSize",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Description Font Size", "wp-coupons-and-deals")
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.CustomFontSizePicker, {
+    attrKey: "codeFontSize",
+    label: couponType !== "deal" ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Code Font Size", "wp-coupons-and-deals") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Get Deal Font Size", "wp-coupons-and-deals")
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.CustomFontSizePicker, {
+    attrKey: "expirationDateFontSize",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Expiration Date Font Size", "wp-coupons-and-deals")
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.CustomFontSizePicker, {
+    attrKey: "expiredDateFontSize",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Expired Date Font Size", "wp-coupons-and-deals")
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, {
+    group: "border"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.BorderControl, {
+    showDefaultBorder: true,
+    showDefaultBorderRadius: true,
+    attrBorderKey: "wrapperBorder",
+    attrBorderRadiusKey: "wrapperBorderRadius",
+    borderLabel: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Wrapper Border", "wp-coupons-and-deals"),
+    borderRadiusLabel: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Wrapper Border Radius", "wp-coupons-and-deals")
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.BorderControl, {
+    showDefaultBorder: true,
+    showDefaultBorderRadius: true,
+    attrBorderKey: "codeBorder",
+    attrBorderRadiusKey: "codeBorderRadius",
+    borderLabel: couponType !== "deal" ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Code Border", "wp-coupons-and-deals") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Get Deal Border", "wp-coupons-and-deals"),
+    borderRadiusLabel: couponType !== "deal" ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Code Border Radius", "wp-coupons-and-deals") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Get Deal Border Radius", "wp-coupons-and-deals")
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.BorderControl, {
+    showDefaultBorder: true,
+    showDefaultBorderRadius: true,
+    isShowBorderRadius: false,
+    attrBorderKey: "separatorBorder",
+    borderLabel: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Separator Border", "wp-coupons-and-deals")
+  }), hideCoupon && couponType !== "deal" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.BorderControl, {
+    showDefaultBorder: true,
+    showDefaultBorderRadius: true,
+    isShowBorderRadius: false,
+    attrBorderKey: "couponPopupCodeFieldBorder",
+    borderLabel: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Popup Coupon Field Border", "wp-coupons-and-deals")
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, {
+    group: "dimensions"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.SpacingControlWithToolsPanel, {
+    showByDefault: true,
+    attrKey: "padding",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Padding", "wp-coupons-and-deals")
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.SpacingControlWithToolsPanel, {
+    minimumCustomValue: -Infinity,
+    showByDefault: true,
+    attrKey: "margin",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Margin", "wp-coupons-and-deals")
+  })));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Inspector);
+
+/***/ }),
+
+/***/ "./src/styling-helpers.js":
+/*!********************************!*\
+  !*** ./src/styling-helpers.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   generateStyles: () => (/* binding */ generateStyles),
+/* harmony export */   getBackgroundColorVar: () => (/* binding */ getBackgroundColorVar),
+/* harmony export */   getBorderCSS: () => (/* binding */ getBorderCSS),
+/* harmony export */   getBorderVariablesCss: () => (/* binding */ getBorderVariablesCss),
+/* harmony export */   getSingleSideBorderValue: () => (/* binding */ getSingleSideBorderValue),
+/* harmony export */   getSpacingCss: () => (/* binding */ getSpacingCss),
+/* harmony export */   getSpacingPresetCssVar: () => (/* binding */ getSpacingPresetCssVar),
+/* harmony export */   hasMixedValues: () => (/* binding */ hasMixedValues),
+/* harmony export */   isValueEmpty: () => (/* binding */ isValueEmpty),
+/* harmony export */   isValueSpacingPreset: () => (/* binding */ isValueSpacingPreset),
+/* harmony export */   splitBorderRadius: () => (/* binding */ splitBorderRadius)
+/* harmony export */ });
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
+
+function hasSplitBorders(border = {}) {
+  const sides = ["top", "right", "bottom", "left"];
+  for (const side in border) {
+    if (sides.includes(side)) {
+      return true;
+    }
+  }
+  return false;
+}
+/**
+ * Checks is given value is a spacing preset.
+ *
+ * @param {string} value Value to check
+ *
+ * @return {boolean} Return true if value is string in format var:preset|spacing|.
+ */
+function isValueSpacingPreset(value) {
+  if (!value?.includes) {
+    return false;
+  }
+  return value === "0" || value.includes("var:preset|spacing|");
+}
+
+/**
+ * Converts a spacing preset into a custom value.
+ *
+ * @param {string} value Value to convert.
+ *
+ * @return {string | undefined} CSS var string for given spacing preset value.
+ */
+function getSpacingPresetCssVar(value) {
+  if (!value) {
+    return;
+  }
+  const slug = value.match(/var:preset\|spacing\|(.+)/);
+  if (!slug) {
+    return value;
+  }
+  return `var(--wp--preset--spacing--${slug[1]})`;
+}
+function getSpacingCss(object) {
+  let css = {};
+  for (const [key, value] of Object.entries(object)) {
+    if (isValueSpacingPreset(value)) {
+      css[key] = getSpacingPresetCssVar(value);
+    } else {
+      css[key] = value;
+    }
+  }
+  return css;
+}
+
+/**
+ * Function that's help you to generate splitted or non splitted border CSS.
+ * @param {object} object border attributes
+ *
+ * @return {{ css:object }} A css object
+ */
+const getBorderCSS = object => {
+  let css = {};
+  if (!hasSplitBorders(object)) {
+    css["top"] = object;
+    css["right"] = object;
+    css["bottom"] = object;
+    css["left"] = object;
+    return css;
+  }
+  return object;
+};
+/**
+ *  Check values are mixed.
+ * @param {any} values - value string or object
+ * @returns true | false
+ */
+function hasMixedValues(values = {}) {
+  return typeof values === "string";
+}
+function splitBorderRadius(value) {
+  const isValueMixed = hasMixedValues(value);
+  const splittedBorderRadius = {
+    topLeft: value,
+    topRight: value,
+    bottomLeft: value,
+    bottomRight: value
+  };
+  return isValueMixed ? splittedBorderRadius : value;
+}
+function getSingleSideBorderValue(border, side) {
+  var _border$side$width, _border$side$style;
+  const hasWidth = !(0,lodash__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(border[side]?.width);
+  return `${(_border$side$width = border[side]?.width) !== null && _border$side$width !== void 0 ? _border$side$width : ""} ${hasWidth && (0,lodash__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(border[side]?.style) ? "solid" : (_border$side$style = border[side]?.style) !== null && _border$side$style !== void 0 ? _border$side$style : ""} ${hasWidth && (0,lodash__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(border[side]?.color) ? "" : border[side]?.color}`;
+}
+function getBorderVariablesCss(border, slug) {
+  const borderInFourDimension = getBorderCSS(border);
+  const borderSides = ["top", "right", "bottom", "left"];
+  let borders = {};
+  for (let i = 0; i < borderSides.length; i++) {
+    const side = borderSides[i];
+    const sideProperty = [`--wpcd-${slug}-border-${side}`];
+    const sideValue = getSingleSideBorderValue(borderInFourDimension, side);
+    borders[sideProperty] = sideValue;
+  }
+  return borders;
+}
+const isValueEmpty = style => {
+  return (0,lodash__WEBPACK_IMPORTED_MODULE_0__.isUndefined)(style) || style === false || (0,lodash__WEBPACK_IMPORTED_MODULE_0__.trim)(style) === "" || (0,lodash__WEBPACK_IMPORTED_MODULE_0__.trim)(style) === "undefined" || (0,lodash__WEBPACK_IMPORTED_MODULE_0__.trim)(style) === "undefined undefined undefined" || (0,lodash__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(style);
+};
+function generateStyles(styles) {
+  return (0,lodash__WEBPACK_IMPORTED_MODULE_0__.omitBy)(styles, value => isValueEmpty(value));
+}
+function getBackgroundColorVar(attributes, bgColorAttrKey, gradientAttrKey) {
+  if (!(0,lodash__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(attributes[bgColorAttrKey])) {
+    return attributes[bgColorAttrKey];
+  } else if (!(0,lodash__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(attributes[gradientAttrKey])) {
+    return attributes[gradientAttrKey];
+  } else {
+    return "";
+  }
+}
+
+/***/ }),
+
+/***/ "./src/templates/default-template/EditDefaultTemplate.js":
+/*!***************************************************************!*\
+  !*** ./src/templates/default-template/EditDefaultTemplate.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _styling_helpers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../styling-helpers */ "./src/styling-helpers.js");
+
+/**
+ * Wordpress Dependencies
+ */
+
+
+
+
+function DefaultTemplate(props) {
+  const {
+    attributes,
+    setAttributes
+  } = props;
+  const {
+    discount,
+    title,
+    description,
+    code,
+    couponDealLabel,
+    expirationDate,
+    doesNotExpireText,
+    isDoesNotExpire,
+    couponType,
+    dealButtonText
+  } = attributes;
+  const couponCodeBorder = (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.getBorderCSS)(attributes.codeBorder);
+  const separatorBorder = (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.getBorderCSS)(attributes.separatorBorder);
+  let titleStyles = {
+    fontSize: (0,lodash__WEBPACK_IMPORTED_MODULE_3__.isEmpty)(attributes?.titleFontSize) ? "21px" : attributes?.titleFontSize,
+    color: (0,lodash__WEBPACK_IMPORTED_MODULE_3__.isEmpty)(attributes?.titleColor) ? "#000000" : attributes?.titleColor
+  };
+  let discountStyles = {
+    fontSize: (0,lodash__WEBPACK_IMPORTED_MODULE_3__.isEmpty)(attributes?.discountFontSize) ? "20px" : attributes?.discountFontSize,
+    color: (0,lodash__WEBPACK_IMPORTED_MODULE_3__.isEmpty)(attributes?.discountColor) ? "#000000" : attributes?.discountColor
+  };
+  const dealLabelBgColor = (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.getBackgroundColorVar)(attributes, "couponDealLabelBackgroundColor", "couponDealLabelGradientBackground");
+  let couponDealLabelStyles = {
+    fontSize: (0,lodash__WEBPACK_IMPORTED_MODULE_3__.isEmpty)(attributes?.couponDealLabelFontSize) ? "12px" : attributes?.couponDealLabelFontSize,
+    color: (0,lodash__WEBPACK_IMPORTED_MODULE_3__.isEmpty)(attributes?.couponDealLabelColor) ? "#ffffff" : attributes?.couponDealLabelColor,
+    backgroundColor: (0,lodash__WEBPACK_IMPORTED_MODULE_3__.isEmpty)(dealLabelBgColor) ? "#56b151" : dealLabelBgColor
+  };
+  let descriptionStyles = {
+    fontSize: (0,lodash__WEBPACK_IMPORTED_MODULE_3__.isEmpty)(attributes?.descriptionFontSize) ? "16px" : attributes?.descriptionFontSize,
+    color: (0,lodash__WEBPACK_IMPORTED_MODULE_3__.isEmpty)(attributes?.descriptionColor) ? "#000000" : attributes?.descriptionColor
+  };
+  const codeHoverBgColor = (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.getBackgroundColorVar)(attributes, "codeHoverBackgroundColor", "codeHoverGradientBackground");
+  let codeHoverStyles = {
+    "--wpcd-coupon-code-bg-hover-color": codeHoverBgColor,
+    "--wpcd-coupon-code-hover-color": attributes?.codeHoverColor
+  };
+  const borderStyle = attributes.hideCoupon ? "2px solid #56b151" : "2px dashed #ccc";
+  let codeStyles = {
+    ...codeHoverStyles,
+    "--wpcd-coupon-code-button-text": `"${attributes?.couponCodeButtonText}"`,
+    fontSize: attributes?.codeFontSize,
+    "--wpcd-coupon-code-color": attributes?.codeColor,
+    "--wpcd-coupon-code-bg-color": (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.getBackgroundColorVar)(attributes, "codeBackgroundColor", "codeGradientBackground"),
+    "border-top-left-radius": (0,lodash__WEBPACK_IMPORTED_MODULE_3__.isEmpty)(attributes.codeBorderRadius?.topLeft) ? " 2px" : attributes.codeBorderRadius?.topLeft,
+    "border-top-right-radius": (0,lodash__WEBPACK_IMPORTED_MODULE_3__.isEmpty)(attributes.codeBorderRadius?.topRight) ? " 2px" : attributes.codeBorderRadius?.topRight,
+    "border-bottom-left-radius": (0,lodash__WEBPACK_IMPORTED_MODULE_3__.isEmpty)(attributes.codeBorderRadius?.bottomLeft) ? " 2px" : attributes.codeBorderRadius?.bottomLeft,
+    "border-bottom-right-radius": (0,lodash__WEBPACK_IMPORTED_MODULE_3__.isEmpty)(attributes.codeBorderRadius?.bottomRight) ? " 2px" : attributes.codeBorderRadius?.bottomRight,
+    borderTop: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.isValueEmpty)((0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.getSingleSideBorderValue)(couponCodeBorder, "top")) ? couponType === "deal" ? "2px solid #56b151" : borderStyle : (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.getSingleSideBorderValue)(couponCodeBorder, "top"),
+    borderLeft: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.isValueEmpty)((0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.getSingleSideBorderValue)(couponCodeBorder, "left")) ? couponType === "deal" ? "2px solid #56b151" : borderStyle : (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.getSingleSideBorderValue)(couponCodeBorder, "left"),
+    borderRight: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.isValueEmpty)((0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.getSingleSideBorderValue)(couponCodeBorder, "right")) ? couponType === "deal" ? "2px solid #56b151" : borderStyle : (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.getSingleSideBorderValue)(couponCodeBorder, "right"),
+    borderBottom: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.isValueEmpty)((0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.getSingleSideBorderValue)(couponCodeBorder, "bottom")) ? couponType === "deal" ? "2px solid #56b151" : borderStyle : (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.getSingleSideBorderValue)(couponCodeBorder, "bottom")
+  };
+  let expirationDateStyles = {
+    "--wpcd-coupon-expiration-date-font-size": (0,lodash__WEBPACK_IMPORTED_MODULE_3__.isEmpty)(attributes?.expirationDateFontSize) ? "14px" : attributes?.expirationDateFontSize,
+    "--wpcd-coupon-expired-date-font-size": (0,lodash__WEBPACK_IMPORTED_MODULE_3__.isEmpty)(attributes?.expiredDateFontSize) ? "14px" : attributes?.expiredDateFontSize,
+    "--wpcd-coupon-expiration-date-color": (0,lodash__WEBPACK_IMPORTED_MODULE_3__.isEmpty)(attributes?.expirationDateColor) ? "green" : attributes?.expirationDateColor,
+    "--wpcd-coupon-expired-date-color": (0,lodash__WEBPACK_IMPORTED_MODULE_3__.isEmpty)(attributes?.expiredDateColor) ? "red" : attributes?.expiredDateColor
+  };
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wpcd-coupon-inner__wrapper"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wpcd-coupon-discount-wrapper"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wpcd-coupon-discount-inner__wrapper"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    className: "wpcd-coupon-discount",
+    value: discount,
+    tagName: "div",
+    onChange: newValue => setAttributes({
+      discount: newValue
+    }),
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("100%", "wp-coupons-and-deals"),
+    style: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.generateStyles)(discountStyles)
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    tagName: "div",
+    className: "wpcd-coupon-name",
+    value: couponDealLabel,
+    onChange: newValue => setAttributes({
+      couponDealLabel: newValue
+    }),
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Coupon", "wp-coupons-and-deals"),
+    style: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.generateStyles)(couponDealLabelStyles)
+  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wpcd-coupon-details-wrapper"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wpcd-coupon-header"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wpcd-coupon-title-wrapper"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    className: "wpcd-coupon-title",
+    value: title,
+    tagName: "h3",
+    onChange: newValue => setAttributes({
+      title: newValue
+    }),
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Title here", "wp-coupons-and-deals"),
+    style: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.generateStyles)(titleStyles)
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wpcd-coupon-code"
+  }, couponType !== "deal" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    rel: "nofollow noopener",
+    target: "_blank",
+    "data-clipboard-text": code,
+    className: "wpcd-coupon-button",
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Click To Copy Coupon", "wp-coupons-and-deals"),
+    style: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.generateStyles)(codeStyles)
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "wpcd-coupon-icon"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
+    fill: "currentColor"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    d: "M8.128 9.155a3.751 3.751 0 1 1 .713-1.321l1.136.656a.75.75 0 0 1 .222 1.104l-.006.007a.75.75 0 0 1-1.032.157a1.421 1.421 0 0 0-.113-.072l-.92-.531Zm-4.827-3.53a2.25 2.25 0 0 1 3.994 2.063a.756.756 0 0 0-.122.23a2.25 2.25 0 0 1-3.872-2.293Zm10.047 2.647a5.073 5.073 0 0 0-3.428 3.57c-.101.387-.158.79-.165 1.202a1.415 1.415 0 0 1-.707 1.201l-.96.554a3.751 3.751 0 1 0 .734 1.309l13.729-7.926a.75.75 0 0 0-.181-1.374l-.803-.215a5.25 5.25 0 0 0-2.894.05l-5.325 1.629Zm-9.223 7.03a2.25 2.25 0 1 0 2.25 3.897a2.25 2.25 0 0 0-2.25-3.897ZM12 12.75a.75.75 0 1 0 0-1.5a.75.75 0 0 0 0 1.5Z",
+    "clip-rule": "evenodd"
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "M16.372 12.615a.75.75 0 0 1 .75 0l5.43 3.135a.75.75 0 0 1-.182 1.374l-.802.215a5.25 5.25 0 0 1-2.894-.051l-5.147-1.574a.75.75 0 0 1-.156-1.367l3-1.732Z"
+  })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    value: code,
+    tagName: "span",
+    onChange: newValue => setAttributes({
+      code: newValue
+    }),
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("SAMPLECODE", "wp-coupons-and-deals")
+  })), couponType === "deal" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    rel: "nofollow noopener",
+    target: "_blank",
+    className: "wpcd-coupon-button",
+    style: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.generateStyles)(codeStyles),
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Click To Claim This Deal", "wp-coupons-and-deals")
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    value: dealButtonText,
+    tagName: "span",
+    onChange: newValue => setAttributes({
+      dealButtonText: newValue
+    }),
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Get Deal", "wp-coupons-and-deals")
+  })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wpcd-coupon-content"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wpcd-coupon-description"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    value: description,
+    tagName: "p",
+    onChange: newValue => setAttributes({
+      description: newValue
+    }),
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Description here", "wp-coupons-and-deals"),
+    style: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.generateStyles)(descriptionStyles)
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: `wpcd-coupon-expiration-date${isDoesNotExpire ? " wpcd-coupon-does-not-expire" : ""}`,
+    style: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.generateStyles)(expirationDateStyles)
+  }, !isDoesNotExpire && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Expire On ", "wp-coupons-and-deals")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, expirationDate)), isDoesNotExpire && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    value: doesNotExpireText,
+    tagName: "span",
+    onChange: newValue => setAttributes({
+      doesNotExpireText: newValue
+    }),
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Doesn't Expire Text Here", "wp-coupons-and-deals")
+  })))));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DefaultTemplate);
+
+/***/ }),
+
+/***/ "./src/editor.scss":
+/*!*************************!*\
+  !*** ./src/editor.scss ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/style.scss":
+/*!************************!*\
+  !*** ./src/style.scss ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "React" ***!
+  \************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = window["React"];
+
+/***/ }),
+
+/***/ "lodash":
+/*!*************************!*\
+  !*** external "lodash" ***!
+  \*************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = window["lodash"];
+
+/***/ }),
+
+/***/ "@wordpress/block-editor":
+/*!*************************************!*\
+  !*** external ["wp","blockEditor"] ***!
+  \*************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = window["wp"]["blockEditor"];
+
+/***/ }),
+
+/***/ "@wordpress/blocks":
+/*!********************************!*\
+  !*** external ["wp","blocks"] ***!
+  \********************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = window["wp"]["blocks"];
+
+/***/ }),
+
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = window["wp"]["components"];
+
+/***/ }),
+
+/***/ "@wordpress/data":
+/*!******************************!*\
+  !*** external ["wp","data"] ***!
+  \******************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = window["wp"]["data"];
+
+/***/ }),
+
+/***/ "@wordpress/element":
+/*!*********************************!*\
+  !*** external ["wp","element"] ***!
+  \*********************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = window["wp"]["element"];
+
+/***/ }),
+
+/***/ "@wordpress/i18n":
+/*!******************************!*\
+  !*** external ["wp","i18n"] ***!
+  \******************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = window["wp"]["i18n"];
+
+/***/ }),
+
+/***/ "./node_modules/classnames/index.js":
+/*!******************************************!*\
+  !*** ./node_modules/classnames/index.js ***!
+  \******************************************/
+/***/ ((module, exports) => {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	Copyright (c) 2018 Jed Watson.
+	Licensed under the MIT License (MIT), see
+	http://jedwatson.github.io/classnames
+*/
+/* global define */
+
+(function () {
+	'use strict';
+
+	var hasOwn = {}.hasOwnProperty;
+
+	function classNames () {
+		var classes = '';
+
+		for (var i = 0; i < arguments.length; i++) {
+			var arg = arguments[i];
+			if (arg) {
+				classes = appendClass(classes, parseValue(arg));
+			}
+		}
+
+		return classes;
+	}
+
+	function parseValue (arg) {
+		if (typeof arg === 'string' || typeof arg === 'number') {
+			return arg;
+		}
+
+		if (typeof arg !== 'object') {
+			return '';
+		}
+
+		if (Array.isArray(arg)) {
+			return classNames.apply(null, arg);
+		}
+
+		if (arg.toString !== Object.prototype.toString && !arg.toString.toString().includes('[native code]')) {
+			return arg.toString();
+		}
+
+		var classes = '';
+
+		for (var key in arg) {
+			if (hasOwn.call(arg, key) && arg[key]) {
+				classes = appendClass(classes, key);
+			}
+		}
+
+		return classes;
+	}
+
+	function appendClass (value, newClass) {
+		if (!newClass) {
+			return value;
+		}
+	
+		if (value) {
+			return value + ' ' + newClass;
+		}
+	
+		return value + newClass;
+	}
+
+	if ( true && module.exports) {
+		classNames.default = classNames;
+		module.exports = classNames;
+	} else if (true) {
+		// register as 'classnames', consistent with npm package name
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+			return classNames;
+		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {}
+}());
+
+
+/***/ }),
+
+/***/ "./src/block.json":
+/*!************************!*\
+  !*** ./src/block.json ***!
+  \************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"wpcd/coupon","title":"Coupon","category":"wpcd","description":"Add coupon boxes to boost your affiliate sales.","keywords":["coupon","deal"],"attributes":{"template":{"type":"string","default":"default"},"padding":{"type":"object","default":{}},"margin":{"type":"object","default":{}},"discount":{"type":"string","default":"100%"},"title":{"type":"string","default":"Sample Coupon Code 2023"},"description":{"type":"string","default":"This is a little description of the coupon code or deal. Just to let users know some additional details."},"code":{"type":"string","default":"SAMPLECODE"},"expiredDateText":{"type":"string","default":"Expired"},"couponDealLabel":{"type":"string","default":"Coupon"},"navigationLink":{"type":"string","default":""},"expirationDate":{"type":"string","default":"10/30/2024"},"titleColor":{"type":"string","default":null},"descriptionColor":{"type":"string","default":null},"codeColor":{"type":"string","default":null},"discountColor":{"type":"string","default":null},"couponDealLabelColor":{"type":"string","default":null},"codeHoverColor":{"type":"string","default":null},"expirationDateColor":{"type":"string","default":null},"expiredDateColor":{"type":"string","default":null},"couponDealLabelBackgroundColor":{"type":"string","default":null},"couponDealLabelGradientBackground":{"type":"string","default":null},"codeBackgroundColor":{"type":"string","default":null},"codeGradientBackground":{"type":"string","default":null},"codeHoverBackgroundColor":{"type":"string","default":null},"codeHoverGradientBackground":{"type":"string","default":null},"wrapperBackgroundColor":{"type":"string","default":null},"wrapperGradientBackground":{"type":"string","default":null},"wrapperBorder":{"type":"object","default":{}},"wrapperBorderRadius":{"type":"object","default":{}},"codeBorder":{"type":"object","default":{}},"codeBorderRadius":{"type":"object","default":{}},"separatorBorder":{"type":"object","default":{}},"discountFontSize":{"type":"string","default":""},"couponDealLabelFontSize":{"type":"string","default":""},"titleFontSize":{"type":"string","default":""},"descriptionFontSize":{"type":"string","default":""},"codeFontSize":{"type":"string","default":""},"expirationDateFontSize":{"type":"string","default":""},"expiredDateFontSize":{"type":"string","default":""},"hideCoupon":{"type":"boolean","default":false},"couponId":{"type":"string","default":""},"couponPopupOfferButtonColor":{"type":"string","default":null},"couponPopupCopyButtonColor":{"type":"string","default":null},"couponPopupCodeFieldColor":{"type":"string","default":null},"couponPopupOfferButtonBgColor":{"type":"string","default":null},"couponPopupCopyButtonBgColor":{"type":"string","default":null},"couponPopupCodeFieldBgColor":{"type":"string","default":null},"couponPopupOfferButtonBgGradient":{"type":"string","default":null},"couponPopupCopyButtonBgGradient":{"type":"string","default":null},"couponPopupCodeFieldBgGradient":{"type":"string","default":null},"couponPopupCodeFieldBorder":{"type":"object","default":{}},"couponCodeButtonText":{"type":"string","default":"Show Code"},"couponPopupCopyButtonText":{"type":"string","default":"Copy"},"couponPopupOfferText":{"type":"string","default":"Go To Offer"},"doesNotExpireText":{"type":"string","default":"Doesn\'t Expire"},"couponType":{"type":"string","default":"coupon"},"dealButtonText":{"type":"string","default":"Get Deal"},"isDoesNotExpire":{"type":"boolean","default":false}},"supports":{"align":true},"editorScript":"wpcd-block-script","editorStyle":"wpcd-editor-style","viewScript":"wpcd-frontend-script","style":["wpcd-frontend-style"]}');
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"index": 0,
+/******/ 			"./style-index": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = globalThis["webpackChunkwp_coupons_and_deals"] = globalThis["webpackChunkwp_coupons_and_deals"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["./style-index"], () => (__webpack_require__("./src/index.js")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
+/******/ })()
+;
+//# sourceMappingURL=index.js.map

@@ -35,9 +35,8 @@ function BorderControl({
   };
   const { defaultColors } = useSelect((select) => {
     return {
-      defaultColors:
-        select("core/block-editor")?.getSettings()?.__experimentalFeatures
-          ?.color?.palette?.default,
+      defaultColors: select("core/block-editor")?.getSettings()
+        ?.__experimentalFeatures?.color?.palette?.default,
     };
   });
   return (
@@ -88,7 +87,7 @@ function BorderControl({
           <BaseControl.VisualLabel as="legend">
             {borderRadiusLabel}
           </BaseControl.VisualLabel>
-          <div className="ub-border-radius-control">
+          <div className="wpcd-border-radius-control">
             <BorderRadiusControl
               values={attributes[attrBorderRadiusKey]}
               onChange={(newBorderRadius) => {

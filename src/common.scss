@@ -1,105 +1,53 @@
-.ub-coupon-wrapper {
-  .ub-coupon-title {
+.wpcd-coupon-wrapper {
+  .wpcd-coupon-title {
     margin: 0;
   }
 
   /** Default Coupon**/
-  &.ub-coupon-default-template {
-    &:not(.ub-coupon-type-deal) {
-      .ub-coupon-details-wrapper {
-        .ub-coupon-code {
-          .ub-coupon-button {
+  &.wpcd-coupon-default-template {
+    &:not(.wpcd-coupon-type-deal) {
+      .wpcd-coupon-details-wrapper {
+        .wpcd-coupon-code {
+          .wpcd-coupon-button {
             padding: 4px 4px 4px 4px;
-            border-top: var(--ub-coupon-code-border-top, 2px dashed #ccc);
-            border-right: var(--ub-coupon-code-border-right, 2px dashed #ccc);
-            border-bottom: var(--ub-coupon-code-border-bottom, 2px dashed #ccc);
-            border-left: var(--ub-coupon-code-border-left, 2px dashed #ccc);
-            border-top-left-radius: var(--ub-coupon-code-top-left-radius, 2px);
-            border-top-right-radius: var(
-              --ub-coupon-code-top-right-radius,
-              2px
-            );
-            border-bottom-left-radius: var(
-              --ub-coupon-code-bottom-left-radius,
-              2px
-            );
-            border-bottom-right-radius: var(
-              --ub-coupon-code-bottom-right-radius,
-              2px
-            );
-            color: var(--ub-coupon-code-color, #347baf);
+            color: var(--wpcd-coupon-code-color, #347baf);
             background: var(
-              --ub-coupon-code-bg-color,
-              --ub-coupon-wrapper-bg-color
+              --wpcd-coupon-code-bg-color,
+              --wpcd-coupon-wrapper-bg-color
             );
           }
         }
       }
     }
-    &.ub-coupon-type-deal {
-      .ub-coupon-details-wrapper {
-        .ub-coupon-code {
-          .ub-coupon-button {
+    &.wpcd-coupon-type-deal {
+      .wpcd-coupon-details-wrapper {
+        .wpcd-coupon-code {
+          .wpcd-coupon-button {
             padding: 8px 24px;
-            border-top: var(--ub-coupon-code-border-top, 2px solid #56b151);
-            border-right: var(--ub-coupon-code-border-right, 2px solid #56b151);
-            border-bottom: var(
-              --ub-coupon-code-border-bottom,
-              2px solid #56b151
-            );
-            border-left: var(--ub-coupon-code-border-left, 2px solid #56b151);
-            border-top-left-radius: var(--ub-coupon-code-top-left-radius, 2px);
-            border-top-right-radius: var(
-              --ub-coupon-code-top-right-radius,
-              2px
-            );
-            border-bottom-left-radius: var(
-              --ub-coupon-code-bottom-left-radius,
-              2px
-            );
-            border-bottom-right-radius: var(
-              --ub-coupon-code-bottom-right-radius,
-              2px
-            );
-            color: var(--ub-coupon-code-color, #ffffff);
-            background: var(--ub-coupon-code-bg-color, #56b151);
+            color: var(--wpcd-coupon-code-color, #ffffff);
+            background: var(--wpcd-coupon-code-bg-color, #56b151);
           }
         }
       }
     }
-    background: var(--ub-coupon-wrapper-bg-color, #fafafa) none repeat scroll 0
-      0;
-    border-top: var(--ub-wrapper-border-top, 2px dashed #000000);
-    border-right: var(--ub-wrapper-border-right, 2px dashed #000000);
-    border-bottom: var(--ub-wrapper-border-bottom, 2px dashed #000000);
-    border-left: var(--ub-wrapper-border-left, 2px dashed #000000);
-    border-top-left-radius: var(--ub-wrapper-top-left-radius);
-    border-top-right-radius: var(--ub-wrapper-top-right-radius);
-    border-bottom-left-radius: var(--ub-wrapper-bottom-left-radius);
-    border-bottom-right-radius: var(--ub-wrapper-bottom-right-radius);
     box-sizing: border-box;
-    .ub-coupon-inner__wrapper {
+    .wpcd-coupon-inner__wrapper {
       display: flex;
       gap: 20px;
-      .ub-coupon-discount-wrapper {
+      .wpcd-coupon-discount-wrapper {
         width: 150px;
-        .ub-coupon-discount-inner__wrapper {
+        .wpcd-coupon-discount-inner__wrapper {
           max-width: 100%;
-          .ub-coupon-name {
-            background: var(--ub-coupon-deal-label-bg-color, #56b151);
+          .wpcd-coupon-name {
             padding: 7px 6px;
-            color: var(--ub-coupon-deal-label-color, #ffffff);
-            font-size: var(--ub-coupon-deal-label-font-size, 12px);
             font-weight: 600;
             line-height: 2em;
             text-align: center;
             box-shadow: 1px 1px 4px rgba(34, 34, 34, 0.2);
           }
-          .ub-coupon-discount {
+          .wpcd-coupon-discount {
             text-align: center;
-            font-size: var(--ub-coupon-discount-font-size, 20px);
             padding: 5px;
-            color: var(--ub-coupon-discount-color, #000000);
             margin-top: 5px;
             box-shadow: 1px 1px 4px rgba(34, 34, 34, 0.2);
             overflow-wrap: break-word;
@@ -107,49 +55,43 @@
           }
         }
       }
-      .ub-coupon-details-wrapper {
+      .wpcd-coupon-details-wrapper {
         width: calc(100% - 150px);
-        .ub-coupon-header {
-          border-bottom: var(--ub-separator-border-bottom, 1px dashed #ccc);
+        .wpcd-coupon-header {
+          border-bottom: var(--wpcd-separator-border-bottom, 1px dashed #ccc);
           padding-bottom: 10px;
         }
-        .ub-coupon-content {
+        .wpcd-coupon-content {
           padding-top: 10px;
         }
-        .ub-coupon-header,
-        .ub-coupon-content {
+        .wpcd-coupon-header,
+        .wpcd-coupon-content {
           display: flex;
           justify-content: space-between;
           gap: 10px;
         }
-        .ub-coupon-title-wrapper {
+        .wpcd-coupon-title-wrapper {
           margin: 5px 0px 10px 0px !important;
-          .ub-coupon-title {
-            font-size: var(--ub-coupon-title-font-size, 21px);
-            color: var(--ub-coupon-title-color, #000000);
-          }
         }
-        .ub-coupon-description {
+        .wpcd-coupon-description {
           p {
             margin: 0;
-            font-size: var(--ub-coupon-description-font-size, 16px);
-            color: var(--ub-coupon-description-color, #000000);
           }
         }
-        .ub-coupon-description,
-        .ub-coupon-title-wrapper {
+        .wpcd-coupon-description,
+        .wpcd-coupon-title-wrapper {
           width: 64%;
         }
-        .ub-coupon-code {
-          .ub-coupon-button {
-            .ub-coupon-icon {
+        .wpcd-coupon-code {
+          .wpcd-coupon-button {
+            .wpcd-coupon-icon {
               width: 24px;
               display: inline-block;
               vertical-align: middle;
               line-height: 1;
               margin-right: 4px;
             }
-            font-size: var(--ub-coupon-code-font-size, 16px);
+            font-size: var(--wpcd-coupon-code-font-size, 16px);
             text-align: center;
             cursor: pointer;
             font-weight: 600;
@@ -158,51 +100,51 @@
             word-break: break-all;
 
             &:hover {
-              color: var(--ub-coupon-code-hover-color);
-              background: var(--ub-coupon-code-bg-hover-color, #fafafa);
+              color: var(--wpcd-coupon-code-hover-color);
+              background: var(--wpcd-coupon-code-bg-hover-color, #fafafa);
               box-shadow: none;
             }
           }
         }
-        .ub-coupon-expiration-date {
-          color: var(--ub-coupon-expiration-date-color, green);
-          font-size: var(--ub-coupon-expiration-date-font-size, 14px);
+        .wpcd-coupon-expiration-date {
+          color: var(--wpcd-coupon-expiration-date-color, green);
+          font-size: var(--wpcd-coupon-expiration-date-font-size, 14px);
           margin-top: 5px;
           padding-left: 5px;
-          &.ub-coupon-expired {
-            color: var(--ub-coupon-expired-date-color, red);
-            font-size: var(--ub-coupon-expired-date-font-size, 14px);
+          &.wpcd-coupon-expired {
+            color: var(--wpcd-coupon-expired-date-color, red);
+            font-size: var(--wpcd-coupon-expired-date-font-size, 14px);
           }
         }
-        .ub-coupon-expiration-date,
-        .ub-coupon-code {
+        .wpcd-coupon-expiration-date,
+        .wpcd-coupon-code {
           width: 36%;
           text-align: right;
         }
       }
     }
     @media only screen and (max-width: 610px) {
-      .ub-coupon-inner__wrapper {
+      .wpcd-coupon-inner__wrapper {
         flex-direction: column;
-        .ub-coupon-details-wrapper,
-        .ub-coupon-discount-wrapper {
+        .wpcd-coupon-details-wrapper,
+        .wpcd-coupon-discount-wrapper {
           width: 100%;
         }
-        .ub-coupon-details-wrapper {
-          .ub-coupon-header,
-          .ub-coupon-content {
+        .wpcd-coupon-details-wrapper {
+          .wpcd-coupon-header,
+          .wpcd-coupon-content {
             flex-direction: column;
             align-items: center;
           }
-          .ub-coupon-code,
-          .ub-coupon-expiration-date {
+          .wpcd-coupon-code,
+          .wpcd-coupon-expiration-date {
             text-align: center;
             width: 100%;
           }
-          .ub-coupon-description,
-          .ub-coupon-title-wrapper {
+          .wpcd-coupon-description,
+          .wpcd-coupon-title-wrapper {
             width: 100%;
-            .ub-coupon-title {
+            .wpcd-coupon-title {
               text-align: center;
             }
           }
@@ -211,9 +153,9 @@
     }
 
     /*** Coupon Hidden ***/
-    &.ub-coupon-hidden {
-      .ub-coupon-inner__wrapper {
-        .ub-coupon-button {
+    &.wpcd-coupon-hidden {
+      .wpcd-coupon-inner__wrapper {
+        .wpcd-coupon-button {
           position: relative;
           overflow: hidden;
           color: #000000 !important;
@@ -229,28 +171,28 @@
               rgba(0, 0, 0, 0.06) 90%
             )
             repeat scroll 0 0/6px 6px transparent !important;
-          &:not(.ub-coupon-popup-opened) {
+          &:not(.wpcd-coupon-popup-opened) {
             &:hover {
               &::before {
                 width: calc(100% - 40px);
-                color: var(--ub-coupon-code-hover-color, #ffffff);
-                background: var(--ub-coupon-code-bg-hover-color, #35b357);
+                color: var(--wpcd-coupon-code-hover-color, #ffffff);
+                background: var(--wpcd-coupon-code-bg-hover-color, #35b357);
               }
               &::after {
                 left: calc(100% - 42px);
                 border-left: 33px solid
-                  var(--ub-coupon-code-bg-hover-color, #35b357);
+                  var(--wpcd-coupon-code-bg-hover-color, #35b357);
               }
             }
             &::before {
-              content: var(--ub-coupon-code-button-text, "Show Code");
+              content: var(--wpcd-coupon-code-button-text, "Show Code");
               line-height: 1;
               position: absolute;
               left: -2px;
               top: 0px;
-              background: var(--ub-coupon-code-bg-color, #35b357);
-              color: var(--ub-coupon-code-color, #ffffff);
-              font-size: var(--ub-coupon-code-font-size, 12px);
+              background: var(--wpcd-coupon-code-bg-color, #35b357);
+              color: var(--wpcd-coupon-code-color, #ffffff);
+              font-size: var(--wpcd-coupon-code-font-size, 12px);
               padding: 14px 0% 11px 0%;
               text-align: center;
               width: -moz-calc(100% - 36px);
@@ -275,7 +217,7 @@
               -o-transition: all 0.5s ease;
               transition: all 0.5s ease;
               border-top: 37px solid transparent;
-              border-left: 33px solid var(--ub-coupon-code-bg-color, #35b357);
+              border-left: 33px solid var(--wpcd-coupon-code-bg-color, #35b357);
               position: absolute;
               left: calc(100% - 38px);
               top: 0px;
@@ -287,7 +229,7 @@
     }
   }
 
-  .ub-coupon-popup {
+  .wpcd-coupon-popup {
     display: none;
     background-color: rgba(0, 0, 0, 0.85);
     height: 100%;
@@ -297,7 +239,7 @@
     width: 100%;
     z-index: 9999;
     overflow: auto;
-    .ub-coupon-popup-inner_wrapper {
+    .wpcd-coupon-popup-inner_wrapper {
       background-color: #ffffff;
       border-radius: 4px;
       box-sizing: border-box;
@@ -313,12 +255,12 @@
       -webkit-transform: translate(-50%, -50%);
       -o-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
-      .ub-coupon-popup-header {
-        .ub-coupon-popup-title {
+      .wpcd-coupon-popup-header {
+        .wpcd-coupon-popup-title {
           text-align: center;
           font-size: 29px;
         }
-        .ub-coupon-popup-close-button {
+        .wpcd-coupon-popup-close-button {
           color: #222222;
           cursor: pointer;
           font-size: 35px;
@@ -336,31 +278,14 @@
           width: 25px;
         }
       }
-      .ub-coupon-popup-content {
+      .wpcd-coupon-popup-content {
         max-width: 480px;
         margin: 0 auto;
-        .ub-coupon-popup-description {
+        .wpcd-coupon-popup-description {
           font-size: 14px;
           text-align: center;
         }
-        .ub-coupon-popup-code-wrapper {
-          background: var(--ub-coupon-popup-field-bg-color, #beffb9);
-          border-top: var(
-            --ub-coupon-popup-field-border-top,
-            2px dashed #56b151
-          );
-          border-right: var(
-            --ub-coupon-popup-field-border-right,
-            2px dashed #56b151
-          );
-          border-bottom: var(
-            --ub-coupon-popup-field-border-bottom,
-            2px dashed #56b151
-          );
-          border-left: var(
-            --ub-coupon-popup-field-border-left,
-            2px dashed #56b151
-          );
+        .wpcd-coupon-popup-code-wrapper {
           border-radius: 3px;
           box-sizing: border-box;
           padding: 10px;
@@ -368,8 +293,7 @@
           text-align: left;
           margin-top: 20px;
         }
-        .ub-coupon-popup-code {
-          color: var(--ub-coupon-popup-field-color, #000000);
+        .wpcd-coupon-popup-code {
           display: block;
           font-size: 26px;
           font-weight: 700;
@@ -379,13 +303,11 @@
           padding-right: 90px;
           white-space: nowrap;
         }
-        .ub-coupon-button {
-          background: var(--ub-coupon-popup-copy-bg-color, #56b151);
+        .wpcd-coupon-button {
           border: medium none;
           border-radius: 0 3px 3px 0;
           bottom: -3px;
           box-sizing: border-box;
-          color: var(--ub-coupon-popup-copy-color, #ffffff);
           font-size: 16px;
           font-style: normal;
           font-weight: 600;
@@ -397,7 +319,7 @@
           right: -2px;
           top: -3px;
         }
-        .ub-coupon-go-to-offer {
+        .wpcd-coupon-go-to-offer {
           display: inline-block;
           width: auto;
           margin-top: 30px;
@@ -405,9 +327,7 @@
           -webkit-border-radius: 3px;
           -moz-border-radius: 3px;
           border-radius: 3px;
-          color: var(--ub-coupon-popup-offer-color, #ffffff);
           font-size: 19px;
-          background: var(--ub-coupon-popup-offer-bg-color, #56b151);
           padding: 10px 15px 10px 15px;
           text-decoration: none;
         }
@@ -415,13 +335,13 @@
     }
   }
   @media only screen and (max-width: 480px) {
-    .ub-coupon-popup {
+    .wpcd-coupon-popup {
       text-align: center;
-      .ub-coupon-popup-code-wrapper {
-        .ub-coupon-popup-code {
+      .wpcd-coupon-popup-code-wrapper {
+        .wpcd-coupon-popup-code {
           font-size: 18px !important;
         }
-        .ub-coupon-button {
+        .wpcd-coupon-button {
           font-size: 15px !important;
           line-height: 42px !important;
         }
