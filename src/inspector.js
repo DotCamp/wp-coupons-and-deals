@@ -8,9 +8,10 @@ import {
   PanelBody,
   TextControl,
   ToggleControl,
-  TabPanel,
+  Disabled,
 } from "@wordpress/components";
 import { InspectorControls } from "@wordpress/block-editor";
+import { useEffect } from "@wordpress/element";
 /**
  * Internal Imports
  */
@@ -21,10 +22,11 @@ import {
   CustomFontSizePicker,
   CustomToggleGroupControl,
   SpacingControlWithToolsPanel,
+  UBSelectControl,
 } from "./StylingControls";
 import HideCouponSettings from "./components/HideCouponSettings";
 import TabsPanelControl from "./components/TabsPanelControl";
-
+const IS_PRO = WPCD_CFG.IS_PRO === "true";
 function Inspector(props) {
   const { attributes, setAttributes } = props;
   const {
@@ -35,6 +37,11 @@ function Inspector(props) {
     isDoesNotExpire,
     couponType,
   } = attributes;
+  useEffect(() => {
+    if (!IS_PRO) {
+      setAttributes({ hideCoupon: false, template: "default" });
+    }
+  }, []);
   const normalStateColors = (
     <>
       <ColorSettings
@@ -94,7 +101,7 @@ function Inspector(props) {
         attrGradientKey="wrapperGradientBackground"
         label={__("Wrapper Background", "wp-coupons-and-deals")}
       />
-      {hideCoupon && (
+      {hideCoupon && IS_PRO && (
         <>
           <ColorSettings
             attrKey="couponPopupOfferButtonColor"
@@ -166,6 +173,61 @@ function Inspector(props) {
     <>
       <InspectorControls>
         <PanelBody title={__("General", "wp-coupons-and-deals")}>
+          <Disabled isDisabled={!IS_PRO}>
+            <UBSelectControl
+              label={__(
+                `Template${!IS_PRO ? " (Pro)" : ""}`,
+                "wp-coupons-and-deals"
+              )}
+              options={[
+                {
+                  label: __("Default", "wp-coupons-and-deals"),
+                  value: "template-default",
+                },
+                {
+                  label: __("Template One", "wp-coupons-and-deals"),
+                  value: "template-one",
+                },
+                {
+                  label: __("Template Two", "wp-coupons-and-deals"),
+                  value: "template-two",
+                },
+                {
+                  label: __("Template Three", "wp-coupons-and-deals"),
+                  value: "template-three",
+                },
+                {
+                  label: __("Template Four", "wp-coupons-and-deals"),
+                  value: "template-four",
+                },
+                {
+                  label: __("Template Five", "wp-coupons-and-deals"),
+                  value: "template-five",
+                },
+                {
+                  label: __("Template Six", "wp-coupons-and-deals"),
+                  value: "template-six",
+                },
+                {
+                  label: __("Template Seven", "wp-coupons-and-deals"),
+                  value: "template-seven",
+                },
+                {
+                  label: __("Template Eight", "wp-coupons-and-deals"),
+                  value: "template-eight",
+                },
+                {
+                  label: __("Template Nine", "wp-coupons-and-deals"),
+                  value: "template-nine",
+                },
+              ]}
+              value={attributes.template}
+              onChange={(newTemplate) =>
+                setAttributes({ template: newTemplate })
+              }
+            />
+          </Disabled>
+          <br></br>
           <CustomToggleGroupControl
             label={__("Coupon Type", "wp-coupons-and-deals")}
             isBlock
@@ -217,14 +279,17 @@ function Inspector(props) {
             </>
           )}
           {couponType !== "deal" && (
-            <>
+            <Disabled isDisabled={!IS_PRO}>
               <ToggleControl
-                label={__("Hide Coupon", "wp-coupons-and-deals")}
+                label={__(
+                  `Hide Coupon${!IS_PRO ? " (Pro)" : ""}`,
+                  "wp-coupons-and-deals"
+                )}
                 checked={hideCoupon}
                 onChange={() => setAttributes({ hideCoupon: !hideCoupon })}
               />
-              {hideCoupon && <HideCouponSettings {...props} />}
-            </>
+              {hideCoupon && IS_PRO && <HideCouponSettings {...props} />}
+            </Disabled>
           )}
         </PanelBody>
       </InspectorControls>

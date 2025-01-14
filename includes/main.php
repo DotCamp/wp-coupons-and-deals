@@ -135,8 +135,8 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 		 * @since 1.0
 		 */
 		public static function load_block_files() {
-			// Load the block assets
 			require_once WPCD_Plugin::instance()->plugin_classes . 'wpcd-block-assets.php';
+			require_once WPCD_Plugin::instance()->plugin_classes . 'wpcd-block-category.php';
 			// Load the block css generator
 			require_once WPCD_Plugin::instance()->plugin_classes . 'wpcd-block-css-generator.php';
 			// Load the blocks

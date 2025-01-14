@@ -393,6 +393,49 @@ function CustomFontSizePicker({
 
 /***/ }),
 
+/***/ "./src/StylingControls/SelectControl/index.js":
+/*!****************************************************!*\
+  !*** ./src/StylingControls/SelectControl/index.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+
+/**
+ * WordPress dependencies
+ */
+
+
+function UBSelectControl({
+  label,
+  value,
+  onChange = () => {},
+  options
+}) {
+  const displayValue = value !== null && value !== void 0 ? value : "auto";
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SelectControl, {
+    label: label,
+    value: displayValue,
+    options: options,
+    onChange: onChange,
+    size: "__unstable-large",
+    __nextHasNoMarginBottom: true
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UBSelectControl);
+
+/***/ }),
+
 /***/ "./src/StylingControls/SpacingControl/index.js":
 /*!*****************************************************!*\
   !*** ./src/StylingControls/SpacingControl/index.js ***!
@@ -666,7 +709,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   CustomToggleGroupControl: () => (/* reexport safe */ _ToggleGroupControl__WEBPACK_IMPORTED_MODULE_3__["default"]),
 /* harmony export */   SpacingControl: () => (/* reexport safe */ _SpacingControl__WEBPACK_IMPORTED_MODULE_4__["default"]),
 /* harmony export */   SpacingControlWithToolsPanel: () => (/* reexport safe */ _SpacingControlWIthToolsPanel__WEBPACK_IMPORTED_MODULE_5__["default"]),
-/* harmony export */   TabsPanelControl: () => (/* reexport safe */ _TabsPanelControl__WEBPACK_IMPORTED_MODULE_6__["default"])
+/* harmony export */   TabsPanelControl: () => (/* reexport safe */ _TabsPanelControl__WEBPACK_IMPORTED_MODULE_6__["default"]),
+/* harmony export */   UBSelectControl: () => (/* reexport safe */ _SelectControl__WEBPACK_IMPORTED_MODULE_7__["default"])
 /* harmony export */ });
 /* harmony import */ var _ColorSettings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ColorSettings */ "./src/StylingControls/ColorSettings/index.js");
 /* harmony import */ var _BorderControl__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BorderControl */ "./src/StylingControls/BorderControl/index.js");
@@ -675,6 +719,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SpacingControl__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SpacingControl */ "./src/StylingControls/SpacingControl/index.js");
 /* harmony import */ var _SpacingControlWIthToolsPanel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./SpacingControlWIthToolsPanel */ "./src/StylingControls/SpacingControlWIthToolsPanel/index.js");
 /* harmony import */ var _TabsPanelControl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./TabsPanelControl */ "./src/StylingControls/TabsPanelControl/index.js");
+/* harmony import */ var _SelectControl__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./SelectControl */ "./src/StylingControls/SelectControl/index.js");
+
 
 
 
@@ -853,7 +899,7 @@ function Edit(props) {
     borderBottom: !(0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.isValueEmpty)((0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.getSingleSideBorderValue)(wrapperBorder, "bottom")) ? (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.getSingleSideBorderValue)(wrapperBorder, "bottom") : "2px dashed #000000"
   };
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
-    className: classnames__WEBPACK_IMPORTED_MODULE_6___default()(`wpcd-coupon-wrapper wpcd-coupon-${template}-template`, {
+    className: classnames__WEBPACK_IMPORTED_MODULE_6___default()(`wpcd-coupon-wrapper wpcd-coupon-${template}`, {
       ["wpcd-coupon-hidden"]: hideCoupon && couponType !== "deal",
       ["wpcd-coupon-type-deal"]: couponType === "deal",
       "has-padding": !(0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.isValueEmpty)(padding),
@@ -870,7 +916,7 @@ function Edit(props) {
   }, [hideCoupon]);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
-  }, template === "default" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_templates_default_template_EditDefaultTemplate__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, template === "template-default" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_templates_default_template_EditDefaultTemplate__WEBPACK_IMPORTED_MODULE_4__["default"], {
     ...props
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_inspector__WEBPACK_IMPORTED_MODULE_5__["default"], {
     ...props
@@ -964,13 +1010,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _StylingControls__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./StylingControls */ "./src/StylingControls/index.js");
-/* harmony import */ var _components_HideCouponSettings__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/HideCouponSettings */ "./src/components/HideCouponSettings.js");
-/* harmony import */ var _components_TabsPanelControl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/TabsPanelControl */ "./src/components/TabsPanelControl.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _StylingControls__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./StylingControls */ "./src/StylingControls/index.js");
+/* harmony import */ var _components_HideCouponSettings__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/HideCouponSettings */ "./src/components/HideCouponSettings.js");
+/* harmony import */ var _components_TabsPanelControl__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/TabsPanelControl */ "./src/components/TabsPanelControl.js");
 
 /**
  * Wordpress Dependencies
  */
+
 
 
 
@@ -980,6 +1029,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+const IS_PRO = WPCD_CFG.IS_PRO === "true";
 function Inspector(props) {
   const {
     attributes,
@@ -993,65 +1043,73 @@ function Inspector(props) {
     isDoesNotExpire,
     couponType
   } = attributes;
-  const normalStateColors = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettings, {
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.useEffect)(() => {
+    if (!IS_PRO) {
+      setAttributes({
+        hideCoupon: false,
+        template: "default"
+      });
+    }
+  }, []);
+  const normalStateColors = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.ColorSettings, {
     attrKey: "titleColor",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Title Color", "wp-coupons-and-deals")
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettings, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.ColorSettings, {
     attrKey: "descriptionColor",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Description Color", "wp-coupons-and-deals")
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettings, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.ColorSettings, {
     attrKey: "codeColor",
     label: couponType !== "deal" ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Code Color", "wp-coupons-and-deals") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Get Deal Color", "wp-coupons-and-deals")
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettings, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.ColorSettings, {
     attrKey: "discountColor",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Discount Color", "wp-coupons-and-deals")
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettings, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.ColorSettings, {
     attrKey: "couponDealLabelColor",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Coupon/Deal Label Color", "wp-coupons-and-deals")
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettings, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.ColorSettings, {
     attrKey: "expirationDateColor",
     label: isDoesNotExpire ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Doesn't Expire Color", "wp-coupons-and-deals") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Expiration Date Color", "wp-coupons-and-deals")
-  }), !isDoesNotExpire && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettings, {
+  }), !isDoesNotExpire && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.ColorSettings, {
     attrKey: "expiredDateColor",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Expired Date Color", "wp-coupons-and-deals")
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettingsWithGradient, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.ColorSettingsWithGradient, {
     attrBackgroundKey: "codeBackgroundColor",
     attrGradientKey: "codeGradientBackground",
     label: couponType !== "deal" ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Code Background", "wp-coupons-and-deals") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Get Deal Background", "wp-coupons-and-deals")
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettingsWithGradient, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.ColorSettingsWithGradient, {
     attrBackgroundKey: "couponDealLabelBackgroundColor",
     attrGradientKey: "couponDealLabelGradientBackground",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Coupon/Deal Background", "wp-coupons-and-deals")
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettingsWithGradient, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.ColorSettingsWithGradient, {
     attrBackgroundKey: "wrapperBackgroundColor",
     attrGradientKey: "wrapperGradientBackground",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Wrapper Background", "wp-coupons-and-deals")
-  }), hideCoupon && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettings, {
+  }), hideCoupon && IS_PRO && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.ColorSettings, {
     attrKey: "couponPopupOfferButtonColor",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Popup Navigation Button Color", "wp-coupons-and-deals")
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettings, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.ColorSettings, {
     attrKey: "couponPopupCopyButtonColor",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Popup Copy Button Color", "wp-coupons-and-deals")
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettings, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.ColorSettings, {
     attrKey: "couponPopupCodeFieldColor",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Popup Coupon Field Color", "wp-coupons-and-deals")
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettingsWithGradient, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.ColorSettingsWithGradient, {
     attrBackgroundKey: "couponPopupOfferButtonBgColor",
     attrGradientKey: "couponPopupOfferButtonBgGradient",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Popup Navigation Button Background", "wp-coupons-and-deals")
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettingsWithGradient, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.ColorSettingsWithGradient, {
     attrBackgroundKey: "couponPopupCopyButtonBgColor",
     attrGradientKey: "couponPopupCopyButtonBgGradient",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Popup Copy Button Background", "wp-coupons-and-deals")
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettingsWithGradient, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.ColorSettingsWithGradient, {
     attrBackgroundKey: "couponPopupCodeFieldBgColor",
     attrGradientKey: "couponPopupCodeFieldBgGradient",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Popup Coupon Field Background", "wp-coupons-and-deals")
   })));
-  const hoverStateColors = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettings, {
+  const hoverStateColors = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.ColorSettings, {
     attrKey: "codeHoverColor",
     label: couponType !== "deal" ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Code Hover Color", "wp-coupons-and-deals") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Get Deal Hover Color", "wp-coupons-and-deals")
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.ColorSettingsWithGradient, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.ColorSettingsWithGradient, {
     attrBackgroundKey: "codeHoverBackgroundColor",
     attrGradientKey: "codeHoverGradientBackground",
     label: couponType !== "deal" ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Code Hover Background", "wp-coupons-and-deals") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Get Deal Hover Background", "wp-coupons-and-deals")
@@ -1065,7 +1123,46 @@ function Inspector(props) {
   }];
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("General", "wp-coupons-and-deals")
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.CustomToggleGroupControl, {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Disabled, {
+    isDisabled: !IS_PRO
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.UBSelectControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(`Template${!IS_PRO ? " (Pro)" : ""}`, "wp-coupons-and-deals"),
+    options: [{
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Default", "wp-coupons-and-deals"),
+      value: "template-default"
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Template One", "wp-coupons-and-deals"),
+      value: "template-one"
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Template Two", "wp-coupons-and-deals"),
+      value: "template-two"
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Template Three", "wp-coupons-and-deals"),
+      value: "template-three"
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Template Four", "wp-coupons-and-deals"),
+      value: "template-four"
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Template Five", "wp-coupons-and-deals"),
+      value: "template-five"
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Template Six", "wp-coupons-and-deals"),
+      value: "template-six"
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Template Seven", "wp-coupons-and-deals"),
+      value: "template-seven"
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Template Eight", "wp-coupons-and-deals"),
+      value: "template-eight"
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Template Nine", "wp-coupons-and-deals"),
+      value: "template-nine"
+    }],
+    value: attributes.template,
+    onChange: newTemplate => setAttributes({
+      template: newTemplate
+    })
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.CustomToggleGroupControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Coupon Type", "wp-coupons-and-deals"),
     isBlock: true,
     options: couponTypes,
@@ -1100,67 +1197,69 @@ function Inspector(props) {
         expirationDate: date.toLocaleDateString()
       });
     }
-  }))), couponType !== "deal" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Hide Coupon", "wp-coupons-and-deals"),
+  }))), couponType !== "deal" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Disabled, {
+    isDisabled: !IS_PRO
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(`Hide Coupon${!IS_PRO ? " (Pro)" : ""}`, "wp-coupons-and-deals"),
     checked: hideCoupon,
     onChange: () => setAttributes({
       hideCoupon: !hideCoupon
     })
-  }), hideCoupon && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_HideCouponSettings__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }), hideCoupon && IS_PRO && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_HideCouponSettings__WEBPACK_IMPORTED_MODULE_6__["default"], {
     ...props
   })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, {
     group: "color"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_TabsPanelControl__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_TabsPanelControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
     normalStateLabel: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Normal", "wp-coupons-and-deals"),
     hoverStateLabel: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Hover", "wp-coupons-and-deals"),
     normalState: normalStateColors,
     hoverState: hoverStateColors
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, {
     group: "typography"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.CustomFontSizePicker, {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.CustomFontSizePicker, {
     attrKey: "discountFontSize",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Discount Font Size", "wp-coupons-and-deals")
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.CustomFontSizePicker, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.CustomFontSizePicker, {
     attrKey: "couponDealLabelFontSize",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Coupon/Deal Label Font Size", "wp-coupons-and-deals")
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.CustomFontSizePicker, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.CustomFontSizePicker, {
     attrKey: "titleFontSize",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Title Font Size", "wp-coupons-and-deals")
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.CustomFontSizePicker, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.CustomFontSizePicker, {
     attrKey: "descriptionFontSize",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Description Font Size", "wp-coupons-and-deals")
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.CustomFontSizePicker, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.CustomFontSizePicker, {
     attrKey: "codeFontSize",
     label: couponType !== "deal" ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Code Font Size", "wp-coupons-and-deals") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Get Deal Font Size", "wp-coupons-and-deals")
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.CustomFontSizePicker, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.CustomFontSizePicker, {
     attrKey: "expirationDateFontSize",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Expiration Date Font Size", "wp-coupons-and-deals")
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.CustomFontSizePicker, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.CustomFontSizePicker, {
     attrKey: "expiredDateFontSize",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Expired Date Font Size", "wp-coupons-and-deals")
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, {
     group: "border"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.BorderControl, {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.BorderControl, {
     showDefaultBorder: true,
     showDefaultBorderRadius: true,
     attrBorderKey: "wrapperBorder",
     attrBorderRadiusKey: "wrapperBorderRadius",
     borderLabel: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Wrapper Border", "wp-coupons-and-deals"),
     borderRadiusLabel: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Wrapper Border Radius", "wp-coupons-and-deals")
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.BorderControl, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.BorderControl, {
     showDefaultBorder: true,
     showDefaultBorderRadius: true,
     attrBorderKey: "codeBorder",
     attrBorderRadiusKey: "codeBorderRadius",
     borderLabel: couponType !== "deal" ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Code Border", "wp-coupons-and-deals") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Get Deal Border", "wp-coupons-and-deals"),
     borderRadiusLabel: couponType !== "deal" ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Code Border Radius", "wp-coupons-and-deals") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Get Deal Border Radius", "wp-coupons-and-deals")
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.BorderControl, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.BorderControl, {
     showDefaultBorder: true,
     showDefaultBorderRadius: true,
     isShowBorderRadius: false,
     attrBorderKey: "separatorBorder",
     borderLabel: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Separator Border", "wp-coupons-and-deals")
-  }), hideCoupon && couponType !== "deal" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.BorderControl, {
+  }), hideCoupon && couponType !== "deal" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.BorderControl, {
     showDefaultBorder: true,
     showDefaultBorderRadius: true,
     isShowBorderRadius: false,
@@ -1168,11 +1267,11 @@ function Inspector(props) {
     borderLabel: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Popup Coupon Field Border", "wp-coupons-and-deals")
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, {
     group: "dimensions"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.SpacingControlWithToolsPanel, {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.SpacingControlWithToolsPanel, {
     showByDefault: true,
     attrKey: "padding",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Padding", "wp-coupons-and-deals")
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_4__.SpacingControlWithToolsPanel, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.SpacingControlWithToolsPanel, {
     minimumCustomValue: -Infinity,
     showByDefault: true,
     attrKey: "margin",
@@ -1739,7 +1838,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"wpcd/coupon","title":"Coupon","category":"wpcd","description":"Add coupon boxes to boost your affiliate sales.","keywords":["coupon","deal"],"attributes":{"template":{"type":"string","default":"default"},"padding":{"type":"object","default":{}},"margin":{"type":"object","default":{}},"discount":{"type":"string","default":"100%"},"title":{"type":"string","default":"Sample Coupon Code 2023"},"description":{"type":"string","default":"This is a little description of the coupon code or deal. Just to let users know some additional details."},"code":{"type":"string","default":"SAMPLECODE"},"expiredDateText":{"type":"string","default":"Expired"},"couponDealLabel":{"type":"string","default":"Coupon"},"navigationLink":{"type":"string","default":""},"expirationDate":{"type":"string","default":"10/30/2024"},"titleColor":{"type":"string","default":null},"descriptionColor":{"type":"string","default":null},"codeColor":{"type":"string","default":null},"discountColor":{"type":"string","default":null},"couponDealLabelColor":{"type":"string","default":null},"codeHoverColor":{"type":"string","default":null},"expirationDateColor":{"type":"string","default":null},"expiredDateColor":{"type":"string","default":null},"couponDealLabelBackgroundColor":{"type":"string","default":null},"couponDealLabelGradientBackground":{"type":"string","default":null},"codeBackgroundColor":{"type":"string","default":null},"codeGradientBackground":{"type":"string","default":null},"codeHoverBackgroundColor":{"type":"string","default":null},"codeHoverGradientBackground":{"type":"string","default":null},"wrapperBackgroundColor":{"type":"string","default":null},"wrapperGradientBackground":{"type":"string","default":null},"wrapperBorder":{"type":"object","default":{}},"wrapperBorderRadius":{"type":"object","default":{}},"codeBorder":{"type":"object","default":{}},"codeBorderRadius":{"type":"object","default":{}},"separatorBorder":{"type":"object","default":{}},"discountFontSize":{"type":"string","default":""},"couponDealLabelFontSize":{"type":"string","default":""},"titleFontSize":{"type":"string","default":""},"descriptionFontSize":{"type":"string","default":""},"codeFontSize":{"type":"string","default":""},"expirationDateFontSize":{"type":"string","default":""},"expiredDateFontSize":{"type":"string","default":""},"hideCoupon":{"type":"boolean","default":false},"couponId":{"type":"string","default":""},"couponPopupOfferButtonColor":{"type":"string","default":null},"couponPopupCopyButtonColor":{"type":"string","default":null},"couponPopupCodeFieldColor":{"type":"string","default":null},"couponPopupOfferButtonBgColor":{"type":"string","default":null},"couponPopupCopyButtonBgColor":{"type":"string","default":null},"couponPopupCodeFieldBgColor":{"type":"string","default":null},"couponPopupOfferButtonBgGradient":{"type":"string","default":null},"couponPopupCopyButtonBgGradient":{"type":"string","default":null},"couponPopupCodeFieldBgGradient":{"type":"string","default":null},"couponPopupCodeFieldBorder":{"type":"object","default":{}},"couponCodeButtonText":{"type":"string","default":"Show Code"},"couponPopupCopyButtonText":{"type":"string","default":"Copy"},"couponPopupOfferText":{"type":"string","default":"Go To Offer"},"doesNotExpireText":{"type":"string","default":"Doesn\'t Expire"},"couponType":{"type":"string","default":"coupon"},"dealButtonText":{"type":"string","default":"Get Deal"},"isDoesNotExpire":{"type":"boolean","default":false}},"supports":{"align":true},"editorScript":"wpcd-block-script","editorStyle":"wpcd-editor-style","viewScript":"wpcd-frontend-script","style":["wpcd-frontend-style"]}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"wpcd/coupon","title":"Coupon","category":"wpcd","description":"Add coupon boxes to boost your affiliate sales.","keywords":["coupon","deal"],"attributes":{"template":{"type":"string","default":"template-default"},"padding":{"type":"object","default":{}},"margin":{"type":"object","default":{}},"discount":{"type":"string","default":"100%"},"title":{"type":"string","default":"Sample Coupon Code 2023"},"description":{"type":"string","default":"This is a little description of the coupon code or deal. Just to let users know some additional details."},"code":{"type":"string","default":"SAMPLECODE"},"expiredDateText":{"type":"string","default":"Expired"},"couponDealLabel":{"type":"string","default":"Coupon"},"navigationLink":{"type":"string","default":""},"expirationDate":{"type":"string","default":"10/30/2024"},"titleColor":{"type":"string","default":null},"descriptionColor":{"type":"string","default":null},"codeColor":{"type":"string","default":null},"discountColor":{"type":"string","default":null},"couponDealLabelColor":{"type":"string","default":null},"codeHoverColor":{"type":"string","default":null},"expirationDateColor":{"type":"string","default":null},"expiredDateColor":{"type":"string","default":null},"couponDealLabelBackgroundColor":{"type":"string","default":null},"couponDealLabelGradientBackground":{"type":"string","default":null},"codeBackgroundColor":{"type":"string","default":null},"codeGradientBackground":{"type":"string","default":null},"codeHoverBackgroundColor":{"type":"string","default":null},"codeHoverGradientBackground":{"type":"string","default":null},"wrapperBackgroundColor":{"type":"string","default":null},"wrapperGradientBackground":{"type":"string","default":null},"wrapperBorder":{"type":"object","default":{}},"wrapperBorderRadius":{"type":"object","default":{}},"codeBorder":{"type":"object","default":{}},"codeBorderRadius":{"type":"object","default":{}},"separatorBorder":{"type":"object","default":{}},"discountFontSize":{"type":"string","default":""},"couponDealLabelFontSize":{"type":"string","default":""},"titleFontSize":{"type":"string","default":""},"descriptionFontSize":{"type":"string","default":""},"codeFontSize":{"type":"string","default":""},"expirationDateFontSize":{"type":"string","default":""},"expiredDateFontSize":{"type":"string","default":""},"hideCoupon":{"type":"boolean","default":false},"couponId":{"type":"string","default":""},"couponPopupOfferButtonColor":{"type":"string","default":null},"couponPopupCopyButtonColor":{"type":"string","default":null},"couponPopupCodeFieldColor":{"type":"string","default":null},"couponPopupOfferButtonBgColor":{"type":"string","default":null},"couponPopupCopyButtonBgColor":{"type":"string","default":null},"couponPopupCodeFieldBgColor":{"type":"string","default":null},"couponPopupOfferButtonBgGradient":{"type":"string","default":null},"couponPopupCopyButtonBgGradient":{"type":"string","default":null},"couponPopupCodeFieldBgGradient":{"type":"string","default":null},"couponPopupCodeFieldBorder":{"type":"object","default":{}},"couponCodeButtonText":{"type":"string","default":"Show Code"},"couponPopupCopyButtonText":{"type":"string","default":"Copy"},"couponPopupOfferText":{"type":"string","default":"Go To Offer"},"doesNotExpireText":{"type":"string","default":"Doesn\'t Expire"},"couponType":{"type":"string","default":"coupon"},"dealButtonText":{"type":"string","default":"Get Deal"},"isDoesNotExpire":{"type":"boolean","default":false}},"supports":{"align":true},"editorScript":"wpcd-block-script","editorStyle":"wpcd-editor-style","viewScript":"wpcd-frontend-script","style":["wpcd-frontend-style"]}');
 
 /***/ })
 

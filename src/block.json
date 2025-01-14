@@ -12,7 +12,7 @@
      "attributes": {
           "template": {
                "type": "string",
-               "default": "default"
+               "default": "template-default"
           },
           "padding": {
                "type": "object",

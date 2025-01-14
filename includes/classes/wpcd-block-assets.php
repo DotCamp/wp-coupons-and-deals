@@ -64,20 +64,17 @@ class WPCD_Block_Assets {
                WPCD_Plugin::PLUGIN_VERSION,
                false
           );
+          self::pass_data_to_js('wpcd-block-script');
      }
 
      private static function pass_data_to_js( string $handle ) {
-          // $data = [
-          //     'plugin_url' => WPCD_Plugin::instance()->plugin_dir_uri
-          // ];
-          // global $tp_fs;
-          // if (isset($tp_fs)) {
-          //     $data['IS_PRO'] = $tp_fs->is__premium_only()
-          //         && $tp_fs->can_use_premium_code();
-          // } else {
-          //     $data['IS_PRO'] = false;
-          // }
-          // wp_localize_script($handle, 'wpcd_CFG', $data);
+          $data = [];
+          if (wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code()) {
+              $data['IS_PRO'] = 'true';
+          } else {
+              $data['IS_PRO'] = 'false';
+          }
+          wp_localize_script($handle, 'WPCD_CFG', $data);
      }
 }
 

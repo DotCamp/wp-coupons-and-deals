@@ -9,3 +9,8 @@
   grid-column: 1 / -1;
   margin-top: 0px !important;
 }
+.components-disabled {
+  .components-input-control__container {
+    opacity: 0.3;
+  }
+}

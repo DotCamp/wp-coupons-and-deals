@@ -70,15 +70,12 @@ function Edit(props) {
       : "2px dashed #000000",
   };
   const blockProps = useBlockProps({
-    className: classNames(
-      `wpcd-coupon-wrapper wpcd-coupon-${template}-template`,
-      {
-        ["wpcd-coupon-hidden"]: hideCoupon && couponType !== "deal",
-        ["wpcd-coupon-type-deal"]: couponType === "deal",
-        "has-padding": !isValueEmpty(padding),
-        "has-margin": !isValueEmpty(margin),
-      }
-    ),
+    className: classNames(`wpcd-coupon-wrapper wpcd-coupon-${template}`, {
+      ["wpcd-coupon-hidden"]: hideCoupon && couponType !== "deal",
+      ["wpcd-coupon-type-deal"]: couponType === "deal",
+      "has-padding": !isValueEmpty(padding),
+      "has-margin": !isValueEmpty(margin),
+    }),
     style: generateStyles(wrapperStyles),
   });
   useEffect(() => {
@@ -89,7 +86,7 @@ function Edit(props) {
   return (
     <>
       <div {...blockProps}>
-        {template === "default" && <DefaultTemplate {...props} />}
+        {template === "template-default" && <DefaultTemplate {...props} />}
       </div>
       <Inspector {...props} />
     </>
