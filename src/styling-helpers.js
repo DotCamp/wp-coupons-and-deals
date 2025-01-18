@@ -101,7 +101,9 @@ export function getSingleSideBorderValue(border, side) {
     hasWidth && isEmpty(border[side]?.style)
       ? "solid"
       : border[side]?.style ?? ""
-  } ${hasWidth && isEmpty(border[side]?.color) ? "" : border[side]?.color}`;
+  } ${
+    hasWidth && isEmpty(border[side]?.color) ? "" : border[side]?.color ?? ""
+  }`.trim();
 }
 
 export function getBorderVariablesCss(border, slug) {

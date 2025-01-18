@@ -384,8 +384,8 @@ class Coupon_Block {
 		<div class="wpcd-coupon-inner__wrapper wpcd-coupon-columns">
 			<div class="wpcd-coupon-details-wrapper wpcd-coupon-column-1">
 				<div class="wpcd-coupon-header">
-					<figure>
-						<img src="<?php echo $coupon_default_image ?>" class="wpcd-coupon-one-img"/>
+					<figure class="wpcd-coupon-one-image">
+						<img src="<?php echo $coupon_default_image ?>" />
 					</figure>
 					<div class="wpcd-coupon-content-wrapper">
 						<div class="wpcd-coupon-title-wrapper">

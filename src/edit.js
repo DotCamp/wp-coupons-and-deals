@@ -8,7 +8,7 @@ import { useEffect } from "@wordpress/element";
 /**
  * Internal Dependencies
  */
-import DefaultTemplate from "./templates/default-template/EditDefaultTemplate";
+import { DefaultTemplate, TemplateOne } from "./templates/";
 import Inspector from "./inspector";
 import classNames from "classnames";
 
@@ -35,7 +35,10 @@ function Edit(props) {
 
   const paddingObj = getSpacingCss(attributes.padding);
   const marginObj = getSpacingCss(attributes.margin);
-
+  const borderStyles = {
+    "template-default": "2px dashed #000000",
+    "template-one": "1px solid #d1d1d1",
+  };
   const wrapperStyles = {
     backgroundColor: !isEmpty(attributes?.wrapperBackgroundColor)
       ? attributes.wrapperBackgroundColor
@@ -56,18 +59,18 @@ function Edit(props) {
     "border-bottom-right-radius": attributes.wrapperBorderRadius?.bottomRight,
     borderTop: !isValueEmpty(getSingleSideBorderValue(wrapperBorder, "top"))
       ? getSingleSideBorderValue(wrapperBorder, "top")
-      : "2px dashed #000000",
+      : borderStyles[template],
     borderLeft: !isValueEmpty(getSingleSideBorderValue(wrapperBorder, "left"))
       ? getSingleSideBorderValue(wrapperBorder, "left")
-      : "2px dashed #000000",
+      : borderStyles[template],
     borderRight: !isValueEmpty(getSingleSideBorderValue(wrapperBorder, "right"))
       ? getSingleSideBorderValue(wrapperBorder, "right")
-      : "2px dashed #000000",
+      : borderStyles[template],
     borderBottom: !isValueEmpty(
       getSingleSideBorderValue(wrapperBorder, "bottom")
     )
       ? getSingleSideBorderValue(wrapperBorder, "bottom")
-      : "2px dashed #000000",
+      : borderStyles[template],
   };
   const blockProps = useBlockProps({
     className: classNames(`wpcd-coupon-wrapper wpcd-coupon-${template}`, {
@@ -87,6 +90,7 @@ function Edit(props) {
     <>
       <div {...blockProps}>
         {template === "template-default" && <DefaultTemplate {...props} />}
+        {template === "template-one" && <TemplateOne {...props} />}
       </div>
       <Inspector {...props} />
     </>

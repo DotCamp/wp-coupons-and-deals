@@ -2,6 +2,14 @@
   .wpcd-coupon-title {
     margin: 0;
   }
+  .wpcd-coupon-expiration-date {
+    color: var(--wpcd-coupon-expiration-date-color, green);
+    font-size: var(--wpcd-coupon-expiration-date-font-size, 14px);
+    &.wpcd-coupon-expired {
+      color: var(--wpcd-coupon-expired-date-color, red);
+      font-size: var(--wpcd-coupon-expired-date-font-size, 14px);
+    }
+  }
 
   /** Default Coupon**/
   &.wpcd-coupon-template-default {
@@ -107,14 +115,8 @@
           }
         }
         .wpcd-coupon-expiration-date {
-          color: var(--wpcd-coupon-expiration-date-color, green);
-          font-size: var(--wpcd-coupon-expiration-date-font-size, 14px);
           margin-top: 5px;
           padding-left: 5px;
-          &.wpcd-coupon-expired {
-            color: var(--wpcd-coupon-expired-date-color, red);
-            font-size: var(--wpcd-coupon-expired-date-font-size, 14px);
-          }
         }
         .wpcd-coupon-expiration-date,
         .wpcd-coupon-code {
@@ -276,7 +278,14 @@
         }
       }
     }
-    &::after {
+    .wpcd-coupon-one-image {
+      margin: 0;
+      img {
+        max-width: 100%;
+        max-height: 130px;
+      }
+    }
+    &::before {
       width: 0;
       height: 100%;
       border-left: 1px dashed #d1d1d1;
@@ -311,7 +320,7 @@
       }
     }
     @media screen and (max-width: 768px) {
-      &::after {
+      &::before {
         content: none;
       }
       .wpcd-coupon-columns {
