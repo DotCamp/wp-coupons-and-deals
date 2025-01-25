@@ -23,6 +23,7 @@ class UBCoupon {
     this.checkExpirationDate();
     this.setupCopyButton();
     this.handleHiddenCoupon();
+    this.handleTemplateTwoExpirationDate();
     const url = new URL(location);
     const couponIdParam = url?.searchParams?.get("wpcd_coupon");
     if (
@@ -32,6 +33,38 @@ class UBCoupon {
     ) {
       this.handleShowCode();
     }
+  }
+  handleTemplateTwoExpirationDate() {
+    if (!this.wrapper.classList.contains("wpcd-coupon-template-two")) {
+      return;
+    }
+    const secondSpan = this.expirationDateWrapper.querySelectorAll("span")[1];
+    if (!secondSpan) return;
+
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const distance = this.expirationDate - now;
+
+      if (distance < 0) {
+        secondSpan.textContent = this.expiredDateText;
+        return;
+      }
+
+      const weeks = Math.floor(distance / (1000 * 60 * 60 * 24 * 7));
+      const days = Math.floor(
+        (distance % (1000 * 60 * 60 * 24 * 7)) / (1000 * 60 * 60 * 24)
+      );
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      secondSpan.textContent = `${weeks} weeks ${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`;
+    };
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
   }
   handleShowCode() {
     this.showCodeButton.addEventListener("click", () => {

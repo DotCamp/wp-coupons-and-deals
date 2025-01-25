@@ -8,7 +8,7 @@ import { useEffect } from "@wordpress/element";
 /**
  * Internal Dependencies
  */
-import { DefaultTemplate, TemplateOne } from "./templates/";
+import { DefaultTemplate, TemplateOne, TemplateTwo } from "./templates/";
 import Inspector from "./inspector";
 import classNames from "classnames";
 
@@ -91,6 +91,7 @@ function Edit(props) {
       <div {...blockProps}>
         {template === "template-default" && <DefaultTemplate {...props} />}
         {template === "template-one" && <TemplateOne {...props} />}
+        {template === "template-two" && <TemplateTwo {...props} />}
       </div>
       <Inspector {...props} />
     </>

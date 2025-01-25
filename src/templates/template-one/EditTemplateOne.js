@@ -101,7 +101,8 @@ function generateTemplateOneHtml(props) {
     navigationAttrs.rel = "nofollow noopener";
     navigationAttrs.target = "_blank";
   }
-
+  const date = new Date(expirationDate);
+  const expirationDateInLocalString = date.toLocaleDateString();
   return (
     <div className="wpcd-coupon-inner__wrapper wpcd-coupon-columns">
       <div className="wpcd-coupon-details-wrapper wpcd-coupon-column-1">
@@ -208,7 +209,7 @@ function generateTemplateOneHtml(props) {
             {!isDoesNotExpire ? (
               <>
                 <span>Expire On </span>
-                <span>{expirationDate}</span>
+                <span>{expirationDateInLocalString}</span>
               </>
             ) : (
               <span>{doesNotExpireText}</span>

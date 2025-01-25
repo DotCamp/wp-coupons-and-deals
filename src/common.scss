@@ -10,34 +10,50 @@
       font-size: var(--wpcd-coupon-expired-date-font-size, 14px);
     }
   }
-
+  &:not(.wpcd-coupon-type-deal) {
+    .wpcd-coupon-code {
+      .wpcd-coupon-button {
+        .wpcd-coupon-icon {
+          width: 24px;
+          display: inline-block;
+          vertical-align: middle;
+          line-height: 1;
+          margin-right: 4px;
+        }
+        padding: 4px 4px 4px 4px;
+        color: var(--wpcd-coupon-code-color, #347baf);
+        background: var(
+          --wpcd-coupon-code-bg-color,
+          --wpcd-coupon-wrapper-bg-color
+        );
+        font-size: var(--wpcd-coupon-code-font-size, 16px);
+        text-align: center;
+        cursor: pointer;
+        font-weight: 600;
+        display: inline-block;
+        text-decoration: none !important;
+        word-break: break-all;
+      }
+    }
+  }
+  &.wpcd-coupon-type-deal {
+    .wpcd-coupon-code {
+      .wpcd-coupon-button {
+        padding: 8px 24px;
+        color: var(--wpcd-coupon-code-color, #ffffff);
+        background: var(--wpcd-coupon-code-bg-color, #56b151);
+        font-size: var(--wpcd-coupon-code-font-size, 16px);
+        text-align: center;
+        cursor: pointer;
+        font-weight: 600;
+        display: inline-block;
+        text-decoration: none !important;
+        word-break: break-all;
+      }
+    }
+  }
   /** Default Coupon**/
   &.wpcd-coupon-template-default {
-    &:not(.wpcd-coupon-type-deal) {
-      .wpcd-coupon-details-wrapper {
-        .wpcd-coupon-code {
-          .wpcd-coupon-button {
-            padding: 4px 4px 4px 4px;
-            color: var(--wpcd-coupon-code-color, #347baf);
-            background: var(
-              --wpcd-coupon-code-bg-color,
-              --wpcd-coupon-wrapper-bg-color
-            );
-          }
-        }
-      }
-    }
-    &.wpcd-coupon-type-deal {
-      .wpcd-coupon-details-wrapper {
-        .wpcd-coupon-code {
-          .wpcd-coupon-button {
-            padding: 8px 24px;
-            color: var(--wpcd-coupon-code-color, #ffffff);
-            background: var(--wpcd-coupon-code-bg-color, #56b151);
-          }
-        }
-      }
-    }
     box-sizing: border-box;
     .wpcd-coupon-inner__wrapper {
       display: flex;
@@ -236,48 +252,6 @@
     .wpcd-coupon-code {
       margin-bottom: 10px;
     }
-    &:not(.wpcd-coupon-type-deal) {
-      .wpcd-coupon-code {
-        .wpcd-coupon-button {
-          .wpcd-coupon-icon {
-            width: 24px;
-            display: inline-block;
-            vertical-align: middle;
-            line-height: 1;
-            margin-right: 4px;
-          }
-          padding: 4px 4px 4px 4px;
-          color: var(--wpcd-coupon-code-color, #347baf);
-          background: var(
-            --wpcd-coupon-code-bg-color,
-            --wpcd-coupon-wrapper-bg-color
-          );
-          font-size: var(--wpcd-coupon-code-font-size, 16px);
-          text-align: center;
-          cursor: pointer;
-          font-weight: 600;
-          display: inline-block;
-          text-decoration: none !important;
-          word-break: break-all;
-        }
-      }
-    }
-    &.wpcd-coupon-type-deal {
-      .wpcd-coupon-code {
-        .wpcd-coupon-button {
-          padding: 8px 24px;
-          color: var(--wpcd-coupon-code-color, #ffffff);
-          background: var(--wpcd-coupon-code-bg-color, #56b151);
-          font-size: var(--wpcd-coupon-code-font-size, 16px);
-          text-align: center;
-          cursor: pointer;
-          font-weight: 600;
-          display: inline-block;
-          text-decoration: none !important;
-          word-break: break-all;
-        }
-      }
-    }
     .wpcd-coupon-one-image {
       margin: 0;
       img {
@@ -339,6 +313,91 @@
           gap: 10px;
           .wpcd-coupon-content-wrapper {
             padding: 10px;
+          }
+        }
+      }
+    }
+  }
+  &.wpcd-coupon-template-two {
+    .wpcd-coupon-inner__wrapper {
+      display: flex;
+      gap: 20px;
+      .wpcd-coupon-one-image {
+        margin: 0;
+      }
+      .wpcd-coupon-discount-wrapper {
+        .wpcd-coupon-discount-inner__wrapper {
+          max-width: 100%;
+          .wpcd-coupon-name {
+            padding: 7px 6px;
+            font-weight: 600;
+            line-height: 2em;
+            text-align: center;
+          }
+          .wpcd-coupon-discount {
+            text-align: center;
+            padding: 5px;
+            margin-top: -8px;
+            box-shadow: 0px 1px 2px rgba(34, 34, 34, 0.2);
+            overflow-wrap: break-word;
+            word-break: normal;
+          }
+        }
+      }
+      .wpcd-coupon-details-wrapper {
+        width: 100%;
+        .wpcd-coupon-content-wrapper {
+          width: 100%;
+        }
+        .wpcd-coupon-expired {
+          text-align: left;
+          width: auto;
+        }
+        .wpcd-coupon-header {
+          padding-bottom: 10px;
+          gap: 40px;
+          border: none;
+        }
+        .wpcd-coupon-content {
+          align-items: center;
+          margin-bottom: 7px;
+          border-top: 1px solid #d1d1d1;
+          padding-top: 10px;
+          border-bottom: 1px solid #d1d1d1;
+          padding-bottom: 5px;
+        }
+        .wpcd-coupon-header,
+        .wpcd-coupon-content {
+          display: flex;
+          justify-content: space-between;
+          gap: 10px;
+        }
+        .wpcd-coupon-title-wrapper {
+          margin: 5px 0px 10px 0px !important;
+        }
+        .wpcd-coupon-description {
+          p {
+            margin: 0;
+          }
+        }
+        .wpcd-coupon-code {
+          width: auto;
+          text-align: right;
+          .wpcd-coupon-button {
+            .wpcd-coupon-icon {
+              width: 24px;
+              display: inline-block;
+              vertical-align: middle;
+              line-height: 1;
+              margin-right: 4px;
+            }
+            font-size: var(--wpcd-coupon-code-font-size, 16px);
+            text-align: center;
+            cursor: pointer;
+            font-weight: 600;
+            display: inline-block;
+            text-decoration: none !important;
+            word-break: break-all;
           }
         }
       }

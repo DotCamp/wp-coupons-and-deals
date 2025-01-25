@@ -269,9 +269,8 @@ function Inspector(props) {
                 <DatePicker
                   currentDate={expirationDate}
                   onChange={(newDate) => {
-                    const date = new Date(newDate);
                     setAttributes({
-                      expirationDate: date.toLocaleDateString(),
+                      expirationDate: newDate,
                     });
                   }}
                 />

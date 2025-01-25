@@ -153,6 +153,8 @@ function DefaultTemplate(props) {
       ? "red"
       : attributes?.expiredDateColor,
   };
+  const date = new Date(expirationDate);
+  const expirationDateInLocalString = date.toLocaleDateString();
 
   return (
     <div className="wpcd-coupon-inner__wrapper">
@@ -265,7 +267,7 @@ function DefaultTemplate(props) {
             {!isDoesNotExpire && (
               <>
                 <span>{__("Expire On ", "wp-coupons-and-deals")}</span>
-                <span>{expirationDate}</span>
+                <span>{expirationDateInLocalString}</span>
               </>
             )}
             {isDoesNotExpire && (
