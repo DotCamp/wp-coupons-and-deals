@@ -1,6 +1,6 @@
 {
   "name": "wp-coupons-and-deals",
-  "version": "2.8.7",
+  "version": "3.2.3",
   "description": "WP Coupons and Deals - WordPress Coupon Plugin",
   "scripts": {
     "pot": "wp-pot --src '**/*.php' --dest-file 'languages/wpcd-coupon.pot' --package 'wpcd_coupon' --domain 'wp-coupons-and-deals' --last-translator 'Imtiaz Rayhan <irayhan.asif@gmail.com>' --team 'WP Coupons and Deals <irayhan.asif@gmail.com>' --bug-report 'https://wpcouponsdeals/contact-us/'",
