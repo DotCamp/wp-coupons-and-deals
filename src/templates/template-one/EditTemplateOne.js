@@ -7,7 +7,7 @@ import {
 } from "../../styling-helpers";
 import { RichText } from "@wordpress/block-editor";
 
-function generateTemplateOneHtml(props) {
+function TemplateOne(props) {
   const { attributes, setAttributes } = props;
   const couponType = attributes.couponType || "default";
   const discount = attributes.discount || "";
@@ -103,12 +103,15 @@ function generateTemplateOneHtml(props) {
   }
   const date = new Date(expirationDate);
   const expirationDateInLocalString = date.toLocaleDateString();
+
+  const imageUrl = attributes.couponImage?.url || couponDefaultImage;
+
   return (
     <div className="wpcd-coupon-inner__wrapper wpcd-coupon-columns">
       <div className="wpcd-coupon-details-wrapper wpcd-coupon-column-1">
         <div className="wpcd-coupon-header">
           <figure className="wpcd-coupon-one-image">
-            <img src={couponDefaultImage} alt="Coupon" />
+            <img src={imageUrl} alt="Coupon" />
           </figure>
           <div className="wpcd-coupon-content-wrapper">
             <div className="wpcd-coupon-title-wrapper">
@@ -220,4 +223,4 @@ function generateTemplateOneHtml(props) {
     </div>
   );
 }
-export default generateTemplateOneHtml;
+export default TemplateOne;

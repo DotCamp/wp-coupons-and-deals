@@ -841,16 +841,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _templates___WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./templates/ */ "./src/templates/index.js");
-/* harmony import */ var _inspector__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./inspector */ "./src/inspector.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
-/* harmony import */ var _styling_helpers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./styling-helpers */ "./src/styling-helpers.js");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _templates___WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./templates/ */ "./src/templates/index.js");
+/* harmony import */ var _inspector__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./inspector */ "./src/inspector.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
+/* harmony import */ var _styling_helpers__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./styling-helpers */ "./src/styling-helpers.js");
 
 /**
  * Wordpress Dependencies
  */
+
 
 
 
@@ -874,11 +877,12 @@ function Edit(props) {
     couponId,
     couponType,
     padding,
-    margin
+    margin,
+    couponImage
   } = attributes;
-  const wrapperBorder = (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.getBorderCSS)(attributes.wrapperBorder);
-  const paddingObj = (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.getSpacingCss)(attributes.padding);
-  const marginObj = (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.getSpacingCss)(attributes.margin);
+  const wrapperBorder = (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_9__.getBorderCSS)(attributes.wrapperBorder);
+  const paddingObj = (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_9__.getSpacingCss)(attributes.padding);
+  const marginObj = (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_9__.getSpacingCss)(attributes.margin);
   const borderStyles = {
     "template-default": "2px dashed #000000",
     "template-one": "1px solid #d1d1d1",
@@ -898,19 +902,19 @@ function Edit(props) {
     "border-top-right-radius": attributes.wrapperBorderRadius?.topRight,
     "border-bottom-left-radius": attributes.wrapperBorderRadius?.bottomLeft,
     "border-bottom-right-radius": attributes.wrapperBorderRadius?.bottomRight,
-    borderTop: !(0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.isValueEmpty)((0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.getSingleSideBorderValue)(wrapperBorder, "top")) ? (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.getSingleSideBorderValue)(wrapperBorder, "top") : borderStyles[template],
-    borderLeft: !(0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.isValueEmpty)((0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.getSingleSideBorderValue)(wrapperBorder, "left")) ? (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.getSingleSideBorderValue)(wrapperBorder, "left") : borderStyles[template],
-    borderRight: !(0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.isValueEmpty)((0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.getSingleSideBorderValue)(wrapperBorder, "right")) ? (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.getSingleSideBorderValue)(wrapperBorder, "right") : borderStyles[template],
-    borderBottom: !(0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.isValueEmpty)((0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.getSingleSideBorderValue)(wrapperBorder, "bottom")) ? (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.getSingleSideBorderValue)(wrapperBorder, "bottom") : borderStyles[template]
+    borderTop: !(0,_styling_helpers__WEBPACK_IMPORTED_MODULE_9__.isValueEmpty)((0,_styling_helpers__WEBPACK_IMPORTED_MODULE_9__.getSingleSideBorderValue)(wrapperBorder, "top")) ? (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_9__.getSingleSideBorderValue)(wrapperBorder, "top") : borderStyles[template],
+    borderLeft: !(0,_styling_helpers__WEBPACK_IMPORTED_MODULE_9__.isValueEmpty)((0,_styling_helpers__WEBPACK_IMPORTED_MODULE_9__.getSingleSideBorderValue)(wrapperBorder, "left")) ? (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_9__.getSingleSideBorderValue)(wrapperBorder, "left") : borderStyles[template],
+    borderRight: !(0,_styling_helpers__WEBPACK_IMPORTED_MODULE_9__.isValueEmpty)((0,_styling_helpers__WEBPACK_IMPORTED_MODULE_9__.getSingleSideBorderValue)(wrapperBorder, "right")) ? (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_9__.getSingleSideBorderValue)(wrapperBorder, "right") : borderStyles[template],
+    borderBottom: !(0,_styling_helpers__WEBPACK_IMPORTED_MODULE_9__.isValueEmpty)((0,_styling_helpers__WEBPACK_IMPORTED_MODULE_9__.getSingleSideBorderValue)(wrapperBorder, "bottom")) ? (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_9__.getSingleSideBorderValue)(wrapperBorder, "bottom") : borderStyles[template]
   };
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
-    className: classnames__WEBPACK_IMPORTED_MODULE_6___default()(`wpcd-coupon-wrapper wpcd-coupon-${template}`, {
+    className: classnames__WEBPACK_IMPORTED_MODULE_7___default()(`wpcd-coupon-wrapper wpcd-coupon-${template}`, {
       ["wpcd-coupon-hidden"]: hideCoupon && couponType !== "deal",
       ["wpcd-coupon-type-deal"]: couponType === "deal",
-      "has-padding": !(0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.isValueEmpty)(padding),
-      "has-margin": !(0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.isValueEmpty)(margin)
+      "has-padding": !(0,_styling_helpers__WEBPACK_IMPORTED_MODULE_9__.isValueEmpty)(padding),
+      "has-margin": !(0,_styling_helpers__WEBPACK_IMPORTED_MODULE_9__.isValueEmpty)(margin)
     }),
-    style: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.generateStyles)(wrapperStyles)
+    style: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_9__.generateStyles)(wrapperStyles)
   });
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useEffect)(() => {
     if ((0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(couponId) && hideCoupon) {
@@ -919,15 +923,45 @@ function Edit(props) {
       });
     }
   }, [hideCoupon]);
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  const onSelectImage = media => {
+    if (media) {
+      setAttributes({
+        couponImage: media
+      });
+    }
+  };
+  const onRemoveImage = () => {
+    setAttributes({
+      couponImage: {}
+    });
+  };
+  const imageUrl = attributes.couponImage?.url;
+  const imageId = attributes.couponImage?.id;
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, {
+    group: "other"
+  }, template !== "template-default" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaReplaceFlow, {
+    mediaId: imageId,
+    name: imageUrl ? "Replace Image" : "Select Image",
+    mediaUrl: imageUrl,
+    allowedTypes: ["image"],
+    accept: "image/*",
+    onSelect: onSelectImage,
+    onSelectURL: url => setAttributes({
+      imageUrl: url,
+      imageId: null
+    })
+  }), imageUrl && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToolbarButton, {
+    label: "Remove Image",
+    onClick: onRemoveImage
+  }, "Remove Image")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
-  }, template === "template-default" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_templates___WEBPACK_IMPORTED_MODULE_4__.DefaultTemplate, {
+  }, template === "template-default" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_templates___WEBPACK_IMPORTED_MODULE_5__.DefaultTemplate, {
     ...props
-  }), template === "template-one" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_templates___WEBPACK_IMPORTED_MODULE_4__.TemplateOne, {
+  }), template === "template-one" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_templates___WEBPACK_IMPORTED_MODULE_5__.TemplateOne, {
     ...props
-  }), template === "template-two" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_templates___WEBPACK_IMPORTED_MODULE_4__.TemplateTwo, {
+  }), template === "template-two" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_templates___WEBPACK_IMPORTED_MODULE_5__.TemplateTwo, {
     ...props
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_inspector__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_inspector__WEBPACK_IMPORTED_MODULE_6__["default"], {
     ...props
   }));
 }
@@ -1685,7 +1719,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function generateTemplateOneHtml(props) {
+function TemplateOne(props) {
   const {
     attributes,
     setAttributes
@@ -1750,6 +1784,7 @@ function generateTemplateOneHtml(props) {
   }
   const date = new Date(expirationDate);
   const expirationDateInLocalString = date.toLocaleDateString();
+  const imageUrl = attributes.couponImage?.url || couponDefaultImage;
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "wpcd-coupon-inner__wrapper wpcd-coupon-columns"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -1759,7 +1794,7 @@ function generateTemplateOneHtml(props) {
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("figure", {
     className: "wpcd-coupon-one-image"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    src: couponDefaultImage,
+    src: imageUrl,
     alt: "Coupon"
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "wpcd-coupon-content-wrapper"
@@ -1847,7 +1882,7 @@ function generateTemplateOneHtml(props) {
     style: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_2__.generateStyles)(expirationDateStyles)
   }, !isDoesNotExpire ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Expire On "), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, expirationDateInLocalString)) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, doesNotExpireText)))));
 }
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (generateTemplateOneHtml);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TemplateOne);
 
 /***/ }),
 
@@ -1952,12 +1987,13 @@ function generateTemplateOneHtml(props) {
     "--wpcd-coupon-expiration-date-color": attributes.expirationDateColor || "green",
     "--wpcd-coupon-expired-date-color": attributes.expiredDateColor || "red"
   };
-  const couponDefaultImage = "http://wp-coupon-and-deals.local/wp-content/plugins/wp-coupons-and-deals/assets/img/coupon-200x200.png";
   const navigationAttrs = {};
   if (!attributes.hideCoupon) {
     navigationAttrs.rel = "nofollow noopener";
     navigationAttrs.target = "_blank";
   }
+  const couponDefaultImage = "http://wp-coupon-and-deals.local/wp-content/plugins/wp-coupons-and-deals/assets/img/coupon-200x200.png";
+  const imageUrl = attributes.couponImage?.url || couponDefaultImage;
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "wpcd-coupon-inner__wrapper wpcd-coupon-columns"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -1969,7 +2005,7 @@ function generateTemplateOneHtml(props) {
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("figure", {
     className: "wpcd-coupon-one-image"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    src: couponDefaultImage,
+    src: imageUrl,
     alt: "Coupon"
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "wpcd-coupon-discount-wrapper"
@@ -2266,7 +2302,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"wpcd/coupon","title":"Coupon","category":"wpcd","description":"Add coupon boxes to boost your affiliate sales.","keywords":["coupon","deal"],"attributes":{"template":{"type":"string","default":"template-default"},"padding":{"type":"object","default":{}},"margin":{"type":"object","default":{}},"discount":{"type":"string","default":"100%"},"title":{"type":"string","default":"Sample Coupon Code 2023"},"description":{"type":"string","default":"This is a little description of the coupon code or deal. Just to let users know some additional details."},"code":{"type":"string","default":"SAMPLECODE"},"expiredDateText":{"type":"string","default":"Expired"},"couponDealLabel":{"type":"string","default":"Coupon"},"navigationLink":{"type":"string","default":""},"expirationDate":{"type":"string","default":"10/30/2024"},"titleColor":{"type":"string","default":null},"descriptionColor":{"type":"string","default":null},"codeColor":{"type":"string","default":null},"discountColor":{"type":"string","default":null},"couponDealLabelColor":{"type":"string","default":null},"codeHoverColor":{"type":"string","default":null},"expirationDateColor":{"type":"string","default":null},"expiredDateColor":{"type":"string","default":null},"couponDealLabelBackgroundColor":{"type":"string","default":null},"couponDealLabelGradientBackground":{"type":"string","default":null},"codeBackgroundColor":{"type":"string","default":null},"codeGradientBackground":{"type":"string","default":null},"codeHoverBackgroundColor":{"type":"string","default":null},"codeHoverGradientBackground":{"type":"string","default":null},"wrapperBackgroundColor":{"type":"string","default":null},"wrapperGradientBackground":{"type":"string","default":null},"wrapperBorder":{"type":"object","default":{}},"wrapperBorderRadius":{"type":"object","default":{}},"codeBorder":{"type":"object","default":{}},"codeBorderRadius":{"type":"object","default":{}},"separatorBorder":{"type":"object","default":{}},"discountFontSize":{"type":"string","default":""},"couponDealLabelFontSize":{"type":"string","default":""},"titleFontSize":{"type":"string","default":""},"descriptionFontSize":{"type":"string","default":""},"codeFontSize":{"type":"string","default":""},"expirationDateFontSize":{"type":"string","default":""},"expiredDateFontSize":{"type":"string","default":""},"hideCoupon":{"type":"boolean","default":false},"couponId":{"type":"string","default":""},"couponPopupOfferButtonColor":{"type":"string","default":null},"couponPopupCopyButtonColor":{"type":"string","default":null},"couponPopupCodeFieldColor":{"type":"string","default":null},"couponPopupOfferButtonBgColor":{"type":"string","default":null},"couponPopupCopyButtonBgColor":{"type":"string","default":null},"couponPopupCodeFieldBgColor":{"type":"string","default":null},"couponPopupOfferButtonBgGradient":{"type":"string","default":null},"couponPopupCopyButtonBgGradient":{"type":"string","default":null},"couponPopupCodeFieldBgGradient":{"type":"string","default":null},"couponPopupCodeFieldBorder":{"type":"object","default":{}},"couponCodeButtonText":{"type":"string","default":"Show Code"},"couponPopupCopyButtonText":{"type":"string","default":"Copy"},"couponPopupOfferText":{"type":"string","default":"Go To Offer"},"doesNotExpireText":{"type":"string","default":"Doesn\'t Expire"},"couponType":{"type":"string","default":"coupon"},"dealButtonText":{"type":"string","default":"Get Deal"},"isDoesNotExpire":{"type":"boolean","default":false}},"supports":{"align":true},"editorScript":"wpcd-block-script","editorStyle":"wpcd-editor-style","viewScript":"wpcd-frontend-script","style":["wpcd-frontend-style"]}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"wpcd/coupon","title":"Coupon","category":"wpcd","description":"Add coupon boxes to boost your affiliate sales.","keywords":["coupon","deal"],"attributes":{"couponImage":{"type":"object","default":{"id":0,"url":""}},"template":{"type":"string","default":"template-default"},"padding":{"type":"object","default":{}},"margin":{"type":"object","default":{}},"discount":{"type":"string","default":"100%"},"title":{"type":"string","default":"Sample Coupon Code 2023"},"description":{"type":"string","default":"This is a little description of the coupon code or deal. Just to let users know some additional details."},"code":{"type":"string","default":"SAMPLECODE"},"expiredDateText":{"type":"string","default":"Expired"},"couponDealLabel":{"type":"string","default":"Coupon"},"navigationLink":{"type":"string","default":""},"expirationDate":{"type":"string","default":"10/30/2024"},"titleColor":{"type":"string","default":null},"descriptionColor":{"type":"string","default":null},"codeColor":{"type":"string","default":null},"discountColor":{"type":"string","default":null},"couponDealLabelColor":{"type":"string","default":null},"codeHoverColor":{"type":"string","default":null},"expirationDateColor":{"type":"string","default":null},"expiredDateColor":{"type":"string","default":null},"couponDealLabelBackgroundColor":{"type":"string","default":null},"couponDealLabelGradientBackground":{"type":"string","default":null},"codeBackgroundColor":{"type":"string","default":null},"codeGradientBackground":{"type":"string","default":null},"codeHoverBackgroundColor":{"type":"string","default":null},"codeHoverGradientBackground":{"type":"string","default":null},"wrapperBackgroundColor":{"type":"string","default":null},"wrapperGradientBackground":{"type":"string","default":null},"wrapperBorder":{"type":"object","default":{}},"wrapperBorderRadius":{"type":"object","default":{}},"codeBorder":{"type":"object","default":{}},"codeBorderRadius":{"type":"object","default":{}},"separatorBorder":{"type":"object","default":{}},"discountFontSize":{"type":"string","default":""},"couponDealLabelFontSize":{"type":"string","default":""},"titleFontSize":{"type":"string","default":""},"descriptionFontSize":{"type":"string","default":""},"codeFontSize":{"type":"string","default":""},"expirationDateFontSize":{"type":"string","default":""},"expiredDateFontSize":{"type":"string","default":""},"hideCoupon":{"type":"boolean","default":false},"couponId":{"type":"string","default":""},"couponPopupOfferButtonColor":{"type":"string","default":null},"couponPopupCopyButtonColor":{"type":"string","default":null},"couponPopupCodeFieldColor":{"type":"string","default":null},"couponPopupOfferButtonBgColor":{"type":"string","default":null},"couponPopupCopyButtonBgColor":{"type":"string","default":null},"couponPopupCodeFieldBgColor":{"type":"string","default":null},"couponPopupOfferButtonBgGradient":{"type":"string","default":null},"couponPopupCopyButtonBgGradient":{"type":"string","default":null},"couponPopupCodeFieldBgGradient":{"type":"string","default":null},"couponPopupCodeFieldBorder":{"type":"object","default":{}},"couponCodeButtonText":{"type":"string","default":"Show Code"},"couponPopupCopyButtonText":{"type":"string","default":"Copy"},"couponPopupOfferText":{"type":"string","default":"Go To Offer"},"doesNotExpireText":{"type":"string","default":"Doesn\'t Expire"},"couponType":{"type":"string","default":"coupon"},"dealButtonText":{"type":"string","default":"Get Deal"},"isDoesNotExpire":{"type":"boolean","default":false}},"supports":{"align":true},"editorScript":"wpcd-block-script","editorStyle":"wpcd-editor-style","viewScript":"wpcd-frontend-script","style":["wpcd-frontend-style"]}');
 
 /***/ })
 

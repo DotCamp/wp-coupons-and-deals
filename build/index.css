@@ -280,8 +280,11 @@
   display: flex;
   gap: 20px;
 }
-.wpcd-coupon-wrapper.wpcd-coupon-template-two .wpcd-coupon-inner__wrapper .wpcd-coupon-one-image {
+.wpcd-coupon-wrapper.wpcd-coupon-template-two .wpcd-coupon-inner__wrapper .wpcd-coupon-two-image {
   margin: 0;
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-two .wpcd-coupon-inner__wrapper .wpcd-coupon-two-image img {
+  width: 200px;
 }
 .wpcd-coupon-wrapper.wpcd-coupon-template-two .wpcd-coupon-inner__wrapper .wpcd-coupon-discount-wrapper .wpcd-coupon-discount-inner__wrapper {
   max-width: 100%;

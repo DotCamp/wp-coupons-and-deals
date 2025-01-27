@@ -372,7 +372,7 @@ class Coupon_Block {
 			'--wpcd-coupon-expired-date-color' => empty($attributes['expiredDateColor']) ? 'red' : $attributes['expiredDateColor'],
 		);
 		$coupon_default_image = 'http://wp-coupon-and-deals.local/wp-content/plugins/wp-coupons-and-deals/assets/img/coupon-200x200.png';
-
+		$image_url = isset( $attributes['couponImage']['url'] ) ? $attributes['couponImage']['url'] : $coupon_default_image;
 		$navigationAttrs = array();
 		if (!isset($attributes['hideCoupon']) || !$attributes['hideCoupon']) {
 			$navigationAttrs = array(
@@ -386,7 +386,7 @@ class Coupon_Block {
 			<div class="wpcd-coupon-details-wrapper wpcd-coupon-column-1">
 				<div class="wpcd-coupon-header">
 					<figure class="wpcd-coupon-one-image">
-						<img src="<?php echo $coupon_default_image ?>" />
+						<img src="<?php echo $image_url ?>" />
 					</figure>
 					<div class="wpcd-coupon-content-wrapper">
 						<div class="wpcd-coupon-title-wrapper">
@@ -512,6 +512,7 @@ class Coupon_Block {
 			'--wpcd-coupon-expired-date-color' => empty($attributes['expiredDateColor']) ? 'red' : $attributes['expiredDateColor'],
 		);
 		$coupon_default_image = 'http://wp-coupon-and-deals.local/wp-content/plugins/wp-coupons-and-deals/assets/img/coupon-200x200.png';
+		$image_url = isset( $attributes['couponImage']['url'] ) ? $attributes['couponImage']['url'] : $coupon_default_image;
 
 		$navigationAttrs = array();
 		if (!isset($attributes['hideCoupon']) || !$attributes['hideCoupon']) {
@@ -526,8 +527,8 @@ class Coupon_Block {
 			<div class="wpcd-coupon-details-wrapper wpcd-coupon-column-1">
 				<div class="wpcd-coupon-header">
 					<div class="wpcd-coupon-image-wrapper">
-						<figure class="wpcd-coupon-one-image">
-							<img src="<?php echo $coupon_default_image ?>" />
+						<figure class="wpcd-coupon-two-image">
+							<img src="<?php echo $image_url ?>" />
 						</figure>
 							<div class="wpcd-coupon-discount-wrapper">
 						<div class="wpcd-coupon-discount-inner__wrapper">

@@ -322,8 +322,11 @@
     .wpcd-coupon-inner__wrapper {
       display: flex;
       gap: 20px;
-      .wpcd-coupon-one-image {
+      .wpcd-coupon-two-image {
         margin: 0;
+        img {
+          width: 200px;
+        }
       }
       .wpcd-coupon-discount-wrapper {
         .wpcd-coupon-discount-inner__wrapper {

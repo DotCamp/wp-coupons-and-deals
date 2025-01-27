@@ -125,14 +125,15 @@ function generateTemplateOneHtml(props) {
       attributes.expirationDateColor || "green",
     "--wpcd-coupon-expired-date-color": attributes.expiredDateColor || "red",
   };
-  const couponDefaultImage =
-    "http://wp-coupon-and-deals.local/wp-content/plugins/wp-coupons-and-deals/assets/img/coupon-200x200.png";
 
   const navigationAttrs = {};
   if (!attributes.hideCoupon) {
     navigationAttrs.rel = "nofollow noopener";
     navigationAttrs.target = "_blank";
   }
+  const couponDefaultImage =
+    "http://wp-coupon-and-deals.local/wp-content/plugins/wp-coupons-and-deals/assets/img/coupon-200x200.png";
+  const imageUrl = attributes.couponImage?.url || couponDefaultImage;
 
   return (
     <div className="wpcd-coupon-inner__wrapper wpcd-coupon-columns">
@@ -140,7 +141,7 @@ function generateTemplateOneHtml(props) {
         <div className="wpcd-coupon-header">
           <div className="wpcd-coupon-image-wrapper">
             <figure className="wpcd-coupon-one-image">
-              <img src={couponDefaultImage} alt="Coupon" />
+              <img src={imageUrl} alt="Coupon" />
             </figure>
             <div className="wpcd-coupon-discount-wrapper">
               <div className="wpcd-coupon-discount-inner__wrapper">

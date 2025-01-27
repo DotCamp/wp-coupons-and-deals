@@ -10,6 +10,13 @@
           "deal"
      ],
      "attributes": {
+          "couponImage": {
+               "type": "object",
+               "default": {
+                    "id": 0,
+                    "url": ""
+               }
+          },
           "template": {
                "type": "string",
                "default": "template-default"

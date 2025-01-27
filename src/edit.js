@@ -2,9 +2,10 @@
  * Wordpress Dependencies
  */
 import { uniqueId, isEmpty } from "lodash";
-import { useBlockProps } from "@wordpress/block-editor";
+import { BlockControls, useBlockProps } from "@wordpress/block-editor";
 import { useEffect } from "@wordpress/element";
-
+import { ToolbarButton } from "@wordpress/components";
+import { MediaReplaceFlow } from "@wordpress/block-editor";
 /**
  * Internal Dependencies
  */
@@ -30,6 +31,7 @@ function Edit(props) {
     couponType,
     padding,
     margin,
+    couponImage,
   } = attributes;
   const wrapperBorder = getBorderCSS(attributes.wrapperBorder);
 
@@ -87,8 +89,44 @@ function Edit(props) {
       setAttributes({ couponId: uniqueId().toString() });
     }
   }, [hideCoupon]);
+
+  const onSelectImage = (media) => {
+    if (media) {
+      setAttributes({
+        couponImage: media,
+      });
+    }
+  };
+  const onRemoveImage = () => {
+    setAttributes({
+      couponImage: {},
+    });
+  };
+  const imageUrl = attributes.couponImage?.url;
+  const imageId = attributes.couponImage?.id;
+
   return (
     <>
+      <BlockControls group="other">
+        {template !== "template-default" && (
+          <MediaReplaceFlow
+            mediaId={imageId}
+            name={imageUrl ? "Replace Image" : "Select Image"}
+            mediaUrl={imageUrl}
+            allowedTypes={["image"]}
+            accept="image/*"
+            onSelect={onSelectImage}
+            onSelectURL={(url) =>
+              setAttributes({ imageUrl: url, imageId: null })
+            }
+          />
+        )}
+        {imageUrl && (
+          <ToolbarButton label="Remove Image" onClick={onRemoveImage}>
+            Remove Image
+          </ToolbarButton>
+        )}
+      </BlockControls>
       <div {...blockProps}>
         {template === "template-default" && <DefaultTemplate {...props} />}
         {template === "template-one" && <TemplateOne {...props} />}
