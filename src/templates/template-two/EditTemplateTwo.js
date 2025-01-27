@@ -140,7 +140,7 @@ function generateTemplateOneHtml(props) {
       <div className="wpcd-coupon-details-wrapper wpcd-coupon-column-1">
         <div className="wpcd-coupon-header">
           <div className="wpcd-coupon-image-wrapper">
-            <figure className="wpcd-coupon-one-image">
+            <figure className="wpcd-coupon-two-image">
               <img src={imageUrl} alt="Coupon" />
             </figure>
             <div className="wpcd-coupon-discount-wrapper">

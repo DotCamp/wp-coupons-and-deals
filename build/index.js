@@ -2003,7 +2003,7 @@ function generateTemplateOneHtml(props) {
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "wpcd-coupon-image-wrapper"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("figure", {
-    className: "wpcd-coupon-one-image"
+    className: "wpcd-coupon-two-image"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: imageUrl,
     alt: "Coupon"
