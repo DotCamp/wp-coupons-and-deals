@@ -881,7 +881,8 @@ function Edit(props) {
   const marginObj = (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_8__.getSpacingCss)(attributes.margin);
   const borderStyles = {
     "template-default": "2px dashed #000000",
-    "template-one": "1px solid #d1d1d1"
+    "template-one": "1px solid #d1d1d1",
+    "template-two": "1px solid #d1d1d1"
   };
   const wrapperStyles = {
     backgroundColor: !(0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(attributes?.wrapperBackgroundColor) ? attributes.wrapperBackgroundColor : attributes?.wrapperGradientBackground,
