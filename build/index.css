@@ -6,6 +6,7 @@
   /** Template One **/
   /** Template Two **/
   /** Template Three **/
+  /** Template Nine **/
 }
 .wpcd-coupon-wrapper .wpcd-coupon-title {
   margin: 0;
@@ -375,6 +376,14 @@
   text-align: center;
 }
 .wpcd-coupon-wrapper.wpcd-coupon-template-three .wpcd-coupon-code {
+  width: auto;
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-nine .wpcd-coupon-inner__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-nine .wpcd-coupon-code {
   width: auto;
 }
 .wpcd-coupon-wrapper .wpcd-coupon-popup {

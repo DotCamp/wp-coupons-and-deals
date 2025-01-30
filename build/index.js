@@ -886,7 +886,8 @@ function Edit(props) {
     "template-default": "2px dashed #000000",
     "template-one": "1px solid #d1d1d1",
     "template-two": "1px solid #d1d1d1",
-    "template-three": "1px solid #d1d1d1"
+    "template-three": "1px solid #d1d1d1",
+    "template-nine": "2px dashed #000000"
   };
   const defaultPadding = template === "template-three" ? "0" : "25px";
   const wrapperStyles = {
@@ -964,6 +965,8 @@ function Edit(props) {
   }), template === "template-two" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_templates___WEBPACK_IMPORTED_MODULE_5__.TemplateTwo, {
     ...props
   }), template === "template-three" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_templates___WEBPACK_IMPORTED_MODULE_5__.TemplateThree, {
+    ...props
+  }), template === "template-nine" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_templates___WEBPACK_IMPORTED_MODULE_5__.TemplateNine, {
     ...props
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_inspector__WEBPACK_IMPORTED_MODULE_6__["default"], {
     ...props
@@ -1689,6 +1692,7 @@ function DefaultTemplate(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   DefaultTemplate: () => (/* reexport safe */ _default_template_EditDefaultTemplate__WEBPACK_IMPORTED_MODULE_0__["default"]),
+/* harmony export */   TemplateNine: () => (/* reexport safe */ _template_nine_EditTemplateNine__WEBPACK_IMPORTED_MODULE_4__["default"]),
 /* harmony export */   TemplateOne: () => (/* reexport safe */ _template_one_EditTemplateOne__WEBPACK_IMPORTED_MODULE_1__["default"]),
 /* harmony export */   TemplateThree: () => (/* reexport safe */ _template_three_EditTemplateThree__WEBPACK_IMPORTED_MODULE_3__["default"]),
 /* harmony export */   TemplateTwo: () => (/* reexport safe */ _template_two_EditTemplateTwo__WEBPACK_IMPORTED_MODULE_2__["default"])
@@ -1697,10 +1701,139 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _template_one_EditTemplateOne__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./template-one/EditTemplateOne */ "./src/templates/template-one/EditTemplateOne.js");
 /* harmony import */ var _template_two_EditTemplateTwo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./template-two/EditTemplateTwo */ "./src/templates/template-two/EditTemplateTwo.js");
 /* harmony import */ var _template_three_EditTemplateThree__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./template-three/EditTemplateThree */ "./src/templates/template-three/EditTemplateThree.js");
+/* harmony import */ var _template_nine_EditTemplateNine__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./template-nine/EditTemplateNine */ "./src/templates/template-nine/EditTemplateNine.js");
 
 
 
 
+
+
+/***/ }),
+
+/***/ "./src/templates/template-nine/EditTemplateNine.js":
+/*!*********************************************************!*\
+  !*** ./src/templates/template-nine/EditTemplateNine.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _styling_helpers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../styling-helpers */ "./src/styling-helpers.js");
+
+/**
+ * Wordpress Dependencies
+ */
+
+
+
+
+function TemplateNine(props) {
+  const {
+    attributes,
+    setAttributes
+  } = props;
+  const {
+    title,
+    code,
+    couponType,
+    dealButtonText
+  } = attributes;
+  const couponCodeBorder = (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.getBorderCSS)(attributes.codeBorder);
+  const separatorBorder = (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.getBorderCSS)(attributes.separatorBorder);
+  let titleStyles = {
+    fontSize: (0,lodash__WEBPACK_IMPORTED_MODULE_3__.isEmpty)(attributes?.titleFontSize) ? "21px" : attributes?.titleFontSize,
+    color: (0,lodash__WEBPACK_IMPORTED_MODULE_3__.isEmpty)(attributes?.titleColor) ? "#000000" : attributes?.titleColor
+  };
+  const codeHoverBgColor = (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.getBackgroundColorVar)(attributes, "codeHoverBackgroundColor", "codeHoverGradientBackground");
+  let codeHoverStyles = {
+    "--wpcd-coupon-code-bg-hover-color": codeHoverBgColor,
+    "--wpcd-coupon-code-hover-color": attributes?.codeHoverColor
+  };
+  const borderStyle = attributes.hideCoupon ? "2px solid #56b151" : "2px dashed #ccc";
+  let codeStyles = {
+    ...codeHoverStyles,
+    "--wpcd-coupon-code-button-text": `"${attributes?.couponCodeButtonText}"`,
+    fontSize: attributes?.codeFontSize,
+    "--wpcd-coupon-code-color": attributes?.codeColor,
+    "--wpcd-coupon-code-bg-color": (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.getBackgroundColorVar)(attributes, "codeBackgroundColor", "codeGradientBackground"),
+    "border-top-left-radius": (0,lodash__WEBPACK_IMPORTED_MODULE_3__.isEmpty)(attributes.codeBorderRadius?.topLeft) ? " 2px" : attributes.codeBorderRadius?.topLeft,
+    "border-top-right-radius": (0,lodash__WEBPACK_IMPORTED_MODULE_3__.isEmpty)(attributes.codeBorderRadius?.topRight) ? " 2px" : attributes.codeBorderRadius?.topRight,
+    "border-bottom-left-radius": (0,lodash__WEBPACK_IMPORTED_MODULE_3__.isEmpty)(attributes.codeBorderRadius?.bottomLeft) ? " 2px" : attributes.codeBorderRadius?.bottomLeft,
+    "border-bottom-right-radius": (0,lodash__WEBPACK_IMPORTED_MODULE_3__.isEmpty)(attributes.codeBorderRadius?.bottomRight) ? " 2px" : attributes.codeBorderRadius?.bottomRight,
+    borderTop: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.isValueEmpty)((0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.getSingleSideBorderValue)(couponCodeBorder, "top")) ? couponType === "deal" ? "2px solid #56b151" : borderStyle : (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.getSingleSideBorderValue)(couponCodeBorder, "top"),
+    borderLeft: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.isValueEmpty)((0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.getSingleSideBorderValue)(couponCodeBorder, "left")) ? couponType === "deal" ? "2px solid #56b151" : borderStyle : (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.getSingleSideBorderValue)(couponCodeBorder, "left"),
+    borderRight: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.isValueEmpty)((0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.getSingleSideBorderValue)(couponCodeBorder, "right")) ? couponType === "deal" ? "2px solid #56b151" : borderStyle : (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.getSingleSideBorderValue)(couponCodeBorder, "right"),
+    borderBottom: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.isValueEmpty)((0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.getSingleSideBorderValue)(couponCodeBorder, "bottom")) ? couponType === "deal" ? "2px solid #56b151" : borderStyle : (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.getSingleSideBorderValue)(couponCodeBorder, "bottom")
+  };
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wpcd-coupon-inner__wrapper"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    className: "wpcd-coupon-title",
+    value: title,
+    tagName: "h3",
+    onChange: newValue => setAttributes({
+      title: newValue
+    }),
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Title here", "wp-coupons-and-deals"),
+    style: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.generateStyles)(titleStyles)
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wpcd-coupon-code"
+  }, couponType !== "deal" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    rel: "nofollow noopener",
+    target: "_blank",
+    "data-clipboard-text": code,
+    className: "wpcd-coupon-button",
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Click To Copy Coupon", "wp-coupons-and-deals"),
+    style: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.generateStyles)(codeStyles)
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "wpcd-coupon-icon"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
+    fill: "currentColor"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    "fill-rule": "evenodd",
+    d: "M8.128 9.155a3.751 3.751 0 1 1 .713-1.321l1.136.656a.75.75 0 0 1 .222 1.104l-.006.007a.75.75 0 0 1-1.032.157a1.421 1.421 0 0 0-.113-.072l-.92-.531Zm-4.827-3.53a2.25 2.25 0 0 1 3.994 2.063a.756.756 0 0 0-.122.23a2.25 2.25 0 0 1-3.872-2.293Zm10.047 2.647a5.073 5.073 0 0 0-3.428 3.57c-.101.387-.158.79-.165 1.202a1.415 1.415 0 0 1-.707 1.201l-.96.554a3.751 3.751 0 1 0 .734 1.309l13.729-7.926a.75.75 0 0 0-.181-1.374l-.803-.215a5.25 5.25 0 0 0-2.894.05l-5.325 1.629Zm-9.223 7.03a2.25 2.25 0 1 0 2.25 3.897a2.25 2.25 0 0 0-2.25-3.897ZM12 12.75a.75.75 0 1 0 0-1.5a.75.75 0 0 0 0 1.5Z",
+    "clip-rule": "evenodd"
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "M16.372 12.615a.75.75 0 0 1 .75 0l5.43 3.135a.75.75 0 0 1-.182 1.374l-.802.215a5.25 5.25 0 0 1-2.894-.051l-5.147-1.574a.75.75 0 0 1-.156-1.367l3-1.732Z"
+  })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    value: code,
+    tagName: "span",
+    onChange: newValue => setAttributes({
+      code: newValue
+    }),
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("SAMPLECODE", "wp-coupons-and-deals")
+  })), couponType === "deal" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    rel: "nofollow noopener",
+    target: "_blank",
+    className: "wpcd-coupon-button",
+    style: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_4__.generateStyles)(codeStyles),
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Click To Claim This Deal", "wp-coupons-and-deals")
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    value: dealButtonText,
+    tagName: "span",
+    onChange: newValue => setAttributes({
+      dealButtonText: newValue
+    }),
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Get Deal", "wp-coupons-and-deals")
+  }))));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TemplateNine);
 
 /***/ }),
 

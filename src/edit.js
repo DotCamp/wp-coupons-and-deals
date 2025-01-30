@@ -11,6 +11,7 @@ import { MediaReplaceFlow } from "@wordpress/block-editor";
  */
 import {
   DefaultTemplate,
+  TemplateNine,
   TemplateOne,
   TemplateThree,
   TemplateTwo,
@@ -46,6 +47,7 @@ function Edit(props) {
     "template-one": "1px solid #d1d1d1",
     "template-two": "1px solid #d1d1d1",
     "template-three": "1px solid #d1d1d1",
+    "template-nine": "2px dashed #000000",
   };
   const defaultPadding = template === "template-three" ? "0" : "25px";
   const wrapperStyles = {
@@ -143,6 +145,7 @@ function Edit(props) {
         {template === "template-one" && <TemplateOne {...props} />}
         {template === "template-two" && <TemplateTwo {...props} />}
         {template === "template-three" && <TemplateThree {...props} />}
+        {template === "template-nine" && <TemplateNine {...props} />}
       </div>
       <Inspector {...props} />
     </>

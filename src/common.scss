@@ -427,6 +427,17 @@
       width: auto;
     }
   }
+  /** Template Nine **/
+  &.wpcd-coupon-template-nine {
+    .wpcd-coupon-inner__wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .wpcd-coupon-code {
+      width: auto;
+    }
+  }
   .wpcd-coupon-popup {
     display: none;
     background-color: rgba(0, 0, 0, 0.85);
