@@ -77,6 +77,14 @@
                "type": "string",
                "default": null
           },
+          "discountBgColor": {
+               "type": "string",
+               "default": null
+          },
+          "discountBgGradientColor": {
+               "type": "string",
+               "default": null
+          },
           "couponDealLabelColor": {
                "type": "string",
                "default": null
@@ -144,6 +152,10 @@
           "separatorBorder": {
                "type": "object",
                "default": {}
+          },
+          "separatorColor": {
+               "type": "string",
+               "default": null
           },
           "discountFontSize": {
                "type": "string",

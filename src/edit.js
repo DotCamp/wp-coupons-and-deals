@@ -13,6 +13,7 @@ import {
   DefaultTemplate,
   TemplateNine,
   TemplateOne,
+  TemplateSix,
   TemplateThree,
   TemplateTwo,
 } from "./templates/";
@@ -47,7 +48,14 @@ function Edit(props) {
     "template-one": "1px solid #d1d1d1",
     "template-two": "1px solid #d1d1d1",
     "template-three": "1px solid #d1d1d1",
+    "template-six": "2px solid #18e06e",
     "template-nine": "2px dashed #000000",
+  };
+  const separatorColor = isEmpty(attributes.separatorColor)
+    ? "#cccccc"
+    : attributes.separatorColor;
+  const separatorStyles = {
+    "--wpcd-coupon-separator-color": separatorColor,
   };
   const defaultPadding = template === "template-three" ? "0" : "25px";
   const wrapperStyles = {
@@ -86,7 +94,9 @@ function Edit(props) {
     )
       ? getSingleSideBorderValue(wrapperBorder, "bottom")
       : borderStyles[template],
+    ...(template === "template-one" ? separatorStyles : {}),
   };
+
   const blockProps = useBlockProps({
     className: classNames(`wpcd-coupon-wrapper wpcd-coupon-${template}`, {
       ["wpcd-coupon-hidden"]: hideCoupon && couponType !== "deal",
@@ -118,6 +128,14 @@ function Edit(props) {
   const imageId = attributes.couponImage?.id;
   const shouldShowImageControl =
     template !== "template-default" && template !== "template-three";
+  const templates = {
+    "template-default": <DefaultTemplate {...props} />,
+    "template-one": <TemplateOne {...props} />,
+    "template-two": <TemplateTwo {...props} />,
+    "template-three": <TemplateThree {...props} />,
+    "template-six": <TemplateSix {...props} />,
+    "template-nine": <TemplateNine {...props} />,
+  };
   return (
     <>
       {shouldShowImageControl && (
@@ -140,13 +158,7 @@ function Edit(props) {
           )}
         </BlockControls>
       )}
-      <div {...blockProps}>
-        {template === "template-default" && <DefaultTemplate {...props} />}
-        {template === "template-one" && <TemplateOne {...props} />}
-        {template === "template-two" && <TemplateTwo {...props} />}
-        {template === "template-three" && <TemplateThree {...props} />}
-        {template === "template-nine" && <TemplateNine {...props} />}
-      </div>
+      <div {...blockProps}>{templates[template]}</div>
       <Inspector {...props} />
     </>
   );

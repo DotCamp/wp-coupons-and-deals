@@ -6,6 +6,7 @@ import {
   getSingleSideBorderValue,
 } from "../../styling-helpers";
 import { RichText } from "@wordpress/block-editor";
+import { isEmpty } from "lodash";
 
 function TemplateOne(props) {
   const { attributes, setAttributes } = props;
@@ -27,9 +28,19 @@ function TemplateOne(props) {
     color: attributes.titleColor || "#000000",
   };
 
-  const discountStyles = {
-    fontSize: attributes.discountFontSize || "20px",
-    color: attributes.discountColor || "#000000",
+  const discountBgColor = getBackgroundColorVar(
+    attributes,
+    "discountBgColor",
+    "discountBgGradientColor"
+  );
+  let discountStyles = {
+    fontSize: isEmpty(attributes?.discountFontSize)
+      ? "20px"
+      : attributes?.discountFontSize,
+    color: isEmpty(attributes?.discountColor)
+      ? "#000000"
+      : attributes?.discountColor,
+    backgroundColor: discountBgColor,
   };
 
   const dealLabelBgColor = getBackgroundColorVar(

@@ -69,6 +69,10 @@ function Inspector(props) {
         label={__("Coupon/Deal Label Color", "wp-coupons-and-deals")}
       />
       <ColorSettings
+        attrKey="separatorColor"
+        label={__("Separator Color", "wp-coupons-and-deals")}
+      />
+      <ColorSettings
         attrKey="expirationDateColor"
         label={
           isDoesNotExpire
@@ -76,6 +80,7 @@ function Inspector(props) {
             : __("Expiration Date Color", "wp-coupons-and-deals")
         }
       />
+
       {!isDoesNotExpire && (
         <ColorSettings
           attrKey="expiredDateColor"
@@ -90,6 +95,11 @@ function Inspector(props) {
             ? __("Code Background", "wp-coupons-and-deals")
             : __("Get Deal Background", "wp-coupons-and-deals")
         }
+      />
+      <ColorSettingsWithGradient
+        attrBackgroundKey="discountBgColor"
+        attrGradientKey="discountBgGradientColor"
+        label={__("Discount Background", "wp-coupons-and-deals")}
       />
       <ColorSettingsWithGradient
         attrBackgroundKey="couponDealLabelBackgroundColor"

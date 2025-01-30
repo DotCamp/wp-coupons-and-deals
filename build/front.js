@@ -25,7 +25,7 @@ class UBCoupon {
     }
   }
   handleTemplateTwoExpirationDate() {
-    if (!this.wrapper.classList.contains("wpcd-coupon-template-two")) {
+    if (!this.wrapper.classList.contains("wpcd-coupon-template-two") && !this.wrapper.classList.contains("wpcd-coupon-template-six")) {
       return;
     }
     const secondSpan = this.expirationDateWrapper.querySelectorAll("span")[1];

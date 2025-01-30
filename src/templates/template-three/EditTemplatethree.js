@@ -6,7 +6,6 @@ import {
   getSingleSideBorderValue,
 } from "../../styling-helpers";
 import { RichText } from "@wordpress/block-editor";
-import { useState, useEffect } from "@wordpress/element";
 
 function TemplateThree(props) {
   const { attributes, setAttributes } = props;
@@ -19,7 +18,10 @@ function TemplateThree(props) {
   const isDoesNotExpire = attributes.isDoesNotExpire || false;
   const dealButtonText = attributes.dealButtonText || "";
   const couponCodeBorder = getBorderCSS(attributes.codeBorder);
-  const separatorBorder = getBorderCSS(attributes.separatorBorder);
+  const separatorColor = attributes.separatorColor || "#cccccc";
+  const separatorStyles = {
+    borderTop: `1px dashed ${separatorColor}`,
+  };
 
   const titleStyles = {
     fontSize: attributes.titleFontSize || "21px",
@@ -117,7 +119,10 @@ function TemplateThree(props) {
             />
           </div>
           <div className="wpcd-coupon-content-wrapper">
-            <div className="wpcd-coupon-content">
+            <div
+              className="wpcd-coupon-content"
+              style={generateStyles(separatorStyles)}
+            >
               <div
                 className={`wpcd-coupon-expiration-date${
                   isDoesNotExpire ? " wpcd-coupon-does-not-expire" : ""

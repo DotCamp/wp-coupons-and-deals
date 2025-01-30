@@ -28,7 +28,12 @@ function DefaultTemplate(props) {
   } = attributes;
 
   const couponCodeBorder = getBorderCSS(attributes.codeBorder);
-  const separatorBorder = getBorderCSS(attributes.separatorBorder);
+  const separatorColor = isEmpty(attributes.separatorColor)
+    ? "#d1d1d1"
+    : attributes.separatorColor;
+  const separatorStyles = {
+    borderBottom: `1px dashed ${separatorColor}`,
+  };
 
   let titleStyles = {
     fontSize: isEmpty(attributes?.titleFontSize)
@@ -36,7 +41,11 @@ function DefaultTemplate(props) {
       : attributes?.titleFontSize,
     color: isEmpty(attributes?.titleColor) ? "#000000" : attributes?.titleColor,
   };
-
+  const discountBgColor = getBackgroundColorVar(
+    attributes,
+    "discountBgColor",
+    "discountBgGradientColor"
+  );
   let discountStyles = {
     fontSize: isEmpty(attributes?.discountFontSize)
       ? "20px"
@@ -44,6 +53,7 @@ function DefaultTemplate(props) {
     color: isEmpty(attributes?.discountColor)
       ? "#000000"
       : attributes?.discountColor,
+    backgroundColor: discountBgColor,
   };
 
   const dealLabelBgColor = getBackgroundColorVar(
@@ -182,7 +192,10 @@ function DefaultTemplate(props) {
       </div>
 
       <div className="wpcd-coupon-details-wrapper">
-        <div className="wpcd-coupon-header">
+        <div
+          className="wpcd-coupon-header"
+          style={generateStyles(separatorStyles)}
+        >
           <div className="wpcd-coupon-title-wrapper">
             <RichText
               className="wpcd-coupon-title"
