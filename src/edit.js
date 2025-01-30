@@ -9,7 +9,12 @@ import { MediaReplaceFlow } from "@wordpress/block-editor";
 /**
  * Internal Dependencies
  */
-import { DefaultTemplate, TemplateOne, TemplateTwo } from "./templates/";
+import {
+  DefaultTemplate,
+  TemplateOne,
+  TemplateThree,
+  TemplateTwo,
+} from "./templates/";
 import Inspector from "./inspector";
 import classNames from "classnames";
 
@@ -31,7 +36,6 @@ function Edit(props) {
     couponType,
     padding,
     margin,
-    couponImage,
   } = attributes;
   const wrapperBorder = getBorderCSS(attributes.wrapperBorder);
 
@@ -41,17 +45,23 @@ function Edit(props) {
     "template-default": "2px dashed #000000",
     "template-one": "1px solid #d1d1d1",
     "template-two": "1px solid #d1d1d1",
+    "template-three": "1px solid #d1d1d1",
   };
+  const defaultPadding = template === "template-three" ? "0" : "25px";
   const wrapperStyles = {
     backgroundColor: !isEmpty(attributes?.wrapperBackgroundColor)
       ? attributes.wrapperBackgroundColor
       : attributes?.wrapperGradientBackground,
-    "padding-top": !isEmpty(paddingObj?.top) ? paddingObj?.top : "25px",
-    "padding-right": !isEmpty(paddingObj?.right) ? paddingObj?.right : "25px",
+    "padding-top": !isEmpty(paddingObj?.top) ? paddingObj?.top : defaultPadding,
+    "padding-right": !isEmpty(paddingObj?.right)
+      ? paddingObj?.right
+      : defaultPadding,
     "padding-bottom": !isEmpty(paddingObj?.bottom)
       ? paddingObj?.bottom
-      : "25px",
-    "padding-left": !isEmpty(paddingObj?.left) ? paddingObj?.left : "25px",
+      : defaultPadding,
+    "padding-left": !isEmpty(paddingObj?.left)
+      ? paddingObj?.left
+      : defaultPadding,
     "margin-top": marginObj?.top,
     "margin-right": marginObj?.right,
     "margin-bottom": marginObj?.bottom,
@@ -104,11 +114,12 @@ function Edit(props) {
   };
   const imageUrl = attributes.couponImage?.url;
   const imageId = attributes.couponImage?.id;
-
+  const shouldShowImageControl =
+    template !== "template-default" && template !== "template-three";
   return (
     <>
-      <BlockControls group="other">
-        {template !== "template-default" && (
+      {shouldShowImageControl && (
+        <BlockControls group="other">
           <MediaReplaceFlow
             mediaId={imageId}
             name={imageUrl ? "Replace Image" : "Select Image"}
@@ -120,17 +131,18 @@ function Edit(props) {
               setAttributes({ imageUrl: url, imageId: null })
             }
           />
-        )}
-        {imageUrl && (
-          <ToolbarButton label="Remove Image" onClick={onRemoveImage}>
-            Remove Image
-          </ToolbarButton>
-        )}
-      </BlockControls>
+          {imageUrl && (
+            <ToolbarButton label="Remove Image" onClick={onRemoveImage}>
+              Remove Image
+            </ToolbarButton>
+          )}
+        </BlockControls>
+      )}
       <div {...blockProps}>
         {template === "template-default" && <DefaultTemplate {...props} />}
         {template === "template-one" && <TemplateOne {...props} />}
         {template === "template-two" && <TemplateTwo {...props} />}
+        {template === "template-three" && <TemplateThree {...props} />}
       </div>
       <Inspector {...props} />
     </>

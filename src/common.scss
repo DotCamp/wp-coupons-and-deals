@@ -318,6 +318,7 @@
       }
     }
   }
+  /** Template Two **/
   &.wpcd-coupon-template-two {
     .wpcd-coupon-inner__wrapper {
       display: flex;
@@ -404,6 +405,26 @@
           }
         }
       }
+    }
+  }
+  /** Template Three **/
+  &.wpcd-coupon-template-three {
+    .wpcd-coupon-content {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 10px;
+      border-top: 1px dashed #d1d1d1;
+      padding: 10px;
+    }
+    .wpcd-coupon-content-title-wrapper {
+      padding: 10px;
+    }
+    .wpcd-coupon-expiration-date {
+      text-align: center;
+    }
+    .wpcd-coupon-code {
+      width: auto;
     }
   }
   .wpcd-coupon-popup {
