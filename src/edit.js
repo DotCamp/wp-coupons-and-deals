@@ -13,6 +13,7 @@ import {
   DefaultTemplate,
   TemplateNine,
   TemplateOne,
+  TemplateSeven,
   TemplateSix,
   TemplateThree,
   TemplateTwo,
@@ -49,6 +50,7 @@ function Edit(props) {
     "template-two": "1px solid #d1d1d1",
     "template-three": "1px solid #d1d1d1",
     "template-six": "2px solid #18e06e",
+    "template-seven": "2px solid #9b59b6",
     "template-nine": "2px dashed #000000",
   };
   const separatorColor = isEmpty(attributes.separatorColor)
@@ -134,6 +136,7 @@ function Edit(props) {
     "template-two": <TemplateTwo {...props} />,
     "template-three": <TemplateThree {...props} />,
     "template-six": <TemplateSix {...props} />,
+    "template-seven": <TemplateSeven {...props} />,
     "template-nine": <TemplateNine {...props} />,
   };
   return (

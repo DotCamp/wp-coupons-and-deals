@@ -35,6 +35,8 @@ function Inspector(props) {
     expirationDate,
     hideCoupon,
     isDoesNotExpire,
+    dealButtonText,
+    template,
     couponType,
   } = attributes;
   useEffect(() => {
@@ -244,6 +246,15 @@ function Inspector(props) {
             options={couponTypes}
             attributeKey="couponType"
           />
+          {couponType === "deal" && template === "template-seven" && (
+            <TextControl
+              label={__("Get Deal Text", "wp-coupons-and-deals")}
+              onChange={(newValue) =>
+                setAttributes({ dealButtonText: newValue })
+              }
+              value={dealButtonText}
+            />
+          )}
           <TextControl
             label={__(
               "Link To Navigate On Copy (Affiliate Link)",

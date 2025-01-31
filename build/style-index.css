@@ -6,6 +6,7 @@
   /** Template One **/
   /** Template Two **/
   /** Template Three **/
+  /** Template seven **/
   /** Template Six **/
   /** Template Nine **/
 }
@@ -377,6 +378,153 @@
 }
 .wpcd-coupon-wrapper.wpcd-coupon-template-three .wpcd-coupon-code {
   width: auto;
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-seven .wpcd-coupon-inner__wrapper {
+  display: flex;
+  gap: 20px;
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-seven .wpcd-coupon-inner__wrapper .wpcd-coupon-seven-image {
+  margin: 0;
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-seven .wpcd-coupon-inner__wrapper .wpcd-coupon-seven-image img {
+  width: 200px;
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-seven .wpcd-coupon-inner__wrapper .wpcd-coupon-discount-wrapper .wpcd-coupon-discount-inner__wrapper {
+  max-width: 100%;
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-seven .wpcd-coupon-inner__wrapper .wpcd-coupon-discount-wrapper .wpcd-coupon-discount-inner__wrapper .wpcd-coupon-name {
+  padding: 7px 6px;
+  font-weight: 600;
+  line-height: 2em;
+  text-align: center;
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-seven .wpcd-coupon-inner__wrapper .wpcd-coupon-discount-wrapper .wpcd-coupon-discount-inner__wrapper .wpcd-coupon-discount {
+  font-weight: 700;
+  text-shadow: 2px 2px 5px rgb(57, 57, 57);
+  line-height: 40px;
+  padding: 12px;
+  line-height: 1.2;
+  border-radius: 10px;
+  overflow-wrap: break-word;
+  word-break: normal;
+  background: var(--wpcd-discount-background-color, #9b59b6);
+  text-align: center;
+  margin-bottom: 32px;
+  position: relative;
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-seven .wpcd-coupon-inner__wrapper .wpcd-coupon-discount-wrapper .wpcd-coupon-discount-inner__wrapper .wpcd-coupon-discount::after {
+  position: absolute;
+  content: " ";
+  top: 100%;
+  right: 30px;
+  width: 0;
+  height: 0;
+  border-top: 0;
+  border-right: 25px solid var(--wpcd-discount-background-color, #9b59b6);
+  border-bottom: 30px solid transparent;
+  z-index: 0;
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-seven .wpcd-coupon-inner__wrapper .wpcd-coupon-details-wrapper {
+  width: 100%;
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-seven .wpcd-coupon-inner__wrapper .wpcd-coupon-details-wrapper .wpcd-coupon-content-wrapper {
+  flex: 6;
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-seven .wpcd-coupon-inner__wrapper .wpcd-coupon-details-wrapper .wpcd-coupon-expired {
+  text-align: left;
+  width: auto;
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-seven .wpcd-coupon-inner__wrapper .wpcd-coupon-details-wrapper .wpcd-coupon-header {
+  padding-bottom: 10px;
+  gap: 40px;
+  border: none;
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-seven .wpcd-coupon-inner__wrapper .wpcd-coupon-details-wrapper .wpcd-coupon-content {
+  align-items: center;
+  margin-top: 30px;
+  border-top: 1px solid #d1d1d1;
+  padding-top: 10px;
+  border-bottom: 1px solid #d1d1d1;
+  padding-bottom: 10px;
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-seven .wpcd-coupon-inner__wrapper .wpcd-coupon-details-wrapper .wpcd-coupon-header,
+.wpcd-coupon-wrapper.wpcd-coupon-template-seven .wpcd-coupon-inner__wrapper .wpcd-coupon-details-wrapper .wpcd-coupon-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-seven .wpcd-coupon-inner__wrapper .wpcd-coupon-details-wrapper .wpcd-coupon-title-wrapper {
+  margin: 5px 0px 10px 0px !important;
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-seven .wpcd-coupon-inner__wrapper .wpcd-coupon-details-wrapper .wpcd-coupon-description p {
+  margin: 0;
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-seven .wpcd-coupon-inner__wrapper .wpcd-coupon-details-wrapper .wpcd-coupon-code {
+  width: auto;
+  text-align: right;
+  flex: 2;
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-seven .wpcd-coupon-inner__wrapper .wpcd-coupon-details-wrapper .wpcd-coupon-code .wpcd-coupon-button {
+  font-size: var(--wpcd-coupon-code-font-size, 16px);
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+  display: inline-block;
+  text-decoration: none !important;
+  word-break: break-all;
+  position: relative;
+  color: var(--wpcd-coupon-code-color, #ffffff);
+  background: var(--wpcd-coupon-code-bg-color, #9b59b6);
+  padding: 14px 5px;
+  line-height: 31px;
+  width: 100%;
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-seven .wpcd-coupon-inner__wrapper .wpcd-coupon-details-wrapper .wpcd-coupon-code .wpcd-coupon-button:hover::before {
+  transform: translateX(0) rotateY(0deg);
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-seven .wpcd-coupon-inner__wrapper .wpcd-coupon-details-wrapper .wpcd-coupon-code .wpcd-coupon-button:hover::after {
+  transform: translateX(100%) rotateY(-90deg);
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-seven .wpcd-coupon-inner__wrapper .wpcd-coupon-details-wrapper .wpcd-coupon-code .wpcd-coupon-button::before {
+  content: attr(data-coupon_code);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  padding: 14px 5px;
+  color: var(--wpcd-coupon-code-bg-color, #9b59b6);
+  background: #fff;
+  border: 2px solid;
+  border-color: inherit;
+  transition: 0.5s;
+  transform-origin: right;
+  transform: translateX(-100%) rotateY(90deg);
+  word-break: normal;
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-seven .wpcd-coupon-inner__wrapper .wpcd-coupon-details-wrapper .wpcd-coupon-code .wpcd-coupon-button::after {
+  content: attr(data-coupon_code);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  padding: 14px 5px;
+  background-color: inherit;
+  color: var(--wpcd-coupon-code-color, #ffffff);
+  border: 2px solid;
+  border-color: inherit;
+  transition: 0.5s;
+  transform-origin: left;
+  transform: translateX(0) rotateY(0deg);
+  word-break: normal;
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-seven .wpcd-coupon-inner__wrapper .wpcd-coupon-details-wrapper .wpcd-coupon-code .wpcd-coupon-button .wpcd-coupon-icon {
+  width: 24px;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+  margin-right: 4px;
 }
 .wpcd-coupon-wrapper.wpcd-coupon-template-six .wpcd-coupon-inner__wrapper {
   display: flex;
