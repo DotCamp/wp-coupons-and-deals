@@ -11,6 +11,7 @@ import { MediaReplaceFlow } from "@wordpress/block-editor";
  */
 import {
   DefaultTemplate,
+  TemplateEight,
   TemplateNine,
   TemplateOne,
   TemplateSeven,
@@ -138,6 +139,7 @@ function Edit(props) {
     "template-three": <TemplateThree {...props} />,
     "template-six": <TemplateSix {...props} />,
     "template-seven": <TemplateSeven {...props} />,
+    "template-eight": <TemplateEight {...props} />,
     "template-nine": <TemplateNine {...props} />,
   };
   return (
