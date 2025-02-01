@@ -51,6 +51,7 @@ function Edit(props) {
     "template-three": "1px solid #d1d1d1",
     "template-six": "2px solid #18e06e",
     "template-seven": "2px solid #9b59b6",
+    "template-eight": "1px solid #d1d1d1",
     "template-nine": "2px dashed #000000",
   };
   const separatorColor = isEmpty(attributes.separatorColor)
