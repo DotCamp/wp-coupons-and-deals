@@ -426,6 +426,238 @@
       width: auto;
     }
   }
+
+  /** Template Five **/
+  &.wpcd-coupon-template-five {
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    .wpcd-coupon-inner__wrapper {
+      .wpcd-coupon-image-wrapper {
+        flex: 2;
+        .wpcd-coupon-two-image {
+          margin: 0;
+          text-align: center;
+          img {
+            width: 150px;
+          }
+        }
+      }
+      .wpcd-coupon-discount-wrapper {
+        flex: 2;
+        .wpcd-coupon-discount-inner__wrapper {
+          .wpcd-coupon-name {
+            padding: 7px 6px;
+            font-weight: 600;
+            line-height: 2em;
+            text-align: center;
+          }
+          .wpcd-coupon-discount {
+            text-align: center;
+            padding: 5px;
+            overflow-wrap: break-word;
+            word-break: normal;
+          }
+        }
+      }
+      .wpcd-coupon-content-wrapper {
+        flex: 5;
+      }
+      .wpcd-coupon-details-wrapper {
+        width: 100%;
+        .wpcd-coupon-header {
+          padding-bottom: 10px;
+          gap: 40px;
+          border: none;
+          float: none;
+        }
+        .wpcd-coupon-content {
+          align-items: center;
+          margin-bottom: 7px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+        .wpcd-coupon-header,
+        .wpcd-coupon-content {
+          display: flex;
+          justify-content: space-between;
+          gap: 10px;
+        }
+        .wpcd-coupon-title-wrapper {
+          margin: 5px 0px 10px 0px !important;
+        }
+        .wpcd-coupon-description {
+          p {
+            margin: 0;
+          }
+        }
+      }
+      .wpcd-coupon-footer {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        .wpcd-coupon-expiration-date {
+          flex: 3;
+          text-align: center;
+          padding: 15px;
+          background-color: #18e06e;
+          border: 2px solid #18e06e;
+          border-bottom-left-radius: 15px;
+        }
+        .wpcd-coupon-expired {
+          width: auto;
+        }
+        .wpcd-coupon-code {
+          text-align: center;
+          flex: 2;
+          .wpcd-coupon-button {
+            width: 100%;
+            color: var(--wpcd-coupon-code-color, #18e06e);
+            .wpcd-coupon-icon {
+              width: 24px;
+              display: inline-block;
+              vertical-align: middle;
+              line-height: 1;
+              margin-right: 4px;
+            }
+            font-size: var(--wpcd-coupon-code-font-size, 16px);
+            text-align: center;
+            cursor: pointer;
+            font-weight: 600;
+            padding: 15px;
+            display: inline-block;
+            text-decoration: none !important;
+            word-break: break-all;
+          }
+        }
+      }
+    }
+  }
+  /** Template Six **/
+  &.wpcd-coupon-template-six {
+    .wpcd-coupon-inner__wrapper {
+      display: flex;
+      gap: 20px;
+      .wpcd-coupon-image-wrapper {
+        flex: 2;
+        .wpcd-coupon-two-image {
+          margin: 0;
+          text-align: center;
+          img {
+            width: 150px;
+          }
+        }
+      }
+      .wpcd-coupon-discount-wrapper {
+        flex: 1;
+        margin-top: -18px;
+        margin-left: -14px;
+        .wpcd-coupon-discount-inner__wrapper {
+          .wpcd-coupon-name {
+            padding: 7px 6px;
+            font-weight: 600;
+            line-height: 2em;
+            text-align: center;
+          }
+          .wpcd-coupon-discount {
+            position: relative;
+            height: 120px;
+            text-align: center;
+            width: 100px;
+            padding: 5px;
+            margin-top: -8px;
+            overflow-wrap: break-word;
+            word-break: normal;
+            background: var(--wpcd-discount-background-color, #18e06e);
+
+            &::before,
+            &::after {
+              content: "";
+              position: absolute;
+              bottom: -40px;
+              width: 0;
+              height: 0;
+              z-index: 1;
+            }
+            &::before {
+              left: 0;
+              border-left: 50px solid
+                var(--wpcd-discount-background-color, #18e06e);
+              border-top: 40px solid transparent;
+              border-bottom: 40px solid transparent;
+              position: absolute;
+              z-index: 1;
+            }
+            &::after {
+              right: 0;
+              border-right: 50px solid
+                var(--wpcd-discount-background-color, #18e06e);
+              border-top: 40px solid transparent;
+              border-bottom: 40px solid transparent;
+              position: absolute;
+              z-index: 1;
+            }
+          }
+        }
+      }
+      .wpcd-coupon-content-wrapper {
+        flex: 6;
+      }
+      .wpcd-coupon-details-wrapper {
+        width: 100%;
+        .wpcd-coupon-expired {
+          text-align: left;
+          width: auto;
+        }
+        .wpcd-coupon-header {
+          padding-bottom: 10px;
+          gap: 40px;
+          border: none;
+          float: none;
+        }
+        .wpcd-coupon-content {
+          align-items: center;
+          margin-bottom: 7px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+        .wpcd-coupon-header,
+        .wpcd-coupon-content {
+          display: flex;
+          justify-content: space-between;
+          gap: 10px;
+        }
+        .wpcd-coupon-title-wrapper {
+          margin: 5px 0px 10px 0px !important;
+        }
+        .wpcd-coupon-description {
+          p {
+            margin: 0;
+          }
+        }
+        .wpcd-coupon-code {
+          text-align: center;
+          .wpcd-coupon-button {
+            color: var(--wpcd-coupon-code-color, #18e06e);
+            width: 150px;
+            .wpcd-coupon-icon {
+              width: 24px;
+              display: inline-block;
+              vertical-align: middle;
+              line-height: 1;
+              margin-right: 4px;
+            }
+            font-size: var(--wpcd-coupon-code-font-size, 16px);
+            text-align: center;
+            cursor: pointer;
+            font-weight: 600;
+            display: inline-block;
+            text-decoration: none !important;
+            word-break: break-all;
+          }
+        }
+      }
+    }
+  }
   /** Template seven **/
   &.wpcd-coupon-template-seven {
     .wpcd-coupon-inner__wrapper {
@@ -578,132 +810,6 @@
               line-height: 1;
               margin-right: 4px;
             }
-          }
-        }
-      }
-    }
-  }
-  /** Template Six **/
-  &.wpcd-coupon-template-six {
-    .wpcd-coupon-inner__wrapper {
-      display: flex;
-      gap: 20px;
-      .wpcd-coupon-image-wrapper {
-        flex: 2;
-        .wpcd-coupon-two-image {
-          margin: 0;
-          text-align: center;
-          img {
-            width: 150px;
-          }
-        }
-      }
-      .wpcd-coupon-discount-wrapper {
-        flex: 1;
-        margin-top: -18px;
-        margin-left: -14px;
-        .wpcd-coupon-discount-inner__wrapper {
-          .wpcd-coupon-name {
-            padding: 7px 6px;
-            font-weight: 600;
-            line-height: 2em;
-            text-align: center;
-          }
-          .wpcd-coupon-discount {
-            position: relative;
-            height: 120px;
-            text-align: center;
-            width: 100px;
-            padding: 5px;
-            margin-top: -8px;
-            overflow-wrap: break-word;
-            word-break: normal;
-            background: var(--wpcd-discount-background-color, #18e06e);
-
-            &::before,
-            &::after {
-              content: "";
-              position: absolute;
-              bottom: -40px;
-              width: 0;
-              height: 0;
-              z-index: 1;
-            }
-            &::before {
-              left: 0;
-              border-left: 50px solid
-                var(--wpcd-discount-background-color, #18e06e);
-              border-top: 40px solid transparent;
-              border-bottom: 40px solid transparent;
-              position: absolute;
-              z-index: 1;
-            }
-            &::after {
-              right: 0;
-              border-right: 50px solid
-                var(--wpcd-discount-background-color, #18e06e);
-              border-top: 40px solid transparent;
-              border-bottom: 40px solid transparent;
-              position: absolute;
-              z-index: 1;
-            }
-          }
-        }
-      }
-      .wpcd-coupon-content-wrapper {
-        flex: 6;
-      }
-      .wpcd-coupon-details-wrapper {
-        width: 100%;
-        .wpcd-coupon-expired {
-          text-align: left;
-          width: auto;
-        }
-        .wpcd-coupon-header {
-          padding-bottom: 10px;
-          gap: 40px;
-          border: none;
-          float: none;
-        }
-        .wpcd-coupon-content {
-          align-items: center;
-          margin-bottom: 7px;
-          padding-top: 10px;
-          padding-bottom: 10px;
-        }
-        .wpcd-coupon-header,
-        .wpcd-coupon-content {
-          display: flex;
-          justify-content: space-between;
-          gap: 10px;
-        }
-        .wpcd-coupon-title-wrapper {
-          margin: 5px 0px 10px 0px !important;
-        }
-        .wpcd-coupon-description {
-          p {
-            margin: 0;
-          }
-        }
-        .wpcd-coupon-code {
-          text-align: center;
-          .wpcd-coupon-button {
-            color: var(--wpcd-coupon-code-color, #18e06e);
-            width: 150px;
-            .wpcd-coupon-icon {
-              width: 24px;
-              display: inline-block;
-              vertical-align: middle;
-              line-height: 1;
-              margin-right: 4px;
-            }
-            font-size: var(--wpcd-coupon-code-font-size, 16px);
-            text-align: center;
-            cursor: pointer;
-            font-weight: 600;
-            display: inline-block;
-            text-decoration: none !important;
-            word-break: break-all;
           }
         }
       }

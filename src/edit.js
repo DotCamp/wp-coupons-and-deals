@@ -12,6 +12,7 @@ import { MediaReplaceFlow } from "@wordpress/block-editor";
 import {
   DefaultTemplate,
   TemplateEight,
+  TemplateFive,
   TemplateNine,
   TemplateOne,
   TemplateSeven,
@@ -50,6 +51,7 @@ function Edit(props) {
     "template-one": "1px solid #d1d1d1",
     "template-two": "1px solid #d1d1d1",
     "template-three": "1px solid #d1d1d1",
+    "template-five": "2px solid #18e06e",
     "template-six": "2px solid #18e06e",
     "template-seven": "2px solid #9b59b6",
     "template-eight": "1px solid #d1d1d1",
@@ -131,12 +133,16 @@ function Edit(props) {
   const imageUrl = attributes.couponImage?.url;
   const imageId = attributes.couponImage?.id;
   const shouldShowImageControl =
-    template !== "template-default" && template !== "template-three";
+    template !== "template-default" &&
+    template !== "template-three" &&
+    template !== "template-nine" &&
+    template !== "template-eight";
   const templates = {
     "template-default": <DefaultTemplate {...props} />,
     "template-one": <TemplateOne {...props} />,
     "template-two": <TemplateTwo {...props} />,
     "template-three": <TemplateThree {...props} />,
+    "template-five": <TemplateFive {...props} />,
     "template-six": <TemplateSix {...props} />,
     "template-seven": <TemplateSeven {...props} />,
     "template-eight": <TemplateEight {...props} />,

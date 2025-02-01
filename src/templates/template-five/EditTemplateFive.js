@@ -6,11 +6,8 @@ import {
   getSingleSideBorderValue,
 } from "../../styling-helpers";
 import { RichText } from "@wordpress/block-editor";
-import { useState, useEffect } from "@wordpress/element";
 
-function TemplateSix(props) {
-  const [countdown, setCountdown] = useState("");
-
+function TemplateFive(props) {
   const { attributes, setAttributes } = props;
   const couponType = attributes.couponType || "default";
   const discount = attributes.discount || "";
@@ -18,46 +15,18 @@ function TemplateSix(props) {
   const description = attributes.description || "";
   const code = attributes.code || "";
   const expirationDate = attributes.expirationDate || "";
-  const expiredDateText = attributes.expiredDateText || "";
   const doesNotExpireText = attributes.doesNotExpireText || "";
   const isDoesNotExpire = attributes.isDoesNotExpire || false;
   const dealButtonText = attributes.dealButtonText || "";
   const couponCodeBorder = getBorderCSS(attributes.codeBorder);
-
+  const date = new Date(expirationDate);
+  const expirationDateInLocalString = date
+    .toLocaleDateString("en-GB")
+    .replace(/\//g, "-");
   const separatorStyles = {
     borderTop: `1px dashed ${attributes.separatorColor}`,
     borderBottom: `1px dashed ${attributes.separatorColor}`,
   };
-  useEffect(() => {
-    const updateCountdown = () => {
-      const now = new Date().getTime();
-      const distance = new Date(expirationDate).getTime() - now;
-
-      if (distance < 0) {
-        setCountdown(expiredDateText);
-        return;
-      }
-
-      const weeks = Math.floor(distance / (1000 * 60 * 60 * 24 * 7));
-      const days = Math.floor(
-        (distance % (1000 * 60 * 60 * 24 * 7)) / (1000 * 60 * 60 * 24)
-      );
-      const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      setCountdown(
-        `${weeks} weeks ${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`
-      );
-    };
-
-    updateCountdown();
-    const interval = setInterval(updateCountdown, 1000);
-
-    return () => clearInterval(interval);
-  }, [expirationDate]);
 
   const titleStyles = {
     fontSize: attributes.titleFontSize || "21px",
@@ -66,7 +35,8 @@ function TemplateSix(props) {
 
   const discountStyles = {
     fontSize: attributes.discountFontSize || "30px",
-    color: attributes.discountColor || "#ffffff",
+    color: attributes.discountColor || "#000000",
+    border: "2px dashed #000000",
   };
 
   const descriptionStyles = {
@@ -83,7 +53,7 @@ function TemplateSix(props) {
     "--wpcd-coupon-code-bg-hover-color": codeHoverBgColor,
     "--wpcd-coupon-code-hover-color": attributes.codeHoverColor || "",
   };
-  const borderStyle = "2px solid #18e06e";
+  const borderStyle = "2px dashed #18e06e";
   const codeStyles = {
     ...codeHoverStyles,
     "--wpcd-coupon-code-button-text": attributes.couponCodeButtonText
@@ -119,7 +89,7 @@ function TemplateSix(props) {
     "--wpcd-coupon-expired-date-font-size":
       attributes.expiredDateFontSize || "14px",
     "--wpcd-coupon-expiration-date-color":
-      attributes.expirationDateColor || "green",
+      attributes.expirationDateColor || "#ffffff",
     "--wpcd-coupon-expired-date-color": attributes.expiredDateColor || "red",
   };
 
@@ -169,73 +139,68 @@ function TemplateSix(props) {
                 style={generateStyles(descriptionStyles)}
               />
             </div>
-            <div
-              className="wpcd-coupon-content"
-              style={generateStyles(separatorStyles)}
-            >
-              <div
-                className={`wpcd-coupon-expiration-date${
-                  isDoesNotExpire ? " wpcd-coupon-does-not-expire" : ""
-                }${
-                  countdown === expiredDateText ? " wpcd-coupon-expired" : ""
-                }`}
-                style={generateStyles(expirationDateStyles)}
-              >
-                {!isDoesNotExpire ? (
-                  <>
-                    {countdown !== expiredDateText && <span>Expire On: </span>}
-                    <span>{countdown}</span>
-                  </>
-                ) : (
-                  <span>{doesNotExpireText}</span>
-                )}
-              </div>
-            </div>
           </div>
           <div className="wpcd-coupon-image-wrapper">
             <figure className="wpcd-coupon-two-image">
               <img src={imageUrl} alt="Coupon" />
             </figure>
-            <div className="wpcd-coupon-code">
-              {couponType !== "deal" ? (
-                <a
-                  style={generateStyles(codeStyles)}
-                  {...navigationAttrs}
-                  className={`wpcd-coupon-button${
-                    attributes.hideCoupon ? " wpcd-popup-button" : ""
-                  }`}
-                  title="Click To Copy Coupon"
-                >
-                  <RichText
-                    value={code}
-                    tagName="span"
-                    onChange={(newValue) => setAttributes({ code: newValue })}
-                    placeholder={__("SAMPLECODE", "wp-coupons-and-deals")}
-                  />
-                </a>
-              ) : (
-                <a
-                  rel="nofollow noopener"
-                  target="_blank"
-                  className="wpcd-coupon-button"
-                  style={generateStyles(codeStyles)}
-                  title="Click To Claim This Deal"
-                >
-                  <RichText
-                    value={dealButtonText}
-                    tagName="span"
-                    onChange={(newValue) =>
-                      setAttributes({ dealButtonText: newValue })
-                    }
-                    placeholder={__("Get Deal", "wp-coupons-and-deals")}
-                  />
-                </a>
-              )}
-            </div>
           </div>
+        </div>
+      </div>
+      <div className="wpcd-coupon-footer">
+        <div
+          className={`wpcd-coupon-expiration-date${
+            isDoesNotExpire ? " wpcd-coupon-does-not-expire" : ""
+          }`}
+          style={generateStyles(expirationDateStyles)}
+        >
+          {!isDoesNotExpire ? (
+            <>
+              <span>Expire On: </span>
+              <span>{expirationDateInLocalString}</span>
+            </>
+          ) : (
+            <span>{doesNotExpireText}</span>
+          )}
+        </div>
+        <div className="wpcd-coupon-code">
+          {couponType !== "deal" ? (
+            <a
+              style={generateStyles(codeStyles)}
+              {...navigationAttrs}
+              className={`wpcd-coupon-button${
+                attributes.hideCoupon ? " wpcd-popup-button" : ""
+              }`}
+              title="Click To Copy Coupon"
+            >
+              <RichText
+                value={code}
+                tagName="span"
+                onChange={(newValue) => setAttributes({ code: newValue })}
+                placeholder={__("SAMPLECODE", "wp-coupons-and-deals")}
+              />
+            </a>
+          ) : (
+            <a
+              rel="nofollow noopener"
+              target="_blank"
+              className="wpcd-coupon-button"
+              style={generateStyles(codeStyles)}
+              title="Click To Claim This Deal"
+            >
+              <RichText
+                value={dealButtonText}
+                tagName="span"
+                onChange={(newValue) =>
+                  setAttributes({ dealButtonText: newValue })
+                }
+                placeholder={__("Get Deal", "wp-coupons-and-deals")}
+              />
+            </a>
+          )}
         </div>
       </div>
     </div>
   );
 }
-export default TemplateSix;
+export default TemplateFive;

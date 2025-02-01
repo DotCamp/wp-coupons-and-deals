@@ -887,6 +887,7 @@ function Edit(props) {
     "template-one": "1px solid #d1d1d1",
     "template-two": "1px solid #d1d1d1",
     "template-three": "1px solid #d1d1d1",
+    "template-five": "2px solid #18e06e",
     "template-six": "2px solid #18e06e",
     "template-seven": "2px solid #9b59b6",
     "template-eight": "1px solid #d1d1d1",
@@ -947,7 +948,7 @@ function Edit(props) {
   };
   const imageUrl = attributes.couponImage?.url;
   const imageId = attributes.couponImage?.id;
-  const shouldShowImageControl = template !== "template-default" && template !== "template-three";
+  const shouldShowImageControl = template !== "template-default" && template !== "template-three" && template !== "template-nine" && template !== "template-eight";
   const templates = {
     "template-default": (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_templates___WEBPACK_IMPORTED_MODULE_5__.DefaultTemplate, {
       ...props
@@ -959,6 +960,9 @@ function Edit(props) {
       ...props
     }),
     "template-three": (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_templates___WEBPACK_IMPORTED_MODULE_5__.TemplateThree, {
+      ...props
+    }),
+    "template-five": (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_templates___WEBPACK_IMPORTED_MODULE_5__.TemplateFive, {
       ...props
     }),
     "template-six": (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_templates___WEBPACK_IMPORTED_MODULE_5__.TemplateSix, {
@@ -1737,11 +1741,12 @@ function DefaultTemplate(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   DefaultTemplate: () => (/* reexport safe */ _default_template_EditDefaultTemplate__WEBPACK_IMPORTED_MODULE_0__["default"]),
-/* harmony export */   TemplateEight: () => (/* reexport safe */ _template_eight_EditTemplateEight__WEBPACK_IMPORTED_MODULE_6__["default"]),
-/* harmony export */   TemplateNine: () => (/* reexport safe */ _template_nine_EditTemplateNine__WEBPACK_IMPORTED_MODULE_7__["default"]),
+/* harmony export */   TemplateEight: () => (/* reexport safe */ _template_eight_EditTemplateEight__WEBPACK_IMPORTED_MODULE_7__["default"]),
+/* harmony export */   TemplateFive: () => (/* reexport safe */ _template_five_EditTemplateFive__WEBPACK_IMPORTED_MODULE_4__["default"]),
+/* harmony export */   TemplateNine: () => (/* reexport safe */ _template_nine_EditTemplateNine__WEBPACK_IMPORTED_MODULE_8__["default"]),
 /* harmony export */   TemplateOne: () => (/* reexport safe */ _template_one_EditTemplateOne__WEBPACK_IMPORTED_MODULE_1__["default"]),
-/* harmony export */   TemplateSeven: () => (/* reexport safe */ _template_seven_EditTemplateSeven__WEBPACK_IMPORTED_MODULE_5__["default"]),
-/* harmony export */   TemplateSix: () => (/* reexport safe */ _template_six_EditTemplateSix__WEBPACK_IMPORTED_MODULE_4__["default"]),
+/* harmony export */   TemplateSeven: () => (/* reexport safe */ _template_seven_EditTemplateSeven__WEBPACK_IMPORTED_MODULE_6__["default"]),
+/* harmony export */   TemplateSix: () => (/* reexport safe */ _template_six_EditTemplateSix__WEBPACK_IMPORTED_MODULE_5__["default"]),
 /* harmony export */   TemplateThree: () => (/* reexport safe */ _template_three_EditTemplateThree__WEBPACK_IMPORTED_MODULE_3__["default"]),
 /* harmony export */   TemplateTwo: () => (/* reexport safe */ _template_two_EditTemplateTwo__WEBPACK_IMPORTED_MODULE_2__["default"])
 /* harmony export */ });
@@ -1749,10 +1754,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _template_one_EditTemplateOne__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./template-one/EditTemplateOne */ "./src/templates/template-one/EditTemplateOne.js");
 /* harmony import */ var _template_two_EditTemplateTwo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./template-two/EditTemplateTwo */ "./src/templates/template-two/EditTemplateTwo.js");
 /* harmony import */ var _template_three_EditTemplateThree__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./template-three/EditTemplateThree */ "./src/templates/template-three/EditTemplateThree.js");
-/* harmony import */ var _template_six_EditTemplateSix__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./template-six/EditTemplateSix */ "./src/templates/template-six/EditTemplateSix.js");
-/* harmony import */ var _template_seven_EditTemplateSeven__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./template-seven/EditTemplateSeven */ "./src/templates/template-seven/EditTemplateSeven.js");
-/* harmony import */ var _template_eight_EditTemplateEight__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./template-eight/EditTemplateEight */ "./src/templates/template-eight/EditTemplateEight.js");
-/* harmony import */ var _template_nine_EditTemplateNine__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./template-nine/EditTemplateNine */ "./src/templates/template-nine/EditTemplateNine.js");
+/* harmony import */ var _template_five_EditTemplateFive__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./template-five/EditTemplateFive */ "./src/templates/template-five/EditTemplateFive.js");
+/* harmony import */ var _template_six_EditTemplateSix__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./template-six/EditTemplateSix */ "./src/templates/template-six/EditTemplateSix.js");
+/* harmony import */ var _template_seven_EditTemplateSeven__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./template-seven/EditTemplateSeven */ "./src/templates/template-seven/EditTemplateSeven.js");
+/* harmony import */ var _template_eight_EditTemplateEight__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./template-eight/EditTemplateEight */ "./src/templates/template-eight/EditTemplateEight.js");
+/* harmony import */ var _template_nine_EditTemplateNine__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./template-nine/EditTemplateNine */ "./src/templates/template-nine/EditTemplateNine.js");
+
 
 
 
@@ -1975,6 +1982,182 @@ function DefaultTemplate(props) {
   }))));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DefaultTemplate);
+
+/***/ }),
+
+/***/ "./src/templates/template-five/EditTemplateFive.js":
+/*!*********************************************************!*\
+  !*** ./src/templates/template-five/EditTemplateFive.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _styling_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../styling-helpers */ "./src/styling-helpers.js");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+function TemplateFive(props) {
+  const {
+    attributes,
+    setAttributes
+  } = props;
+  const couponType = attributes.couponType || "default";
+  const discount = attributes.discount || "";
+  const title = attributes.title || "";
+  const description = attributes.description || "";
+  const code = attributes.code || "";
+  const expirationDate = attributes.expirationDate || "";
+  const doesNotExpireText = attributes.doesNotExpireText || "";
+  const isDoesNotExpire = attributes.isDoesNotExpire || false;
+  const dealButtonText = attributes.dealButtonText || "";
+  const couponCodeBorder = (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_2__.getBorderCSS)(attributes.codeBorder);
+  const date = new Date(expirationDate);
+  const expirationDateInLocalString = date.toLocaleDateString("en-GB").replace(/\//g, "-");
+  const separatorStyles = {
+    borderTop: `1px dashed ${attributes.separatorColor}`,
+    borderBottom: `1px dashed ${attributes.separatorColor}`
+  };
+  const titleStyles = {
+    fontSize: attributes.titleFontSize || "21px",
+    color: attributes.titleColor || "#000000"
+  };
+  const discountStyles = {
+    fontSize: attributes.discountFontSize || "30px",
+    color: attributes.discountColor || "#000000",
+    border: "2px dashed #000000"
+  };
+  const descriptionStyles = {
+    fontSize: attributes.descriptionFontSize || "16px",
+    color: attributes.descriptionColor || "#000000"
+  };
+  const codeHoverBgColor = (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_2__.getBackgroundColorVar)(attributes, "codeHoverBackgroundColor", "codeHoverGradientBackground");
+  const codeHoverStyles = {
+    "--wpcd-coupon-code-bg-hover-color": codeHoverBgColor,
+    "--wpcd-coupon-code-hover-color": attributes.codeHoverColor || ""
+  };
+  const borderStyle = "2px dashed #18e06e";
+  const codeStyles = {
+    ...codeHoverStyles,
+    "--wpcd-coupon-code-button-text": attributes.couponCodeButtonText ? attributes.couponCodeButtonText : "",
+    fontSize: attributes.codeFontSize || "",
+    "--wpcd-coupon-code-color": attributes.codeColor || "",
+    "--wpcd-coupon-code-bg-color": (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_2__.getBackgroundColorVar)(attributes, "codeBackgroundColor", "codeGradientBackground"),
+    borderTopLeftRadius: attributes.codeBorderRadius?.topLeft || "2px",
+    borderTopRightRadius: attributes.codeBorderRadius?.topRight || "2px",
+    borderBottomLeftRadius: attributes.codeBorderRadius?.bottomLeft || "2px",
+    borderBottomRightRadius: attributes.codeBorderRadius?.bottomRight || "2px",
+    borderTop: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_2__.getSingleSideBorderValue)(couponCodeBorder, "top") || (couponType === "deal" ? "2px solid #56b151" : borderStyle),
+    borderLeft: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_2__.getSingleSideBorderValue)(couponCodeBorder, "left") || (couponType === "deal" ? "2px solid #56b151" : borderStyle),
+    borderRight: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_2__.getSingleSideBorderValue)(couponCodeBorder, "right") || (couponType === "deal" ? "2px solid #56b151" : borderStyle),
+    borderBottom: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_2__.getSingleSideBorderValue)(couponCodeBorder, "bottom") || (couponType === "deal" ? "2px solid #56b151" : borderStyle)
+  };
+  const expirationDateStyles = {
+    "--wpcd-coupon-expiration-date-font-size": attributes.expirationDateFontSize || "14px",
+    "--wpcd-coupon-expired-date-font-size": attributes.expiredDateFontSize || "14px",
+    "--wpcd-coupon-expiration-date-color": attributes.expirationDateColor || "#ffffff",
+    "--wpcd-coupon-expired-date-color": attributes.expiredDateColor || "red"
+  };
+  const navigationAttrs = {};
+  if (!attributes.hideCoupon) {
+    navigationAttrs.rel = "nofollow noopener";
+    navigationAttrs.target = "_blank";
+  }
+  const couponDefaultImage = "http://wp-coupon-and-deals.local/wp-content/plugins/wp-coupons-and-deals/assets/img/coupon-200x200.png";
+  const imageUrl = attributes.couponImage?.url || couponDefaultImage;
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wpcd-coupon-inner__wrapper wpcd-coupon-columns"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wpcd-coupon-details-wrapper wpcd-coupon-column-1"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wpcd-coupon-header"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wpcd-coupon-discount-wrapper"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wpcd-coupon-discount-inner__wrapper"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText, {
+    className: "wpcd-coupon-discount",
+    value: discount,
+    tagName: "div",
+    onChange: newValue => setAttributes({
+      discount: newValue
+    }),
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("100%", "wp-coupons-and-deals"),
+    style: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_2__.generateStyles)(discountStyles)
+  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wpcd-coupon-content-wrapper"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wpcd-coupon-title-wrapper"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText, {
+    className: "wpcd-coupon-title",
+    value: title,
+    tagName: "h3",
+    onChange: newValue => setAttributes({
+      title: newValue
+    }),
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Title here", "wp-coupons-and-deals"),
+    style: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_2__.generateStyles)(titleStyles)
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText, {
+    className: "wpcd-coupon-description",
+    value: description,
+    tagName: "p",
+    onChange: newValue => setAttributes({
+      description: newValue
+    }),
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Description here", "wp-coupons-and-deals"),
+    style: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_2__.generateStyles)(descriptionStyles)
+  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wpcd-coupon-image-wrapper"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("figure", {
+    className: "wpcd-coupon-two-image"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    src: imageUrl,
+    alt: "Coupon"
+  }))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wpcd-coupon-footer"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: `wpcd-coupon-expiration-date${isDoesNotExpire ? " wpcd-coupon-does-not-expire" : ""}`,
+    style: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_2__.generateStyles)(expirationDateStyles)
+  }, !isDoesNotExpire ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Expire On: "), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, expirationDateInLocalString)) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, doesNotExpireText)), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wpcd-coupon-code"
+  }, couponType !== "deal" ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    style: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_2__.generateStyles)(codeStyles),
+    ...navigationAttrs,
+    className: `wpcd-coupon-button${attributes.hideCoupon ? " wpcd-popup-button" : ""}`,
+    title: "Click To Copy Coupon"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText, {
+    value: code,
+    tagName: "span",
+    onChange: newValue => setAttributes({
+      code: newValue
+    }),
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("SAMPLECODE", "wp-coupons-and-deals")
+  })) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    rel: "nofollow noopener",
+    target: "_blank",
+    className: "wpcd-coupon-button",
+    style: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_2__.generateStyles)(codeStyles),
+    title: "Click To Claim This Deal"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText, {
+    value: dealButtonText,
+    tagName: "span",
+    onChange: newValue => setAttributes({
+      dealButtonText: newValue
+    }),
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Get Deal", "wp-coupons-and-deals")
+  })))));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TemplateFive);
 
 /***/ }),
 
@@ -2339,11 +2522,11 @@ function TemplateSeven(props) {
   const description = attributes.description || "";
   const code = attributes.code || "";
   const expirationDate = attributes.expirationDate || "";
+  const expiredDateText = attributes.expiredDateText || "";
   const doesNotExpireText = attributes.doesNotExpireText || "";
   const isDoesNotExpire = attributes.isDoesNotExpire || false;
   const dealButtonText = attributes.dealButtonText || "";
   const couponCodeBorder = (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_2__.getBorderCSS)(attributes.codeBorder);
-  const separatorBorder = (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_2__.getBorderCSS)(attributes.separatorBorder);
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.useEffect)(() => {
     const updateCountdown = () => {
       const now = new Date().getTime();
@@ -2468,9 +2651,9 @@ function TemplateSeven(props) {
     className: "wpcd-coupon-content",
     style: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_2__.generateStyles)(separatorStyles)
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: `wpcd-coupon-expiration-date${isDoesNotExpire ? " wpcd-coupon-does-not-expire" : ""}`,
+    className: `wpcd-coupon-expiration-date${isDoesNotExpire ? " wpcd-coupon-does-not-expire" : ""}${countdown === expiredDateText ? " wpcd-coupon-expired" : ""}`,
     style: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_2__.generateStyles)(expirationDateStyles)
-  }, !isDoesNotExpire ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Expire On: "), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, countdown)) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, doesNotExpireText)))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, !isDoesNotExpire ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, countdown !== expiredDateText && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Expire On: "), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, countdown)) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, doesNotExpireText)))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "wpcd-coupon-code"
   }, couponType !== "deal" ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     style: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_2__.generateStyles)(codeStyles),
@@ -2542,6 +2725,7 @@ function TemplateSix(props) {
   const description = attributes.description || "";
   const code = attributes.code || "";
   const expirationDate = attributes.expirationDate || "";
+  const expiredDateText = attributes.expiredDateText || "";
   const doesNotExpireText = attributes.doesNotExpireText || "";
   const isDoesNotExpire = attributes.isDoesNotExpire || false;
   const dealButtonText = attributes.dealButtonText || "";
@@ -2660,9 +2844,9 @@ function TemplateSix(props) {
     className: "wpcd-coupon-content",
     style: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_2__.generateStyles)(separatorStyles)
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: `wpcd-coupon-expiration-date${isDoesNotExpire ? " wpcd-coupon-does-not-expire" : ""}`,
+    className: `wpcd-coupon-expiration-date${isDoesNotExpire ? " wpcd-coupon-does-not-expire" : ""}${countdown === expiredDateText ? " wpcd-coupon-expired" : ""}`,
     style: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_2__.generateStyles)(expirationDateStyles)
-  }, !isDoesNotExpire ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Expire On: "), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, countdown)) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, doesNotExpireText)))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, !isDoesNotExpire ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, countdown !== expiredDateText && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Expire On: "), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, countdown)) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, doesNotExpireText)))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "wpcd-coupon-image-wrapper"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("figure", {
     className: "wpcd-coupon-two-image"
@@ -2676,22 +2860,7 @@ function TemplateSix(props) {
     ...navigationAttrs,
     className: `wpcd-coupon-button${attributes.hideCoupon ? " wpcd-popup-button" : ""}`,
     title: "Click To Copy Coupon"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    className: "wpcd-coupon-icon"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "24",
-    height: "24",
-    viewBox: "0 0 24 24"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
-    fill: "currentColor"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    fillRule: "evenodd",
-    d: "M8.128 9.155a3.751 3.751 0 1 1 .713-1.321l1.136.656a.75.75 0 0 1 .222 1.104l-.006.007a.75.75 0 0 1-1.032.157a1.421 1.421 0 0 0-.113-.072l-.92-.531Zm-4.827-3.53a2.25 2.25 0 0 1 3.994 2.063a.756.756 0 0 0-.122.23a2.25 2.25 0 0 1-3.872-2.293Zm10.047 2.647a5.073 5.073 0 0 0-3.428 3.57c-.101.387-.158.79-.165 1.202a1.415 1.415 0 0 1-.707 1.201l-.96.554a3.751 3.751 0 1 0 .734 1.309l13.729-7.926a.75.75 0 0 0-.181-1.374l-.803-.215a5.25 5.25 0 0 0-2.894.05l-5.325 1.629Zm-9.223 7.03a2.25 2.25 0 1 0 2.25 3.897a2.25 2.25 0 0 0-2.25-3.897ZM12 12.75a.75.75 0 1 0 0-1.5a.75.75 0 0 0 0 1.5Z",
-    clipRule: "evenodd"
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M16.372 12.615a.75.75 0 0 1 .75 0l5.43 3.135a.75.75 0 0 1-.182 1.374l-.802.215a5.25 5.25 0 0 1-2.894-.051l-5.147-1.574a.75.75 0 0 1-.156-1.367l3-1.732Z"
-  })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText, {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText, {
     value: code,
     tagName: "span",
     onChange: newValue => setAttributes({
@@ -2922,12 +3091,12 @@ function generateTemplateOneHtml(props) {
   const title = attributes.title || "";
   const description = attributes.description || "";
   const code = attributes.code || "";
+  const expiredDateText = attributes.expiredDateText || "Expired";
   const expirationDate = attributes.expirationDate || "";
   const doesNotExpireText = attributes.doesNotExpireText || "";
   const isDoesNotExpire = attributes.isDoesNotExpire || false;
   const dealButtonText = attributes.dealButtonText || "";
   const couponCodeBorder = (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_2__.getBorderCSS)(attributes.codeBorder);
-  const separatorBorder = (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_2__.getBorderCSS)(attributes.separatorBorder);
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.useEffect)(() => {
     const updateCountdown = () => {
       const now = new Date().getTime();
@@ -3044,9 +3213,9 @@ function generateTemplateOneHtml(props) {
     className: "wpcd-coupon-content",
     style: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_2__.generateStyles)(separatorStyles)
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: `wpcd-coupon-expiration-date${isDoesNotExpire ? " wpcd-coupon-does-not-expire" : ""}`,
+    className: `wpcd-coupon-expiration-date${isDoesNotExpire ? " wpcd-coupon-does-not-expire" : ""}${countdown === expiredDateText ? " wpcd-coupon-expired" : ""}`,
     style: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_2__.generateStyles)(expirationDateStyles)
-  }, !isDoesNotExpire ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Expire On: "), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, countdown)) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, doesNotExpireText)), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, !isDoesNotExpire ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, countdown !== expiredDateText && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Expire On: "), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, countdown)) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, doesNotExpireText)), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "wpcd-coupon-code"
   }, couponType !== "deal" ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     style: (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_2__.generateStyles)(codeStyles),

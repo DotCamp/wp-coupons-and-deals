@@ -19,11 +19,11 @@ function TemplateSeven(props) {
   const description = attributes.description || "";
   const code = attributes.code || "";
   const expirationDate = attributes.expirationDate || "";
+  const expiredDateText = attributes.expiredDateText || "";
   const doesNotExpireText = attributes.doesNotExpireText || "";
   const isDoesNotExpire = attributes.isDoesNotExpire || false;
   const dealButtonText = attributes.dealButtonText || "";
   const couponCodeBorder = getBorderCSS(attributes.codeBorder);
-  const separatorBorder = getBorderCSS(attributes.separatorBorder);
   useEffect(() => {
     const updateCountdown = () => {
       const now = new Date().getTime();
@@ -191,12 +191,14 @@ function TemplateSeven(props) {
               <div
                 className={`wpcd-coupon-expiration-date${
                   isDoesNotExpire ? " wpcd-coupon-does-not-expire" : ""
+                }${
+                  countdown === expiredDateText ? " wpcd-coupon-expired" : ""
                 }`}
                 style={generateStyles(expirationDateStyles)}
               >
                 {!isDoesNotExpire ? (
                   <>
-                    <span>Expire On: </span>
+                    {countdown !== expiredDateText && <span>Expire On: </span>}
                     <span>{countdown}</span>
                   </>
                 ) : (
