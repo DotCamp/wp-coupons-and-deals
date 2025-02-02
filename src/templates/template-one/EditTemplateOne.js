@@ -7,6 +7,7 @@ import {
 } from "../../styling-helpers";
 import { RichText } from "@wordpress/block-editor";
 import { isEmpty } from "lodash";
+const defaultImage = WPCD_CFG?.default_image_url;
 
 function TemplateOne(props) {
   const { attributes, setAttributes } = props;
@@ -104,8 +105,7 @@ function TemplateOne(props) {
       attributes.expirationDateColor || "green",
     "--wpcd-coupon-expired-date-color": attributes.expiredDateColor || "red",
   };
-  const couponDefaultImage =
-    "http://wp-coupon-and-deals.local/wp-content/plugins/wp-coupons-and-deals/assets/img/coupon-200x200.png";
+  const couponDefaultImage = defaultImage;
 
   const navigationAttrs = {};
   if (!attributes.hideCoupon) {

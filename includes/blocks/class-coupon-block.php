@@ -390,7 +390,7 @@ class Coupon_Block {
 			'--wpcd-coupon-expiration-date-color' => empty($attributes['expirationDateColor']) ? 'green' : $attributes['expirationDateColor'],
 			'--wpcd-coupon-expired-date-color' => empty($attributes['expiredDateColor']) ? 'red' : $attributes['expiredDateColor'],
 		);
-		$coupon_default_image = 'http://wp-coupon-and-deals.local/wp-content/plugins/wp-coupons-and-deals/assets/img/coupon-200x200.png';
+		$coupon_default_image =  WPCD_Plugin::instance()->plugin_assets . 'img/coupon-200x200.png';
 		$image_url = !empty( $attributes['couponImage']['url'] ) ? $attributes['couponImage']['url'] : $coupon_default_image;
 		$navigationAttrs = array();
 		if (!isset($attributes['hideCoupon']) || !$attributes['hideCoupon']) {
@@ -533,7 +533,7 @@ class Coupon_Block {
 			'--wpcd-coupon-expiration-date-color' => empty($attributes['expirationDateColor']) ? 'green' : $attributes['expirationDateColor'],
 			'--wpcd-coupon-expired-date-color' => empty($attributes['expiredDateColor']) ? 'red' : $attributes['expiredDateColor'],
 		);
-		$coupon_default_image = 'http://wp-coupon-and-deals.local/wp-content/plugins/wp-coupons-and-deals/assets/img/coupon-200x200.png';
+		$coupon_default_image =  WPCD_Plugin::instance()->plugin_assets . 'img/coupon-200x200.png';
 		$image_url = !empty( $attributes['couponImage']['url'] ) ? $attributes['couponImage']['url'] : $coupon_default_image;
 
 		$navigationAttrs = array();
@@ -1028,7 +1028,7 @@ class Coupon_Block {
 			'--wpcd-coupon-expiration-date-color' => empty($attributes['expirationDateColor']) ? '#ffffff' : $attributes['expirationDateColor'],
 			'--wpcd-coupon-expired-date-color' => empty($attributes['expiredDateColor']) ? 'red' : $attributes['expiredDateColor'],
 		);
-		$coupon_default_image = 'http://wp-coupon-and-deals.local/wp-content/plugins/wp-coupons-and-deals/assets/img/coupon-200x200.png';
+		$coupon_default_image =  WPCD_Plugin::instance()->plugin_assets . 'img/coupon-200x200.png';
 		$image_url = !empty( $attributes['couponImage']['url'] ) ? $attributes['couponImage']['url'] : $coupon_default_image;
 
 		$navigationAttrs = array();
@@ -1164,7 +1164,7 @@ class Coupon_Block {
 			'--wpcd-coupon-expiration-date-color' => empty($attributes['expirationDateColor']) ? 'green' : $attributes['expirationDateColor'],
 			'--wpcd-coupon-expired-date-color' => empty($attributes['expiredDateColor']) ? 'red' : $attributes['expiredDateColor'],
 		);
-		$coupon_default_image = 'http://wp-coupon-and-deals.local/wp-content/plugins/wp-coupons-and-deals/assets/img/coupon-200x200.png';
+		$coupon_default_image =  WPCD_Plugin::instance()->plugin_assets . 'img/coupon-200x200.png';
 		$image_url = !empty( $attributes['couponImage']['url'] ) ? $attributes['couponImage']['url'] : $coupon_default_image;
 
 		$navigationAttrs = array();
@@ -1300,7 +1300,7 @@ class Coupon_Block {
 			'--wpcd-coupon-expiration-date-color' => empty($attributes['expirationDateColor']) ? '#000000' : $attributes['expirationDateColor'],
 			'--wpcd-coupon-expired-date-color' => empty($attributes['expiredDateColor']) ? 'red' : $attributes['expiredDateColor'],
 		);
-		$coupon_default_image = 'http://wp-coupon-and-deals.local/wp-content/plugins/wp-coupons-and-deals/assets/img/coupon-200x200.png';
+		$coupon_default_image =  WPCD_Plugin::instance()->plugin_assets . 'img/coupon-200x200.png';
 		$image_url = !empty( $attributes['couponImage']['url'] ) ? $attributes['couponImage']['url'] : $coupon_default_image;
 
 		$navigationAttrs = array();

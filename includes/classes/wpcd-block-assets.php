@@ -69,6 +69,7 @@ class WPCD_Block_Assets {
 
      private static function pass_data_to_js( string $handle ) {
           $data = [];
+          $data['default_image_url'] = WPCD_Plugin::instance()->plugin_assets . 'img/coupon-200x200.png';
           if (wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code()) {
               $data['IS_PRO'] = 'true';
           } else {

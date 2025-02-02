@@ -8,6 +8,7 @@ import {
 import { RichText } from "@wordpress/block-editor";
 import { useState, useEffect } from "@wordpress/element";
 import { isEmpty } from "lodash";
+const defaultImage = WPCD_CFG?.default_image_url;
 
 function TemplateSeven(props) {
   const [countdown, setCountdown] = useState("");
@@ -138,8 +139,7 @@ function TemplateSeven(props) {
     navigationAttrs.rel = "nofollow noopener";
     navigationAttrs.target = "_blank";
   }
-  const couponDefaultImage =
-    "http://wp-coupon-and-deals.local/wp-content/plugins/wp-coupons-and-deals/assets/img/coupon-200x200.png";
+  const couponDefaultImage = defaultImage;
   const imageUrl = attributes.couponImage?.url || couponDefaultImage;
 
   return (
