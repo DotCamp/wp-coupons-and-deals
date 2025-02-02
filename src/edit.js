@@ -32,6 +32,7 @@ import {
   getSpacingCss,
   isValueEmpty,
 } from "./styling-helpers";
+const IS_PRO = WPCD_CFG?.IS_PRO === "true";
 
 function Edit(props) {
   const { attributes, setAttributes } = props;
@@ -43,6 +44,9 @@ function Edit(props) {
     padding,
     margin,
   } = attributes;
+  if (!IS_PRO && template !== "template-nine") {
+    setAttributes({ template: "template-default" });
+  }
   const wrapperBorder = getBorderCSS(attributes.wrapperBorder);
 
   const paddingObj = getSpacingCss(attributes.padding);

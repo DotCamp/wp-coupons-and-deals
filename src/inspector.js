@@ -26,7 +26,7 @@ import {
 } from "./StylingControls";
 import HideCouponSettings from "./components/HideCouponSettings";
 import TabsPanelControl from "./components/TabsPanelControl";
-const IS_PRO = WPCD_CFG.IS_PRO === "true";
+const IS_PRO = WPCD_CFG?.IS_PRO === "true";
 function Inspector(props) {
   const { attributes, setAttributes } = props;
   const {
@@ -45,7 +45,12 @@ function Inspector(props) {
   } = attributes;
   useEffect(() => {
     if (!IS_PRO) {
-      setAttributes({ hideCoupon: false, template: "default" });
+      if (template !== "template-default") {
+        setAttributes({ template: "template-default" });
+      }
+      if (hideCoupon) {
+        setAttributes({ hideCoupon: false });
+      }
     }
   }, []);
   const normalStateColors = (

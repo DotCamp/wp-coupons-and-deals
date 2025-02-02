@@ -106,7 +106,11 @@ class Coupon_Block {
 			'template-nine' => $this->generate_template_nine_html($attributes),
 		);
 
-		$block_html = isset($templates[$template]) ? $templates[$template] : $templates['default'];
+		if (wcad_fs()->is_plan__premium_only( 'pro' ) or wcad_fs()->can_use_premium_code()) {
+			$block_html = isset($templates[$template]) ? $templates[$template] : $templates['default'];
+		} else {
+			$block_html = $templates['default'];
+		}
 
 		return sprintf( 
 			'<div %1$s>

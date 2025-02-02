@@ -866,6 +866,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+const IS_PRO = WPCD_CFG?.IS_PRO === "true";
 function Edit(props) {
   const {
     attributes,
@@ -879,6 +880,11 @@ function Edit(props) {
     padding,
     margin
   } = attributes;
+  if (!IS_PRO && template !== "template-nine") {
+    setAttributes({
+      template: "template-default"
+    });
+  }
   const wrapperBorder = (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_9__.getBorderCSS)(attributes.wrapperBorder);
   const paddingObj = (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_9__.getSpacingCss)(attributes.padding);
   const marginObj = (0,_styling_helpers__WEBPACK_IMPORTED_MODULE_9__.getSpacingCss)(attributes.margin);
@@ -1111,7 +1117,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const IS_PRO = WPCD_CFG.IS_PRO === "true";
+const IS_PRO = WPCD_CFG?.IS_PRO === "true";
 function Inspector(props) {
   const {
     attributes,
@@ -1133,10 +1139,16 @@ function Inspector(props) {
   } = attributes;
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.useEffect)(() => {
     if (!IS_PRO) {
-      setAttributes({
-        hideCoupon: false,
-        template: "default"
-      });
+      if (template !== "template-default") {
+        setAttributes({
+          template: "template-default"
+        });
+      }
+      if (hideCoupon) {
+        setAttributes({
+          hideCoupon: false
+        });
+      }
     }
   }, []);
   const normalStateColors = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StylingControls__WEBPACK_IMPORTED_MODULE_5__.ColorSettings, {
