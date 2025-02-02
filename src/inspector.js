@@ -38,6 +38,10 @@ function Inspector(props) {
     dealButtonText,
     template,
     couponType,
+    secondExpirationDate,
+    thirdExpirationDate,
+    secondNavigationLink,
+    thirdNavigationLink,
   } = attributes;
   useEffect(() => {
     if (!IS_PRO) {
@@ -264,6 +268,32 @@ function Inspector(props) {
             value={navigationLink}
             onChange={(newLink) => setAttributes({ navigationLink: newLink })}
           />
+          {template === "template-four" && (
+            <>
+              <TextControl
+                label={__(
+                  "Link To Navigate On Copy (Affiliate Link) (2nd)",
+                  "wp-coupons-and-deals"
+                )}
+                type="url"
+                value={secondNavigationLink}
+                onChange={(newLink) =>
+                  setAttributes({ secondNavigationLink: newLink })
+                }
+              />
+              <TextControl
+                label={__(
+                  "Link To Navigate On Copy (Affiliate Link) (3rd)",
+                  "wp-coupons-and-deals"
+                )}
+                type="url"
+                value={thirdNavigationLink}
+                onChange={(newLink) =>
+                  setAttributes({ thirdNavigationLink: newLink })
+                }
+              />
+            </>
+          )}
           <ToggleControl
             label={__("Doesn't Expire", "wp-coupons-and-deals")}
             checked={isDoesNotExpire}
@@ -296,6 +326,34 @@ function Inspector(props) {
                   }}
                 />
               </BaseControl>
+              {template === "template-four" && (
+                <>
+                  <BaseControl
+                    label={__("Second Expiration Date", "wp-coupons-and-deals")}
+                  >
+                    <DatePicker
+                      currentDate={secondExpirationDate}
+                      onChange={(newDate) => {
+                        setAttributes({
+                          secondExpirationDate: newDate,
+                        });
+                      }}
+                    />
+                  </BaseControl>
+                  <BaseControl
+                    label={__("Third Expiration Date", "wp-coupons-and-deals")}
+                  >
+                    <DatePicker
+                      currentDate={thirdExpirationDate}
+                      onChange={(newDate) => {
+                        setAttributes({
+                          thirdExpirationDate: newDate,
+                        });
+                      }}
+                    />
+                  </BaseControl>
+                </>
+              )}
             </>
           )}
           {couponType !== "deal" && (

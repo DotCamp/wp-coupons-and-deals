@@ -33,6 +33,14 @@
                "type": "string",
                "default": "100%"
           },
+          "secondDiscount": {
+               "type": "string",
+               "default": "100%"
+          },
+          "thirdDiscount": {
+               "type": "string",
+               "default": "100%"
+          },
           "title": {
                "type": "string",
                "default": "Sample Coupon Code 2023"
@@ -42,6 +50,14 @@
                "default": "This is a little description of the coupon code or deal. Just to let users know some additional details."
           },
           "code": {
+               "type": "string",
+               "default": "SAMPLECODE"
+          },
+          "secondCode": {
+               "type": "string",
+               "default": "SAMPLECODE"
+          },
+          "thirdCode": {
                "type": "string",
                "default": "SAMPLECODE"
           },
@@ -57,9 +73,25 @@
                "type": "string",
                "default": ""
           },
+          "secondNavigationLink": {
+               "type": "string",
+               "default": ""
+          },
+          "thirdNavigationLink": {
+               "type": "string",
+               "default": ""
+          },
           "expirationDate": {
                "type": "string",
-               "default": "10/30/2024"
+               "default": "10/30/2025"
+          },
+          "secondExpirationDate": {
+               "type": "string",
+               "default": "10/30/2025"
+          },
+          "thirdExpirationDate": {
+               "type": "string",
+               "default": "10/30/2025"
           },
           "titleColor": {
                "type": "string",
@@ -256,6 +288,14 @@
           "dealButtonText": {
                "type": "string",
                "default": "Get Deal"
+          },
+          "secondDealButtonText": {
+               "type": "string",
+               "default": "Get Second Deal"
+          },
+          "thirdDealButtonText": {
+               "type": "string",
+               "default": "Get Third Deal"
           },
           "isDoesNotExpire": {
                "type": "boolean",

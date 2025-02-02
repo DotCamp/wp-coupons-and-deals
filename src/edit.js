@@ -13,6 +13,7 @@ import {
   DefaultTemplate,
   TemplateEight,
   TemplateFive,
+  TemplateFour,
   TemplateNine,
   TemplateOne,
   TemplateSeven,
@@ -51,6 +52,7 @@ function Edit(props) {
     "template-one": "1px solid #d1d1d1",
     "template-two": "1px solid #d1d1d1",
     "template-three": "1px solid #d1d1d1",
+    "template-four": "1px solid #d1d1d1",
     "template-five": "2px solid #18e06e",
     "template-six": "2px solid #18e06e",
     "template-seven": "2px solid #9b59b6",
@@ -63,7 +65,10 @@ function Edit(props) {
   const separatorStyles = {
     "--wpcd-coupon-separator-color": separatorColor,
   };
-  const defaultPadding = template === "template-three" ? "0" : "25px";
+  const defaultPadding =
+    template === "template-three" || template === "template-four"
+      ? "0"
+      : "25px";
   const wrapperStyles = {
     backgroundColor: !isEmpty(attributes?.wrapperBackgroundColor)
       ? attributes.wrapperBackgroundColor
@@ -135,6 +140,7 @@ function Edit(props) {
   const shouldShowImageControl =
     template !== "template-default" &&
     template !== "template-three" &&
+    template !== "template-four" &&
     template !== "template-nine" &&
     template !== "template-eight";
   const templates = {
@@ -142,6 +148,7 @@ function Edit(props) {
     "template-one": <TemplateOne {...props} />,
     "template-two": <TemplateTwo {...props} />,
     "template-three": <TemplateThree {...props} />,
+    "template-four": <TemplateFour {...props} />,
     "template-five": <TemplateFive {...props} />,
     "template-six": <TemplateSix {...props} />,
     "template-seven": <TemplateSeven {...props} />,

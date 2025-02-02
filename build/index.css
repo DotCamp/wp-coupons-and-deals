@@ -6,6 +6,7 @@
   /** Template One **/
   /** Template Two **/
   /** Template Three **/
+  /** Template Four **/
   /** Template Five **/
   /** Template Six **/
   /** Template seven **/
@@ -53,6 +54,9 @@
   display: inline-block;
   text-decoration: none !important;
   word-break: break-all;
+}
+.wpcd-coupon-wrapper .wpcd-coupon-expired {
+  width: auto;
 }
 .wpcd-coupon-wrapper.wpcd-coupon-template-default {
   box-sizing: border-box;
@@ -380,6 +384,32 @@
 }
 .wpcd-coupon-wrapper.wpcd-coupon-template-three .wpcd-coupon-code {
   width: auto;
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-four .wpcd-coupon-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+  border-top: 1px dashed #d1d1d1;
+  padding: 10px;
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-four .wpcd-coupon-content-title-wrapper {
+  padding: 10px;
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-four .wpcd-coupon-content-inner-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-four .wpcd-coupon-discount-inner__wrapper {
+  text-align: center;
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-four .wpcd-coupon-expiration-date {
+  text-align: center;
+}
+.wpcd-coupon-wrapper.wpcd-coupon-template-four .wpcd-coupon-code {
+  width: auto;
+  text-align: center;
 }
 .wpcd-coupon-wrapper.wpcd-coupon-template-five {
   border-top-right-radius: 20px;
