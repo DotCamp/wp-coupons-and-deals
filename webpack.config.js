@@ -1,49 +1,58 @@
-const { VueLoaderPlugin } = require('vue-loader');
-// eslint-disable-next-line import/no-extraneous-dependencies
-const path = require('path');
-const buildPaths = require('./webpackPaths');
+const defaultConfig = require("@wordpress/scripts/config/webpack.config");
 
-const mode = process.env.NODE_ENV || 'development';
+const path = require("path");
+
+const camelCaseDash = (string) =>
+  string.replace(/-([a-z])/g, (_match, letter) => letter.toUpperCase());
+
+const externals = [
+  "api-fetch",
+  "block-editor",
+  "blocks",
+  "components",
+  "compose",
+  "data",
+  "date",
+  "htmlEntities",
+  "hooks",
+  "edit-post",
+  "element",
+  "editor",
+  "i18n",
+  "plugins",
+  "viewport",
+  "ajax",
+  "codeEditor",
+  "rich-text",
+  "primitives",
+];
+
+const globals = externals.reduce(
+  (external, name) => ({
+    ...external,
+    [`@wordpress/${name}`]: `wp.${camelCaseDash(name)}`,
+  }),
+  {}
+);
 
 const config = {
-  mode,
-  target: 'web',
+  ...defaultConfig,
   entry: {
-    formShortcode: path.resolve(__dirname, buildPaths.input.formShortcode),
+    front: "./src/front.js",
+    index: "./src/index.js",
   },
   output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, buildPaths.output),
+    clean: false,
+    path: path.join(__dirname, "./build"),
   },
-  module: {
-    rules: [
-      {
-        test: /.+\.(vue)$/,
-        loader: 'vue-loader',
-      },
-      {
-        test: /.+\.(js)$/,
-        loader: 'babel-loader',
-      },
-      {
-        test: /.+\.(css)$/,
-        loader: ['vue-style-loader', { loader: 'css-loader', options: { importLoaders: 1 } }, 'postcss-loader'],
-      },
-      {
-        test: /.+\.(svg|png)$/,
-        loader: 'url-loader',
-      },
-    ],
+  plugins: [...defaultConfig.plugins],
+  externals: {
+    wp: "wp",
+    lodash: "lodash",
+    react: "React",
+    "react-dom": "ReactDOM",
+    ...globals,
   },
-  plugins: [new VueLoaderPlugin()],
-  resolve: {
-    modules: [path.dirname(buildPaths.input.formShortcode), 'node_modules'],
-    alias: {
-      vue$: 'vue/dist/vue.esm.js',
-    },
-    extensions: ['.js', '.vue', '.css'],
-  },
-  devtool: mode === 'development' ? 'eval' : 'none',
 };
 
 module.exports = config;

@@ -1,0 +1,16 @@
+@import "./common.scss";
+.wpcd-border-radius-control,
+.wpcd-font-size-control {
+  .components-base-control__label {
+    display: none;
+  }
+}
+.wpcd-tab-panels {
+  grid-column: 1 / -1;
+  margin-top: 0px !important;
+}
+.components-disabled {
+  .components-input-control__container {
+    opacity: 0.3;
+  }
+}

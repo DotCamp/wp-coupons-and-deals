@@ -1,0 +1,314 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "wpcd/coupon",
+  "title": "Coupon",
+  "category": "wpcd",
+  "description": "Add coupon boxes to boost your affiliate sales.",
+  "keywords": [
+    "coupon",
+    "deal"
+  ],
+  "attributes": {
+    "couponImage": {
+      "type": "object",
+      "default": {
+        "id": 0,
+        "url": ""
+      }
+    },
+    "template": {
+      "type": "string",
+      "default": "template-default"
+    },
+    "padding": {
+      "type": "object",
+      "default": {}
+    },
+    "margin": {
+      "type": "object",
+      "default": {}
+    },
+    "discount": {
+      "type": "string",
+      "default": "100%"
+    },
+    "secondDiscount": {
+      "type": "string",
+      "default": "100%"
+    },
+    "thirdDiscount": {
+      "type": "string",
+      "default": "100%"
+    },
+    "title": {
+      "type": "string",
+      "default": "Sample Coupon Code 2023"
+    },
+    "description": {
+      "type": "string",
+      "default": "This is a little description of the coupon code or deal. Just to let users know some additional details."
+    },
+    "code": {
+      "type": "string",
+      "default": "SAMPLECODE"
+    },
+    "secondCode": {
+      "type": "string",
+      "default": "SAMPLECODE"
+    },
+    "thirdCode": {
+      "type": "string",
+      "default": "SAMPLECODE"
+    },
+    "expiredDateText": {
+      "type": "string",
+      "default": "Expired"
+    },
+    "couponDealLabel": {
+      "type": "string",
+      "default": "Coupon"
+    },
+    "navigationLink": {
+      "type": "string",
+      "default": ""
+    },
+    "secondNavigationLink": {
+      "type": "string",
+      "default": ""
+    },
+    "thirdNavigationLink": {
+      "type": "string",
+      "default": ""
+    },
+    "expirationDate": {
+      "type": "string",
+      "default": "10/30/2025"
+    },
+    "secondExpirationDate": {
+      "type": "string",
+      "default": "10/30/2025"
+    },
+    "thirdExpirationDate": {
+      "type": "string",
+      "default": "10/30/2025"
+    },
+    "titleColor": {
+      "type": "string",
+      "default": null
+    },
+    "descriptionColor": {
+      "type": "string",
+      "default": null
+    },
+    "codeColor": {
+      "type": "string",
+      "default": null
+    },
+    "discountColor": {
+      "type": "string",
+      "default": null
+    },
+    "discountBgColor": {
+      "type": "string",
+      "default": null
+    },
+    "discountBgGradientColor": {
+      "type": "string",
+      "default": null
+    },
+    "couponDealLabelColor": {
+      "type": "string",
+      "default": null
+    },
+    "codeHoverColor": {
+      "type": "string",
+      "default": null
+    },
+    "expirationDateColor": {
+      "type": "string",
+      "default": null
+    },
+    "expiredDateColor": {
+      "type": "string",
+      "default": null
+    },
+    "couponDealLabelBackgroundColor": {
+      "type": "string",
+      "default": null
+    },
+    "couponDealLabelGradientBackground": {
+      "type": "string",
+      "default": null
+    },
+    "codeBackgroundColor": {
+      "type": "string",
+      "default": null
+    },
+    "codeGradientBackground": {
+      "type": "string",
+      "default": null
+    },
+    "codeHoverBackgroundColor": {
+      "type": "string",
+      "default": null
+    },
+    "codeHoverGradientBackground": {
+      "type": "string",
+      "default": null
+    },
+    "wrapperBackgroundColor": {
+      "type": "string",
+      "default": null
+    },
+    "wrapperGradientBackground": {
+      "type": "string",
+      "default": null
+    },
+    "wrapperBorder": {
+      "type": "object",
+      "default": {}
+    },
+    "wrapperBorderRadius": {
+      "type": "object",
+      "default": {}
+    },
+    "codeBorder": {
+      "type": "object",
+      "default": {}
+    },
+    "codeBorderRadius": {
+      "type": "object",
+      "default": {}
+    },
+    "separatorBorder": {
+      "type": "object",
+      "default": {}
+    },
+    "separatorColor": {
+      "type": "string",
+      "default": null
+    },
+    "discountFontSize": {
+      "type": "string",
+      "default": ""
+    },
+    "couponDealLabelFontSize": {
+      "type": "string",
+      "default": ""
+    },
+    "titleFontSize": {
+      "type": "string",
+      "default": ""
+    },
+    "descriptionFontSize": {
+      "type": "string",
+      "default": ""
+    },
+    "codeFontSize": {
+      "type": "string",
+      "default": ""
+    },
+    "expirationDateFontSize": {
+      "type": "string",
+      "default": ""
+    },
+    "expiredDateFontSize": {
+      "type": "string",
+      "default": ""
+    },
+    "hideCoupon": {
+      "type": "boolean",
+      "default": false
+    },
+    "couponId": {
+      "type": "string",
+      "default": ""
+    },
+    "couponPopupOfferButtonColor": {
+      "type": "string",
+      "default": null
+    },
+    "couponPopupCopyButtonColor": {
+      "type": "string",
+      "default": null
+    },
+    "couponPopupCodeFieldColor": {
+      "type": "string",
+      "default": null
+    },
+    "couponPopupOfferButtonBgColor": {
+      "type": "string",
+      "default": null
+    },
+    "couponPopupCopyButtonBgColor": {
+      "type": "string",
+      "default": null
+    },
+    "couponPopupCodeFieldBgColor": {
+      "type": "string",
+      "default": null
+    },
+    "couponPopupOfferButtonBgGradient": {
+      "type": "string",
+      "default": null
+    },
+    "couponPopupCopyButtonBgGradient": {
+      "type": "string",
+      "default": null
+    },
+    "couponPopupCodeFieldBgGradient": {
+      "type": "string",
+      "default": null
+    },
+    "couponPopupCodeFieldBorder": {
+      "type": "object",
+      "default": {}
+    },
+    "couponCodeButtonText": {
+      "type": "string",
+      "default": "Show Code"
+    },
+    "couponPopupCopyButtonText": {
+      "type": "string",
+      "default": "Copy"
+    },
+    "couponPopupOfferText": {
+      "type": "string",
+      "default": "Go To Offer"
+    },
+    "doesNotExpireText": {
+      "type": "string",
+      "default": "Doesn't Expire"
+    },
+    "couponType": {
+      "type": "string",
+      "default": "coupon"
+    },
+    "dealButtonText": {
+      "type": "string",
+      "default": "Get Deal"
+    },
+    "secondDealButtonText": {
+      "type": "string",
+      "default": "Get Second Deal"
+    },
+    "thirdDealButtonText": {
+      "type": "string",
+      "default": "Get Third Deal"
+    },
+    "isDoesNotExpire": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "supports": {
+    "align": true
+  },
+  "editorScript": "wpcd-block-script",
+  "editorStyle": "wpcd-editor-style",
+  "viewScript": "wpcd-frontend-script",
+  "style": [
+    "wpcd-frontend-style"
+  ]
+}
