@@ -5,8 +5,13 @@
     "scripts": {
         "test": "phpunit"
     },
-    "require": {},
-    "require-dev": {
-        "phpunit/phpunit": "^8.4"
-    }
+    "require": {
+        "dotcamp/promoter": "^1.0"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "vendor/dotcamp/promoter"
+        }
+    ]
 }

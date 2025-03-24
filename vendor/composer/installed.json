@@ -1,14 +1,9 @@
 {
-    "_readme": [
-        "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
-        "This file is @generated automatically"
-    ],
-    "content-hash": "2187b6a63f5b8f72be813824b5203176",
     "packages": [
         {
             "name": "dotcamp/promoter",
             "version": "1.0.2",
+            "version_normalized": "1.0.2.0",
             "dist": {
                 "type": "path",
                 "url": "vendor/dotcamp/promoter",
@@ -24,6 +19,7 @@
                 "wp-coding-standards/wpcs": "^3.0"
             },
             "type": "library",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "DotCamp\\Promoter\\": [
@@ -68,16 +64,10 @@
             "description": "Promoter library for DotCamp products.",
             "transport-options": {
                 "relative": true
-            }
+            },
+            "install-path": "../dotcamp/promoter"
         }
     ],
-    "packages-dev": [],
-    "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": {},
-    "prefer-stable": false,
-    "prefer-lowest": false,
-    "platform": {},
-    "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "dev": true,
+    "dev-package-names": []
 }
