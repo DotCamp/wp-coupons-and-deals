@@ -178,3 +178,8 @@ function wpcd_duplicate_coupon_action() {
     }
 }
 add_action('admin_action_wpcd_duplicate_coupon', 'wpcd_duplicate_coupon_action');
+
+// Initialize promoter.
+require_once dirname( __FILE__ ) . '/vendor/autoload.php';
+$default_promotions = \DotCamp\Promoter\Promoter::generate_default_promotions(__FILE__, 'WP Coupons and Deals', 'wp-coupons-and-deals/wp-coupons-deals.php');
+\DotCamp\Promoter\Promoter::add_promotions($default_promotions, __FILE__);

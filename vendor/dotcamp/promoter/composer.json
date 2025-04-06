@@ -1,0 +1,46 @@
+{
+  "name": "dotcamp/promoter",
+  "description": "Promoter library for DotCamp products.",
+  "type": "library",
+  "version": "1.0.2",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Erdem Bircan",
+      "email": "erdem.erdembircan@gmail.com"
+    }
+  ],
+  "scripts": {
+    "test": "phpunit",
+    "lint": "@phpcs-check",
+    "lint-fix": "@phpcs-fix",
+    "phpcs-check": "phpcs -p --standard=.phpcs.xml --extensions=php __tests__ inc",
+    "phpcs-fix": "phpcbf -p --standard=.phpcs.xml --extensions=php __tests__ inc",
+    "compress": "composer archive --format=zip --dir=./zip --file=./dotcamp-promoter",
+    "release": "pnpm run production && composer run test && composer run lint-fix && composer run compress"
+  },
+  "autoload": {
+    "psr-4": {
+      "DotCamp\\Promoter\\": [
+        "inc/",
+        "__tests__/php/unit/inc"
+      ],
+      "DotCamp\\Promoter\\Tests\\": "__tests__/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  },
+  "require": {
+    "php": ">=7.2"
+  },
+  "require-dev": {
+    "wp-coding-standards/wpcs": "^3.0",
+    "phpcompatibility/phpcompatibility-wp": "*",
+    "phpunit/phpunit": "^12.0",
+    "brain/monkey": "^2.6"
+  },
+  "prefer-stable": true
+}
