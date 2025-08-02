@@ -340,6 +340,13 @@ if ( ! class_exists( 'WPCD_Plugin' ) ) {
 			new WPCD_Toolbar_Links();
 
 			/**
+			 * Initialize Statistics Tracker
+			 *
+			 * @since 3.3.0
+			 */
+			WPCD_Statistics_Tracker::init();
+
+			/**
 			 * Include pagination functions
 			 *
 			 * @since 2.7.3
