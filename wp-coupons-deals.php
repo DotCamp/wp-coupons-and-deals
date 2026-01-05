@@ -139,43 +139,74 @@ function wpcd_add_duplicate_link( $actions, $post ) {
 add_filter( 'post_row_actions', 'wpcd_add_duplicate_link', 10, 2 );
 
 function wpcd_duplicate_coupon_action() {
-    if (!isset($_GET['post'])) {
-        wp_die('No coupon to duplicate has been supplied!');
+    // Check if user is logged in and has permission
+    if (!is_user_logged_in()) {
+        wp_die(__('You must be logged in to perform this action.', 'wp-coupons-and-deals'));
+    }
+
+    // Check user capability
+    if (!current_user_can('edit_posts')) {
+        wp_die(__('You do not have permission to duplicate coupons.', 'wp-coupons-and-deals'));
+    }
+
+    // Verify nonce token
+    if (!isset($_GET['post']) || !isset($_GET['_wpnonce'])) {
+        wp_die(__('Security check failed. No coupon to duplicate has been supplied.', 'wp-coupons-and-deals'));
     }
 
     $post_id = absint($_GET['post']);
+    
+    // Verify nonce
+    if (!wp_verify_nonce($_GET['_wpnonce'], 'wpcd-duplicate-coupon_' . $post_id)) {
+        wp_die(__('Security check failed. Invalid nonce token.', 'wp-coupons-and-deals'));
+    }
+
+    // Check if user can edit this specific post
+    if (!current_user_can('edit_post', $post_id)) {
+        wp_die(__('You do not have permission to duplicate this coupon.', 'wp-coupons-and-deals'));
+    }
+
     $post = get_post($post_id);
 
-    if (isset($post) && $post != null) {
-        $args = array(
-            'post_title'     => $post->post_title . ' (Duplicate)',
-            'post_type'      => $post->post_type,
-            'post_status'    => 'draft',
-        );
-        
-        $new_post_id = wp_insert_post($args);
-        
-        // Duplicate post meta
-        $post_meta_data = get_post_meta($post_id);
-        foreach ($post_meta_data as $key => $values) {
-            foreach ($values as $value) {
-                add_post_meta($new_post_id, $key, $value);
-            }
-        }
-
-        // Duplicate post taxonomies
-        $taxonomies = get_object_taxonomies($post->post_type);
-        foreach ($taxonomies as $taxonomy) {
-            $terms = wp_get_object_terms($post_id, $taxonomy, array('fields' => 'slugs'));
-            wp_set_object_terms($new_post_id, $terms, $taxonomy);
-        }
-        
-        // Redirect to the edit screen for the new draft post
-        wp_redirect(admin_url('post.php?action=edit&post=' . $new_post_id));
-        exit;
-    } else {
-        wp_die('Failed to duplicate: ' . $post_id);
+    if (!isset($post) || $post == null) {
+        wp_die(__('Failed to duplicate: Post not found.', 'wp-coupons-and-deals'));
     }
+
+    // Verify post type is wpcd_coupons
+    if ($post->post_type !== 'wpcd_coupons') {
+        wp_die(__('Invalid post type. Only coupons can be duplicated.', 'wp-coupons-and-deals'));
+    }
+
+    $args = array(
+        'post_title'     => $post->post_title . ' (Duplicate)',
+        'post_type'      => $post->post_type,
+        'post_status'    => 'draft',
+    );
+    
+    $new_post_id = wp_insert_post($args);
+    
+    if (is_wp_error($new_post_id)) {
+        wp_die(__('Failed to create duplicate coupon.', 'wp-coupons-and-deals'));
+    }
+    
+    // Duplicate post meta
+    $post_meta_data = get_post_meta($post_id);
+    foreach ($post_meta_data as $key => $values) {
+        foreach ($values as $value) {
+            add_post_meta($new_post_id, $key, $value);
+        }
+    }
+
+    // Duplicate post taxonomies
+    $taxonomies = get_object_taxonomies($post->post_type);
+    foreach ($taxonomies as $taxonomy) {
+        $terms = wp_get_object_terms($post_id, $taxonomy, array('fields' => 'slugs'));
+        wp_set_object_terms($new_post_id, $terms, $taxonomy);
+    }
+    
+    // Redirect to the edit screen for the new draft post
+    wp_redirect(admin_url('post.php?action=edit&post=' . $new_post_id));
+    exit;
 }
 add_action('admin_action_wpcd_duplicate_coupon', 'wpcd_duplicate_coupon_action');
 
