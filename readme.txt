@@ -3,7 +3,7 @@ Contributors: dotcamp, wpcdplugin, imtiazrayhan, istiakrayhan, mohmedelwany, ult
 Tags: coupon, coupons, deal, deals, affiliate
 Requires at least: 5.2
 Tested up to: 6.7
-Stable tag: 3.2.4
+Stable tag: 3.2.5
 Requires PHP: 7.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -159,6 +159,10 @@ You can [__submit a feature request__](https://wpcouponsdeals.com/submit-new-fea
 11. Adding the widget.
 
 == Changelog ==
+
+= 3.2.5 =
+
+* Security: Fix Broken Access Control vulnerability in coupon duplication feature. Added authentication, capability checks, and nonce verification to prevent unauthorized users from duplicating coupons.
 
 = 3.2.4 =
 
