@@ -162,8 +162,7 @@ You can [__submit a feature request__](https://wpcouponsdeals.com/submit-new-fea
 
 = 3.2.5 =
 
-* Security: Fix Broken Access Control vulnerability in coupon duplication feature. Added authentication, capability checks, and nonce verification to prevent unauthorized users from duplicating coupons.
-
+* Security: Fix Broken Access Control vulnerability in coupon duplication feature. 
 = 3.2.4 =
 
 * Add block for the coupons.
