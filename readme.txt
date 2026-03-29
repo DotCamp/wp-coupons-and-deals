@@ -3,7 +3,7 @@ Contributors: dotcamp, wpcdplugin, imtiazrayhan, istiakrayhan, mohmedelwany, ult
 Tags: coupon, coupons, deal, deals, affiliate
 Requires at least: 5.2
 Tested up to: 6.7
-Stable tag: 3.2.5
+Stable tag: 3.2.6
 Requires PHP: 7.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -160,9 +160,14 @@ You can [__submit a feature request__](https://wpcouponsdeals.com/submit-new-fea
 
 == Changelog ==
 
+= 3.2.6 =
+
+* Fix: "Does not expire" option not working properly on the frontend.
+* Fix: Coupon expiration not displaying correctly when multiple coupons are on the same page.
+
 = 3.2.5 =
 
-* Security: Fix Broken Access Control vulnerability in coupon duplication feature. 
+* Security: Fix Broken Access Control vulnerability in coupon duplication feature.
 = 3.2.4 =
 
 * Add block for the coupons.
