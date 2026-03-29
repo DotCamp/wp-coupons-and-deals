@@ -43,6 +43,14 @@ class UBCoupon {
       return;
     }
 
+    if (
+      this.expirationDateWrapper.classList.contains(
+        "wpcd-coupon-does-not-expire"
+      )
+    ) {
+      return;
+    }
+
     const secondSpan = this.expirationDateWrapper.querySelectorAll("span")[1];
     if (!secondSpan) return;
 
@@ -107,6 +115,13 @@ class UBCoupon {
   }
 
   checkExpirationDate() {
+    if (
+      this.expirationDateWrapper.classList.contains(
+        "wpcd-coupon-does-not-expire"
+      )
+    ) {
+      return;
+    }
     const currentDate = Date.now();
     const isDateExpired = currentDate > this.expirationDate;
 
