@@ -131,6 +131,7 @@ class UBCoupon {
     }
   }
   setupCopyButton() {
+    if (!this.copyButton) return;
     const copyButtonText = this.copyButton.innerText;
     this.copyButton.addEventListener("click", () => {
       this.copyButton.innerText = "Copied!";
