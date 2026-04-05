@@ -1,4 +1,4 @@
-<?
+<?php
 function wpcd_get_template_one( $attributes ){
      $couponType = isset($attributes['couponType']) ? $attributes['couponType'] : 'default';
      $discount = isset($attributes['discount']) ? $attributes['discount'] : '';
