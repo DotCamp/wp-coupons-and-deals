@@ -163,6 +163,7 @@ You can [__submit a feature request__](https://wpcouponsdeals.com/submit-new-fea
 = 3.2.7 =
 
 * Fix: Critical PHP 8.3 error on sites using Template One — the plugin now loads correctly without a fatal parse error.
+* Fix: Deal button affiliate link not opening in all coupon templates — clicking "Get This Deal" now correctly navigates to the affiliate link.
 
 = 3.2.6 =
 

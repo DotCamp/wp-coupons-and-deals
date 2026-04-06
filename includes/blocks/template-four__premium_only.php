@@ -127,7 +127,7 @@ function wpcd_get_template_four( $attributes ){
                                              <span><?php echo esc_html( $code ); ?></span>
                                         </a>
                                    <?php else : ?>
-                                        <a rel="nofollow noopener" target="_blank" class="wpcd-coupon-button" style="<?php echo esc_attr( generate_css_string( $codeStyles ) ); ?>" title="<?php esc_attr_e( 'Click To Claim This Deal', 'wp-coupons-and-deals' ); ?>">
+                                        <a rel="nofollow noopener" target="_blank" href="<?php echo esc_url( $attributes['navigationLink'] ); ?>" class="wpcd-coupon-button" style="<?php echo esc_attr( generate_css_string( $codeStyles ) ); ?>" title="<?php esc_attr_e( 'Click To Claim This Deal', 'wp-coupons-and-deals' ); ?>">
                                              <span><?php echo esc_html( $dealButtonText ); ?></span>
                                         </a>
                                    <?php endif; ?>
@@ -169,7 +169,7 @@ function wpcd_get_template_four( $attributes ){
                                              <span><?php echo esc_html( $secondCode ); ?></span>
                                         </a>
                                    <?php else : ?>
-                                        <a rel="nofollow noopener" target="_blank" class="wpcd-coupon-button" style="<?php echo esc_attr( generate_css_string( $codeStyles ) ); ?>" title="<?php esc_attr_e( 'Click To Claim This Deal', 'wp-coupons-and-deals' ); ?>">
+                                        <a rel="nofollow noopener" target="_blank" href="<?php echo esc_url( $attributes['secondNavigationLink'] ); ?>" class="wpcd-coupon-button" style="<?php echo esc_attr( generate_css_string( $codeStyles ) ); ?>" title="<?php esc_attr_e( 'Click To Claim This Deal', 'wp-coupons-and-deals' ); ?>">
                                              <span><?php echo esc_html( $secondDealButtonText ); ?></span>
                                         </a>
                                    <?php endif; ?>
@@ -211,7 +211,7 @@ function wpcd_get_template_four( $attributes ){
                                              <span><?php echo esc_html( $thirdCode ); ?></span>
                                         </a>
                                    <?php else : ?>
-                                        <a rel="nofollow noopener" target="_blank" class="wpcd-coupon-button" style="<?php echo esc_attr( generate_css_string( $codeStyles ) ); ?>" title="<?php esc_attr_e( 'Click To Claim This Deal', 'wp-coupons-and-deals' ); ?>">
+                                        <a rel="nofollow noopener" target="_blank" href="<?php echo esc_url( $attributes['thirdNavigationLink'] ); ?>" class="wpcd-coupon-button" style="<?php echo esc_attr( generate_css_string( $codeStyles ) ); ?>" title="<?php esc_attr_e( 'Click To Claim This Deal', 'wp-coupons-and-deals' ); ?>">
                                              <span><?php echo esc_html( $thirdDealButtonText ); ?></span>
                                         </a>
                                    <?php endif; ?>
