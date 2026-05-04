@@ -155,14 +155,23 @@ class Coupon_Block {
 			$block_html = $templates['default'];
 		}
 
-		return sprintf( 
+		$powered_by_html = '';
+		if ( ! empty( $attributes['showPoweredBy'] ) ) {
+			$powered_by_html = '<div class="wpcd-powered-by">' .
+				esc_html__( 'Powered by', 'wp-coupons-and-deals' ) .
+				' <a href="https://wpcouponsdeals.com" target="_blank" rel="nofollow">WP Coupons &amp; Deals</a>' .
+				'</div>';
+		}
+
+		return sprintf(
 			'<div %1$s>
 				%2$s
 				%3$s
-			</div>', 
-			$block_attributes, 
+			</div>%4$s',
+			$block_attributes,
 			$block_html,
-			isset($attributes['hideCoupon']) && $attributes['hideCoupon'] ? $this->generate_hidden_coupon_html( $attributes ) : ''
+			isset($attributes['hideCoupon']) && $attributes['hideCoupon'] ? $this->generate_hidden_coupon_html( $attributes ) : '',
+			$powered_by_html
 		);
 	}
 	/**

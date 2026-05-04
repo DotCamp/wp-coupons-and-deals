@@ -43,6 +43,7 @@ function Edit(props) {
     couponType,
     padding,
     margin,
+    showPoweredBy,
   } = attributes;
   if (!IS_PRO && template !== "template-nine") {
     setAttributes({ template: "template-default" });
@@ -182,6 +183,14 @@ function Edit(props) {
         </BlockControls>
       )}
       <div {...blockProps}>{templates[template]}</div>
+      {showPoweredBy && (
+        <div className="wpcd-powered-by">
+          {"Powered by "}
+          <a href="https://wpcouponsdeals.com" target="_blank" rel="nofollow">
+            WP Coupons &amp; Deals
+          </a>
+        </div>
+      )}
       <Inspector {...props} />
     </>
   );

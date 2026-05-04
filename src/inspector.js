@@ -43,6 +43,7 @@ function Inspector(props) {
     thirdExpirationDate,
     secondNavigationLink,
     thirdNavigationLink,
+    showPoweredBy,
   } = attributes;
   useEffect(() => {
     if (!IS_PRO) {
@@ -389,6 +390,23 @@ function Inspector(props) {
               {hideCoupon && IS_PRO && <HideCouponSettings {...props} />}
             </Disabled>
           )}
+        </PanelBody>
+      </InspectorControls>
+
+      <InspectorControls>
+        <PanelBody
+          title={__("Powered By", "wp-coupons-and-deals")}
+          initialOpen={false}
+        >
+          <ToggleControl
+            label={__('Show "Powered by" link', "wp-coupons-and-deals")}
+            help={__(
+              'Disabled by default. When enabled, a small attribution link appears below the coupon box.',
+              "wp-coupons-and-deals"
+            )}
+            checked={showPoweredBy}
+            onChange={() => setAttributes({ showPoweredBy: !showPoweredBy })}
+          />
         </PanelBody>
       </InspectorControls>
 

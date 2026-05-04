@@ -304,6 +304,10 @@
     "isDoesNotExpire": {
       "type": "boolean",
       "default": false
+    },
+    "showPoweredBy": {
+      "type": "boolean",
+      "default": false
     }
   },
   "supports": {

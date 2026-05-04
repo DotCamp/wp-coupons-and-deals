@@ -4526,3 +4526,20 @@ li.wpcd_dropdown {
         padding: 5px 5px 5px 5px !important;;
     }
 }
+
+.wpcd-powered-by {
+    text-align: right;
+    font-size: 12px;
+    color: #666666;
+    margin-top: 4px;
+}
+
+.wpcd-powered-by a {
+    color: #666666;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.wpcd-powered-by a:hover {
+    text-decoration: underline;
+}
