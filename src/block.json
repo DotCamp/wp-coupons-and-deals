@@ -45,6 +45,10 @@
                "type": "string",
                "default": "Sample Coupon Code 2023"
           },
+          "titleTag": {
+               "type": "string",
+               "default": "p"
+          },
           "description": {
                "type": "string",
                "default": "This is a little description of the coupon code or deal. Just to let users know some additional details."

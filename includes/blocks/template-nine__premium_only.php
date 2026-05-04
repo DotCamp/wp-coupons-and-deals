@@ -2,6 +2,7 @@
 function wpcd_get_template_nine( $attributes ){
      $couponType = isset($attributes['couponType']) ? $attributes['couponType'] : 'default';
      $title = isset($attributes['title']) ? $attributes['title'] : '';
+     $title_tag = isset($attributes['titleTag']) ? $attributes['titleTag'] : 'p';
      $code = isset($attributes['code']) ? $attributes['code'] : '';
      $dealButtonText = isset($attributes['dealButtonText']) ? $attributes['dealButtonText'] : '';
      $couponCodeBorder = get_border_css($attributes['codeBorder']);
@@ -41,7 +42,7 @@ function wpcd_get_template_nine( $attributes ){
      ?>
      <div class="wpcd-coupon-inner__wrapper">
           <div class="wpcd-coupon-title-wrapper">
-               <h3 class="wpcd-coupon-title" style="<?php echo esc_attr(generate_css_string($titleStyles)); ?>"><?php echo esc_html($title); ?></h3>
+               <<?php echo esc_attr($title_tag); ?> class="wpcd-coupon-title" style="<?php echo esc_attr(generate_css_string($titleStyles)); ?>"><?php echo esc_html($title); ?></<?php echo esc_attr($title_tag); ?>>
           </div>
           <div class="wpcd-coupon-code">
                <?php if ($couponType !== 'deal') : ?>

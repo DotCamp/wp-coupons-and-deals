@@ -38,6 +38,7 @@ function Inspector(props) {
     dealButtonText,
     template,
     couponType,
+    titleTag,
     secondExpirationDate,
     thirdExpirationDate,
     secondNavigationLink,
@@ -254,6 +255,20 @@ function Inspector(props) {
             isBlock
             options={couponTypes}
             attributeKey="couponType"
+          />
+          <UBSelectControl
+            label={__("Coupon Title Tag", "wp-coupons-and-deals")}
+            options={[
+              { label: __("Paragraph", "wp-coupons-and-deals"), value: "p" },
+              { label: __("Heading 1", "wp-coupons-and-deals"), value: "h1" },
+              { label: __("Heading 2", "wp-coupons-and-deals"), value: "h2" },
+              { label: __("Heading 3", "wp-coupons-and-deals"), value: "h3" },
+              { label: __("Heading 4", "wp-coupons-and-deals"), value: "h4" },
+              { label: __("Heading 5", "wp-coupons-and-deals"), value: "h5" },
+              { label: __("Heading 6", "wp-coupons-and-deals"), value: "h6" },
+            ]}
+            value={titleTag}
+            onChange={(newTag) => setAttributes({ titleTag: newTag })}
           />
           {couponType === "deal" && template === "template-seven" && (
             <TextControl

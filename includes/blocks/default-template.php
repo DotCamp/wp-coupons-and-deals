@@ -3,6 +3,7 @@ function wpcd_get_default_template( $attributes, $is_premium_user ) {
      $couponType = isset($attributes['couponType']) ? $attributes['couponType'] : 'default';
      $discount = isset($attributes['discount']) ? $attributes['discount'] : '';
      $title = isset($attributes['title']) ? $attributes['title'] : '';
+     $title_tag = isset($attributes['titleTag']) ? $attributes['titleTag'] : 'p';
      $description = isset($attributes['description']) ? $attributes['description'] : '';
      $code = isset($attributes['code']) ? $attributes['code'] : '';
      $couponDealLabel = isset($attributes['couponDealLabel']) ? $attributes['couponDealLabel'] : '';
@@ -85,7 +86,7 @@ function wpcd_get_default_template( $attributes, $is_premium_user ) {
           <div class="wpcd-coupon-details-wrapper">
                <div class="wpcd-coupon-header" style="<?php echo esc_attr(generate_css_string($separator_styles)); ?>">
                     <div class="wpcd-coupon-title-wrapper">
-                         <h3 class="wpcd-coupon-title" style="<?php echo esc_attr(generate_css_string($titleStyles)); ?>"><?php echo esc_html($title); ?></h3>
+                         <<?php echo esc_attr($title_tag); ?> class="wpcd-coupon-title" style="<?php echo esc_attr(generate_css_string($titleStyles)); ?>"><?php echo esc_html($title); ?></<?php echo esc_attr($title_tag); ?>>
                     </div>
                     <div class="wpcd-coupon-code">
                          <?php if ($couponType !== 'deal') : ?>

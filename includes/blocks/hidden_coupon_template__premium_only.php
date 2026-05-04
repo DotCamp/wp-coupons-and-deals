@@ -1,6 +1,7 @@
 <?
 function wpcd_get_hidden_coupon_template( $attributes ) {
      $title = isset($attributes['title']) ? $attributes['title'] : '';
+     $title_tag = isset($attributes['titleTag']) ? $attributes['titleTag'] : 'p';
      $description = isset($attributes['description']) ? $attributes['description'] : '';
      $code = isset($attributes['code']) ? $attributes['code'] : '';
      $couponPopupCopyButtonText = isset($attributes['couponPopupCopyButtonText']) ? $attributes['couponPopupCopyButtonText'] : '';
@@ -39,7 +40,7 @@ function wpcd_get_hidden_coupon_template( $attributes ) {
      <div id="<?php echo esc_attr($attributes['couponId']); ?>" class="wpcd-coupon-popup">
           <div class="wpcd-coupon-popup-inner_wrapper">
                <div class="wpcd-coupon-popup-header">
-                    <p class="wpcd-coupon-popup-title"><?php echo esc_html($title); ?></p>
+                    <<?php echo esc_attr($title_tag); ?> class="wpcd-coupon-popup-title"><?php echo esc_html($title); ?></<?php echo esc_attr($title_tag); ?>>
                     <span class="wpcd-coupon-popup-close-button">×</span>
                </div>
                <div class="wpcd-coupon-popup-content">

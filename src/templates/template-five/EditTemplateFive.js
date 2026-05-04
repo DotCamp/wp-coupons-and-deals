@@ -123,7 +123,7 @@ function TemplateFive(props) {
               <RichText
                 className="wpcd-coupon-title"
                 value={title}
-                tagName="h3"
+                tagName={attributes.titleTag || "p"}
                 onChange={(newValue) => setAttributes({ title: newValue })}
                 placeholder={__("Title here", "wp-coupons-and-deals")}
                 style={generateStyles(titleStyles)}
