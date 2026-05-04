@@ -44,6 +44,7 @@ function Inspector(props) {
     secondNavigationLink,
     thirdNavigationLink,
     showPoweredBy,
+    code,
   } = attributes;
   useEffect(() => {
     if (!IS_PRO) {
@@ -278,6 +279,13 @@ function Inspector(props) {
                 setAttributes({ dealButtonText: newValue })
               }
               value={dealButtonText}
+            />
+          )}
+          {couponType !== "deal" && (
+            <TextControl
+              label={__("Coupon Code", "wp-coupons-and-deals")}
+              value={code}
+              onChange={(newCode) => setAttributes({ code: newCode })}
             />
           )}
           <TextControl
