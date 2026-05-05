@@ -16,24 +16,26 @@ class UBCoupon {
     ).getTime();
     this.expiredDateText = this.wrapper.dataset.expired_date_text;
     this.couponCode = this.wrapper.dataset.coupon_code;
+    this.couponId = this.wrapper.getAttribute("data-coupon_id");
     this.init();
   }
 
   init() {
     this.checkExpirationDate();
     this.setupCopyButton();
-    this.handleHiddenCoupon();
     this.handleTemplateTwoExpirationDate();
-    const url = new URL(location);
-    const couponIdParam = url?.searchParams?.get("wpcd_coupon");
     if (
       this.wrapper.classList.contains("wpcd-coupon-hidden") &&
-      this.showCodeButton &&
-      !couponIdParam
+      this.showCodeButton
     ) {
-      this.handleShowCode();
+      if (this.wasRecentlyRevealed()) {
+        this.revealCouponInline(false);
+      } else {
+        this.handleShowCode();
+      }
     }
   }
+
   handleTemplateTwoExpirationDate() {
     if (
       !this.wrapper.classList.contains("wpcd-coupon-template-two") &&
@@ -79,39 +81,66 @@ class UBCoupon {
     updateCountdown();
     setInterval(updateCountdown, 1000);
   }
-  handleShowCode() {
-    this.showCodeButton.addEventListener("click", () => {
-      const couponId = this.wrapper.getAttribute("data-coupon_id");
-      const url = new URL(location);
-      url.searchParams.set("wpcd_coupon", couponId);
-      window.open(url, "_blank");
-    });
+
+  wasRecentlyRevealed() {
+    try {
+      const revealed = JSON.parse(
+        localStorage.getItem("wpcd_revealed") || "{}"
+      );
+      const timestamp = revealed[this.couponId];
+      if (!timestamp) return false;
+      return Date.now() - timestamp < 30 * 60 * 1000;
+    } catch (e) {
+      return false;
+    }
   }
 
-  handleHiddenCoupon() {
-    if (!this.wrapper.classList.contains("wpcd-coupon-hidden")) {
-      return;
-    }
-    const url = new URL(location);
-    const couponId = url?.searchParams?.get("wpcd_coupon");
-    if (!couponId || couponId === "null") {
-      return;
-    }
-    const couponPopup = document.getElementById(couponId);
-    const couponTargetButton = this.wrapper.querySelector(
-      ".wpcd-coupon-button.wpcd-popup-button"
-    );
-    couponTargetButton.removeAttribute("href");
+  markCouponAsRevealed() {
+    try {
+      const revealed = JSON.parse(
+        localStorage.getItem("wpcd_revealed") || "{}"
+      );
+      revealed[this.couponId] = Date.now();
+      localStorage.setItem("wpcd_revealed", JSON.stringify(revealed));
+    } catch (e) {}
+  }
 
-    couponTargetButton.classList.add("wpcd-coupon-popup-opened");
+  handleShowCode() {
+    this.showCodeButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      const navigationLink = this.showCodeButton.getAttribute("href");
+      this.copyToClipboard();
+      this.markCouponAsRevealed();
+      this.revealCouponInline(true);
+      if (navigationLink) {
+        const a = document.createElement("a");
+        a.href = navigationLink;
+        a.rel = "nofollow noopener";
+        a.target = "_blank";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+    }, { once: true });
+  }
 
-    couponPopup.style.display = "block";
-    const closeButton = couponPopup.querySelector(
-      ".wpcd-coupon-popup-close-button"
-    );
-    closeButton.addEventListener("click", () => {
-      couponPopup.style.display = "none";
-    });
+  revealCouponInline(showCopied) {
+    this.wrapper.classList.remove("wpcd-coupon-hidden");
+    this.showCodeButton.classList.remove("wpcd-popup-button");
+    this.showCodeButton.setAttribute("rel", "nofollow noopener");
+    this.showCodeButton.setAttribute("target", "_blank");
+    this.copyButton = this.showCodeButton;
+    this.showCodeButton = null;
+
+    if (showCopied) {
+      this.copyButton.innerText = "Copied!";
+      setTimeout(() => {
+        this.copyButton.innerText = this.couponCode;
+        this.setupCopyButton();
+      }, 1000);
+    } else {
+      this.setupCopyButton();
+    }
   }
 
   checkExpirationDate() {
@@ -130,6 +159,7 @@ class UBCoupon {
       this.expirationDateWrapper.classList.add("wpcd-coupon-expired");
     }
   }
+
   setupCopyButton() {
     if (!this.copyButton) return;
     const copyButtonText = this.copyButton.innerText;
