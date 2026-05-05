@@ -45,9 +45,6 @@ function Edit(props) {
     margin,
     showPoweredBy,
   } = attributes;
-  if (!IS_PRO && template !== "template-nine") {
-    setAttributes({ template: "template-default" });
-  }
   const wrapperBorder = getBorderCSS(attributes.wrapperBorder);
 
   const paddingObj = getSpacingCss(attributes.padding);
@@ -123,6 +120,12 @@ function Edit(props) {
     }),
     style: generateStyles(wrapperStyles),
   });
+  useEffect(() => {
+    if (!IS_PRO && template !== "template-default") {
+      setAttributes({ template: "template-default" });
+    }
+  }, [setAttributes, template]);
+
   useEffect(() => {
     if (template === "template-seven" && hideCoupon) {
       setAttributes({ hideCoupon: false });

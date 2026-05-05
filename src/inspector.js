@@ -25,6 +25,7 @@ import {
   UBSelectControl,
 } from "./StylingControls";
 import HideCouponSettings from "./components/HideCouponSettings";
+import LockedControl from "./components/upsell/LockedControl";
 import TabsPanelControl from "./components/TabsPanelControl";
 const IS_PRO = WPCD_CFG?.IS_PRO === "true";
 function Inspector(props) {
@@ -48,6 +49,63 @@ function Inspector(props) {
   } = attributes;
   const isHideCouponSupported =
     couponType !== "deal" && template !== "template-seven";
+  const templateOptions = [
+    {
+      label: __("Default", "wp-coupons-and-deals"),
+      value: "template-default",
+    },
+    {
+      label: __("Template One", "wp-coupons-and-deals"),
+      value: "template-one",
+    },
+    {
+      label: __("Template Two", "wp-coupons-and-deals"),
+      value: "template-two",
+    },
+    {
+      label: __("Template Three", "wp-coupons-and-deals"),
+      value: "template-three",
+    },
+    {
+      label: __("Template Four", "wp-coupons-and-deals"),
+      value: "template-four",
+    },
+    {
+      label: __("Template Five", "wp-coupons-and-deals"),
+      value: "template-five",
+    },
+    {
+      label: __("Template Six", "wp-coupons-and-deals"),
+      value: "template-six",
+    },
+    {
+      label: __("Template Seven", "wp-coupons-and-deals"),
+      value: "template-seven",
+    },
+    {
+      label: __("Template Eight", "wp-coupons-and-deals"),
+      value: "template-eight",
+    },
+    {
+      label: __("Template Nine", "wp-coupons-and-deals"),
+      value: "template-nine",
+    },
+  ];
+  const templateLabel = IS_PRO
+    ? __("Template", "wp-coupons-and-deals")
+    : __("Template (Pro)", "wp-coupons-and-deals");
+  const hideCouponLabel = IS_PRO
+    ? __("Hide Coupon", "wp-coupons-and-deals")
+    : __("Hide Coupon (Pro)", "wp-coupons-and-deals");
+  const hideCouponHelp = isHideCouponSupported
+    ? __(
+        "Applies on the frontend only. The editor always shows the real coupon code so you can edit it.",
+        "wp-coupons-and-deals",
+      )
+    : __(
+        "Hide Coupon is not available for Template Seven.",
+        "wp-coupons-and-deals",
+      );
   useEffect(() => {
     if (!IS_PRO) {
       if (template !== "template-default") {
@@ -199,54 +257,10 @@ function Inspector(props) {
     <>
       <InspectorControls>
         <PanelBody title={__("General", "wp-coupons-and-deals")}>
-          <Disabled isDisabled={!IS_PRO}>
+          {IS_PRO ? (
             <UBSelectControl
-              label={__(
-                `Template${!IS_PRO ? " (Pro)" : ""}`,
-                "wp-coupons-and-deals",
-              )}
-              options={[
-                {
-                  label: __("Default", "wp-coupons-and-deals"),
-                  value: "template-default",
-                },
-                {
-                  label: __("Template One", "wp-coupons-and-deals"),
-                  value: "template-one",
-                },
-                {
-                  label: __("Template Two", "wp-coupons-and-deals"),
-                  value: "template-two",
-                },
-                {
-                  label: __("Template Three", "wp-coupons-and-deals"),
-                  value: "template-three",
-                },
-                {
-                  label: __("Template Four", "wp-coupons-and-deals"),
-                  value: "template-four",
-                },
-                {
-                  label: __("Template Five", "wp-coupons-and-deals"),
-                  value: "template-five",
-                },
-                {
-                  label: __("Template Six", "wp-coupons-and-deals"),
-                  value: "template-six",
-                },
-                {
-                  label: __("Template Seven", "wp-coupons-and-deals"),
-                  value: "template-seven",
-                },
-                {
-                  label: __("Template Eight", "wp-coupons-and-deals"),
-                  value: "template-eight",
-                },
-                {
-                  label: __("Template Nine", "wp-coupons-and-deals"),
-                  value: "template-nine",
-                },
-              ]}
+              label={templateLabel}
+              options={templateOptions}
               value={attributes.template}
               onChange={(newTemplate) => {
                 setAttributes({
@@ -257,7 +271,21 @@ function Inspector(props) {
                 });
               }}
             />
-          </Disabled>
+          ) : (
+            <LockedControl featureKey="templates">
+              <UBSelectControl
+                label={templateLabel}
+                options={[
+                  {
+                    label: __("Default", "wp-coupons-and-deals"),
+                    value: "template-default",
+                  },
+                ]}
+                value={"template-default"}
+                onChange={() => undefined}
+              />
+            </LockedControl>
+          )}
           <br></br>
           <CustomToggleGroupControl
             label={__("Coupon Type", "wp-coupons-and-deals")}
@@ -392,31 +420,29 @@ function Inspector(props) {
               )}
             </>
           )}
-          {couponType !== "deal" && (
-            <Disabled isDisabled={!IS_PRO || !isHideCouponSupported}>
-              <ToggleControl
-                label={__(
-                  `Hide Coupon${!IS_PRO ? " (Pro)" : ""}`,
-                  "wp-coupons-and-deals",
+          {IS_PRO ? (
+            couponType !== "deal" && (
+              <Disabled isDisabled={!isHideCouponSupported}>
+                <ToggleControl
+                  label={hideCouponLabel}
+                  checked={isHideCouponSupported ? hideCoupon : false}
+                  help={hideCouponHelp}
+                  onChange={() => setAttributes({ hideCoupon: !hideCoupon })}
+                />
+                {isHideCouponSupported && hideCoupon && (
+                  <HideCouponSettings {...props} />
                 )}
-                checked={isHideCouponSupported ? hideCoupon : false}
-                help={
-                  template === "template-seven"
-                    ? __(
-                        "Hide Coupon is not available for Template Seven.",
-                        "wp-coupons-and-deals",
-                      )
-                    : __(
-                        "Applies on the frontend only. The editor always shows the real coupon code so you can edit it.",
-                        "wp-coupons-and-deals",
-                      )
-                }
-                onChange={() => setAttributes({ hideCoupon: !hideCoupon })}
+              </Disabled>
+            )
+          ) : (
+            <LockedControl featureKey="hide-coupon">
+              <ToggleControl
+                label={hideCouponLabel}
+                checked={false}
+                help={hideCouponHelp}
+                onChange={() => undefined}
               />
-              {isHideCouponSupported && hideCoupon && IS_PRO && (
-                <HideCouponSettings {...props} />
-              )}
-            </Disabled>
+            </LockedControl>
           )}
         </PanelBody>
       </InspectorControls>

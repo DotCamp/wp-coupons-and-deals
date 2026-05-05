@@ -1,4 +1,6 @@
 @import "./common.scss";
+@import "./components/upsell/upsell.scss";
+
 .wpcd-border-radius-control,
 .wpcd-font-size-control {
   .components-base-control__label {
@@ -14,3 +16,4 @@
     opacity: 0.3;
   }
 }
+

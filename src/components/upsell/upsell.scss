@@ -1,0 +1,336 @@
+// LockedControl styles
+.wpcd-locked-root {
+  position: relative;
+  grid-column: 1 / -1;
+}
+
+.wpcd-locked-children {
+  opacity: 0.65;
+  pointer-events: none;
+  user-select: none;
+}
+
+.wpcd-lock-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  z-index: 1;
+
+  &:hover .wpcd-lock-badge {
+    background: #329d40;
+    color: #fff;
+
+    svg,
+    .wpcd-lock-badge-text {
+      fill: #ffffff;
+      color: #ffffff;
+    }
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+.wpcd-lock-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px 4px 6px;
+  background: #f0f8f1;
+  border-radius: 4px;
+  transition: background 0.15s ease, color 0.15s ease;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    fill: #329d40;
+    transition: fill 0.15s ease;
+  }
+}
+
+.wpcd-lock-badge-text {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #329d40;
+}
+
+// UpsellModal styles
+.wpcd-upsell-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wpcd-upsell-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.wpcd-upsell-modal-outer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: wpcd-modal-enter 0.2s ease-out;
+}
+
+.wpcd-upsell-modal-container {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+  max-width: 500px;
+  width: 90vw;
+  overflow: hidden;
+}
+
+@keyframes wpcd-modal-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.wpcd-upsell-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #329d40 0%, #246f2f 100%);
+  color: #fff;
+
+  svg {
+    fill: #fff;
+  }
+}
+
+.wpcd-upsell-modal-header-icon {
+  display: flex;
+  align-items: center;
+}
+
+.wpcd-upsell-modal-header-title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.wpcd-upsell-slide-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.wpcd-upsell-slide {
+  padding: 24px 24px 4px;
+}
+
+.wpcd-upsell-slide.slide-left {
+  animation: wpcd-slide-from-left 0.3s ease-out;
+}
+
+@keyframes wpcd-slide-from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.wpcd-upsell-slide.slide-right {
+  animation: wpcd-slide-from-right 0.3s ease-out;
+}
+
+@keyframes wpcd-slide-from-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.wpcd-upsell-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  color: #329d40;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+
+  &:hover {
+    background: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #329d40;
+  }
+
+  svg {
+    pointer-events: none;
+  }
+}
+
+.wpcd-upsell-modal-description {
+  font-size: 18px;
+  color: #4b5563;
+  margin: 0 0 16px 0;
+  line-height: 1.65;
+  text-align: center;
+
+  strong {
+    color: #1e1e1e;
+  }
+}
+
+.wpcd-upsell-modal-image {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  border: 1px solid #e5e7eb;
+}
+
+.wpcd-upsell-promo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #f0f8f1;
+  border: 1px dashed #329d40;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: #374151;
+}
+
+.wpcd-upsell-promo-code {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+
+  &:hover {
+    opacity: 0.85;
+
+    .wpcd-upsell-promo-copy-label {
+      opacity: 1;
+    }
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  code {
+    font-weight: 700;
+    background: #329d40;
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    font-family: inherit;
+  }
+
+  &.is-copied code {
+    background: #2e7d32;
+  }
+}
+
+.wpcd-upsell-promo-copy-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #329d40;
+  opacity: 0.6;
+  transition: opacity 0.15s ease;
+
+  .is-copied & {
+    color: #2e7d32;
+    opacity: 1;
+  }
+}
+
+.wpcd-upsell-modal-footer {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  padding: 16px 24px 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.wpcd-upsell-modal-cancel {
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid #d0d5dd;
+  border-radius: 6px;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+
+  &:hover {
+    background: #f3f4f6;
+    border-color: #9ca3af;
+  }
+}
+
+.wpcd-upsell-modal-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 24px;
+  background: #329d40;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+
+  &:hover {
+    background: #277c33;
+    box-shadow: 0 2px 8px rgba(50, 157, 64, 0.3);
+    color: #fff;
+  }
+}
