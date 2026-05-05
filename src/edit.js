@@ -74,6 +74,8 @@ function Edit(props) {
     template === "template-three" || template === "template-four"
       ? "0"
       : "25px";
+  const isHideCouponEnabled =
+    hideCoupon && couponType !== "deal" && template !== "template-seven";
   const wrapperStyles = {
     backgroundColor: !isEmpty(attributes?.wrapperBackgroundColor)
       ? attributes.wrapperBackgroundColor
@@ -106,7 +108,7 @@ function Edit(props) {
       ? getSingleSideBorderValue(wrapperBorder, "right")
       : borderStyles[template],
     borderBottom: !isValueEmpty(
-      getSingleSideBorderValue(wrapperBorder, "bottom")
+      getSingleSideBorderValue(wrapperBorder, "bottom"),
     )
       ? getSingleSideBorderValue(wrapperBorder, "bottom")
       : borderStyles[template],
@@ -115,7 +117,6 @@ function Edit(props) {
 
   const blockProps = useBlockProps({
     className: classNames(`wpcd-coupon-wrapper wpcd-coupon-${template}`, {
-      ["wpcd-coupon-hidden"]: hideCoupon && couponType !== "deal",
       ["wpcd-coupon-type-deal"]: couponType === "deal",
       "has-padding": !isValueEmpty(padding),
       "has-margin": !isValueEmpty(margin),
@@ -123,10 +124,16 @@ function Edit(props) {
     style: generateStyles(wrapperStyles),
   });
   useEffect(() => {
-    if (isEmpty(couponId) && hideCoupon) {
+    if (template === "template-seven" && hideCoupon) {
+      setAttributes({ hideCoupon: false });
+    }
+  }, [hideCoupon, template, setAttributes]);
+
+  useEffect(() => {
+    if (isEmpty(couponId) && isHideCouponEnabled) {
       setAttributes({ couponId: uniqueId().toString() });
     }
-  }, [hideCoupon]);
+  }, [couponId, isHideCouponEnabled, setAttributes]);
 
   const onSelectImage = (media) => {
     if (media) {

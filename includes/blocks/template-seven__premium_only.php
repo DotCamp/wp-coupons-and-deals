@@ -63,9 +63,10 @@ function wpcd_get_template_seven( $attributes ){
      );
      $coupon_default_image =  WPCD_Plugin::instance()->plugin_assets . 'img/coupon-200x200.png';
      $image_url = !empty( $attributes['couponImage']['url'] ) ? $attributes['couponImage']['url'] : $coupon_default_image;
+     $is_hide_coupon_enabled = false;
 
      $navigationAttrs = array();
-     if (!isset($attributes['hideCoupon']) || !$attributes['hideCoupon']) {
+     if ( ! $is_hide_coupon_enabled ) {
           $navigationAttrs = array(
                'rel' => 'nofollow noopener',
                'target' => '_blank',
@@ -112,7 +113,7 @@ function wpcd_get_template_seven( $attributes ){
                                         echo esc_attr( $attr ) . '="' . esc_attr( $value ) . '" ';
                                    } ?>
                                    href="<?php echo esc_url( $attributes['navigationLink'] ); ?>"
-                                   class="wpcd-coupon-button<?php echo isset( $attributes['hideCoupon'] ) && $attributes['hideCoupon'] ? ' wpcd-popup-button' : ''; ?>"
+                                   class="wpcd-coupon-button<?php echo $is_hide_coupon_enabled ? ' wpcd-popup-button' : ''; ?>"
                                    title="<?php esc_attr_e( 'Click To Copy Coupon', 'wp-coupons-and-deals' ); ?>"
                                    data-coupon_code="<?php echo isset($attributes['code']) ? esc_attr($attributes['code']) : ''; ?>"
                               >

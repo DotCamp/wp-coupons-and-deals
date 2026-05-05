@@ -48,7 +48,7 @@ function TemplateFive(props) {
   const codeHoverBgColor = getBackgroundColorVar(
     attributes,
     "codeHoverBackgroundColor",
-    "codeHoverGradientBackground"
+    "codeHoverGradientBackground",
   );
   const codeHoverStyles = {
     "--wpcd-coupon-code-bg-hover-color": codeHoverBgColor,
@@ -58,14 +58,14 @@ function TemplateFive(props) {
   const codeStyles = {
     ...codeHoverStyles,
     "--wpcd-coupon-code-button-text": attributes.couponCodeButtonText
-      ? attributes.couponCodeButtonText
+      ? `"${attributes.couponCodeButtonText}"`
       : "",
     fontSize: attributes.codeFontSize || "",
     "--wpcd-coupon-code-color": attributes.codeColor || "",
     "--wpcd-coupon-code-bg-color": getBackgroundColorVar(
       attributes,
       "codeBackgroundColor",
-      "codeGradientBackground"
+      "codeGradientBackground",
     ),
     borderTopLeftRadius: attributes.codeBorderRadius?.topLeft || "2px",
     borderTopRightRadius: attributes.codeBorderRadius?.topRight || "2px",

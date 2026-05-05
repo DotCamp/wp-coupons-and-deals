@@ -72,6 +72,83 @@
   .wpcd-coupon-expired {
     width: auto;
   }
+  /*** Coupon Hidden (all templates) ***/
+  &.wpcd-coupon-hidden {
+    .wpcd-coupon-inner__wrapper {
+      .wpcd-coupon-button {
+        position: relative;
+        overflow: hidden;
+        color: #000000 !important;
+        background: linear-gradient(
+            315deg,
+            rgba(0, 0, 0, 0.06) 10%,
+            transparent 15%,
+            transparent 35%,
+            rgba(0, 0, 0, 0.06) 40%,
+            rgba(0, 0, 0, 0.06) 60%,
+            transparent 65%,
+            transparent 85%,
+            rgba(0, 0, 0, 0.06) 90%
+          )
+          repeat scroll 0 0/6px 6px transparent !important;
+        &:not(.wpcd-coupon-popup-opened) {
+          &:hover {
+            &::before {
+              width: calc(100% - 40px);
+              color: var(--wpcd-coupon-code-hover-color, #ffffff);
+              background: var(--wpcd-coupon-code-bg-hover-color, #35b357);
+            }
+            &::after {
+              left: calc(100% - 42px);
+              border-left: 33px solid
+                var(--wpcd-coupon-code-bg-hover-color, #35b357);
+            }
+          }
+          &::before {
+            content: var(--wpcd-coupon-code-button-text, "Show Code");
+            line-height: 1;
+            position: absolute;
+            left: -2px;
+            top: 0px;
+            z-index: 2;
+            background: var(--wpcd-coupon-code-bg-color, #35b357);
+            color: var(--wpcd-coupon-code-color, #ffffff);
+            font-size: var(--wpcd-coupon-code-font-size, 12px);
+            padding: 14px 0% 11px 0%;
+            text-align: center;
+            width: -moz-calc(100% - 36px);
+            width: -webkit-calc(100% - 36px);
+            width: calc(100% - 36px);
+            border-top-left-radius: 2px;
+            border-bottom-left-radius: 2px;
+            -moz-transition: all 0.5s ease;
+            -webkit-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+            white-space: nowrap;
+            letter-spacing: 0.5px;
+          }
+          &::after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            z-index: 2;
+            -moz-transition: all 0.5s ease;
+            -webkit-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+            border-top: 37px solid transparent;
+            border-left: 33px solid var(--wpcd-coupon-code-bg-color, #35b357);
+            position: absolute;
+            left: calc(100% - 38px);
+            top: 0px;
+            line-height: 1;
+          }
+        }
+      }
+    }
+  }
   /** Default Coupon**/
   &.wpcd-coupon-template-default {
     box-sizing: border-box;
@@ -183,82 +260,6 @@
             width: 100%;
             .wpcd-coupon-title {
               text-align: center;
-            }
-          }
-        }
-      }
-    }
-
-    /*** Coupon Hidden ***/
-    &.wpcd-coupon-hidden {
-      .wpcd-coupon-inner__wrapper {
-        .wpcd-coupon-button {
-          position: relative;
-          overflow: hidden;
-          color: #000000 !important;
-          background: linear-gradient(
-              315deg,
-              rgba(0, 0, 0, 0.06) 10%,
-              transparent 15%,
-              transparent 35%,
-              rgba(0, 0, 0, 0.06) 40%,
-              rgba(0, 0, 0, 0.06) 60%,
-              transparent 65%,
-              transparent 85%,
-              rgba(0, 0, 0, 0.06) 90%
-            )
-            repeat scroll 0 0/6px 6px transparent !important;
-          &:not(.wpcd-coupon-popup-opened) {
-            &:hover {
-              &::before {
-                width: calc(100% - 40px);
-                color: var(--wpcd-coupon-code-hover-color, #ffffff);
-                background: var(--wpcd-coupon-code-bg-hover-color, #35b357);
-              }
-              &::after {
-                left: calc(100% - 42px);
-                border-left: 33px solid
-                  var(--wpcd-coupon-code-bg-hover-color, #35b357);
-              }
-            }
-            &::before {
-              content: var(--wpcd-coupon-code-button-text, "Show Code");
-              line-height: 1;
-              position: absolute;
-              left: -2px;
-              top: 0px;
-              background: var(--wpcd-coupon-code-bg-color, #35b357);
-              color: var(--wpcd-coupon-code-color, #ffffff);
-              font-size: var(--wpcd-coupon-code-font-size, 12px);
-              padding: 14px 0% 11px 0%;
-              text-align: center;
-              width: -moz-calc(100% - 36px);
-              width: -webkit-calc(100% - 36px);
-              width: calc(100% - 36px);
-              border-top-left-radius: 2px;
-              border-bottom-left-radius: 2px;
-              -moz-transition: all 0.5s ease;
-              -webkit-transition: all 0.5s ease;
-              -o-transition: all 0.5s ease;
-              transition: all 0.5s ease;
-              white-space: nowrap;
-              letter-spacing: 0.5px;
-            }
-            &::after {
-              content: "";
-              display: block;
-              width: 0;
-              height: 0;
-              -moz-transition: all 0.5s ease;
-              -webkit-transition: all 0.5s ease;
-              -o-transition: all 0.5s ease;
-              transition: all 0.5s ease;
-              border-top: 37px solid transparent;
-              border-left: 33px solid var(--wpcd-coupon-code-bg-color, #35b357);
-              position: absolute;
-              left: calc(100% - 38px);
-              top: 0px;
-              line-height: 1;
             }
           }
         }
@@ -557,8 +558,10 @@
         .wpcd-coupon-code {
           text-align: center;
           flex: 2;
+          min-width: 0;
           .wpcd-coupon-button {
             width: 100%;
+            box-sizing: border-box;
             color: var(--wpcd-coupon-code-color, #18e06e);
             .wpcd-coupon-icon {
               width: 24px;
@@ -572,9 +575,52 @@
             cursor: pointer;
             font-weight: 600;
             padding: 15px;
-            display: inline-block;
+            display: block;
             text-decoration: none !important;
             word-break: break-all;
+          }
+        }
+      }
+    }
+    &.wpcd-coupon-hidden {
+      .wpcd-coupon-inner__wrapper {
+        .wpcd-coupon-button {
+          &:not(.wpcd-coupon-popup-opened) {
+            &:hover {
+              &::before {
+                right: 38px;
+                width: auto;
+              }
+              &::after {
+                left: auto;
+                right: -2px;
+                width: 40px;
+                border-left: 0;
+                background: var(--wpcd-coupon-code-bg-hover-color, #35b357);
+                clip-path: polygon(0 0, 0 100%, 100% 100%);
+              }
+            }
+            &::before {
+              top: -2px;
+              bottom: -2px;
+              right: 38px;
+              width: auto;
+              height: auto;
+              padding: 0;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+            &::after {
+              top: -2px;
+              left: auto;
+              right: -2px;
+              width: 40px;
+              height: calc(100% + 4px);
+              border: 0;
+              background: var(--wpcd-coupon-code-bg-color, #35b357);
+              clip-path: polygon(0 0, 0 100%, 100% 100%);
+            }
           }
         }
       }
@@ -964,82 +1010,6 @@
             width: 100%;
             .wpcd-coupon-title {
               text-align: center;
-            }
-          }
-        }
-      }
-    }
-
-    /*** Coupon Hidden ***/
-    &.wpcd-coupon-hidden {
-      .wpcd-coupon-inner__wrapper {
-        .wpcd-coupon-button {
-          position: relative;
-          overflow: hidden;
-          color: #000000 !important;
-          background: linear-gradient(
-              315deg,
-              rgba(0, 0, 0, 0.06) 10%,
-              transparent 15%,
-              transparent 35%,
-              rgba(0, 0, 0, 0.06) 40%,
-              rgba(0, 0, 0, 0.06) 60%,
-              transparent 65%,
-              transparent 85%,
-              rgba(0, 0, 0, 0.06) 90%
-            )
-            repeat scroll 0 0/6px 6px transparent !important;
-          &:not(.wpcd-coupon-popup-opened) {
-            &:hover {
-              &::before {
-                width: calc(100% - 40px);
-                color: var(--wpcd-coupon-code-hover-color, #ffffff);
-                background: var(--wpcd-coupon-code-bg-hover-color, #35b357);
-              }
-              &::after {
-                left: calc(100% - 42px);
-                border-left: 33px solid
-                  var(--wpcd-coupon-code-bg-hover-color, #35b357);
-              }
-            }
-            &::before {
-              content: var(--wpcd-coupon-code-button-text, "Show Code");
-              line-height: 1;
-              position: absolute;
-              left: -2px;
-              top: 0px;
-              background: var(--wpcd-coupon-code-bg-color, #35b357);
-              color: var(--wpcd-coupon-code-color, #ffffff);
-              font-size: var(--wpcd-coupon-code-font-size, 12px);
-              padding: 14px 0% 11px 0%;
-              text-align: center;
-              width: -moz-calc(100% - 36px);
-              width: -webkit-calc(100% - 36px);
-              width: calc(100% - 36px);
-              border-top-left-radius: 2px;
-              border-bottom-left-radius: 2px;
-              -moz-transition: all 0.5s ease;
-              -webkit-transition: all 0.5s ease;
-              -o-transition: all 0.5s ease;
-              transition: all 0.5s ease;
-              white-space: nowrap;
-              letter-spacing: 0.5px;
-            }
-            &::after {
-              content: "";
-              display: block;
-              width: 0;
-              height: 0;
-              -moz-transition: all 0.5s ease;
-              -webkit-transition: all 0.5s ease;
-              -o-transition: all 0.5s ease;
-              transition: all 0.5s ease;
-              border-top: 37px solid transparent;
-              border-left: 33px solid var(--wpcd-coupon-code-bg-color, #35b357);
-              position: absolute;
-              left: calc(100% - 38px);
-              top: 0px;
-              line-height: 1;
             }
           }
         }

@@ -46,6 +46,8 @@ function Inspector(props) {
     showPoweredBy,
     code,
   } = attributes;
+  const isHideCouponSupported =
+    couponType !== "deal" && template !== "template-seven";
   useEffect(() => {
     if (!IS_PRO) {
       if (template !== "template-default") {
@@ -144,7 +146,7 @@ function Inspector(props) {
             attrGradientKey="couponPopupOfferButtonBgGradient"
             label={__(
               "Popup Navigation Button Background",
-              "wp-coupons-and-deals"
+              "wp-coupons-and-deals",
             )}
           />
           <ColorSettingsWithGradient
@@ -201,7 +203,7 @@ function Inspector(props) {
             <UBSelectControl
               label={__(
                 `Template${!IS_PRO ? " (Pro)" : ""}`,
-                "wp-coupons-and-deals"
+                "wp-coupons-and-deals",
               )}
               options={[
                 {
@@ -246,9 +248,14 @@ function Inspector(props) {
                 },
               ]}
               value={attributes.template}
-              onChange={(newTemplate) =>
-                setAttributes({ template: newTemplate })
-              }
+              onChange={(newTemplate) => {
+                setAttributes({
+                  template: newTemplate,
+                  ...(newTemplate === "template-seven"
+                    ? { hideCoupon: false }
+                    : {}),
+                });
+              }}
             />
           </Disabled>
           <br></br>
@@ -291,7 +298,7 @@ function Inspector(props) {
           <TextControl
             label={__(
               "Link To Navigate On Copy (Affiliate Link)",
-              "wp-coupons-and-deals"
+              "wp-coupons-and-deals",
             )}
             type="url"
             value={navigationLink}
@@ -302,7 +309,7 @@ function Inspector(props) {
               <TextControl
                 label={__(
                   "Link To Navigate On Copy (Affiliate Link) (2nd)",
-                  "wp-coupons-and-deals"
+                  "wp-coupons-and-deals",
                 )}
                 type="url"
                 value={secondNavigationLink}
@@ -313,7 +320,7 @@ function Inspector(props) {
               <TextControl
                 label={__(
                   "Link To Navigate On Copy (Affiliate Link) (3rd)",
-                  "wp-coupons-and-deals"
+                  "wp-coupons-and-deals",
                 )}
                 type="url"
                 value={thirdNavigationLink}
@@ -337,7 +344,7 @@ function Inspector(props) {
                 value={expiredDateText}
                 help={__(
                   "This text will show when coupon date is expired.",
-                  "wp-coupons-and-deals"
+                  "wp-coupons-and-deals",
                 )}
                 onChange={(newLink) =>
                   setAttributes({ expiredDateText: newLink })
@@ -386,16 +393,29 @@ function Inspector(props) {
             </>
           )}
           {couponType !== "deal" && (
-            <Disabled isDisabled={!IS_PRO}>
+            <Disabled isDisabled={!IS_PRO || !isHideCouponSupported}>
               <ToggleControl
                 label={__(
                   `Hide Coupon${!IS_PRO ? " (Pro)" : ""}`,
-                  "wp-coupons-and-deals"
+                  "wp-coupons-and-deals",
                 )}
-                checked={hideCoupon}
+                checked={isHideCouponSupported ? hideCoupon : false}
+                help={
+                  template === "template-seven"
+                    ? __(
+                        "Hide Coupon is not available for Template Seven.",
+                        "wp-coupons-and-deals",
+                      )
+                    : __(
+                        "Applies on the frontend only. The editor always shows the real coupon code so you can edit it.",
+                        "wp-coupons-and-deals",
+                      )
+                }
                 onChange={() => setAttributes({ hideCoupon: !hideCoupon })}
               />
-              {hideCoupon && IS_PRO && <HideCouponSettings {...props} />}
+              {isHideCouponSupported && hideCoupon && IS_PRO && (
+                <HideCouponSettings {...props} />
+              )}
             </Disabled>
           )}
         </PanelBody>
@@ -409,8 +429,8 @@ function Inspector(props) {
           <ToggleControl
             label={__('Show "Powered by" link', "wp-coupons-and-deals")}
             help={__(
-              'Disabled by default. When enabled, a small attribution link appears below the coupon box.',
-              "wp-coupons-and-deals"
+              "Disabled by default. When enabled, a small attribution link appears below the coupon box.",
+              "wp-coupons-and-deals",
             )}
             checked={showPoweredBy}
             onChange={() => setAttributes({ showPoweredBy: !showPoweredBy })}
@@ -469,7 +489,7 @@ function Inspector(props) {
           borderLabel={__("Wrapper Border", "wp-coupons-and-deals")}
           borderRadiusLabel={__(
             "Wrapper Border Radius",
-            "wp-coupons-and-deals"
+            "wp-coupons-and-deals",
           )}
         />
         <BorderControl
@@ -503,7 +523,7 @@ function Inspector(props) {
             attrBorderKey="couponPopupCodeFieldBorder"
             borderLabel={__(
               "Popup Coupon Field Border",
-              "wp-coupons-and-deals"
+              "wp-coupons-and-deals",
             )}
           />
         )}

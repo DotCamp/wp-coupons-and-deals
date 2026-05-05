@@ -78,7 +78,7 @@ class Coupon_Block {
 		if (!empty( isset($attributes['margin']) ? $attributes['margin'] : array() )) {
 			$classes[] = 'has-margin';
 		}
-		if ($this->is_premium_user() && isset($attributes['hideCoupon']) && $attributes['hideCoupon'] && $attributes['couponType'] !== 'deal') {
+		if ($this->is_premium_user() && isset($attributes['hideCoupon']) && $attributes['hideCoupon'] && $attributes['couponType'] !== 'deal' && $template !== 'template-seven') {
 			$classes[] = 'wpcd-coupon-hidden';
 		}
 		if (isset($attributes['couponType']) && $attributes['couponType'] === 'deal') {
@@ -170,7 +170,7 @@ class Coupon_Block {
 			</div>%4$s',
 			$block_attributes,
 			$block_html,
-			isset($attributes['hideCoupon']) && $attributes['hideCoupon'] ? $this->generate_hidden_coupon_html( $attributes ) : '',
+			isset($attributes['hideCoupon']) && $attributes['hideCoupon'] && $template !== 'template-seven' ? $this->generate_hidden_coupon_html( $attributes ) : '',
 			$powered_by_html
 		);
 	}

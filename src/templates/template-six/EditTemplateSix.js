@@ -40,16 +40,16 @@ function TemplateSix(props) {
 
       const weeks = Math.floor(distance / (1000 * 60 * 60 * 24 * 7));
       const days = Math.floor(
-        (distance % (1000 * 60 * 60 * 24 * 7)) / (1000 * 60 * 60 * 24)
+        (distance % (1000 * 60 * 60 * 24 * 7)) / (1000 * 60 * 60 * 24),
       );
       const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
       );
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
       setCountdown(
-        `${weeks} weeks ${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`
+        `${weeks} weeks ${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`,
       );
     };
 
@@ -77,7 +77,7 @@ function TemplateSix(props) {
   const codeHoverBgColor = getBackgroundColorVar(
     attributes,
     "codeHoverBackgroundColor",
-    "codeHoverGradientBackground"
+    "codeHoverGradientBackground",
   );
   const codeHoverStyles = {
     "--wpcd-coupon-code-bg-hover-color": codeHoverBgColor,
@@ -87,14 +87,14 @@ function TemplateSix(props) {
   const codeStyles = {
     ...codeHoverStyles,
     "--wpcd-coupon-code-button-text": attributes.couponCodeButtonText
-      ? attributes.couponCodeButtonText
+      ? `"${attributes.couponCodeButtonText}"`
       : "",
     fontSize: attributes.codeFontSize || "",
     "--wpcd-coupon-code-color": attributes.codeColor || "",
     "--wpcd-coupon-code-bg-color": getBackgroundColorVar(
       attributes,
       "codeBackgroundColor",
-      "codeGradientBackground"
+      "codeGradientBackground",
     ),
     borderTopLeftRadius: attributes.codeBorderRadius?.topLeft || "2px",
     borderTopRightRadius: attributes.codeBorderRadius?.topRight || "2px",
