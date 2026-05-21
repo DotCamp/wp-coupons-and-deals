@@ -2,7 +2,7 @@
 Contributors: dotcamp, wpcdplugin, imtiazrayhan, istiakrayhan, mohmedelwany, ultimateblocks, wptb, wpleaders1
 Tags: coupon, coupons, deal, deals, affiliate
 Requires at least: 5.2
-Tested up to: 6.7
+Tested up to: 7.0
 Stable tag: 3.2.8
 Requires PHP: 7.3
 License: GPLv2 or later
@@ -169,6 +169,7 @@ You can [__submit a feature request__](https://wpcouponsdeals.com/submit-new-fea
 * NEW: Hidden coupons now reveal inline after copy and stay visible for 30 minutes.
 * FIX: Hide Coupon behavior in the editor and frontend.
 * FIX: Deal button affiliate link href in all coupon templates.
+* Tested with WordPress 7.0.
 
 = 3.2.7 =
 
