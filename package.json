@@ -8,7 +8,8 @@
     "prod:build": "cross-env NODE_ENV=production webpack --config webpack.plugin.config.js",
     "lint": "eslint ./assets/js/webpack-src --ext .js,.vue",
     "build": "wp-scripts build",
-    "start": "wp-scripts start"
+    "start": "wp-scripts start",
+    "release": "bash ./bin/release.sh"
   },
   "repository": {
     "type": "git",
