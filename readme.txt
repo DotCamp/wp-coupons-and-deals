@@ -165,6 +165,7 @@ You can [__submit a feature request__](https://wpcouponsdeals.com/submit-new-fea
 * FIX: 404 errors for the coupon and deal icons. The minified stylesheets pointed one directory level short, so the browser requested assets/css/img/ instead of assets/img/.
 * FIX: Same 404 issue for the loader and coupon icons in the admin area.
 * FIX: A coupon without an expiration date could throw a JavaScript error and stop the remaining coupons on the page from initializing.
+* Updated the Freemius SDK to 2.13.4.
 * Tested with WordPress 7.1.
 
 = 3.2.8 =
