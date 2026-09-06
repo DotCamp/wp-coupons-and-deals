@@ -15,7 +15,7 @@ cd "$(dirname "$0")/.."
 SLUG="$(basename "$PWD")"
 VERSION="$(node -p "require('./package.json').version")"
 OUT_DIR="release"
-ZIP_NAME="$SLUG-$VERSION.zip"
+ZIP_NAME="$SLUG.zip"
 
 echo "==> $SLUG $VERSION"
 
