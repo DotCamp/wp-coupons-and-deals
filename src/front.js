@@ -144,6 +144,7 @@ class UBCoupon {
   }
 
   checkExpirationDate() {
+    if (!this.expirationDateWrapper) return;
     if (
       this.expirationDateWrapper.classList.contains(
         "wpcd-coupon-does-not-expire"
@@ -188,6 +189,8 @@ window.addEventListener("DOMContentLoaded", () => {
     ".wpcd-coupon-wrapper:not(.wpcd-coupon-type-deal)"
   );
   couponWrappers.forEach((wrapper) => {
-    new UBCoupon(wrapper);
+    try {
+      new UBCoupon(wrapper);
+    } catch (e) {}
   });
 });
